@@ -1,4 +1,4 @@
-,Class Name,# of Images,Precision,Recall,F1 Score,Average Precision
+,class_name,# of Images,Precision,Recall,F1 Score,Average Precision
 0,ANTHONY OF PADUA,14,8.64%,50.00%,14.74%,37.09%
 1,FRANCIS OF ASSISI,98,49.35%,38.78%,43.43%,67.56%
 2,JEROME,118,38.71%,10.17%,16.11%,20.14%
