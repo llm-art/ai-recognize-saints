@@ -1,0 +1,8 @@
+MODEL,MODEL,MODEL,MODEL,mAP,mAP
+Name,Transf. size,Patch size,Resolution,macro,micro
+CLIP,base,16,,42.29%,28.40%
+CLIP,base,32,,36.41%,31.76%
+CLIP,large,14,,54.74%,44.17%
+SIGLIP,base,16,512,42.47%,42.34%
+SIGLIP,large,16,384,49.57%,50.59%
+SIGLIP,so400m,14,384,53.81%,42.15%
