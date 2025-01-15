@@ -47,12 +47,31 @@ Two tests have been done: one where we classify the images with the labels provi
 | 11H(DOMINIC)        | SAINT DOMINIC       | Dominic(us) Guzman of Calerueja, founder of the Order of Preachers (or Dominican (Black) Friars; possible attributes: book, dog with flaming torch, lily, loaf of bread, rosary, star |
 | 11F(MARY)           | VIRGIN MARY         | the Virgin Mary                                                                                                                        |
 | 11H(PETER)          | PETER               | the apostle Peter, first bishop of Rome; possible attributes: book, cock, (upturned) cross, (triple) crozier, fish, key, scroll, ship, tiara |
-| 11H(SEBASTIAN)      | SAINT SEBASTIAN     | the martyr Sebastian; possible attributes: arrow(s), bow, tree-trunk                                                                   |
+| 11H(SEBASTIAN)      | SAINT SEBASTIAN     | the martyr Sebastian; possible attributes: arrow(s), bow, tree-trunk                                                                   
+
 **Table 2.** The classes to test. The labels are provided by the authors. The descriptions are manually retrieved from the IconClass website.
 
 ## Evaluations
 
 ### Test 1: Labels
+
+#### CLIP-ViT-BASE-PATCH32
+
+| Index | Class Name        | # of Images | Precision | Recall   | F1 Score | Average Precision |
+|-------|-------------------|-------------|-----------|----------|----------|-------------------|
+| 0     | ANTHONY OF PADUA  | 14          | 3.48%     | 28.57%   | 6.20%    | 3.73%             |
+| 1     | FRANCIS OF ASSISI | 98          | 19.58%    | 75.51%   | 31.09%   | 38.10%            |
+| 2     | JEROME            | 118         | 0.00%     | 0.00%    | 0.00%    | 15.78%            |
+| 3     | JOHN THE BAPTIST  | 99          | 17.05%    | 22.22%   | 19.30%   | 20.15%            |
+| 4     | MARY MAGDALENE    | 90          | 13.55%    | 84.44%   | 23.35%   | 60.57%            |
+| 5     | PAUL              | 52          | 0.00%     | 0.00%    | 0.00%    | 5.24%             |
+| 6     | PETER             | 119         | 0.00%     | 0.00%    | 0.00%    | 14.73%            |
+| 7     | SAINT DOMINIC     | 29          | 5.62%     | 65.52%   | 10.35%   | 22.02%            |
+| 8     | SAINT SEBASTIAN   | 56          | 18.94%    | 89.29%   | 31.25%   | 72.94%            |
+| 9     | VIRGIN MARY       | 1,189       | 100.00%   | 6.06%    | 11.42%   | 94.62%            |
+| 10    | Mean              | -           | 17.82%    | 37.16%   | 13.30%   | 34.79%            |
+
+![conf. matrix](test_1/evaluations/clip-vit-base-patch32/confusion_matrix.png)
 
 #### CLIP-ViT-BASE-PATCH16
 
@@ -70,7 +89,80 @@ Two tests have been done: one where we classify the images with the labels provi
 | 9     | VIRGIN MARY       | 1,189       | 100.00%   | 17.58%   | 29.90%   | 96.76%            |
 | 10    | Mean              | -           | 20.53%    | 44.42%   | 19.17%   | 34.61%            |
 
-![alt text](test_1/evaluations/clip-vit-base-patch16/confusion_matrix.png)
+![conf. matrix](test_1/evaluations/clip-vit-base-patch16/confusion_matrix.png)
+
+#### CLIP-ViT-LARGE-PATCH14
+
+| Index | Class Name        | # of Images | Precision | Recall   | F1 Score | Average Precision |
+|-------|-------------------|-------------|-----------|----------|----------|-------------------|
+| 0     | ANTHONY OF PADUA  | 14          | 6.42%     | 50.00%   | 11.38%   | 36.06%            |
+| 1     | FRANCIS OF ASSISI | 98          | 59.29%    | 68.37%   | 63.51%   | 70.47%            |
+| 2     | JEROME            | 118         | 50.00%    | 0.85%    | 1.67%    | 11.04%            |
+| 3     | JOHN THE BAPTIST  | 99          | 16.04%    | 90.91%   | 27.27%   | 41.85%            |
+| 4     | MARY MAGDALENE    | 90          | 18.54%    | 84.44%   | 30.40%   | 61.10%            |
+| 5     | PAUL              | 52          | 18.18%    | 3.85%    | 6.35%    | 15.31%            |
+| 6     | PETER             | 119         | 33.33%    | 0.84%    | 1.64%    | 29.35%            |
+| 7     | SAINT DOMINIC     | 29          | 8.44%     | 89.66%   | 15.43%   | 48.84%            |
+| 8     | SAINT SEBASTIAN   | 56          | 44.14%    | 87.50%   | 58.68%   | 79.17%            |
+| 9     | VIRGIN MARY       | 1,189       | 99.58%    | 19.76%   | 32.98%   | 97.47%            |
+| 10    | Mean              | -           | 35.40%    | 49.62%   | 24.93%   | 49.06%            |
+
+![conf. matrix](test_1/evaluations/clip-vit-large-patch14/confusion_matrix.png)
+
+#### SIGLIP-BASE-PATCH16-512
+
+| Index | Class Name        | # of Images | Precision | Recall   | F1 Score | Average Precision |
+|-------|-------------------|-------------|-----------|----------|----------|-------------------|
+| 0     | ANTHONY OF PADUA  | 14          | 8.64%     | 50.00%   | 14.74%   | 37.09%            |
+| 1     | FRANCIS OF ASSISI | 98          | 49.35%    | 38.78%   | 43.43%   | 67.56%            |
+| 2     | JEROME            | 118         | 38.71%    | 10.17%   | 16.11%   | 20.14%            |
+| 3     | JOHN THE BAPTIST  | 99          | 23.62%    | 77.78%   | 36.24%   | 73.52%            |
+| 4     | MARY MAGDALENE    | 90          | 24.85%    | 90.00%   | 38.94%   | 58.22%            |
+| 5     | PAUL              | 52          | 0.00%     | 0.00%    | 0.00%    | 18.01%            |
+| 6     | PETER             | 119         | 50.00%    | 0.84%    | 1.65%    | 25.82%            |
+| 7     | SAINT DOMINIC     | 29          | 6.22%     | 86.21%   | 11.60%   | 30.94%            |
+| 8     | SAINT SEBASTIAN   | 56          | 41.59%    | 83.93%   | 55.62%   | 62.21%            |
+| 9     | VIRGIN MARY       | 1,189       | 99.41%    | 42.30%   | 59.35%   | 93.75%            |
+| 10    | Mean              | -           | 34.24%    | 48.00%   | 27.77%   | 48.73%            |
+
+![conf. matrix](test_1/evaluations/siglip-base-patch16-512/confusion_matrix.png)
+
+
+#### SIGLIP-LARGE-PATCH16-384
+
+| Index | Class Name        | # of Images | Precision | Recall   | F1 Score | Average Precision |
+|-------|-------------------|-------------|-----------|----------|----------|-------------------|
+| 0     | ANTHONY OF PADUA  | 14          | 9.64%     | 57.14%   | 16.49%   | 51.77%            |
+| 1     | FRANCIS OF ASSISI | 98          | 68.82%    | 65.31%   | 67.02%   | 67.80%            |
+| 2     | JEROME            | 118         | 59.26%    | 13.56%   | 22.07%   | 37.57%            |
+| 3     | JOHN THE BAPTIST  | 99          | 24.78%    | 86.87%   | 38.57%   | 70.41%            |
+| 4     | MARY MAGDALENE    | 90          | 39.52%    | 92.22%   | 55.33%   | 76.44%            |
+| 5     | PAUL              | 52          | 0.00%     | 0.00%    | 0.00%    | 18.78%            |
+| 6     | PETER             | 119         | 60.53%    | 38.66%   | 47.18%   | 31.76%            |
+| 7     | SAINT DOMINIC     | 29          | 10.12%    | 86.21%   | 18.12%   | 60.57%            |
+| 8     | SAINT SEBASTIAN   | 56          | 55.06%    | 87.50%   | 67.59%   | 75.80%            |
+| 9     | VIRGIN MARY       | 1,189       | 99.28%    | 57.70%   | 72.98%   | 93.80%            |
+| 10    | Mean              | -           | 42.70%    | 58.52%   | 40.53%   | 58.47%            |
+
+![conf. matrix](test_1/evaluations/siglip-large-patch16-384/confusion_matrix.png)
+
+#### SIGLIP-SO400m-PATCH14-384
+
+| Index | Class Name        | # of Images | Precision | Recall   | F1 Score | Average Precision |
+|-------|-------------------|-------------|-----------|----------|----------|-------------------|
+| 0     | ANTHONY OF PADUA  | 14          | 3.70%     | 71.43%   | 7.04%    | 48.28%            |
+| 1     | FRANCIS OF ASSISI | 98          | 81.82%    | 9.18%    | 16.51%   | 78.44%            |
+| 2     | JEROME            | 118         | 37.31%    | 21.19%   | 27.03%   | 27.80%            |
+| 3     | JOHN THE BAPTIST  | 99          | 33.33%    | 74.75%   | 46.11%   | 83.79%            |
+| 4     | MARY MAGDALENE    | 90          | 41.92%    | 92.22%   | 57.64%   | 70.56%            |
+| 5     | PAUL              | 52          | 0.00%     | 0.00%    | 0.00%    | 23.08%            |
+| 6     | PETER             | 119         | 0.00%     | 0.00%    | 0.00%    | 35.66%            |
+| 7     | SAINT DOMINIC     | 29          | 11.98%    | 100.00%  | 21.40%   | 74.61%            |
+| 8     | SAINT SEBASTIAN   | 56          | 29.26%    | 98.21%   | 45.08%   | 85.91%            |
+| 9     | VIRGIN MARY       | 1,189       | 99.55%    | 55.76%   | 71.48%   | 94.06%            |
+| 10    | Mean              | -           | 33.89%    | 52.27%   | 29.23%   | 62.22%            |
+
+![conf. matrix](test_1/evaluations/siglip-so400m-patch14-384/confusion_matrix.png)
 
 # References
 
