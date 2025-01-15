@@ -12,7 +12,7 @@
 | SIGLIP  | large        | 16         | 384        | 16.49%          | 67.02%            | 22.07% | 38.57%           | 55.33%         | 0.00% | 47.18%| 18.12%        | 67.59%          | 72.98%      |
 | SIGLIP  | so400m       | 14         | 384        | 7.04%           | 16.51%            | 27.03% | 46.11%           | 57.64%         | 0.00% | 0.00% | 21.40%        | 45.08%          | 71.48%      |
 
-**Table xx.** F1 scores per class
+**Table 1.** F1 scores per class
 
 | Model   | Transf. Size | Patch Size | Resolution | mAP (Macro) | mAP (Micro) |
 |---------|--------------|------------|------------|-------------|-------------|
@@ -23,7 +23,7 @@
 | SIGLIP  | large        | 16         | 384        | 58.47%      | 39.21%      |
 | SIGLIP  | so400m       | 14         | 384        | 62.22%      | 37.48%      |
 
-**Table xx.** mAP Micro and Macro per model
+**Table 2.** mAP Micro and Macro per model
 
 #### CLIP-ViT-BASE-PATCH32
 
