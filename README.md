@@ -55,6 +55,29 @@ Two tests have been done: one where we classify the images with the labels provi
 
 ### Test 1: Labels
 
+
+| Model   | Transf. Size | Patch Size | Resolution | ANTHONY OF PADUA | FRANCIS OF ASSISI | JEROME | JOHN THE BAPTIST | MARY MAGDALENE | PAUL  | PETER | SAINT DOMINIC | SAINT SEBASTIAN | VIRGIN MARY |
+|---------|--------------|------------|------------|------------------|-------------------|--------|------------------|----------------|-------|-------|---------------|-----------------|-------------|
+| CLIP    | base         | 16         | -          | 8.70%           | 39.74%            | 0.00%  | 35.48%           | 24.35%         | 0.00% | 0.00% | 14.73%        | 38.82%          | 29.90%      |
+| CLIP    | base         | 32         | -          | 6.20%           | 31.09%            | 0.00%  | 19.30%           | 23.35%         | 0.00% | 0.00% | 10.35%        | 31.25%          | 11.42%      |
+| CLIP    | large        | 14         | -          | 11.38%          | 63.51%            | 1.67%  | 27.27%           | 30.40%         | 6.35% | 1.64% | 15.43%        | 58.68%          | 32.98%      |
+| SIGLIP  | base         | 16         | 512        | 14.74%          | 43.43%            | 16.11% | 36.24%           | 38.94%         | 0.00% | 1.65% | 11.60%        | 55.62%          | 59.35%      |
+| SIGLIP  | large        | 16         | 384        | 16.49%          | 67.02%            | 22.07% | 38.57%           | 55.33%         | 0.00% | 47.18%| 18.12%        | 67.59%          | 72.98%      |
+| SIGLIP  | so400m       | 14         | 384        | 7.04%           | 16.51%            | 27.03% | 46.11%           | 57.64%         | 0.00% | 0.00% | 21.40%        | 45.08%          | 71.48%      |
+
+**Table xx.** F1 scores per class
+
+| Model   | Transf. Size | Patch Size | Resolution | mAP (Macro) | mAP (Micro) |
+|---------|--------------|------------|------------|-------------|-------------|
+| CLIP    | base         | 16         | -          | 34.61%      | 23.14%      |
+| CLIP    | base         | 32         | -          | 34.79%      | 20.74%      |
+| CLIP    | large        | 14         | -          | 49.06%      | 27.26%      |
+| SIGLIP  | base         | 16         | 512        | 48.73%      | 34.80%      |
+| SIGLIP  | large        | 16         | 384        | 58.47%      | 39.21%      |
+| SIGLIP  | so400m       | 14         | 384        | 62.22%      | 37.48%      |
+
+**Table xx.** mAP Micro and Macro per model
+
 #### CLIP-ViT-BASE-PATCH32
 
 | Index | Class Name        | # of Images | Precision | Recall   | F1 Score | Average Precision |
