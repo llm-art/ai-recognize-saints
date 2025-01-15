@@ -76,7 +76,7 @@
 | 9     | VIRGIN MARY       | 1,189       | 100.00%   | 6.06%    | 11.42%   | 94.62%            |
 | 10    | Mean              | -           | 17.82%    | 37.16%   | 13.30%   | 34.79%            |
 
-![conf. matrix](test_1/evaluations/clip-vit-base-patch32/confusion_matrix.png)
+![conf. matrix](evaluations/clip-vit-base-patch32/confusion_matrix.png)
 
 #### CLIP-ViT-BASE-PATCH16
 
@@ -94,7 +94,7 @@
 | 9     | VIRGIN MARY       | 1,189       | 100.00%   | 17.58%   | 29.90%   | 96.76%            |
 | 10    | Mean              | -           | 20.53%    | 44.42%   | 19.17%   | 34.61%            |
 
-![conf. matrix](test_1/evaluations/clip-vit-base-patch16/confusion_matrix.png)
+![conf. matrix](evaluations/clip-vit-base-patch16/confusion_matrix.png)
 
 #### CLIP-ViT-LARGE-PATCH14
 
@@ -112,7 +112,7 @@
 | 9     | VIRGIN MARY       | 1,189       | 99.58%    | 19.76%   | 32.98%   | 97.47%            |
 | 10    | Mean              | -           | 35.40%    | 49.62%   | 24.93%   | 49.06%            |
 
-![conf. matrix](test_1/evaluations/clip-vit-large-patch14/confusion_matrix.png)
+![conf. matrix](evaluations/clip-vit-large-patch14/confusion_matrix.png)
 
 #### SIGLIP-BASE-PATCH16-512
 
@@ -130,7 +130,7 @@
 | 9     | VIRGIN MARY       | 1,189       | 99.41%    | 42.30%   | 59.35%   | 93.75%            |
 | 10    | Mean              | -           | 34.24%    | 48.00%   | 27.77%   | 48.73%            |
 
-![conf. matrix](test_1/evaluations/siglip-base-patch16-512/confusion_matrix.png)
+![conf. matrix](evaluations/siglip-base-patch16-512/confusion_matrix.png)
 
 
 #### SIGLIP-LARGE-PATCH16-384
@@ -149,7 +149,7 @@
 | 9     | VIRGIN MARY       | 1,189       | 99.28%    | 57.70%   | 72.98%   | 93.80%            |
 | 10    | Mean              | -           | 42.70%    | 58.52%   | 40.53%   | 58.47%            |
 
-![conf. matrix](test_1/evaluations/siglip-large-patch16-384/confusion_matrix.png)
+![conf. matrix](evaluations/siglip-large-patch16-384/confusion_matrix.png)
 
 #### SIGLIP-SO400m-PATCH14-384
 
@@ -167,4 +167,4 @@
 | 9     | VIRGIN MARY       | 1,189       | 99.55%    | 55.76%   | 71.48%   | 94.06%            |
 | 10    | Mean              | -           | 33.89%    | 52.27%   | 29.23%   | 62.22%            |
 
-![conf. matrix](test_1/evaluations/siglip-so400m-patch14-384/confusion_matrix.png)
+![conf. matrix](evaluations/siglip-so400m-patch14-384/confusion_matrix.png)
