@@ -2,6 +2,7 @@ import os
 import json
 import click
 import torch
+import numpy as np
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -15,7 +16,6 @@ KEY_PRECISION = 'Precision'
 KEY_RECALL = 'Recall'
 KEY_F1_SCORE = 'F1 Score'
 KEY_AVG_PRECISION = 'Average Precision'
-KEY_ACCURACY = 'Accuracy'
 
 def evaluate(model, images, classes, ground_truth_dict):
   # Load model data
@@ -29,6 +29,8 @@ def evaluate(model, images, classes, ground_truth_dict):
 
   cm = confusion_matrix(y_true_indices, y_pred_indices, labels=range(len(classes)))
 
+  acc = accuracy_score(y_true_indices, y_pred_indices) * 100
+
   confusion_matrix_df = pd.DataFrame(cm, index=[cls[0] for cls in classes], columns=[cls[0] for cls in classes])
   confusion_matrix_df.to_csv(os.path.join(model, 'confusion_matrix.csv'))
 
@@ -40,20 +42,98 @@ def evaluate(model, images, classes, ground_truth_dict):
   plt.savefig(os.path.join(model, 'confusion_matrix.png'), bbox_inches='tight')
   plt.close()
 
-  return y_true_indices, y_pred_indices, probs
+  return y_true_indices, y_pred_indices, probs, acc
+
+def class_metrics(y_true_indices, y_pred_indices, probs, classes, class_image_counts, model_path):
+  y_true_one_hot = label_binarize(y_true_indices, classes=range(len(classes)))
+  
+  # Class-level metrics
+  class_precisions = precision_score(y_true_indices, y_pred_indices, average=None, labels=range(len(classes)), zero_division=0) * 100
+  class_recalls = recall_score(y_true_indices, y_pred_indices, average=None, labels=range(len(classes)), zero_division=0) * 100
+  class_f1_scores = f1_score(y_true_indices, y_pred_indices, average=None, labels=range(len(classes)), zero_division=0) * 100
+  class_avg_precisions = average_precision_score(y_true_one_hot, probs, average=None) * 100
+
+  metrics_df = pd.DataFrame({
+    KEY_CLASS_NAME: [cls[0] for cls in classes],
+    KEY_NUM_IMAGES: [val for val in class_image_counts.values()],
+    KEY_PRECISION: class_precisions,
+    KEY_RECALL: class_recalls,
+    KEY_F1_SCORE: class_f1_scores,
+    KEY_AVG_PRECISION: class_avg_precisions
+  })
+
+  # Reorder classes if needed
+  class_order = [
+    "11H(ANTONY OF PADUA)", "11H(FRANCIS)", "11H(JEROME)", 
+    "11H(JOHN THE BAPTIST)", "11HH(MARY MAGDALENE)", "11H(PAUL)", 
+    "11H(PETER)", "11H(DOMINIC)", "11H(SEBASTIAN)", "11F(MARY)"
+  ]
+  metrics_df[KEY_CLASS_NAME] = pd.Categorical(metrics_df[KEY_CLASS_NAME], categories=class_order, ordered=True)
+  metrics_df = metrics_df.sort_values(KEY_CLASS_NAME).reset_index(drop=True)
+
+  # Macro and Micro Averages
+  mean_precision = precision_score(y_true_indices, y_pred_indices, average='macro', zero_division=0) * 100
+  mean_recall = recall_score(y_true_indices, y_pred_indices, average='macro', zero_division=0) * 100
+  mean_f1_score = f1_score(y_true_indices, y_pred_indices, average='macro', zero_division=0) * 100
+  mean_avg_precision = average_precision_score(y_true_one_hot, probs, average='macro') * 100
+
+  micro_precision = precision_score(y_true_indices, y_pred_indices, average='micro', zero_division=0) * 100
+  micro_recall = recall_score(y_true_indices, y_pred_indices, average='micro', zero_division=0) * 100
+  micro_f1_score = f1_score(y_true_indices, y_pred_indices, average='micro', zero_division=0) * 100
+  micro_avg_precision = average_precision_score(y_true_one_hot, probs, average='micro') * 100
+
+  # Append Macro and Micro metrics
+  metrics_df = pd.concat([
+    metrics_df,
+    pd.DataFrame([{
+      KEY_CLASS_NAME: 'Macro',
+      KEY_NUM_IMAGES: '-',
+      KEY_PRECISION: mean_precision,
+      KEY_RECALL: mean_recall,
+      KEY_F1_SCORE: mean_f1_score,
+      KEY_AVG_PRECISION: mean_avg_precision
+    }, {
+      KEY_CLASS_NAME: 'Micro',
+      KEY_NUM_IMAGES: '-',
+      KEY_PRECISION: micro_precision,
+      KEY_RECALL: micro_recall,
+      KEY_F1_SCORE: micro_f1_score,
+      KEY_AVG_PRECISION: micro_avg_precision
+    }])
+  ], ignore_index=True)
+
+  # Format percentages
+  for col in [KEY_PRECISION, KEY_RECALL, KEY_F1_SCORE, KEY_AVG_PRECISION]:
+    metrics_df[col] = metrics_df[col].apply(lambda x: f"{x:.2f}%" if isinstance(x, (int, float)) else x)
+
+  # Save as CSV
+  metrics_df.to_csv(os.path.join(model_path, 'class_metrics.csv'), index=False)
+
+  # Save as Markdown
+  metrics_df.to_markdown(os.path.join(model_path, 'class_metrics.md'), index=False)
+
+  return mean_avg_precision, micro_avg_precision
 
 @click.command()
-@click.option('--all', is_flag=True, help='Evaluate all')
-def main(all):
+@click.option('--models', multiple=True, help='List of models to evaluate')
+@click.option('--folders', multiple=True, default=['test_1', 'test_2'], help='List of folders to evaluate')
+@click.option('--limit', default=-1, type=int, help='Limit the number of images to evaluate')
+def main(models, folders, limit):
 
   classes = {}
   ground_truth_dict = {item['item']: item['class'] for item in json.load(open(os.path.join('2_ground_truth.json'), 'r'))}
   images = open(os.path.join('2_test.txt'), 'r').read().splitlines()
 
-  if all:
-    folders = ['test_1', 'test_2']
+  # Limit the number of images to evaluate
+  if limit > 0:
+    images = images[:limit]
 
-  models = {folder: [os.path.join(folder, KEY_EVALUATIONS, name) for name in os.listdir(os.path.join(os.path.curdir, folder, KEY_EVALUATIONS)) if os.path.isdir(os.path.join(os.path.curdir, folder, KEY_EVALUATIONS, name))] for folder in folders}
+  if not models:
+    models = {folder: [os.path.join(folder, KEY_EVALUATIONS, name) for name in os.listdir(os.path.join(os.path.curdir, folder, KEY_EVALUATIONS)) if os.path.isdir(os.path.join(os.path.curdir, folder, KEY_EVALUATIONS, name))] for folder in folders}
+
+  else:
+    models = {folder: [os.path.join(folder, KEY_EVALUATIONS, model_name) for model_name in models] for folder in folders}
+
   
   classes_df = pd.read_csv('classes.csv')
   classes['test_1'] = list(classes_df[['ID', 'Label']].itertuples(index=False, name=None))
@@ -64,51 +144,22 @@ def main(all):
 
       print(f"Model: {model_path}")
 
-      y_true_indices, y_pred_indices, probs = evaluate(model_path, images, classes[folder], ground_truth_dict)
+      # Perform evaluation
+      y_true_indices, y_pred_indices, probs, acc = evaluate(model_path, images, classes[folder], ground_truth_dict)
 
-      class_image_counts = {cls: y_true_indices.count(i) for i, cls in enumerate(classes[folder])}
+      # Class-level metrics
+      class_image_counts = {cls[0]: y_true_indices.count(i) for i, cls in enumerate(classes[folder])}
+      macro_avg_precision, micro_avg_precision = class_metrics(y_true_indices, y_pred_indices, probs, classes[folder], class_image_counts, model_path)
 
-      # Calculate metrics
-      y_true_one_hot = label_binarize(y_true_indices, classes=range(len(classes[folder])))
-      class_precisions = precision_score(y_true_indices, y_pred_indices, average=None, labels=range(len(classes[folder])), zero_division=0) * 100
-      class_recalls = recall_score(y_true_indices, y_pred_indices, average=None, labels=range(len(classes[folder])), zero_division=0) * 100
-      class_f1_scores = f1_score(y_true_indices, y_pred_indices, average=None, labels=range(len(classes[folder])), zero_division=0) * 100
-      class_avg_precisions = average_precision_score(y_true_one_hot, probs, average=None) * 100
+      # Store macro, micro average precision and accuracy
+      summary_df = pd.DataFrame([{
+          'Model': model_path,
+          'Macro Average Precision': f"{macro_avg_precision:.2f}%",
+          'Micro Average Precision': f"{micro_avg_precision:.2f}%",
+          'Accuracy': f"{acc:.2f}%"
+      }])
 
-      # Create DF
-      metrics_df = pd.DataFrame({
-        KEY_CLASS_NAME: [cls[0] for cls in classes[folder]],
-        KEY_NUM_IMAGES: [count for count in class_image_counts.values()],
-        KEY_PRECISION: class_precisions,
-        KEY_RECALL: class_recalls,
-        KEY_F1_SCORE: class_f1_scores,
-        KEY_AVG_PRECISION: class_avg_precisions
-      })
-
-      # Reorder classes
-      class_order = ["11H(ANTONY OF PADUA)", "11H(FRANCIS)", "11H(JEROME)", "11H(JOHN THE BAPTIST)", "11HH(MARY MAGDALENE)", "11H(PAUL)", "11H(PETER)", "11H(DOMINIC)", "11H(SEBASTIAN)", "11F(MARY)"]
-      metrics_df[KEY_CLASS_NAME] = pd.Categorical(metrics_df[KEY_CLASS_NAME], categories=class_order + ["MEAN"], ordered=True)
-      metrics_df = metrics_df.sort_values(KEY_CLASS_NAME).reset_index(drop=True)
-
-      # Add mean values to the dataframe
-      mean_precision = precision_score(y_true_indices, y_pred_indices, average='macro', zero_division=0) * 100
-      mean_recall = recall_score(y_true_indices, y_pred_indices, average='macro', zero_division=0) * 100
-      mean_f1_score = f1_score(y_true_indices, y_pred_indices, average='macro', zero_division=0) * 100
-      mean_avg_precision = average_precision_score(y_true_one_hot, probs, average='macro') * 100
-      mean_values = {
-          KEY_CLASS_NAME: 'Mean',
-          KEY_NUM_IMAGES: '-',
-          KEY_PRECISION: mean_precision,
-          KEY_RECALL: mean_recall,
-          KEY_F1_SCORE: mean_f1_score,
-          KEY_AVG_PRECISION: mean_avg_precision
-      }
-      metrics_df = pd.concat([metrics_df, pd.DataFrame([mean_values])], ignore_index=True)
-            
-      metrics_df[[KEY_PRECISION, KEY_RECALL, KEY_F1_SCORE, KEY_AVG_PRECISION]] = metrics_df[
-        [KEY_PRECISION, KEY_RECALL, KEY_F1_SCORE, KEY_AVG_PRECISION]
-      ].map(lambda x: f"{x:.2f}%" if not isinstance(x, str) else x)
-      metrics_df.to_csv(os.path.join(model_path, 'metrics.csv'), index=False)
+      summary_df.to_csv(os.path.join(model_path, 'summary_metrics.csv'), index=False)
 
 if __name__ == '__main__':
   main()
