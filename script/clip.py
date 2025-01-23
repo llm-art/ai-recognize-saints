@@ -86,7 +86,7 @@ def main(models, folders):
         print(f"Probabilities shape: {all_probs.shape}\n")
 
         # Convert all_probs to a DataFrame and store it as a CSV file
-        output_folder = os.path.join(base_dir, folder, 'evaluations', model_name)
+        output_folder = os.path.join(base_dir, folder, model_name)
         os.makedirs(output_folder, exist_ok=True)
         np.save(os.path.join(output_folder, 'probs.npy'), all_probs)
 

@@ -9,7 +9,6 @@ import matplotlib.pyplot as plt
 from sklearn.preprocessing import label_binarize
 from sklearn.metrics import confusion_matrix, precision_score, recall_score, f1_score, average_precision_score, accuracy_score
 
-KEY_EVALUATIONS = "evaluations"
 KEY_CLASS_NAME = 'class_name'
 KEY_NUM_IMAGES = '# of Images'
 KEY_PRECISION = 'Precision'
@@ -130,7 +129,7 @@ def main(models, folders, limit):
   if limit > 0:
     images = images[:limit]
 
-  models = {folder: [os.path.join(base_dir, folder, KEY_EVALUATIONS, model_name) for model_name in models] for folder in folders}
+  models = {folder: [os.path.join(base_dir, folder, model_name) for model_name in models] for folder in folders}
   
   classes_df = pd.read_csv(os.path.join(base_dir, 'classes.csv'))
   classes['test_1'] = list(classes_df[['ID', 'Label']].itertuples(index=False, name=None))
