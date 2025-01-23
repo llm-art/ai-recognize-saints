@@ -115,7 +115,7 @@ def class_metrics(y_true_indices, y_pred_indices, probs, classes, class_image_co
   return mean_avg_precision, micro_avg_precision
 
 @click.command()
-@click.option('--models', multiple=True, help='List of models to evaluate')
+@click.option('--models', multiple=True, default=['clip-vit-base-patch32', 'clip-vit-base-patch16', 'clip-vit-large-patch14', "siglip-base-patch16-512", "siglip-large-patch16-384", "siglip-so400m-patch14-384"], help='List of models to evaluate')
 @click.option('--folders', multiple=True, default=['test_1', 'test_2'], help='List of folders to evaluate')
 @click.option('--limit', default=-1, type=int, help='Limit the number of images to evaluate')
 def main(models, folders, limit):
@@ -130,12 +130,7 @@ def main(models, folders, limit):
   if limit > 0:
     images = images[:limit]
 
-  if not models:
-    models = {folder: [os.path.join(base_dir, folder, KEY_EVALUATIONS, name) for name in os.listdir(os.path.join(os.path.curdir, folder, KEY_EVALUATIONS)) if os.path.isdir(os.path.join(os.path.curdir, folder, KEY_EVALUATIONS, name))] for folder in folders}
-
-  else:
-    models = {folder: [os.path.join(base_dir, folder, KEY_EVALUATIONS, model_name) for model_name in models] for folder in folders}
-
+  models = {folder: [os.path.join(base_dir, folder, KEY_EVALUATIONS, model_name) for model_name in models] for folder in folders}
   
   classes_df = pd.read_csv(os.path.join(base_dir, 'classes.csv'))
   classes['test_1'] = list(classes_df[['ID', 'Label']].itertuples(index=False, name=None))
@@ -144,7 +139,7 @@ def main(models, folders, limit):
   for folder in folders:
     for model_path in models[folder]:
       
-      print(f"Model: {model_path}")
+      print(f"{folder}, model: {model_path.split('/')[-1]}")
 
       # Perform evaluation
       y_true_indices, y_pred_indices, probs, acc = evaluate(model_path, images, classes[folder], ground_truth_dict)
