@@ -1,6 +1,7 @@
 import os
 import torch
 import click
+import numpy as np
 import pandas as pd
 from PIL import Image
 from tqdm import tqdm
@@ -41,53 +42,53 @@ def main(models, folders):
     print(f"Using device: {device}\n")
 
     for folder in folders:
-        for model_name in models:
+      for model_name in models:
 
-            # Load the model and processor
-            processor = AutoProcessor.from_pretrained(f'openai/{model_name}')
-            model = AutoModelForZeroShotImageClassification.from_pretrained(f'openai/{model_name}').to(device)
+        # Load the model and processor
+        processor = AutoProcessor.from_pretrained(f'openai/{model_name}')
+        model = AutoModelForZeroShotImageClassification.from_pretrained(f'openai/{model_name}').to(device)
 
-            # Load classes
-            classes_df = pd.read_csv(os.path.join(base_dir, 'classes.csv'))
-            
-            if folder == 'test_1':
-                classes = list(zip(classes_df['ID'], classes_df['Label']))
-            else:
-                classes = list(zip(classes_df['ID'], classes_df['Description']))
+        # Load classes
+        classes_df = pd.read_csv(os.path.join(base_dir, 'classes.csv'))
+        
+        if folder == 'test_1':
+          classes = list(zip(classes_df['ID'], classes_df['Label']))
+        else:
+          classes = list(zip(classes_df['ID'], classes_df['Description']))
 
-            # Break images into smaller batches
-            batch_size = 16
-            images_batches = [images[i:i + batch_size] for i in range(0, len(images), batch_size)]
+        # Break images into smaller batches
+        batch_size = 16
+        images_batches = [images[i:i + batch_size] for i in range(0, len(images), batch_size)]
 
-            all_probs = []
-            print("#####################################################")
-            print(f"# Processing images for test: {folder}")
-            print(f"# Model: {model_name}")
-            with tqdm(total=len(images), desc="# Processing Images", unit="image") as pbar:
-                for batch_index, batch in enumerate(images_batches):
-                    try:
-                        # Process the batch
-                        inputs = processor(text=[cls[1] for cls in classes], images=batch, return_tensors="pt", padding=True).to(device)
-                        outputs = model(**inputs)
+        all_probs = []
+        print("#####################################################")
+        print(f"# Processing images for test: {folder}")
+        print(f"# Model: {model_name}")
+        with tqdm(total=len(images), desc="# Processing Images", unit="image") as pbar:
+          for batch_index, batch in enumerate(images_batches):
+            try:
+              # Process the batch
+              inputs = processor(text=[cls[1] for cls in classes], images=batch, return_tensors="pt", padding=True).to(device)
+              outputs = model(**inputs)
 
-                        # Get probabilities for the batch
-                        logits_per_image = outputs.logits_per_image  
-                        batch_probs = logits_per_image.softmax(dim=1)
-                        all_probs.append(batch_probs.detach())
+              # Get probabilities for the batch
+              logits_per_image = outputs.logits_per_image  
+              batch_probs = logits_per_image.softmax(dim=1)
+              all_probs.append(batch_probs.detach().cpu().numpy())
 
-                        pbar.update(len(batch))
-                    except Exception as e:
-                        print(f"Error processing batch {batch_index + 1}: {e}")
-                        pbar.update(len(batch))
+              pbar.update(len(batch))
+            except Exception as e:
+              print(f"Error processing batch {batch_index + 1}: {e}")
+              pbar.update(len(batch))
 
-            # Get one tensor with all the probabilities
-            all_probs = torch.cat(all_probs, dim=0)
-            print(f"Probabilities shape: {all_probs.shape}\n")
+        # Get one tensor with all the probabilities
+        all_probs = np.concatenate(all_probs, axis=0)
+        print(f"Probabilities shape: {all_probs.shape}\n")
 
-            # Convert all_probs to a DataFrame and store it as a CSV file
-            output_folder = os.path.join(base_dir, folder, 'evaluations', model_name)
-            os.makedirs(output_folder, exist_ok=True)
-            torch.save(all_probs, os.path.join(output_folder, 'probs.pt'))
+        # Convert all_probs to a DataFrame and store it as a CSV file
+        output_folder = os.path.join(base_dir, folder, 'evaluations', model_name)
+        os.makedirs(output_folder, exist_ok=True)
+        np.save(os.path.join(output_folder, 'probs.npy'), all_probs)
 
 if __name__ == '__main__':
     main()
