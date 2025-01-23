@@ -1,6 +1,5 @@
 .venv
 venv
-dataset
 ArtDL
 *.zip
 .DS_Store

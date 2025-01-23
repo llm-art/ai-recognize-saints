@@ -120,10 +120,11 @@ def class_metrics(y_true_indices, y_pred_indices, probs, classes, class_image_co
 def main(models, folders, limit):
 
   base_dir = os.path.join(os.path.dirname(__file__), os.pardir)
+  dataset_dir = os.path.join(base_dir, 'dataset')
 
   classes = {}
-  ground_truth_dict = {item['item']: item['class'] for item in json.load(open(os.path.join(base_dir, '2_ground_truth.json'), 'r'))}
-  images = open(os.path.join(base_dir, '2_test.txt'), 'r').read().splitlines()
+  ground_truth_dict = {item['item']: item['class'] for item in json.load(open(os.path.join(dataset_dir, '2_ground_truth.json'), 'r'))}
+  images = open(os.path.join(dataset_dir, '2_test.txt'), 'r').read().splitlines()
 
   # Limit the number of images to evaluate
   if limit > 0:
@@ -131,7 +132,7 @@ def main(models, folders, limit):
 
   models = {folder: [os.path.join(base_dir, folder, model_name) for model_name in models] for folder in folders}
   
-  classes_df = pd.read_csv(os.path.join(base_dir, 'classes.csv'))
+  classes_df = pd.read_csv(os.path.join(dataset_dir, 'classes.csv'))
   classes['test_1'] = list(classes_df[['ID', 'Label']].itertuples(index=False, name=None))
   classes['test_2'] = list(classes_df[['ID', 'Description']].itertuples(index=False, name=None))
 

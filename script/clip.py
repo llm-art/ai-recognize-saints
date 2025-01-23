@@ -23,14 +23,15 @@ def load_images(test_items, dataset_dir):
 @click.option('--models', multiple=True, help='List of model names to use')
 @click.option('--folders', multiple=True, default=['test_1', 'test_2'], help='List of folders to use')
 def main(models, folders):
-    cur_dir = os.path.dirname(__file__)
-    base_dir = os.path.join(cur_dir, os.pardir)
+    
+    base_dir = os.path.join(os.path.dirname(__file__), os.pardir)
+    dataset_dir = os.path.join(base_dir, 'dataset')
 
     # Open test.txt and read the lines
-    with open(os.path.join(base_dir, '2_test.txt'), 'r') as file:
+    with open(os.path.join(dataset_dir, '2_test.txt'), 'r') as file:
         test_items = file.read().splitlines()
 
-    images = load_images(test_items, os.path.join(base_dir, 'dataset', 'ArtDL', 'JPEGImages'))
+    images = load_images(test_items, os.path.join(dataset_dir, 'ArtDL', 'JPEGImages'))
 
     os.environ["TOKENIZERS_PARALLELISM"] = "false"
     os.environ["PYDEVD_DISABLE_FILE_VALIDATION"] = "true"
@@ -49,7 +50,7 @@ def main(models, folders):
         model = AutoModelForZeroShotImageClassification.from_pretrained(f'openai/{model_name}').to(device)
 
         # Load classes
-        classes_df = pd.read_csv(os.path.join(base_dir, 'classes.csv'))
+        classes_df = pd.read_csv(os.path.join(dataset_dir, 'classes.csv'))
         
         if folder == 'test_1':
           classes = list(zip(classes_df['ID'], classes_df['Label']))
