@@ -1,0 +1,12 @@
+Class Name,# Test Images,Precision,Recall,F1-Score,Average Precision
+Antony of Padua,14,72.73%,57.14%,64.00%,64.14%
+Francis of Assisi,98,69.23%,82.65%,75.35%,76.06%
+Jerome,118,70.77%,77.97%,74.19%,78.88%
+John the Baptist,99,58.09%,79.80%,67.23%,75.69%
+Mary Magdalene,90,79.27%,72.22%,75.58%,82.23%
+Paul,52,54.55%,34.62%,42.35%,38.47%
+Peter,119,72.95%,74.79%,73.86%,77.93%
+Saint Dominic,29,50.00%,65.52%,56.72%,54.35%
+Saint Sebastian,56,91.11%,73.21%,81.19%,82.46%
+Virgin Mary,"1,189",93.04%,91.00%,92.01%,97.03%
+Mean,,71.17%,70.89%,70.25%,72.73%
