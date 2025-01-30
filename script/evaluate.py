@@ -22,8 +22,8 @@ def evaluate(model, images, classes, ground_truth_dict):
 
   # Create confusion matrix using ground truth and predicted classes
   y_true = [ground_truth_dict.get(item) for item in images]
-  y_pred = [classes[probs[i].argmax().item()][0] for i in range(len(images))]
-  y_true_indices = [next(i for i, t in enumerate(classes) if t[0] == cls) for cls in y_true]
+  y_pred = [classes[probs[i].argmax().item()][0] for i in range(min(len(images), len(probs)))]
+  y_true_indices = [next(i for i, t in enumerate(classes) if t[0] == cls) for cls in y_true[:len(y_pred)]]
   y_pred_indices = [next(i for i, t in enumerate(classes) if t[0] == cls) for cls in y_pred]
 
   cm = confusion_matrix(y_true_indices, y_pred_indices, labels=range(len(classes)))
