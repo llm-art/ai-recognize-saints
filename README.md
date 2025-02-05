@@ -53,6 +53,8 @@ Two tests have been done: one where we classify the images with the labels provi
 
 ## Evaluations
 
+See the [Jupyter Notebook](https://github.com/llm-art/LLM-test/blob/main/cross_evaluate.ipynb)
+
 # References
 
 [1] Milani, Federico, and Piero Fraternali. "A dataset and a convolutional model for iconography classification in paintings." Journal on Computing and Cultural Heritage (JOCCH) 14.4 (2021): 1-18.
