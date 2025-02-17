@@ -22,11 +22,11 @@ list_image_path = [
 ]
 
 list_txt = [
-    "11H(JEROME)",
-    "11H(DOMINIC)",
-    "11H(FRANCIS)",
-    "11H(PETER)",
-    "11H(PAUL)"
+    ("11H(JEROME)","Jerome"),
+    ("11H(DOMINIC)", "Saint Dominic"),
+    ("11H(FRANCIS)","Francis of Assisi"),
+    ("11H(PETER)", "Peter"),
+    ("11H(PAUL)", "Paul")
 ]
 
 def convert_models_to_fp32(model): 
@@ -89,17 +89,17 @@ def main(models, num_epochs, lr):
         for param in model.parameters():
             param.requires_grad = False  # Freezes all
 
-        for param in model.visual.transformer.resblocks[-4:].parameters():
-            param.requires_grad = True  # Unfreeze last 4 layers
+        for param in model.visual.transformer.resblocks[-1:].parameters():
+          param.requires_grad = True 
 
-        for param in model.transformer.resblocks[-4:].parameters():
-            param.requires_grad = True  # Unfreeze last 4 text layers
+        for param in model.transformer.resblocks[-1:].parameters():
+          param.requires_grad = True 
 
         # Prepare dataset & loader
         curr_dir = os.path.dirname(os.path.abspath(__file__))
         image_folder = os.path.join(curr_dir, os.pardir, "dataset", "ArtDL", "JPEGImages/")
 
-        list_labels = list_txt
+        list_labels = [label[1] for label in list_txt]
 
         dataset = CustomImageDataset(list_image_path, list_labels, image_folder, augment_transforms)
         dataloader = DataLoader(dataset, batch_size=5, shuffle=True)
