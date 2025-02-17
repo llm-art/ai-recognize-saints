@@ -129,7 +129,7 @@ def main(models, folders):
                   "clip-vit-large-patch14": "ViT-L/14"
                 }
                 
-                fine_tuned_model_path = os.path.join(output_folder, 'clip.pth')
+                fine_tuned_model_path = os.path.join(output_folder, 'model.pth')
                 if not os.path.exists(fine_tuned_model_path):
                     raise FileNotFoundError(
                         f"Fine-tuned CLIP not found at {fine_tuned_model_path}!"
