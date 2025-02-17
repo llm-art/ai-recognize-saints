@@ -50,7 +50,7 @@ class LinearProbe(nn.Module):
 
 @click.command()
 @click.option('--models', multiple=True, help='List of model names to use, e.g., clip-vit-base-patch32')
-@click.option('--folders', multiple=True, default=['test_1', 'test_2', 'test_3'], help='List of folders to use')
+@click.option('--folders', multiple=True, default=['test_1', 'test_2', 'test_3', 'test_4'], help='List of folders to use')
 def main(models, folders):
     base_dir = os.path.join(os.path.dirname(__file__), os.pardir)
     dataset_dir = os.path.join(base_dir, 'dataset')
@@ -81,12 +81,10 @@ def main(models, folders):
             # Read classes from CSV
             classes_df = pd.read_csv(os.path.join(dataset_dir, 'classes.csv'))
             
-            if folder == 'test_1':
+            if folder in ['test_1', 'test_3']:
                 classes = list(zip(classes_df['ID'], classes_df['Label']))
-            elif folder == 'test_2':
+            elif folder in ['test_2', 'test_4']:
                 classes = list(zip(classes_df['ID'], classes_df['Description']))
-            elif folder == 'test_3':
-                classes = list(zip(classes_df['ID'], classes_df['Label']))
 
             print("#####################################################")
             print(f"# Processing images for test: {folder}")
@@ -122,7 +120,7 @@ def main(models, folders):
                 print(f"Probabilities shape: {all_probs.shape}\n")
                 np.save(os.path.join(output_folder, 'probs.npy'), all_probs)
 
-            elif folder == 'test_3':
+            elif folder in ['test_3', 'test_4']:
                 mapping = {
                   "clip-vit-base-patch32": "ViT-B/32",
                   "clip-vit-base-patch16": "ViT-B/16",
