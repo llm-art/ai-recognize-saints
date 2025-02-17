@@ -7,6 +7,12 @@ from tqdm import tqdm
 from torchvision import transforms
 from torch.utils.data import Dataset, DataLoader
 
+arch_models = {
+    'clip-vit-base-patch32': 'ViT-B/32',
+    'clip-vit-base-patch16': 'ViT-B/16',
+    'clip-vit-large-patch14': 'ViT-L/14'
+}
+
 list_image_path = [
     "0c8573aa-ad2d-4672-bc2c-7067bd863153_bb1e7952-4766-41b9-bfdf-1abf01bac531.jpg",
     "2e9faf04-90cf-4973-b253-c77c53dd1ccf_f450ccb9-2973-442a-89a4-fa54eeeedd20.jpg",
@@ -59,11 +65,9 @@ class CustomImageDataset(Dataset):
 @click.option('--models', multiple=True, 
               default=['clip-vit-base-patch32', 'clip-vit-base-patch16', 'clip-vit-large-patch14'], 
               help='List of model names to use')
-@click.option('--models_clip', multiple=True, 
-              default=['ViT-B/32', 'ViT-B/16', 'ViT-L/14'], 
-              help='Corresponding CLIP architectures to use')
 @click.option('--num_epochs', default=150, help='Number of epochs to train')
-def main(models, models_clip, num_epochs):
+@click.option('--lr', default=1e-5, help='Learning rate')
+def main(models, num_epochs, lr):
 
     augment_transforms = transforms.Compose([
       transforms.Resize((224, 224)),
@@ -76,18 +80,20 @@ def main(models, models_clip, num_epochs):
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
 
-    for model_name, model_clip in zip(models, models_clip):
+    for model_name in models:
 
-        model, _ = clip.load(model_clip, device=device, jit=False)
+        model, _ = clip.load(arch_models[model_name], device=device, jit=False)
         model = model.to(device)
 
         # Freeze all parameters, unfreeze only final layers
         for param in model.parameters():
-            param.requires_grad = False
+            param.requires_grad = False  # Freezes all
 
-        if hasattr(model.visual, 'proj') and model.visual.proj is not None:
-            model.visual.proj.requires_grad = True
-        model.text_projection.requires_grad = True
+        for param in model.visual.transformer.resblocks[-4:].parameters():
+            param.requires_grad = True  # Unfreeze last 4 layers
+
+        for param in model.transformer.resblocks[-4:].parameters():
+            param.requires_grad = True  # Unfreeze last 4 text layers
 
         # Prepare dataset & loader
         curr_dir = os.path.dirname(os.path.abspath(__file__))
@@ -100,11 +106,11 @@ def main(models, models_clip, num_epochs):
 
         # Define optimizer & losses
         trainable_params = [p for p in model.parameters() if p.requires_grad]
-        optimizer = torch.optim.Adam(trainable_params, lr=1e-6)
+        optimizer = torch.optim.Adam(trainable_params, lr=lr)
         loss_img = torch.nn.CrossEntropyLoss()
         loss_txt = torch.nn.CrossEntropyLoss()
 
-        print(f"\nTraining {model_name} ({model_clip}) for {num_epochs} epochs...")
+        print(f"\nTraining {model_name} for {num_epochs} epochs...")
         for epoch in range(num_epochs):
             pbar = tqdm(dataloader, total=len(dataloader), desc=f"Epoch {epoch}/{num_epochs}")
             for batch in pbar:
