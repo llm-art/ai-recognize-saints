@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 from PIL import Image
 from tqdm import tqdm
-from transformers import AutoProcessor, AutoModelForZeroShotImageClassification
+from transformers import AutoProcessor, AutoModelForZeroShotImageClassification, AutoModel
 
 def load_images(test_items, dataset_dir):
     images = []
@@ -46,12 +46,20 @@ def main(models, folders):
 
         # Load the model and processor
         processor = AutoProcessor.from_pretrained(f'google/{model_name}')
-        model = AutoModelForZeroShotImageClassification.from_pretrained(f'google/{model_name}').to(device)
+        
+        if folder == "test_3":
+          model_path = os.path.join(base_dir, 'test_3', model_name, 'model.pth')
+          model = AutoModel.from_pretrained(f'google/{model_name}').to(device)
+          model.load_state_dict(torch.load(model_path, map_location=device, weights_only=False))
+          print(f"Loaded fine-tuned model from {model_path}")
+        else:
+          # Load zero-shot SIGLIP model from Hugging Face
+          model = AutoModelForZeroShotImageClassification.from_pretrained(f'google/{model_name}').to(device)
 
         # Load classes
         classes_df = pd.read_csv(os.path.join(dataset_dir, 'classes.csv'))
         
-        if folder == 'test_1':
+        if folder in ['test_1', 'test_3']:
           classes = list(zip(classes_df['ID'], classes_df['Label']))
         else:
           classes = list(zip(classes_df['ID'], classes_df['Description']))
