@@ -135,6 +135,7 @@ def main(models, folders, limit):
   classes['test_1'] = list(classes_df[['ID', 'Label']].itertuples(index=False, name=None))
   classes['test_2'] = list(classes_df[['ID', 'Description']].itertuples(index=False, name=None))
   classes['test_3'] = list(classes_df[['ID', 'Label']].itertuples(index=False, name=None))
+  classes['test_4'] = list(classes_df[['ID', 'Description']].itertuples(index=False, name=None))
 
   for folder in folders:
     for model_path in models[folder]:
