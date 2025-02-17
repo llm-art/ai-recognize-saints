@@ -1,7 +1,6 @@
 import os
 import json
 import click
-import torch
 import numpy as np
 import pandas as pd
 import seaborn as sns
@@ -115,7 +114,7 @@ def class_metrics(y_true_indices, y_pred_indices, probs, classes, class_image_co
 
 @click.command()
 @click.option('--models', multiple=True, default=['clip-vit-base-patch32', 'clip-vit-base-patch16', 'clip-vit-large-patch14', "siglip-base-patch16-512", "siglip-large-patch16-384", "siglip-so400m-patch14-384"], help='List of models to evaluate')
-@click.option('--folders', multiple=True, default=['test_1', 'test_2'], help='List of folders to evaluate')
+@click.option('--folders', multiple=True, default=['test_1', 'test_2', 'test_3'], help='List of folders to evaluate')
 @click.option('--limit', default=-1, type=int, help='Limit the number of images to evaluate')
 def main(models, folders, limit):
 
@@ -135,6 +134,7 @@ def main(models, folders, limit):
   classes_df = pd.read_csv(os.path.join(dataset_dir, 'classes.csv'))
   classes['test_1'] = list(classes_df[['ID', 'Label']].itertuples(index=False, name=None))
   classes['test_2'] = list(classes_df[['ID', 'Description']].itertuples(index=False, name=None))
+  classes['test_3'] = list(classes_df[['ID', 'Label']].itertuples(index=False, name=None))
 
   for folder in folders:
     for model_path in models[folder]:
