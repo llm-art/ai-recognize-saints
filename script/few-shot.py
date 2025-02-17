@@ -1,16 +1,26 @@
 import os
 import torch
-import clip
 import click
 from PIL import Image
 from tqdm import tqdm
 from torchvision import transforms
 from torch.utils.data import Dataset, DataLoader
 
+# Import CLIP
+import clip
+from transformers import AutoModel, AutoTokenizer 
+
+# Model Mapping
 arch_models = {
-    'clip-vit-base-patch32': 'ViT-B/32',
-    'clip-vit-base-patch16': 'ViT-B/16',
-    'clip-vit-large-patch14': 'ViT-L/14'
+    # CLIP models
+    'clip-vit-base-patch32': ('ViT-B/32', 'clip'),
+    'clip-vit-base-patch16': ('ViT-B/16', 'clip'),
+    'clip-vit-large-patch14': ('ViT-L/14', 'clip'),
+    
+    # SIGLIP models from Hugging Face
+    'siglip-base-patch16-512': ('google/siglip-base-patch16-512', 'siglip'),
+    'siglip-large-patch16-384': ('google/siglip-large-patch16-384', 'siglip'),
+    'siglip-so400m-patch14-384': ('google/siglip-so400m-patch14-384', 'siglip')
 }
 
 list_image_path = [
@@ -22,33 +32,28 @@ list_image_path = [
 ]
 
 list_txt = [
-    ("11H(JEROME)","Jerome"),
+    ("11H(JEROME)", "Jerome"),
     ("11H(DOMINIC)", "Saint Dominic"),
-    ("11H(FRANCIS)","Francis of Assisi"),
+    ("11H(FRANCIS)", "Francis of Assisi"),
     ("11H(PETER)", "Peter"),
     ("11H(PAUL)", "Paul")
 ]
 
 def convert_models_to_fp32(model): 
-    """
-    Convert all model parameters and their gradients to float32.
-    Useful if you're toggling between half precision and float 
-    to avoid numerical issues.
-    """
+    """Convert model parameters to float32"""
     for p in model.parameters(): 
         p.data = p.data.float() 
         if p.grad is not None:
             p.grad.data = p.grad.data.float() 
 
 class CustomImageDataset(Dataset):
-    """
-    Loads each image and text label. Applies the provided 'transform'
-    for data augmentation + normalization, and uses clip.tokenize
-    to convert text to tokens.
-    """
-    def __init__(self, list_image_path, list_txt, folder_images, transform):
+    """Loads images and text labels with preprocessing."""
+    def __init__(self, list_image_path, list_txt, folder_images, transform, tokenizer, model_type):
         self.image_paths = [os.path.join(folder_images, img_path) for img_path in list_image_path]
-        self.texts = clip.tokenize(list_txt)
+        if model_type == "clip":
+            self.texts = clip.tokenize([label[1] for label in list_txt])
+        else:  # SIGLIP uses Hugging Face tokenizer
+            self.texts = tokenizer([label[1] for label in list_txt], padding=True, return_tensors="pt")["input_ids"]
         self.transform = transform
 
     def __len__(self):
@@ -57,51 +62,77 @@ class CustomImageDataset(Dataset):
     def __getitem__(self, idx):
         image_path = self.image_paths[idx]
         image = Image.open(image_path).convert("RGB")
-        image = self.transform(image)  # Apply augmentations + normalization
+        image = self.transform(image)  
         text = self.texts[idx]
         return image, text
 
 @click.command()
 @click.option('--models', multiple=True, 
-              default=['clip-vit-base-patch32', 'clip-vit-base-patch16', 'clip-vit-large-patch14'], 
-              help='List of model names to use')
+              default=['clip-vit-base-patch32', 'siglip-base-patch16-512'], 
+              help='List of models to train (supports CLIP and SIGLIP)')
 @click.option('--num_epochs', default=150, help='Number of epochs to train')
 @click.option('--lr', default=1e-5, help='Learning rate')
 def main(models, num_epochs, lr):
 
-    augment_transforms = transforms.Compose([
-      transforms.Resize((224, 224)),
-      transforms.ToTensor(),
-      transforms.Normalize(
-        mean=(0.48145466, 0.4578275, 0.40821073),
-        std=(0.26862954, 0.26130258, 0.27577711)
-      )
-    ])
-
     device = "cuda" if torch.cuda.is_available() else "cpu"
 
     for model_name in models:
+        if model_name not in arch_models:
+            print(f"Model {model_name} is not recognized. Skipping.")
+            continue
 
-        model, _ = clip.load(arch_models[model_name], device=device, jit=False)
+        model_arch, model_type = arch_models[model_name]
+
+        # Load model dynamically
+        if model_type == 'clip':
+            model, _ = clip.load(model_arch, device=device, jit=False)
+            tokenizer = None  # CLIP has built-in tokenization
+        elif model_type == 'siglip':
+            model = AutoModel.from_pretrained(model_arch).to(device)
+            tokenizer = AutoTokenizer.from_pretrained(model_arch)
+        else:
+            raise ValueError(f"Unknown model type: {model_type}")
+
         model = model.to(device)
 
-        # Freeze all parameters, unfreeze only final layers
+        # Freeze all layers, unfreeze only final layers
         for param in model.parameters():
-            param.requires_grad = False  # Freezes all
+            param.requires_grad = False  
 
-        for param in model.visual.transformer.resblocks[-1:].parameters():
-          param.requires_grad = True 
-
-        for param in model.transformer.resblocks[-1:].parameters():
-          param.requires_grad = True 
+        # Unfreeze only the last transformer layers
+        if model_type == "clip":
+            for param in model.visual.transformer.resblocks[-1:].parameters():
+                param.requires_grad = True 
+            for param in model.transformer.resblocks[-1:].parameters():
+                param.requires_grad = True 
+        elif model_type == "siglip":
+            for param in model.vision_model.encoder.layers[-1:].parameters():
+                param.requires_grad = True
+            for param in model.text_model.encoder.layers[-1:].parameters():
+                param.requires_grad = True
 
         # Prepare dataset & loader
         curr_dir = os.path.dirname(os.path.abspath(__file__))
         image_folder = os.path.join(curr_dir, os.pardir, "dataset", "ArtDL", "JPEGImages/")
 
-        list_labels = [label[1] for label in list_txt]
+        
+        if "512" in model_name:
+            image_size = 512
+        elif "384" in model_name:
+            image_size = 384
+        else:
+            image_size = 224  # Default for CLIP
 
-        dataset = CustomImageDataset(list_image_path, list_labels, image_folder, augment_transforms)
+        augment_transforms = transforms.Compose([
+            transforms.Resize((image_size, image_size)),  # Ensure correct size for model
+            transforms.ToTensor(),
+            transforms.Normalize(
+                mean=(0.48145466, 0.4578275, 0.40821073),
+                std=(0.26862954, 0.26130258, 0.27577711)
+            )
+        ])
+
+        dataset = CustomImageDataset(list_image_path, list_txt, image_folder, augment_transforms, tokenizer, model_type)
         dataloader = DataLoader(dataset, batch_size=5, shuffle=True)
 
         # Define optimizer & losses
@@ -110,7 +141,12 @@ def main(models, num_epochs, lr):
         loss_img = torch.nn.CrossEntropyLoss()
         loss_txt = torch.nn.CrossEntropyLoss()
 
-        print(f"\nTraining {model_name} for {num_epochs} epochs...")
+        output_folder = os.path.join(curr_dir, os.pardir, 'test_3', model_name)
+        os.makedirs(output_folder, exist_ok=True)
+        
+        loss_data = []
+
+        print(f"\n🚀 Training {model_name} ({model_arch}) for {num_epochs} epochs...")
         for epoch in range(num_epochs):
             pbar = tqdm(dataloader, total=len(dataloader), desc=f"Epoch {epoch}/{num_epochs}")
             for batch in pbar:
@@ -121,7 +157,23 @@ def main(models, num_epochs, lr):
                 texts = texts.to(device)
 
                 # Forward pass
-                logits_per_image, logits_per_text = model(images, texts)
+                if model_type == "clip":
+                    logits_per_image, logits_per_text = model(images, texts)
+                elif model_type == "siglip":
+                    # Process images with SIGLIP's vision model
+                    vision_outputs = model.vision_model(images)  # shape: (batch, num_patches, hidden_dim)
+                    image_features = vision_outputs.pooler_output  # Global representation (batch, hidden_dim)
+                    
+                    # Process text with SIGLIP's text model
+                    text_outputs = model.text_model(input_ids=texts).pooler_output  # shape: (batch, hidden_dim)
+                    
+                    # Normalize features
+                    image_features = image_features / image_features.norm(dim=-1, keepdim=True)
+                    text_features = text_outputs / text_outputs.norm(dim=-1, keepdim=True)
+                    
+                    # Compute similarity logits
+                    logits_per_image = 100.0 * image_features @ text_features.T
+                    logits_per_text = logits_per_image.T
 
                 # Compute loss
                 ground_truth = torch.arange(len(images), dtype=torch.long, device=device)
@@ -132,20 +184,25 @@ def main(models, num_epochs, lr):
 
                 # Backward pass
                 total_loss.backward()
+                
                 if device == "cpu":
-                    optimizer.step()
-                else: 
-                    convert_models_to_fp32(model)
-                    optimizer.step()
-                    clip.model.convert_weights(model)
+                  optimizer.step()
+                elif model_type == "clip": 
+                  convert_models_to_fp32(model)
+                  optimizer.step()
+                  clip.model.convert_weights(model)
 
-                pbar.set_description(f"Epoch {epoch}/{num_epochs}, Loss: {total_loss.item():.4f}")
+                res = f"Epoch {epoch+1}/{num_epochs}, Loss: {total_loss.item():.4f}"
 
-        # Save the fine-tuned model
-        output_folder = os.path.join(curr_dir, os.pardir, 'test_3', model_name)
-        os.makedirs(output_folder, exist_ok=True)
-        torch.save(model.state_dict(), os.path.join(output_folder, "clip.pth"))
-        print(f"Model saved to {os.path.join(output_folder, 'clip.pth')}")
+                pbar.set_description(res)
+                loss_data.append(res)
+
+        # Save fine-tuned model and loss data
+        with open(os.path.join(output_folder, "training_log.csv"), "w") as f:
+          for line in loss_data:
+            f.write(line + "\n")
+        torch.save(model.state_dict(), os.path.join(output_folder, "model.pth"))
+        print(f"Model saved to {os.path.join(output_folder, 'model.pth')}")
 
 if __name__ == '__main__':
     main()
