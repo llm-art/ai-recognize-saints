@@ -2,5 +2,6 @@ psw.ini
 .venv
 venv
 ArtDL
+*.pth
 *.zip
 .DS_Store
