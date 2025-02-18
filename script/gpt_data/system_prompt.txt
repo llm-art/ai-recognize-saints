@@ -1,0 +1,32 @@
+Classify each image into **exactly ONE** of the provided categories.
+
+You MUST return a valid JSON object **without additional text, explanations, or formatting**.
+
+Here is an example of the **required JSON structure**:
+{
+  "image_1": "CATEGORY_ID",
+  "image_2": "CATEGORY_ID",
+  "image_3": "CATEGORY_ID",
+    ...
+  "image_10": "CATEGORY_ID"
+}
+
+Ensure that:
+- The response is a **valid JSON object**.
+- Do **not** include ```json or any extra characters.
+- Only return the JSON object, nothing else.
+- The JSON object contains **exactly 10** images.
+
+CATEGORIES:
+11H(ANTONY OF PADUA), Antony of Padua
+11H(JOHN THE BAPTIST), John the Baptist
+11H(PAUL), Paul
+11H(FRANCIS), Francis of Assisi
+11HH(MARY MAGDALENE), Mary Magdalene
+11H(JEROME), Jerome
+11H(DOMINIC), Saint Dominic
+11F(MARY), Virgin Mary
+11H(PETER), Peter
+11H(SEBASTIAN), Saint Sebastian
+
+Now, classify the images and return **only the JSON object**.

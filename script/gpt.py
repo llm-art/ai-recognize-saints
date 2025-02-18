@@ -6,16 +6,29 @@ from PIL import Image
 from tqdm import tqdm
 import openai
 import base64
+import json
 from configparser import ConfigParser
 
 # Load OpenAI API key from environment variable
 config = ConfigParser()
-config.read(os.path.join(os.path.dirname(__file__), 'psw.ini'))
+config.read(os.path.join(os.path.dirname(__file__), 'gpt_data', 'psw.ini'))
 
 OPENAI_API_KEY = config.get('openai', 'api_key', fallback=None)
 
 if not OPENAI_API_KEY:
   raise ValueError("OpenAI API key is not set in the config file.")
+
+
+
+def load_cache(cache_file):
+    if os.path.exists(cache_file):
+        with open(cache_file, 'r') as file:
+            return json.load(file)
+    return {}
+
+def save_cache(cache, cache_file):
+    with open(cache_file, 'w') as file:
+        json.dump(cache, file, indent=4)
 
 def load_images(test_items, dataset_dir):
     images = []
@@ -32,52 +45,110 @@ def encode_image(image_path):
         image_base64 = base64.b64encode(image_file.read()).decode("utf-8")
     return f"data:image/jpeg;base64,{image_base64}"
 
-def classify_images_gpt(images, model, classes, limit=-1):
-  all_probs = []
+def classify_images_gpt(images, model, classes, limit=-1, batch_size=10):
+    all_probs = []
+    total_input_tokens = 0
+    total_output_tokens = 0
+    
+    client = openai.Client(api_key=OPENAI_API_KEY)
+    cache_file = os.path.join(os.path.dirname(__file__), 'gpt_data', f'cache_{model}.json')
+    cache = load_cache(cache_file)
+    
+    print(f"Using model: {model}")
 
-  client = openai.Client(api_key=OPENAI_API_KEY)
-  
-  print(f"Using model: {model}")
-  
-  for idx, (item, image_path) in enumerate(tqdm(images, desc="Processing Images", unit="image")):
-    if limit > -1 and idx >= limit:
-      break
-    try:
-      classes_str = 'Possible classes: \n'
-      for cls in classes:
-        classes_str += f'{cls[0]}, ({cls[1]})\n'
-      image_base64_url = encode_image(image_path)
-      response = client.chat.completions.create(
-        model=model,
-        messages=[
-          {"role": "system", "content": "Classify the given image into one of the provided categories. You must choose one category and provide only the class name as the output."},
-          {"role": "user", "content": [
-            {"type": "image_url", "image_url": {"url": image_base64_url}},
-            {"type": "text", "text": classes_str}
-          ]}
-        ]
-      )
-      
-      response_text = response.choices[0].message.content
-      print(f"Image {item}: {response_text}")
-      probabilities = np.zeros(len(classes))
-      
-      for idx, (i, _) in enumerate(classes):
-        if i.lower() in response_text.lower():
-          probabilities[idx] = 1.0  # Simulated one-hot encoding
-      
-      all_probs.append(probabilities)
-    except Exception as e:
-      print(f"Error processing image {item}: {e}")
-      all_probs.append(np.zeros(len(classes)))
-  
-  return np.array(all_probs)
+    if limit > 0:
+      images = images[:limit]
+    
+    with open(os.path.join(os.path.dirname(__file__), 'gpt_data', 'system_prompt.txt'), 'r') as file:
+        system_prompt = file.read()
+    
+    for i in tqdm(range(0, len(images), batch_size), desc="Processing Images", unit="batch"):
+        batch = images[i:i+batch_size]
+        image_urls = []
+        batch_items = []
+        
+        for item, image_path in batch:
+            if item in cache:
+                all_probs.append(cache[item])
+            else:
+                image_urls.append({"type": "image_url", "image_url": {"url": encode_image(image_path)}})
+                batch_items.append(item)
+        
+        if not image_urls:
+            continue 
+        
+        try:
+            response = client.chat.completions.create(
+                model=model,
+                messages=[
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": image_urls}
+                ]
+            )
+            
+            response_texts = []
+            for choice in response.choices:
+              content = choice.message.content
+              try:
+                json_content = json.loads(content)
+                response_texts = json_content
+              except json.JSONDecodeError:
+                response_texts.append(content.split('\n'))
+            input_tokens = response.usage.prompt_tokens
+            output_tokens = response.usage.completion_tokens
+            total_input_tokens += input_tokens
+            total_output_tokens += output_tokens
+            
+            response_texts = list(response_texts.values())
+            
+
+            
+            if len(response_texts) == len(batch_items):
+                for idx, item in enumerate(batch_items):
+                    probabilities = np.zeros(len(classes))
+                    for cls_idx, (cls_id, _) in enumerate(classes):
+                        if response_texts[idx] == cls_id:
+                            probabilities[cls_idx] = 1.0
+                    all_probs.append(probabilities)
+                    cache[item] = probabilities.tolist()
+            else:
+                print(f"Warning: Mismatch between response texts and batch items. Skipping batch.")
+                for _ in batch_items:
+                    all_probs.append(np.zeros(len(classes)))
+            
+        except Exception as e:
+            print(f"Error processing batch: {e}")
+            for _ in batch_items:
+                all_probs.append(np.zeros(len(classes)))
+    
+    save_cache(cache, cache_file)
+    
+    # Estimated cost calculation
+    if model == "gpt-4o":
+      cost_per_1m_input_tokens = 2.5  # Cost per 1M input tokens
+      cost_per_1m_output_tokens = 10  # Cost per 1M output tokens
+
+    if model == "gpt-4o-mini":
+      cost_per_1m_input_tokens = 0.150  # Cost per 1M input tokens for gpt-4o-mini
+      cost_per_1m_output_tokens = 0.600  # Cost per 1M output tokens for gpt-4o-mini
+    
+    total_cost = ((total_input_tokens / 1_000_000) * cost_per_1m_input_tokens) + ((total_output_tokens / 1_000_000) * cost_per_1m_output_tokens)
+    
+    print(f"Total input tokens used: {total_input_tokens}")
+    print(f"Total output tokens used: {total_output_tokens}")
+    print(f"Total cost per {len(all_probs)} images: ${total_cost:.4f}")
+
+    estimated_cost_per_1864_images = total_cost * (1864 / len(images))
+    print(f"Estimated cost for 1864 images: ${estimated_cost_per_1864_images:.4f}")
+    
+    return np.array(all_probs)
 
 @click.command()
 @click.option('--folders', multiple=True, default=['test_1', 'test_2'], help='List of folders to use')
 @click.option('--models', multiple=True, help='List of model names to use')
 @click.option('--limit', default=-1, help='Limit the number of images to process')
-def main(folders, models, limit):
+@click.option('--batch_size', default=10, help='Number of images per batch')
+def main(folders, models, limit, batch_size):
     base_dir = os.path.join(os.path.dirname(__file__), os.pardir)
     dataset_dir = os.path.join(base_dir, 'dataset')
     
@@ -98,7 +169,7 @@ def main(folders, models, limit):
             classes = list(zip(classes_df['ID'], classes_df['Description']))
         
         print(f"Processing images for test: {folder}")
-        all_probs = classify_images_gpt(images, model, classes, limit)
+        all_probs = classify_images_gpt(images, model, classes, limit, batch_size)
         
         output_folder = os.path.join(base_dir, folder, model)
         os.makedirs(output_folder, exist_ok=True)
