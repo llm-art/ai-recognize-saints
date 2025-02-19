@@ -18,8 +18,6 @@ OPENAI_API_KEY = config.get('openai', 'api_key', fallback=None)
 if not OPENAI_API_KEY:
   raise ValueError("OpenAI API key is not set in the config file.")
 
-
-
 def load_cache(cache_file):
     if os.path.exists(cache_file):
         with open(cache_file, 'r') as file:
@@ -45,22 +43,19 @@ def encode_image(image_path):
         image_base64 = base64.b64encode(image_file.read()).decode("utf-8")
     return f"data:image/jpeg;base64,{image_base64}"
 
-def classify_images_gpt(images, model, classes, limit=-1, batch_size=10):
+def classify_images_gpt(images, model, classes, system_prompt, test, limit=-1, batch_size=10):
     all_probs = []
     total_input_tokens = 0
     total_output_tokens = 0
     
     client = openai.Client(api_key=OPENAI_API_KEY)
-    cache_file = os.path.join(os.path.dirname(__file__), 'gpt_data', f'cache_{model}.json')
+    cache_file = os.path.join(os.path.dirname(__file__), 'gpt_data', f'cache_{model}_{test}.json')
     cache = load_cache(cache_file)
     
     print(f"Using model: {model}")
 
     if limit > 0:
       images = images[:limit]
-    
-    with open(os.path.join(os.path.dirname(__file__), 'gpt_data', 'system_prompt.txt'), 'r') as file:
-        system_prompt = file.read()
     
     for i in tqdm(range(0, len(images), batch_size), desc="Processing Images", unit="batch"):
         batch = images[i:i+batch_size]
@@ -163,13 +158,19 @@ def main(folders, models, limit, batch_size):
       for model in models:
         classes_df = pd.read_csv(os.path.join(dataset_dir, 'classes.csv'))
         
-        if folder == 'test_1':
-            classes = list(zip(classes_df['ID'], classes_df['Label']))
-        else:
-            classes = list(zip(classes_df['ID'], classes_df['Description']))
+        system_prompt_name = 'system_prompt.txt'
+        
+        if folder in ['test_1', 'test_3']:
+          classes = list(zip(classes_df['ID'], classes_df['Label']))
+        elif folder in ['test_2', 'test_4']:
+          classes = list(zip(classes_df['ID'], classes_df['Description']))
+          system_prompt_name = 'system_prompt_description.txt'
+
+        with open(os.path.join(os.path.dirname(__file__), 'gpt_data', system_prompt_name), 'r') as file:
+          system_prompt = file.read()
         
         print(f"Processing images for test: {folder}")
-        all_probs = classify_images_gpt(images, model, classes, limit, batch_size)
+        all_probs = classify_images_gpt(images, model, classes, system_prompt, folder, limit, batch_size)
         
         output_folder = os.path.join(base_dir, folder, model)
         os.makedirs(output_folder, exist_ok=True)
