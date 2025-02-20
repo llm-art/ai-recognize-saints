@@ -57,6 +57,19 @@ def classify_images_gpt(images, model, classes, system_prompt, test, limit=-1, b
     if limit > 0:
       images = images[:limit]
     
+    few_shot_messages = []
+    if test in ['test_3', 'test_4']:
+      few_shot_file = os.path.join(os.path.dirname(__file__), os.pardir, 'dataset', 'few-shot', 'train_data.csv')
+      few_shot_df = pd.read_csv(few_shot_file)
+      for _, row in few_shot_df.iterrows():
+        image_path = os.path.join(os.path.dirname(__file__), os.pardir, 'dataset', 'few-shot', f'{row["item"]}.jpg')
+        few_shot_messages.append(
+          {"role": "user", "content": [{"type": "image_url", "image_url": {"url": encode_image(image_path)}}]},
+        )
+        few_shot_messages.append(
+          {"role": "assistant", "content": row['class']}
+        )
+    
     for i in tqdm(range(0, len(images), batch_size), desc="Processing Images", unit="batch"):
         batch = images[i:i+batch_size]
         image_urls = []
@@ -73,43 +86,39 @@ def classify_images_gpt(images, model, classes, system_prompt, test, limit=-1, b
             continue 
         
         try:
-            response = client.chat.completions.create(
-                model=model,
-                messages=[
-                    {"role": "system", "content": system_prompt},
-                    {"role": "user", "content": image_urls}
-                ]
-            )
+          messages = [{"role": "system", "content": system_prompt}] + few_shot_messages + [{"role": "user", "content": image_urls}]
+          response = client.chat.completions.create(
+            model=model,
+            messages=messages
+          )
             
-            response_texts = []
-            for choice in response.choices:
-              content = choice.message.content
-              try:
-                json_content = json.loads(content)
-                response_texts = json_content
-              except json.JSONDecodeError:
-                response_texts.append(content.split('\n'))
-            input_tokens = response.usage.prompt_tokens
-            output_tokens = response.usage.completion_tokens
-            total_input_tokens += input_tokens
-            total_output_tokens += output_tokens
+          response_texts = []
+          for choice in response.choices:
+            content = choice.message.content
+            try:
+              json_content = json.loads(content)
+              response_texts = json_content
+            except json.JSONDecodeError:
+              response_texts.append(content.split('\n'))
+          input_tokens = response.usage.prompt_tokens
+          output_tokens = response.usage.completion_tokens
+          total_input_tokens += input_tokens
+          total_output_tokens += output_tokens
+          
+          response_texts = list(response_texts.values())
             
-            response_texts = list(response_texts.values())
-            
-
-            
-            if len(response_texts) == len(batch_items):
-                for idx, item in enumerate(batch_items):
-                    probabilities = np.zeros(len(classes))
-                    for cls_idx, (cls_id, _) in enumerate(classes):
-                        if response_texts[idx] == cls_id:
-                            probabilities[cls_idx] = 1.0
-                    all_probs.append(probabilities)
-                    cache[item] = probabilities.tolist()
-            else:
-                print(f"Warning: Mismatch between response texts and batch items. Skipping batch.")
-                for _ in batch_items:
-                    all_probs.append(np.zeros(len(classes)))
+          if len(response_texts) == len(batch_items):
+              for idx, item in enumerate(batch_items):
+                  probabilities = np.zeros(len(classes))
+                  for cls_idx, (cls_id, _) in enumerate(classes):
+                      if response_texts[idx] == cls_id:
+                          probabilities[cls_idx] = 1.0
+                  all_probs.append(probabilities)
+                  cache[item] = probabilities.tolist()
+          else:
+              print(f"Warning: Mismatch between response texts and batch items. Skipping batch.")
+              for _ in batch_items:
+                  all_probs.append(np.zeros(len(classes)))
             
         except Exception as e:
             print(f"Error processing batch: {e}")
