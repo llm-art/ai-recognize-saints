@@ -21,7 +21,10 @@ if not OPENAI_API_KEY:
 def load_cache(cache_file):
     if os.path.exists(cache_file):
         with open(cache_file, 'r') as file:
-            return json.load(file)
+            # Remove entries with arrays of only 0s from the cache
+            cache = json.load(file)
+            cache = {k: v for k, v in cache.items() if not all(x == 0 for x in v)}
+            return cache
     return {}
 
 def save_cache(cache, cache_file):
