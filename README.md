@@ -52,16 +52,20 @@ Two tests have been done: one where we classify the images with the labels provi
 **Table 2.** The classes to test. The labels are provided by the authors. The descriptions are manually retrieved from the IconClass website.
 
 ## Evaluations
-| Model                     | Test 1   | Test 2   |
-|:--------------------------|:---------|:---------|
-| clip-vit-base-patch32     | 16.15%   | 31.55%   |
-| clip-vit-base-patch16     | 25.64%   | 28.70%   |
-| clip-vit-large-patch14    | 30.58%   | 44.31%   |
-| gpt-4o-mini               | 85.46%   | 80.00%   |
-| siglip-base-patch16-512   | 48.71%   | 68.19%   |
-| siglip-large-patch16-384  | 54.45%   | 72.21%   |
-| siglip-so400m-patch14-384 | 53.86%   | 70.55%   |
-| Baseline                  | 84.44%   | -        |
+
+Accuracy per model
+
+| Model                     | Test 1   | Test 1 (few-shot)   | Test 2   | Test 2 (few-shot)   |
+|:--------------------------|:---------|:--------------------|:---------|:--------------------|
+| clip-vit-base-patch32     | 16.15%   | 21.41%              | 31.55%   | 35.46%              |
+| clip-vit-base-patch16     | 25.64%   | 29.13%              | 28.70%   | 32.56%              |
+| clip-vit-large-patch14    | 30.58%   | 31.71%              | 44.31%   | 47.64%              |
+| siglip-base-patch16-512   | 48.71%   | 55.90%              | 68.19%   | 67.65%              |
+| siglip-large-patch16-384  | 54.45%   | 53.49%              | 72.21%   | 70.65%              |
+| siglip-so400m-patch14-384 | 53.86%   | 56.38%              | 70.55%   | 71.73%              |
+| gpt-4o-mini               | 67.17%   | 57.78%              | 64.43%   |                     |
+| gpt-4o                    | 84.98%   | 80.47%              | 89.32%   |                     |
+| Baseline                  | 84.44%   | -                   | -        | -        
 
 Test 1 F1 Scores:
 | Model                     | Antony of Padua   | Francis of Assisi   | Jerome   | John the Baptist   | Mary Magdalene   | Paul   | Peter   | Saint Dominic   | Saint Sebastian   | Virgin Mary   |
