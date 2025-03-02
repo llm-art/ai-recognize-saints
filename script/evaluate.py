@@ -116,48 +116,57 @@ def class_metrics(y_true_indices, y_pred_indices, probs, classes, class_image_co
 @click.option('--models', multiple=True, default=['clip-vit-base-patch32', 'clip-vit-base-patch16', 'clip-vit-large-patch14', "siglip-base-patch16-512", "siglip-large-patch16-384", "siglip-so400m-patch14-384"], help='List of models to evaluate')
 @click.option('--folders', multiple=True, default=['test_1', 'test_2', 'test_3'], help='List of folders to evaluate')
 @click.option('--limit', default=-1, type=int, help='Limit the number of images to evaluate')
-def main(models, folders, limit):
-
+@click.option('--datasets', multiple=True, default=['ArtDL', 'IconArt'], help='Name of the dataset directory')
+def main(models, folders, limit, datasets):
   base_dir = os.path.join(os.path.dirname(__file__), os.pardir)
-  dataset_dir = os.path.join(base_dir, 'dataset')
-
-  classes = {}
-  ground_truth_dict = {item['item']: item['class'] for item in json.load(open(os.path.join(dataset_dir, '2_ground_truth.json'), 'r'))}
-  images = open(os.path.join(dataset_dir, '2_test.txt'), 'r').read().splitlines()
-
-  # Limit the number of images to evaluate
-  if limit > 0:
-    images = images[:limit]
-
-  models = {folder: [os.path.join(base_dir, folder, model_name) for model_name in models] for folder in folders}
   
-  classes_df = pd.read_csv(os.path.join(dataset_dir, 'classes.csv'))
-  classes['test_1'] = list(classes_df[['ID', 'Label']].itertuples(index=False, name=None))
-  classes['test_2'] = list(classes_df[['ID', 'Description']].itertuples(index=False, name=None))
-  classes['test_3'] = list(classes_df[['ID', 'Label']].itertuples(index=False, name=None))
-  classes['test_4'] = list(classes_df[['ID', 'Description']].itertuples(index=False, name=None))
+  for dataset in datasets:
+    
+    dataset_dir = os.path.join(base_dir, 'dataset', dataset)
+    dataset_data_dir = os.path.join(base_dir, 'dataset', f'{dataset}-data')
 
-  for folder in folders:
-    for model_path in models[folder]:
-      
-      print(f"{folder}, model: {model_path.split('/')[-1]}")
+    if not os.path.exists(dataset_dir):
+      raise FileNotFoundError(f"Dataset not found at {dataset_dir}!")
 
-      # Perform evaluation
-      y_true_indices, y_pred_indices, probs, acc = evaluate(model_path, images, classes[folder], ground_truth_dict)
+    classes = {}
+    ground_truth_dict = {item['item']: item['class'] for item in json.load(open(os.path.join(dataset_data_dir, '2_ground_truth.json'), 'r'))}
+    images = open(os.path.join(dataset_data_dir, '2_test.txt'), 'r').read().splitlines()
 
-      # Class-level metrics
-      class_image_counts = {cls[0]: y_true_indices.count(i) for i, cls in enumerate(classes[folder])}
-      macro_avg_precision, micro_avg_precision = class_metrics(y_true_indices, y_pred_indices, probs, classes[folder], class_image_counts, model_path)
+    # Limit the number of images to evaluate
+    if limit > 0:
+      images = images[:limit]
 
-      # Store macro, micro average precision and accuracy
-      summary_df = pd.DataFrame([{
-          'Model': model_path.split('/')[-1],
-          'Macro Average Precision': f"{macro_avg_precision:.2f}%",
-          'Micro Average Precision': f"{micro_avg_precision:.2f}%",
-          'Accuracy': f"{acc:.2f}%"
-      }])
+    models = {folder: [os.path.join(base_dir, folder, dataset, model_name) for model_name in models] for folder in folders}
+    
+    classes_df = pd.read_csv(os.path.join(dataset_data_dir, 'classes.csv'))
+    classes['test_1'] = list(classes_df[['ID', 'Label']].itertuples(index=False, name=None))
+    classes['test_2'] = list(classes_df[['ID', 'Description']].itertuples(index=False, name=None))
+    classes['test_3'] = list(classes_df[['ID', 'Label']].itertuples(index=False, name=None))
+    classes['test_4'] = list(classes_df[['ID', 'Description']].itertuples(index=False, name=None))
 
-      summary_df.to_csv(os.path.join(model_path, 'summary_metrics.csv'), index=False)
+    print(f"Dataset: {dataset}")
+
+    for folder in folders:
+      for model_path in models[folder]:
+        
+        print(f"{folder}, model: {model_path.split('/')[-1]}")
+
+        # Perform evaluation
+        y_true_indices, y_pred_indices, probs, acc = evaluate(model_path, images, classes[folder], ground_truth_dict)
+
+        # Class-level metrics
+        class_image_counts = {cls[0]: y_true_indices.count(i) for i, cls in enumerate(classes[folder])}
+        macro_avg_precision, micro_avg_precision = class_metrics(y_true_indices, y_pred_indices, probs, classes[folder], class_image_counts, model_path)
+
+        # Store macro, micro average precision and accuracy
+        summary_df = pd.DataFrame([{
+            'Model': model_path.split('/')[-1],
+            'Macro Average Precision': f"{macro_avg_precision:.2f}%",
+            'Micro Average Precision': f"{micro_avg_precision:.2f}%",
+            'Accuracy': f"{acc:.2f}%"
+        }])
+
+        summary_df.to_csv(os.path.join(model_path, 'summary_metrics.csv'), index=False)
 
 if __name__ == '__main__':
   main()
