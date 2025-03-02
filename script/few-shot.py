@@ -124,7 +124,7 @@ def main(folders, models, num_epochs, lr):
 
         # Prepare dataset & loader
         curr_dir = os.path.dirname(os.path.abspath(__file__))
-        image_folder = os.path.join(curr_dir, os.pardir, "dataset", "ArtDL", "JPEGImages/")
+        image_folder = os.path.join(curr_dir, os.pardir, "dataset", "ArtDL-data", "ArtDL", "JPEGImages/")
 
         
         if "512" in model_name:

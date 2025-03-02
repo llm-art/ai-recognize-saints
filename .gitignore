@@ -1,7 +1,8 @@
 psw.ini
 .venv
 venv
-ArtDL
+dataset/ArtDL
+dataset/IconArt
 *.pth
 *.zip
 .DS_Store
