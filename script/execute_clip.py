@@ -32,7 +32,7 @@ def load_images(test_items, dataset_dir):
 
 @click.command()
 @click.option('--models', multiple=True, help='List of model names to use, e.g., clip-vit-base-patch32')
-@click.option('--folders', multiple=True, default=['test_1', 'test_2', 'test_3', 'test_4'], help='List of folders to use')
+@click.option('--folders', multiple=True, default=['test_1', 'test_2', 'test_3'], help='List of folders to use')
 @click.option('--datasets', multiple=True, default=['ArtDL', 'IconArt'], help='Name of the dataset directory')
 def main(models, folders, datasets):
     base_dir = os.path.join(os.path.dirname(__file__), os.pardir)
