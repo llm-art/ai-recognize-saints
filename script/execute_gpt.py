@@ -46,13 +46,13 @@ def encode_image(image_path):
         image_base64 = base64.b64encode(image_file.read()).decode("utf-8")
     return f"data:image/jpeg;base64,{image_base64}"
 
-def classify_images_gpt(images, model, classes, system_prompt, test, limit=-1, batch_size=10):
+def classify_images_gpt(images, model, classes, system_prompt, test, dataset, limit=-1, batch_size=10):
     all_probs = []
     total_input_tokens = 0
     total_output_tokens = 0
     
     client = openai.Client(api_key=OPENAI_API_KEY)
-    cache_file = os.path.join(os.path.dirname(__file__), 'gpt_data', f'cache_{model}_{test}.json')
+    cache_file = os.path.join(os.path.dirname(__file__), 'gpt_data', f'cache_{model}_{dataset}_{test}.json')
     cache = load_cache(cache_file)
     
     print(f"Using model: {model}")
@@ -155,39 +155,46 @@ def classify_images_gpt(images, model, classes, system_prompt, test, limit=-1, b
 @click.option('--models', multiple=True, help='List of model names to use')
 @click.option('--limit', default=-1, help='Limit the number of images to process')
 @click.option('--batch_size', default=10, help='Number of images per batch')
-def main(folders, models, limit, batch_size):
+@click.option('--datasets', multiple=True, default=['ArtDL'], help='List of datasets to use')
+def main(folders, models, limit, batch_size, datasets):
     base_dir = os.path.join(os.path.dirname(__file__), os.pardir)
-    dataset_dir = os.path.join(base_dir, 'dataset')
     
-    with open(os.path.join(dataset_dir, '2_test.txt'), 'r') as file:
-        test_items = file.read().splitlines()
-    
-    images = load_images(test_items, os.path.join(dataset_dir, 'ArtDL', 'JPEGImages'))
-    
-    print(f"Number of images: {len(images)}\n")
-    
-    for folder in folders:
-      for model in models:
-        classes_df = pd.read_csv(os.path.join(dataset_dir, 'classes.csv'))
-        
-        system_prompt_name = 'system_prompt.txt'
-        
-        if folder in ['test_1', 'test_3']:
-          classes = list(zip(classes_df['ID'], classes_df['Label']))
-        elif folder in ['test_2', 'test_4']:
-          classes = list(zip(classes_df['ID'], classes_df['Description']))
-          system_prompt_name = 'system_prompt_description.txt'
+    for dataset in datasets:
+      
+      dataset_dir = os.path.join(base_dir, 'dataset', dataset)
+      dataset_data_dir = os.path.join(base_dir, 'dataset', f'{dataset}-data')
+      
+      with open(os.path.join(dataset_data_dir, '2_test.txt'), 'r') as file:
+          test_items = file.read().splitlines()
+      
+      images = load_images(test_items, os.path.join(dataset_dir, 'JPEGImages'))
+      
+      print(f"Number of images: {len(images)}\n")
 
-        with open(os.path.join(os.path.dirname(__file__), 'gpt_data', system_prompt_name), 'r') as file:
-          system_prompt = file.read()
-        
-        print(f"Processing images for test: {folder}")
-        all_probs = classify_images_gpt(images, model, classes, system_prompt, folder, limit, batch_size)
-        
-        output_folder = os.path.join(base_dir, folder, model)
-        os.makedirs(output_folder, exist_ok=True)
-        np.save(os.path.join(output_folder, 'probs.npy'), all_probs)
-        print(f"Probabilities shape: {all_probs.shape}\n")
+      print(f"Processing dataset: {dataset}")
+      
+      for folder in folders:
+        for model in models:
+          classes_df = pd.read_csv(os.path.join(dataset_data_dir, 'classes.csv'))
+          
+          system_prompt_name = 'system_prompt.txt'
+          
+          if folder in ['test_1', 'test_3']:
+            classes = list(zip(classes_df['ID'], classes_df['Label']))
+          elif folder in ['test_2', 'test_4']:
+            classes = list(zip(classes_df['ID'], classes_df['Description']))
+            system_prompt_name = 'system_prompt_description.txt'
+
+          with open(os.path.join(os.path.dirname(__file__), 'gpt_data', system_prompt_name), 'r') as file:
+            system_prompt = file.read()
+          
+          print(f"Processing images for test: {folder}")
+          all_probs = classify_images_gpt(images, model, classes, system_prompt, folder, dataset, limit, batch_size)
+          
+          output_folder = os.path.join(base_dir, folder, dataset, model)
+          os.makedirs(output_folder, exist_ok=True)
+          np.save(os.path.join(output_folder, 'probs.npy'), all_probs)
+          print(f"Probabilities shape: {all_probs.shape}\n")
 
 if __name__ == '__main__':
     main()
