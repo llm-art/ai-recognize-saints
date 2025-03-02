@@ -179,6 +179,9 @@ def main(folders, models, limit, batch_size, datasets):
           
           system_prompt_name = 'system_prompt.txt'
           
+          if dataset == 'IconArt':
+            system_prompt_name = 'system_prompt_iconart.txt'
+          
           if folder in ['test_1', 'test_3']:
             classes = list(zip(classes_df['ID'], classes_df['Label']))
           elif folder in ['test_2', 'test_4']:
