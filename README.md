@@ -81,6 +81,7 @@ To handle the test with description, I found the corresponding ICONCLASS ID and 
 | Child_Jesus               | Child Jesus            | Christ As Child Or Youth (In General) ~ Christian Religion | 11D2               |
 | nudity                    | Nudity                 | The (Nude) Human Figure; 'Corpo Humano' (Ripa)         | 31A                |
 | ruins                     | Ruins                  | Ruin Of A Building ~ Architecture                      | 48C149             |
+
 **Table X.**
 
 #### Results
@@ -95,6 +96,7 @@ To handle the test with description, I found the corresponding ICONCLASS ID and 
 | siglip-so400m-patch14-384 | 43.15%   | 48.07%   |
 | gpt-4o-mini               | 39.19%   |  -   |
 | gpt-4o                    | 48.46%   | -    |
+
 **Table X.**
 
 # References
