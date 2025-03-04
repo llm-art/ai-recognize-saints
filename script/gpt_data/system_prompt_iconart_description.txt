@@ -18,15 +18,15 @@ Ensure that:
 - The JSON object contains **exactly 10** images.
 
 CATEGORIES:
-Saint_Sebastien, Saint Sebastien
-turban,turban, Turban
-crucifixion_of_Jesus, Crucifixion Of Jesus
-angel, Angel
-capital, Capital
-Mary, Mary
+Saint_Sebastien, The Martyr Sebastian; Possible Attributes: Arrow(s), Bow, Tree-Trunk
+turban,turban, Head-Gear: Turban
+crucifixion_of_Jesus, Christ Crucified On A 'Living' Cross
+angel, Angels
+capital, Capital (~ Column, Pillar)
+Mary, The Virgin Mary
 beard, Beard
-Child_Jesus, Child Jesus
-nudity, Nudity
-ruins, Ruins
+Child_Jesus, Christ As Child Or Youth (In General) ~ Christian Religion
+nudity, The (Nude) Human Figure; 'Corpo Humano' (Ripa)
+ruins, Ruin Of A Building ~ Architecture
 
 Now, classify the images and return **only the JSON object**.

@@ -177,17 +177,16 @@ def main(folders, models, limit, batch_size, datasets):
         for model in models:
           classes_df = pd.read_csv(os.path.join(dataset_data_dir, 'classes.csv'))
           
-          system_prompt_name = 'system_prompt.txt'
-          
-          if dataset == 'IconArt':
-            system_prompt_name = 'system_prompt_iconart.txt'
-          
+          system_prompt_name = f'system_prompt_{dataset.lower()}'
+
           if folder in ['test_1', 'test_3']:
             classes = list(zip(classes_df['ID'], classes_df['Label']))
           elif folder in ['test_2', 'test_4']:
             classes = list(zip(classes_df['ID'], classes_df['Description']))
-            system_prompt_name = 'system_prompt_description.txt'
-
+            system_prompt_name += '_description'
+          
+          system_prompt_name += '.txt'
+          
           with open(os.path.join(os.path.dirname(__file__), 'gpt_data', system_prompt_name), 'r') as file:
             system_prompt = file.read()
           
