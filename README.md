@@ -57,8 +57,8 @@ Accuracy per model
 | siglip-base-patch16-512   | 48.71%               | 55.90%              | 68.19%                     | 
 | siglip-large-patch16-384  | 54.45%               | 53.49%              | 72.21%                     | 
 | siglip-so400m-patch14-384 | 53.86%               | 56.38%              | 70.55%                     | 
-| gpt-4o-mini               | 67.17%               | 57.78%              | 64.43%                     | 
-| gpt-4o                    | 84.98%               | 80.47%              | 89.32%                     | 
+| gpt-4o-mini               | 67.17%               | -             | 64.43%                     | 
+| gpt-4o                    | 84.98%               | -             | 89.32%                     | 
 | Baseline                  | 84.44%               | -                   | -                          |
 
 **Table X.**
@@ -86,16 +86,16 @@ To handle the test with description, I found the corresponding ICONCLASS ID and 
 
 #### Results
 
-| Model                     | Test 1   | Test 2   |
-|:--------------------------|:---------|:---------|
-| clip-vit-base-patch32     | 35.91%   | 35.52%   |
-| clip-vit-base-patch16     | 32.92%   | 32.53%   |
-| clip-vit-large-patch14    | 30.89%   | 30.89%   |
-| siglip-base-patch16-512   | 39.19%   | 46.72%   |
-| siglip-large-patch16-384  | 43.05%   | 48.36%   |
-| siglip-so400m-patch14-384 | 43.15%   | 48.07%   |
-| gpt-4o-mini               | 39.19%   |  -   |
-| gpt-4o                    | 48.46%   | -    |
+| Model                     | zero-shot (labels)   | few-shot[*](dataset/ArtDL-data/README.md) (labels)   | zero-shot (descriptions)   |
+|:--------------------------|:---------|:---------|:---------|
+| clip-vit-base-patch32     | 35.91%   | 35.52%   |  -   |
+| clip-vit-base-patch16     | 32.92%   | 32.53%   |  -   |
+| clip-vit-large-patch14    | 30.89%   | 30.89%   |  -   |
+| siglip-base-patch16-512   | 39.19%   | 46.72%   |  -   |
+| siglip-large-patch16-384  | 43.05%   | 48.36%   |  -   |
+| siglip-so400m-patch14-384 | 43.15%   | 48.07%   |  -   |
+| gpt-4o-mini               | 39.19%   |  -   |  -   |
+| gpt-4o                    | 48.46%   | -    |  -   |
 
 **Table X.**
 
