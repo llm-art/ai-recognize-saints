@@ -1,12 +1,17 @@
 # Zero-shot classification for Christian iconography
 
-This experiment involves the testing of Zero-shot (and few-shot) image classification with LLMs, against the performances of a fine-tuned supervised approach.
-Specifically, we consider as the datasets proposend in [1, 2].
+This experiment involves testing Zero-shot (and few-shot) image classification with LLMs against the performances of a fine-tuned supervised approach.
+Specifically, we consider the datasets proposed in [XX, XX, XX].
 
-For each dataset we perfom three tests:
+The datasets are:
+1. [ArtDL](https://artdl.org/)
+2. [IconArt](https://zenodo.org/records/4737435)
+3. [IICONGRAPH](https://zenodo.org/records/10294589)
 
-1. zero-shot approach with only labels
-2. few-shot approach with 5 to 10 images.
+For each dataset, we perform three tests:
+
+1. A zero-shot approach with only labels
+2. A few-shot approach with 5 to 10 images.
 3. zero-shot approach with labels and their descriptions
 
 
@@ -26,7 +31,9 @@ This experiment is conducted with the use of the LLM models: CLIP and SigLIP as 
 
 ### ArtDL
 
-The test set is downloaded directly from the paper's author official [repository](https://github.com/iFede94/ArtDL/blob/main/sets/test.txt).
+ArtDL is a comprehensive dataset designed for iconography classification in paintings, primarily from the Renaissance period, focusing on Christian art. It comprises 42,479 images sourced from 10 online museums and open data collections. Each painting is annotated into one of 19 classes based on the Iconclass classification system, which is widely used for art and iconography research.
+
+The test set is downloaded directly from the paper's author's official [repository](https://github.com/iFede94/ArtDL/blob/main/sets/test.txt).
 
 Two tests have been done: one where we classify the images with the labels provided by the authors, i.e. the "Label" column in Tab. 2. In the second test, we test the Image Classificator using [IconClass](https://iconclass.org/) description to the label, see Tab. 2, column "Description".
 
@@ -61,13 +68,16 @@ Accuracy per model
 | gpt-4o                    | 84.98%               | -             | 89.32%                     | 
 | Baseline                  | 84.44%               | -                   | -                          |
 
+
 **Table X.**
 
 ### IconArt
 
+This dataset contains 5955 images (from WikiCommons): a train set of 2978 images and a test set of 2977 images (for classification task). 1480 of the 2977 images are annotated with bounding boxes for seven classes: ‘angel’, ‘Child_Jesus’, ‘crucifixion_of_Jesus’,‘Mary’,‘nudity’, ‘ruins’,‘Saint_Sebastien’. The version 2 of the database contains 10 classes with the same images. The classes are ‘angel’,‘beard’,‘capital’,‘Child_Jesus’,‘crucifixion_of_Jesus’,‘Mary’,‘nudity’,‘ruins’,‘Saint_Sebastien’,‘turban’.
+
 The dataset is available on [Zenodo](https://zenodo.org/records/4737435). The version used for this experiment is IconArt_v2.zip.
 
-To handle the test with description, I found the corresponding ICONCLASS ID and used the related description.
+To handle the test with the description, I found the corresponding ICONCLASS ID and used the related description.
 
 | ID                         | Label                  | Description                                             | ICONCLASS ID       |
 |----------------------------|------------------------|---------------------------------------------------------|--------------------|
@@ -81,6 +91,7 @@ To handle the test with description, I found the corresponding ICONCLASS ID and 
 | Child_Jesus               | Child Jesus            | Christ As Child Or Youth (In General) ~ Christian Religion | 11D2               |
 | nudity                    | Nudity                 | The (Nude) Human Figure; 'Corpo Humano' (Ripa)         | 31A                |
 | ruins                     | Ruins                  | Ruin Of A Building ~ Architecture                      | 48C149             |
+
 
 **Table X.**
 
@@ -97,7 +108,13 @@ To handle the test with description, I found the corresponding ICONCLASS ID and 
 | gpt-4o-mini               | 39.19%   |  -   |  -   |
 | gpt-4o                    | 48.46%   | -    |  -   |
 
+
 **Table X.**
+
+
+### IICONGRAPH
+
+The IICONGRAPH dataset is a comprehensive knowledge graph created by re-engineering the iconographical and iconological statements from ArCo and Wikidata. Following the structured framework of the ICON ontology, this dataset provides a unified and enriched representation of artistic interpretations and meanings associated with cultural heritage artifacts.
 
 # References
 
