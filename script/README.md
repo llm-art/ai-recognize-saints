@@ -51,17 +51,12 @@ api_key=your_api_key_here
 #### System Prompts
 
 System prompts are stored in the `gpt_data` directory with the following naming convention:
-- `system_prompt_{dataset}_[description]_[enhanced].txt`
-
-For example:
-- `system_prompt_artdl.txt`: Basic prompt for ArtDL dataset
-- `system_prompt_artdl_description.txt`: Prompt using class descriptions for ArtDL
-- `system_prompt_artdl_enhanced.txt`: Enhanced version of the basic prompt
+- `prompts/{dataset}/{test}.txt`
 
 #### Caching System
 
 The script implements a caching system to avoid redundant API calls:
-- Cache files are stored in `gpt_data/cache_{model}_{dataset}_{test}.json`
+- Cache files are stored in `gpt_data/cache/{dataset}/{test}/{model}.json`
 - Each image ID is mapped to its classification probabilities
 - The cache is loaded at the start and saved periodically during processing
 
@@ -69,24 +64,121 @@ The script implements a caching system to avoid redundant API calls:
 
 This script uses OpenAI's CLIP models to classify images into predefined categories.
 
+#### Features
+
+- Supports multiple CLIP models (clip-vit-base-patch32, clip-vit-base-patch16, clip-vit-large-patch14)
+- Handles different datasets and test configurations
+- Processes images in batches for efficient classification
+- Supports both zero-shot classification (test_1, test_2) and fine-tuned models (test_3, test_4)
+
 #### Usage
 
 ```bash
 python execute_clip.py --models clip-vit-base-patch32 clip-vit-base-patch16 --datasets ArtDL IconArt --folders test_1 test_2
 ```
 
+#### Parameters
+
+- `--models`: List of CLIP model names to use (e.g., clip-vit-base-patch32, clip-vit-base-patch16)
+- `--folders`: List of test folders to use (default: test_1, test_2, test_3)
+- `--datasets`: List of datasets to use (default: ArtDL, IconArt)
+- `--verbose`: Enable verbose logging (DEBUG level)
+
 ### execute_siglip.py
 
 This script uses Google's SigLIP models to classify images into predefined categories.
+
+#### Features
+
+- Supports multiple SigLIP models (siglip-base-patch16-512, siglip-large-patch16-384, siglip-so400m-patch14-384)
+- Handles different datasets and test configurations
+- Processes images in batches for efficient classification
+- Supports both zero-shot classification and fine-tuned models
+
+#### Usage
+
+```bash
+python execute_siglip.py --models siglip-base-patch16-512 siglip-large-patch16-384 --datasets ArtDL IconArt --folders test_1 test_2
+```
+
+#### Parameters
+
+- `--models`: List of SigLIP model names to use (default: siglip-base-patch16-512, siglip-large-patch16-384, siglip-so400m-patch14-384)
+- `--folders`: List of test folders to use (default: test_1, test_2, test_3)
+- `--datasets`: List of datasets to use (default: ArtDL, IconArt)
+
+### few-shot.py
+
+This script fine-tunes CLIP and SigLIP models using a few-shot learning approach for image classification.
+
+#### Features
+
+- Supports fine-tuning of both CLIP and SigLIP models
+- Uses a small set of example images for training
+- Freezes most model layers and only fine-tunes the last transformer layers
+- Saves the fine-tuned models for later use in test_3 and test_4 configurations
+
+#### Usage
+
+```bash
+python few-shot.py --models clip-vit-base-patch32 siglip-base-patch16-512 --datasets ArtDL --folders test_3 --num_epochs 150 --lr 1e-5
+```
+
+#### Parameters
+
+- `--models`: List of model names to train (default: clip-vit-base-patch32, siglip-base-patch16-512)
+- `--folders`: List of input folders (default: test_3)
+- `--num_epochs`: Number of epochs to train (default: 150)
+- `--lr`: Learning rate (default: 1e-5)
+- `--datasets`: List of datasets to use (default: ArtDL)
 
 ### evaluate.py
 
 This script evaluates the results of the classification models using standard metrics.
 
+#### Features
+
+- Calculates confusion matrices, precision, recall, F1 scores, and average precision
+- Generates visualizations of confusion matrices
+- Computes both per-class and overall (macro/micro) metrics
+- Saves results in multiple formats (CSV, Markdown, PNG)
+
 #### Usage
 
 ```bash
 python evaluate.py --models clip-vit-base-patch32 gpt-4o --folders test_1 test_2 --datasets ArtDL
+```
+
+#### Parameters
+
+- `--models`: List of models to evaluate (default: all CLIP and SigLIP models)
+- `--folders`: List of folders to evaluate (default: test_1, test_2, test_3)
+- `--limit`: Limit the number of images to evaluate (-1 for all)
+- `--datasets`: List of datasets to use (default: ArtDL, IconArt)
+
+### logger_utils.py
+
+This utility module provides consistent logging functionality for the classification scripts.
+
+#### Features
+
+- Sets up loggers with consistent formatting
+- Handles logging without disrupting tqdm progress bars
+- Supports both file and console logging
+- Configurable verbosity levels
+
+#### Usage
+
+```python
+import logger_utils
+
+# Setup logger for a specific dataset/test/model combination
+logger = logger_utils.setup_logger(dataset, test, model, output_folder, verbose=False)
+
+# Use the logger
+logger.info("Processing started")
+logger.debug("Detailed information")
+logger.error("An error occurred")
 ```
 
 ## Test Configurations
@@ -96,7 +188,7 @@ The scripts support different test configurations:
 - `test_1`: Uses class labels for classification
 - `test_2`: Uses class descriptions for classification
 - `test_3`: Uses few-shot learning with class labels
-- `test_4`: Uses few-shot learning with class descriptions
+- `test_4`: Uses few-shot learning with class descriptions **DEPRECATED**
 
 ## Code Structure
 
