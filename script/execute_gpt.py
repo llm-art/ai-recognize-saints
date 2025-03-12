@@ -1,3 +1,22 @@
+#!/usr/bin/env python3
+"""
+GPT Image Classification Script
+
+This script uses OpenAI's GPT models to classify images into predefined categories.
+It supports different datasets, test configurations, and includes a caching system
+to avoid redundant API calls.
+
+Usage:
+    python execute_gpt.py --models gpt-4o gpt-4o-mini --datasets ArtDL IconArt --folders test_1 test_2
+    
+Features:
+    - Supports multiple GPT models (gpt-4o, gpt-4o-mini, etc.)
+    - Handles different datasets and test configurations
+    - Implements caching to save API calls and costs
+    - Provides cost estimation for API usage
+    - Supports few-shot learning with example images
+"""
+
 import os
 import click
 import numpy as np
@@ -7,228 +26,565 @@ from tqdm import tqdm
 import openai
 import base64
 import json
+import logging
 from configparser import ConfigParser
+from typing import List, Tuple, Dict, Any, Optional
+from datetime import datetime
 
-# Load OpenAI API key from environment variable
-config = ConfigParser()
-config.read(os.path.join(os.path.dirname(__file__), 'gpt_data', 'psw.ini'))
+# Import custom logger
+import logger_utils
 
-OPENAI_API_KEY = config.get('openai', 'api_key', fallback=None)
 
-if not OPENAI_API_KEY:
-  raise ValueError("OpenAI API key is not set in the config file.")
+class ModelConfig:
+  """Configuration for different GPT models including pricing."""
 
-def load_cache(cache_file):
-    if os.path.exists(cache_file):
-        with open(cache_file, 'r') as file:
-            try:
-                # Remove entries with arrays of only 0s from the cache
-                cache = json.load(file)
-                valid_cache = {k: v for k, v in cache.items() 
-                              if isinstance(v, list) and len(v) > 0 and not all(x == 0 for x in v)}
-                print(f"Loaded {len(valid_cache)} valid cached results")
-                return valid_cache
-            except json.JSONDecodeError:
-                print(f"Warning: Cache file {cache_file} is corrupted. Creating new cache.")
-                return {}
+  MODELS = {
+      "gpt-4o": {
+          "input_cost": 2.5,   # Cost per 1M input tokens
+          "output_cost": 10.0  # Cost per 1M output tokens
+      },
+      "gpt-4o-mini": {
+          "input_cost": 0.150,  # Cost per 1M input tokens
+          "output_cost": 0.600  # Cost per 1M output tokens
+      }
+  }
+
+  @classmethod
+  def get_costs(cls, model: str) -> Tuple[float, float]:
+    """
+    Get the input and output token costs for a specific model.
+
+    Args:
+        model: The model name (e.g., 'gpt-4o')
+
+    Returns:
+        Tuple of (input_cost, output_cost) per 1M tokens
+
+    Raises:
+        ValueError: If the model is not supported
+    """
+    if model not in cls.MODELS:
+      raise ValueError(
+        f"Unsupported model: {model}. Available models: {list(cls.MODELS.keys())}")
+
+    config = cls.MODELS[model]
+    return config["input_cost"], config["output_cost"]
+
+
+class CacheManager:
+  """Manages caching of API responses to avoid redundant calls."""
+
+  def __init__(self, base_dir: str, dataset: str, test: str, model: str, ignore_zero_cache: bool = False, logger=None):
+    """
+    Initialize the cache manager.
+
+    Args:
+        base_dir: Base directory for the project
+        dataset: Dataset name (e.g., 'ArtDL')
+        test: Test identifier (e.g., 'test_1')
+        model: Model name (e.g., 'gpt-4o')
+        ignore_zero_cache: Whether to ignore zero arrays in cache
+        logger: Logger instance
+    """
+    self.cache_dir = os.path.join(base_dir, 'gpt_data', 'cache')
+    os.makedirs(self.cache_dir, exist_ok=True)
+
+    # Create directories for the dataset and test
+    os.makedirs(os.path.join(self.cache_dir, dataset), exist_ok=True)
+    os.makedirs(os.path.join(self.cache_dir, dataset, test), exist_ok=True)
+
+    # For backward compatibility, use the old cache file format
+    self.cache_file = os.path.join(os.path.join(
+      self.cache_dir, dataset, test), f'{model}.json')
+
+    self.metadata = {
+        "model": model,
+        "dataset": dataset,
+        "test": test,
+        "timestamp": datetime.now().isoformat(),
+        "version": "1.0"
+    }
+
+    self.ignore_zero_cache = ignore_zero_cache
+    self.logger = logger or logging.getLogger("default")
+    self.cache = self._load_cache()
+
+  def _load_cache(self) -> Dict[str, List[float]]:
+    """
+    Load the cache from disk.
+
+    Returns:
+        Dictionary mapping image IDs to probability arrays
+    """
+    if os.path.exists(self.cache_file):
+      with open(self.cache_file, 'r') as file:
+        try:
+          cache = json.load(file)
+
+          # Only filter out zero arrays if ignore_zero_cache is enabled
+          if self.ignore_zero_cache:
+            valid_cache = {k: v for k, v in cache.items()
+                           if isinstance(v, list) and len(v) > 0 and not all(x == 0 for x in v)}
+            self.logger.info(
+              f"Loaded {len(valid_cache)} valid cached results (ignoring zero arrays)")
+            return valid_cache
+          else:
+            valid_cache = {k: v for k, v in cache.items()
+                           if isinstance(v, list) and len(v) > 0}
+            self.logger.info(f"Loaded {len(valid_cache)} cached results")
+            return valid_cache
+        except json.JSONDecodeError:
+          self.logger.warning(
+            f"Cache file {self.cache_file} is corrupted. Creating new cache.")
+          return {}
     return {}
 
-def save_cache(cache, cache_file):
-    with open(cache_file, 'w') as file:
-        json.dump(cache, file, indent=4)
+  def get_result(self, image_id: str) -> Optional[List[float]]:
+    """
+    Get cached result for an image.
 
-def save_cache_periodic(cache, cache_file, batch_count, save_frequency=5):
-    """Periodically save cache to avoid losing results on crash"""
-    if batch_count % save_frequency == 0:
-        with open(cache_file, 'w') as file:
-            json.dump(cache, file, indent=4)
-        print(f"Cache saved after {batch_count} batches")
+    Args:
+        image_id: The image identifier
 
-def load_images(test_items, dataset_dir):
-    images = []
-    for item in test_items:
-        image_path = os.path.join(dataset_dir, f"{item}.jpg")
-        if os.path.exists(image_path):
-            images.append((item, image_path))
+    Returns:
+        List of probabilities or None if not in cache
+    """
+    result = self.cache.get(image_id)
+
+    # If ignore_zero_cache is True, treat all-zero arrays as cache misses
+    if self.ignore_zero_cache and result is not None and all(x == 0 for x in result):
+      return None
+
+    return result
+
+  def add_result(self, image_id: str, probabilities: List[float]) -> None:
+    """
+    Add a new result to the cache.
+
+    Args:
+        image_id: The image identifier
+        probabilities: List of class probabilities
+    """
+    self.cache[image_id] = probabilities
+
+  def save(self, periodic: bool = False, batch_count: int = 0, save_frequency: int = 5) -> None:
+    """
+    Save cache to disk.
+
+    Args:
+        periodic: Whether this is a periodic save
+        batch_count: Current batch count (for periodic saves)
+        save_frequency: How often to save (in batches)
+    """
+    if not periodic or (batch_count % save_frequency == 0):
+      with open(self.cache_file, 'w') as file:
+        json.dump(self.cache, file, indent=4)
+
+      if periodic:
+        self.logger.info(f"Cache saved after {batch_count} batches")
+
+
+class GPTImageClassifier:
+  """Classifies images using OpenAI's GPT models with vision capabilities."""
+
+  def __init__(self, model: str, api_key: str, dataset: str, test: str, base_dir: str, ignore_zero_cache: bool = False, logger=None):
+    """
+    Initialize the classifier.
+
+    Args:
+        model: The GPT model to use (e.g., 'gpt-4o')
+        api_key: OpenAI API key
+        dataset: Dataset name
+        test: Test identifier
+        base_dir: Base directory for the project
+        ignore_zero_cache: Whether to ignore zero arrays in cache
+        logger: Logger instance
+    """
+    self.model = model
+    self.client = openai.Client(api_key=api_key)
+    self.dataset = dataset
+    self.test = test
+    self.base_dir = base_dir
+
+    # Set up logger
+    self.logger = logger or logging.getLogger("default")
+
+    # Initialize cache manager
+    self.cache_manager = CacheManager(
+      base_dir, dataset, test, model, ignore_zero_cache=ignore_zero_cache, logger=self.logger)
+
+    # Initialize prompt folder
+    self.prompt_folder = os.path.join(base_dir, 'gpt_data', 'prompts')
+
+    # Token usage tracking
+    self.total_input_tokens = 0
+    self.total_output_tokens = 0
+
+  def _get_prompt_path(self, dataset: str, test: str) -> str:
+    """
+    Get the path to the appropriate prompt file.
+
+    Args:
+        dataset: Dataset name
+        test: Test identifier
+
+    Returns:
+        Path to the prompt file
+    """
+    # Determine system prompt
+    self.prompt_folder = os.path.join(self.prompt_folder, dataset)
+    if not os.path.exists(self.prompt_folder):
+      raise FileNotFoundError(
+        f"Prompt folder does not exist: {self.prompt_folder}")
+
+    return os.path.join(self.prompt_folder, f'{test}.txt')
+
+  def _load_few_shot_examples(self, dataset: str) -> List[Dict[str, Any]]:
+    """
+    Load few-shot examples for the specified dataset.
+
+    Args:
+        dataset: Dataset name
+
+    Returns:
+        List of message dictionaries for few-shot examples
+    """
+    few_shot_messages = []
+
+    few_shot_folder = os.path.join(
+      self.base_dir, os.pardir, 'dataset', f"{dataset}-data", 'few-shot')
+    few_shot_file = os.path.join(few_shot_folder, 'train_data.csv')
+
+    if not os.path.exists(few_shot_file):
+      return few_shot_messages
+
+    few_shot_df = pd.read_csv(few_shot_file)
+
+    # Get class descriptions for better few-shot examples
+    classes_df = pd.read_csv(os.path.join(
+      self.base_dir, os.pardir, 'dataset', f"{dataset}-data", 'classes.csv'))
+    class_descriptions = dict(zip(classes_df['ID'], classes_df['Description']))
+
+    for _, row in few_shot_df.iterrows():
+      image_path = os.path.join(few_shot_folder, f'{row["item"]}.jpg')
+
+      if not os.path.exists(image_path):
+        continue
+
+      # Enhanced user message with clear instruction
+      few_shot_messages.append(
+          {"role": "user", "content": [
+              {"type": "text", "text": "Please classify this image into one of the provided categories."},
+              {"type": "image_url", "image_url": {
+                "url": encode_image(image_path)}}
+          ]},
+      )
+
+      # Enhanced assistant response with reasoning
+      class_id = row['class']
+      class_desc = class_descriptions.get(class_id, "")
+
+      # Create a more detailed response with reasoning
+      assistant_response = f"This image depicts {class_id}"
+      if class_desc:
+        assistant_response += f" ({class_desc})"
+      assistant_response += "."
+
+      few_shot_messages.append(
+          {"role": "assistant", "content": assistant_response}
+      )
+
+    return few_shot_messages
+
+  def _prepare_batch_request(self, batch: List[Tuple[str, str]], system_prompt: str, few_shot_messages: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    """
+    Prepare the API request for a batch of images.
+
+    Args:
+        batch: List of (item_id, image_path) tuples
+        system_prompt: The system prompt to use
+        few_shot_messages: Few-shot example messages
+
+    Returns:
+        List of message dictionaries for the API request
+    """
+    content = [
+        {"type": "text", "text": "Please classify the following set of images:"}
+    ]
+
+    for item, image_path in batch:
+      content.append({"type": "text", "text": f"Image (ID: {item}):"})
+      content.append({"type": "image_url", "image_url": {
+                     "url": encode_image(image_path)}})
+
+    messages = [{"role": "system", "content": system_prompt}] + \
+        few_shot_messages + [{"role": "user", "content": content}]
+    return messages
+
+  def _parse_response(self, content: str, batch_items: List[str], classes: List[Tuple[str, str]]) -> List[List[float]]:
+    """
+    Parse the API response to extract class probabilities.
+
+    Args:
+        content: Response content from the API
+        batch_items: List of image IDs in the batch
+        classes: List of (class_id, class_description) tuples
+
+    Returns:
+        List of probability arrays for each image
+    """
+    results = []
+    response_texts = []
+
+    try:
+      # Try to parse as JSON
+      json_content = json.loads(content)
+
+      # Check if we have the expected structure
+      if isinstance(json_content, dict):
+        response_dict = {}
+
+        # Handle different possible JSON structures
+        if all(key.startswith("image_") for key in json_content.keys()):
+          # Format: {"image_1": "CLASS_ID", ...}
+          for i, item in enumerate(batch_items):
+            image_key = f"image_{i+1}"
+            if image_key in json_content:
+              response_dict[item] = json_content[image_key]
         else:
-            print(f"Warning: Image {image_path} not found.")
-    return images
+          # Direct mapping or other format
+          for item in batch_items:
+            if item in json_content:
+              response_dict[item] = json_content[item]
+            elif str(item) in json_content:
+              response_dict[item] = json_content[str(item)]
 
-def encode_image(image_path):
-    with open(image_path, "rb") as image_file:
-        image_base64 = base64.b64encode(image_file.read()).decode("utf-8")
-    return f"data:image/jpeg;base64,{image_base64}"
+        # Convert to list format expected by downstream code
+        response_texts = list(response_dict.values())
+      else:
+        # Handle unexpected JSON structure (like array)
+        response_texts = json_content if isinstance(
+          json_content, list) else [json_content]
+    except json.JSONDecodeError:
+      # Fall back to text parsing if JSON fails
+      self.logger.warning(
+        f"Failed to parse JSON response. Attempting text parsing.")
+      lines = content.strip().split('\n')
+      response_texts = []
 
-def classify_images_gpt(images, model, classes, system_prompt, test, dataset, limit=-1, batch_size=10, save_frequency=5):
+      for line in lines:
+        # Try to extract class IDs from text
+        for cls_id, _ in classes:
+          if cls_id in line:
+            response_texts.append(cls_id)
+            break
+
+    # Log the response for debugging
+    self.logger.debug(f"Parsed response texts: {response_texts}")
+    self.logger.debug(f"Batch items: {batch_items}")
+
+    # Handle mismatch between response texts and batch items
+    if len(response_texts) != len(batch_items):
+      self.logger.warning(
+        f"Mismatch between response texts ({len(response_texts)}) and batch items ({len(batch_items)}). Skipping batch.")
+      self.logger.warning(f"Response: {response_texts}")
+      # Return empty list instead of trying to process mismatched data
+      return []
+
+    # Process the parsed responses
+    for idx, _ in enumerate(batch_items):
+      if idx < len(response_texts):  # Safety check to prevent index errors
+        probabilities = np.zeros(len(classes))
+        append_prob = False
+        for cls_idx, (cls_id, _) in enumerate(classes):
+          if isinstance(response_texts[idx], str) and response_texts[idx] == cls_id:
+            probabilities[cls_idx] = 1.0
+            append_prob = True
+        if append_prob:
+          results.append(probabilities)
+
+    return results
+
+  def classify_images(self,
+                      images: List[Tuple[str, str]],
+                      classes: List[Tuple[str, str]],
+                      limit: int = -1,
+                      batch_size: int = 10,
+                      save_frequency: int = 5) -> np.ndarray:
+    """
+    Classify a list of images using the GPT model.
+
+    Args:
+        images: List of (item_id, image_path) tuples
+        classes: List of (class_id, class_description) tuples
+        limit: Maximum number of images to process (-1 for all)
+        batch_size: Number of images per batch
+        save_frequency: How often to save cache (in batches)
+
+    Returns:
+        NumPy array of shape [n_images, n_classes] with class probabilities
+    """
     all_probs = []
-    total_input_tokens = 0
-    total_output_tokens = 0
-    
-    client = openai.Client(api_key=OPENAI_API_KEY)
-    cache_file = os.path.join(os.path.dirname(__file__), 'gpt_data', f'cache_{model}_{dataset}_{test}.json')
-    cache = load_cache(cache_file)
-    
-    print(f"Using model: {model}")
+    processed_count = 0  # Track how many images we've actually processed
 
+    self.logger.info(f"Using model: {self.model}")
+
+    # Load system prompt
+    system_prompt_path = self._get_prompt_path(self.dataset, self.test)
+    with open(system_prompt_path, 'r') as file:
+      system_prompt = file.read()
+
+    # Limit images if specified
     if limit > 0:
       images = images[:limit]
-    
+      self.logger.info(f"Limiting to {limit} images")
+
+    # Load few-shot examples if needed
     few_shot_messages = []
-    if test in ['test_3', 'test_4']:
-      few_shot_folder = os.path.join(os.path.dirname(__file__), os.pardir, 'dataset', f"{dataset}-data", 'few-shot')
-      few_shot_file = os.path.join(few_shot_folder, 'train_data.csv')
-      few_shot_df = pd.read_csv(few_shot_file)
-      
-      # Get class descriptions for better few-shot examples
-      class_descriptions = {}
-      for cls_id, cls_desc in classes:
-          class_descriptions[cls_id] = cls_desc
-      
-      for _, row in few_shot_df.iterrows():
-        image_path = os.path.join(few_shot_folder, f'{row["item"]}.jpg')
-        
-        # Enhanced user message with clear instruction
-        few_shot_messages.append(
-          {"role": "user", "content": [
-            {"type": "text", "text": "Please classify this image into one of the provided categories."},
-            {"type": "image_url", "image_url": {"url": encode_image(image_path)}}
-          ]},
-        )
-        
-        # Enhanced assistant response with reasoning
-        class_id = row['class']
-        class_desc = class_descriptions.get(class_id, "")
-        
-        # Create a more detailed response with reasoning
-        assistant_response = f"This image depicts {class_id}"
-        if class_desc:
-            assistant_response += f" ({class_desc})"
-        assistant_response += "."
-        
-        few_shot_messages.append(
-          {"role": "assistant", "content": assistant_response}
-        )
-    
+    if self.test in ['test_3', 'test_4']:
+      few_shot_messages = self._load_few_shot_examples(self.dataset)
+
     batch_count = 0
     for i in tqdm(range(0, len(images), batch_size), desc="Processing Images", unit="batch"):
-        batch = images[i:i+batch_size]
-        content = [
-            {"type": "text", "text": "Please classify the following set of images:"}
-        ]
-        batch_items = []
+      # Check if we've reached the limit
+      if limit > 0 and processed_count >= limit:
+        self.logger.info(f"Reached limit of {limit} processed images. Stopping.")
+        break
         
-        for item, image_path in batch:
-            if item in cache:
-                all_probs.append(cache[item])
-            else:
-                content.append({"type": "text", "text": f"Image (ID: {item}):"})
-                content.append({"type": "image_url", "image_url": {"url": encode_image(image_path)}})
-                batch_items.append(item)
-        
-        if not batch_items:
-            continue
-        
-        batch_count += 1
-        try:
-          messages = [{"role": "system", "content": system_prompt}] + few_shot_messages + [{"role": "user", "content": content}]
-          response = client.chat.completions.create(
-            model=model,
+      batch = images[i:i + batch_size]
+      batch_items = []
+
+      # Check cache for each image in the batch
+      for item, image_path in batch:
+        # Skip if we've reached the limit
+        if limit > 0 and processed_count >= limit:
+          break
+          
+        cached_result = self.cache_manager.get_result(item)
+        if cached_result:
+          all_probs.append(cached_result)
+          processed_count += 1
+        else:
+          batch_items.append((item, image_path))
+
+      if not batch_items:
+        continue
+
+      batch_count += 1
+      try:
+        # Prepare and send API request
+        messages = self._prepare_batch_request(
+          batch_items, system_prompt, few_shot_messages)
+        response = self.client.chat.completions.create(
+            model=self.model,
             messages=messages
-          )
-            
-          # Extract response content
-          content = response.choices[0].message.content
-          input_tokens = response.usage.prompt_tokens
-          output_tokens = response.usage.completion_tokens
-          total_input_tokens += input_tokens
-          total_output_tokens += output_tokens
-          
-          # Parse response with better error handling
-          try:
-              # Try to parse as JSON
-              json_content = json.loads(content)
-              
-              # Check if we have the expected structure
-              if isinstance(json_content, dict):
-                  response_dict = {}
-                  
-                  # Handle different possible JSON structures
-                  if all(key.startswith("image_") for key in json_content.keys()):
-                      # Format: {"image_1": "CLASS_ID", ...}
-                      for i, item in enumerate(batch_items):
-                          image_key = f"image_{i+1}"
-                          if image_key in json_content:
-                              response_dict[item] = json_content[image_key]
-                  else:
-                      # Direct mapping or other format
-                      for item in batch_items:
-                          if item in json_content:
-                              response_dict[item] = json_content[item]
-                          elif str(item) in json_content:
-                              response_dict[item] = json_content[str(item)]
-                  
-                  # Convert to list format expected by downstream code
-                  response_texts = list(response_dict.values())
-              else:
-                  # Handle unexpected JSON structure (like array)
-                  response_texts = json_content if isinstance(json_content, list) else [json_content]
-          except json.JSONDecodeError:
-              # Fall back to text parsing if JSON fails
-              print(f"Warning: Failed to parse JSON response. Attempting text parsing.")
-              lines = content.strip().split('\n')
-              response_texts = []
-              
-              for line in lines:
-                  # Try to extract class IDs from text
-                  for cls_id, _ in classes:
-                      if cls_id in line:
-                          response_texts.append(cls_id)
-                          break
-          
-          # Process the parsed responses
-          if len(response_texts) == len(batch_items):
-              for idx, item in enumerate(batch_items):
-                  probabilities = np.zeros(len(classes))
-                  for cls_idx, (cls_id, _) in enumerate(classes):
-                      if isinstance(response_texts[idx], str) and response_texts[idx] == cls_id:
-                          probabilities[cls_idx] = 1.0
-                  all_probs.append(probabilities)
-                  cache[item] = probabilities.tolist()
-          else:
-              print(f"Warning: Mismatch between response texts ({len(response_texts)}) and batch items ({len(batch_items)}). Skipping batch.")
-              print(f"Response: {response_texts}")
-              for _ in batch_items:
-                  all_probs.append(np.zeros(len(classes)))
-          
-          # Periodically save cache
-          save_cache_periodic(cache, cache_file, batch_count, save_frequency)
-            
-        except Exception as e:
-            print(f"Error processing batch: {e}")
-            for _ in batch_items:
-                all_probs.append(np.zeros(len(classes)))
-    
-    save_cache(cache, cache_file)
-    
-    # Estimated cost calculation
-    if model == "gpt-4o":
-      cost_per_1m_input_tokens = 2.5  # Cost per 1M input tokens
-      cost_per_1m_output_tokens = 10  # Cost per 1M output tokens
+        )
 
-    if model == "gpt-4o-mini":
-      cost_per_1m_input_tokens = 0.150  # Cost per 1M input tokens for gpt-4o-mini
-      cost_per_1m_output_tokens = 0.600  # Cost per 1M output tokens for gpt-4o-mini
-    
-    total_cost = ((total_input_tokens / 1_000_000) * cost_per_1m_input_tokens) + ((total_output_tokens / 1_000_000) * cost_per_1m_output_tokens)
-    
-    print(f"Total input tokens used: {total_input_tokens}")
-    print(f"Total output tokens used: {total_output_tokens}")
-    print(f"Total cost per {len(all_probs)} images: ${total_cost:.4f}")
+        # Extract response content and token usage
+        content = response.choices[0].message.content
+        self.total_input_tokens += response.usage.prompt_tokens
+        self.total_output_tokens += response.usage.completion_tokens
 
-    estimated_cost_per_1864_images = total_cost * (1864 / len(images))
-    print(f"Estimated cost for 1864 images: ${estimated_cost_per_1864_images:.4f}")
+        # Parse response
+        batch_results = self._parse_response(
+          content, [item for item, _ in batch_items], classes)
+
+        # If batch_results is empty (due to parsing error), skip this batch
+        if not batch_results:
+          self.logger.warning("No valid results from batch. Skipping.")
+          continue
+
+        # Add results to cache and all_probs
+        for idx, (item, _) in enumerate(batch_items):
+          if idx < len(batch_results):  # Safety check
+            all_probs.append(batch_results[idx])
+            self.cache_manager.add_result(item, batch_results[idx].tolist())
+            processed_count += 1
+            
+            # Check if we've reached the limit after each image
+            if limit > 0 and processed_count >= limit:
+              self.logger.info(f"Reached limit of {limit} processed images during batch processing.")
+              break
+
+        # Periodically save cache
+        self.cache_manager.save(
+          periodic=True, batch_count=batch_count, save_frequency=save_frequency)
+
+      except Exception as e:
+        self.logger.error(f"Error processing batch: {e}")
+        # Don't add zero arrays for failed batches - this was causing the count mismatch
+        # Instead, log the error and continue
+
+    # Final cache save
+    self.cache_manager.save()
+
+    # Calculate and display cost information
+    self._display_cost_info(len(all_probs), len(images))
     
+    # Log the actual number of processed images vs requested limit
+    if limit > 0:
+      self.logger.info(f"Requested limit: {limit}, Actual processed: {len(all_probs)}")
+
     return np.array(all_probs)
+
+  def _display_cost_info(self, processed_count: int, total_count: int) -> None:
+    """
+    Calculate and display cost information.
+
+    Args:
+        processed_count: Number of images processed
+        total_count: Total number of images
+    """
+    # Get cost rates for the model
+    input_cost_rate, output_cost_rate = ModelConfig.get_costs(self.model)
+
+    # Calculate total cost
+    total_cost = ((self.total_input_tokens / 1_000_000) * input_cost_rate) + \
+                 ((self.total_output_tokens / 1_000_000) * output_cost_rate)
+
+    self.logger.info(f"Total input tokens used: {self.total_input_tokens}")
+    self.logger.info(f"Total output tokens used: {self.total_output_tokens}")
+    self.logger.info(
+      f"Total cost of this call: ${total_cost:.4f}")
+
+
+def encode_image(image_path: str) -> str:
+  """
+  Encode an image as a base64 data URL.
+
+  Args:
+      image_path: Path to the image file
+
+  Returns:
+      Base64-encoded data URL
+  """
+  with open(image_path, "rb") as image_file:
+    image_base64 = base64.b64encode(image_file.read()).decode("utf-8")
+  return f"data:image/jpeg;base64,{image_base64}"
+
+
+def load_images(test_items: List[str], dataset_dir: str, logger=None) -> List[Tuple[str, str]]:
+  """
+  Load images from disk.
+
+  Args:
+      test_items: List of image IDs
+      dataset_dir: Directory containing the images
+      logger: Logger instance
+
+  Returns:
+      List of (item_id, image_path) tuples
+  """
+  logger = logger or logging.getLogger("default")
+  images = []
+  for item in test_items:
+    image_path = os.path.join(dataset_dir, f"{item}.jpg")
+    if os.path.exists(image_path):
+      images.append((item, image_path))
+    else:
+      logger.warning(f"Image {image_path} not found.")
+  return images
+
 
 @click.command()
 @click.option('--folders', multiple=True, default=['test_1', 'test_2'], help='List of folders to use')
@@ -237,57 +593,86 @@ def classify_images_gpt(images, model, classes, system_prompt, test, dataset, li
 @click.option('--batch_size', default=10, help='Number of images per batch')
 @click.option('--save_frequency', default=5, help='How often to save cache (in batches)')
 @click.option('--datasets', multiple=True, default=['ArtDL'], help='List of datasets to use')
-def main(folders, models, limit, batch_size, save_frequency, datasets):
-    base_dir = os.path.join(os.path.dirname(__file__), os.pardir)
-    
-    for dataset in datasets:
-      
-      dataset_dir = os.path.join(base_dir, 'dataset', dataset)
-      dataset_data_dir = os.path.join(base_dir, 'dataset', f'{dataset}-data')
-      
-      with open(os.path.join(dataset_data_dir, '2_test.txt'), 'r') as file:
-          test_items = file.read().splitlines()
-      
-      images = load_images(test_items, os.path.join(dataset_dir, 'JPEGImages'))
-      
-      print(f"Number of images: {len(images)}\n")
+@click.option('--ignore_zero_cache', is_flag=True, help='Ignore cached results with all-zero arrays')
+@click.option('--verbose', is_flag=True, help='Enable verbose logging (DEBUG level)')
+def main(folders: List[str], models: List[str], limit: int, batch_size: int, save_frequency: int,
+         datasets: List[str], ignore_zero_cache: bool, verbose: bool):
+  """
+  Main function to run the GPT image classification.
 
-      print(f"Processing dataset: {dataset}")
-      
-      for folder in folders:
-        for model in models:
-          classes_df = pd.read_csv(os.path.join(dataset_data_dir, 'classes.csv'))
-          
-          # Determine the base system prompt name
-          system_prompt_base = f'system_prompt_{dataset.lower()}'
+  Args:
+      folders: List of test folders to use
+      models: List of GPT models to use
+      limit: Maximum number of images to process (-1 for all)
+      batch_size: Number of images per batch
+      save_frequency: How often to save cache (in batches)
+      datasets: List of datasets to use
+      ignore_zero_cache: Whether to ignore zero arrays in cache
+      verbose: Whether to enable verbose logging
+  """
+  # Load OpenAI API key from config file
+  script_dir = os.path.dirname(__file__)
+  base_dir = os.path.join(script_dir, os.pardir)
 
-          if folder in ['test_1', 'test_3']:
-            classes = list(zip(classes_df['ID'], classes_df['Label']))
-          elif folder in ['test_2', 'test_4']:
-            classes = list(zip(classes_df['ID'], classes_df['Description']))
-            system_prompt_base += '_description'
-          
-          # Try to use enhanced system prompt first, fall back to original if not found
-          system_prompt_enhanced = f"{system_prompt_base}_enhanced.txt"
-          system_prompt_original = f"{system_prompt_base}.txt"
-          
-          system_prompt_path = os.path.join(os.path.dirname(__file__), 'gpt_data', system_prompt_enhanced)
-          if not os.path.exists(system_prompt_path):
-            system_prompt_path = os.path.join(os.path.dirname(__file__), 'gpt_data', system_prompt_original)
-            print(f"Using original system prompt: {system_prompt_original}")
-          else:
-            print(f"Using enhanced system prompt: {system_prompt_enhanced}")
-          
-          with open(system_prompt_path, 'r') as file:
-            system_prompt = file.read()
-          
-          print(f"Processing images for test: {folder}")
-          all_probs = classify_images_gpt(images, model, classes, system_prompt, folder, dataset, limit, batch_size, save_frequency)
-          
-          output_folder = os.path.join(base_dir, folder, dataset, model)
-          os.makedirs(output_folder, exist_ok=True)
-          np.save(os.path.join(output_folder, 'probs.npy'), all_probs)
-          print(f"Probabilities shape: {all_probs.shape}\n")
+  config = ConfigParser()
+  config.read(os.path.join(script_dir, 'gpt_data', 'psw.ini'))
+
+  api_key = config.get('openai', 'api_key', fallback=None)
+  if not api_key:
+    raise ValueError("OpenAI API key is not set in the config file.")
+
+  # Process each dataset
+  for dataset in datasets:
+    dataset_dir = os.path.join(base_dir, 'dataset', dataset)
+    dataset_data_dir = os.path.join(base_dir, 'dataset', f'{dataset}-data')
+
+    # Load test items
+    with open(os.path.join(dataset_data_dir, '2_test.txt'), 'r') as file:
+      test_items = file.read().splitlines()
+
+    # Process each test folder and model
+    for folder in folders:
+      for model in models:
+        # Setup output folder and logger
+        output_folder = os.path.join(base_dir, folder, dataset, model)
+        os.makedirs(output_folder, exist_ok=True)
+
+        # Setup logger for this specific combination
+        logger = logger_utils.setup_logger(
+          dataset, folder, model, output_folder, verbose)
+
+        logger.info(
+          f"Starting classification for dataset={dataset}, test={folder}, model={model}")
+
+        # Load images
+        images = load_images(test_items, os.path.join(
+          dataset_dir, 'JPEGImages'), logger)
+        logger.info(f"Number of images: {len(images)}")
+        logger.info(f"Processing dataset: {dataset}")
+
+        # Load classes
+        classes_df = pd.read_csv(os.path.join(dataset_data_dir, 'classes.csv'))
+
+        if folder in ['test_1', 'test_3']:
+          classes = list(zip(classes_df['ID'], classes_df['Label']))
+        elif folder in ['test_2', 'test_4']:
+          classes = list(zip(classes_df['ID'], classes_df['Description']))
+
+        logger.info(f"Processing images for test: {folder}")
+
+        # Initialize classifier and process images
+        classifier = GPTImageClassifier(
+          model, api_key, dataset, folder, script_dir,
+          ignore_zero_cache=ignore_zero_cache, logger=logger)
+
+        all_probs = classifier.classify_images(
+            images, classes, limit, batch_size, save_frequency
+        )
+
+        # Save results
+        np.save(os.path.join(output_folder, 'probs.npy'), all_probs)
+        logger.info(f"Probabilities shape: {all_probs.shape}")
+
 
 if __name__ == '__main__':
-    main()
+  main()

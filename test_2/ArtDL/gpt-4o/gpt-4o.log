@@ -1,0 +1,23 @@
+2025-03-12 16:40:13,677 - INFO - Logger initialized for ArtDL/test_2/gpt-4o
+2025-03-12 16:40:13,683 - INFO - Starting classification for dataset=ArtDL, test=test_2, model=gpt-4o
+2025-03-12 16:40:13,695 - INFO - Number of images: 1864
+2025-03-12 16:40:13,696 - INFO - Processing dataset: ArtDL
+2025-03-12 16:40:13,702 - INFO - Processing images for test: test_2
+2025-03-12 16:40:13,852 - INFO - Loaded 1859 valid cached results (ignoring zero arrays)
+2025-03-12 16:40:13,852 - INFO - Using model: gpt-4o
+2025-03-12 16:40:23,684 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-03-12 16:40:23,686 - WARNING - Mismatch between response texts (0) and batch items (3). Skipping batch.
+2025-03-12 16:40:23,688 - WARNING - Response: []
+2025-03-12 16:40:23,689 - WARNING - No valid results from batch. Skipping.
+2025-03-12 16:40:26,322 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-03-12 16:40:26,323 - WARNING - Mismatch between response texts (0) and batch items (1). Skipping batch.
+2025-03-12 16:40:26,323 - WARNING - Response: []
+2025-03-12 16:40:26,324 - WARNING - No valid results from batch. Skipping.
+2025-03-12 16:40:28,831 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-03-12 16:40:28,832 - WARNING - Mismatch between response texts (0) and batch items (1). Skipping batch.
+2025-03-12 16:40:28,832 - WARNING - Response: []
+2025-03-12 16:40:28,833 - WARNING - No valid results from batch. Skipping.
+2025-03-12 16:40:28,918 - INFO - Total input tokens used: 5869
+2025-03-12 16:40:28,918 - INFO - Total output tokens used: 37
+2025-03-12 16:40:28,919 - INFO - Total cost of this call: $0.0150
+2025-03-12 16:40:28,921 - INFO - Probabilities shape: (1859, 10)

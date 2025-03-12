@@ -1,0 +1,37 @@
+2025-03-12 16:33:36,834 - INFO - Logger initialized for ArtDL/test_1/gpt-4o-mini
+2025-03-12 16:33:36,839 - INFO - Starting classification for dataset=ArtDL, test=test_1, model=gpt-4o-mini
+2025-03-12 16:33:36,851 - INFO - Number of images: 1864
+2025-03-12 16:33:36,852 - INFO - Processing dataset: ArtDL
+2025-03-12 16:33:36,858 - INFO - Processing images for test: test_1
+2025-03-12 16:33:37,005 - INFO - Loaded 1840 valid cached results (ignoring zero arrays)
+2025-03-12 16:33:37,005 - INFO - Using model: gpt-4o-mini
+2025-03-12 16:33:39,659 - WARNING - No valid results from batch. Skipping.
+2025-03-12 16:34:00,900 - WARNING - No valid results from batch. Skipping.
+2025-03-12 16:34:12,602 - INFO - Cache saved after 5 batches
+2025-03-12 16:34:25,686 - INFO - Total input tokens used: 626662
+2025-03-12 16:34:25,686 - INFO - Total output tokens used: 462
+2025-03-12 16:34:25,686 - INFO - Total cost per 1853 images: $0.0943
+2025-03-12 16:34:25,688 - INFO - Probabilities shape: (1853, 10)
+2025-03-12 16:35:31,340 - INFO - Logger initialized for ArtDL/test_1/gpt-4o-mini
+2025-03-12 16:35:31,346 - INFO - Starting classification for dataset=ArtDL, test=test_1, model=gpt-4o-mini
+2025-03-12 16:35:31,358 - INFO - Number of images: 1864
+2025-03-12 16:35:31,358 - INFO - Processing dataset: ArtDL
+2025-03-12 16:35:31,365 - INFO - Processing images for test: test_1
+2025-03-12 16:35:31,513 - INFO - Loaded 1853 valid cached results (ignoring zero arrays)
+2025-03-12 16:35:31,513 - INFO - Using model: gpt-4o-mini
+2025-03-12 16:35:57,900 - INFO - Cache saved after 5 batches
+2025-03-12 16:35:57,995 - INFO - Total input tokens used: 282522
+2025-03-12 16:35:57,995 - INFO - Total output tokens used: 217
+2025-03-12 16:35:57,996 - INFO - Total cost of this call: $0.0425
+2025-03-12 16:35:57,998 - INFO - Probabilities shape: (1864, 10)
+2025-03-12 16:36:33,791 - INFO - Logger initialized for ArtDL/test_1/gpt-4o-mini
+2025-03-12 16:36:33,797 - INFO - Starting classification for dataset=ArtDL, test=test_1, model=gpt-4o-mini
+2025-03-12 16:36:33,809 - INFO - Number of images: 1864
+2025-03-12 16:36:33,809 - INFO - Processing dataset: ArtDL
+2025-03-12 16:36:33,816 - INFO - Processing images for test: test_1
+2025-03-12 16:36:33,968 - INFO - Loaded 1864 valid cached results (ignoring zero arrays)
+2025-03-12 16:36:33,968 - INFO - Using model: gpt-4o-mini
+2025-03-12 16:36:34,103 - INFO - Total input tokens used: 0
+2025-03-12 16:36:34,104 - INFO - Total output tokens used: 0
+2025-03-12 16:36:34,104 - INFO - Total cost of this call: $0.0000
+2025-03-12 16:36:34,106 - INFO - Probabilities shape: (1864, 10)

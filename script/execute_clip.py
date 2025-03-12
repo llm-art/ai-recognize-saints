@@ -6,6 +6,10 @@ import numpy as np
 import pandas as pd
 from PIL import Image
 from tqdm import tqdm
+import logging
+
+# Import custom logger
+import logger_utils
 
 # For test_1 and test_2
 from transformers import AutoProcessor, AutoModelForZeroShotImageClassification
@@ -15,11 +19,12 @@ import clip
 import torch.nn as nn
 import torch.nn.functional as F
 
-def load_images(test_items, dataset_dir):
+def load_images(test_items, dataset_dir, logger=None):
     """
     Loads images from disk given a list of item IDs and a directory.
     Returns a list of PIL Image objects.
     """
+    logger = logger or logging.getLogger("default")
     images = []
     for item in test_items:
         image_path = os.path.join(dataset_dir, f"{item}.jpg")
@@ -27,18 +32,22 @@ def load_images(test_items, dataset_dir):
             image = Image.open(image_path).convert("RGB")
             images.append((item, image))  # keep track of item name + image
         except Exception as e:
-            print(f"Error loading image {image_path}: {e}")
+            logger.error(f"Error loading image {image_path}: {e}")
     return images
 
 @click.command()
 @click.option('--models', multiple=True, help='List of model names to use, e.g., clip-vit-base-patch32')
 @click.option('--folders', multiple=True, default=['test_1', 'test_2', 'test_3'], help='List of folders to use')
 @click.option('--datasets', multiple=True, default=['ArtDL', 'IconArt'], help='Name of the dataset directory')
-def main(models, folders, datasets):
+@click.option('--verbose', is_flag=True, help='Enable verbose logging (DEBUG level)')
+def main(models, folders, datasets, verbose):
     base_dir = os.path.join(os.path.dirname(__file__), os.pardir)
 
-    for dataset in datasets:
+    # Set environment variables
+    os.environ["TOKENIZERS_PARALLELISM"] = "false"
+    os.environ["PYDEVD_DISABLE_FILE_VALIDATION"] = "true"
 
+    for dataset in datasets:
       dataset_dir = os.path.join(base_dir, 'dataset', dataset)
       dataset_data_dir = os.path.join(base_dir, 'dataset', f'{dataset}-data')
       
@@ -49,23 +58,26 @@ def main(models, folders, datasets):
       with open(os.path.join(dataset_data_dir, '2_test.txt'), 'r') as file:
           test_items = file.read().splitlines()
 
-      # 2) Load actual PIL images
-      images_data = load_images(test_items, os.path.join(dataset_dir, 'JPEGImages'))
-      print(f"Number of images: {len(images_data)}\n")
-
-      # 3) Check device
-      device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-      print(f"Using device: {device}\n")
-
-      os.environ["TOKENIZERS_PARALLELISM"] = "false"
-      os.environ["PYDEVD_DISABLE_FILE_VALIDATION"] = "true"
-
-      # 4) For each folder and model, do inference
+      # Process each test folder and model
       for folder in folders:
           for model_name in models:
+              # Setup output folder and logger
               output_folder = os.path.join(base_dir, folder, dataset, model_name)
               os.makedirs(output_folder, exist_ok=True)
               
+              # Setup logger for this specific combination
+              logger = logger_utils.setup_logger(dataset, folder, model_name, output_folder, verbose)
+              
+              logger.info(f"Starting classification for dataset={dataset}, test={folder}, model={model_name}")
+              
+              # 2) Load actual PIL images
+              images_data = load_images(test_items, os.path.join(dataset_dir, 'JPEGImages'), logger)
+              logger.info(f"Number of images: {len(images_data)}")
+
+              # 3) Check device
+              device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+              logger.info(f"Using device: {device}")
+
               batch_size = 16
 
               # Read classes from CSV
@@ -76,9 +88,9 @@ def main(models, folders, datasets):
               elif folder in ['test_2', 'test_4']:
                   classes = list(zip(classes_df['ID'], classes_df['Description']))
 
-              print("#####################################################")
-              print(f"# Processing images for test: {folder}")
-              print(f"# Model: {model_name}")
+              logger.info("#####################################################")
+              logger.info(f"Processing images for test: {folder}")
+              logger.info(f"Model: {model_name}")
 
               if folder in ['test_1','test_2']:
                   processor = AutoProcessor.from_pretrained(f'openai/{model_name}')
@@ -104,7 +116,7 @@ def main(models, folders, datasets):
                       all_probs.append(probs.cpu().numpy())
 
                   all_probs = np.concatenate(all_probs, axis=0)  # shape [N, num_classes]
-                  print(f"Probabilities shape: {all_probs.shape}\n")
+                  logger.info(f"Probabilities shape: {all_probs.shape}")
                   np.save(os.path.join(output_folder, 'probs.npy'), all_probs)
 
               elif folder in ['test_3', 'test_4']:
@@ -145,7 +157,7 @@ def main(models, folders, datasets):
                       all_probs.append(logits.cpu().numpy())
 
                   all_probs = np.concatenate(all_probs, axis=0)
-                  print(f"Probabilities shape: {all_probs.shape}\n")
+                  logger.info(f"Probabilities shape: {all_probs.shape}")
                   np.save(os.path.join(output_folder, 'probs.npy'), all_probs)
 
 if __name__ == '__main__':
