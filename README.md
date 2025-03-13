@@ -57,16 +57,16 @@ Two tests have been done: one where we classify the images with the labels provi
 Accuracy per model
 
 | Model                     | zero-shot (labels)   | few-shot[*](dataset/ArtDL-data/README.md) (labels)   | zero-shot (descriptions)   |
-|:--------------------------|:---------------------|:--------------------|:---------------------------|
-| clip-vit-base-patch32     | 16.15%               | 21.41%              | 31.55%                     |
-| clip-vit-base-patch16     | 25.64%               | 29.13%              | 28.70%                     |
-| clip-vit-large-patch14    | 30.58%               | 31.71%              | 44.31%                     | 
-| siglip-base-patch16-512   | 48.71%               | 55.90%              | 68.19%                     | 
-| siglip-large-patch16-384  | 54.45%               | 53.49%              | 72.21%                     | 
-| siglip-so400m-patch14-384 | 53.86%               | 56.38%              | 70.55%                     | 
-| gpt-4o-mini               | 67.17%               | -             | 64.43%                     | 
-| gpt-4o                    | 84.98%               | -             | 89.32%                     | 
-| Baseline                  | 84.44%               | -                   | -                          |
+|:--------------------------|:---------------------|:-----------------------------------------------------|:---------------------------|
+| clip-vit-base-patch32     | 16.15%               | 21.41%                                               | 31.55%                     |
+| clip-vit-base-patch16     | 25.64%               | 29.13%                                               | 28.70%                     |
+| clip-vit-large-patch14    | 30.58%               | 31.71%                                               | 44.31%                     |
+| siglip-base-patch16-512   | 48.71%               | 55.90%                                               | 68.19%                     |
+| siglip-large-patch16-384  | 54.45%               | 53.49%                                               | 72.21%                     |
+| siglip-so400m-patch14-384 | 53.86%               | 56.38%                                               | 70.55%                     |
+| gpt-4o-mini               | 69.96%               | 82.46%                                               | 63.68%                     |
+| gpt-4o                    | 85.03%               | 85.03%                                               | 89.06%                     |
+| Baseline                  | 84.44%               | -                                                    | -                          |
 
 
 **Table X.**
