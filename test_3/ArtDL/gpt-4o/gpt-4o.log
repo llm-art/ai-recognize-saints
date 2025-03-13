@@ -1,0 +1,181 @@
+2025-03-13 16:22:10,213 - INFO - Logger initialized for ArtDL/test_3/gpt-4o
+2025-03-13 16:22:10,219 - INFO - Starting classification for dataset=ArtDL, test=test_3, model=gpt-4o
+2025-03-13 16:22:10,233 - INFO - Number of images: 1864
+2025-03-13 16:22:10,233 - INFO - Processing dataset: ArtDL
+2025-03-13 16:22:10,240 - INFO - Processing images for test: test_3
+2025-03-13 16:22:10,346 - INFO - Using model: gpt-4o
+2025-03-13 16:22:10,346 - INFO - Limiting to 200 images
+2025-03-13 16:23:06,736 - INFO - Cache saved after 5 batches
+2025-03-13 16:23:24,239 - WARNING - Mismatch between response texts (0) and batch items (5). Skipping batch.
+2025-03-13 16:23:24,240 - WARNING - Response: []
+2025-03-13 16:23:24,240 - WARNING - No valid results from batch. Skipping.
+2025-03-13 16:24:16,085 - WARNING - Mismatch between response texts (0) and batch items (5). Skipping batch.
+2025-03-13 16:24:16,086 - WARNING - Response: []
+2025-03-13 16:24:16,087 - WARNING - No valid results from batch. Skipping.
+2025-03-13 16:25:26,328 - INFO - Cache saved after 15 batches
+2025-03-13 16:25:56,484 - WARNING - Mismatch between response texts (0) and batch items (5). Skipping batch.
+2025-03-13 16:25:56,485 - WARNING - Response: []
+2025-03-13 16:25:56,486 - WARNING - No valid results from batch. Skipping.
+2025-03-13 16:26:35,820 - INFO - Cache saved after 20 batches
+2025-03-13 16:27:45,837 - INFO - Cache saved after 25 batches
+2025-03-13 16:28:42,771 - INFO - Cache saved after 30 batches
+2025-03-13 16:29:40,567 - INFO - Cache saved after 35 batches
+2025-03-13 16:29:55,436 - WARNING - Mismatch between response texts (0) and batch items (5). Skipping batch.
+2025-03-13 16:29:55,438 - WARNING - Response: []
+2025-03-13 16:29:55,439 - WARNING - No valid results from batch. Skipping.
+2025-03-13 16:30:35,559 - INFO - Cache saved after 40 batches
+2025-03-13 16:30:35,569 - INFO - Total input tokens used: 416706
+2025-03-13 16:30:35,570 - INFO - Total output tokens used: 3051
+2025-03-13 16:30:35,570 - INFO - Total cost of this call: $1.0723
+2025-03-13 16:30:35,570 - INFO - Requested limit: 200, Actual processed: 180
+2025-03-13 16:30:35,571 - INFO - Probabilities shape: (180, 10)
+2025-03-13 16:35:21,058 - INFO - Logger initialized for ArtDL/test_3/gpt-4o
+2025-03-13 16:35:21,064 - INFO - Starting classification for dataset=ArtDL, test=test_3, model=gpt-4o
+2025-03-13 16:35:21,078 - INFO - Number of images: 1864
+2025-03-13 16:35:21,078 - INFO - Processing dataset: ArtDL
+2025-03-13 16:35:21,086 - INFO - Processing images for test: test_3
+2025-03-13 16:35:21,196 - INFO - Loaded 180 valid cached results (ignoring zero arrays)
+2025-03-13 16:35:21,197 - INFO - Using model: gpt-4o
+2025-03-13 16:35:21,197 - INFO - Limiting to 1000 images
+2025-03-13 16:35:31,386 - WARNING - Mismatch between response texts (0) and batch items (5). Skipping batch.
+2025-03-13 16:35:31,387 - WARNING - Response: []
+2025-03-13 16:35:31,388 - WARNING - No valid results from batch. Skipping.
+2025-03-13 16:35:42,322 - WARNING - Mismatch between response texts (0) and batch items (5). Skipping batch.
+2025-03-13 16:35:42,323 - WARNING - Response: []
+2025-03-13 16:35:42,323 - WARNING - No valid results from batch. Skipping.
+2025-03-13 16:36:20,464 - INFO - Cache saved after 5 batches
+2025-03-13 16:37:16,122 - INFO - Cache saved after 10 batches
+2025-03-13 16:38:15,090 - INFO - Cache saved after 15 batches
+2025-03-13 16:39:14,952 - INFO - Cache saved after 20 batches
+2025-03-13 16:40:10,622 - INFO - Cache saved after 25 batches
+2025-03-13 16:41:15,241 - INFO - Cache saved after 30 batches
+2025-03-13 16:42:14,490 - INFO - Cache saved after 35 batches
+2025-03-13 16:42:42,132 - WARNING - Mismatch between response texts (0) and batch items (5). Skipping batch.
+2025-03-13 16:42:42,134 - WARNING - Response: []
+2025-03-13 16:42:42,136 - WARNING - No valid results from batch. Skipping.
+2025-03-13 16:43:15,831 - INFO - Cache saved after 40 batches
+2025-03-13 16:43:27,516 - WARNING - Mismatch between response texts (0) and batch items (5). Skipping batch.
+2025-03-13 16:43:27,517 - WARNING - Response: []
+2025-03-13 16:43:27,518 - WARNING - No valid results from batch. Skipping.
+2025-03-13 16:44:08,961 - INFO - Cache saved after 45 batches
+2025-03-13 16:45:04,402 - INFO - Cache saved after 50 batches
+2025-03-13 16:46:10,794 - INFO - Cache saved after 55 batches
+2025-03-13 16:47:11,423 - INFO - Cache saved after 60 batches
+2025-03-13 16:48:13,207 - INFO - Cache saved after 65 batches
+2025-03-13 16:49:20,292 - INFO - Cache saved after 70 batches
+2025-03-13 16:50:20,551 - INFO - Cache saved after 75 batches
+2025-03-13 16:51:22,023 - INFO - Cache saved after 80 batches
+2025-03-13 16:52:22,424 - INFO - Cache saved after 85 batches
+2025-03-13 16:53:27,329 - INFO - Cache saved after 90 batches
+2025-03-13 16:54:27,205 - INFO - Cache saved after 95 batches
+2025-03-13 16:55:33,197 - INFO - Cache saved after 100 batches
+2025-03-13 16:55:55,134 - WARNING - Mismatch between response texts (0) and batch items (5). Skipping batch.
+2025-03-13 16:55:55,135 - WARNING - Response: []
+2025-03-13 16:55:55,136 - WARNING - No valid results from batch. Skipping.
+2025-03-13 16:56:36,384 - INFO - Cache saved after 105 batches
+2025-03-13 16:58:27,250 - INFO - Cache saved after 110 batches
+2025-03-13 16:59:13,835 - INFO - Cache saved after 115 batches
+2025-03-13 17:00:16,673 - INFO - Cache saved after 120 batches
+2025-03-13 17:00:39,241 - WARNING - Mismatch between response texts (0) and batch items (5). Skipping batch.
+2025-03-13 17:00:39,242 - WARNING - Response: []
+2025-03-13 17:00:39,243 - WARNING - No valid results from batch. Skipping.
+2025-03-13 17:01:13,891 - INFO - Cache saved after 125 batches
+2025-03-13 17:02:10,546 - INFO - Cache saved after 130 batches
+2025-03-13 17:03:50,893 - INFO - Cache saved after 135 batches
+2025-03-13 17:04:46,563 - INFO - Cache saved after 140 batches
+2025-03-13 17:05:42,742 - INFO - Cache saved after 145 batches
+2025-03-13 17:06:44,740 - INFO - Cache saved after 150 batches
+2025-03-13 17:07:49,478 - WARNING - Mismatch between response texts (0) and batch items (5). Skipping batch.
+2025-03-13 17:07:49,480 - WARNING - Response: []
+2025-03-13 17:07:49,480 - WARNING - No valid results from batch. Skipping.
+2025-03-13 17:08:25,451 - INFO - Logger initialized for ArtDL/test_3/gpt-4o
+2025-03-13 17:08:25,456 - INFO - Starting classification for dataset=ArtDL, test=test_3, model=gpt-4o
+2025-03-13 17:08:25,469 - INFO - Number of images: 1864
+2025-03-13 17:08:25,469 - INFO - Processing dataset: ArtDL
+2025-03-13 17:08:25,475 - INFO - Processing images for test: test_3
+2025-03-13 17:08:25,598 - INFO - Loaded 894 valid cached results (ignoring zero arrays)
+2025-03-13 17:08:25,599 - INFO - Using model: gpt-4o
+2025-03-13 17:08:25,599 - INFO - Limiting to 1000 images
+2025-03-13 17:08:54,245 - WARNING - Mismatch between response texts (0) and batch items (5). Skipping batch.
+2025-03-13 17:08:54,247 - WARNING - Response: []
+2025-03-13 17:08:54,248 - WARNING - No valid results from batch. Skipping.
+2025-03-13 17:09:29,156 - INFO - Cache saved after 5 batches
+2025-03-13 17:10:09,027 - INFO - Cache saved after 10 batches
+2025-03-13 17:11:13,598 - INFO - Cache saved after 15 batches
+2025-03-13 17:12:13,404 - INFO - Cache saved after 20 batches
+2025-03-13 17:13:09,975 - INFO - Cache saved after 25 batches
+2025-03-13 17:13:10,024 - INFO - Total input tokens used: 239259
+2025-03-13 17:13:10,024 - INFO - Total output tokens used: 1579
+2025-03-13 17:13:10,024 - INFO - Total cost of this call: $0.6139
+2025-03-13 17:13:10,024 - INFO - Requested limit: 1000, Actual processed: 995
+2025-03-13 17:13:10,026 - INFO - Probabilities shape: (995, 10)
+2025-03-13 17:18:38,313 - INFO - Logger initialized for ArtDL/test_3/gpt-4o
+2025-03-13 17:18:38,316 - INFO - Starting classification for dataset=ArtDL, test=test_3, model=gpt-4o
+2025-03-13 17:18:38,325 - INFO - Number of images: 1864
+2025-03-13 17:18:38,325 - INFO - Processing dataset: ArtDL
+2025-03-13 17:18:38,327 - INFO - Processing images for test: test_3
+2025-03-13 17:18:38,413 - INFO - Loaded 995 valid cached results (ignoring zero arrays)
+2025-03-13 17:18:38,413 - INFO - Using model: gpt-4o
+2025-03-13 17:18:51,965 - WARNING - Mismatch between response texts (0) and batch items (5). Skipping batch.
+2025-03-13 17:18:51,965 - WARNING - Response: []
+2025-03-13 17:18:51,966 - WARNING - No valid results from batch. Skipping.
+2025-03-13 17:19:51,135 - INFO - Cache saved after 5 batches
+2025-03-13 17:20:50,273 - INFO - Cache saved after 10 batches
+2025-03-13 17:21:39,531 - INFO - Cache saved after 15 batches
+2025-03-13 17:22:37,943 - INFO - Cache saved after 20 batches
+2025-03-13 17:23:39,004 - INFO - Cache saved after 25 batches
+2025-03-13 17:24:39,167 - INFO - Cache saved after 30 batches
+2025-03-13 17:25:39,346 - INFO - Cache saved after 35 batches
+2025-03-13 17:27:12,899 - INFO - Cache saved after 40 batches
+2025-03-13 17:28:16,835 - INFO - Cache saved after 45 batches
+2025-03-13 17:29:15,074 - INFO - Cache saved after 50 batches
+2025-03-13 17:30:12,002 - INFO - Cache saved after 55 batches
+2025-03-13 17:31:00,862 - INFO - Cache saved after 60 batches
+2025-03-13 17:31:57,387 - INFO - Cache saved after 65 batches
+2025-03-13 17:32:06,671 - WARNING - Mismatch between response texts (0) and batch items (5). Skipping batch.
+2025-03-13 17:32:06,672 - WARNING - Response: []
+2025-03-13 17:32:06,673 - WARNING - No valid results from batch. Skipping.
+2025-03-13 17:32:55,249 - INFO - Cache saved after 70 batches
+2025-03-13 17:33:57,647 - INFO - Cache saved after 75 batches
+2025-03-13 17:34:53,098 - INFO - Cache saved after 80 batches
+2025-03-13 17:35:44,537 - INFO - Cache saved after 85 batches
+2025-03-13 17:36:44,177 - INFO - Cache saved after 90 batches
+2025-03-13 17:37:43,433 - INFO - Cache saved after 95 batches
+2025-03-13 17:38:45,384 - INFO - Cache saved after 100 batches
+2025-03-13 17:39:37,994 - INFO - Cache saved after 105 batches
+2025-03-13 17:40:37,422 - WARNING - Mismatch between response texts (0) and batch items (5). Skipping batch.
+2025-03-13 17:40:37,422 - WARNING - Response: []
+2025-03-13 17:40:37,423 - WARNING - No valid results from batch. Skipping.
+2025-03-13 17:41:35,083 - INFO - Cache saved after 115 batches
+2025-03-13 17:42:29,158 - INFO - Cache saved after 120 batches
+2025-03-13 17:42:39,261 - WARNING - Mismatch between response texts (0) and batch items (5). Skipping batch.
+2025-03-13 17:42:39,261 - WARNING - Response: []
+2025-03-13 17:42:39,262 - WARNING - No valid results from batch. Skipping.
+2025-03-13 17:43:25,620 - INFO - Cache saved after 125 batches
+2025-03-13 17:44:18,005 - INFO - Cache saved after 130 batches
+2025-03-13 17:45:10,758 - INFO - Cache saved after 135 batches
+2025-03-13 17:46:07,063 - INFO - Cache saved after 140 batches
+2025-03-13 17:47:02,101 - INFO - Cache saved after 145 batches
+2025-03-13 17:48:08,706 - INFO - Cache saved after 150 batches
+2025-03-13 17:49:11,885 - INFO - Cache saved after 155 batches
+2025-03-13 17:50:04,500 - INFO - Cache saved after 160 batches
+2025-03-13 17:51:07,651 - INFO - Cache saved after 165 batches
+2025-03-13 17:52:09,848 - WARNING - Mismatch between response texts (0) and batch items (5). Skipping batch.
+2025-03-13 17:52:09,849 - WARNING - Response: []
+2025-03-13 17:52:09,849 - WARNING - No valid results from batch. Skipping.
+2025-03-13 17:53:03,156 - INFO - Total input tokens used: 1785135
+2025-03-13 17:53:03,156 - INFO - Total output tokens used: 13228
+2025-03-13 17:53:03,156 - INFO - Total cost of this call: $4.5951
+2025-03-13 17:53:03,158 - INFO - Probabilities shape: (1831, 10)
+2025-03-13 18:01:51,455 - INFO - Logger initialized for ArtDL/test_3/gpt-4o
+2025-03-13 18:01:51,457 - INFO - Starting classification for dataset=ArtDL, test=test_3, model=gpt-4o
+2025-03-13 18:01:51,462 - INFO - Number of images: 1864
+2025-03-13 18:01:51,462 - INFO - Processing dataset: ArtDL
+2025-03-13 18:01:51,464 - INFO - Processing images for test: test_3
+2025-03-13 18:01:51,513 - INFO - Loaded 1831 valid cached results (ignoring zero arrays)
+2025-03-13 18:01:51,513 - INFO - Using model: gpt-4o
+2025-03-13 18:02:34,322 - INFO - Cache saved after 5 batches
+2025-03-13 18:03:16,889 - INFO - Total input tokens used: 82813
+2025-03-13 18:03:16,889 - INFO - Total output tokens used: 494
+2025-03-13 18:03:16,889 - INFO - Total cost of this call: $0.2120
+2025-03-13 18:03:16,891 - INFO - Probabilities shape: (1864, 10)
