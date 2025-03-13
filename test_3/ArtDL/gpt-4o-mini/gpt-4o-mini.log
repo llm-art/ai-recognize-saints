@@ -1,0 +1,494 @@
+2025-03-13 10:18:28,510 - INFO - Logger initialized for ArtDL/test_3/gpt-4o-mini
+2025-03-13 10:18:28,516 - INFO - Starting classification for dataset=ArtDL, test=test_3, model=gpt-4o-mini
+2025-03-13 10:18:28,529 - INFO - Number of images: 1864
+2025-03-13 10:18:28,529 - INFO - Processing dataset: ArtDL
+2025-03-13 10:18:28,536 - INFO - Processing images for test: test_3
+2025-03-13 10:18:28,641 - INFO - Using model: gpt-4o-mini
+2025-03-13 10:18:28,642 - INFO - Limiting to 20 images
+2025-03-13 10:18:59,500 - INFO - Cache saved after 5 batches
+2025-03-13 10:19:13,765 - WARNING - Mismatch between response texts (0) and batch items (1). Skipping batch.
+2025-03-13 10:19:13,766 - WARNING - Response: []
+2025-03-13 10:19:13,766 - WARNING - No valid results from batch. Skipping.
+2025-03-13 10:19:33,855 - INFO - Cache saved after 10 batches
+2025-03-13 10:20:10,593 - INFO - Cache saved after 15 batches
+2025-03-13 10:20:44,373 - INFO - Cache saved after 20 batches
+2025-03-13 10:20:44,376 - INFO - Total input tokens used: 4065956
+2025-03-13 10:20:44,377 - INFO - Total output tokens used: 446
+2025-03-13 10:20:44,377 - INFO - Total cost of this call: $0.6102
+2025-03-13 10:20:44,377 - INFO - Requested limit: 20, Actual processed: 19
+2025-03-13 10:20:44,378 - INFO - Probabilities shape: (19, 10)
+2025-03-13 10:20:52,577 - INFO - Logger initialized for ArtDL/test_3/gpt-4o-mini
+2025-03-13 10:20:52,583 - INFO - Starting classification for dataset=ArtDL, test=test_3, model=gpt-4o-mini
+2025-03-13 10:20:52,597 - INFO - Number of images: 1864
+2025-03-13 10:20:52,597 - INFO - Processing dataset: ArtDL
+2025-03-13 10:20:52,605 - INFO - Processing images for test: test_3
+2025-03-13 10:20:52,713 - INFO - Loaded 19 valid cached results (ignoring zero arrays)
+2025-03-13 10:20:52,713 - INFO - Using model: gpt-4o-mini
+2025-03-13 10:20:52,714 - INFO - Limiting to 20 images
+2025-03-13 10:20:58,896 - INFO - Total input tokens used: 199325
+2025-03-13 10:20:58,896 - INFO - Total output tokens used: 16
+2025-03-13 10:20:58,897 - INFO - Total cost of this call: $0.0299
+2025-03-13 10:20:58,897 - INFO - Requested limit: 20, Actual processed: 20
+2025-03-13 10:20:58,898 - INFO - Probabilities shape: (20, 10)
+2025-03-13 10:21:12,540 - INFO - Logger initialized for ArtDL/test_3/gpt-4o-mini
+2025-03-13 10:21:12,546 - INFO - Starting classification for dataset=ArtDL, test=test_3, model=gpt-4o-mini
+2025-03-13 10:21:12,559 - INFO - Number of images: 1864
+2025-03-13 10:21:12,559 - INFO - Processing dataset: ArtDL
+2025-03-13 10:21:12,566 - INFO - Processing images for test: test_3
+2025-03-13 10:21:12,672 - INFO - Loaded 20 valid cached results (ignoring zero arrays)
+2025-03-13 10:21:12,672 - INFO - Using model: gpt-4o-mini
+2025-03-13 10:21:12,673 - INFO - Limiting to 200 images
+2025-03-13 10:21:24,125 - WARNING - Mismatch between response texts (0) and batch items (1). Skipping batch.
+2025-03-13 10:21:24,126 - WARNING - Response: []
+2025-03-13 10:21:24,126 - WARNING - No valid results from batch. Skipping.
+2025-03-13 10:21:41,614 - INFO - Cache saved after 5 batches
+2025-03-13 10:22:12,818 - INFO - Cache saved after 10 batches
+2025-03-13 10:22:17,494 - WARNING - Mismatch between response texts (0) and batch items (1). Skipping batch.
+2025-03-13 10:22:17,496 - WARNING - Response: []
+2025-03-13 10:22:17,498 - WARNING - No valid results from batch. Skipping.
+2025-03-13 10:22:44,511 - INFO - Cache saved after 15 batches
+2025-03-13 10:23:40,070 - INFO - Cache saved after 20 batches
+2025-03-13 10:24:09,929 - INFO - Cache saved after 25 batches
+2025-03-13 10:24:46,520 - INFO - Cache saved after 30 batches
+2025-03-13 10:25:22,560 - INFO - Cache saved after 35 batches
+2025-03-13 10:25:52,728 - INFO - Cache saved after 40 batches
+2025-03-13 10:26:06,311 - WARNING - Mismatch between response texts (0) and batch items (1). Skipping batch.
+2025-03-13 10:26:06,313 - WARNING - Response: []
+2025-03-13 10:26:06,315 - WARNING - No valid results from batch. Skipping.
+2025-03-13 10:26:26,569 - INFO - Cache saved after 45 batches
+2025-03-13 10:26:59,128 - INFO - Cache saved after 50 batches
+2025-03-13 10:27:10,925 - WARNING - Mismatch between response texts (0) and batch items (1). Skipping batch.
+2025-03-13 10:27:10,926 - WARNING - Response: []
+2025-03-13 10:27:10,926 - WARNING - No valid results from batch. Skipping.
+2025-03-13 10:27:30,686 - INFO - Cache saved after 55 batches
+2025-03-13 10:28:07,740 - INFO - Cache saved after 60 batches
+2025-03-13 10:28:47,602 - INFO - Cache saved after 65 batches
+2025-03-13 10:29:19,476 - INFO - Cache saved after 70 batches
+2025-03-13 10:29:53,585 - INFO - Cache saved after 75 batches
+2025-03-13 10:30:27,714 - INFO - Cache saved after 80 batches
+2025-03-13 10:31:08,626 - INFO - Cache saved after 85 batches
+2025-03-13 10:31:40,074 - INFO - Cache saved after 90 batches
+2025-03-13 10:32:11,812 - INFO - Cache saved after 95 batches
+2025-03-13 10:33:25,629 - INFO - Cache saved after 100 batches
+2025-03-13 10:34:04,093 - INFO - Cache saved after 105 batches
+2025-03-13 10:34:41,467 - INFO - Cache saved after 110 batches
+2025-03-13 10:35:17,331 - INFO - Cache saved after 115 batches
+2025-03-13 10:35:52,230 - INFO - Cache saved after 120 batches
+2025-03-13 10:36:28,513 - INFO - Cache saved after 125 batches
+2025-03-13 10:37:01,901 - INFO - Cache saved after 130 batches
+2025-03-13 10:37:38,039 - INFO - Cache saved after 135 batches
+2025-03-13 10:38:25,588 - INFO - Cache saved after 140 batches
+2025-03-13 10:39:04,485 - INFO - Cache saved after 145 batches
+2025-03-13 10:39:41,247 - INFO - Cache saved after 150 batches
+2025-03-13 10:40:14,051 - INFO - Cache saved after 155 batches
+2025-03-13 10:40:52,069 - INFO - Cache saved after 160 batches
+2025-03-13 10:41:25,186 - INFO - Cache saved after 165 batches
+2025-03-13 10:42:10,384 - INFO - Cache saved after 170 batches
+2025-03-13 10:42:40,305 - INFO - Cache saved after 175 batches
+2025-03-13 10:43:10,695 - INFO - Cache saved after 180 batches
+2025-03-13 10:43:10,706 - INFO - Total input tokens used: 36276498
+2025-03-13 10:43:10,707 - INFO - Total output tokens used: 4207
+2025-03-13 10:43:10,707 - INFO - Total cost of this call: $5.4440
+2025-03-13 10:43:10,707 - INFO - Requested limit: 200, Actual processed: 196
+2025-03-13 10:43:10,708 - INFO - Probabilities shape: (196, 10)
+2025-03-13 10:53:15,038 - INFO - Logger initialized for ArtDL/test_3/gpt-4o-mini
+2025-03-13 10:53:15,041 - INFO - Starting classification for dataset=ArtDL, test=test_3, model=gpt-4o-mini
+2025-03-13 10:53:15,048 - INFO - Number of images: 1864
+2025-03-13 10:53:15,049 - INFO - Processing dataset: ArtDL
+2025-03-13 10:53:15,052 - INFO - Processing images for test: test_3
+2025-03-13 10:53:15,115 - INFO - Loaded 196 valid cached results (ignoring zero arrays)
+2025-03-13 10:53:15,115 - INFO - Using model: gpt-4o-mini
+2025-03-13 10:53:15,115 - INFO - Limiting to 200 images
+2025-03-13 10:53:41,581 - INFO - Total input tokens used: 808640
+2025-03-13 10:53:41,581 - INFO - Total output tokens used: 67
+2025-03-13 10:53:41,581 - INFO - Total cost of this call: $0.1213
+2025-03-13 10:53:41,581 - INFO - Requested limit: 200, Actual processed: 200
+2025-03-13 10:53:41,582 - INFO - Probabilities shape: (200, 10)
+2025-03-13 10:55:17,265 - INFO - Logger initialized for ArtDL/test_3/gpt-4o-mini
+2025-03-13 10:55:17,268 - INFO - Starting classification for dataset=ArtDL, test=test_3, model=gpt-4o-mini
+2025-03-13 10:55:17,277 - INFO - Number of images: 1864
+2025-03-13 10:55:17,277 - INFO - Processing dataset: ArtDL
+2025-03-13 10:55:17,280 - INFO - Processing images for test: test_3
+2025-03-13 10:55:17,366 - INFO - Loaded 200 valid cached results (ignoring zero arrays)
+2025-03-13 10:55:17,367 - INFO - Using model: gpt-4o-mini
+2025-03-13 10:55:45,173 - INFO - Cache saved after 5 batches
+2025-03-13 10:55:52,631 - INFO - Logger initialized for ArtDL/test_3/gpt-4o-mini
+2025-03-13 10:55:52,634 - INFO - Starting classification for dataset=ArtDL, test=test_3, model=gpt-4o-mini
+2025-03-13 10:55:52,645 - INFO - Number of images: 1864
+2025-03-13 10:55:52,645 - INFO - Processing dataset: ArtDL
+2025-03-13 10:55:52,648 - INFO - Processing images for test: test_3
+2025-03-13 10:55:52,736 - INFO - Loaded 205 valid cached results (ignoring zero arrays)
+2025-03-13 10:55:52,736 - INFO - Using model: gpt-4o-mini
+2025-03-13 10:56:31,891 - INFO - Cache saved after 5 batches
+2025-03-13 10:57:06,682 - INFO - Cache saved after 10 batches
+2025-03-13 10:57:49,013 - INFO - Cache saved after 15 batches
+2025-03-13 10:58:23,331 - INFO - Cache saved after 20 batches
+2025-03-13 10:59:05,416 - INFO - Cache saved after 25 batches
+2025-03-13 10:59:42,063 - INFO - Cache saved after 30 batches
+2025-03-13 11:00:12,712 - INFO - Cache saved after 35 batches
+2025-03-13 11:01:05,300 - INFO - Cache saved after 40 batches
+2025-03-13 11:01:33,827 - INFO - Cache saved after 45 batches
+2025-03-13 11:02:03,980 - INFO - Cache saved after 50 batches
+2025-03-13 11:02:40,068 - INFO - Cache saved after 55 batches
+2025-03-13 11:03:14,078 - INFO - Cache saved after 60 batches
+2025-03-13 11:03:49,158 - INFO - Cache saved after 65 batches
+2025-03-13 11:04:31,395 - INFO - Cache saved after 70 batches
+2025-03-13 11:05:15,343 - INFO - Cache saved after 75 batches
+2025-03-13 11:05:52,806 - INFO - Cache saved after 80 batches
+2025-03-13 11:06:27,692 - INFO - Cache saved after 85 batches
+2025-03-13 11:07:00,232 - INFO - Cache saved after 90 batches
+2025-03-13 11:07:33,101 - INFO - Cache saved after 95 batches
+2025-03-13 11:08:08,831 - INFO - Cache saved after 100 batches
+2025-03-13 11:08:41,971 - INFO - Cache saved after 105 batches
+2025-03-13 11:09:20,330 - INFO - Cache saved after 110 batches
+2025-03-13 11:10:08,113 - INFO - Cache saved after 115 batches
+2025-03-13 11:10:37,860 - INFO - Cache saved after 120 batches
+2025-03-13 11:11:26,789 - INFO - Cache saved after 125 batches
+2025-03-13 11:11:59,069 - INFO - Cache saved after 130 batches
+2025-03-13 11:12:28,656 - INFO - Cache saved after 135 batches
+2025-03-13 11:13:07,209 - INFO - Cache saved after 140 batches
+2025-03-13 11:13:43,618 - INFO - Cache saved after 145 batches
+2025-03-13 11:14:19,705 - INFO - Cache saved after 150 batches
+2025-03-13 11:14:57,254 - INFO - Cache saved after 155 batches
+2025-03-13 11:15:37,357 - INFO - Cache saved after 160 batches
+2025-03-13 11:16:26,151 - INFO - Cache saved after 165 batches
+2025-03-13 11:17:07,329 - INFO - Cache saved after 170 batches
+2025-03-13 11:17:52,670 - INFO - Cache saved after 175 batches
+2025-03-13 11:17:59,531 - WARNING - No valid results from batch. Skipping.
+2025-03-13 11:18:45,091 - INFO - Cache saved after 180 batches
+2025-03-13 11:19:23,551 - INFO - Cache saved after 185 batches
+2025-03-13 11:20:01,083 - INFO - Cache saved after 190 batches
+2025-03-13 11:20:37,278 - INFO - Cache saved after 195 batches
+2025-03-13 11:21:12,279 - INFO - Cache saved after 200 batches
+2025-03-13 11:21:46,076 - INFO - Cache saved after 205 batches
+2025-03-13 11:22:23,348 - INFO - Cache saved after 210 batches
+2025-03-13 11:22:57,155 - INFO - Cache saved after 215 batches
+2025-03-13 11:23:32,418 - INFO - Cache saved after 220 batches
+2025-03-13 11:24:17,959 - INFO - Cache saved after 225 batches
+2025-03-13 11:24:55,514 - INFO - Cache saved after 230 batches
+2025-03-13 11:25:31,908 - INFO - Cache saved after 235 batches
+2025-03-13 11:26:00,874 - INFO - Cache saved after 240 batches
+2025-03-13 11:26:33,614 - INFO - Cache saved after 245 batches
+2025-03-13 11:27:09,008 - INFO - Cache saved after 250 batches
+2025-03-13 11:27:41,670 - INFO - Cache saved after 255 batches
+2025-03-13 11:28:13,813 - INFO - Cache saved after 260 batches
+2025-03-13 11:28:41,378 - INFO - Cache saved after 265 batches
+2025-03-13 11:29:23,592 - INFO - Cache saved after 270 batches
+2025-03-13 11:29:58,451 - INFO - Cache saved after 275 batches
+2025-03-13 11:30:29,260 - INFO - Cache saved after 280 batches
+2025-03-13 11:30:57,326 - INFO - Cache saved after 285 batches
+2025-03-13 11:31:27,900 - INFO - Cache saved after 290 batches
+2025-03-13 11:32:06,688 - INFO - Cache saved after 295 batches
+2025-03-13 11:32:37,896 - INFO - Cache saved after 300 batches
+2025-03-13 11:33:10,204 - INFO - Cache saved after 305 batches
+2025-03-13 11:33:44,273 - INFO - Cache saved after 310 batches
+2025-03-13 11:34:22,084 - INFO - Cache saved after 315 batches
+2025-03-13 11:34:55,597 - INFO - Cache saved after 320 batches
+2025-03-13 11:35:36,274 - INFO - Cache saved after 325 batches
+2025-03-13 11:36:11,262 - INFO - Cache saved after 330 batches
+2025-03-13 11:36:42,651 - INFO - Cache saved after 335 batches
+2025-03-13 11:37:36,082 - INFO - Cache saved after 340 batches
+2025-03-13 11:38:24,181 - INFO - Cache saved after 345 batches
+2025-03-13 11:38:56,942 - INFO - Cache saved after 350 batches
+2025-03-13 11:39:40,998 - INFO - Cache saved after 355 batches
+2025-03-13 11:40:13,209 - INFO - Cache saved after 360 batches
+2025-03-13 11:40:46,214 - INFO - Cache saved after 365 batches
+2025-03-13 11:41:17,169 - INFO - Cache saved after 370 batches
+2025-03-13 11:42:00,785 - INFO - Cache saved after 375 batches
+2025-03-13 11:42:37,048 - INFO - Cache saved after 380 batches
+2025-03-13 11:43:23,275 - INFO - Cache saved after 385 batches
+2025-03-13 11:44:04,625 - INFO - Cache saved after 390 batches
+2025-03-13 11:44:51,616 - INFO - Cache saved after 395 batches
+2025-03-13 11:45:27,793 - INFO - Cache saved after 400 batches
+2025-03-13 11:46:04,293 - INFO - Cache saved after 405 batches
+2025-03-13 11:46:35,337 - INFO - Cache saved after 410 batches
+2025-03-13 11:47:08,029 - INFO - Cache saved after 415 batches
+2025-03-13 11:47:45,101 - INFO - Cache saved after 420 batches
+2025-03-13 11:48:18,818 - INFO - Cache saved after 425 batches
+2025-03-13 11:48:53,417 - INFO - Cache saved after 430 batches
+2025-03-13 11:49:30,847 - INFO - Cache saved after 435 batches
+2025-03-13 11:50:15,937 - INFO - Cache saved after 440 batches
+2025-03-13 11:50:49,477 - INFO - Cache saved after 445 batches
+2025-03-13 11:51:25,126 - INFO - Cache saved after 450 batches
+2025-03-13 11:52:00,994 - INFO - Cache saved after 455 batches
+2025-03-13 11:52:37,535 - INFO - Cache saved after 460 batches
+2025-03-13 11:53:07,191 - INFO - Cache saved after 465 batches
+2025-03-13 11:53:41,493 - INFO - Cache saved after 470 batches
+2025-03-13 11:54:15,562 - INFO - Cache saved after 475 batches
+2025-03-13 11:54:50,914 - INFO - Cache saved after 480 batches
+2025-03-13 11:55:38,452 - INFO - Cache saved after 485 batches
+2025-03-13 11:56:44,984 - INFO - Cache saved after 490 batches
+2025-03-13 11:57:20,940 - INFO - Cache saved after 495 batches
+2025-03-13 11:57:56,776 - INFO - Cache saved after 500 batches
+2025-03-13 11:58:29,582 - INFO - Cache saved after 505 batches
+2025-03-13 11:59:00,230 - INFO - Cache saved after 510 batches
+2025-03-13 11:59:32,288 - INFO - Cache saved after 515 batches
+2025-03-13 11:59:52,393 - WARNING - No valid results from batch. Skipping.
+2025-03-13 12:00:02,666 - INFO - Cache saved after 520 batches
+2025-03-13 12:00:35,175 - INFO - Cache saved after 525 batches
+2025-03-13 12:01:06,407 - INFO - Cache saved after 530 batches
+2025-03-13 12:01:26,843 - WARNING - No valid results from batch. Skipping.
+2025-03-13 12:01:42,916 - INFO - Cache saved after 535 batches
+2025-03-13 12:02:24,085 - INFO - Cache saved after 540 batches
+2025-03-13 12:02:56,138 - INFO - Cache saved after 545 batches
+2025-03-13 12:03:29,975 - INFO - Cache saved after 550 batches
+2025-03-13 12:04:03,843 - INFO - Cache saved after 555 batches
+2025-03-13 12:04:42,812 - INFO - Cache saved after 560 batches
+2025-03-13 12:05:17,341 - INFO - Cache saved after 565 batches
+2025-03-13 12:05:57,834 - INFO - Cache saved after 570 batches
+2025-03-13 12:06:32,541 - INFO - Cache saved after 575 batches
+2025-03-13 12:07:05,194 - INFO - Cache saved after 580 batches
+2025-03-13 12:07:40,448 - WARNING - No valid results from batch. Skipping.
+2025-03-13 12:07:48,616 - INFO - Cache saved after 585 batches
+2025-03-13 12:08:33,688 - INFO - Cache saved after 590 batches
+2025-03-13 12:09:16,088 - INFO - Cache saved after 595 batches
+2025-03-13 12:09:50,986 - INFO - Cache saved after 600 batches
+2025-03-13 12:10:21,057 - INFO - Cache saved after 605 batches
+2025-03-13 12:10:54,007 - INFO - Cache saved after 610 batches
+2025-03-13 12:11:26,235 - INFO - Cache saved after 615 batches
+2025-03-13 12:11:59,182 - INFO - Cache saved after 620 batches
+2025-03-13 12:12:29,706 - INFO - Cache saved after 625 batches
+2025-03-13 12:13:00,924 - INFO - Cache saved after 630 batches
+2025-03-13 12:13:32,344 - INFO - Cache saved after 635 batches
+2025-03-13 12:14:05,932 - INFO - Cache saved after 640 batches
+2025-03-13 12:14:45,495 - INFO - Cache saved after 645 batches
+2025-03-13 12:15:34,432 - INFO - Cache saved after 650 batches
+2025-03-13 12:16:06,991 - INFO - Cache saved after 655 batches
+2025-03-13 12:16:45,082 - INFO - Cache saved after 660 batches
+2025-03-13 12:17:20,146 - INFO - Cache saved after 665 batches
+2025-03-13 12:17:57,872 - INFO - Cache saved after 670 batches
+2025-03-13 12:18:44,908 - INFO - Cache saved after 675 batches
+2025-03-13 12:19:19,651 - INFO - Cache saved after 680 batches
+2025-03-13 12:19:52,316 - INFO - Cache saved after 685 batches
+2025-03-13 12:20:23,795 - INFO - Cache saved after 690 batches
+2025-03-13 12:20:57,234 - INFO - Cache saved after 695 batches
+2025-03-13 12:21:27,479 - INFO - Cache saved after 700 batches
+2025-03-13 12:22:02,573 - INFO - Cache saved after 705 batches
+2025-03-13 12:22:37,586 - INFO - Cache saved after 710 batches
+2025-03-13 12:23:15,494 - INFO - Cache saved after 715 batches
+2025-03-13 12:23:55,330 - INFO - Cache saved after 720 batches
+2025-03-13 12:24:26,252 - INFO - Cache saved after 725 batches
+2025-03-13 12:24:58,670 - INFO - Cache saved after 730 batches
+2025-03-13 12:25:36,861 - INFO - Cache saved after 735 batches
+2025-03-13 12:26:18,062 - INFO - Cache saved after 740 batches
+2025-03-13 12:26:50,889 - INFO - Cache saved after 745 batches
+2025-03-13 12:27:23,732 - INFO - Cache saved after 750 batches
+2025-03-13 12:28:03,003 - INFO - Cache saved after 755 batches
+2025-03-13 12:28:41,854 - INFO - Cache saved after 760 batches
+2025-03-13 12:29:10,812 - INFO - Cache saved after 765 batches
+2025-03-13 12:29:56,538 - INFO - Cache saved after 770 batches
+2025-03-13 12:30:31,069 - INFO - Cache saved after 775 batches
+2025-03-13 12:31:17,687 - INFO - Cache saved after 780 batches
+2025-03-13 12:32:04,487 - INFO - Cache saved after 785 batches
+2025-03-13 12:32:34,845 - INFO - Cache saved after 790 batches
+2025-03-13 12:33:10,145 - INFO - Cache saved after 795 batches
+2025-03-13 12:33:47,783 - INFO - Cache saved after 800 batches
+2025-03-13 12:34:34,665 - INFO - Cache saved after 805 batches
+2025-03-13 12:35:10,813 - INFO - Cache saved after 810 batches
+2025-03-13 12:35:41,451 - INFO - Cache saved after 815 batches
+2025-03-13 12:36:15,272 - INFO - Cache saved after 820 batches
+2025-03-13 12:36:47,222 - INFO - Cache saved after 825 batches
+2025-03-13 12:37:21,140 - INFO - Cache saved after 830 batches
+2025-03-13 12:37:55,990 - INFO - Cache saved after 835 batches
+2025-03-13 12:38:32,620 - INFO - Cache saved after 840 batches
+2025-03-13 12:39:01,446 - INFO - Cache saved after 845 batches
+2025-03-13 12:39:36,837 - INFO - Cache saved after 850 batches
+2025-03-13 12:40:13,176 - INFO - Cache saved after 855 batches
+2025-03-13 12:40:45,997 - INFO - Cache saved after 860 batches
+2025-03-13 12:41:15,346 - INFO - Cache saved after 865 batches
+2025-03-13 12:41:46,205 - INFO - Cache saved after 870 batches
+2025-03-13 12:42:29,568 - INFO - Cache saved after 875 batches
+2025-03-13 12:43:06,126 - INFO - Cache saved after 880 batches
+2025-03-13 12:43:34,965 - INFO - Cache saved after 885 batches
+2025-03-13 12:44:06,743 - INFO - Cache saved after 890 batches
+2025-03-13 12:44:43,093 - INFO - Cache saved after 895 batches
+2025-03-13 12:45:18,444 - INFO - Cache saved after 900 batches
+2025-03-13 12:46:05,503 - INFO - Cache saved after 905 batches
+2025-03-13 12:46:43,801 - INFO - Cache saved after 910 batches
+2025-03-13 12:47:20,321 - INFO - Cache saved after 915 batches
+2025-03-13 12:47:51,879 - INFO - Cache saved after 920 batches
+2025-03-13 12:48:30,438 - INFO - Cache saved after 925 batches
+2025-03-13 12:49:08,990 - INFO - Cache saved after 930 batches
+2025-03-13 12:49:42,297 - INFO - Cache saved after 935 batches
+2025-03-13 12:50:22,256 - INFO - Cache saved after 940 batches
+2025-03-13 12:50:54,243 - INFO - Cache saved after 945 batches
+2025-03-13 12:51:31,306 - INFO - Cache saved after 950 batches
+2025-03-13 12:52:05,724 - INFO - Cache saved after 955 batches
+2025-03-13 12:52:40,267 - INFO - Cache saved after 960 batches
+2025-03-13 12:53:17,516 - INFO - Cache saved after 965 batches
+2025-03-13 12:53:47,771 - INFO - Cache saved after 970 batches
+2025-03-13 12:54:19,751 - INFO - Cache saved after 975 batches
+2025-03-13 12:54:53,291 - INFO - Cache saved after 980 batches
+2025-03-13 12:55:25,640 - INFO - Cache saved after 985 batches
+2025-03-13 12:57:40,319 - INFO - Cache saved after 990 batches
+2025-03-13 12:58:13,297 - INFO - Cache saved after 995 batches
+2025-03-13 12:58:42,118 - INFO - Cache saved after 1000 batches
+2025-03-13 12:59:14,720 - INFO - Cache saved after 1005 batches
+2025-03-13 12:59:52,556 - INFO - Cache saved after 1010 batches
+2025-03-13 13:00:27,535 - INFO - Cache saved after 1015 batches
+2025-03-13 13:01:04,234 - INFO - Cache saved after 1020 batches
+2025-03-13 13:01:38,816 - INFO - Cache saved after 1025 batches
+2025-03-13 13:02:13,786 - INFO - Cache saved after 1030 batches
+2025-03-13 13:02:53,822 - INFO - Cache saved after 1035 batches
+2025-03-13 13:03:25,093 - INFO - Cache saved after 1040 batches
+2025-03-13 13:03:58,546 - INFO - Cache saved after 1045 batches
+2025-03-13 13:04:29,931 - INFO - Cache saved after 1050 batches
+2025-03-13 13:05:18,563 - INFO - Cache saved after 1055 batches
+2025-03-13 13:06:08,110 - INFO - Cache saved after 1060 batches
+2025-03-13 13:06:40,879 - INFO - Cache saved after 1065 batches
+2025-03-13 13:07:18,030 - INFO - Cache saved after 1070 batches
+2025-03-13 13:08:06,489 - INFO - Cache saved after 1075 batches
+2025-03-13 13:08:14,074 - WARNING - No valid results from batch. Skipping.
+2025-03-13 13:08:40,821 - INFO - Cache saved after 1080 batches
+2025-03-13 13:09:30,832 - INFO - Cache saved after 1085 batches
+2025-03-13 13:10:05,380 - INFO - Cache saved after 1090 batches
+2025-03-13 13:10:40,020 - INFO - Cache saved after 1095 batches
+2025-03-13 13:11:26,678 - INFO - Cache saved after 1100 batches
+2025-03-13 13:12:12,844 - INFO - Cache saved after 1105 batches
+2025-03-13 13:12:32,405 - WARNING - No valid results from batch. Skipping.
+2025-03-13 13:12:43,224 - INFO - Cache saved after 1110 batches
+2025-03-13 13:13:31,482 - INFO - Cache saved after 1115 batches
+2025-03-13 13:14:09,853 - INFO - Cache saved after 1120 batches
+2025-03-13 13:14:56,792 - INFO - Cache saved after 1125 batches
+2025-03-13 13:15:39,346 - INFO - Cache saved after 1130 batches
+2025-03-13 13:16:11,173 - INFO - Cache saved after 1135 batches
+2025-03-13 13:16:48,431 - INFO - Cache saved after 1140 batches
+2025-03-13 13:17:21,320 - INFO - Cache saved after 1145 batches
+2025-03-13 13:17:56,278 - INFO - Cache saved after 1150 batches
+2025-03-13 13:18:29,513 - INFO - Cache saved after 1155 batches
+2025-03-13 13:19:21,691 - INFO - Cache saved after 1160 batches
+2025-03-13 13:20:07,866 - INFO - Cache saved after 1165 batches
+2025-03-13 13:20:42,996 - INFO - Cache saved after 1170 batches
+2025-03-13 13:21:16,239 - INFO - Cache saved after 1175 batches
+2025-03-13 13:22:06,746 - INFO - Cache saved after 1180 batches
+2025-03-13 13:22:52,067 - INFO - Cache saved after 1185 batches
+2025-03-13 13:23:23,996 - INFO - Cache saved after 1190 batches
+2025-03-13 13:24:15,785 - INFO - Cache saved after 1195 batches
+2025-03-13 13:25:04,475 - INFO - Cache saved after 1200 batches
+2025-03-13 13:25:40,596 - INFO - Cache saved after 1205 batches
+2025-03-13 13:26:09,390 - INFO - Cache saved after 1210 batches
+2025-03-13 13:26:39,851 - INFO - Cache saved after 1215 batches
+2025-03-13 13:27:15,781 - INFO - Cache saved after 1220 batches
+2025-03-13 13:27:45,296 - INFO - Cache saved after 1225 batches
+2025-03-13 13:28:19,277 - INFO - Cache saved after 1230 batches
+2025-03-13 13:28:55,626 - INFO - Cache saved after 1235 batches
+2025-03-13 13:29:30,285 - INFO - Cache saved after 1240 batches
+2025-03-13 13:30:12,226 - INFO - Cache saved after 1245 batches
+2025-03-13 13:30:35,329 - WARNING - No valid results from batch. Skipping.
+2025-03-13 13:31:07,527 - INFO - Cache saved after 1250 batches
+2025-03-13 13:31:13,115 - WARNING - No valid results from batch. Skipping.
+2025-03-13 13:31:40,374 - INFO - Cache saved after 1255 batches
+2025-03-13 13:32:25,504 - INFO - Cache saved after 1260 batches
+2025-03-13 13:33:11,344 - INFO - Cache saved after 1265 batches
+2025-03-13 13:33:51,745 - INFO - Cache saved after 1270 batches
+2025-03-13 13:34:29,483 - INFO - Cache saved after 1275 batches
+2025-03-13 13:35:12,212 - INFO - Cache saved after 1280 batches
+2025-03-13 13:36:19,069 - INFO - Cache saved after 1285 batches
+2025-03-13 13:36:49,309 - INFO - Cache saved after 1290 batches
+2025-03-13 13:37:26,407 - INFO - Cache saved after 1295 batches
+2025-03-13 13:37:55,379 - INFO - Cache saved after 1300 batches
+2025-03-13 13:38:45,447 - INFO - Cache saved after 1305 batches
+2025-03-13 13:39:19,286 - INFO - Cache saved after 1310 batches
+2025-03-13 13:39:55,996 - INFO - Cache saved after 1315 batches
+2025-03-13 13:40:32,155 - INFO - Cache saved after 1320 batches
+2025-03-13 13:41:11,957 - INFO - Cache saved after 1325 batches
+2025-03-13 13:42:14,054 - INFO - Cache saved after 1330 batches
+2025-03-13 13:42:43,347 - INFO - Cache saved after 1335 batches
+2025-03-13 13:43:15,996 - INFO - Cache saved after 1340 batches
+2025-03-13 13:44:08,181 - INFO - Cache saved after 1345 batches
+2025-03-13 13:44:47,102 - INFO - Cache saved after 1350 batches
+2025-03-13 13:45:19,433 - INFO - Cache saved after 1355 batches
+2025-03-13 13:45:51,540 - INFO - Cache saved after 1360 batches
+2025-03-13 13:46:28,395 - INFO - Cache saved after 1365 batches
+2025-03-13 13:47:01,381 - INFO - Cache saved after 1370 batches
+2025-03-13 13:47:36,008 - INFO - Cache saved after 1375 batches
+2025-03-13 13:48:08,518 - INFO - Cache saved after 1380 batches
+2025-03-13 13:48:43,336 - INFO - Cache saved after 1385 batches
+2025-03-13 13:49:17,277 - INFO - Cache saved after 1390 batches
+2025-03-13 13:49:50,528 - INFO - Cache saved after 1395 batches
+2025-03-13 13:50:29,038 - INFO - Cache saved after 1400 batches
+2025-03-13 13:51:08,945 - INFO - Cache saved after 1405 batches
+2025-03-13 13:51:48,732 - INFO - Cache saved after 1410 batches
+2025-03-13 13:52:21,753 - INFO - Cache saved after 1415 batches
+2025-03-13 13:52:57,881 - INFO - Cache saved after 1420 batches
+2025-03-13 13:53:32,995 - INFO - Cache saved after 1425 batches
+2025-03-13 13:54:09,510 - INFO - Cache saved after 1430 batches
+2025-03-13 13:54:48,540 - INFO - Cache saved after 1435 batches
+2025-03-13 13:55:19,241 - INFO - Cache saved after 1440 batches
+2025-03-13 13:55:53,779 - INFO - Cache saved after 1445 batches
+2025-03-13 13:56:30,047 - INFO - Cache saved after 1450 batches
+2025-03-13 13:57:05,914 - WARNING - No valid results from batch. Skipping.
+2025-03-13 13:57:37,010 - INFO - Cache saved after 1460 batches
+2025-03-13 13:58:11,447 - INFO - Cache saved after 1465 batches
+2025-03-13 13:58:49,314 - INFO - Cache saved after 1470 batches
+2025-03-13 13:59:25,465 - INFO - Cache saved after 1475 batches
+2025-03-13 13:59:58,384 - INFO - Cache saved after 1480 batches
+2025-03-13 14:00:29,515 - INFO - Cache saved after 1485 batches
+2025-03-13 14:01:03,384 - INFO - Cache saved after 1490 batches
+2025-03-13 14:01:37,475 - INFO - Cache saved after 1495 batches
+2025-03-13 14:02:09,482 - INFO - Cache saved after 1500 batches
+2025-03-13 14:02:43,283 - INFO - Cache saved after 1505 batches
+2025-03-13 14:03:16,482 - INFO - Cache saved after 1510 batches
+2025-03-13 14:03:47,072 - INFO - Cache saved after 1515 batches
+2025-03-13 14:04:19,139 - INFO - Cache saved after 1520 batches
+2025-03-13 14:05:03,942 - INFO - Cache saved after 1525 batches
+2025-03-13 14:05:34,608 - INFO - Cache saved after 1530 batches
+2025-03-13 14:06:03,634 - WARNING - No valid results from batch. Skipping.
+2025-03-13 14:06:10,518 - INFO - Cache saved after 1535 batches
+2025-03-13 14:06:44,338 - INFO - Cache saved after 1540 batches
+2025-03-13 14:07:13,213 - WARNING - Mismatch between response texts (0) and batch items (1). Skipping batch.
+2025-03-13 14:07:13,214 - WARNING - Response: []
+2025-03-13 14:07:13,214 - WARNING - No valid results from batch. Skipping.
+2025-03-13 14:07:18,527 - INFO - Cache saved after 1545 batches
+2025-03-13 14:07:56,409 - INFO - Cache saved after 1550 batches
+2025-03-13 14:08:31,747 - INFO - Cache saved after 1555 batches
+2025-03-13 14:09:05,276 - INFO - Cache saved after 1560 batches
+2025-03-13 14:10:00,895 - INFO - Cache saved after 1565 batches
+2025-03-13 14:10:49,693 - INFO - Cache saved after 1570 batches
+2025-03-13 14:11:24,995 - INFO - Cache saved after 1575 batches
+2025-03-13 14:12:01,934 - INFO - Cache saved after 1580 batches
+2025-03-13 14:12:44,421 - INFO - Cache saved after 1585 batches
+2025-03-13 14:13:21,563 - INFO - Cache saved after 1590 batches
+2025-03-13 14:13:56,760 - INFO - Cache saved after 1595 batches
+2025-03-13 14:14:35,531 - INFO - Cache saved after 1600 batches
+2025-03-13 14:15:15,837 - INFO - Cache saved after 1605 batches
+2025-03-13 14:15:47,679 - INFO - Cache saved after 1610 batches
+2025-03-13 14:16:22,776 - INFO - Cache saved after 1615 batches
+2025-03-13 14:16:55,597 - INFO - Cache saved after 1620 batches
+2025-03-13 14:17:28,575 - INFO - Cache saved after 1625 batches
+2025-03-13 14:18:16,527 - INFO - Cache saved after 1630 batches
+2025-03-13 14:18:49,765 - INFO - Cache saved after 1635 batches
+2025-03-13 14:19:21,845 - INFO - Cache saved after 1640 batches
+2025-03-13 14:19:57,124 - INFO - Cache saved after 1645 batches
+2025-03-13 14:20:31,923 - INFO - Cache saved after 1650 batches
+2025-03-13 14:21:06,735 - INFO - Cache saved after 1655 batches
+2025-03-13 14:21:38,282 - INFO - Total input tokens used: 332265236
+2025-03-13 14:21:38,283 - INFO - Total output tokens used: 35833
+2025-03-13 14:21:38,283 - INFO - Total cost of this call: $49.8613
+2025-03-13 14:21:38,285 - INFO - Probabilities shape: (1853, 10)
+2025-03-13 14:30:55,654 - INFO - Logger initialized for ArtDL/test_3/gpt-4o-mini
+2025-03-13 14:30:55,657 - INFO - Starting classification for dataset=ArtDL, test=test_3, model=gpt-4o-mini
+2025-03-13 14:30:55,667 - INFO - Number of images: 1864
+2025-03-13 14:30:55,667 - INFO - Processing dataset: ArtDL
+2025-03-13 14:30:55,670 - INFO - Processing images for test: test_3
+2025-03-13 14:30:55,761 - INFO - Loaded 1853 valid cached results (ignoring zero arrays)
+2025-03-13 14:30:55,761 - INFO - Using model: gpt-4o-mini
+2025-03-13 14:31:02,854 - WARNING - No valid results from batch. Skipping.
+2025-03-13 14:31:28,013 - INFO - Cache saved after 5 batches
+2025-03-13 14:31:58,358 - WARNING - No valid results from batch. Skipping.
+2025-03-13 14:32:05,572 - INFO - Cache saved after 10 batches
+2025-03-13 14:32:24,370 - INFO - Total input tokens used: 2215313
+2025-03-13 14:32:24,370 - INFO - Total output tokens used: 233
+2025-03-13 14:32:24,370 - INFO - Total cost of this call: $0.3324
+2025-03-13 14:32:24,373 - INFO - Probabilities shape: (1862, 10)
+2025-03-13 14:32:33,818 - INFO - Logger initialized for ArtDL/test_3/gpt-4o-mini
+2025-03-13 14:32:33,821 - INFO - Starting classification for dataset=ArtDL, test=test_3, model=gpt-4o-mini
+2025-03-13 14:32:33,831 - INFO - Number of images: 1864
+2025-03-13 14:32:33,831 - INFO - Processing dataset: ArtDL
+2025-03-13 14:32:33,834 - INFO - Processing images for test: test_3
+2025-03-13 14:32:33,924 - INFO - Loaded 1862 valid cached results (ignoring zero arrays)
+2025-03-13 14:32:33,925 - INFO - Using model: gpt-4o-mini
+2025-03-13 14:32:48,136 - INFO - Total input tokens used: 398657
+2025-03-13 14:32:48,136 - INFO - Total output tokens used: 40
+2025-03-13 14:32:48,136 - INFO - Total cost of this call: $0.0598
+2025-03-13 14:32:48,138 - INFO - Probabilities shape: (1864, 10)
