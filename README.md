@@ -73,9 +73,16 @@ Accuracy per model
 
 ### IconArt
 
-This dataset contains 5955 images (from WikiCommons): a train set of 2978 images and a test set of 2977 images (for classification task). 1480 of the 2977 images are annotated with bounding boxes for seven classes: ‘angel’, ‘Child_Jesus’, ‘crucifixion_of_Jesus’,‘Mary’,‘nudity’, ‘ruins’,‘Saint_Sebastien’. The version 2 of the database contains 10 classes with the same images. The classes are ‘angel’,‘beard’,‘capital’,‘Child_Jesus’,‘crucifixion_of_Jesus’,‘Mary’,‘nudity’,‘ruins’,‘Saint_Sebastien’,‘turban’.
+This dataset contains 5955 images (from WikiCommons): a train set of 2978 images and a test set of 2977 images (for classification task). 
+
+1480 of the 2977 images are annotated with bounding boxes for seven classes: `angel`, `Child_Jesus`, `crucifixion_of_Jesus`, `Mary`, `nudity`, `ruins`, `Saint_Sebastien`. 
+
+Version 2 of the database contains 10 classes with the same images. The classes are `angel`, `beard`, `capital`, `Child_Jesus`, `crucifixion_of_Jesus`, `Mary`, `nudity`, `ruins`, `Saint_Sebastien`, and `turban`.
 
 The dataset is available on [Zenodo](https://zenodo.org/records/4737435). The version used for this experiment is IconArt_v2.zip.
+
+**Note:** Currently, these results are based on a new test set made up of 1955. These images belong to **only one** class.
+
 
 To handle the test with the description, I found the corresponding ICONCLASS ID and used the related description.
 
