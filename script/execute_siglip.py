@@ -59,7 +59,7 @@ def main(models, folders, datasets):
           processor = AutoProcessor.from_pretrained(f'google/{model_name}')
           
           if folder in ["test_3", "test_4"]:
-            model_path = os.path.join(base_dir, 'test_3', model_name, 'model.pth')
+            model_path = os.path.join(base_dir, 'test_3', dataset, model_name, 'model.pth')
             model = AutoModel.from_pretrained(f'google/{model_name}').to(device)
             model.load_state_dict(torch.load(model_path, map_location=device, weights_only=False))
             print(f"Loaded fine-tuned model from {model_path}")

@@ -1,6 +1,8 @@
 import os
 import torch
 import click
+import csv
+import pandas as pd
 from PIL import Image
 from tqdm import tqdm
 from torchvision import transforms
@@ -26,15 +28,7 @@ arch_models = {
   'siglip-so400m-patch14-384': ('google/siglip-so400m-patch14-384', SIGLIP_MODEL)
 }
 
-artdl_list_image_path = [
-  "0c8573aa-ad2d-4672-bc2c-7067bd863153_bb1e7952-4766-41b9-bfdf-1abf01bac531.jpg",
-  "2e9faf04-90cf-4973-b253-c77c53dd1ccf_f450ccb9-2973-442a-89a4-fa54eeeedd20.jpg",
-  "1942_9_17_c.jpg",
-  "1440147397.jpg",
-  "1828079898.jpg"
-]
-
-def convert_models_to_fp32(model): 
+def convert_models_to_fp32(model):
     """Convert model parameters to float32"""
     for p in model.parameters(): 
         p.data = p.data.float() 
@@ -68,30 +62,91 @@ class CustomImageDataset(Dataset):
               help='List of models to train (supports CLIP and SIGLIP)')
 @click.option('--num_epochs', default=150, help='Number of epochs to train')
 @click.option('--lr', default=1e-5, help='Learning rate')
-@click.option('--datasets', multiple=True, default=["ArtDL"], help='Number of epochs to train')
+@click.option('--datasets', multiple=True, default=["ArtDL", "IconArt"], help='Number of epochs to train')
 def main(folders, models, num_epochs, lr, datasets):
 
   for dataset_name in datasets:
+    # Get the base directory for the current dataset
+    curr_dir = os.path.dirname(os.path.abspath(__file__))
+    dataset_dir = os.path.join(curr_dir, os.pardir, "dataset", f"{dataset_name}-data")
     
+    # Read the classes.csv file to get class information
+    classes_file = os.path.join(dataset_dir, "classes.csv")
+    class_info = {}
     
-    if dataset_name == "ArtDL":
-      image_paths = artdl_list_image_path
-      list_txt_base = [
-        ("11H(JEROME)", "Jerome", "the monk and hermit Jerome (Hieronymus); possible attributes: book, cardinal's hat, crucifix, hour-glass, lion, skull, stone"),
-        ("11H(DOMINIC)", "Saint Dominic", "Dominic(us) Guzman of Calerueja, founder of the Order of Preachers (or Dominican (Black) Friars; possible attributes: book, dog with flaming torch, lily, loaf of bread, rosary, star"),
-        ("11H(FRANCIS)", "Francis of Assisi", "founder of the Order of Friars Minor (Franciscans), Francis(cus) of Assisi; possible attributes: book, crucifix, lily, skull, stigmata"),
-        ("11H(PETER)", "Peter", "the apostle Peter, first bishop of Rome; possible attributes: book, cock, (upturned) cross, (triple) crozier, fish, key, scroll, ship, tiara"),
-        ("11H(PAUL)", "Paul", "the apostle Paul of Tarsus; possible attributes: book, scroll, sword")
-      ]
-  
+    try:
+      # Read the classes CSV file
+      df_classes = pd.read_csv(classes_file)
+      
+      # Handle different column names in different datasets
+      id_col = "ID" if "ID" in df_classes.columns else "ICONCLASS ID"
+      label_col = "Label" if "Label" in df_classes.columns else "Label"
+      
+      # Create a mapping from class ID to label
+      for _, row in df_classes.iterrows():
+        class_info[row[id_col]] = row[label_col]
+    except Exception as e:
+      print(f"Error reading classes file for {dataset_name}: {e}")
+      continue
+    
+    # Read the few-shot data to get image paths and classes
+    # Try different possible filenames
+    few_shot_dir = os.path.join(dataset_dir, "few-shot")
+    possible_filenames = ["classes.csv", "train_data.csv", "few-shot_test.csv"]
+    
+    image_paths = []
+    list_txt_base = []
+    
+    for filename in possible_filenames:
+      few_shot_file = os.path.join(few_shot_dir, filename)
+      if os.path.exists(few_shot_file):
+        try:
+          df_few_shot = pd.read_csv(few_shot_file)
+          
+          # Determine column names based on available columns
+          img_col = None
+          class_col = None
+          
+          if "IMG" in df_few_shot.columns:
+            img_col = "IMG"
+          elif "item" in df_few_shot.columns:
+            img_col = "item"
+            
+          if "GT" in df_few_shot.columns:
+            class_col = "GT"
+          elif "class" in df_few_shot.columns:
+            class_col = "class"
+          
+          if img_col and class_col:
+            # Get image paths and class IDs
+            for _, row in df_few_shot.iterrows():
+              img_path = f"{row[img_col]}.jpg" if not str(row[img_col]).endswith(".jpg") else row[img_col]
+              class_id = row[class_col]
+              
+              # Add to image paths
+              image_paths.append(img_path)
+              
+              # Add to list_txt_base if the class ID exists in class_info
+              if class_id in class_info:
+                list_txt_base.append((class_id, class_info[class_id]))
+              else:
+                print(f"Warning: Class ID {class_id} not found in classes.csv for {dataset_name}")
+            
+            # Break after finding and processing the first valid file
+            break
+        except Exception as e:
+          print(f"Error reading few-shot file {filename} for {dataset_name}: {e}")
+    
+    if not image_paths or not list_txt_base:
+      print(f"No valid few-shot data found for {dataset_name}. Skipping.")
+      continue
+    
     device = "cuda" if torch.cuda.is_available() else "cpu"
 
     for folder_name in folders:
       
-      if folder_name == 'test_3':
-          list_txt = [(item[0], item[1]) for item in list_txt_base]
-      elif folder_name == 'test_4':
-          list_txt = [(item[0], item[2]) for item in list_txt_base]
+      # Only test_3 is needed now (no descriptions)
+      list_txt = list_txt_base
       
       for model_name in models:
           if model_name not in arch_models:
@@ -130,7 +185,7 @@ def main(folders, models, num_epochs, lr, datasets):
 
           # Prepare dataset & loader
           curr_dir = os.path.dirname(os.path.abspath(__file__))
-          image_folder = os.path.join(curr_dir, os.pardir, "dataset", dataset_name, "JPEGImages/")
+          image_folder = os.path.join(curr_dir, os.pardir, "dataset", f"{dataset_name}-data", "few-shot")
 
           
           if "512" in model_name:
