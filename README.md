@@ -97,16 +97,16 @@ To handle the test with the description, I found the corresponding ICONCLASS ID 
 
 #### Results
 
-| Model                     | zero-shot (labels)   | few-shot[*](dataset/ArtDL-data/README.md) (labels)   | zero-shot (descriptions)   |
-|:--------------------------|:---------|:---------|:---------|
-| clip-vit-base-patch32     | 35.91%   | 35.52%   |  -   |
-| clip-vit-base-patch16     | 32.92%   | 32.53%   |  -   |
-| clip-vit-large-patch14    | 30.89%   | 30.89%   |  -   |
-| siglip-base-patch16-512   | 39.19%   | 46.72%   |  -   |
-| siglip-large-patch16-384  | 43.05%   | 48.36%   |  -   |
-| siglip-so400m-patch14-384 | 43.15%   | 48.07%   |  -   |
-| gpt-4o-mini               | 39.19%   |  -   |  -   |
-| gpt-4o                    | 48.46%   | -    |  -   |
+| Model                     | zero-shot (labels)   | few-shot[*](dataset/IconArt.ipynb) (labels)   | zero-shot (descriptions)   |
+|:--------------------------|:---------------------|:----------------------------------------------|:---------------------------|
+| clip-vit-base-patch32     | 7.05%                | 5.79%                                         | 8.49%                      |
+| clip-vit-base-patch16     | 7.14%                | 7.72%                                         | 8.30%                      |
+| clip-vit-large-patch14    | 6.37%                | 5.21%                                         | 6.76%                      |
+| siglip-base-patch16-512   | 7.53%                | 7.53%                                         | 8.30%                      |
+| siglip-large-patch16-384  | 7.72%                | 8.01%                                         | 7.82%                      |
+| siglip-so400m-patch14-384 | 6.76%                | 6.56%                                         | 8.49%                      |
+| gpt-4o-mini               | 9.07%                | -                                             | 9.51%                      |
+| gpt-4o                    | 10.91%               | -                                             | 12.26%                     |
 
 
 **Table X.**
