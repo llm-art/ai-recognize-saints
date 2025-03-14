@@ -6,3 +6,4 @@ dataset/IconArt
 *.pth
 *.zip
 .DS_Store
+*.pyc
