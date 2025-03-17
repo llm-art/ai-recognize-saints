@@ -9,8 +9,8 @@ Primary datasets:
 2. [WikiArt](https://github.com/cs-chan/ArtGAN/tree/master/WikiArt%20Dataset)
 
 Secondary datasets:
-2. [IconArt](https://zenodo.org/records/4737435)
-3. [IICONGRAPH](https://zenodo.org/records/10294589)
+1. [IconArt](https://zenodo.org/records/4737435)
+2. [IICONGRAPH](https://zenodo.org/records/10294589)
 
 For each dataset, we perform three tests:
 
