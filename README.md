@@ -3,8 +3,12 @@
 This experiment involves testing Zero-shot (and few-shot) image classification with LLMs against the performances of a fine-tuned supervised approach.
 Specifically, we consider the datasets proposed in [XX, XX, XX].
 
-The datasets are:
+Primary datasets:
+
 1. [ArtDL](https://artdl.org/)
+2. [WikiArt](https://github.com/cs-chan/ArtGAN/tree/master/WikiArt%20Dataset)
+
+Secondary datasets:
 2. [IconArt](https://zenodo.org/records/4737435)
 3. [IICONGRAPH](https://zenodo.org/records/10294589)
 
