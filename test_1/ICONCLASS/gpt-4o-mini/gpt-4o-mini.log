@@ -1,0 +1,122 @@
+2025-03-19 12:58:15,377 - INFO - Logger initialized for ICONCLASS/test_1/gpt-4o-mini
+2025-03-19 12:58:15,385 - INFO - Starting classification for dataset=ICONCLASS, test=test_1, model=gpt-4o-mini
+2025-03-19 12:58:15,389 - INFO - Number of images: 592
+2025-03-19 12:58:15,390 - INFO - Processing dataset: ICONCLASS
+2025-03-19 12:58:15,399 - INFO - Processing images for test: test_1
+2025-03-19 12:58:15,509 - INFO - Using model: gpt-4o-mini
+2025-03-19 13:00:50,139 - INFO - Logger initialized for ICONCLASS/test_1/gpt-4o-mini
+2025-03-19 13:00:50,145 - INFO - Starting classification for dataset=ICONCLASS, test=test_1, model=gpt-4o-mini
+2025-03-19 13:00:50,149 - INFO - Number of images: 592
+2025-03-19 13:00:50,149 - INFO - Processing dataset: ICONCLASS
+2025-03-19 13:00:50,156 - INFO - Processing images for test: test_1
+2025-03-19 13:00:50,263 - INFO - Using model: gpt-4o-mini
+2025-03-19 13:01:27,245 - WARNING - Mismatch between response texts (9) and batch items (10). Skipping batch.
+2025-03-19 13:01:27,246 - WARNING - Response: ['11HH(MARY MAGDALENE)', '11H(JOHN)', '11H(MATTHEW)', '11H(PETER)', '11H(MATTHEW)', '11H(JOHN)', '11H(ANTONY ABBOT)', '11H(ANTONY ABBOT)', '11H(MARY MAGDALENE)']
+2025-03-19 13:01:27,247 - WARNING - No valid results from batch. Skipping.
+2025-03-19 13:01:33,116 - WARNING - Mismatch between response texts (9) and batch items (10). Skipping batch.
+2025-03-19 13:01:33,118 - WARNING - Response: ['11H(JOHN)', '11H(JEROME)', '11H(MATTHEW)', '11H(PAUL)', '11H(ANTONY ABBOT)', '11HH(MARY MAGDALENE)', '11H(FRANCIS)', '11H(JOHN THE BAPTIST)', '11H(MARK)']
+2025-03-19 13:01:33,119 - WARNING - No valid results from batch. Skipping.
+2025-03-19 13:01:41,456 - WARNING - Mismatch between response texts (9) and batch items (10). Skipping batch.
+2025-03-19 13:01:41,457 - WARNING - Response: ['11HH(MARY MAGDALENE)', '11H(PAUL)', '11H(PETER)', '11H(ANTONY ABBOT)', '11H(JOHN)', '11H(PAUL)', '11HH(MARY MAGDALENE)', '11H(PETER)', '11HH(MARY MAGDALENE)']
+2025-03-19 13:01:41,457 - WARNING - No valid results from batch. Skipping.
+2025-03-19 13:02:21,689 - WARNING - Mismatch between response texts (8) and batch items (10). Skipping batch.
+2025-03-19 13:02:21,690 - WARNING - Response: ['11HH(CATHERINE)', '11H(JOHN THE BAPTIST)', '11HH(MARY MAGDALENE)', '11H(PETER)', '11H(FRANCIS)', '11HH(CATHERINE)', '11H(PAUL)', '11H(JEROME)']
+2025-03-19 13:02:21,691 - WARNING - No valid results from batch. Skipping.
+2025-03-19 13:02:29,344 - WARNING - Mismatch between response texts (8) and batch items (10). Skipping batch.
+2025-03-19 13:02:29,345 - WARNING - Response: ['11H(PAUL)', '11HH(CATHERINE)', '11HH(CATHERINE)', '11H(PAUL)', '11HH(MARY MAGDALENE)', '11HH(MARY MAGDALENE)', '11H(JOHN)', '11H(PETER)']
+2025-03-19 13:02:29,345 - WARNING - No valid results from batch. Skipping.
+2025-03-19 13:03:06,610 - INFO - Logger initialized for ICONCLASS/test_1/gpt-4o-mini
+2025-03-19 13:03:06,616 - INFO - Starting classification for dataset=ICONCLASS, test=test_1, model=gpt-4o-mini
+2025-03-19 13:03:06,620 - INFO - Number of images: 592
+2025-03-19 13:03:06,620 - INFO - Processing dataset: ICONCLASS
+2025-03-19 13:03:06,628 - INFO - Processing images for test: test_1
+2025-03-19 13:03:06,735 - INFO - Using model: gpt-4o-mini
+2025-03-19 13:03:06,736 - INFO - Limiting to 200 images
+2025-03-19 13:03:31,869 - INFO - Cache saved after 5 batches
+2025-03-19 13:03:54,280 - INFO - Cache saved after 10 batches
+2025-03-19 13:04:23,672 - INFO - Cache saved after 15 batches
+2025-03-19 13:04:49,413 - INFO - Cache saved after 20 batches
+2025-03-19 13:05:13,111 - INFO - Cache saved after 25 batches
+2025-03-19 13:05:37,498 - INFO - Cache saved after 30 batches
+2025-03-19 13:05:57,687 - INFO - Cache saved after 35 batches
+2025-03-19 13:06:20,239 - INFO - Cache saved after 40 batches
+2025-03-19 13:06:20,251 - INFO - Total input tokens used: 1718577
+2025-03-19 13:06:20,251 - INFO - Total output tokens used: 3959
+2025-03-19 13:06:20,251 - INFO - Total cost of this call: $0.2602
+2025-03-19 13:06:20,251 - INFO - Requested limit: 200, Actual processed: 197
+2025-03-19 13:06:20,252 - INFO - Probabilities shape: (197, 11)
+2025-03-19 13:06:40,432 - INFO - Logger initialized for ICONCLASS/test_1/gpt-4o-mini
+2025-03-19 13:06:40,438 - INFO - Starting classification for dataset=ICONCLASS, test=test_1, model=gpt-4o-mini
+2025-03-19 13:06:40,442 - INFO - Number of images: 592
+2025-03-19 13:06:40,442 - INFO - Processing dataset: ICONCLASS
+2025-03-19 13:06:40,450 - INFO - Processing images for test: test_1
+2025-03-19 13:06:40,560 - INFO - Loaded 197 valid cached results (ignoring zero arrays)
+2025-03-19 13:06:40,561 - INFO - Using model: gpt-4o-mini
+2025-03-19 13:06:40,561 - INFO - Limiting to 200 images
+2025-03-19 13:06:45,569 - INFO - Total input tokens used: 26735
+2025-03-19 13:06:45,569 - INFO - Total output tokens used: 71
+2025-03-19 13:06:45,569 - INFO - Total cost of this call: $0.0041
+2025-03-19 13:06:45,569 - INFO - Requested limit: 200, Actual processed: 200
+2025-03-19 13:06:45,570 - INFO - Probabilities shape: (200, 11)
+2025-03-19 13:12:34,876 - INFO - Logger initialized for ICONCLASS/test_1/gpt-4o-mini
+2025-03-19 13:12:34,882 - INFO - Starting classification for dataset=ICONCLASS, test=test_1, model=gpt-4o-mini
+2025-03-19 13:12:34,886 - INFO - Number of images: 592
+2025-03-19 13:12:34,887 - INFO - Processing dataset: ICONCLASS
+2025-03-19 13:12:34,894 - INFO - Processing images for test: test_1
+2025-03-19 13:12:35,005 - INFO - Loaded 200 valid cached results (ignoring zero arrays)
+2025-03-19 13:12:35,005 - INFO - Using model: gpt-4o-mini
+2025-03-19 13:12:35,005 - INFO - Limiting to 400 images
+2025-03-19 13:12:58,309 - INFO - Cache saved after 5 batches
+2025-03-19 13:13:20,493 - INFO - Cache saved after 10 batches
+2025-03-19 13:13:44,073 - INFO - Cache saved after 15 batches
+2025-03-19 13:14:12,012 - INFO - Cache saved after 20 batches
+2025-03-19 13:14:47,732 - INFO - Cache saved after 25 batches
+2025-03-19 13:15:09,015 - INFO - Cache saved after 30 batches
+2025-03-19 13:15:33,464 - INFO - Cache saved after 35 batches
+2025-03-19 13:15:56,984 - INFO - Cache saved after 40 batches
+2025-03-19 13:15:57,005 - INFO - Total input tokens used: 1718593
+2025-03-19 13:15:57,005 - INFO - Total output tokens used: 3986
+2025-03-19 13:15:57,005 - INFO - Total cost of this call: $0.2602
+2025-03-19 13:15:57,005 - INFO - Requested limit: 400, Actual processed: 396
+2025-03-19 13:15:57,007 - INFO - Probabilities shape: (396, 11)
+2025-03-19 13:17:08,197 - INFO - Logger initialized for ICONCLASS/test_1/gpt-4o-mini
+2025-03-19 13:17:08,200 - INFO - Starting classification for dataset=ICONCLASS, test=test_1, model=gpt-4o-mini
+2025-03-19 13:17:08,202 - INFO - Number of images: 592
+2025-03-19 13:17:08,202 - INFO - Processing dataset: ICONCLASS
+2025-03-19 13:17:08,206 - INFO - Processing images for test: test_1
+2025-03-19 13:17:08,268 - INFO - Loaded 396 valid cached results (ignoring zero arrays)
+2025-03-19 13:17:08,268 - INFO - Using model: gpt-4o-mini
+2025-03-19 13:17:21,905 - INFO - Cache saved after 5 batches
+2025-03-19 13:17:42,653 - INFO - Cache saved after 10 batches
+2025-03-19 13:18:17,013 - INFO - Cache saved after 15 batches
+2025-03-19 13:18:47,885 - INFO - Cache saved after 20 batches
+2025-03-19 13:19:13,805 - INFO - Cache saved after 25 batches
+2025-03-19 13:19:34,894 - INFO - Cache saved after 30 batches
+2025-03-19 13:19:54,740 - INFO - Cache saved after 35 batches
+2025-03-19 13:20:20,577 - INFO - Cache saved after 40 batches
+2025-03-19 13:20:33,327 - INFO - Total input tokens used: 1685732
+2025-03-19 13:20:33,328 - INFO - Total output tokens used: 3882
+2025-03-19 13:20:33,328 - INFO - Total cost of this call: $0.2552
+2025-03-19 13:20:33,330 - INFO - Probabilities shape: (588, 11)
+2025-03-19 13:20:56,271 - INFO - Logger initialized for ICONCLASS/test_1/gpt-4o-mini
+2025-03-19 13:20:56,277 - INFO - Starting classification for dataset=ICONCLASS, test=test_1, model=gpt-4o-mini
+2025-03-19 13:20:56,281 - INFO - Number of images: 592
+2025-03-19 13:20:56,282 - INFO - Processing dataset: ICONCLASS
+2025-03-19 13:20:56,289 - INFO - Processing images for test: test_1
+2025-03-19 13:20:56,408 - INFO - Loaded 588 valid cached results (ignoring zero arrays)
+2025-03-19 13:20:56,408 - INFO - Using model: gpt-4o-mini
+2025-03-19 13:21:02,167 - INFO - Total input tokens used: 34850
+2025-03-19 13:21:02,168 - INFO - Total output tokens used: 84
+2025-03-19 13:21:02,168 - INFO - Total cost of this call: $0.0053
+2025-03-19 13:21:02,170 - INFO - Probabilities shape: (592, 11)
+2025-03-19 13:21:20,734 - INFO - Logger initialized for ICONCLASS/test_1/gpt-4o-mini
+2025-03-19 13:21:20,740 - INFO - Starting classification for dataset=ICONCLASS, test=test_1, model=gpt-4o-mini
+2025-03-19 13:21:20,744 - INFO - Number of images: 592
+2025-03-19 13:21:20,744 - INFO - Processing dataset: ICONCLASS
+2025-03-19 13:21:20,751 - INFO - Processing images for test: test_1
+2025-03-19 13:21:20,870 - INFO - Loaded 592 valid cached results (ignoring zero arrays)
+2025-03-19 13:21:20,870 - INFO - Using model: gpt-4o-mini
+2025-03-19 13:21:20,917 - INFO - Total input tokens used: 0
+2025-03-19 13:21:20,917 - INFO - Total output tokens used: 0
+2025-03-19 13:21:20,918 - INFO - Total cost of this call: $0.0000
+2025-03-19 13:21:20,919 - INFO - Probabilities shape: (592, 11)
