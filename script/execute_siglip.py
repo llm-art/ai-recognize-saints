@@ -3,6 +3,7 @@ import torch
 import click
 import numpy as np
 import pandas as pd
+import traceback
 from PIL import Image
 from tqdm import tqdm
 from transformers import AutoProcessor, AutoModelForZeroShotImageClassification, AutoModel
@@ -13,6 +14,12 @@ def load_images(test_items, dataset_dir):
         image_path = os.path.join(dataset_dir, f"{item}.jpg")
         try:
             image = Image.open(image_path)
+            # Convert grayscale (L) images to RGB to avoid normalization issues
+            if image.mode == 'L':
+                print(f"Converting grayscale image to RGB: {image_path}")
+                image = image.convert('RGB')
+            # Store the filename as an attribute for debugging
+            image.filename = image_path
             images.append(image)
         except Exception as e:
             print(f"Error loading image {image_path}: {e}")
@@ -98,7 +105,37 @@ def main(models, folders, datasets):
 
                 pbar.update(len(batch))
               except Exception as e:
-                print(f"Error processing batch {batch_index + 1}: {e}")
+                print(f"\nError processing batch {batch_index + 1}: {e}")
+                print(f"Detailed error: {traceback.format_exc()}")
+                print(f"Batch size: {len(batch)}")
+                if len(batch) > 0:
+                    print(f"First image in batch: {batch[0].size}, mode: {batch[0].mode}")
+                
+                # Try processing images one by one for the problematic batch
+                print(f"Attempting to process batch {batch_index + 1} images individually...")
+                batch_results = []
+                problematic_images = []
+                
+                for i, img in enumerate(batch):
+                    try:
+                        single_inputs = processor(text=[cls[1] for cls in classes], images=[img], padding="max_length", return_tensors="pt").to(device)
+                        with torch.no_grad():
+                            single_outputs = model(**single_inputs)
+                        single_logits = single_outputs.logits_per_image
+                        single_probs = torch.sigmoid(single_logits)
+                        batch_results.append(single_probs.detach().cpu().numpy())
+                    except Exception as e:
+                        print(f"Error processing image {i} in batch {batch_index + 1}: {e}")
+                        print(f"Image details: size={img.size}, mode={img.mode}, filename={os.path.basename(str(img.filename))}")
+                        problematic_images.append(i)
+                
+                if batch_results:
+                    try:
+                        all_probs.append(np.concatenate(batch_results, axis=0))
+                        print(f"Successfully processed {len(batch_results)}/{len(batch)} images individually")
+                    except Exception as e:
+                        print(f"Error concatenating individual results: {e}")
+                
                 pbar.update(len(batch))
 
           # Get one tensor with all the probabilities

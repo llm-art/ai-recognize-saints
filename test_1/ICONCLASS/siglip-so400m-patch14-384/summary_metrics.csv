@@ -1,0 +1,2 @@
+Model,Macro Average Precision,Micro Average Precision,Accuracy
+siglip-so400m-patch14-384,48.61%,44.47%,57.77%

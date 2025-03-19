@@ -3,6 +3,10 @@ psw.ini
 venv
 dataset/ArtDL
 dataset/IconArt
+dataset/ICONCLASS
+dataset/WikiArt
+dataset/Rijksmuseum2014
+dataset/DEART
 *.pth
 *.zip
 .DS_Store

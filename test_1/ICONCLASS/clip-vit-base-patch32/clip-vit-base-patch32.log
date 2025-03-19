@@ -1,0 +1,20 @@
+2025-03-19 11:37:32,286 - INFO - Logger initialized for ICONCLASS/test_1/clip-vit-base-patch32
+2025-03-19 11:37:32,287 - INFO - Starting classification for dataset=ICONCLASS, test=test_1, model=clip-vit-base-patch32
+2025-03-19 11:37:33,528 - INFO - Number of images: 678
+2025-03-19 11:37:33,528 - INFO - Using device: cuda
+2025-03-19 11:43:32,727 - INFO - Logger initialized for ICONCLASS/test_1/clip-vit-base-patch32
+2025-03-19 11:43:32,728 - INFO - Starting classification for dataset=ICONCLASS, test=test_1, model=clip-vit-base-patch32
+2025-03-19 11:43:34,162 - INFO - Number of images: 678
+2025-03-19 11:43:34,162 - INFO - Using device: cuda
+2025-03-19 11:43:34,167 - INFO - #####################################################
+2025-03-19 11:43:34,167 - INFO - Processing images for test: test_1
+2025-03-19 11:43:34,167 - INFO - Model: clip-vit-base-patch32
+2025-03-19 11:43:41,716 - INFO - Probabilities shape: (678, 11)
+2025-03-19 11:57:25,708 - INFO - Logger initialized for ICONCLASS/test_1/clip-vit-base-patch32
+2025-03-19 11:57:25,709 - INFO - Starting classification for dataset=ICONCLASS, test=test_1, model=clip-vit-base-patch32
+2025-03-19 11:57:26,455 - INFO - Number of images: 592
+2025-03-19 11:57:26,455 - INFO - Using device: cuda
+2025-03-19 11:57:26,460 - INFO - #####################################################
+2025-03-19 11:57:26,460 - INFO - Processing images for test: test_1
+2025-03-19 11:57:26,460 - INFO - Model: clip-vit-base-patch32
+2025-03-19 11:57:31,860 - INFO - Probabilities shape: (592, 11)
