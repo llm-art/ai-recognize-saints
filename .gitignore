@@ -7,6 +7,8 @@ dataset/ICONCLASS
 dataset/WikiArt
 dataset/Rijksmuseum2014
 dataset/DEART
+dataset/wikidata
+dataset/Portrait_Painting
 *.pth
 *.zip
 .DS_Store
