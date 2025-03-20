@@ -1,0 +1,92 @@
+2025-03-20 13:28:13,764 - INFO - Logger initialized for ICONCLASS/test_3/gpt-4o
+2025-03-20 13:28:13,771 - INFO - Starting classification for dataset=ICONCLASS, test=test_3, model=gpt-4o
+2025-03-20 13:28:13,775 - INFO - Number of images: 592
+2025-03-20 13:28:13,775 - INFO - Processing dataset: ICONCLASS
+2025-03-20 13:28:13,782 - INFO - Processing images for test: test_3
+2025-03-20 13:28:13,889 - INFO - Using model: gpt-4o
+2025-03-20 13:28:13,889 - INFO - Limiting to 100 images
+2025-03-20 13:29:37,052 - INFO - Cache saved after 5 batches
+2025-03-20 13:31:08,542 - INFO - Cache saved after 10 batches
+2025-03-20 13:32:32,002 - INFO - Cache saved after 15 batches
+2025-03-20 13:33:03,103 - WARNING - Mismatch between response texts (0) and batch items (5). Skipping batch.
+2025-03-20 13:33:03,105 - WARNING - Response: []
+2025-03-20 13:33:03,106 - WARNING - No valid results from batch. Skipping.
+2025-03-20 13:33:52,774 - INFO - Cache saved after 20 batches
+2025-03-20 13:33:52,781 - INFO - Total input tokens used: 133327
+2025-03-20 13:33:52,782 - INFO - Total output tokens used: 1542
+2025-03-20 13:33:52,782 - INFO - Total cost of this call: $0.3487
+2025-03-20 13:33:52,782 - INFO - Requested limit: 100, Actual processed: 95
+2025-03-20 13:33:52,783 - INFO - Probabilities shape: (95, 11)
+2025-03-20 13:34:49,746 - INFO - Logger initialized for ICONCLASS/test_3/gpt-4o
+2025-03-20 13:34:49,752 - INFO - Starting classification for dataset=ICONCLASS, test=test_3, model=gpt-4o
+2025-03-20 13:34:49,756 - INFO - Number of images: 592
+2025-03-20 13:34:49,757 - INFO - Processing dataset: ICONCLASS
+2025-03-20 13:34:49,764 - INFO - Processing images for test: test_3
+2025-03-20 13:34:49,874 - INFO - Loaded 95 valid cached results (ignoring zero arrays)
+2025-03-20 13:34:49,874 - INFO - Using model: gpt-4o
+2025-03-20 13:34:49,874 - INFO - Limiting to 200 images
+2025-03-20 13:35:44,100 - WARNING - Mismatch between response texts (0) and batch items (5). Skipping batch.
+2025-03-20 13:35:44,102 - WARNING - Response: []
+2025-03-20 13:35:44,103 - WARNING - No valid results from batch. Skipping.
+2025-03-20 13:36:18,912 - INFO - Cache saved after 5 batches
+2025-03-20 13:37:44,210 - INFO - Cache saved after 10 batches
+2025-03-20 13:39:09,718 - INFO - Cache saved after 15 batches
+2025-03-20 13:40:36,219 - INFO - Cache saved after 20 batches
+2025-03-20 13:40:53,110 - INFO - Total input tokens used: 139991
+2025-03-20 13:40:53,110 - INFO - Total output tokens used: 1559
+2025-03-20 13:40:53,110 - INFO - Total cost of this call: $0.3656
+2025-03-20 13:40:53,111 - INFO - Requested limit: 200, Actual processed: 194
+2025-03-20 13:40:53,112 - INFO - Probabilities shape: (194, 11)
+2025-03-20 13:43:34,510 - INFO - Logger initialized for ICONCLASS/test_3/gpt-4o
+2025-03-20 13:43:34,516 - INFO - Starting classification for dataset=ICONCLASS, test=test_3, model=gpt-4o
+2025-03-20 13:43:34,520 - INFO - Number of images: 592
+2025-03-20 13:43:34,520 - INFO - Processing dataset: ICONCLASS
+2025-03-20 13:43:34,527 - INFO - Processing images for test: test_3
+2025-03-20 13:43:34,638 - INFO - Loaded 194 valid cached results (ignoring zero arrays)
+2025-03-20 13:43:34,638 - INFO - Using model: gpt-4o
+2025-03-20 13:43:34,638 - INFO - Limiting to 200 images
+2025-03-20 13:44:03,330 - INFO - Total input tokens used: 12255
+2025-03-20 13:44:03,331 - INFO - Total output tokens used: 92
+2025-03-20 13:44:03,331 - INFO - Total cost of this call: $0.0316
+2025-03-20 13:44:03,331 - INFO - Requested limit: 200, Actual processed: 200
+2025-03-20 13:44:03,332 - INFO - Probabilities shape: (200, 11)
+2025-03-20 13:44:40,809 - INFO - Logger initialized for ICONCLASS/test_3/gpt-4o
+2025-03-20 13:44:40,815 - INFO - Starting classification for dataset=ICONCLASS, test=test_3, model=gpt-4o
+2025-03-20 13:44:40,819 - INFO - Number of images: 592
+2025-03-20 13:44:40,820 - INFO - Processing dataset: ICONCLASS
+2025-03-20 13:44:40,827 - INFO - Processing images for test: test_3
+2025-03-20 13:44:40,938 - INFO - Loaded 200 valid cached results (ignoring zero arrays)
+2025-03-20 13:44:40,938 - INFO - Using model: gpt-4o
+2025-03-20 13:46:04,218 - INFO - Cache saved after 5 batches
+2025-03-20 13:47:23,383 - INFO - Cache saved after 10 batches
+2025-03-20 13:48:53,227 - INFO - Cache saved after 15 batches
+2025-03-20 13:50:20,424 - INFO - Cache saved after 20 batches
+2025-03-20 13:50:53,823 - WARNING - Mismatch between response texts (0) and batch items (5). Skipping batch.
+2025-03-20 13:50:53,824 - WARNING - Response: []
+2025-03-20 13:50:53,824 - WARNING - No valid results from batch. Skipping.
+2025-03-20 13:51:43,514 - INFO - Cache saved after 25 batches
+2025-03-20 13:53:11,886 - INFO - Cache saved after 30 batches
+2025-03-20 13:54:36,154 - INFO - Cache saved after 35 batches
+2025-03-20 13:55:58,167 - INFO - Cache saved after 40 batches
+2025-03-20 13:57:24,453 - INFO - Cache saved after 45 batches
+2025-03-20 13:58:51,141 - INFO - Cache saved after 50 batches
+2025-03-20 14:00:10,932 - INFO - Cache saved after 55 batches
+2025-03-20 14:01:34,632 - INFO - Cache saved after 60 batches
+2025-03-20 14:02:55,066 - INFO - Cache saved after 65 batches
+2025-03-20 14:04:47,921 - INFO - Cache saved after 70 batches
+2025-03-20 14:06:14,823 - INFO - Cache saved after 75 batches
+2025-03-20 14:07:26,239 - INFO - Total input tokens used: 525872
+2025-03-20 14:07:26,239 - INFO - Total output tokens used: 5861
+2025-03-20 14:07:26,239 - INFO - Total cost of this call: $1.3733
+2025-03-20 14:07:26,241 - INFO - Probabilities shape: (586, 11)
+2025-03-20 14:07:53,471 - INFO - Logger initialized for ICONCLASS/test_3/gpt-4o
+2025-03-20 14:07:53,477 - INFO - Starting classification for dataset=ICONCLASS, test=test_3, model=gpt-4o
+2025-03-20 14:07:53,481 - INFO - Number of images: 592
+2025-03-20 14:07:53,481 - INFO - Processing dataset: ICONCLASS
+2025-03-20 14:07:53,488 - INFO - Processing images for test: test_3
+2025-03-20 14:07:53,606 - INFO - Loaded 586 valid cached results (ignoring zero arrays)
+2025-03-20 14:07:53,606 - INFO - Using model: gpt-4o
+2025-03-20 14:08:21,783 - INFO - Total input tokens used: 12261
+2025-03-20 14:08:21,783 - INFO - Total output tokens used: 120
+2025-03-20 14:08:21,784 - INFO - Total cost of this call: $0.0319
+2025-03-20 14:08:21,786 - INFO - Probabilities shape: (592, 11)
