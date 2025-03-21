@@ -10,7 +10,6 @@ Primary datasets:
 3. [Wikidata]()
 
 
-
 For each dataset, we perform three tests:
 
 1. A zero-shot approach with only labels
@@ -31,6 +30,22 @@ This experiment is conducted with the use of the LLM models: CLIP and SigLIP as 
 * [gpt-4o](https://pypi.org/project/openai/)
 
 ## Datasets
+
+| Dataset name                                      | Task               | Metadata                                      | Availability                                       | Last update |
+|--------------------------------------------------|--------------------|-----------------------------------------------|--------------------------------------------------|-------------|
+| Art 500k                                        | Classification     | 10 attributes (artist, genre, art movement)  |                                                  | 2019        |
+| ArtDL                                          | Classification     | 10 classes Christian Icons                    |                                                  |             |
+| ICONCLASS                                      | Classification     | ICONCLASS IDs                                 |                                                  |             |
+| IconArt                                        | Object detection   | 10 classes Iconographies                      |                                                  |             |
+| MET dataset                                    | Classification     |                                               |                                                  |             |
+| OMNIart                                        | Classification     |                                               | Unavailable                                      |             |
+| Painting 91                                     | Classification     |                                               | Unavailable (authors are unreachable)             |             |
+| Portrait Painting Dataset For Different Movement | Classification     |                                               |                                                  |             |
+| Rijksmuseum 2014                                | Classification     |                                               |                                                  |             |
+| WGA                                            | Classification     |                                               |                                                  |             |
+| Wikiart                                        | Classification     |                                               | Unavailable (the zip file is corrupted and the alternative link does not work). |             |
+| wikidata                                       | Classification     | ICONCLASS IDs                                 |                                                  |             |
+
 
 ### ArtDL
 
