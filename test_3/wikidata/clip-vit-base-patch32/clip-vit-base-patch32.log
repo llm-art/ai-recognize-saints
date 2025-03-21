@@ -1,0 +1,15 @@
+2025-03-20 18:42:22,041 - INFO - Logger initialized for wikidata/test_3/clip-vit-base-patch32
+2025-03-20 18:42:22,041 - INFO - Starting classification for dataset=wikidata, test=test_3, model=clip-vit-base-patch32
+2025-03-20 18:42:47,826 - INFO - Successfully loaded 712/712 images
+2025-03-20 18:42:47,836 - INFO - Number of images: 712
+2025-03-20 18:42:47,836 - INFO - Using device: cuda
+2025-03-20 18:42:47,840 - INFO - #####################################################
+2025-03-20 18:42:47,841 - INFO - Processing images for test: test_3
+2025-03-20 18:42:47,841 - INFO - Model: clip-vit-base-patch32
+2025-03-21 13:37:36,477 - INFO - Logger initialized for wikidata/test_3/clip-vit-base-patch32
+2025-03-21 13:37:36,477 - INFO - Starting classification for dataset=wikidata, test=test_3, model=clip-vit-base-patch32
+2025-03-21 13:37:37,849 - INFO - Number of images: 718
+2025-03-21 13:37:37,849 - INFO - Using device: cuda
+2025-03-21 13:37:37,851 - INFO - #####################################################
+2025-03-21 13:37:37,852 - INFO - Processing images for test: test_3
+2025-03-21 13:37:37,852 - INFO - Model: clip-vit-base-patch32

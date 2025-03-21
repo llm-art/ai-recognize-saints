@@ -1,0 +1,2 @@
+Model,Macro Average Precision,Micro Average Precision,Accuracy
+siglip-base-patch16-512,36.41%,36.27%,45.40%

@@ -1,0 +1,25 @@
+2025-03-20 17:31:11,416 - INFO - Logger initialized for wikidata/test_2/clip-vit-base-patch32
+2025-03-20 17:31:11,416 - INFO - Starting classification for dataset=wikidata, test=test_2, model=clip-vit-base-patch32
+2025-03-20 17:33:35,759 - INFO - Number of images: 712
+2025-03-20 17:33:35,760 - INFO - Using device: cuda
+2025-03-20 17:33:35,765 - INFO - #####################################################
+2025-03-20 17:33:35,765 - INFO - Processing images for test: test_2
+2025-03-20 17:33:35,765 - INFO - Model: clip-vit-base-patch32
+2025-03-20 17:33:40,047 - INFO - Probabilities shape: (712, 10)
+2025-03-20 18:40:39,657 - INFO - Logger initialized for wikidata/test_2/clip-vit-base-patch32
+2025-03-20 18:40:39,657 - INFO - Starting classification for dataset=wikidata, test=test_2, model=clip-vit-base-patch32
+2025-03-20 18:41:04,074 - INFO - Successfully loaded 712/712 images
+2025-03-20 18:41:04,079 - INFO - Number of images: 712
+2025-03-20 18:41:04,079 - INFO - Using device: cuda
+2025-03-20 18:41:04,085 - INFO - #####################################################
+2025-03-20 18:41:04,085 - INFO - Processing images for test: test_2
+2025-03-20 18:41:04,085 - INFO - Model: clip-vit-base-patch32
+2025-03-20 18:41:11,782 - INFO - Probabilities shape: (712, 10)
+2025-03-21 13:37:08,100 - INFO - Logger initialized for wikidata/test_2/clip-vit-base-patch32
+2025-03-21 13:37:08,100 - INFO - Starting classification for dataset=wikidata, test=test_2, model=clip-vit-base-patch32
+2025-03-21 13:37:09,357 - INFO - Number of images: 718
+2025-03-21 13:37:09,357 - INFO - Using device: cuda
+2025-03-21 13:37:09,359 - INFO - #####################################################
+2025-03-21 13:37:09,359 - INFO - Processing images for test: test_2
+2025-03-21 13:37:09,359 - INFO - Model: clip-vit-base-patch32
+2025-03-21 13:37:14,628 - INFO - Probabilities shape: (718, 10)
