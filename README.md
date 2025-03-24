@@ -33,11 +33,11 @@ This experiment is conducted with the use of the LLM models: CLIP and SigLIP as 
 
 | Dataset name | Task | Images | Metadata | Availability | License | Last update |
 |--------------|------|--------|----------|--------------|---------|-------------|
-| [Art 500k](https://deepart.hkust.edu.hk/ART500K/art500k.html) |Classification | ~500K | 10 attributes (artist, genre, art movement, etc)  | Y | Available for non-commercial research purposes only| 2019 | 
-| [ArtDL](https://artdl.org/) | Classification | ~42.5K | 10 classes Christian Icons| Y | Academic research purposes only | 2021
+| [Art 500k](https://deepart.hkust.edu.hk/ART500K/art500k.html) |Classification | ~500K | 10 attributes (artist, genre, art movement, etc)  | Yes | Available for non-commercial research purposes only| 2019 | 
+| [ArtDL](https://artdl.org/) | Classification | ~42.5K | 10 classes Christian Icons| Yes | Academic research purposes only | 2021
 | [DEart](https://b2share.eudat.eu/records/449856a0b31543fc81baf19834f37d9d)
-| [Iconclass AI Test Set](https://iconclass.org/testset/) | Classification | ~87.5K | Iconclass IDs | Y | All images used in this display has either been digitized by Arkyves, or has been supplied from partner institutions under an open license | 2020
-| [IconArt](https://zenodo.org/records/4737435) | Object detection | ~6K | up to 10 classes of iconographies | Y | CC BY 4.0 | 2018
+| [Iconclass AI Test Set](https://iconclass.org/testset/) | Classification | ~87.5K | Iconclass IDs | Yes | All images used in this display has either been digitized by Arkyves, or has been supplied from partner institutions under an open license | 2020
+| [IconArt](https://zenodo.org/records/4737435) | Object detection | ~6K | up to 10 classes of iconographies | Yes | CC BY 4.0 | 2018
 | MET dataset                                    | Classification     |                                               |                                                  |             |
 | OMNIart                                        | Classification     |                    |                           | Unavailable                                      |             |
 | Painting 91                                     | Classification     |                    |                           | Unavailable (authors are unreachable)             |             |
