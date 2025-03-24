@@ -38,10 +38,10 @@ This experiment is conducted with the use of the LLM models: CLIP and SigLIP as 
 | [DEart](https://b2share.eudat.eu/records/449856a0b31543fc81baf19834f37d9d)
 | [Iconclass AI Test Set](https://iconclass.org/testset/) | Classification | ~87.5K | Iconclass IDs | Yes | All images used in this display has either been digitized by Arkyves, or has been supplied from partner institutions under an open license | 2020
 | [IconArt](https://zenodo.org/records/4737435) | Object detection | ~6K | up to 10 classes of iconographies | Yes | CC BY 4.0 | 2018
-| MET dataset                                    | Classification     |                                               |                                                  |             |
-| OMNIart                                        | Classification     |                    |                           | Unavailable                                      |             |
-| Painting 91                                     | Classification     |                    |                           | Unavailable (authors are unreachable)             |             |
-| Portrait Painting Dataset For Different Movement | Classification     |                                               |                                                  |             |
+| [MET dataset](https://cmp.felk.cvut.cz/met/) | Classification | ~400K |  | Yes |
+| [OMNIart]() | Classification | | | No* | | 
+| [Painting 91]() | Classification | | | No | |
+| [Portrait Painting Dataset For Different Movement]() | Classification     |                                               |                                                  |             |
 | Rijksmuseum 2014                                | Classification     |                                               |                                                  |             |
 | WGA                                            | Classification     |                                               |                                                  |             |
 | Wikiart                                        | Classification     |                                   |            | Unavailable (the zip file is corrupted and the alternative link does not work). |             |
