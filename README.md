@@ -97,7 +97,7 @@ This experiment is conducted with the use of the LLM models: CLIP and SigLIP as 
 | [Portrait Painting Dataset For Different Movement]() | Classification     |                                               |                                                  |             |
 | Rijksmuseum 2014                                | Classification     |                                               |                                                  |             |
 | WGA                                            | Classification     |                                               |                                                  |             |
-| Wikiart                                        | Classification     |                                   |            | Unavailable (the zip file is corrupted and the alternative link does not work). |             |
+| Wikiart                                        | Classification     |                                   |            | Unavailable (the zip file is corrupted and the alternative link does not work). See [issue](https://github.com/cs-chan/ArtGAN/issues/14). |             |
 | wikidata                                       | Classification     | ICONCLASS IDs                                 |                                                  |             |
 
 
