@@ -38,8 +38,8 @@ For each dataset, we perform three tests:
 
 ### Model Type
 
-* **VLM (Vision-Language Model)**: Models that process both visual and textual data for tasks like captioning, VQA, and classification.
-* **LMM (Large Multimodal Model)**: General-purpose models that combine vision, language, and often other modalities (audio, video) for instruction following and generation.
+* **[VLM (Vision-Language Model)](https://huggingface.co/blog/vlms)**: Models that process both visual and textual data for tasks like captioning, VQA, and classification.
+* **[LMM (Large Multimodal Model)](https://research.aimultiple.com/large-multimodal-models/)**: General-purpose models that combine vision, language, and often other modalities (audio, video) for instruction following and generation.
 * **Multimodal**: Broader models trained across multiple sensory modalities (e.g., image, audio, text) and meant for embedding or alignment.
 
 ### Architecture
