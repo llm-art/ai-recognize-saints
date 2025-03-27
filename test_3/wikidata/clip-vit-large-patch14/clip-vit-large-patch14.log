@@ -1,0 +1,8 @@
+2025-03-27 14:41:13,573 - INFO - Logger initialized for wikidata/test_3/clip-vit-large-patch14
+2025-03-27 14:41:13,573 - INFO - Starting classification for dataset=wikidata, test=test_3, model=clip-vit-large-patch14
+2025-03-27 14:41:15,938 - INFO - Number of images: 718
+2025-03-27 14:41:15,939 - INFO - Using device: cuda
+2025-03-27 14:41:15,944 - INFO - #####################################################
+2025-03-27 14:41:15,945 - INFO - Processing images for test: test_3
+2025-03-27 14:41:15,945 - INFO - Model: clip-vit-large-patch14
+2025-03-27 14:41:32,620 - INFO - Probabilities shape: (718, 10)

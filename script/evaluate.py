@@ -60,14 +60,7 @@ def class_metrics(y_true_indices, y_pred_indices, probs, classes, class_image_co
     KEY_AVG_PRECISION: class_avg_precisions
   })
 
-  # Reorder classes if needed
-  class_order = [
-    "11H(ANTONY OF PADUA)", "11H(FRANCIS)", "11H(JEROME)", 
-    "11H(JOHN THE BAPTIST)", "11HH(MARY MAGDALENE)", "11H(PAUL)", 
-    "11H(PETER)", "11H(DOMINIC)", "11H(SEBASTIAN)", "11F(MARY)"
-  ]
-  metrics_df[KEY_CLASS_NAME] = pd.Categorical(metrics_df[KEY_CLASS_NAME], categories=class_order, ordered=True)
-  metrics_df = metrics_df.sort_values(KEY_CLASS_NAME).reset_index(drop=True)
+
 
   # Macro and Micro Averages
   mean_precision = precision_score(y_true_indices, y_pred_indices, average='macro', zero_division=0) * 100

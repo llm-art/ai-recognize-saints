@@ -30,6 +30,7 @@ import logging
 from configparser import ConfigParser
 from typing import List, Tuple, Dict, Any, Optional
 from datetime import datetime
+from concurrent.futures import ProcessPoolExecutor
 
 # Import custom logger
 import logger_utils
@@ -563,9 +564,65 @@ def encode_image(image_path: str) -> str:
   return f"data:image/jpeg;base64,{image_base64}"
 
 
+def check_image_exists(item_path_tuple: Tuple[str, str]) -> Optional[Tuple[str, str]]:
+  """
+  Check if an image exists at the given path.
+  
+  Args:
+      item_path_tuple: Tuple of (item_id, image_path)
+      
+  Returns:
+      The same tuple if the image exists, None otherwise
+  """
+  item, image_path = item_path_tuple
+  if os.path.exists(image_path):
+    return (item, image_path)
+  return None
+
+def load_images_parallel(test_items: List[str], dataset_dir: str, logger=None, max_workers=None) -> List[Tuple[str, str]]:
+  """
+  Load images from disk in parallel.
+
+  Args:
+      test_items: List of image IDs
+      dataset_dir: Directory containing the images
+      logger: Logger instance
+      max_workers: Number of worker processes (None = auto)
+
+  Returns:
+      List of (item_id, image_path) tuples
+  """
+  logger = logger or logging.getLogger("default")
+  
+  # Prepare the list of items and paths
+  image_paths = []
+  for item in test_items:
+    image_path = os.path.join(dataset_dir, f"{item}.jpg")
+    image_paths.append((item, image_path))
+  
+  # Check image existence in parallel
+  with ProcessPoolExecutor(max_workers=max_workers) as executor:
+    results = list(tqdm(
+      executor.map(check_image_exists, image_paths),
+      total=len(image_paths),
+      desc="Checking images",
+      unit="img"
+    ))
+  
+  # Filter out None results (non-existent images)
+  images = [result for result in results if result is not None]
+  
+  # Log statistics
+  if logger:
+    if len(images) < len(test_items):
+      logger.warning(f"Failed to find {len(test_items) - len(images)} images")
+  
+  return images
+
 def load_images(test_items: List[str], dataset_dir: str, logger=None) -> List[Tuple[str, str]]:
   """
-  Load images from disk.
+  Legacy sequential image loading function.
+  Kept for backward compatibility.
 
   Args:
       test_items: List of image IDs
@@ -644,8 +701,8 @@ def main(folders: List[str], models: List[str], limit: int, batch_size: int, sav
         logger.info(
           f"Starting classification for dataset={dataset}, test={folder}, model={model}")
 
-        # Load images
-        images = load_images(test_items, os.path.join(
+        # Load images using parallel processing
+        images = load_images_parallel(test_items, os.path.join(
           dataset_dir, 'JPEGImages'), logger)
         logger.info(f"Number of images: {len(images)}")
         logger.info(f"Processing dataset: {dataset}")

@@ -1,0 +1,189 @@
+2025-03-27 09:18:09,207 - INFO - Logger initialized for wikidata/test_2/gpt-4o
+2025-03-27 09:18:09,209 - INFO - Starting classification for dataset=wikidata, test=test_2, model=gpt-4o
+2025-03-27 09:18:20,300 - INFO - Logger initialized for wikidata/test_2/gpt-4o
+2025-03-27 09:18:20,301 - INFO - Starting classification for dataset=wikidata, test=test_2, model=gpt-4o
+2025-03-27 09:18:20,661 - INFO - Number of images: 718
+2025-03-27 09:18:20,662 - INFO - Processing dataset: wikidata
+2025-03-27 09:18:20,667 - INFO - Processing images for test: test_2
+2025-03-27 09:18:20,756 - INFO - Using model: gpt-4o
+2025-03-27 09:18:45,286 - INFO - Cache saved after 5 batches
+2025-03-27 09:19:09,765 - INFO - Cache saved after 10 batches
+2025-03-27 09:19:33,036 - INFO - Cache saved after 15 batches
+2025-03-27 09:19:58,166 - INFO - Cache saved after 20 batches
+2025-03-27 09:20:23,195 - INFO - Cache saved after 25 batches
+2025-03-27 09:20:42,073 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-03-27 09:20:42,079 - INFO - Cache saved after 30 batches
+2025-03-27 09:21:11,632 - INFO - Cache saved after 35 batches
+2025-03-27 09:21:36,102 - INFO - Cache saved after 40 batches
+2025-03-27 09:21:59,444 - INFO - Cache saved after 45 batches
+2025-03-27 09:22:21,681 - INFO - Cache saved after 50 batches
+2025-03-27 09:22:26,195 - WARNING - Mismatch between response texts (0) and batch items (5). Skipping batch.
+2025-03-27 09:22:26,196 - WARNING - Response: []
+2025-03-27 09:22:26,196 - WARNING - No valid results from batch. Skipping.
+2025-03-27 09:22:45,313 - INFO - Cache saved after 55 batches
+2025-03-27 09:23:07,632 - INFO - Cache saved after 60 batches
+2025-03-27 09:23:31,776 - INFO - Cache saved after 65 batches
+2025-03-27 09:23:47,559 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-03-27 09:23:47,560 - WARNING - Mismatch between response texts (0) and batch items (5). Skipping batch.
+2025-03-27 09:23:47,560 - WARNING - Response: []
+2025-03-27 09:23:47,561 - WARNING - No valid results from batch. Skipping.
+2025-03-27 09:24:15,424 - INFO - Cache saved after 70 batches
+2025-03-27 09:24:36,440 - INFO - Cache saved after 75 batches
+2025-03-27 09:24:59,040 - INFO - Cache saved after 80 batches
+2025-03-27 09:25:21,700 - INFO - Cache saved after 85 batches
+2025-03-27 09:25:45,911 - INFO - Cache saved after 90 batches
+2025-03-27 09:26:07,812 - INFO - Cache saved after 95 batches
+2025-03-27 09:26:31,982 - INFO - Cache saved after 100 batches
+2025-03-27 09:26:35,646 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-03-27 09:26:56,974 - INFO - Cache saved after 105 batches
+2025-03-27 09:27:22,117 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-03-27 09:27:22,123 - INFO - Cache saved after 110 batches
+2025-03-27 09:27:46,113 - INFO - Cache saved after 115 batches
+2025-03-27 09:28:13,120 - INFO - Cache saved after 120 batches
+2025-03-27 09:28:18,871 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-03-27 09:28:18,872 - WARNING - Mismatch between response texts (0) and batch items (5). Skipping batch.
+2025-03-27 09:28:18,873 - WARNING - Response: []
+2025-03-27 09:28:18,873 - WARNING - No valid results from batch. Skipping.
+2025-03-27 09:28:39,087 - INFO - Cache saved after 125 batches
+2025-03-27 09:29:03,369 - INFO - Cache saved after 130 batches
+2025-03-27 09:29:39,680 - INFO - Cache saved after 135 batches
+2025-03-27 09:30:08,409 - INFO - Cache saved after 140 batches
+2025-03-27 09:30:28,348 - INFO - Total input tokens used: 286449
+2025-03-27 09:30:28,348 - INFO - Total output tokens used: 11323
+2025-03-27 09:30:28,348 - INFO - Total cost of this call: $0.8294
+2025-03-27 09:30:28,349 - INFO - Probabilities shape: (701, 10)
+2025-03-27 10:01:50,606 - INFO - Logger initialized for wikidata/test_2/gpt-4o
+2025-03-27 10:01:50,607 - INFO - Starting classification for dataset=wikidata, test=test_2, model=gpt-4o
+2025-03-27 10:01:50,983 - INFO - Number of images: 718
+2025-03-27 10:01:50,984 - INFO - Processing dataset: wikidata
+2025-03-27 10:01:50,988 - INFO - Processing images for test: test_2
+2025-03-27 10:01:51,079 - INFO - Loaded 701 valid cached results (ignoring zero arrays)
+2025-03-27 10:01:51,079 - INFO - Using model: gpt-4o
+2025-03-27 10:01:54,732 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-03-27 10:01:54,734 - WARNING - Mismatch between response texts (0) and batch items (1). Skipping batch.
+2025-03-27 10:01:54,734 - WARNING - Response: []
+2025-03-27 10:01:54,735 - WARNING - No valid results from batch. Skipping.
+2025-03-27 10:02:00,930 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-03-27 10:02:00,930 - WARNING - Mismatch between response texts (0) and batch items (1). Skipping batch.
+2025-03-27 10:02:00,931 - WARNING - Response: []
+2025-03-27 10:02:00,931 - WARNING - No valid results from batch. Skipping.
+2025-03-27 10:02:05,162 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-03-27 10:02:05,163 - WARNING - Mismatch between response texts (0) and batch items (1). Skipping batch.
+2025-03-27 10:02:05,164 - WARNING - Response: []
+2025-03-27 10:02:05,164 - WARNING - No valid results from batch. Skipping.
+2025-03-27 10:02:06,375 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-03-27 10:02:06,376 - WARNING - Mismatch between response texts (0) and batch items (1). Skipping batch.
+2025-03-27 10:02:06,376 - WARNING - Response: []
+2025-03-27 10:02:06,377 - WARNING - No valid results from batch. Skipping.
+2025-03-27 10:02:08,024 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-03-27 10:02:08,026 - WARNING - Mismatch between response texts (0) and batch items (1). Skipping batch.
+2025-03-27 10:02:08,026 - WARNING - Response: []
+2025-03-27 10:02:08,027 - WARNING - No valid results from batch. Skipping.
+2025-03-27 10:02:10,348 - INFO - Cache saved after 10 batches
+2025-03-27 10:02:12,540 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-03-27 10:02:12,540 - WARNING - Mismatch between response texts (0) and batch items (1). Skipping batch.
+2025-03-27 10:02:12,540 - WARNING - Response: []
+2025-03-27 10:02:12,541 - WARNING - No valid results from batch. Skipping.
+2025-03-27 10:02:15,544 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-03-27 10:02:15,545 - WARNING - Mismatch between response texts (0) and batch items (1). Skipping batch.
+2025-03-27 10:02:15,546 - WARNING - Response: []
+2025-03-27 10:02:15,547 - WARNING - No valid results from batch. Skipping.
+2025-03-27 10:02:16,748 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-03-27 10:02:16,749 - WARNING - Mismatch between response texts (0) and batch items (1). Skipping batch.
+2025-03-27 10:02:16,750 - WARNING - Response: []
+2025-03-27 10:02:16,751 - WARNING - No valid results from batch. Skipping.
+2025-03-27 10:02:19,039 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-03-27 10:02:19,039 - WARNING - Mismatch between response texts (0) and batch items (1). Skipping batch.
+2025-03-27 10:02:19,040 - WARNING - Response: []
+2025-03-27 10:02:19,040 - WARNING - No valid results from batch. Skipping.
+2025-03-27 10:02:20,730 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-03-27 10:02:20,730 - WARNING - Mismatch between response texts (0) and batch items (1). Skipping batch.
+2025-03-27 10:02:20,731 - WARNING - Response: []
+2025-03-27 10:02:20,731 - WARNING - No valid results from batch. Skipping.
+2025-03-27 10:02:24,055 - INFO - Total input tokens used: 15929
+2025-03-27 10:02:24,055 - INFO - Total output tokens used: 272
+2025-03-27 10:02:24,056 - INFO - Total cost of this call: $0.0425
+2025-03-27 10:02:24,057 - INFO - Probabilities shape: (708, 10)
+2025-03-27 12:36:57,186 - INFO - Logger initialized for wikidata/test_2/gpt-4o
+2025-03-27 12:36:57,187 - INFO - Starting classification for dataset=wikidata, test=test_2, model=gpt-4o
+2025-03-27 12:36:57,518 - INFO - Number of images: 718
+2025-03-27 12:36:57,519 - INFO - Processing dataset: wikidata
+2025-03-27 12:36:57,523 - INFO - Processing images for test: test_2
+2025-03-27 12:36:57,613 - INFO - Loaded 708 valid cached results (ignoring zero arrays)
+2025-03-27 12:36:57,613 - INFO - Using model: gpt-4o
+2025-03-27 12:37:01,881 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-03-27 12:37:01,882 - WARNING - Mismatch between response texts (0) and batch items (1). Skipping batch.
+2025-03-27 12:37:01,883 - WARNING - Response: []
+2025-03-27 12:37:01,883 - WARNING - No valid results from batch. Skipping.
+2025-03-27 12:37:06,329 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-03-27 12:37:06,330 - WARNING - Mismatch between response texts (0) and batch items (1). Skipping batch.
+2025-03-27 12:37:06,331 - WARNING - Response: []
+2025-03-27 12:37:06,332 - WARNING - No valid results from batch. Skipping.
+2025-03-27 12:37:08,052 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-03-27 12:37:08,052 - WARNING - Mismatch between response texts (0) and batch items (1). Skipping batch.
+2025-03-27 12:37:08,053 - WARNING - Response: []
+2025-03-27 12:37:08,053 - WARNING - No valid results from batch. Skipping.
+2025-03-27 12:37:10,672 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-03-27 12:37:10,673 - WARNING - Mismatch between response texts (0) and batch items (1). Skipping batch.
+2025-03-27 12:37:10,673 - WARNING - Response: []
+2025-03-27 12:37:10,673 - WARNING - No valid results from batch. Skipping.
+2025-03-27 12:37:12,878 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-03-27 12:37:12,879 - WARNING - Mismatch between response texts (0) and batch items (1). Skipping batch.
+2025-03-27 12:37:12,880 - WARNING - Response: []
+2025-03-27 12:37:12,880 - WARNING - No valid results from batch. Skipping.
+2025-03-27 12:37:15,838 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-03-27 12:37:15,839 - WARNING - Mismatch between response texts (0) and batch items (1). Skipping batch.
+2025-03-27 12:37:15,840 - WARNING - Response: []
+2025-03-27 12:37:15,840 - WARNING - No valid results from batch. Skipping.
+2025-03-27 12:37:18,222 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-03-27 12:37:18,223 - WARNING - Mismatch between response texts (0) and batch items (1). Skipping batch.
+2025-03-27 12:37:18,223 - WARNING - Response: []
+2025-03-27 12:37:18,224 - WARNING - No valid results from batch. Skipping.
+2025-03-27 12:37:20,718 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-03-27 12:37:23,305 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-03-27 12:37:23,306 - WARNING - Mismatch between response texts (0) and batch items (1). Skipping batch.
+2025-03-27 12:37:23,307 - WARNING - Response: []
+2025-03-27 12:37:23,307 - WARNING - No valid results from batch. Skipping.
+2025-03-27 12:37:23,317 - INFO - Total input tokens used: 9370
+2025-03-27 12:37:23,317 - INFO - Total output tokens used: 212
+2025-03-27 12:37:23,317 - INFO - Total cost of this call: $0.0255
+2025-03-27 12:37:23,320 - INFO - Probabilities shape: (710, 10)
+2025-03-27 12:47:53,402 - INFO - Logger initialized for wikidata/test_2/gpt-4o
+2025-03-27 12:47:53,403 - INFO - Starting classification for dataset=wikidata, test=test_2, model=gpt-4o
+2025-03-27 12:47:53,757 - INFO - Number of images: 718
+2025-03-27 12:47:53,757 - INFO - Processing dataset: wikidata
+2025-03-27 12:47:53,761 - INFO - Processing images for test: test_2
+2025-03-27 12:47:53,851 - INFO - Loaded 710 valid cached results (ignoring zero arrays)
+2025-03-27 12:47:53,851 - INFO - Using model: gpt-4o
+2025-03-27 12:47:57,915 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-03-27 12:47:57,916 - WARNING - Mismatch between response texts (0) and batch items (1). Skipping batch.
+2025-03-27 12:47:57,916 - WARNING - Response: []
+2025-03-27 12:47:57,917 - WARNING - No valid results from batch. Skipping.
+2025-03-27 12:48:00,192 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-03-27 12:48:00,193 - WARNING - Mismatch between response texts (0) and batch items (1). Skipping batch.
+2025-03-27 12:48:00,193 - WARNING - Response: []
+2025-03-27 12:48:00,194 - WARNING - No valid results from batch. Skipping.
+2025-03-27 12:48:01,579 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-03-27 12:48:01,580 - WARNING - Mismatch between response texts (0) and batch items (1). Skipping batch.
+2025-03-27 12:48:01,580 - WARNING - Response: []
+2025-03-27 12:48:01,580 - WARNING - No valid results from batch. Skipping.
+2025-03-27 12:48:03,813 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-03-27 12:48:03,814 - WARNING - Mismatch between response texts (0) and batch items (1). Skipping batch.
+2025-03-27 12:48:03,814 - WARNING - Response: []
+2025-03-27 12:48:03,814 - WARNING - No valid results from batch. Skipping.
+2025-03-27 12:48:05,286 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-03-27 12:48:05,287 - WARNING - Mismatch between response texts (0) and batch items (1). Skipping batch.
+2025-03-27 12:48:05,288 - WARNING - Response: []
+2025-03-27 12:48:05,288 - WARNING - No valid results from batch. Skipping.
+2025-03-27 12:48:07,728 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-03-27 12:48:07,729 - WARNING - Mismatch between response texts (0) and batch items (1). Skipping batch.
+2025-03-27 12:48:07,730 - WARNING - Response: []
+2025-03-27 12:48:07,730 - WARNING - No valid results from batch. Skipping.
+2025-03-27 12:48:09,920 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-03-27 12:48:09,920 - WARNING - Mismatch between response texts (0) and batch items (1). Skipping batch.
+2025-03-27 12:48:09,920 - WARNING - Response: []
+2025-03-27 12:48:09,921 - WARNING - No valid results from batch. Skipping.
+2025-03-27 12:48:09,928 - INFO - Total input tokens used: 7496
+2025-03-27 12:48:09,928 - INFO - Total output tokens used: 139
+2025-03-27 12:48:09,928 - INFO - Total cost of this call: $0.0201
+2025-03-27 12:48:09,930 - INFO - Probabilities shape: (711, 10)
