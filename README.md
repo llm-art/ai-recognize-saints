@@ -211,14 +211,18 @@ With these data:
 | 11H(JOSEPH)           | St. Joseph           | the foster-father of Christ, Joseph of Nazareth, husband of Mary; possible attributes: flowering rod or wand, lily, carpenter's tools |
 
 ## wikidata Results
+
+## wikidata Results
 | Model                     | zero-shot (labels)   | few-shot[*](dataset/wikidata-data/few-shot/README.md) (labels)   | zero-shot (descriptions)   |
 |:--------------------------|:---------------------|:-----------------------------------------------------------------|:---------------------------|
-| clip-vit-base-patch32     | 40.95%               |                                                                  | 42.20%                     |
-| clip-vit-base-patch16     | 48.33%               |                                                                  | 42.90%                     |
-| clip-vit-large-patch14    | 54.46%               |                                                                  | 50.84%                     |
-| siglip-base-patch16-512   | 56.55%               |                                                                  | 45.40%                     |
-| siglip-large-patch16-384  | 60.31%               |                                                                  | 40.39%                     |
-| siglip-so400m-patch14-384 | 65.32%               |                                                                  | 59.89%                     |
+| clip-vit-base-patch32     | 40.95%               | 40.81%                                                           | 42.20%                     |
+| clip-vit-base-patch16     | 48.33%               | 51.11%                                                           | 42.90%                     |
+| clip-vit-large-patch14    | 54.46%               | 55.29%                                                           | 50.84%                     |
+| siglip-base-patch16-512   | 56.55%               | 56.27%                                                           | 45.40%                     |
+| siglip-large-patch16-384  | 60.31%               | 61.84%                                                           | 40.39%                     |
+| siglip-so400m-patch14-384 | 65.32%               | 64.35%                                                           | 59.89%                     |
+| gpt-4o-mini               | 52.65%               | 46.30%                                                           | 50.00%                     |
+| gpt-4o                    | 40.41%               | 75.21%                                                           | 56.96%                     |
 
 # References
 

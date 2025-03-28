@@ -1,0 +1,63 @@
+2025-03-27 18:33:22,101 - INFO - Logger initialized for wikidata/test_3/gpt-4o
+2025-03-27 18:33:22,102 - INFO - Starting classification for dataset=wikidata, test=test_3, model=gpt-4o
+2025-03-27 18:33:22,465 - INFO - Number of images: 718
+2025-03-27 18:33:22,465 - INFO - Processing dataset: wikidata
+2025-03-27 18:33:22,470 - INFO - Processing images for test: test_3
+2025-03-27 18:33:22,559 - INFO - Using model: gpt-4o
+2025-03-27 18:34:38,387 - INFO - Cache saved after 5 batches
+2025-03-27 18:35:56,715 - INFO - Cache saved after 10 batches
+2025-03-27 18:37:27,726 - INFO - Cache saved after 15 batches
+2025-03-27 18:38:41,904 - INFO - Cache saved after 20 batches
+2025-03-27 18:39:42,409 - WARNING - Mismatch between response texts (0) and batch items (5). Skipping batch.
+2025-03-27 18:39:42,410 - WARNING - Response: []
+2025-03-27 18:39:42,411 - WARNING - No valid results from batch. Skipping.
+2025-03-27 18:39:54,798 - INFO - Cache saved after 25 batches
+2025-03-27 18:41:18,621 - INFO - Cache saved after 30 batches
+2025-03-27 18:42:33,999 - INFO - Cache saved after 35 batches
+2025-03-27 18:43:47,261 - INFO - Cache saved after 40 batches
+2025-03-27 18:45:00,868 - INFO - Cache saved after 45 batches
+2025-03-27 18:45:17,387 - WARNING - Mismatch between response texts (0) and batch items (5). Skipping batch.
+2025-03-27 18:45:17,387 - WARNING - Response: []
+2025-03-27 18:45:17,388 - WARNING - No valid results from batch. Skipping.
+2025-03-27 18:46:17,545 - INFO - Cache saved after 50 batches
+2025-03-27 18:47:33,455 - INFO - Cache saved after 55 batches
+2025-03-27 18:48:52,778 - INFO - Cache saved after 60 batches
+2025-03-27 18:50:14,056 - INFO - Cache saved after 65 batches
+2025-03-27 18:51:30,602 - INFO - Cache saved after 70 batches
+2025-03-27 18:52:52,980 - INFO - Cache saved after 75 batches
+2025-03-27 18:54:01,273 - INFO - Cache saved after 80 batches
+2025-03-27 18:54:58,899 - WARNING - Mismatch between response texts (0) and batch items (5). Skipping batch.
+2025-03-27 18:54:58,900 - WARNING - Response: []
+2025-03-27 18:54:58,901 - WARNING - No valid results from batch. Skipping.
+2025-03-27 18:55:12,720 - INFO - Cache saved after 85 batches
+2025-03-27 18:55:28,991 - WARNING - Mismatch between response texts (0) and batch items (5). Skipping batch.
+2025-03-27 18:55:28,992 - WARNING - Response: []
+2025-03-27 18:55:28,992 - WARNING - No valid results from batch. Skipping.
+2025-03-27 18:56:22,107 - INFO - Cache saved after 90 batches
+2025-03-27 18:57:33,234 - INFO - Cache saved after 95 batches
+2025-03-27 18:58:43,325 - INFO - Cache saved after 100 batches
+2025-03-27 19:00:02,195 - INFO - Cache saved after 105 batches
+2025-03-27 19:01:11,874 - INFO - Cache saved after 110 batches
+2025-03-27 19:02:27,127 - INFO - Cache saved after 115 batches
+2025-03-27 19:03:40,501 - INFO - Cache saved after 120 batches
+2025-03-27 19:04:57,647 - INFO - Cache saved after 125 batches
+2025-03-27 19:07:00,071 - INFO - Cache saved after 130 batches
+2025-03-27 19:08:20,218 - INFO - Cache saved after 135 batches
+2025-03-27 19:09:31,826 - INFO - Cache saved after 140 batches
+2025-03-27 19:10:38,744 - INFO - Total input tokens used: 1029633
+2025-03-27 19:10:38,745 - INFO - Total output tokens used: 10899
+2025-03-27 19:10:38,745 - INFO - Total cost of this call: $2.6831
+2025-03-27 19:10:38,746 - INFO - Probabilities shape: (695, 10)
+2025-03-28 09:51:24,871 - INFO - Logger initialized for wikidata/test_3/gpt-4o
+2025-03-28 09:51:24,872 - INFO - Starting classification for dataset=wikidata, test=test_3, model=gpt-4o
+2025-03-28 09:51:25,202 - INFO - Number of images: 718
+2025-03-28 09:51:25,202 - INFO - Processing dataset: wikidata
+2025-03-28 09:51:25,210 - INFO - Processing images for test: test_3
+2025-03-28 09:51:25,298 - INFO - Loaded 695 valid cached results (ignoring zero arrays)
+2025-03-28 09:51:25,298 - INFO - Using model: gpt-4o
+2025-03-28 09:52:20,665 - INFO - Cache saved after 5 batches
+2025-03-28 09:53:12,813 - INFO - Cache saved after 10 batches
+2025-03-28 09:54:00,342 - INFO - Total input tokens used: 87748
+2025-03-28 09:54:00,342 - INFO - Total output tokens used: 378
+2025-03-28 09:54:00,342 - INFO - Total cost of this call: $0.2232
+2025-03-28 09:54:00,343 - INFO - Probabilities shape: (718, 10)

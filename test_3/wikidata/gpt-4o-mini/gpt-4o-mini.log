@@ -60,3 +60,271 @@
 2025-03-27 15:32:39,673 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
 2025-03-27 15:32:39,674 - WARNING - Response: ['11H(FRANCIS)', '11H(JOSEPH)', '11H(ANTONY ABBOT)', '11H(PETER)']
 2025-03-27 15:32:39,674 - WARNING - No valid results from batch. Skipping.
+2025-03-27 15:43:25,512 - INFO - Cache saved after 30 batches
+2025-03-27 15:43:43,377 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 15:43:43,379 - WARNING - Response: ['11H(PETER)', '11HH(MARY MAGDALENE)', '11H(JOSEPH)', '11H(PAUL)']
+2025-03-27 15:43:43,379 - WARNING - No valid results from batch. Skipping.
+2025-03-27 15:43:55,027 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 15:43:55,029 - WARNING - Response: ['11H(PAUL)', '11H(JOSEPH)', '11H(JOHN)', '11H(PETER)']
+2025-03-27 15:43:55,029 - WARNING - No valid results from batch. Skipping.
+2025-03-27 15:44:08,636 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 15:44:08,638 - WARNING - Response: ['11H(PETER)', '11H(JOHN)', '11H(PETER)', '11H(PAUL)']
+2025-03-27 15:44:08,638 - WARNING - No valid results from batch. Skipping.
+2025-03-27 15:44:32,599 - INFO - Cache saved after 35 batches
+2025-03-27 15:44:50,346 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 15:44:50,347 - WARNING - Response: ['11H(FRANCIS)', '11H(FRANCIS)', '11H(JOSEPH)', '11HH(MARY MAGDALENE)']
+2025-03-27 15:44:50,348 - WARNING - No valid results from batch. Skipping.
+2025-03-27 15:45:04,212 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 15:45:04,213 - WARNING - Response: ['11H(PETER)', '11H(PETER)', '11H(FRANCIS)', '11H(PAUL)']
+2025-03-27 15:45:04,214 - WARNING - No valid results from batch. Skipping.
+2025-03-27 15:45:18,030 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 15:45:18,031 - WARNING - Response: ['11H(JOHN)', '11H(PAUL)', '11H(JOHN)', '11H(PAUL)']
+2025-03-27 15:45:18,031 - WARNING - No valid results from batch. Skipping.
+2025-03-27 15:45:44,870 - INFO - Cache saved after 40 batches
+2025-03-27 15:45:55,707 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 15:45:55,708 - WARNING - Response: ['11H(PAUL)', '11H(PAUL)', '11H(JOHN)', '11H(PAUL)']
+2025-03-27 15:45:55,709 - WARNING - No valid results from batch. Skipping.
+2025-03-27 15:46:21,582 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 15:46:21,582 - WARNING - Response: ['11HH(MARY MAGDALENE)', '11HH(MARY MAGDALENE)', '11HH(MARY MAGDALENE)', '11HH(MARY MAGDALENE)']
+2025-03-27 15:46:21,583 - WARNING - No valid results from batch. Skipping.
+2025-03-27 15:46:39,212 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 15:46:39,214 - WARNING - Response: ['11HH(MARY MAGDALENE)', '11HH(MARY MAGDALENE)', '11HH(MARY MAGDALENE)', '11HH(MARY MAGDALENE)']
+2025-03-27 15:46:39,214 - WARNING - No valid results from batch. Skipping.
+2025-03-27 15:46:55,493 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 15:46:55,494 - WARNING - Response: ['11HH(MARY MAGDALENE)', '11HH(MARY MAGDALENE)', '11H(JOHN THE BAPTIST)', '11HH(MARY MAGDALENE)']
+2025-03-27 15:46:55,495 - WARNING - No valid results from batch. Skipping.
+2025-03-27 15:47:11,521 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 15:47:11,522 - WARNING - Response: ['11HH(MARY MAGDALENE)', '11HH(MARY MAGDALENE)', '11HH(MARY MAGDALENE)', '11HH(MARY MAGDALENE)']
+2025-03-27 15:47:11,522 - WARNING - No valid results from batch. Skipping.
+2025-03-27 15:47:39,141 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 15:47:39,142 - WARNING - Response: ['11HH(MARY MAGDALENE)', '11HH(MARY MAGDALENE)', '11HH(MARY MAGDALENE)', '11HH(MARY MAGDALENE)']
+2025-03-27 15:47:39,143 - WARNING - No valid results from batch. Skipping.
+2025-03-27 15:47:57,895 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 15:47:57,895 - WARNING - Response: ['11HH(MARY MAGDALENE)', '11HH(MARY MAGDALENE)', '11HH(MARY MAGDALENE)', '11HH(MARY MAGDALENE)']
+2025-03-27 15:47:57,895 - WARNING - No valid results from batch. Skipping.
+2025-03-27 15:48:12,268 - INFO - Cache saved after 50 batches
+2025-03-27 15:48:38,192 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 15:48:38,193 - WARNING - Response: ['11HH(MARY MAGDALENE)', '11HH(MARY MAGDALENE)', '11HH(MARY MAGDALENE)', '11HH(MARY MAGDALENE)']
+2025-03-27 15:48:38,194 - WARNING - No valid results from batch. Skipping.
+2025-03-27 15:49:19,442 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 15:49:19,443 - WARNING - Response: ['11HH(MARY MAGDALENE)', '11H(JEROME)', '11H(ANTONY ABBOT)', '11H(FRANCIS)']
+2025-03-27 15:49:19,443 - WARNING - No valid results from batch. Skipping.
+2025-03-27 15:49:34,160 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 15:49:34,162 - WARNING - Response: ['11H(JOHN THE BAPTIST)', '11H(MARY MAGDALENE)', '11H(JOSEPH)', '11H(ANTONY ABBOT)']
+2025-03-27 15:49:34,162 - WARNING - No valid results from batch. Skipping.
+2025-03-27 15:50:03,604 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 15:50:03,605 - WARNING - Response: ['11HH(MARY MAGDALENE)', '11H(JOHN THE BAPTIST)', '11H(PETER)', '11H(MARY MAGDALENE)']
+2025-03-27 15:50:03,606 - WARNING - No valid results from batch. Skipping.
+2025-03-27 15:50:16,868 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 15:50:16,869 - WARNING - Response: ['11HH(CATHERINE)', '11HH(MARY MAGDALENE)', '11H(JOHN THE BAPTIST)', '11H(MARY)']
+2025-03-27 15:50:16,869 - WARNING - No valid results from batch. Skipping.
+2025-03-27 15:50:30,483 - INFO - Cache saved after 60 batches
+2025-03-27 15:50:41,737 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 15:50:41,739 - WARNING - Response: ['11HH(MARY MAGDALENE)', '11H(JOSEPH)', '11HH(CATHERINE)', '11HH(MARY MAGDALENE)']
+2025-03-27 15:50:41,740 - WARNING - No valid results from batch. Skipping.
+2025-03-27 15:51:09,482 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 15:51:09,484 - WARNING - Response: ['11HH(MARY MAGDALENE)', '11HH(CATHERINE)', '11H(JOSEPH)', '11H(FRANCIS)']
+2025-03-27 15:51:09,484 - WARNING - No valid results from batch. Skipping.
+2025-03-27 15:51:38,209 - INFO - Cache saved after 65 batches
+2025-03-27 15:51:53,333 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 15:51:53,334 - WARNING - Response: ['11H(JOHN)', '11H(JOHN THE BAPTIST)', '11H(JOHN)', '11HH(MARY MAGDALENE)']
+2025-03-27 15:51:53,335 - WARNING - No valid results from batch. Skipping.
+2025-03-27 15:52:49,210 - INFO - Cache saved after 70 batches
+2025-03-27 15:54:25,371 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 15:54:25,371 - WARNING - Response: ['11H(JOHN)', '11H(JEROME)', '11H(JOHN)', '11H(JOHN)']
+2025-03-27 15:54:25,371 - WARNING - No valid results from batch. Skipping.
+2025-03-27 15:54:38,185 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 15:54:38,186 - WARNING - Response: ['11H(PAUL)', '11H(JOHN THE BAPTIST)', '11H(JOHN)', '11HH(MARY MAGDALENE)']
+2025-03-27 15:54:38,187 - WARNING - No valid results from batch. Skipping.
+2025-03-27 15:55:11,957 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 15:55:11,958 - WARNING - Response: ['11HH(MARY MAGDALENE)', '11HH(MARY MAGDALENE)', '11H(JOHN THE BAPTIST)', '11HH(CATHERINE)']
+2025-03-27 15:55:11,959 - WARNING - No valid results from batch. Skipping.
+2025-03-27 15:55:50,534 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 15:55:50,535 - WARNING - Response: ['11HH(MARY MAGDALENE)', '11H(JOHN THE BAPTIST)', '11H(JOHN THE BAPTIST)', '11H(FRANCIS)']
+2025-03-27 15:55:50,536 - WARNING - No valid results from batch. Skipping.
+2025-03-27 15:57:01,648 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 15:57:01,649 - WARNING - Response: ['11H(MARY MAGDALENE)', '11H(JOHN THE BAPTIST)', '11H(MARY MAGDALENE)', '11HH(CATHERINE)']
+2025-03-27 15:57:01,649 - WARNING - No valid results from batch. Skipping.
+2025-03-27 15:57:24,967 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 15:57:24,967 - WARNING - Response: ['11HH(MARY MAGDALENE)', '11HH(MARY MAGDALENE)', '11HH(MARY MAGDALENE)', '11HH(MARY MAGDALENE)']
+2025-03-27 15:57:24,967 - WARNING - No valid results from batch. Skipping.
+2025-03-27 15:58:09,250 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 15:58:09,251 - WARNING - Response: ['11HH(MARY MAGDALENE)', '11HH(CATHERINE)', '11HH(MARY MAGDALENE)', '11H(JOSEPH)']
+2025-03-27 15:58:09,251 - WARNING - No valid results from batch. Skipping.
+2025-03-27 15:58:21,857 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 15:58:21,857 - WARNING - Response: ['11HH(MARY MAGDALENE)', '11HH(CATHERINE)', '11HH(MARY MAGDALENE)', '11HH(CATHERINE)']
+2025-03-27 15:58:21,857 - WARNING - No valid results from batch. Skipping.
+2025-03-27 15:58:54,674 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 15:58:54,675 - WARNING - Response: ['11HH(MARY MAGDALENE)', '11HH(MARY MAGDALENE)', '11HH(MARY MAGDALENE)', '11HH(MARY MAGDALENE)']
+2025-03-27 15:58:54,675 - WARNING - No valid results from batch. Skipping.
+2025-03-27 15:59:08,149 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 15:59:08,150 - WARNING - Response: ['11HH(MARY MAGDALENE)', '11H(JOHN THE BAPTIST)', '11HH(CATHERINE)', '11H(JEROME)']
+2025-03-27 15:59:08,151 - WARNING - No valid results from batch. Skipping.
+2025-03-27 15:59:21,774 - INFO - Cache saved after 95 batches
+2025-03-27 15:59:33,390 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 15:59:33,391 - WARNING - Response: ['11H(JEROME)', '11H(JEROME)', '11H(JEROME)', '11H(JEROME)']
+2025-03-27 15:59:33,392 - WARNING - No valid results from batch. Skipping.
+2025-03-27 15:59:48,110 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 15:59:48,111 - WARNING - Response: ['11H(JEROME)', '11H(JEROME)', '11H(JEROME)', '11H(JEROME)']
+2025-03-27 15:59:48,112 - WARNING - No valid results from batch. Skipping.
+2025-03-27 16:00:29,822 - INFO - Cache saved after 100 batches
+2025-03-27 16:00:42,245 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 16:00:42,246 - WARNING - Response: ['11H(PETER)', '11H(PETER)', '11H(PETER)', '11H(JEROME)']
+2025-03-27 16:00:42,246 - WARNING - No valid results from batch. Skipping.
+2025-03-27 16:00:56,457 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 16:00:56,458 - WARNING - Response: ['11HH(MARY MAGDALENE)', '11H(JOHN THE BAPTIST)', '11H(JEROME)', '11H(JEROME)']
+2025-03-27 16:00:56,459 - WARNING - No valid results from batch. Skipping.
+2025-03-27 16:01:11,899 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 16:01:11,900 - WARNING - Response: ['11H(FRANCIS)', '11H(ANTONY ABBOT)', '11H(FRANCIS)', '11H(JOHN)']
+2025-03-27 16:01:11,901 - WARNING - No valid results from batch. Skipping.
+2025-03-27 16:01:26,516 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 16:01:26,517 - WARNING - Response: ['11H(ANTONY ABBOT)', '11H(JEROME)', '11HH(MARY MAGDALENE)', '11H(PAUL)']
+2025-03-27 16:01:26,517 - WARNING - No valid results from batch. Skipping.
+2025-03-27 16:01:40,712 - INFO - Cache saved after 105 batches
+2025-03-27 16:01:54,252 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 16:01:54,252 - WARNING - Response: ['11H(MARY MAGDALENE)', '11H(JOHN)', '11H(JOSEPH)', '11HH(CATHERINE)']
+2025-03-27 16:01:54,253 - WARNING - No valid results from batch. Skipping.
+2025-03-27 16:02:06,591 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 16:02:06,591 - WARNING - Response: ['11HH(MARY MAGDALENE)', '11HH(MARY MAGDALENE)', '11HH(MARY MAGDALENE)', '11HH(MARY MAGDALENE)']
+2025-03-27 16:02:06,592 - WARNING - No valid results from batch. Skipping.
+2025-03-27 16:02:30,606 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 16:02:30,608 - WARNING - Response: ['11HH(MARY MAGDALENE)', '11HH(CATHERINE)', '11H(JOSEPH)', '11H(JEROME)']
+2025-03-27 16:02:30,608 - WARNING - No valid results from batch. Skipping.
+2025-03-27 16:02:43,693 - INFO - Cache saved after 110 batches
+2025-03-27 16:02:57,602 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 16:02:57,604 - WARNING - Response: ['11HH(MARY MAGDALENE)', '11HH(MARY MAGDALENE)', '11HH(MARY MAGDALENE)', '11H(FRANCIS)']
+2025-03-27 16:02:57,604 - WARNING - No valid results from batch. Skipping.
+2025-03-27 16:03:18,800 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 16:03:18,801 - WARNING - Response: ['11H(FRANCIS)', '11HH(MARY MAGDALENE)', '11HH(CATHERINE)', '11H(ANTONY ABBOT)']
+2025-03-27 16:03:18,801 - WARNING - No valid results from batch. Skipping.
+2025-03-27 16:03:32,270 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 16:03:32,271 - WARNING - Response: ['11H(JEROME)', '11H(JEROME)', '11H(JEROME)', '11H(JEROME)']
+2025-03-27 16:03:32,271 - WARNING - No valid results from batch. Skipping.
+2025-03-27 16:04:00,088 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 16:04:00,089 - WARNING - Response: ['11H(JEROME)', '11H(JEROME)', '11H(JEROME)', '11H(JEROME)']
+2025-03-27 16:04:00,090 - WARNING - No valid results from batch. Skipping.
+2025-03-27 16:04:28,533 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 16:04:28,534 - WARNING - Response: ['11H(JOSEPH)', '11HH(MARY MAGDALENE)', '11H(ANTONY ABBOT)', '11H(JOSEPH)']
+2025-03-27 16:04:28,535 - WARNING - No valid results from batch. Skipping.
+2025-03-27 16:04:41,531 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 16:04:41,531 - WARNING - Response: ['11H(PAUL)', '11H(JOSEPH)', '11HH(MARY MAGDALENE)', '11H(MARY MAGDALENE)']
+2025-03-27 16:04:41,532 - WARNING - No valid results from batch. Skipping.
+2025-03-27 16:04:54,947 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 16:04:54,948 - WARNING - Response: ['11H(PAUL)', '11H(JOSEPH)', '11H(PETER)', '11HH(MARY MAGDALENE)']
+2025-03-27 16:04:54,948 - WARNING - No valid results from batch. Skipping.
+2025-03-27 16:05:15,877 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 16:05:15,878 - WARNING - Response: ['11HH(MARY MAGDALENE)', '11H(JOSEPH)', '11H(MARY MAGDALENE)', '11H(PETER)']
+2025-03-27 16:05:15,878 - WARNING - No valid results from batch. Skipping.
+2025-03-27 16:05:40,923 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 16:05:40,925 - WARNING - Response: ['11H(JOSEPH)', '11HH(MARY MAGDALENE)', '11HH(CATHERINE)', '11H(FRANCIS)']
+2025-03-27 16:05:40,925 - WARNING - No valid results from batch. Skipping.
+2025-03-27 16:05:52,782 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 16:05:52,783 - WARNING - Response: ['11H(FRANCIS)', '11HH(MARY MAGDALENE)', '11H(JEROME)', '11H(JOHN)']
+2025-03-27 16:05:52,784 - WARNING - No valid results from batch. Skipping.
+2025-03-27 16:06:20,798 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 16:06:20,799 - WARNING - Response: ['11H(JEROME)', '11H(JEROME)', '11H(ANTONY ABBOT)', '11H(PETER)']
+2025-03-27 16:06:20,799 - WARNING - No valid results from batch. Skipping.
+2025-03-27 16:06:33,958 - WARNING - Mismatch between response texts (0) and batch items (5). Skipping batch.
+2025-03-27 16:06:33,959 - WARNING - Response: []
+2025-03-27 16:06:33,959 - WARNING - No valid results from batch. Skipping.
+2025-03-27 16:06:59,359 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 16:06:59,360 - WARNING - Response: ['11HH(MARY MAGDALENE)', '11H(JOHN)', '11H(JOSEPH)', '11H(PETER)']
+2025-03-27 16:06:59,360 - WARNING - No valid results from batch. Skipping.
+2025-03-27 16:07:30,986 - INFO - Cache saved after 130 batches
+2025-03-27 16:07:57,921 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 16:07:57,922 - WARNING - Response: ['11H(PETER)', '11HH(MARY MAGDALENE)', '11H(JEROME)', '11H(FRANCIS)']
+2025-03-27 16:07:57,923 - WARNING - No valid results from batch. Skipping.
+2025-03-27 16:08:12,373 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 16:08:12,374 - WARNING - Response: ['11HH(MARY MAGDALENE)', '11H(JEROME)', '11H(PAUL)', '11H(FRANCIS)']
+2025-03-27 16:08:12,374 - WARNING - No valid results from batch. Skipping.
+2025-03-27 16:08:26,474 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 16:08:26,475 - WARNING - Response: ['11H(JEROME)', '11H(FRANCIS)', '11H(JEROME)', '11H(FRANCIS)']
+2025-03-27 16:08:26,476 - WARNING - No valid results from batch. Skipping.
+2025-03-27 16:08:41,467 - INFO - Cache saved after 135 batches
+2025-03-27 16:08:57,311 - WARNING - Mismatch between response texts (0) and batch items (5). Skipping batch.
+2025-03-27 16:08:57,312 - WARNING - Response: []
+2025-03-27 16:08:57,313 - WARNING - No valid results from batch. Skipping.
+2025-03-27 16:09:09,425 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 16:09:09,426 - WARNING - Response: ['11HH(MARY MAGDALENE)', '11H(JOHN)', '11H(JEROME)', '11H(PAUL)']
+2025-03-27 16:09:09,426 - WARNING - No valid results from batch. Skipping.
+2025-03-27 16:09:28,341 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 16:09:28,342 - WARNING - Response: ['11H(JOHN)', '11H(JOHN)', '11H(PETER)', '11H(JEROME)']
+2025-03-27 16:09:28,343 - WARNING - No valid results from batch. Skipping.
+2025-03-27 16:09:41,817 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
+2025-03-27 16:09:41,818 - WARNING - Response: ['11H(JOSEPH)', '11H(FRANCIS)', '11H(JEROME)', '11H(ANTONY ABBOT)']
+2025-03-27 16:09:41,819 - WARNING - No valid results from batch. Skipping.
+2025-03-27 16:09:54,075 - INFO - Cache saved after 140 batches
+2025-03-27 16:10:47,875 - INFO - Total input tokens used: 29508871
+2025-03-27 16:10:47,876 - INFO - Total output tokens used: 10137
+2025-03-27 16:10:47,876 - INFO - Total cost of this call: $4.4324
+2025-03-27 16:10:47,877 - INFO - Probabilities shape: (324, 10)
+2025-03-27 18:32:26,917 - INFO - Logger initialized for wikidata/test_3/gpt-4o-mini
+2025-03-27 18:32:26,918 - INFO - Starting classification for dataset=wikidata, test=test_3, model=gpt-4o-mini
+2025-03-27 18:32:27,312 - INFO - Number of images: 718
+2025-03-27 18:32:27,312 - INFO - Processing dataset: wikidata
+2025-03-27 18:32:27,317 - INFO - Processing images for test: test_3
+2025-03-27 18:32:27,406 - INFO - Loaded 324 valid cached results (ignoring zero arrays)
+2025-03-27 18:32:27,407 - INFO - Using model: gpt-4o-mini
+2025-03-27 18:33:31,632 - INFO - Cache saved after 5 batches
+2025-03-27 18:34:36,020 - INFO - Cache saved after 10 batches
+2025-03-27 18:35:41,567 - INFO - Cache saved after 15 batches
+2025-03-27 18:36:56,297 - INFO - Cache saved after 20 batches
+2025-03-27 18:37:31,994 - WARNING - Mismatch between response texts (0) and batch items (2). Skipping batch.
+2025-03-27 18:37:31,995 - WARNING - Response: []
+2025-03-27 18:37:31,995 - WARNING - No valid results from batch. Skipping.
+2025-03-27 18:38:09,937 - INFO - Cache saved after 25 batches
+2025-03-27 18:39:07,918 - INFO - Cache saved after 30 batches
+2025-03-27 18:40:10,963 - INFO - Cache saved after 35 batches
+2025-03-27 18:40:34,555 - WARNING - Mismatch between response texts (0) and batch items (3). Skipping batch.
+2025-03-27 18:40:34,556 - WARNING - Response: []
+2025-03-27 18:40:34,556 - WARNING - No valid results from batch. Skipping.
+2025-03-27 18:41:14,479 - INFO - Cache saved after 40 batches
+2025-03-27 18:42:12,426 - INFO - Cache saved after 45 batches
+2025-03-27 18:43:29,931 - INFO - Cache saved after 50 batches
+2025-03-27 18:44:35,369 - INFO - Cache saved after 55 batches
+2025-03-27 18:45:37,909 - INFO - Cache saved after 60 batches
+2025-03-27 18:46:36,737 - INFO - Cache saved after 65 batches
+2025-03-27 18:47:33,539 - INFO - Cache saved after 70 batches
+2025-03-27 18:48:27,656 - WARNING - No valid results from batch. Skipping.
+2025-03-27 18:48:37,296 - INFO - Cache saved after 75 batches
+2025-03-27 18:49:34,514 - INFO - Cache saved after 80 batches
+2025-03-27 18:50:40,554 - INFO - Cache saved after 85 batches
+2025-03-27 18:51:43,897 - INFO - Cache saved after 90 batches
+2025-03-27 18:52:48,890 - INFO - Cache saved after 95 batches
+2025-03-27 18:53:49,049 - INFO - Cache saved after 100 batches
+2025-03-27 18:55:13,020 - INFO - Cache saved after 105 batches
+2025-03-27 18:56:18,647 - INFO - Cache saved after 110 batches
+2025-03-27 18:57:25,728 - INFO - Cache saved after 115 batches
+2025-03-27 18:58:14,091 - WARNING - Mismatch between response texts (0) and batch items (3). Skipping batch.
+2025-03-27 18:58:14,092 - WARNING - Response: []
+2025-03-27 18:58:14,092 - WARNING - No valid results from batch. Skipping.
+2025-03-27 18:58:36,995 - INFO - Cache saved after 120 batches
+2025-03-27 18:59:35,125 - INFO - Cache saved after 125 batches
+2025-03-27 19:00:33,824 - INFO - Cache saved after 130 batches
+2025-03-27 19:01:34,114 - INFO - Cache saved after 135 batches
+2025-03-27 19:02:31,671 - INFO - Cache saved after 140 batches
+2025-03-27 19:03:34,192 - INFO - Cache saved after 145 batches
+2025-03-27 19:04:34,230 - INFO - Cache saved after 150 batches
+2025-03-27 19:05:12,419 - WARNING - Mismatch between response texts (0) and batch items (3). Skipping batch.
+2025-03-27 19:05:12,419 - WARNING - Response: []
+2025-03-27 19:05:12,419 - WARNING - No valid results from batch. Skipping.
+2025-03-27 19:05:38,828 - INFO - Cache saved after 155 batches
+2025-03-27 19:06:12,550 - INFO - Total input tokens used: 29026907
+2025-03-27 19:06:12,550 - INFO - Total output tokens used: 6436
+2025-03-27 19:06:12,550 - INFO - Total cost of this call: $4.3579
+2025-03-27 19:06:12,552 - INFO - Probabilities shape: (695, 10)
+2025-03-28 09:51:07,788 - INFO - Logger initialized for wikidata/test_3/gpt-4o-mini
+2025-03-28 09:51:07,789 - INFO - Starting classification for dataset=wikidata, test=test_3, model=gpt-4o-mini
+2025-03-28 09:51:08,080 - INFO - Number of images: 718
+2025-03-28 09:51:08,080 - INFO - Processing dataset: wikidata
+2025-03-28 09:51:08,084 - INFO - Processing images for test: test_3
+2025-03-28 09:51:08,171 - INFO - Loaded 695 valid cached results (ignoring zero arrays)
+2025-03-28 09:51:08,171 - INFO - Using model: gpt-4o-mini
+2025-03-28 09:52:08,953 - INFO - Cache saved after 5 batches
+2025-03-28 09:53:07,542 - WARNING - No valid results from batch. Skipping.
+2025-03-28 09:53:17,611 - INFO - Cache saved after 10 batches
+2025-03-28 09:54:12,721 - INFO - Cache saved after 15 batches
+2025-03-28 09:54:55,479 - INFO - Total input tokens used: 3283130
+2025-03-28 09:54:55,480 - INFO - Total output tokens used: 400
+2025-03-28 09:54:55,480 - INFO - Total cost of this call: $0.4927
+2025-03-28 09:54:55,481 - INFO - Probabilities shape: (717, 10)
