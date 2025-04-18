@@ -6,7 +6,7 @@ This directory contains scripts for evaluating different image classification mo
 
 The scripts in this directory are designed to:
 
-1. Execute different models (GPT, CLIP, SigLIP) on image classification tasks
+1. Execute different models (GPT, CLIP, SigLIP, LLaVA, Gemini) on image classification tasks
 2. Evaluate the results using standard metrics
 3. Support different test configurations and datasets
 
@@ -50,13 +50,91 @@ api_key=your_api_key_here
 
 #### System Prompts
 
-System prompts are stored in the `gpt_data` directory with the following naming convention:
+System prompts are stored in the `prompts` directory with the following naming convention:
 - `prompts/{dataset}/{test}.txt`
 
 #### Caching System
 
 The script implements a caching system to avoid redundant API calls:
 - Cache files are stored in `gpt_data/cache/{dataset}/{test}/{model}.json`
+- Each image ID is mapped to its classification probabilities
+- The cache is loaded at the start and saved periodically during processing
+
+### execute_llava.py
+
+This script uses LLaVA (Language-and-Vision Assistant) models to classify images into predefined categories.
+
+#### Features
+
+- Supports multiple LLaVA models (llava-v1.6-mistral-7b-hf, etc.)
+- Handles different datasets and test configurations
+- Implements caching to save computation
+- Supports few-shot learning with example images
+
+#### Usage
+
+```bash
+python execute_llava.py --models llava-v1.6-mistral-7b-hf --datasets ArtDL IconArt --folders test_1 test_2
+```
+
+#### Parameters
+
+- `--models`: List of LLaVA model names to use (default: llava-v1.6-mistral-7b-hf)
+- `--folders`: List of test folders to use (default: test_1, test_2, test_3)
+- `--datasets`: List of datasets to use (default: ArtDL)
+- `--limit`: Limit the number of images to process (-1 for all)
+- `--batch_size`: Number of images per batch (default: 4)
+- `--save_frequency`: How often to save cache in batches (default: 5)
+
+
+#### Caching System
+
+The script implements a caching system to avoid redundant computation:
+- Cache files are stored in `llava_data/cache/{dataset}/{test}/{model}.json`
+- Each image ID is mapped to its classification probabilities
+- The cache is loaded at the start and saved periodically during processing
+
+### execute_gemini.py
+
+This script uses Google's Gemini 2.5 models to classify images into predefined categories.
+
+#### Features
+
+- Supports Gemini 2.5 models (gemini-2.5-pro, gemini-2.5-flash)
+- Handles different datasets and test configurations
+- Implements caching to save API calls and costs
+- Provides cost estimation for API usage
+- Supports few-shot learning with example images
+
+#### Usage
+
+```bash
+python execute_gemini.py --models gemini-2.5-pro --datasets ArtDL IconArt --folders test_1 test_2
+```
+
+#### Parameters
+
+- `--models`: List of Gemini model names to use (default: gemini-2.5-pro)
+- `--folders`: List of test folders to use (default: test_1, test_2, test_3)
+- `--datasets`: List of datasets to use (default: ArtDL)
+- `--limit`: Limit the number of images to process (-1 for all)
+- `--batch_size`: Number of images per batch (default: 4)
+- `--save_frequency`: How often to save cache in batches (default: 5)
+
+#### Configuration
+
+The script requires a Google API key, which should be stored in `gemini_data/config.ini` in the following format:
+
+```ini
+[gemini]
+api_key=your_gemini_api_key_here
+```
+
+
+#### Caching System
+
+The script implements a caching system to avoid redundant API calls:
+- Cache files are stored in `gemini_data/cache/{dataset}/{test}/{model}.json`
 - Each image ID is mapped to its classification probabilities
 - The cache is loaded at the start and saved periodically during processing
 
@@ -146,12 +224,12 @@ This script evaluates the results of the classification models using standard me
 #### Usage
 
 ```bash
-python evaluate.py --models clip-vit-base-patch32 gpt-4o --folders test_1 test_2 --datasets ArtDL
+python evaluate.py --models clip-vit-base-patch32 gpt-4o llava-v1.6-mistral-7b-hf gemini-2.5-pro --folders test_1 test_2 --datasets ArtDL
 ```
 
 #### Parameters
 
-- `--models`: List of models to evaluate (default: all CLIP and SigLIP models)
+- `--models`: List of models to evaluate (default: all models)
 - `--folders`: List of folders to evaluate (default: test_1, test_2, test_3)
 - `--limit`: Limit the number of images to evaluate (-1 for all)
 - `--datasets`: List of datasets to use (default: ArtDL, IconArt)
@@ -192,22 +270,21 @@ The scripts support different test configurations:
 
 ## Code Structure
 
-### execute_gpt.py
+### Common Structure for API-based Models (GPT, LLaVA, Gemini)
 
-The script is organized into the following components:
+The scripts are organized into the following components:
 
-1. **ModelConfig**: Configuration for different GPT models including pricing
-2. **CacheManager**: Manages caching of API responses to avoid redundant calls
-3. **GPTImageClassifier**: Main class for classifying images using GPT models
+1. **ModelConfig**: Configuration for different models including pricing (for API-based models)
+2. **CacheManager**: Manages caching of responses to avoid redundant calls
+3. **ImageClassifier**: Main class for classifying images using the respective model
 4. **Helper Functions**:
-   - `encode_image`: Encodes an image as a base64 data URL
    - `load_images`: Loads images from disk
 5. **Main Function**: Orchestrates the classification process
 
 ### Class Hierarchy
 
 ```
-ModelConfig
+ModelConfig (for API-based models)
   ├── MODELS (dict): Configuration for different models
   └── get_costs(): Get costs for a specific model
 
@@ -217,13 +294,13 @@ CacheManager
   ├── add_result(): Add a new result to the cache
   └── save(): Save cache to disk
 
-GPTImageClassifier
+ImageClassifier
   ├── _get_prompt_path(): Get the path to the appropriate prompt file
   ├── _load_few_shot_examples(): Load few-shot examples
-  ├── _prepare_batch_request(): Prepare the API request for a batch
-  ├── _parse_response(): Parse the API response
+  ├── _prepare_batch_request(): Prepare the request for a batch
+  ├── _parse_response(): Parse the response
   ├── classify_images(): Main classification method
-  └── _display_cost_info(): Calculate and display cost information
+  └── _display_cost_info(): Calculate and display cost information (for API-based models)
 ```
 
 ## Output
@@ -238,4 +315,3 @@ The scripts save their output in the following structure:
   ├── class_metrics.csv: Per-class metrics
   ├── class_metrics.md: Per-class metrics in Markdown format
   └── summary_metrics.csv: Overall metrics
-```
