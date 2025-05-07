@@ -792,63 +792,48 @@ def main(datasets, max_images, output_dir, perceptual_hash_size, robust_hash_siz
                 if len(duplicates) > 10:
                     robust_results += f"    - ... and {len(duplicates) - 10} more\n"
         
-        # 3. Create HTML for visual examples
-        # Select up to 10 examples from perceptual duplicates for visual comparison
-        visual_examples_html = """
+        # 3. Create examples folder and copy images
+        examples_dir = os.path.join(main_analysis_dir, 'examples')
+        os.makedirs(examples_dir, exist_ok=True)
+        
+        # Create a table of visual examples
+        visual_examples_table = """
 ## Visual Examples of Similar Images
 
-Below are examples of similar images found across different datasets. Each pair shows the images side by side with their dataset and filename information.
+Below are examples of similar images found across different datasets. Each row shows a pair of similar images with their dataset and filename information.
 
-<style>
-.image-pair {
-    display: flex;
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
-    padding: 10px;
-    border-radius: 5px;
-}
-.image-container {
-    flex: 1;
-    padding: 10px;
-    text-align: center;
-}
-.image-container img {
-    max-width: 100%;
-    max-height: 300px;
-    border: 1px solid #ccc;
-}
-.image-info {
-    margin-top: 10px;
-    font-size: 0.9em;
-}
-</style>
+| Image 1 | Image 2 |
+|---------|---------|
 """
         
-        # Create HTML for up to 10 example pairs
+        # Copy images and create table rows for up to 10 example pairs
         example_count = min(10, len(all_perceptual_duplicates))
         for i in range(example_count):
             dup = all_perceptual_duplicates[i]
-            img1_path = dup[0]['path'].replace(base_dir + '/', '')
-            img2_path = dup[1]['path'].replace(base_dir + '/', '')
             
-            visual_examples_html += f"""
-<div class="image-pair">
-    <div class="image-container">
-        <img src="../{img1_path}" alt="{dup[0]['name']}">
-        <div class="image-info">
-            <strong>Dataset:</strong> {dup[0]['dataset']}<br>
-            <strong>Filename:</strong> {dup[0]['name']}
-        </div>
-    </div>
-    <div class="image-container">
-        <img src="../{img2_path}" alt="{dup[1]['name']}">
-        <div class="image-info">
-            <strong>Dataset:</strong> {dup[1]['dataset']}<br>
-            <strong>Filename:</strong> {dup[1]['name']}
-        </div>
-    </div>
-</div>
-"""
+            # Source paths
+            img1_src_path = dup[0]['path']
+            img2_src_path = dup[1]['path']
+            
+            # Create destination filenames with index and dataset prefix
+            img1_filename = f"{i+1}a_{dup[0]['dataset']}_{dup[0]['name'].replace('/', '_')}.jpg"
+            img2_filename = f"{i+1}b_{dup[1]['dataset']}_{dup[1]['name'].replace('/', '_')}.jpg"
+            
+            # Destination paths
+            img1_dest_path = os.path.join(examples_dir, img1_filename)
+            img2_dest_path = os.path.join(examples_dir, img2_filename)
+            
+            # Copy images to examples directory
+            try:
+                import shutil
+                shutil.copy2(img1_src_path, img1_dest_path)
+                shutil.copy2(img2_src_path, img2_dest_path)
+                logger.info(f"Copied example images to {examples_dir}")
+            except Exception as e:
+                logger.error(f"Error copying example images: {e}")
+            
+            # Add row to table
+            visual_examples_table += f"""| ![{dup[0]['name']}](examples/{img1_filename}) <br> **Dataset:** {dup[0]['dataset']} <br> **Filename:** {dup[0]['name']} | ![{dup[1]['name']}](examples/{img2_filename}) <br> **Dataset:** {dup[1]['dataset']} <br> **Filename:** {dup[1]['name']} |\n"""
         
         # Write README content
         readme_content = f"""# Cross-Dataset Image Similarity Analysis
@@ -898,7 +883,7 @@ The following files contain information about cross-dataset similarities:
   - Perceptual hash duplicates: `perceptual_cross_duplicates.json`
   - Robust hash duplicates: `robust_cross_duplicates.json`
 
-{visual_examples_html}
+{visual_examples_table}
 
 ## Dataset-specific Files
 
