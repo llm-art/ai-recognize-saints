@@ -770,13 +770,11 @@ def main(datasets, max_images, output_dir, perceptual_hash_size, robust_hash_siz
         
         for pair, duplicates in perceptual_pair_counts.items():
             perceptual_results += f"- **{pair}**: {len(duplicates)} duplicates\n"
-            # List first 10 duplicates as examples
+            # List all duplicates
             if duplicates:
-                perceptual_results += "  - Examples:\n"
-                for i, (img1, img2) in enumerate(duplicates[:10]):
+                perceptual_results += "  - Full list of pairs:\n"
+                for i, (img1, img2) in enumerate(duplicates):
                     perceptual_results += f"    - {img1} ↔ {img2}\n"
-                if len(duplicates) > 10:
-                    perceptual_results += f"    - ... and {len(duplicates) - 10} more\n"
         
         robust_results = f"\n### Robust Hash Results\n\n"
         robust_results += f"**Total duplicate images found: {total_robust_duplicates}**\n\n"
@@ -784,56 +782,128 @@ def main(datasets, max_images, output_dir, perceptual_hash_size, robust_hash_siz
         
         for pair, duplicates in robust_pair_counts.items():
             robust_results += f"- **{pair}**: {len(duplicates)} duplicates\n"
-            # List first 10 duplicates as examples
+            # List all duplicates
             if duplicates:
-                robust_results += "  - Examples:\n"
-                for i, (img1, img2) in enumerate(duplicates[:10]):
+                robust_results += "  - Full list of pairs:\n"
+                for i, (img1, img2) in enumerate(duplicates):
                     robust_results += f"    - {img1} ↔ {img2}\n"
-                if len(duplicates) > 10:
-                    robust_results += f"    - ... and {len(duplicates) - 10} more\n"
         
         # 3. Create examples folder and copy images
         examples_dir = os.path.join(main_analysis_dir, 'examples')
         os.makedirs(examples_dir, exist_ok=True)
         
-        # Create a table of visual examples
-        visual_examples_table = """
-## Visual Examples of Similar Images
+        # Track all files to be copied to handle potential filename conflicts
+        files_to_copy = {}
+        
+        # Process all duplicates for the table
+        perceptual_pairs = []
+        for dup in all_perceptual_duplicates:
+            img1 = dup[0]
+            img2 = dup[1]
+            
+            # Add to files to copy
+            img1_filename = img1['name'] + ".jpg"
+            img2_filename = img2['name'] + ".jpg"
+            
+            # Check for filename conflicts
+            if img1_filename in files_to_copy and files_to_copy[img1_filename] != img1['path']:
+                img1_filename = f"{img1['dataset']}_{img1_filename}"
+            
+            if img2_filename in files_to_copy and files_to_copy[img2_filename] != img2['path']:
+                img2_filename = f"{img2['dataset']}_{img2_filename}"
+            
+            files_to_copy[img1_filename] = img1['path']
+            files_to_copy[img2_filename] = img2['path']
+            
+            # Add to pairs list
+            perceptual_pairs.append({
+                'img1': {
+                    'dataset': img1['dataset'],
+                    'name': img1['name'],
+                    'filename': img1_filename
+                },
+                'img2': {
+                    'dataset': img2['dataset'],
+                    'name': img2['name'],
+                    'filename': img2_filename
+                }
+            })
+        
+        # Process robust duplicates
+        robust_pairs = []
+        for dup in all_robust_duplicates:
+            img1 = dup[0]
+            img2 = dup[1]
+            
+            # Add to files to copy
+            img1_filename = img1['name'] + ".jpg"
+            img2_filename = img2['name'] + ".jpg"
+            
+            # Check for filename conflicts
+            if img1_filename in files_to_copy and files_to_copy[img1_filename] != img1['path']:
+                img1_filename = f"{img1['dataset']}_{img1_filename}"
+            
+            if img2_filename in files_to_copy and files_to_copy[img2_filename] != img2['path']:
+                img2_filename = f"{img2['dataset']}_{img2_filename}"
+            
+            files_to_copy[img1_filename] = img1['path']
+            files_to_copy[img2_filename] = img2['path']
+            
+            # Add to pairs list
+            robust_pairs.append({
+                'img1': {
+                    'dataset': img1['dataset'],
+                    'name': img1['name'],
+                    'filename': img1_filename
+                },
+                'img2': {
+                    'dataset': img2['dataset'],
+                    'name': img2['name'],
+                    'filename': img2_filename
+                }
+            })
+        
+        # Copy all files to examples directory
+        for filename, src_path in files_to_copy.items():
+            dest_path = os.path.join(examples_dir, filename)
+            try:
+                import shutil
+                shutil.copy2(src_path, dest_path)
+                logger.info(f"Copied {src_path} to {dest_path}")
+            except Exception as e:
+                logger.error(f"Error copying {src_path} to {dest_path}: {e}")
+        
+        # Create a table of all image pairs
+        all_pairs_table = """
+## All Similar Image Pairs
 
-Below are examples of similar images found across different datasets. Each row shows a pair of similar images with their dataset and filename information.
+Below are all pairs of similar images found across different datasets.
+
+### Perceptual Hash Pairs
 
 | Image 1 | Image 2 |
 |---------|---------|
 """
         
-        # Copy images and create table rows for up to 10 example pairs
-        example_count = min(10, len(all_perceptual_duplicates))
-        for i in range(example_count):
-            dup = all_perceptual_duplicates[i]
-            
-            # Source paths
-            img1_src_path = dup[0]['path']
-            img2_src_path = dup[1]['path']
-            
-            # Create destination filenames with index and dataset prefix
-            img1_filename = f"{i+1}a_{dup[0]['dataset']}_{dup[0]['name'].replace('/', '_')}.jpg"
-            img2_filename = f"{i+1}b_{dup[1]['dataset']}_{dup[1]['name'].replace('/', '_')}.jpg"
-            
-            # Destination paths
-            img1_dest_path = os.path.join(examples_dir, img1_filename)
-            img2_dest_path = os.path.join(examples_dir, img2_filename)
-            
-            # Copy images to examples directory
-            try:
-                import shutil
-                shutil.copy2(img1_src_path, img1_dest_path)
-                shutil.copy2(img2_src_path, img2_dest_path)
-                logger.info(f"Copied example images to {examples_dir}")
-            except Exception as e:
-                logger.error(f"Error copying example images: {e}")
-            
-            # Add row to table
-            visual_examples_table += f"""| ![{dup[0]['name']}](examples/{img1_filename}) <br> **Dataset:** {dup[0]['dataset']} <br> **Filename:** {dup[0]['name']} | ![{dup[1]['name']}](examples/{img2_filename}) <br> **Dataset:** {dup[1]['dataset']} <br> **Filename:** {dup[1]['name']} |\n"""
+        # Add all perceptual pairs to the table
+        for pair in perceptual_pairs:
+            img1 = pair['img1']
+            img2 = pair['img2']
+            all_pairs_table += f"""| ![{img1['name']}](examples/{img1['filename']}) <br> **Dataset:** {img1['dataset']} <br> **Filename:** {img1['name']} | ![{img2['name']}](examples/{img2['filename']}) <br> **Dataset:** {img2['dataset']} <br> **Filename:** {img2['name']} |\n"""
+        
+        # Add robust hash pairs
+        all_pairs_table += """
+### Robust Hash Pairs
+
+| Image 1 | Image 2 |
+|---------|---------|
+"""
+        
+        # Add all robust pairs to the table
+        for pair in robust_pairs:
+            img1 = pair['img1']
+            img2 = pair['img2']
+            all_pairs_table += f"""| ![{img1['name']}](examples/{img1['filename']}) <br> **Dataset:** {img1['dataset']} <br> **Filename:** {img1['name']} | ![{img2['name']}](examples/{img2['filename']}) <br> **Dataset:** {img2['dataset']} <br> **Filename:** {img2['name']} |\n"""
         
         # Write README content
         readme_content = f"""# Cross-Dataset Image Similarity Analysis
@@ -871,10 +941,6 @@ The Venn diagrams show the overlap between the datasets:
 
 The size of each circle is proportional to the number of images in the dataset, and the overlapping regions show the number of similar images between datasets.
 
-{perceptual_results}
-
-{robust_results}
-
 ### Cross-Dataset Duplicates
 
 The following files contain information about cross-dataset similarities:
@@ -883,7 +949,7 @@ The following files contain information about cross-dataset similarities:
   - Perceptual hash duplicates: `perceptual_cross_duplicates.json`
   - Robust hash duplicates: `robust_cross_duplicates.json`
 
-{visual_examples_table}
+{all_pairs_table}
 
 ## Dataset-specific Files
 

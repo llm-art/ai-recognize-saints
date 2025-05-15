@@ -254,6 +254,18 @@
   [
     {
       "dataset": "ArtDL",
+      "name": "Q4448822",
+      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q4448822.jpg"
+    },
+    {
+      "dataset": "wikidata",
+      "name": "Q4448822",
+      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q4448822.jpg"
+    }
+  ],
+  [
+    {
+      "dataset": "ArtDL",
       "name": "Q510799",
       "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q510799.jpg"
     },
@@ -273,18 +285,6 @@
       "dataset": "wikidata",
       "name": "Q55102676",
       "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q55102676.jpg"
-    }
-  ],
-  [
-    {
-      "dataset": "ArtDL",
-      "name": "Q5841454",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q5841454.jpg"
-    },
-    {
-      "dataset": "wikidata",
-      "name": "Q5841454",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q5841454.jpg"
     }
   ],
   [
@@ -321,18 +321,6 @@
       "dataset": "wikidata",
       "name": "Q20172983",
       "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q20172983.jpg"
-    }
-  ],
-  [
-    {
-      "dataset": "ArtDL",
-      "name": "__EX_1152601724_1326629351",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/__EX_1152601724_1326629351.jpg"
-    },
-    {
-      "dataset": "wikidata",
-      "name": "Q26699346",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q26699346.jpg"
     }
   ],
   [
