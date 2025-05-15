@@ -1,31 +1,27 @@
-# Wikidata Image Download with Original Sizes
+# Wikidata Image Download with Original Sizes (Updated)
 
-This README explains how to download images from Wikidata while preserving their original sizes and aspect ratios, as opposed to the fixed 512x512 size used in the original implementation.
+This README explains the updated implementation for downloading images from Wikidata while preserving their original sizes and aspect ratios.
 
-## Background
+## Updates in this Version
 
-The original implementation in `wikidata.ipynb` downloads images and resizes them to a fixed size of 512x512 pixels, which loses the original aspect ratios and dimensions of the paintings. According to the paper you're following, the dataset should have images with dimensions closer to:
+The updated implementation addresses several issues and adds new features:
 
-- Width: 778.84 ± 198.74 pixels
-- Height: 669.36 ± 174.18 pixels
+1. **Fixed PIL DecompressionBombWarning**: Increased the PIL threshold to match our max_pixels value (178,956,970 pixels) to prevent warnings.
 
-## New Implementation
+2. **Changed Output Directory**: Images are now saved to `/home/ubuntu/gspinaci/LLM-test/dataset/wikidata/JPEGImages` as requested.
 
-Two new files have been created to implement image downloading while preserving original sizes and aspect ratios:
+3. **Added Verification**: Added verification after downloading to ensure images are saved successfully.
 
-1. `wikidata_original_sizes.py` - A standalone Python script
-2. `wikidata_original_sizes.ipynb` - A Jupyter notebook with the same functionality
+4. **Tracked Failed Downloads**: Failed downloads are now tracked and saved to a separate JSON file for analysis.
 
-Both implementations:
+5. **Enhanced Logging**: Added detailed logging to help diagnose issues.
 
-- Download images while preserving their original dimensions and aspect ratios
-- Only resize images if they exceed the maximum pixel limit (to prevent decompression bomb attacks)
-- When resizing is necessary, maintain the original aspect ratio
-- Track and store image dimensions in the metadata
-- Calculate statistics on image dimensions to compare with the target values from the paper
-- Create test and ground truth files with the original dimensions included
+6. **Added Analysis of Failed Downloads**: The notebook now includes a section to analyze failed downloads.
 
-The Jupyter notebook also includes visualization of the image size distributions.
+## Files
+
+1. `wikidata_original_sizes_updated.py` - Updated Python script
+2. `wikidata_original_sizes_updated.ipynb` - Updated Jupyter notebook
 
 ## How to Use
 
@@ -33,37 +29,50 @@ The Jupyter notebook also includes visualization of the image size distributions
 
 ```bash
 cd /path/to/LLM-test
-python dataset/wikidata_original_sizes.py
+python dataset/wikidata_original_sizes_updated.py
 ```
 
 ### Option 2: Run the Jupyter Notebook
 
-Open the `wikidata_original_sizes.ipynb` notebook in Jupyter and run the cells sequentially.
+Open the `wikidata_original_sizes_updated.ipynb` notebook in Jupyter and run the cells sequentially.
 
 ## Output Files
 
 The implementation creates the following output files:
 
-- `wikidata/JPEGImages_original/` - Directory containing the downloaded images with original sizes
+- `/home/ubuntu/gspinaci/LLM-test/dataset/wikidata/JPEGImages/` - Directory containing the downloaded images with original sizes
 - `wikidata/wikidata_original.json` - JSON file with image metadata including dimensions
+- `wikidata/failed_downloads.json` - JSON file with information about failed downloads
 - `wikidata-data/image_statistics.txt` - Statistics on image dimensions
 - `wikidata-data/2_test_original.txt` - List of image filenames
 - `wikidata-data/2_ground_truth_original.json` - Ground truth data with image dimensions
 - `wikidata-data/image_size_distribution.png` - (Notebook only) Visualization of image size distributions
+- `image_download.log` - Detailed log of the download process
 
-## Key Differences from Original Implementation
+## Key Features
 
-1. **No Forced Resizing**: The original implementation resized all images to 512x512 pixels. The new implementation preserves original dimensions.
+1. **Preserved Original Dimensions**: Images are downloaded with their original dimensions and aspect ratios.
 
-2. **Dimension Tracking**: The new implementation tracks and stores the width and height of each image.
+2. **Safe Resizing**: Images that exceed the maximum pixel limit (178,956,970 pixels) are resized while maintaining their aspect ratio.
 
-3. **Statistics Calculation**: The new implementation calculates statistics on image dimensions to compare with the target values from the paper.
+3. **Increased PIL Threshold**: The PIL threshold is increased to match our max_pixels value to prevent warnings.
 
-4. **Visualization**: The notebook includes visualization of image size distributions.
+4. **Verification**: Each image is verified after downloading to ensure it was saved successfully.
 
-5. **Enhanced Metadata**: The ground truth JSON file includes width and height information for each image.
+5. **Failed Download Tracking**: Failed downloads are tracked and saved to a separate JSON file for analysis.
 
-## Notes
+6. **Enhanced Logging**: Detailed logging is added to help diagnose issues.
 
-- Images that exceed the maximum pixel limit (178,956,970 pixels) will still be resized, but their aspect ratio will be preserved.
-- The implementation uses a separate directory (`JPEGImages_original`) to store the images with original sizes, so it won't overwrite the existing images.
+7. **Statistics and Visualization**: The implementation calculates statistics on image dimensions and provides visualizations to compare with the target values from the paper.
+
+## Handling Large Images
+
+The implementation handles large images by:
+
+1. Increasing the PIL threshold to match our max_pixels value (178,956,970 pixels)
+2. Resizing images that exceed the maximum pixel limit while maintaining their aspect ratio
+3. Verifying that images are saved successfully
+
+## Analyzing Failed Downloads
+
+The notebook includes a section to analyze failed downloads, which can help identify patterns or issues with specific images or iconclasses.

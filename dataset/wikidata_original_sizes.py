@@ -6,25 +6,42 @@ import json
 from PIL import Image
 import io
 import numpy as np
+import logging
+
+# Increase PIL threshold to match our max_pixels value
+Image.MAX_IMAGE_PIXELS = 178956970
+
+# Set up logging
+logging.basicConfig(
+    filename='image_download.log',
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
 
 # Create the necessary directories if they don't exist
 wikidata_dir = os.path.join(os.getcwd(), 'wikidata')
 wikidata_data_dir = os.path.join(os.getcwd(), 'wikidata-data')
-jpeg_images_dir = os.path.join(wikidata_dir, 'JPEGImages_original')
+# Change the output directory to the requested path
+jpeg_images_dir = os.path.join('/home/ubuntu/gspinaci/LLM-test/dataset/wikidata/JPEGImages')
 os.makedirs(wikidata_dir, exist_ok=True)
 os.makedirs(wikidata_data_dir, exist_ok=True)
 os.makedirs(jpeg_images_dir, exist_ok=True)
 
+logging.info(f"Output directory: {jpeg_images_dir}")
+
 # Read the CSV file with the filtered images
 images_df = pd.read_csv(os.path.join(wikidata_dir, 'wikidata.csv'))
+logging.info(f"Loaded {len(images_df)} images from CSV")
 
 # Read the top classes
 top_classes_df = pd.read_csv(os.path.join(wikidata_data_dir, 'pre_classes.csv'))
 iconclass_counts = pd.Series(index=top_classes_df['iconclass'].values, data=top_classes_df['count'].values)
+logging.info(f"Loaded {len(iconclass_counts)} top classes")
 
 # Initialize lists to store the image data and image sizes
 image_data = []
 image_sizes = []
+failed_downloads = []
 
 # Enhanced function to download an image from a URL while preserving original size and aspect ratio
 def download_image(url, save_path, max_pixels=178956970, target_size=None):
@@ -44,9 +61,10 @@ def download_image(url, save_path, max_pixels=178956970, target_size=None):
     
     try:
         # Download the image
+        logging.info(f"Downloading {url}")
         response = requests.get(url, headers=headers, stream=True)
         if response.status_code != 200:
-            print(f"Failed to download {url}: HTTP status code {response.status_code}")
+            logging.error(f"Failed to download {url}: HTTP status code {response.status_code}")
             return False, 0, 0
             
         # Read the image data into memory
@@ -64,6 +82,7 @@ def download_image(url, save_path, max_pixels=178956970, target_size=None):
             width, height = img.size
             num_pixels = width * height
             original_size = f"{width}x{height}"
+            logging.info(f"Original image size: {original_size} ({num_pixels} pixels)")
             
             # Check if resizing is needed to prevent decompression bomb
             if num_pixels > max_pixels:
@@ -79,13 +98,27 @@ def download_image(url, save_path, max_pixels=178956970, target_size=None):
                 # Resize the image
                 img = img.resize((new_width, new_height), Image.LANCZOS)
                 width, height = new_width, new_height
+                logging.info(f"Resized image from {original_size} to {width}x{height}")
             
             # Save the image
             img.save(save_path, 'JPEG', quality=95)
-            return True, width, height
+            
+            # Verify the image was saved successfully
+            if os.path.exists(save_path):
+                file_size = os.path.getsize(save_path)
+                if file_size > 0:
+                    logging.info(f"Successfully saved {save_path} ({file_size} bytes)")
+                    return True, width, height
+                else:
+                    logging.warning(f"File saved but has zero size: {save_path}")
+                    os.remove(save_path)  # Remove empty file
+                    return False, 0, 0
+            else:
+                logging.error(f"Failed to save {save_path}")
+                return False, 0, 0
             
     except Exception as e:
-        print(f"Failed to download {url}: {e}")
+        logging.error(f"Failed to download {url}: {e}")
         return False, 0, 0
 
 # Process each image
@@ -98,7 +131,7 @@ for idx, row in tqdm(images_df.iterrows(), total=len(images_df)):
         success, width, height = download_image(
             row['image'], 
             save_path,
-            max_pixels=178956970,  # PIL's default limit
+            max_pixels=178956970,
             target_size=None  # Set to None to preserve original size
         )
         
@@ -114,15 +147,28 @@ for idx, row in tqdm(images_df.iterrows(), total=len(images_df)):
                 'width': width,
                 'height': height
             })
+        else:
+            # Track failed downloads
+            failed_downloads.append({
+                'painting': row['painting'],
+                'image': row['image'],
+                'iconclass': row['iconclass']
+            })
         
         # Save the data to a JSON file every 50 images
         if (idx + 1) % 50 == 0:
             with open(os.path.join(wikidata_dir, 'wikidata_original.json'), 'w') as f:
                 json.dump(image_data, f)
+            logging.info(f"Saved data for {len(image_data)} images to JSON")
 
 # Save any remaining data to the JSON file
 with open(os.path.join(wikidata_dir, 'wikidata_original.json'), 'w') as f:
     json.dump(image_data, f)
+
+# Save failed downloads to a separate file
+with open(os.path.join(wikidata_dir, 'failed_downloads.json'), 'w') as f:
+    json.dump(failed_downloads, f)
+logging.info(f"Saved {len(failed_downloads)} failed downloads to JSON")
 
 # Calculate statistics on image dimensions
 if image_sizes:
@@ -138,6 +184,10 @@ if image_sizes:
     print(f"Width: {width_mean:.2f} ± {width_std:.2f} pixels")
     print(f"Height: {height_mean:.2f} ± {height_std:.2f} pixels")
     print(f"Target from paper: Width: 778.84 ± 198.74, Height: 669.36 ± 174.18")
+    print(f"\nTotal images: {len(image_sizes)}")
+    print(f"Min width: {min(widths)}, Max width: {max(widths)}")
+    print(f"Min height: {min(heights)}, Max height: {max(heights)}")
+    print(f"Failed downloads: {len(failed_downloads)}")
     
     # Save statistics to a file
     with open(os.path.join(wikidata_data_dir, 'image_statistics.txt'), 'w') as f:
@@ -148,6 +198,9 @@ if image_sizes:
         f.write(f"\nTotal images: {len(image_sizes)}\n")
         f.write(f"Min width: {min(widths)}, Max width: {max(widths)}\n")
         f.write(f"Min height: {min(heights)}, Max height: {max(heights)}\n")
+        f.write(f"Failed downloads: {len(failed_downloads)}\n")
+    
+    logging.info("Saved image statistics")
 
 print("Image download complete.")
 
@@ -185,3 +238,5 @@ with open(os.path.join(wikidata_data_dir, '2_ground_truth_original.json'), 'w') 
 
 print(f"Files 2_test_original.txt and 2_ground_truth_original.json have been created.")
 print(f"Downloaded {len(test_images)} images with original sizes and aspect ratios.")
+print(f"Failed downloads: {len(failed_downloads)}")
+logging.info(f"Process complete. Downloaded {len(test_images)} images, failed {len(failed_downloads)}")
