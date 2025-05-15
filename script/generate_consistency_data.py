@@ -239,6 +239,120 @@ def process_model_test(model, test_folder, pairs, output_dir):
     
     return output_path, readme_path
 
+def generate_summary(results, output_dir, clip_models, siglip_models, gpt_models, test_folders):
+    """Generate a summary readme file with consistency statistics for all models and tests."""
+    # Initialize results dictionary for summary
+    summary_results = {}
+    
+    # Calculate consistency for each model and test
+    for (model, test_folder), (data_path, _) in results.items():
+        if model not in summary_results:
+            summary_results[model] = {}
+        
+        # Extract consistency statistics from the results
+        same_pred_count = 0
+        valid_pairs = 0
+        
+        try:
+            with open(data_path, 'r') as f:
+                pairs = json.load(f)
+            
+            # Count pairs with same prediction
+            same_pred_count = sum(1 for pair in pairs 
+                                if pair[0]['predicted'] == pair[1]['predicted'] 
+                                and pair[0]['predicted'] is not None 
+                                and pair[1]['predicted'] is not None)
+            
+            # Count valid pairs (both images have predictions)
+            valid_pairs = sum(1 for pair in pairs 
+                            if pair[0]['predicted'] is not None 
+                            and pair[1]['predicted'] is not None)
+            
+            if valid_pairs > 0:
+                consistency = same_pred_count / valid_pairs * 100
+            else:
+                consistency = 0
+        except Exception as e:
+            print(f"Error calculating consistency for {data_path}: {e}")
+            consistency = 0
+            valid_pairs = 0
+            same_pred_count = 0
+        
+        summary_results[model][test_folder] = (consistency, valid_pairs, same_pred_count)
+    
+    # Generate markdown content
+    markdown = "# Consistency Analysis Summary\n\n"
+    markdown += "This document provides a summary of the consistency statistics for all models and tests.\n\n"
+    markdown += "Consistency is measured by the percentage of image pairs where both images receive the same prediction.\n\n"
+    
+    # CLIP Models table
+    markdown += "## CLIP Models\n\n"
+    markdown += "| Model | Test | Consistency (%) | Valid Pairs | Same Predictions |\n"
+    markdown += "|-------|------|-----------------|-------------|------------------|\n"
+    
+    for model in clip_models:
+        for test_folder in test_folders:
+            consistency, valid_pairs, same_pred_count = summary_results[model][test_folder]
+            markdown += f"| {model} | {test_folder} | {consistency:.2f} | {valid_pairs} | {same_pred_count} |\n"
+    
+    # SigLIP Models table
+    markdown += "\n## SigLIP Models\n\n"
+    markdown += "| Model | Test | Consistency (%) | Valid Pairs | Same Predictions |\n"
+    markdown += "|-------|------|-----------------|-------------|------------------|\n"
+    
+    for model in siglip_models:
+        for test_folder in test_folders:
+            consistency, valid_pairs, same_pred_count = summary_results[model][test_folder]
+            markdown += f"| {model} | {test_folder} | {consistency:.2f} | {valid_pairs} | {same_pred_count} |\n"
+    
+    # GPT Models table
+    markdown += "\n## GPT Models\n\n"
+    markdown += "| Model | Test | Consistency (%) | Valid Pairs | Same Predictions |\n"
+    markdown += "|-------|------|-----------------|-------------|------------------|\n"
+    
+    for model in gpt_models:
+        for test_folder in test_folders:
+            consistency, valid_pairs, same_pred_count = summary_results[model][test_folder]
+            markdown += f"| {model} | {test_folder} | {consistency:.2f} | {valid_pairs} | {same_pred_count} |\n"
+    
+    # Key Observations
+    markdown += "\n## Key Observations\n\n"
+    
+    # Find highest consistency for each test
+    highest_test1 = max([(model, summary_results[model]['test_1'][0]) for model in summary_results], key=lambda x: x[1])
+    highest_test2 = max([(model, summary_results[model]['test_2'][0]) for model in summary_results], key=lambda x: x[1])
+    highest_test3 = max([(model, summary_results[model]['test_3'][0]) for model in summary_results], key=lambda x: x[1])
+    
+    # Find highest overall consistency
+    highest_overall = max([(model, test, summary_results[model][test][0]) 
+                          for model in summary_results 
+                          for test in test_folders], 
+                         key=lambda x: x[2])
+    
+    # Add observations
+    markdown += f"- The {highest_overall[0]} model achieves the highest overall consistency ({highest_overall[2]:.2f}%) on {highest_overall[1]}.\n"
+    markdown += f"- For test_1, the {highest_test1[0]} model shows the highest consistency ({highest_test1[1]:.2f}%).\n"
+    markdown += f"- For test_2, the {highest_test2[0]} model shows the highest consistency ({highest_test2[1]:.2f}%).\n"
+    markdown += f"- For test_3, the {highest_test3[0]} model shows the highest consistency ({highest_test3[1]:.2f}%).\n"
+    
+    # Add more observations based on the data
+    gpt_variations = [(model, 
+                      max([summary_results[model][test][0] for test in test_folders]) - 
+                      min([summary_results[model][test][0] for test in test_folders])) 
+                     for model in gpt_models]
+    
+    if gpt_variations:
+        max_variation = max(gpt_variations, key=lambda x: x[1])
+        markdown += f"- {max_variation[0]} shows extreme variation across tests: ranging from {min([summary_results[max_variation[0]][test][0] for test in test_folders]):.2f}% to {max([summary_results[max_variation[0]][test][0] for test in test_folders]):.2f}%.\n"
+    
+    # Write markdown to file
+    readme_path = os.path.join(output_dir, "README.md")
+    with open(readme_path, 'w') as f:
+        f.write(markdown)
+    
+    print(f"Summary readme generated and saved to {readme_path}")
+    return readme_path
+
 def main():
     # Define models and test folders
     clip_models = ['clip-vit-base-patch32', 'clip-vit-base-patch16', 'clip-vit-large-patch14']
@@ -263,12 +377,16 @@ def main():
             output_path, readme_path = process_model_test(model, test_folder, pairs, output_dir)
             results[(model, test_folder)] = (output_path, readme_path)
     
+    # Generate summary readme
+    summary_path = generate_summary(results, output_dir, clip_models, siglip_models, gpt_models, test_folders)
+    
     print(f"\nProcessing complete! Results saved to {output_dir}")
     print("Generated files:")
     for (model, test_folder), (data_path, readme_path) in results.items():
         print(f"  - {model}/{test_folder}:")
         print(f"    - Data: {data_path}")
         print(f"    - Readme: {readme_path}")
+    print(f"  - Summary: {summary_path}")
 
 if __name__ == "__main__":
     main()
