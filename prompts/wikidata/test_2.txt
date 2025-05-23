@@ -19,16 +19,16 @@ Return a valid **JSON object** matching this format:
 
 Each <CATEGORY_ID> must be one of (use only the category ID as output):
 
-"11H(ANTONY OF PADUA)" - the Franciscan monk Antony of Padua; possible attributes: ass, book, crucifix, flowered cross, flaming heart, infant Christ (on book), lily - portrait of male saint
-"11H(JOHN THE BAPTIST)" - John the Baptist; possible attributes: book, reed cross, baptismal cup, honeycomb, lamb, staff
-"11H(PAUL)" - the apostle Paul of Tarsus; possible attributes: book, scroll, sword
-"11H(FRANCIS)" - founder of the Order of Friars Minor (Franciscans), Francis(cus) of Assisi; possible attributes: book, crucifix, lily, skull, stigmata
 "11HH(MARY MAGDALENE)" - the penitent harlot Mary Magdalene; possible attributes: book (or scroll), crown, crown of thorns, crucifix, jar of ointment, mirror, musical instrument, palm-branch, rosary, scourge
+"11H(JOHN THE BAPTIST)" - John the Baptist; possible attributes: book, reed cross, baptismal cup, honeycomb, lamb, staff
 "11H(JEROME)" - the monk and hermit Jerome (Hieronymus); possible attributes: book, cardinal's hat, crucifix, hour-glass, lion, skull, stone
-"11H(DOMINIC)" - Dominic(us) Guzman of Calerueja, founder of the Order of Preachers (or Dominican (Black) Friars; possible attributes: book, dog with flaming torch, lily, loaf of bread, rosary, star
-"11F(MARY)" - the Virgin Mary
+"11HH(CATHERINE)" - the virgin martyr Catherine of Alexandria; possible attributes: book, crown, emperor Maxentius, palm-branch, ring, sword, wheel
 "11H(PETER)" - the apostle Peter, first bishop of Rome; possible attributes: book, cock, (upturned) cross, (triple) crozier, fish, key, scroll, ship, tiara
-"11H(SEBASTIAN)" - the martyr Sebastian; possible attributes: arrow(s), bow, tree-trunk
+"11H(JOHN)" - the apostle John the Evangelist; possible attributes: book, cauldron, chalice with snake, eagle, palm, scroll
+"11H(PAUL)" - the apostle Paul of Tarsus; possible attributes: book, scroll, sword
+"11H(ANTONY ABBOT)" - the hermit Antony Abbot (Antonius Abbas) of Egypt, also called the Great; possible attributes: bell, book, T-shaped staff, flames, pig
+"11H(FRANCIS)" - founder of the Order of Friars Minor (Franciscans), Francis(cus) of Assisi; possible attributes: book, crucifix, lily, skull, stigmata
+"11H(JOSEPH)" - the foster-father of Christ, Joseph of Nazareth, husband of Mary; possible attributes: flowering rod or wand, lily, carpenter's tools
 
 Batching note:
 - Process only the current batch of images.

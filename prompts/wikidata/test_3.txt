@@ -2,11 +2,11 @@ You are an expert in Christian iconography and art history. Classify each religi
 
 You will be shown 5 example images categorized as follows:
 {
-  "0c8573aa-ad2d-4672-bc2c-7067bd863153_bb1e7952-4766-41b9-bfdf-1abf01bac531", "11H(JEROME)",
-  "2e9faf04-90cf-4973-b253-c77c53dd1ccf_f450ccb9-2973-442a-89a4-fa54eeeedd20", "11H(DOMINIC)",
+  "Jacopo_Pontormo_041", "11H(ANTONY ABBOT)",
+  "Guido_Reni_-_St_Joseph_with_the_Infant_Jesus_-_WGA19304", "11H(JOSEPH)",
+  "Rubens_apostel_paulus_grt", "11H(PAUL)",
   "1942_9_17_c", "11H(FRANCIS)",
-  "1440147397", "11H(PETER)",
-  "1828079898", "11H(PAUL)"
+  "1440147397", "11H(PETER)"
 }
 
 Look for:
@@ -27,16 +27,16 @@ Return a valid **JSON object** matching this format:
 }
 
 CATEGORIES:
-11H(ANTONY OF PADUA), Antony of Padua
-11H(JOHN THE BAPTIST), John the Baptist
-11H(PAUL), Paul
-11H(FRANCIS), Francis of Assisi
-11HH(MARY MAGDALENE), Mary Magdalene
-11H(JEROME), Jerome
-11H(DOMINIC), Saint Dominic
-11F(MARY), Virgin Mary
-11H(PETER), Peter
-11H(SEBASTIAN), Saint Sebastian
+11HH(MARY MAGDALENE),Mary Magdalene
+11H(JOHN THE BAPTIST),St. John the Baptist
+11H(JEROME),St. Jerome
+11HH(CATHERINE),St. Catherine
+11H(PETER),St. Peter
+11H(JOHN),St. John the Evangelist
+11H(PAUL),St. Paul
+11H(ANTONY ABBOT),St. Anthony Abbot
+11H(FRANCIS),St. Francis of Assisi
+11H(JOSEPH),St. Joseph
 
 Batching note:
 - Process only the current batch of images.
