@@ -60,7 +60,7 @@
       "name": "Q20173671",
       "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q20173671.jpg",
       "ground_truth": "11H(PETER)",
-      "predicted": "11HH(MARY MAGDALENE)"
+      "predicted": "11H(JEROME)"
     }
   ],
   [
@@ -76,7 +76,7 @@
       "name": "Q20173413",
       "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q20173413.jpg",
       "ground_truth": "11H(PETER)",
-      "predicted": "11HH(CATHERINE)"
+      "predicted": "11H(JOHN THE BAPTIST)"
     }
   ],
   [
@@ -92,7 +92,7 @@
       "name": "Q3947314",
       "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q3947314.jpg",
       "ground_truth": "11H(JEROME)",
-      "predicted": "11HH(CATHERINE)"
+      "predicted": "11H(PETER)"
     }
   ],
   [
@@ -108,7 +108,7 @@
       "name": "Q20540321",
       "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q20540321.jpg",
       "ground_truth": "11HH(MARY MAGDALENE)",
-      "predicted": "11HH(MARY MAGDALENE)"
+      "predicted": "11H(ANTONY ABBOT)"
     }
   ],
   [
@@ -124,7 +124,7 @@
       "name": "Q19820268",
       "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q19820268.jpg",
       "ground_truth": "11HH(MARY MAGDALENE)",
-      "predicted": "11HH(MARY MAGDALENE)"
+      "predicted": "11H(JEROME)"
     }
   ],
   [
@@ -133,7 +133,7 @@
       "name": "Q15974339",
       "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q15974339.jpg",
       "ground_truth": "11HH(MARY MAGDALENE)",
-      "predicted": "11HH(MARY MAGDALENE)"
+      "predicted": "11H(FRANCIS)"
     },
     {
       "dataset": "wikidata",
@@ -149,14 +149,14 @@
       "name": "Q17335796",
       "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q17335796.jpg",
       "ground_truth": "11H(JEROME)",
-      "predicted": "11H(JEROME)"
+      "predicted": "11HH(MARY MAGDALENE)"
     },
     {
       "dataset": "wikidata",
       "name": "Q17335796",
       "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q17335796.jpg",
       "ground_truth": "11H(JEROME)",
-      "predicted": "11HH(CATHERINE)"
+      "predicted": "11H(JEROME)"
     }
   ],
   [
@@ -165,7 +165,7 @@
       "name": "Q18748614",
       "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q18748614.jpg",
       "ground_truth": "11HH(MARY MAGDALENE)",
-      "predicted": "11HH(MARY MAGDALENE)"
+      "predicted": "11H(PAUL)"
     },
     {
       "dataset": "wikidata",
@@ -188,7 +188,7 @@
       "name": "Q19925792",
       "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q19925792.jpg",
       "ground_truth": "11HH(MARY MAGDALENE)",
-      "predicted": "11H(JOSEPH)"
+      "predicted": "11H(FRANCIS)"
     }
   ],
   [
@@ -197,14 +197,14 @@
       "name": "Q19926040",
       "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q19926040.jpg",
       "ground_truth": "11HH(MARY MAGDALENE)",
-      "predicted": "11HH(MARY MAGDALENE)"
+      "predicted": "11H(PETER)"
     },
     {
       "dataset": "wikidata",
       "name": "Q19926040",
       "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q19926040.jpg",
       "ground_truth": "11HH(MARY MAGDALENE)",
-      "predicted": "11HH(MARY MAGDALENE)"
+      "predicted": "11H(JOSEPH)"
     }
   ],
   [
@@ -220,7 +220,7 @@
       "name": "Q20173413",
       "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q20173413.jpg",
       "ground_truth": "11H(PETER)",
-      "predicted": "11HH(CATHERINE)"
+      "predicted": "11H(JOHN THE BAPTIST)"
     }
   ],
   [
@@ -229,14 +229,14 @@
       "name": "Q20173883",
       "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q20173883.jpg",
       "ground_truth": "11H(PETER)",
-      "predicted": "11H(PETER)"
+      "predicted": "11HH(MARY MAGDALENE)"
     },
     {
       "dataset": "wikidata",
       "name": "Q20173883",
       "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q20173883.jpg",
       "ground_truth": "11H(PETER)",
-      "predicted": "11HH(CATHERINE)"
+      "predicted": "11H(JOHN THE BAPTIST)"
     }
   ],
   [
@@ -245,7 +245,7 @@
       "name": "Q20267955",
       "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q20267955.jpg",
       "ground_truth": "11HH(MARY MAGDALENE)",
-      "predicted": "11HH(MARY MAGDALENE)"
+      "predicted": "11H(PETER)"
     },
     {
       "dataset": "wikidata",
@@ -277,14 +277,14 @@
       "name": "Q2715177",
       "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q2715177.jpg",
       "ground_truth": "11H(JEROME)",
-      "predicted": "11H(JEROME)"
+      "predicted": "11H(DOMINIC)"
     },
     {
       "dataset": "wikidata",
       "name": "Q2715177",
       "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q2715177.jpg",
       "ground_truth": "11H(JEROME)",
-      "predicted": "11H(JOHN THE BAPTIST)"
+      "predicted": "11H(JEROME)"
     }
   ],
   [
@@ -293,14 +293,14 @@
       "name": "Q27981491",
       "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q27981491.jpg",
       "ground_truth": "11H(JEROME)",
-      "predicted": "11H(JEROME)"
+      "predicted": "11H(PETER)"
     },
     {
       "dataset": "wikidata",
       "name": "Q27981491",
       "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q27981491.jpg",
       "ground_truth": "11H(JEROME)",
-      "predicted": "11H(ANTONY ABBOT)"
+      "predicted": "11H(JEROME)"
     }
   ],
   [
@@ -309,14 +309,14 @@
       "name": "Q29024815",
       "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q29024815.jpg",
       "ground_truth": "11HH(MARY MAGDALENE)",
-      "predicted": "11HH(MARY MAGDALENE)"
+      "predicted": "11H(PETER)"
     },
     {
       "dataset": "wikidata",
       "name": "Q29024815",
       "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q29024815.jpg",
       "ground_truth": "11HH(MARY MAGDALENE)",
-      "predicted": "11H(JOHN)"
+      "predicted": "11HH(MARY MAGDALENE)"
     }
   ],
   [
@@ -325,14 +325,30 @@
       "name": "Q29477236",
       "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q29477236.jpg",
       "ground_truth": "11HH(MARY MAGDALENE)",
-      "predicted": "11F(MARY)"
+      "predicted": "11H(JEROME)"
     },
     {
       "dataset": "wikidata",
       "name": "Q29477236",
       "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q29477236.jpg",
       "ground_truth": "11HH(MARY MAGDALENE)",
+      "predicted": "11H(PETER)"
+    }
+  ],
+  [
+    {
+      "dataset": "ArtDL",
+      "name": "Q4448822",
+      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q4448822.jpg",
+      "ground_truth": "11HH(MARY MAGDALENE)",
       "predicted": "11HH(MARY MAGDALENE)"
+    },
+    {
+      "dataset": "wikidata",
+      "name": "Q4448822",
+      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q4448822.jpg",
+      "ground_truth": "11HH(MARY MAGDALENE)",
+      "predicted": "11H(JOHN THE BAPTIST)"
     }
   ],
   [
@@ -341,14 +357,14 @@
       "name": "Q510799",
       "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q510799.jpg",
       "ground_truth": "11H(JEROME)",
-      "predicted": "11H(JEROME)"
+      "predicted": "11HH(MARY MAGDALENE)"
     },
     {
       "dataset": "wikidata",
       "name": "Q510799",
       "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q510799.jpg",
       "ground_truth": "11H(JEROME)",
-      "predicted": null
+      "predicted": "11HH(CATHERINE)"
     }
   ],
   [
@@ -357,30 +373,14 @@
       "name": "Q55102676",
       "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q55102676.jpg",
       "ground_truth": "11HH(MARY MAGDALENE)",
-      "predicted": "11HH(MARY MAGDALENE)"
+      "predicted": "11H(FRANCIS)"
     },
     {
       "dataset": "wikidata",
       "name": "Q55102676",
       "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q55102676.jpg",
       "ground_truth": "11HH(MARY MAGDALENE)",
-      "predicted": "11HH(MARY MAGDALENE)"
-    }
-  ],
-  [
-    {
-      "dataset": "ArtDL",
-      "name": "Q5841454",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q5841454.jpg",
-      "ground_truth": "11H(FRANCIS)",
-      "predicted": "11H(FRANCIS)"
-    },
-    {
-      "dataset": "wikidata",
-      "name": "Q5841454",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q5841454.jpg",
-      "ground_truth": "11H(FRANCIS)",
-      "predicted": "11H(FRANCIS)"
+      "predicted": "11H(PETER)"
     }
   ],
   [
@@ -389,14 +389,14 @@
       "name": "Q6004260",
       "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q6004260.jpg",
       "ground_truth": "11HH(MARY MAGDALENE)",
-      "predicted": "11HH(MARY MAGDALENE)"
+      "predicted": "11H(JEROME)"
     },
     {
       "dataset": "wikidata",
       "name": "Q6004260",
       "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q6004260.jpg",
       "ground_truth": "11HH(MARY MAGDALENE)",
-      "predicted": "11HH(CATHERINE)"
+      "predicted": "11HH(MARY MAGDALENE)"
     }
   ],
   [
@@ -405,14 +405,14 @@
       "name": "Q9073676",
       "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q9073676.jpg",
       "ground_truth": "11H(PETER)",
-      "predicted": "11H(PETER)"
+      "predicted": "11H(DOMINIC)"
     },
     {
       "dataset": "wikidata",
       "name": "Q9073676",
       "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q9073676.jpg",
       "ground_truth": "11H(PETER)",
-      "predicted": "11H(ANTONY ABBOT)"
+      "predicted": "11H(JEROME)"
     }
   ],
   [
@@ -421,7 +421,7 @@
       "name": "__EX_1000788252_18423",
       "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/__EX_1000788252_18423.jpg",
       "ground_truth": "11H(PETER)",
-      "predicted": "11H(PETER)"
+      "predicted": "11H(JOHN THE BAPTIST)"
     },
     {
       "dataset": "wikidata",
@@ -434,26 +434,10 @@
   [
     {
       "dataset": "ArtDL",
-      "name": "__EX_1152601724_1326629351",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/__EX_1152601724_1326629351.jpg",
-      "ground_truth": "11H(PAUL)",
-      "predicted": "11H(PAUL)"
-    },
-    {
-      "dataset": "wikidata",
-      "name": "Q26699346",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q26699346.jpg",
-      "ground_truth": "11H(PAUL)",
-      "predicted": null
-    }
-  ],
-  [
-    {
-      "dataset": "ArtDL",
       "name": "clouet_jean_francbap",
       "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/clouet_jean_francbap.jpg",
       "ground_truth": "11H(JOHN THE BAPTIST)",
-      "predicted": "11H(JOHN THE BAPTIST)"
+      "predicted": "11H(PETER)"
     },
     {
       "dataset": "wikidata",
@@ -469,7 +453,7 @@
       "name": "en-SK-A-3382",
       "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/en-SK-A-3382.jpg",
       "ground_truth": "11H(JOHN THE BAPTIST)",
-      "predicted": "11H(JOHN THE BAPTIST)"
+      "predicted": "11H(JEROME)"
     },
     {
       "dataset": "wikidata",
@@ -485,14 +469,14 @@
       "name": "en-SK-A-4006",
       "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/en-SK-A-4006.jpg",
       "ground_truth": "11H(FRANCIS)",
-      "predicted": "11H(FRANCIS)"
+      "predicted": "11H(JEROME)"
     },
     {
       "dataset": "wikidata",
       "name": "Q17335839",
       "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q17335839.jpg",
       "ground_truth": "11H(FRANCIS)",
-      "predicted": "11H(JOSEPH)"
+      "predicted": "11H(JEROME)"
     }
   ],
   [
@@ -508,7 +492,7 @@
       "name": "Q16589363",
       "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q16589363.jpg",
       "ground_truth": "11HH(MARY MAGDALENE)",
-      "predicted": "11HH(CATHERINE)"
+      "predicted": "11HH(MARY MAGDALENE)"
     }
   ],
   [
@@ -517,14 +501,14 @@
       "name": "hemessen_jan_stjerom",
       "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/hemessen_jan_stjerom.jpg",
       "ground_truth": "11H(JEROME)",
-      "predicted": "11H(JEROME)"
+      "predicted": "11H(SEBASTIAN)"
     },
     {
       "dataset": "wikidata",
       "name": "Q114744953",
       "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q114744953.jpg",
       "ground_truth": "11H(JEROME)",
-      "predicted": "11H(JEROME)"
+      "predicted": "11HH(CATHERINE)"
     }
   ],
   [
@@ -533,7 +517,7 @@
       "name": "tintoret_3b_3ground_5maryma",
       "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/tintoret_3b_3ground_5maryma.jpg",
       "ground_truth": "11HH(MARY MAGDALENE)",
-      "predicted": "11HH(MARY MAGDALENE)"
+      "predicted": "11H(JOHN THE BAPTIST)"
     },
     {
       "dataset": "wikidata",
@@ -556,7 +540,7 @@
       "name": "Q17328232",
       "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q17328232.jpg",
       "ground_truth": "11H(JEROME)",
-      "predicted": "11HH(CATHERINE)"
+      "predicted": "11H(JEROME)"
     }
   ]
 ]

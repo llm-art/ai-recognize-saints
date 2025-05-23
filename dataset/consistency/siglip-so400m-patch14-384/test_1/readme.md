@@ -14,9 +14,9 @@
 | 8 | ![Image 1](../../example/image_1_Q20267955.jpg) | ArtDL | 11HH(MARY MAGDALENE) | 11HH(MARY MAGDALENE) | ![Image 2](../../example/image_2_Q20267955.jpg) | wikidata | 11HH(MARY MAGDALENE) | 11HH(MARY MAGDALENE) |
 | 9 | ![Image 1](../../example/image_1_Q2715177.jpg) | ArtDL | 11H(JEROME) | 11H(JEROME) | ![Image 2](../../example/image_2_Q2715177.jpg) | wikidata | 11H(JEROME) | 11H(JEROME) |
 | 10 | ![Image 1](../../example/image_1_Q29024815.jpg) | ArtDL | 11HH(MARY MAGDALENE) | 11HH(MARY MAGDALENE) | ![Image 2](../../example/image_2_Q29024815.jpg) | wikidata | 11HH(MARY MAGDALENE) | 11HH(MARY MAGDALENE) |
-| 11 | ![Image 1](../../example/image_1_Q510799.jpg) | ArtDL | 11H(JEROME) | 11H(JEROME) | ![Image 2](../../example/image_2_Q510799.jpg) | wikidata | 11H(JEROME) | 11H(JEROME) |
-| 12 | ![Image 1](../../example/image_1_Q55102676.jpg) | ArtDL | 11HH(MARY MAGDALENE) | 11HH(MARY MAGDALENE) | ![Image 2](../../example/image_2_Q55102676.jpg) | wikidata | 11HH(MARY MAGDALENE) | 11HH(MARY MAGDALENE) |
-| 13 | ![Image 1](../../example/image_1_Q5841454.jpg) | ArtDL | 11H(FRANCIS) | 11H(FRANCIS) | ![Image 2](../../example/image_2_Q5841454.jpg) | wikidata | 11H(FRANCIS) | 11H(FRANCIS) |
+| 11 | ![Image 1](../../example/image_1_Q4448822.jpg) | ArtDL | 11HH(MARY MAGDALENE) | 11HH(MARY MAGDALENE) | ![Image 2](../../example/image_2_Q4448822.jpg) | wikidata | 11HH(MARY MAGDALENE) | 11HH(MARY MAGDALENE) |
+| 12 | ![Image 1](../../example/image_1_Q510799.jpg) | ArtDL | 11H(JEROME) | 11H(JEROME) | ![Image 2](../../example/image_2_Q510799.jpg) | wikidata | 11H(JEROME) | 11H(JEROME) |
+| 13 | ![Image 1](../../example/image_1_Q55102676.jpg) | ArtDL | 11HH(MARY MAGDALENE) | 11HH(MARY MAGDALENE) | ![Image 2](../../example/image_2_Q55102676.jpg) | wikidata | 11HH(MARY MAGDALENE) | 11HH(MARY MAGDALENE) |
 | 14 | ![Image 1](../../example/image_1_Q6004260.jpg) | ArtDL | 11HH(MARY MAGDALENE) | 11HH(MARY MAGDALENE) | ![Image 2](../../example/image_2_Q6004260.jpg) | wikidata | 11HH(MARY MAGDALENE) | 11HH(MARY MAGDALENE) |
 | 15 | ![Image 1](../../example/image_1_Q9073676.jpg) | ArtDL | 11H(PETER) | 11H(PETER) | ![Image 2](../../example/image_2_Q9073676.jpg) | wikidata | 11H(PETER) | 11H(PETER) |
 | 16 | ![Image 1](../../example/image_1_clouet_jean_francbap.jpg) | ArtDL | 11H(JOHN THE BAPTIST) | 11H(JOHN THE BAPTIST) | ![Image 2](../../example/image_2_Q30096142.jpg) | wikidata | 11H(JOHN THE BAPTIST) | 11H(JOHN THE BAPTIST) |
@@ -41,6 +41,5 @@
 | 10 | ![Image 1](../../example/image_1_Q27981491.jpg) | ArtDL | 11H(JEROME) | 11H(ANTONY OF PADUA) | ![Image 2](../../example/image_2_Q27981491.jpg) | wikidata | 11H(JEROME) | 11H(JEROME) |
 | 11 | ![Image 1](../../example/image_1_Q29477236.jpg) | ArtDL | 11HH(MARY MAGDALENE) | 11HH(MARY MAGDALENE) | ![Image 2](../../example/image_2_Q29477236.jpg) | wikidata | 11HH(MARY MAGDALENE) | 11H(JEROME) |
 | 12 | ![Image 1](../../example/image_1___EX_1000788252_18423.jpg) | ArtDL | 11H(PETER) | 11H(JOHN THE BAPTIST) | ![Image 2](../../example/image_2_Q20172983.jpg) | wikidata | 11H(PETER) | 11H(PETER) |
-| 13 | ![Image 1](../../example/image_1___EX_1152601724_1326629351.jpg) | ArtDL | 11H(PAUL) | 11H(JOHN THE BAPTIST) | ![Image 2](../../example/image_2_Q26699346.jpg) | wikidata | 11H(PAUL) | 11H(JOHN) |
-| 14 | ![Image 1](../../example/image_1_hemessen_jan_stjerom.jpg) | ArtDL | 11H(JEROME) | 11H(JOHN THE BAPTIST) | ![Image 2](../../example/image_2_Q114744953.jpg) | wikidata | 11H(JEROME) | 11H(JEROME) |
-| 15 | ![Image 1](../../example/image_1_tintoret_3b_3ground_5maryma.jpg) | ArtDL | 11HH(MARY MAGDALENE) | 11H(JOHN THE BAPTIST) | ![Image 2](../../example/image_2_Q11769022.jpg) | wikidata | 11HH(MARY MAGDALENE) | 11H(JEROME) |
+| 13 | ![Image 1](../../example/image_1_hemessen_jan_stjerom.jpg) | ArtDL | 11H(JEROME) | 11H(JOHN THE BAPTIST) | ![Image 2](../../example/image_2_Q114744953.jpg) | wikidata | 11H(JEROME) | 11H(JEROME) |
+| 14 | ![Image 1](../../example/image_1_tintoret_3b_3ground_5maryma.jpg) | ArtDL | 11HH(MARY MAGDALENE) | 11H(JOHN THE BAPTIST) | ![Image 2](../../example/image_2_Q11769022.jpg) | wikidata | 11HH(MARY MAGDALENE) | 11H(JEROME) |

@@ -338,6 +338,22 @@
   [
     {
       "dataset": "ArtDL",
+      "name": "Q4448822",
+      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q4448822.jpg",
+      "ground_truth": "11HH(MARY MAGDALENE)",
+      "predicted": "11HH(MARY MAGDALENE)"
+    },
+    {
+      "dataset": "wikidata",
+      "name": "Q4448822",
+      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q4448822.jpg",
+      "ground_truth": "11HH(MARY MAGDALENE)",
+      "predicted": "11HH(MARY MAGDALENE)"
+    }
+  ],
+  [
+    {
+      "dataset": "ArtDL",
       "name": "Q510799",
       "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q510799.jpg",
       "ground_truth": "11H(JEROME)",
@@ -365,22 +381,6 @@
       "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q55102676.jpg",
       "ground_truth": "11HH(MARY MAGDALENE)",
       "predicted": "11HH(MARY MAGDALENE)"
-    }
-  ],
-  [
-    {
-      "dataset": "ArtDL",
-      "name": "Q5841454",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q5841454.jpg",
-      "ground_truth": "11H(FRANCIS)",
-      "predicted": "11H(ANTONY OF PADUA)"
-    },
-    {
-      "dataset": "wikidata",
-      "name": "Q5841454",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q5841454.jpg",
-      "ground_truth": "11H(FRANCIS)",
-      "predicted": "11H(FRANCIS)"
     }
   ],
   [
@@ -429,22 +429,6 @@
       "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q20172983.jpg",
       "ground_truth": "11H(PETER)",
       "predicted": "11H(PETER)"
-    }
-  ],
-  [
-    {
-      "dataset": "ArtDL",
-      "name": "__EX_1152601724_1326629351",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/__EX_1152601724_1326629351.jpg",
-      "ground_truth": "11H(PAUL)",
-      "predicted": "11H(JOHN THE BAPTIST)"
-    },
-    {
-      "dataset": "wikidata",
-      "name": "Q26699346",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q26699346.jpg",
-      "ground_truth": "11H(PAUL)",
-      "predicted": "11H(PAUL)"
     }
   ],
   [

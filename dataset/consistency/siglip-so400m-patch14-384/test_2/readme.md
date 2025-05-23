@@ -21,17 +21,16 @@
 | 15 | ![Image 1](../../example/image_1_Q2715177.jpg) | ArtDL | 11H(JEROME) | 11H(JEROME) | ![Image 2](../../example/image_2_Q2715177.jpg) | wikidata | 11H(JEROME) | 11H(JEROME) |
 | 16 | ![Image 1](../../example/image_1_Q27981491.jpg) | ArtDL | 11H(JEROME) | 11H(JEROME) | ![Image 2](../../example/image_2_Q27981491.jpg) | wikidata | 11H(JEROME) | 11H(JEROME) |
 | 17 | ![Image 1](../../example/image_1_Q29024815.jpg) | ArtDL | 11HH(MARY MAGDALENE) | 11HH(MARY MAGDALENE) | ![Image 2](../../example/image_2_Q29024815.jpg) | wikidata | 11HH(MARY MAGDALENE) | 11HH(MARY MAGDALENE) |
-| 18 | ![Image 1](../../example/image_1_Q510799.jpg) | ArtDL | 11H(JEROME) | 11H(JEROME) | ![Image 2](../../example/image_2_Q510799.jpg) | wikidata | 11H(JEROME) | 11H(JEROME) |
-| 19 | ![Image 1](../../example/image_1_Q55102676.jpg) | ArtDL | 11HH(MARY MAGDALENE) | 11HH(MARY MAGDALENE) | ![Image 2](../../example/image_2_Q55102676.jpg) | wikidata | 11HH(MARY MAGDALENE) | 11HH(MARY MAGDALENE) |
-| 20 | ![Image 1](../../example/image_1_Q5841454.jpg) | ArtDL | 11H(FRANCIS) | 11H(FRANCIS) | ![Image 2](../../example/image_2_Q5841454.jpg) | wikidata | 11H(FRANCIS) | 11H(FRANCIS) |
+| 18 | ![Image 1](../../example/image_1_Q4448822.jpg) | ArtDL | 11HH(MARY MAGDALENE) | 11HH(MARY MAGDALENE) | ![Image 2](../../example/image_2_Q4448822.jpg) | wikidata | 11HH(MARY MAGDALENE) | 11HH(MARY MAGDALENE) |
+| 19 | ![Image 1](../../example/image_1_Q510799.jpg) | ArtDL | 11H(JEROME) | 11H(JEROME) | ![Image 2](../../example/image_2_Q510799.jpg) | wikidata | 11H(JEROME) | 11H(JEROME) |
+| 20 | ![Image 1](../../example/image_1_Q55102676.jpg) | ArtDL | 11HH(MARY MAGDALENE) | 11HH(MARY MAGDALENE) | ![Image 2](../../example/image_2_Q55102676.jpg) | wikidata | 11HH(MARY MAGDALENE) | 11HH(MARY MAGDALENE) |
 | 21 | ![Image 1](../../example/image_1_Q6004260.jpg) | ArtDL | 11HH(MARY MAGDALENE) | 11HH(MARY MAGDALENE) | ![Image 2](../../example/image_2_Q6004260.jpg) | wikidata | 11HH(MARY MAGDALENE) | 11HH(MARY MAGDALENE) |
 | 22 | ![Image 1](../../example/image_1_Q9073676.jpg) | ArtDL | 11H(PETER) | 11H(PETER) | ![Image 2](../../example/image_2_Q9073676.jpg) | wikidata | 11H(PETER) | 11H(PETER) |
 | 23 | ![Image 1](../../example/image_1___EX_1000788252_18423.jpg) | ArtDL | 11H(PETER) | 11H(PETER) | ![Image 2](../../example/image_2_Q20172983.jpg) | wikidata | 11H(PETER) | 11H(PETER) |
-| 24 | ![Image 1](../../example/image_1___EX_1152601724_1326629351.jpg) | ArtDL | 11H(PAUL) | 11H(PAUL) | ![Image 2](../../example/image_2_Q26699346.jpg) | wikidata | 11H(PAUL) | 11H(PAUL) |
-| 25 | ![Image 1](../../example/image_1_clouet_jean_francbap.jpg) | ArtDL | 11H(JOHN THE BAPTIST) | 11H(JOHN THE BAPTIST) | ![Image 2](../../example/image_2_Q30096142.jpg) | wikidata | 11H(JOHN THE BAPTIST) | 11H(JOHN THE BAPTIST) |
-| 26 | ![Image 1](../../example/image_1_greco_el_17_1703grec.jpg) | ArtDL | 11HH(MARY MAGDALENE) | 11HH(MARY MAGDALENE) | ![Image 2](../../example/image_2_Q16589363.jpg) | wikidata | 11HH(MARY MAGDALENE) | 11HH(MARY MAGDALENE) |
-| 27 | ![Image 1](../../example/image_1_hemessen_jan_stjerom.jpg) | ArtDL | 11H(JEROME) | 11H(JEROME) | ![Image 2](../../example/image_2_Q114744953.jpg) | wikidata | 11H(JEROME) | 11H(JEROME) |
-| 28 | ![Image 1](../../example/image_1_tintoret_3b_3ground_5maryma.jpg) | ArtDL | 11HH(MARY MAGDALENE) | 11HH(MARY MAGDALENE) | ![Image 2](../../example/image_2_Q11769022.jpg) | wikidata | 11HH(MARY MAGDALENE) | 11HH(MARY MAGDALENE) |
+| 24 | ![Image 1](../../example/image_1_clouet_jean_francbap.jpg) | ArtDL | 11H(JOHN THE BAPTIST) | 11H(JOHN THE BAPTIST) | ![Image 2](../../example/image_2_Q30096142.jpg) | wikidata | 11H(JOHN THE BAPTIST) | 11H(JOHN THE BAPTIST) |
+| 25 | ![Image 1](../../example/image_1_greco_el_17_1703grec.jpg) | ArtDL | 11HH(MARY MAGDALENE) | 11HH(MARY MAGDALENE) | ![Image 2](../../example/image_2_Q16589363.jpg) | wikidata | 11HH(MARY MAGDALENE) | 11HH(MARY MAGDALENE) |
+| 26 | ![Image 1](../../example/image_1_hemessen_jan_stjerom.jpg) | ArtDL | 11H(JEROME) | 11H(JEROME) | ![Image 2](../../example/image_2_Q114744953.jpg) | wikidata | 11H(JEROME) | 11H(JEROME) |
+| 27 | ![Image 1](../../example/image_1_tintoret_3b_3ground_5maryma.jpg) | ArtDL | 11HH(MARY MAGDALENE) | 11HH(MARY MAGDALENE) | ![Image 2](../../example/image_2_Q11769022.jpg) | wikidata | 11HH(MARY MAGDALENE) | 11HH(MARY MAGDALENE) |
 
 ### Incorrectly Predicted Pairs
 
