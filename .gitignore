@@ -13,3 +13,4 @@ dataset/Portrait_Painting
 *.zip
 .DS_Store
 *.pyc
+batches/
