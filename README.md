@@ -21,12 +21,13 @@ In the current experiments, I tested two types of models: Vision-Language Encode
 
 | Model Name        | Type                     | Input Context Window     | Output Tokens     | Open Source | Release Date | Knowledge Cut-off |
 |------------------|--------------------------|--------------------------|-------------------|--------------|---------------|--------------------|
-| CLIP (ViT-B/32)   | Vision-Language Encoder   | -                      | -               | ✅ Yes        | Jan 2021      | -               |
-| Gemini 2.5 Flash  | Multimodal LLM            | 1M tokens                | 65k tokens    | ❌ No         | Apr 2025      | Jan 2025    |
-| Gemini 2.5 Pro    | Multimodal LLM            | 1M tokens                | 64k tokens    | ❌ No         | Mar 2024      | Jan 2025   |
-| GPT-4o            | Multimodal LLM            | 128k tokens              | 16.4k tokens     | ❌ No         | Aug 2024      | Oct 2023           |
-| GPT-4o mini       | Multimodal LLM            | 128k tokens              | 16.4k tokens     | ❌ No         | Jul 2024      | Oct 2023           |
-| SIGLIP (ViT-B/16) | Vision-Language Encoder   | -                      | -               | ✅ Yes        | Mar 2023      | -               |
+| CLIP (ViT-B/32)   | Vision-Language Encoder   | -                      | -               | Yes        | Jan 2021      | -               |
+| SIGLIP (ViT-B/16) | Vision-Language Encoder   | -                      | -               | Yes        | Mar 2023      | -               |
+| Gemini 2.5 Flash  | Multimodal LLM            | 1M tokens                | 65k tokens    | No         | Apr 2025      | Jan 2025    |
+| Gemini 2.5 Pro    | Multimodal LLM            | 1M tokens                | 64k tokens    | No         | Mar 2024      | Jan 2025   |
+| GPT-4o            | Multimodal LLM            | 128k tokens              | 16.4k tokens     | No         | Aug 2024      | Oct 2023           |
+| GPT-4o mini       | Multimodal LLM            | 128k tokens              | 16.4k tokens     | No         | Jul 2024      | Oct 2023           |
+
 
 ## Experiment
 
