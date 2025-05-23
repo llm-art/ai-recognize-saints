@@ -21,3 +21,104 @@
 2025-03-12 16:40:28,918 - INFO - Total output tokens used: 37
 2025-03-12 16:40:28,919 - INFO - Total cost of this call: $0.0150
 2025-03-12 16:40:28,921 - INFO - Probabilities shape: (1859, 10)
+2025-05-23 09:59:42,968 - INFO - Logger initialized for ArtDL/test_2/gpt-4o
+2025-05-23 09:59:42,977 - INFO - Starting classification for dataset=ArtDL, test=test_2, model=gpt-4o
+2025-05-23 09:59:43,460 - INFO - Number of images: 1864
+2025-05-23 09:59:43,460 - INFO - Processing dataset: ArtDL
+2025-05-23 09:59:43,465 - INFO - Processing images for test: test_2
+2025-05-23 09:59:43,540 - INFO - Using model: gpt-4o
+2025-05-23 10:00:30,451 - INFO - Cache saved after 5 batches
+2025-05-23 10:01:34,226 - INFO - Cache saved after 10 batches
+2025-05-23 10:02:16,678 - INFO - Cache saved after 15 batches
+2025-05-23 10:03:02,027 - INFO - Cache saved after 20 batches
+2025-05-23 10:03:43,199 - INFO - Cache saved after 25 batches
+2025-05-23 10:04:30,417 - INFO - Cache saved after 30 batches
+2025-05-23 10:05:12,327 - INFO - Cache saved after 35 batches
+2025-05-23 10:05:45,709 - INFO - Cache saved after 40 batches
+2025-05-23 10:06:21,616 - INFO - Cache saved after 45 batches
+2025-05-23 10:06:53,594 - INFO - Reconciled similar class: 11H(DAVID) -> 11H(ANTONY OF PADUA)
+2025-05-23 10:07:02,214 - INFO - Cache saved after 50 batches
+2025-05-23 10:07:43,346 - INFO - Cache saved after 55 batches
+2025-05-23 10:08:25,423 - INFO - Cache saved after 60 batches
+2025-05-23 10:09:05,799 - INFO - Cache saved after 65 batches
+2025-05-23 10:09:27,841 - INFO - Reconciled similar class: 11H(MARY) -> 11F(MARY)
+2025-05-23 10:09:43,653 - INFO - Cache saved after 70 batches
+2025-05-23 10:10:23,368 - INFO - Cache saved after 75 batches
+2025-05-23 10:11:00,767 - INFO - Cache saved after 80 batches
+2025-05-23 10:11:44,280 - INFO - Cache saved after 85 batches
+2025-05-23 10:12:29,093 - INFO - Cache saved after 90 batches
+2025-05-23 10:13:08,743 - INFO - Cache saved after 95 batches
+2025-05-23 10:13:45,390 - INFO - Cache saved after 100 batches
+2025-05-23 10:14:29,425 - INFO - Cache saved after 105 batches
+2025-05-23 10:14:44,161 - INFO - Reconciled similar class: 11H(MARY MAGDALENE) -> 11HH(MARY MAGDALENE)
+2025-05-23 10:14:44,162 - INFO - Reconciled similar class: 11H(MARY MAGDALENE) -> 11HH(MARY MAGDALENE)
+2025-05-23 10:15:06,652 - INFO - Cache saved after 110 batches
+2025-05-23 10:15:25,574 - INFO - Reconciled similar class: 11H(MARY MAGDALENE) -> 11HH(MARY MAGDALENE)
+2025-05-23 10:15:45,842 - INFO - Cache saved after 115 batches
+2025-05-23 10:16:04,987 - INFO - Reconciled similar class: 11H(MARY MAGDALENE) -> 11HH(MARY MAGDALENE)
+2025-05-23 10:16:25,655 - INFO - Cache saved after 120 batches
+2025-05-23 10:17:05,137 - INFO - Cache saved after 125 batches
+2025-05-23 10:17:19,066 - INFO - Reconciled similar class: 11H(MARY MAGDALENE) -> 11HH(MARY MAGDALENE)
+2025-05-23 10:17:40,828 - INFO - Cache saved after 130 batches
+2025-05-23 10:18:15,866 - INFO - Cache saved after 135 batches
+2025-05-23 10:18:54,168 - INFO - Cache saved after 140 batches
+2025-05-23 10:19:28,340 - INFO - Cache saved after 145 batches
+2025-05-23 10:19:57,810 - INFO - Reconciled similar class: 11H(MARY) -> 11F(MARY)
+2025-05-23 10:20:05,515 - INFO - Cache saved after 150 batches
+2025-05-23 10:20:39,192 - INFO - Cache saved after 155 batches
+2025-05-23 10:21:11,940 - INFO - Cache saved after 160 batches
+2025-05-23 10:21:49,815 - INFO - Cache saved after 165 batches
+2025-05-23 10:22:23,270 - INFO - Cache saved after 170 batches
+2025-05-23 10:22:58,508 - INFO - Cache saved after 175 batches
+2025-05-23 10:23:25,857 - INFO - Cache saved after 180 batches
+2025-05-23 10:23:59,711 - INFO - Cache saved after 185 batches
+2025-05-23 10:24:34,468 - INFO - Reconciled similar class: 11H(MARY MAGDALENE) -> 11HH(MARY MAGDALENE)
+2025-05-23 10:24:34,468 - INFO - Reconciled similar class: 11H(MARY MAGDALENE) -> 11HH(MARY MAGDALENE)
+2025-05-23 10:24:34,475 - INFO - Cache saved after 190 batches
+2025-05-23 10:25:06,417 - INFO - Cache saved after 195 batches
+2025-05-23 10:25:42,477 - INFO - Cache saved after 200 batches
+2025-05-23 10:26:03,775 - INFO - Reconciled similar class: 11H(MARY MAGDALENE) -> 11HH(MARY MAGDALENE)
+2025-05-23 10:26:12,103 - INFO - Reconciled similar class: 11H(MARY MAGDALENE) -> 11HH(MARY MAGDALENE)
+2025-05-23 10:26:19,700 - INFO - Cache saved after 205 batches
+2025-05-23 10:26:53,746 - INFO - Reconciled similar class: 11H(MARY MAGDALENE) -> 11HH(MARY MAGDALENE)
+2025-05-23 10:26:53,755 - INFO - Cache saved after 210 batches
+2025-05-23 10:27:34,339 - INFO - Cache saved after 215 batches
+2025-05-23 10:28:10,513 - INFO - Cache saved after 220 batches
+2025-05-23 10:28:45,852 - INFO - Cache saved after 225 batches
+2025-05-23 10:29:22,931 - INFO - Cache saved after 230 batches
+2025-05-23 10:29:58,660 - INFO - Cache saved after 235 batches
+2025-05-23 10:30:39,714 - INFO - Cache saved after 240 batches
+2025-05-23 10:30:51,734 - INFO - Reconciled similar class: 11H(MARY) -> 11F(MARY)
+2025-05-23 10:31:09,528 - INFO - Cache saved after 245 batches
+2025-05-23 10:31:45,056 - INFO - Cache saved after 250 batches
+2025-05-23 10:32:22,618 - INFO - Cache saved after 255 batches
+2025-05-23 10:32:55,353 - INFO - Cache saved after 260 batches
+2025-05-23 10:33:25,824 - INFO - Cache saved after 265 batches
+2025-05-23 10:33:59,561 - INFO - Cache saved after 270 batches
+2025-05-23 10:34:33,833 - INFO - Cache saved after 275 batches
+2025-05-23 10:35:02,636 - INFO - Cache saved after 280 batches
+2025-05-23 10:35:37,117 - INFO - Cache saved after 285 batches
+2025-05-23 10:36:13,143 - INFO - Cache saved after 290 batches
+2025-05-23 10:36:46,496 - INFO - Cache saved after 295 batches
+2025-05-23 10:37:10,110 - INFO - Reconciled similar class: 11H(MARY) -> 11F(MARY)
+2025-05-23 10:37:17,044 - INFO - Cache saved after 300 batches
+2025-05-23 10:37:54,710 - INFO - Cache saved after 305 batches
+2025-05-23 10:38:26,784 - INFO - Cache saved after 310 batches
+2025-05-23 10:39:05,616 - INFO - Reconciled similar class: 11H(GEORGE) -> 11H(ANTONY OF PADUA)
+2025-05-23 10:39:05,628 - INFO - Cache saved after 315 batches
+2025-05-23 10:39:36,133 - INFO - Cache saved after 320 batches
+2025-05-23 10:40:07,243 - INFO - Reconciled similar class: 11H(MARY MAGDALENE) -> 11HH(MARY MAGDALENE)
+2025-05-23 10:40:07,254 - INFO - Cache saved after 325 batches
+2025-05-23 10:40:40,288 - INFO - Cache saved after 330 batches
+2025-05-23 10:41:12,298 - INFO - Cache saved after 335 batches
+2025-05-23 10:41:44,678 - INFO - Cache saved after 340 batches
+2025-05-23 10:42:17,489 - INFO - Cache saved after 345 batches
+2025-05-23 10:42:51,934 - INFO - Cache saved after 350 batches
+2025-05-23 10:43:29,139 - INFO - Cache saved after 355 batches
+2025-05-23 10:44:09,399 - INFO - Cache saved after 360 batches
+2025-05-23 10:44:48,605 - INFO - Cache saved after 365 batches
+2025-05-23 10:45:32,431 - INFO - Cache saved after 370 batches
+2025-05-23 10:45:51,521 - INFO - Total input tokens used: 1767143
+2025-05-23 10:45:51,521 - INFO - Total output tokens used: 37447
+2025-05-23 10:45:51,522 - INFO - Total cost of this call: $4.7923
+2025-05-23 10:45:51,523 - INFO - Probabilities shape: (1864, 10)
