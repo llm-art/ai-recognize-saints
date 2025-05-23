@@ -1,0 +1,378 @@
+2025-05-22 16:12:10,527 - INFO - Logger initialized for ArtDL/test_1/gpt-4o
+2025-05-22 16:12:10,529 - INFO - Starting classification for dataset=ArtDL, test=test_1, model=gpt-4o
+2025-05-22 16:12:11,012 - INFO - Number of images: 1864
+2025-05-22 16:12:11,012 - INFO - Processing dataset: ArtDL
+2025-05-22 16:12:11,018 - INFO - Processing images for test: test_1
+2025-05-22 16:12:11,095 - INFO - Using model: gpt-4o
+2025-05-22 16:12:11,095 - INFO - Limiting to 10 images
+2025-05-22 16:12:27,607 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-05-22 16:12:27,608 - WARNING - Mismatch between response texts (0) and batch items (10). Processing only valid items from batch 1.
+2025-05-22 16:12:27,608 - WARNING - Adding 10 items without responses to unprocessed list: ['02ec1dc0-407a-413c-b02f-7082abedcfc4_074bca21-114d-4921-b22d-e6e41727e7b6', '08ad23d5-44ed-460b-b92d-522468079681_737143e3-2f36-4d01-bd32-ce4b73ccc791', '1124850093', '1304801319', '159694884', '1764985123', '186642', '189108', '191104', '191105']
+2025-05-22 16:12:27,608 - INFO - Added 10 unprocessed items to /home/ubuntu/gspinaci/LLM-test/script/gpt_data/unprocessed.txt
+2025-05-22 16:12:27,609 - WARNING - No valid results from batch 1. Skipping.
+2025-05-22 16:12:27,609 - INFO - Total input tokens used: 8906
+2025-05-22 16:12:27,609 - INFO - Total output tokens used: 227
+2025-05-22 16:12:27,609 - INFO - Total cost of this call: $0.0245
+2025-05-22 16:12:27,609 - INFO - Requested limit: 10, Actual processed: 0
+2025-05-22 16:12:27,609 - INFO - Total unprocessed items: 10
+2025-05-22 16:12:27,610 - INFO - Probabilities shape: (0,)
+2025-05-22 16:12:55,653 - INFO - Logger initialized for ArtDL/test_1/gpt-4o
+2025-05-22 16:12:55,655 - INFO - Starting classification for dataset=ArtDL, test=test_1, model=gpt-4o
+2025-05-22 16:12:56,137 - INFO - Number of images: 1864
+2025-05-22 16:12:56,137 - INFO - Processing dataset: ArtDL
+2025-05-22 16:12:56,142 - INFO - Processing images for test: test_1
+2025-05-22 16:12:56,216 - INFO - Loaded 0 cached results
+2025-05-22 16:12:56,216 - INFO - Using model: gpt-4o
+2025-05-22 16:12:56,217 - INFO - Limiting to 20 images
+2025-05-22 16:13:19,371 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-05-22 16:13:19,371 - WARNING - Mismatch between response texts (0) and batch items (10). Processing only valid items from batch 1.
+2025-05-22 16:13:19,372 - WARNING - Adding 10 items without responses to unprocessed list: ['02ec1dc0-407a-413c-b02f-7082abedcfc4_074bca21-114d-4921-b22d-e6e41727e7b6', '08ad23d5-44ed-460b-b92d-522468079681_737143e3-2f36-4d01-bd32-ce4b73ccc791', '1124850093', '1304801319', '159694884', '1764985123', '186642', '189108', '191104', '191105']
+2025-05-22 16:13:19,372 - INFO - Added 10 unprocessed items to /home/ubuntu/gspinaci/LLM-test/script/gpt_data/unprocessed.txt
+2025-05-22 16:13:19,372 - WARNING - No valid results from batch 1. Skipping.
+2025-05-22 16:13:37,074 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-05-22 16:13:37,074 - WARNING - Mismatch between response texts (0) and batch items (10). Processing only valid items from batch 2.
+2025-05-22 16:13:37,075 - WARNING - Adding 10 items without responses to unprocessed list: ['1939_1_168', '1939_1_291', '1939_1_80', '1950_11_1_a', '1960_6_32', '1961_9_25', '1963_10_57', '198351', '199024', '199026']
+2025-05-22 16:13:37,075 - INFO - Added 10 unprocessed items to /home/ubuntu/gspinaci/LLM-test/script/gpt_data/unprocessed.txt
+2025-05-22 16:13:37,075 - WARNING - No valid results from batch 2. Skipping.
+2025-05-22 16:13:37,076 - INFO - Total input tokens used: 18772
+2025-05-22 16:13:37,076 - INFO - Total output tokens used: 396
+2025-05-22 16:13:37,076 - INFO - Total cost of this call: $0.0509
+2025-05-22 16:13:37,076 - INFO - Requested limit: 20, Actual processed: 0
+2025-05-22 16:13:37,076 - INFO - Total unprocessed items: 20
+2025-05-22 16:13:37,077 - INFO - Probabilities shape: (0,)
+2025-05-23 08:50:36,961 - INFO - Logger initialized for ArtDL/test_1/gpt-4o
+2025-05-23 08:50:36,963 - INFO - Starting classification for dataset=ArtDL, test=test_1, model=gpt-4o
+2025-05-23 08:50:37,442 - INFO - Number of images: 1864
+2025-05-23 08:50:37,443 - INFO - Processing dataset: ArtDL
+2025-05-23 08:50:37,448 - INFO - Processing images for test: test_1
+2025-05-23 08:50:37,523 - INFO - Loaded 0 cached results
+2025-05-23 08:50:37,523 - INFO - Using model: gpt-4o
+2025-05-23 08:50:37,523 - INFO - Limiting to 100 images
+2025-05-23 08:50:53,928 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-05-23 08:50:53,929 - WARNING - Mismatch between response texts (0) and batch items (5). Processing only valid items from batch 1.
+2025-05-23 08:50:53,929 - WARNING - Adding 5 items without responses to unprocessed list: ['02ec1dc0-407a-413c-b02f-7082abedcfc4_074bca21-114d-4921-b22d-e6e41727e7b6', '08ad23d5-44ed-460b-b92d-522468079681_737143e3-2f36-4d01-bd32-ce4b73ccc791', '1124850093', '1304801319', '159694884']
+2025-05-23 08:50:53,930 - INFO - Added 5 unprocessed items to /home/ubuntu/gspinaci/LLM-test/script/gpt_data/unprocessed.txt
+2025-05-23 08:50:53,930 - WARNING - No valid results from batch 1. Skipping.
+2025-05-23 08:51:01,952 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-05-23 08:51:01,953 - WARNING - Mismatch between response texts (0) and batch items (5). Processing only valid items from batch 2.
+2025-05-23 08:51:01,953 - WARNING - Adding 5 items without responses to unprocessed list: ['1764985123', '186642', '189108', '191104', '191105']
+2025-05-23 08:51:01,953 - INFO - Added 5 unprocessed items to /home/ubuntu/gspinaci/LLM-test/script/gpt_data/unprocessed.txt
+2025-05-23 08:51:01,954 - WARNING - No valid results from batch 2. Skipping.
+2025-05-23 08:51:07,789 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-05-23 08:51:07,789 - WARNING - Mismatch between response texts (0) and batch items (5). Processing only valid items from batch 3.
+2025-05-23 08:51:07,790 - WARNING - Adding 5 items without responses to unprocessed list: ['1939_1_168', '1939_1_291', '1939_1_80', '1950_11_1_a', '1960_6_32']
+2025-05-23 08:51:07,790 - INFO - Added 5 unprocessed items to /home/ubuntu/gspinaci/LLM-test/script/gpt_data/unprocessed.txt
+2025-05-23 08:51:07,790 - WARNING - No valid results from batch 3. Skipping.
+2025-05-23 08:51:15,223 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-05-23 08:51:15,224 - WARNING - Mismatch between response texts (0) and batch items (5). Processing only valid items from batch 4.
+2025-05-23 08:51:15,224 - WARNING - Adding 5 items without responses to unprocessed list: ['1961_9_25', '1963_10_57', '198351', '199024', '199026']
+2025-05-23 08:51:15,224 - INFO - Added 5 unprocessed items to /home/ubuntu/gspinaci/LLM-test/script/gpt_data/unprocessed.txt
+2025-05-23 08:51:15,225 - WARNING - No valid results from batch 4. Skipping.
+2025-05-23 08:51:24,571 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-05-23 08:51:24,571 - WARNING - Mismatch between response texts (0) and batch items (5). Processing only valid items from batch 5.
+2025-05-23 08:51:24,571 - WARNING - Adding 5 items without responses to unprocessed list: ['2002_12_1', '201086', '214388', '2158302019', '2179191214']
+2025-05-23 08:51:24,572 - INFO - Added 5 unprocessed items to /home/ubuntu/gspinaci/LLM-test/script/gpt_data/unprocessed.txt
+2025-05-23 08:51:24,572 - WARNING - No valid results from batch 5. Skipping.
+2025-05-23 08:51:37,970 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-05-23 08:51:37,970 - WARNING - Mismatch between response texts (0) and batch items (5). Processing only valid items from batch 7.
+2025-05-23 08:51:37,970 - WARNING - Adding 5 items without responses to unprocessed list: ['232272', '232290', '232297', '232312', '234575']
+2025-05-23 08:51:37,971 - INFO - Added 5 unprocessed items to /home/ubuntu/gspinaci/LLM-test/script/gpt_data/unprocessed.txt
+2025-05-23 08:51:37,971 - WARNING - No valid results from batch 7. Skipping.
+2025-05-23 08:51:45,595 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-05-23 08:51:45,596 - WARNING - Mismatch between response texts (0) and batch items (5). Processing only valid items from batch 8.
+2025-05-23 08:51:45,596 - WARNING - Adding 5 items without responses to unprocessed list: ['246663', '247025c0-0ae2-426d-8af5-f453b73fef88_21e35645-74a5-4ad2-a6c4-f9160cc154b7', '249136', '251470', '253141']
+2025-05-23 08:51:45,596 - INFO - Added 5 unprocessed items to /home/ubuntu/gspinaci/LLM-test/script/gpt_data/unprocessed.txt
+2025-05-23 08:51:45,596 - WARNING - No valid results from batch 8. Skipping.
+2025-05-23 08:51:51,786 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-05-23 08:51:51,786 - WARNING - Mismatch between response texts (0) and batch items (5). Processing only valid items from batch 9.
+2025-05-23 08:51:51,786 - WARNING - Adding 5 items without responses to unprocessed list: ['253669', '2538343963', '257329', '258397', '258398']
+2025-05-23 08:51:51,787 - INFO - Added 5 unprocessed items to /home/ubuntu/gspinaci/LLM-test/script/gpt_data/unprocessed.txt
+2025-05-23 08:51:51,787 - WARNING - No valid results from batch 9. Skipping.
+2025-05-23 08:51:57,787 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-05-23 08:51:57,787 - WARNING - Mismatch between response texts (0) and batch items (5). Processing only valid items from batch 10.
+2025-05-23 08:51:57,788 - WARNING - Adding 5 items without responses to unprocessed list: ['268091', '269366', '273854', '274872', '2803243709']
+2025-05-23 08:51:57,788 - INFO - Added 5 unprocessed items to /home/ubuntu/gspinaci/LLM-test/script/gpt_data/unprocessed.txt
+2025-05-23 08:51:57,788 - WARNING - No valid results from batch 10. Skipping.
+2025-05-23 08:52:03,991 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-05-23 08:52:03,992 - WARNING - Mismatch between response texts (0) and batch items (5). Processing only valid items from batch 11.
+2025-05-23 08:52:03,992 - WARNING - Adding 5 items without responses to unprocessed list: ['280608', '2bb92358-e20d-464f-8863-acdf0cdb55a9_3b851f21-02bf-4207-891b-fead46840d52', '3081112895', '3153775401', '327248871']
+2025-05-23 08:52:03,992 - INFO - Added 5 unprocessed items to /home/ubuntu/gspinaci/LLM-test/script/gpt_data/unprocessed.txt
+2025-05-23 08:52:03,993 - WARNING - No valid results from batch 11. Skipping.
+2025-05-23 08:52:14,284 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-05-23 08:52:14,285 - WARNING - Mismatch between response texts (0) and batch items (5). Processing only valid items from batch 12.
+2025-05-23 08:52:14,285 - WARNING - Adding 5 items without responses to unprocessed list: ['32d122d9-ce67-4b95-a71c-ae2789127013_9758f460-8bb8-42d9-8be4-820971c1f6e6', '33c229a2-73de-4a9e-8e97-a5a66959efdd_274d7a7f-ccf2-4c6d-8626-69320ffadf8f', '366778', '3803186356', '39d3f19d-6c85-4b34-8231-a42d22ea258c_d57a9569-1e37-447a-bf32-88b5cb027cbb']
+2025-05-23 08:52:14,286 - INFO - Added 5 unprocessed items to /home/ubuntu/gspinaci/LLM-test/script/gpt_data/unprocessed.txt
+2025-05-23 08:52:14,286 - WARNING - No valid results from batch 12. Skipping.
+2025-05-23 08:52:24,267 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-05-23 08:52:24,268 - WARNING - Mismatch between response texts (0) and batch items (5). Processing only valid items from batch 13.
+2025-05-23 08:52:24,268 - WARNING - Adding 5 items without responses to unprocessed list: ['408706434', '524920790', '534584657', '545b7c72-67c2-4e39-af2f-0814f08b5224_96f02233-382a-4660-811f-263d034089b3', '573260222']
+2025-05-23 08:52:24,268 - INFO - Added 5 unprocessed items to /home/ubuntu/gspinaci/LLM-test/script/gpt_data/unprocessed.txt
+2025-05-23 08:52:24,268 - WARNING - No valid results from batch 13. Skipping.
+2025-05-23 08:52:33,771 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-05-23 08:52:33,772 - WARNING - Mismatch between response texts (0) and batch items (5). Processing only valid items from batch 14.
+2025-05-23 08:52:33,772 - WARNING - Adding 5 items without responses to unprocessed list: ['626621269', '76962833', '79c13e74-208e-46de-9a73-37c4f4d9b77f_39a98760-dc8f-4c1d-a109-8c36b046a0b1', '827674c0-739a-42f8-aac6-14e86d172983_0bf1be9c-1f14-44cf-9a9e-496b25fd308a', '839cfe29-9145-4cf4-bcab-9a72fd15f109_9e5ad57a-6192-4b2f-afe4-df03368f7a19']
+2025-05-23 08:52:33,772 - INFO - Added 5 unprocessed items to /home/ubuntu/gspinaci/LLM-test/script/gpt_data/unprocessed.txt
+2025-05-23 08:52:33,772 - WARNING - No valid results from batch 14. Skipping.
+2025-05-23 08:52:38,887 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-05-23 08:52:38,888 - WARNING - Mismatch between response texts (0) and batch items (5). Processing only valid items from batch 15.
+2025-05-23 08:52:38,888 - WARNING - Adding 5 items without responses to unprocessed list: ['9223372032559808929', '9223372032559833850', '9223372032559837254', '9223372032559839747', '931764269']
+2025-05-23 08:52:38,888 - INFO - Added 5 unprocessed items to /home/ubuntu/gspinaci/LLM-test/script/gpt_data/unprocessed.txt
+2025-05-23 08:52:38,888 - WARNING - No valid results from batch 15. Skipping.
+2025-05-23 08:52:46,729 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-05-23 08:52:46,730 - WARNING - Mismatch between response texts (0) and batch items (5). Processing only valid items from batch 16.
+2025-05-23 08:52:46,730 - WARNING - Adding 5 items without responses to unprocessed list: ['9c206b97-9328-4a00-904d-ac710de7f606_eb15dee5-736d-4b8c-ab99-77f54873d347', 'APS6907', 'DP-14827-001', 'DP-14829-001', 'DP220449']
+2025-05-23 08:52:46,730 - INFO - Added 5 unprocessed items to /home/ubuntu/gspinaci/LLM-test/script/gpt_data/unprocessed.txt
+2025-05-23 08:52:46,730 - WARNING - No valid results from batch 16. Skipping.
+2025-05-23 08:52:58,076 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-05-23 08:52:58,076 - WARNING - Mismatch between response texts (0) and batch items (5). Processing only valid items from batch 17.
+2025-05-23 08:52:58,076 - WARNING - Adding 5 items without responses to unprocessed list: ['DP273206', 'DP356935', 'DT11166', 'DT354152', 'ICCD10018330_DIG18002']
+2025-05-23 08:52:58,077 - INFO - Added 5 unprocessed items to /home/ubuntu/gspinaci/LLM-test/script/gpt_data/unprocessed.txt
+2025-05-23 08:52:58,077 - WARNING - No valid results from batch 17. Skipping.
+2025-05-23 08:53:06,583 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-05-23 08:53:06,583 - WARNING - Mismatch between response texts (0) and batch items (5). Processing only valid items from batch 18.
+2025-05-23 08:53:06,583 - WARNING - Adding 5 items without responses to unprocessed list: ['ICCD10058017_DIG17970', 'ICCD10072621_SpinelloLunettaVecchia', 'ICCD10073614_ParriMisericordia', 'ICCD10106814_DIA63082', 'ICCD10131103_015447']
+2025-05-23 08:53:06,584 - INFO - Added 5 unprocessed items to /home/ubuntu/gspinaci/LLM-test/script/gpt_data/unprocessed.txt
+2025-05-23 08:53:06,584 - WARNING - No valid results from batch 18. Skipping.
+2025-05-23 08:53:14,914 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-05-23 08:53:14,914 - WARNING - Mismatch between response texts (0) and batch items (5). Processing only valid items from batch 19.
+2025-05-23 08:53:14,914 - WARNING - Adding 5 items without responses to unprocessed list: ['ICCD10131266_015621', 'ICCD10214628_010437', 'ICCD10214634_010436', 'ICCD10439013_0090678', 'ICCD10489049_4397']
+2025-05-23 08:53:14,915 - INFO - Added 5 unprocessed items to /home/ubuntu/gspinaci/LLM-test/script/gpt_data/unprocessed.txt
+2025-05-23 08:53:14,915 - WARNING - No valid results from batch 19. Skipping.
+2025-05-23 08:53:23,319 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-05-23 08:53:23,319 - WARNING - Mismatch between response texts (0) and batch items (5). Processing only valid items from batch 20.
+2025-05-23 08:53:23,319 - WARNING - Adding 5 items without responses to unprocessed list: ['ICCD10511303_XVI_106bis', 'ICCD10511311_XVI_98', 'ICCD10511415_XVI_116', 'ICCD10554251_403655-8', 'ICCD10554256_403655-7']
+2025-05-23 08:53:23,320 - INFO - Added 5 unprocessed items to /home/ubuntu/gspinaci/LLM-test/script/gpt_data/unprocessed.txt
+2025-05-23 08:53:23,320 - WARNING - No valid results from batch 20. Skipping.
+2025-05-23 08:53:23,321 - INFO - Total input tokens used: 97720
+2025-05-23 08:53:23,321 - INFO - Total output tokens used: 2153
+2025-05-23 08:53:23,321 - INFO - Total cost of this call: $0.2658
+2025-05-23 08:53:23,321 - INFO - Requested limit: 100, Actual processed: 5
+2025-05-23 08:53:23,321 - INFO - Total unprocessed items: 95
+2025-05-23 08:53:23,322 - INFO - Probabilities shape: (5, 10)
+2025-05-23 08:56:05,760 - INFO - Logger initialized for ArtDL/test_1/gpt-4o
+2025-05-23 08:56:05,761 - INFO - Starting classification for dataset=ArtDL, test=test_1, model=gpt-4o
+2025-05-23 08:56:06,267 - INFO - Number of images: 1864
+2025-05-23 08:56:06,267 - INFO - Processing dataset: ArtDL
+2025-05-23 08:56:06,272 - INFO - Processing images for test: test_1
+2025-05-23 08:56:06,347 - INFO - Loaded 5 cached results
+2025-05-23 08:56:06,348 - INFO - Using model: gpt-4o
+2025-05-23 08:56:06,348 - INFO - Limiting to 10 images
+2025-05-23 08:56:15,184 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-05-23 08:56:15,184 - WARNING - Mismatch between response texts (0) and batch items (5). Processing only valid items from batch 1.
+2025-05-23 08:56:15,185 - WARNING - Adding 5 items without responses to unprocessed list: ['02ec1dc0-407a-413c-b02f-7082abedcfc4_074bca21-114d-4921-b22d-e6e41727e7b6', '08ad23d5-44ed-460b-b92d-522468079681_737143e3-2f36-4d01-bd32-ce4b73ccc791', '1124850093', '1304801319', '159694884']
+2025-05-23 08:56:15,185 - INFO - Added 5 unprocessed items to /home/ubuntu/gspinaci/LLM-test/script/gpt_data/unprocessed.txt
+2025-05-23 08:56:15,185 - WARNING - No valid results from batch 1. Skipping.
+2025-05-23 08:56:20,616 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-05-23 08:56:20,617 - WARNING - Mismatch between response texts (0) and batch items (5). Processing only valid items from batch 2.
+2025-05-23 08:56:20,617 - WARNING - Adding 5 items without responses to unprocessed list: ['1764985123', '186642', '189108', '191104', '191105']
+2025-05-23 08:56:20,617 - INFO - Added 5 unprocessed items to /home/ubuntu/gspinaci/LLM-test/script/gpt_data/unprocessed.txt
+2025-05-23 08:56:20,617 - WARNING - No valid results from batch 2. Skipping.
+2025-05-23 08:56:20,618 - INFO - Total input tokens used: 9313
+2025-05-23 08:56:20,618 - INFO - Total output tokens used: 233
+2025-05-23 08:56:20,618 - INFO - Total cost of this call: $0.0256
+2025-05-23 08:56:20,618 - INFO - Requested limit: 10, Actual processed: 0
+2025-05-23 08:56:20,618 - INFO - Total unprocessed items: 10
+2025-05-23 08:56:20,619 - INFO - Probabilities shape: (0,)
+2025-05-23 08:57:11,831 - INFO - Logger initialized for ArtDL/test_1/gpt-4o
+2025-05-23 08:57:11,833 - INFO - Starting classification for dataset=ArtDL, test=test_1, model=gpt-4o
+2025-05-23 08:57:33,960 - INFO - Number of images: 1864
+2025-05-23 08:57:33,961 - INFO - Processing dataset: ArtDL
+2025-05-23 08:57:33,969 - INFO - Processing images for test: test_1
+2025-05-23 08:57:34,060 - INFO - Loaded 5 valid cached results (ignoring zero arrays)
+2025-05-23 08:57:34,061 - INFO - Using model: gpt-4o
+2025-05-23 08:57:34,061 - INFO - Limiting to 50 images
+2025-05-23 08:57:41,707 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-05-23 08:57:41,708 - WARNING - Mismatch between response texts (0) and batch items (5). Processing only valid items from batch 1.
+2025-05-23 08:57:41,708 - WARNING - Adding 5 items without responses to unprocessed list: ['02ec1dc0-407a-413c-b02f-7082abedcfc4_074bca21-114d-4921-b22d-e6e41727e7b6', '08ad23d5-44ed-460b-b92d-522468079681_737143e3-2f36-4d01-bd32-ce4b73ccc791', '1124850093', '1304801319', '159694884']
+2025-05-23 08:57:41,709 - INFO - Added 5 unprocessed items to /home/ubuntu/gspinaci/LLM-test/script/gpt_data/unprocessed.txt
+2025-05-23 08:57:41,709 - WARNING - No valid results from batch 1. Skipping.
+2025-05-23 08:57:48,750 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-05-23 08:57:48,751 - WARNING - Mismatch between response texts (0) and batch items (5). Processing only valid items from batch 2.
+2025-05-23 08:57:48,752 - WARNING - Adding 5 items without responses to unprocessed list: ['1764985123', '186642', '189108', '191104', '191105']
+2025-05-23 08:57:48,753 - INFO - Added 5 unprocessed items to /home/ubuntu/gspinaci/LLM-test/script/gpt_data/unprocessed.txt
+2025-05-23 08:57:48,753 - WARNING - No valid results from batch 2. Skipping.
+2025-05-23 08:58:04,817 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-05-23 08:58:04,818 - WARNING - Mismatch between response texts (0) and batch items (5). Processing only valid items from batch 3.
+2025-05-23 08:58:04,819 - WARNING - Adding 5 items without responses to unprocessed list: ['1939_1_168', '1939_1_291', '1939_1_80', '1950_11_1_a', '1960_6_32']
+2025-05-23 08:58:04,820 - INFO - Added 5 unprocessed items to /home/ubuntu/gspinaci/LLM-test/script/gpt_data/unprocessed.txt
+2025-05-23 08:58:04,820 - WARNING - No valid results from batch 3. Skipping.
+2025-05-23 08:58:12,166 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-05-23 08:58:12,167 - WARNING - Mismatch between response texts (0) and batch items (5). Processing only valid items from batch 4.
+2025-05-23 08:58:12,168 - WARNING - Adding 5 items without responses to unprocessed list: ['1961_9_25', '1963_10_57', '198351', '199024', '199026']
+2025-05-23 08:58:12,168 - INFO - Added 5 unprocessed items to /home/ubuntu/gspinaci/LLM-test/script/gpt_data/unprocessed.txt
+2025-05-23 08:58:12,169 - WARNING - No valid results from batch 4. Skipping.
+2025-05-23 08:58:19,351 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-05-23 08:58:19,352 - WARNING - Mismatch between response texts (0) and batch items (5). Processing only valid items from batch 5.
+2025-05-23 08:58:19,353 - WARNING - Adding 5 items without responses to unprocessed list: ['2002_12_1', '201086', '214388', '2158302019', '2179191214']
+2025-05-23 08:58:19,353 - INFO - Added 5 unprocessed items to /home/ubuntu/gspinaci/LLM-test/script/gpt_data/unprocessed.txt
+2025-05-23 08:58:19,354 - WARNING - No valid results from batch 5. Skipping.
+2025-05-23 08:58:27,418 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-05-23 08:58:27,419 - WARNING - Mismatch between response texts (0) and batch items (5). Processing only valid items from batch 6.
+2025-05-23 08:58:27,420 - WARNING - Adding 5 items without responses to unprocessed list: ['232272', '232290', '232297', '232312', '234575']
+2025-05-23 08:58:27,421 - INFO - Added 5 unprocessed items to /home/ubuntu/gspinaci/LLM-test/script/gpt_data/unprocessed.txt
+2025-05-23 08:58:27,421 - WARNING - No valid results from batch 6. Skipping.
+2025-05-23 08:58:35,503 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-05-23 08:58:35,504 - WARNING - Mismatch between response texts (0) and batch items (5). Processing only valid items from batch 7.
+2025-05-23 08:58:35,504 - WARNING - Adding 5 items without responses to unprocessed list: ['246663', '247025c0-0ae2-426d-8af5-f453b73fef88_21e35645-74a5-4ad2-a6c4-f9160cc154b7', '249136', '251470', '253141']
+2025-05-23 08:58:35,505 - INFO - Added 5 unprocessed items to /home/ubuntu/gspinaci/LLM-test/script/gpt_data/unprocessed.txt
+2025-05-23 08:58:35,506 - WARNING - No valid results from batch 7. Skipping.
+2025-05-23 08:58:41,879 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-05-23 08:58:41,880 - WARNING - Mismatch between response texts (0) and batch items (5). Processing only valid items from batch 8.
+2025-05-23 08:58:41,881 - WARNING - Adding 5 items without responses to unprocessed list: ['253669', '2538343963', '257329', '258397', '258398']
+2025-05-23 08:58:41,882 - INFO - Added 5 unprocessed items to /home/ubuntu/gspinaci/LLM-test/script/gpt_data/unprocessed.txt
+2025-05-23 08:58:41,882 - WARNING - No valid results from batch 8. Skipping.
+2025-05-23 08:58:49,294 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-05-23 08:58:49,295 - WARNING - Mismatch between response texts (0) and batch items (5). Processing only valid items from batch 9.
+2025-05-23 08:58:49,295 - WARNING - Adding 5 items without responses to unprocessed list: ['268091', '269366', '273854', '274872', '2803243709']
+2025-05-23 08:58:49,296 - INFO - Added 5 unprocessed items to /home/ubuntu/gspinaci/LLM-test/script/gpt_data/unprocessed.txt
+2025-05-23 08:58:49,297 - WARNING - No valid results from batch 9. Skipping.
+2025-05-23 08:58:49,299 - INFO - Total input tokens used: 42702
+2025-05-23 08:58:49,300 - INFO - Total output tokens used: 830
+2025-05-23 08:58:49,300 - INFO - Total cost of this call: $0.1151
+2025-05-23 08:58:49,300 - INFO - Requested limit: 50, Actual processed: 5
+2025-05-23 08:58:49,300 - INFO - Total unprocessed items: 45
+2025-05-23 08:58:49,301 - INFO - Probabilities shape: (5, 10)
+2025-05-23 09:03:17,550 - INFO - Logger initialized for ArtDL/test_1/gpt-4o
+2025-05-23 09:03:17,551 - INFO - Starting classification for dataset=ArtDL, test=test_1, model=gpt-4o
+2025-05-23 09:03:18,003 - INFO - Number of images: 1864
+2025-05-23 09:03:18,003 - INFO - Processing dataset: ArtDL
+2025-05-23 09:03:18,008 - INFO - Processing images for test: test_1
+2025-05-23 09:03:18,082 - INFO - Loaded 5 cached results
+2025-05-23 09:03:18,082 - INFO - Using model: gpt-4o
+2025-05-23 09:03:18,083 - INFO - Limiting to 10 images
+2025-05-23 09:03:31,754 - INFO - Reached limit of 10 processed images during batch processing.
+2025-05-23 09:03:31,755 - INFO - Total input tokens used: 9313
+2025-05-23 09:03:31,755 - INFO - Total output tokens used: 233
+2025-05-23 09:03:31,755 - INFO - Total cost of this call: $0.0256
+2025-05-23 09:03:31,756 - INFO - Requested limit: 10, Actual processed: 10
+2025-05-23 09:03:31,756 - INFO - Probabilities shape: (10, 10)
+2025-05-23 09:04:35,521 - INFO - Logger initialized for ArtDL/test_1/gpt-4o
+2025-05-23 09:04:35,523 - INFO - Starting classification for dataset=ArtDL, test=test_1, model=gpt-4o
+2025-05-23 09:04:36,012 - INFO - Number of images: 1864
+2025-05-23 09:04:36,013 - INFO - Processing dataset: ArtDL
+2025-05-23 09:04:36,018 - INFO - Processing images for test: test_1
+2025-05-23 09:04:36,098 - INFO - Loaded 15 cached results
+2025-05-23 09:04:36,098 - INFO - Using model: gpt-4o
+2025-05-23 09:04:36,098 - INFO - Limiting to 25 images
+2025-05-23 09:04:59,877 - INFO - Reached limit of 25 processed images during batch processing.
+2025-05-23 09:04:59,878 - INFO - Total input tokens used: 14553
+2025-05-23 09:04:59,878 - INFO - Total output tokens used: 257
+2025-05-23 09:04:59,878 - INFO - Total cost of this call: $0.0390
+2025-05-23 09:04:59,878 - INFO - Requested limit: 25, Actual processed: 25
+2025-05-23 09:04:59,879 - INFO - Probabilities shape: (25, 10)
+2025-05-23 09:05:54,459 - INFO - Logger initialized for ArtDL/test_1/gpt-4o
+2025-05-23 09:05:54,460 - INFO - Starting classification for dataset=ArtDL, test=test_1, model=gpt-4o
+2025-05-23 09:05:54,933 - INFO - Number of images: 1864
+2025-05-23 09:05:54,933 - INFO - Processing dataset: ArtDL
+2025-05-23 09:05:54,938 - INFO - Processing images for test: test_1
+2025-05-23 09:05:55,012 - INFO - Loaded 30 cached results
+2025-05-23 09:05:55,012 - INFO - Using model: gpt-4o
+2025-05-23 09:05:55,012 - INFO - Limiting to 250 images
+2025-05-23 09:06:32,647 - INFO - Cache saved after 5 batches
+2025-05-23 09:07:13,587 - INFO - Cache saved after 10 batches
+2025-05-23 09:08:03,667 - INFO - Cache saved after 15 batches
+2025-05-23 09:08:13,135 - INFO - Reconciled similar class: 11H(MARY MAGDALENE) -> 11HH(MARY MAGDALENE)
+2025-05-23 09:08:44,455 - INFO - Cache saved after 20 batches
+2025-05-23 09:09:23,888 - INFO - Cache saved after 25 batches
+2025-05-23 09:09:59,981 - INFO - Cache saved after 30 batches
+2025-05-23 09:10:40,576 - INFO - Cache saved after 35 batches
+2025-05-23 09:11:17,971 - INFO - Cache saved after 40 batches
+2025-05-23 09:11:50,796 - INFO - Reached limit of 250 processed images during batch processing.
+2025-05-23 09:11:50,798 - INFO - Total input tokens used: 202144
+2025-05-23 09:11:50,799 - INFO - Total output tokens used: 4717
+2025-05-23 09:11:50,799 - INFO - Total cost of this call: $0.5525
+2025-05-23 09:11:50,799 - INFO - Requested limit: 250, Actual processed: 250
+2025-05-23 09:11:50,799 - INFO - Probabilities shape: (250, 10)
+2025-05-23 09:12:22,832 - INFO - Logger initialized for ArtDL/test_1/gpt-4o
+2025-05-23 09:12:22,834 - INFO - Starting classification for dataset=ArtDL, test=test_1, model=gpt-4o
+2025-05-23 09:12:23,314 - INFO - Number of images: 1864
+2025-05-23 09:12:23,315 - INFO - Processing dataset: ArtDL
+2025-05-23 09:12:23,320 - INFO - Processing images for test: test_1
+2025-05-23 09:12:23,395 - INFO - Loaded 250 cached results
+2025-05-23 09:12:23,395 - INFO - Using model: gpt-4o
+2025-05-23 09:13:01,014 - INFO - Cache saved after 5 batches
+2025-05-23 09:13:31,494 - INFO - Reconciled similar class: 11H(STEPHEN) -> 11H(ANTONY OF PADUA)
+2025-05-23 09:13:39,290 - INFO - Cache saved after 10 batches
+2025-05-23 09:14:17,443 - INFO - Cache saved after 15 batches
+2025-05-23 09:14:56,822 - INFO - Cache saved after 20 batches
+2025-05-23 09:15:41,019 - INFO - Cache saved after 25 batches
+2025-05-23 09:16:33,142 - INFO - Cache saved after 30 batches
+2025-05-23 09:17:14,559 - INFO - Cache saved after 35 batches
+2025-05-23 09:18:01,325 - INFO - Cache saved after 40 batches
+2025-05-23 09:18:39,654 - INFO - Cache saved after 45 batches
+2025-05-23 09:18:51,565 - INFO - Reconciled similar class: 11H(MARY MAGDALENE) -> 11HH(MARY MAGDALENE)
+2025-05-23 09:19:12,608 - INFO - Cache saved after 50 batches
+2025-05-23 09:19:52,289 - INFO - Cache saved after 55 batches
+2025-05-23 09:20:42,129 - INFO - Cache saved after 60 batches
+2025-05-23 09:21:41,376 - INFO - Cache saved after 65 batches
+2025-05-23 09:21:56,587 - INFO - Reconciled similar class: 11H(MARY MAGDALENE) -> 11HH(MARY MAGDALENE)
+2025-05-23 09:22:22,948 - INFO - Cache saved after 70 batches
+2025-05-23 09:22:59,329 - INFO - Cache saved after 75 batches
+2025-05-23 09:23:35,919 - INFO - Cache saved after 80 batches
+2025-05-23 09:24:15,000 - INFO - Cache saved after 85 batches
+2025-05-23 09:24:50,038 - INFO - Cache saved after 90 batches
+2025-05-23 09:25:28,057 - INFO - Cache saved after 95 batches
+2025-05-23 09:26:06,670 - INFO - Reconciled similar class: 11H(MARY MAGDALENE) -> 11HH(MARY MAGDALENE)
+2025-05-23 09:26:06,676 - INFO - Cache saved after 100 batches
+2025-05-23 09:26:47,461 - INFO - Reconciled similar class: 11FF(MARY) -> 11F(MARY)
+2025-05-23 09:26:47,462 - INFO - Reconciled similar class: 11FF(MARY) -> 11F(MARY)
+2025-05-23 09:26:47,462 - INFO - Reconciled similar class: 11FF(MARY) -> 11F(MARY)
+2025-05-23 09:26:47,468 - INFO - Cache saved after 105 batches
+2025-05-23 09:27:21,957 - INFO - Cache saved after 110 batches
+2025-05-23 09:27:57,752 - INFO - Cache saved after 115 batches
+2025-05-23 09:28:18,900 - INFO - Reconciled similar class: 11H(MARY MAGDALENE) -> 11HH(MARY MAGDALENE)
+2025-05-23 09:28:30,598 - INFO - Cache saved after 120 batches
+2025-05-23 09:29:03,198 - INFO - Cache saved after 125 batches
+2025-05-23 09:29:40,894 - INFO - Cache saved after 130 batches
+2025-05-23 09:30:20,853 - INFO - Cache saved after 135 batches
+2025-05-23 09:30:57,902 - INFO - Cache saved after 140 batches
+2025-05-23 09:31:37,406 - INFO - Cache saved after 145 batches
+2025-05-23 09:31:50,176 - WARNING - Mismatch between response texts (4) and batch items (5). Processing only valid items from batch 147.
+2025-05-23 09:31:50,177 - WARNING - Adding 1 items without responses to unprocessed list: ['ICCD4429966_67651']
+2025-05-23 09:31:50,177 - INFO - Added 1 unprocessed items to /home/ubuntu/gspinaci/LLM-test/script/gpt_data/unprocessed.txt
+2025-05-23 09:32:15,163 - INFO - Cache saved after 150 batches
+2025-05-23 09:32:51,329 - INFO - Cache saved after 155 batches
+2025-05-23 09:33:34,465 - INFO - Reconciled similar class: 11H(MARY MAGDALENE) -> 11HH(MARY MAGDALENE)
+2025-05-23 09:33:34,473 - INFO - Cache saved after 160 batches
+2025-05-23 09:34:43,698 - INFO - Cache saved after 165 batches
+2025-05-23 09:35:27,743 - INFO - Cache saved after 170 batches
+2025-05-23 09:36:10,174 - INFO - Cache saved after 175 batches
+2025-05-23 09:36:47,992 - INFO - Reconciled similar class: 11H(MARY MAGDALENE) -> 11HH(MARY MAGDALENE)
+2025-05-23 09:36:48,001 - INFO - Cache saved after 180 batches
+2025-05-23 09:37:23,261 - INFO - Cache saved after 185 batches
+2025-05-23 09:38:00,648 - INFO - Cache saved after 190 batches
+2025-05-23 09:38:16,399 - INFO - Reconciled similar class: 11H(MARY MAGDALENE) -> 11HH(MARY MAGDALENE)
+2025-05-23 09:38:38,503 - INFO - Cache saved after 195 batches
+2025-05-23 09:39:16,455 - INFO - Cache saved after 200 batches
+2025-05-23 09:40:05,505 - INFO - Cache saved after 205 batches
+2025-05-23 09:40:49,588 - INFO - Reconciled similar class: 11H(MARY) -> 11F(MARY)
+2025-05-23 09:40:49,598 - INFO - Cache saved after 210 batches
+2025-05-23 09:41:03,765 - INFO - Reconciled similar class: 11H(MARY MAGDALENE) -> 11HH(MARY MAGDALENE)
+2025-05-23 09:41:36,965 - INFO - Cache saved after 215 batches
+2025-05-23 09:42:14,602 - INFO - Cache saved after 220 batches
+2025-05-23 09:42:50,204 - INFO - Cache saved after 225 batches
+2025-05-23 09:43:27,454 - INFO - Cache saved after 230 batches
+2025-05-23 09:44:04,892 - INFO - Cache saved after 235 batches
+2025-05-23 09:45:10,268 - INFO - Cache saved after 240 batches
+2025-05-23 09:45:51,931 - INFO - Cache saved after 245 batches
+2025-05-23 09:46:33,581 - INFO - Cache saved after 250 batches
+2025-05-23 09:47:10,159 - INFO - Cache saved after 255 batches
+2025-05-23 09:47:49,321 - INFO - Cache saved after 260 batches
+2025-05-23 09:48:25,997 - INFO - Cache saved after 265 batches
+2025-05-23 09:48:37,678 - INFO - Reconciled similar class: 11FF(MARY MAGDALENE) -> 11HH(MARY MAGDALENE)
+2025-05-23 09:49:01,239 - INFO - Cache saved after 270 batches
+2025-05-23 09:49:42,988 - INFO - Cache saved after 275 batches
+2025-05-23 09:50:23,048 - INFO - Cache saved after 280 batches
+2025-05-23 09:51:01,258 - INFO - Cache saved after 285 batches
+2025-05-23 09:51:34,703 - INFO - Cache saved after 290 batches
+2025-05-23 09:52:04,676 - INFO - Cache saved after 295 batches
+2025-05-23 09:52:42,436 - INFO - Cache saved after 300 batches
+2025-05-23 09:53:22,238 - INFO - Cache saved after 305 batches
+2025-05-23 09:54:10,229 - INFO - Cache saved after 310 batches
+2025-05-23 09:54:50,290 - INFO - Cache saved after 315 batches
+2025-05-23 09:55:27,804 - INFO - Cache saved after 320 batches
+2025-05-23 09:55:51,522 - INFO - Total input tokens used: 1434688
+2025-05-23 09:55:51,522 - INFO - Total output tokens used: 32206
+2025-05-23 09:55:51,522 - INFO - Total cost of this call: $3.9088
+2025-05-23 09:55:51,522 - INFO - Total unprocessed items: 1
+2025-05-23 09:55:51,524 - INFO - Probabilities shape: (1863, 10)

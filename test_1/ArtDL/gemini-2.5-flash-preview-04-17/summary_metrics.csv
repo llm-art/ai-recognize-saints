@@ -1,2 +1,2 @@
 Model,Macro Average Precision,Micro Average Precision,Accuracy
-gpt-4o-mini,46.24%,59.20%,75.32%
+gemini-2.5-flash-preview-04-17,14.20%,27.87%,47.57%

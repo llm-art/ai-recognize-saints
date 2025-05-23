@@ -1,0 +1,121 @@
+2025-05-23 08:54:37,184 - INFO - Logger initialized for ArtDL/test_1/gemini-2.5-pro-preview-05-06
+2025-05-23 08:54:37,185 - INFO - Starting classification for dataset=ArtDL, test=test_1, model=gemini-2.5-pro-preview-05-06
+2025-05-23 08:54:37,752 - INFO - Number of images: 1864
+2025-05-23 08:54:37,752 - INFO - Processing dataset: ArtDL
+2025-05-23 08:54:37,758 - INFO - Processing images for test: test_1
+2025-05-23 08:54:37,759 - INFO - Using model: gemini-2.5-pro-preview-05-06
+2025-05-23 08:54:37,759 - INFO - Limiting to 100 images
+2025-05-23 08:56:09,523 - INFO - Cache saved after 5 batches
+2025-05-23 08:57:39,001 - INFO - Cache saved after 10 batches
+2025-05-23 08:59:03,445 - INFO - Cache saved after 15 batches
+2025-05-23 09:00:34,974 - INFO - Reached limit of 100 processed images during batch processing.
+2025-05-23 09:00:34,976 - INFO - Cache saved after 20 batches
+2025-05-23 09:00:34,983 - INFO - Total input tokens used: 7960
+2025-05-23 09:00:34,984 - INFO - Total output tokens used: 1124
+2025-05-23 09:00:34,984 - INFO - Total cost of this call: $0.0078
+2025-05-23 09:00:34,984 - INFO - Requested limit: 100, Actual processed: 100
+2025-05-23 09:00:34,985 - INFO - Probabilities shape: (100, 10)
+2025-05-23 09:05:21,425 - INFO - Logger initialized for ArtDL/test_1/gemini-2.5-pro-preview-05-06
+2025-05-23 09:05:21,426 - INFO - Starting classification for dataset=ArtDL, test=test_1, model=gemini-2.5-pro-preview-05-06
+2025-05-23 09:05:21,951 - INFO - Number of images: 1864
+2025-05-23 09:05:21,951 - INFO - Processing dataset: ArtDL
+2025-05-23 09:05:21,954 - INFO - Processing images for test: test_1
+2025-05-23 09:05:21,955 - INFO - Loaded 100 cached results
+2025-05-23 09:05:21,955 - INFO - Using model: gemini-2.5-pro-preview-05-06
+2025-05-23 09:05:21,955 - INFO - Limiting to 300 images
+2025-05-23 09:08:09,257 - ERROR - Error processing batch: Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 2.
+2025-05-23 09:08:09,257 - WARNING - No valid response for batch 3. Skipping.
+2025-05-23 09:08:22,085 - INFO - Cache saved after 5 batches
+2025-05-23 09:11:12,400 - INFO - Cache saved after 10 batches
+2025-05-23 09:13:34,261 - INFO - Cache saved after 15 batches
+2025-05-23 09:17:08,779 - INFO - Cache saved after 20 batches
+2025-05-23 09:19:05,607 - INFO - Cache saved after 25 batches
+2025-05-23 09:21:22,309 - INFO - Cache saved after 30 batches
+2025-05-23 09:23:27,443 - INFO - Cache saved after 35 batches
+2025-05-23 09:25:53,494 - INFO - Cache saved after 40 batches
+2025-05-23 09:25:53,501 - INFO - Total input tokens used: 15522
+2025-05-23 09:25:53,501 - INFO - Total output tokens used: 2225
+2025-05-23 09:25:53,501 - INFO - Total cost of this call: $0.0153
+2025-05-23 09:25:53,501 - INFO - Requested limit: 300, Actual processed: 295
+2025-05-23 09:25:53,502 - INFO - Probabilities shape: (295, 10)
+2025-05-23 09:41:02,732 - INFO - Logger initialized for ArtDL/test_1/gemini-2.5-pro-preview-05-06
+2025-05-23 09:41:02,733 - INFO - Starting classification for dataset=ArtDL, test=test_1, model=gemini-2.5-pro-preview-05-06
+2025-05-23 09:41:03,278 - INFO - Number of images: 1864
+2025-05-23 09:41:03,278 - INFO - Processing dataset: ArtDL
+2025-05-23 09:41:03,282 - INFO - Processing images for test: test_1
+2025-05-23 09:41:03,283 - INFO - Loaded 295 cached results
+2025-05-23 09:41:03,283 - INFO - Using model: gemini-2.5-pro-preview-05-06
+2025-05-23 09:42:36,208 - ERROR - Error processing batch: Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 2.
+2025-05-23 09:42:36,208 - WARNING - No valid response for batch 1. Skipping.
+2025-05-23 09:44:37,044 - INFO - Cache saved after 5 batches
+2025-05-23 09:47:01,203 - INFO - Cache saved after 10 batches
+2025-05-23 09:50:17,993 - INFO - Cache saved after 15 batches
+2025-05-23 09:51:17,428 - INFO - Cache saved after 20 batches
+2025-05-23 09:54:30,662 - INFO - Cache saved after 25 batches
+2025-05-23 09:57:09,039 - INFO - Cache saved after 30 batches
+2025-05-23 09:59:35,299 - INFO - Cache saved after 35 batches
+2025-05-23 10:01:10,156 - INFO - Cache saved after 40 batches
+2025-05-23 10:04:22,783 - INFO - Cache saved after 45 batches
+2025-05-23 10:08:00,712 - INFO - Cache saved after 50 batches
+2025-05-23 10:09:18,445 - INFO - Cache saved after 55 batches
+2025-05-23 10:10:57,129 - INFO - Cache saved after 60 batches
+2025-05-23 10:12:28,816 - INFO - Cache saved after 65 batches
+2025-05-23 10:13:56,454 - INFO - Cache saved after 70 batches
+2025-05-23 10:15:53,816 - INFO - Cache saved after 75 batches
+2025-05-23 10:17:46,441 - INFO - Cache saved after 80 batches
+2025-05-23 10:19:28,662 - INFO - Cache saved after 85 batches
+2025-05-23 10:21:39,629 - INFO - Cache saved after 90 batches
+2025-05-23 10:23:31,086 - INFO - Cache saved after 95 batches
+2025-05-23 10:25:24,295 - INFO - Cache saved after 100 batches
+2025-05-23 10:27:21,954 - INFO - Cache saved after 105 batches
+2025-05-23 10:29:16,116 - INFO - Cache saved after 110 batches
+2025-05-23 10:31:33,664 - INFO - Cache saved after 115 batches
+2025-05-23 10:35:06,478 - INFO - Cache saved after 120 batches
+2025-05-23 10:38:11,462 - INFO - Cache saved after 125 batches
+2025-05-23 10:40:20,194 - INFO - Cache saved after 130 batches
+2025-05-23 10:44:07,630 - INFO - Cache saved after 135 batches
+2025-05-23 10:47:08,751 - INFO - Cache saved after 140 batches
+2025-05-23 10:50:19,599 - INFO - Cache saved after 145 batches
+2025-05-23 10:51:57,889 - ERROR - Error processing batch: Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 2.
+2025-05-23 10:51:57,889 - WARNING - No valid response for batch 146. Skipping.
+2025-05-23 10:53:25,989 - INFO - Cache saved after 150 batches
+2025-05-23 10:55:11,572 - ERROR - Error processing batch: Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 2.
+2025-05-23 10:55:11,573 - WARNING - No valid response for batch 151. Skipping.
+2025-05-23 10:56:32,991 - INFO - Cache saved after 155 batches
+2025-05-23 10:57:33,029 - INFO - Cache saved after 160 batches
+2025-05-23 10:58:36,705 - INFO - Cache saved after 165 batches
+2025-05-23 11:01:24,029 - INFO - Cache saved after 170 batches
+2025-05-23 11:02:50,837 - INFO - Cache saved after 175 batches
+2025-05-23 11:05:11,991 - INFO - Cache saved after 180 batches
+2025-05-23 11:07:39,150 - INFO - Cache saved after 185 batches
+2025-05-23 11:08:29,273 - INFO - Cache saved after 190 batches
+2025-05-23 11:11:14,657 - INFO - Cache saved after 195 batches
+2025-05-23 11:12:42,352 - INFO - Cache saved after 200 batches
+2025-05-23 11:13:41,955 - INFO - Cache saved after 205 batches
+2025-05-23 11:17:31,644 - INFO - Cache saved after 210 batches
+2025-05-23 11:19:44,727 - INFO - Cache saved after 215 batches
+2025-05-23 11:21:44,904 - INFO - Cache saved after 220 batches
+2025-05-23 11:23:22,887 - INFO - Cache saved after 225 batches
+2025-05-23 11:24:52,059 - INFO - Cache saved after 230 batches
+2025-05-23 11:26:42,092 - INFO - Cache saved after 235 batches
+2025-05-23 11:28:08,324 - INFO - Cache saved after 240 batches
+2025-05-23 11:31:34,964 - INFO - Cache saved after 245 batches
+2025-05-23 11:33:29,515 - INFO - Cache saved after 250 batches
+2025-05-23 11:33:52,841 - WARNING - Only got responses for 4/5 items from JSON in batch 252.
+2025-05-23 11:33:52,841 - WARNING - Mismatch between response texts (4) and batch items (5). Processing only valid items from batch 252.
+2025-05-23 11:35:02,774 - INFO - Cache saved after 255 batches
+2025-05-23 11:38:12,903 - INFO - Cache saved after 260 batches
+2025-05-23 11:39:51,117 - INFO - Cache saved after 265 batches
+2025-05-23 11:41:53,213 - INFO - Cache saved after 270 batches
+2025-05-23 11:43:16,830 - INFO - Cache saved after 275 batches
+2025-05-23 11:44:12,765 - INFO - Cache saved after 280 batches
+2025-05-23 11:45:45,434 - INFO - Cache saved after 285 batches
+2025-05-23 11:47:05,795 - INFO - Cache saved after 290 batches
+2025-05-23 11:48:22,382 - INFO - Cache saved after 295 batches
+2025-05-23 11:49:10,851 - INFO - Cache saved after 300 batches
+2025-05-23 11:50:00,803 - INFO - Cache saved after 305 batches
+2025-05-23 11:51:36,002 - INFO - Cache saved after 310 batches
+2025-05-23 11:52:19,845 - INFO - Total input tokens used: 123778
+2025-05-23 11:52:19,846 - INFO - Total output tokens used: 16709
+2025-05-23 11:52:19,846 - INFO - Total cost of this call: $0.1201
+2025-05-23 11:52:19,847 - INFO - Probabilities shape: (1848, 10)
