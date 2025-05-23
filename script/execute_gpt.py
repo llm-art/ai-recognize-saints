@@ -24,6 +24,9 @@ import pandas as pd
 from PIL import Image
 from tqdm import tqdm
 import openai
+
+# Increase PIL's DecompressionBombWarning threshold to ~200 million pixels
+Image.MAX_IMAGE_PIXELS = 200000000
 import base64
 import json
 import logging
@@ -215,7 +218,7 @@ class GPTImageClassifier:
       base_dir, dataset, test, model, ignore_zero_cache=ignore_zero_cache, logger=self.logger)
 
     # Initialize prompt folder
-    self.prompt_folder = os.path.join(base_dir, 'gpt_data', 'prompts')
+    self.prompt_folder = os.path.join(base_dir, os.pardir, 'prompts')
 
     # Token usage tracking
     self.total_input_tokens = 0
@@ -233,12 +236,12 @@ class GPTImageClassifier:
         Path to the prompt file
     """
     # Determine system prompt
-    self.prompt_folder = os.path.join(self.prompt_folder, dataset)
-    if not os.path.exists(self.prompt_folder):
+    prompt_dataset_folder = os.path.join(self.prompt_folder, dataset)
+    if not os.path.exists(prompt_dataset_folder):
       raise FileNotFoundError(
-        f"Prompt folder does not exist: {self.prompt_folder}")
+        f"Prompt folder does not exist: {prompt_dataset_folder}")
 
-    return os.path.join(self.prompt_folder, f'{test}.txt')
+    return os.path.join(prompt_dataset_folder, f'{test}.txt')
 
   def _load_few_shot_examples(self, dataset: str) -> List[Dict[str, Any]]:
     """
@@ -322,7 +325,48 @@ class GPTImageClassifier:
         few_shot_messages + [{"role": "user", "content": content}]
     return messages
 
-  def _parse_response(self, content: str, batch_items: List[str], classes: List[Tuple[str, str]]) -> List[List[float]]:
+  def _find_similar_class(self, predicted_class: str, classes: List[Tuple[str, str]]) -> Optional[str]:
+    """
+    Find a similar class ID if the predicted class doesn't match exactly.
+    
+    Args:
+        predicted_class: The predicted class ID from the model
+        classes: List of (class_id, class_description) tuples
+        
+    Returns:
+        The matching class ID if found, None otherwise
+    """
+    # If the predicted class is already a valid class ID, return it
+    for cls_id, _ in classes:
+      if predicted_class == cls_id:
+        return cls_id
+    
+    # Check for similar class IDs (e.g., "11H(MARY)" vs "11F(MARY)")
+    # Extract the base part and the description part
+    import re
+    match = re.match(r'([0-9]+[A-Za-z]*)(?:\(([^)]+)\))?', predicted_class)
+    if match:
+      base_part = match.group(1)
+      desc_part = match.group(2)
+      
+      # Look for classes with the same description part
+      if desc_part:
+        for cls_id, _ in classes:
+          cls_match = re.match(r'([0-9]+[A-Za-z]*)(?:\(([^)]+)\))?', cls_id)
+          if cls_match and cls_match.group(2) == desc_part:
+            self.logger.info(f"Reconciled similar class: {predicted_class} -> {cls_id}")
+            return cls_id
+      
+      # Look for classes with the same base part
+      for cls_id, _ in classes:
+        cls_match = re.match(r'([0-9]+[A-Za-z]*)(?:\(([^)]+)\))?', cls_id)
+        if cls_match and cls_match.group(1) == base_part:
+          self.logger.info(f"Reconciled similar class: {predicted_class} -> {cls_id}")
+          return cls_id
+    
+    return None
+
+  def _parse_response(self, content: str, batch_items: List[str], classes: List[Tuple[str, str]], batch_count: int = 0) -> Tuple[List[List[float]], List[str]]:
     """
     Parse the API response to extract class probabilities.
 
@@ -330,30 +374,69 @@ class GPTImageClassifier:
         content: Response content from the API
         batch_items: List of image IDs in the batch
         classes: List of (class_id, class_description) tuples
+        batch_count: Current batch count (for logging)
 
     Returns:
-        List of probability arrays for each image
+        Tuple of (list of probability arrays for each image, list of corresponding batch items)
     """
     results = []
     response_texts = []
+    unprocessed_items = []
+
+    # Create a mapping from class ID to index for faster lookup
+    class_id_to_idx = {cls_id: idx for idx, (cls_id, _) in enumerate(classes)}
+
+    # Create a mapping from item ID to its position in batch_items
+    item_to_idx = {item: idx for idx, item in enumerate(batch_items)}
+
+    # First, try to extract JSON from markdown code blocks
+    json_content_str = content
+    
+    # Check if the response is wrapped in markdown code blocks
+    import re
+    markdown_json_match = re.search(r'```json\s*\n(.*?)\n```', content, re.DOTALL)
+    if markdown_json_match:
+      json_content_str = markdown_json_match.group(1).strip()
+      self.logger.debug(f"Extracted JSON from markdown code block")
+    else:
+      # Also try without the 'json' specifier
+      markdown_match = re.search(r'```\s*\n(.*?)\n```', content, re.DOTALL)
+      if markdown_match:
+        potential_json = markdown_match.group(1).strip()
+        # Check if it looks like JSON (starts with { and ends with })
+        if potential_json.startswith('{') and potential_json.endswith('}'):
+          json_content_str = potential_json
+          self.logger.debug(f"Extracted JSON from generic markdown code block")
 
     try:
       # Try to parse as JSON
-      json_content = json.loads(content)
+      json_content = json.loads(json_content_str)
 
       # Check if we have the expected structure
       if isinstance(json_content, dict):
         response_dict = {}
 
         # Handle different possible JSON structures
-        if all(key.startswith("image_") for key in json_content.keys()):
-          # Format: {"image_1": "CLASS_ID", ...}
-          for i, item in enumerate(batch_items):
-            image_key = f"image_{i+1}"
-            if image_key in json_content:
-              response_dict[item] = json_content[image_key]
+        if any(key.startswith("image_") for key in json_content.keys()):
+          # Format: {"image_ID": "CLASS_ID", ...} or {"image_N": "CLASS_ID", ...}
+          for key, value in json_content.items():
+            if key.startswith("image_"):
+              # Try to extract the item ID from the key
+              item_id = key[6:]  # Remove "image_" prefix
+              if item_id in item_to_idx:
+                # Direct match with item ID
+                response_dict[item_id] = value
+              else:
+                # Try to match by position (image_1, image_2, etc.)
+                try:
+                  idx = int(item_id) - 1
+                  if 0 <= idx < len(batch_items):
+                    response_dict[batch_items[idx]] = value
+                except ValueError:
+                  # Not a numeric index, skip
+                  pass
         else:
-          # Direct mapping or other format
+          # Direct mapping format
           for item in batch_items:
             if item in json_content:
               response_dict[item] = json_content[item]
@@ -361,7 +444,7 @@ class GPTImageClassifier:
               response_dict[item] = json_content[str(item)]
 
         # Convert to list format expected by downstream code
-        response_texts = list(response_dict.values())
+        response_texts = [response_dict[item] for item in batch_items if item in response_dict]
       else:
         # Handle unexpected JSON structure (like array)
         response_texts = json_content if isinstance(
@@ -373,12 +456,39 @@ class GPTImageClassifier:
       lines = content.strip().split('\n')
       response_texts = []
 
-      for line in lines:
-        # Try to extract class IDs from text
-        for cls_id, _ in classes:
-          if cls_id in line:
-            response_texts.append(cls_id)
-            break
+      # Try to extract class IDs from text
+      for item_idx, item in enumerate(batch_items):
+        item_found = False
+        # Look for lines that mention the item ID
+        for line in lines:
+          if f"Image (ID: {item})" in line or f"image_{item_idx+1}" in line.lower() or f"image {item_idx+1}" in line.lower():
+            # Found a line referencing this item, now look for a class ID
+            for cls_id, _ in classes:
+              if cls_id in line:
+                response_texts.append(cls_id)
+                item_found = True
+                break
+            # If we found a class ID, move to the next item
+            if item_found:
+              break
+
+        # If we didn't find a class ID for this item, try looking for it in the entire content
+        if not item_found:
+          for cls_id, _ in classes:
+            # Look for patterns like "Image 1: CLASS_ID" or "image_1: CLASS_ID"
+            patterns = [
+              f"Image {item_idx+1}: {cls_id}",
+              f"image_{item_idx+1}: {cls_id}",
+              f"Image (ID: {item}): {cls_id}",
+              f"{item}: {cls_id}"
+            ]
+            for pattern in patterns:
+              if pattern in content:
+                response_texts.append(cls_id)
+                item_found = True
+                break
+            if item_found:
+              break
 
     # Log the response for debugging
     self.logger.debug(f"Parsed response texts: {response_texts}")
@@ -387,24 +497,63 @@ class GPTImageClassifier:
     # Handle mismatch between response texts and batch items
     if len(response_texts) != len(batch_items):
       self.logger.warning(
-        f"Mismatch between response texts ({len(response_texts)}) and batch items ({len(batch_items)}). Skipping batch.")
-      self.logger.warning(f"Response: {response_texts}")
-      # Return empty list instead of trying to process mismatched data
-      return []
+        f"Mismatch between response texts ({len(response_texts)}) and batch items ({len(batch_items)}). Processing only valid items from batch {batch_count}.")
+
+      # If we have fewer responses than batch items, add the unprocessed items
+      if len(response_texts) < len(batch_items):
+        # Items without responses are considered unprocessed
+        missing_items = batch_items[len(response_texts):]
+        unprocessed_items.extend(missing_items)
+        self.logger.warning(f"Adding {len(missing_items)} items without responses to unprocessed list: {missing_items}")
+      
+      # Create a mapping between response texts and batch items
+      # We'll only process items that have a valid response
+      valid_items = min(len(response_texts), len(batch_items))
+
+      # Truncate response_texts or batch_items if needed
+      response_texts = response_texts[:valid_items]
+      batch_items = batch_items[:valid_items]
 
     # Process the parsed responses
-    for idx, _ in enumerate(batch_items):
+    processed_items = []
+    for idx, item in enumerate(batch_items):
       if idx < len(response_texts):  # Safety check to prevent index errors
         probabilities = np.zeros(len(classes))
         append_prob = False
-        for cls_idx, (cls_id, _) in enumerate(classes):
-          if isinstance(response_texts[idx], str) and response_texts[idx] == cls_id:
+        
+        # Get the predicted class ID
+        predicted_class = response_texts[idx]
+        
+        # Find the index of the predicted class in the classes list
+        if predicted_class in class_id_to_idx:
+          cls_idx = class_id_to_idx[predicted_class]
+          probabilities[cls_idx] = 1.0
+          append_prob = True
+          
+          # Log the mapping for debugging
+          self.logger.debug(
+            f"Item {item}: Predicted class {predicted_class} -> Index {cls_idx}")
+        else:
+          # Try to find a similar class
+          similar_class = self._find_similar_class(predicted_class, classes)
+          if similar_class and similar_class in class_id_to_idx:
+            cls_idx = class_id_to_idx[similar_class]
             probabilities[cls_idx] = 1.0
             append_prob = True
+            
+            # Log the reconciliation for debugging
+            self.logger.debug(
+              f"Item {item}: Reconciled class {predicted_class} -> {similar_class} (Index {cls_idx})")
+          else:
+            self.logger.warning(f"Unknown class ID: {predicted_class}")
+            unprocessed_items.append(item)
+          
         if append_prob:
           results.append(probabilities)
+          processed_items.append(item)
 
-    return results
+    # Return both the results and the corresponding batch items, plus unprocessed items
+    return results, processed_items, unprocessed_items
 
   def classify_images(self,
                       images: List[Tuple[str, str]],
@@ -427,6 +576,7 @@ class GPTImageClassifier:
     """
     all_probs = []
     processed_count = 0  # Track how many images we've actually processed
+    all_unprocessed_items = []  # Track all unprocessed images
 
     self.logger.info(f"Using model: {self.model}")
 
@@ -486,17 +636,53 @@ class GPTImageClassifier:
         self.total_input_tokens += response.usage.prompt_tokens
         self.total_output_tokens += response.usage.completion_tokens
 
+        # Save the raw response to a file for debugging
+        batches_dir = os.path.join(self.base_dir, 'gpt_data', 'batches')
+        os.makedirs(batches_dir, exist_ok=True)
+        batch_file = os.path.join(
+          batches_dir, f'{self.dataset}_{self.test}_{batch_count}.txt')
+        with open(batch_file, 'w') as f:
+          f.write(f"Model: {self.model}\n")
+          f.write(f"Batch items: {[item for item, _ in batch_items]}\n")
+          f.write(f"Response:\n{content}\n")
+
         # Parse response
-        batch_results = self._parse_response(
-          content, [item for item, _ in batch_items], classes)
+        batch_results, processed_items, unprocessed_items = self._parse_response(
+          content, [item for item, _ in batch_items], classes, batch_count)
+        
+        # Add unprocessed items to the global list
+        all_unprocessed_items.extend(unprocessed_items)
+        
+        # Create the unprocessed file directory if it doesn't exist
+        unprocessed_file = os.path.join(self.base_dir, 'gpt_data', 'unprocessed.txt')
+        os.makedirs(os.path.dirname(unprocessed_file), exist_ok=True)
+        
+        # Create the unprocessed file with header if it doesn't exist
+        if batch_count == 1 and not os.path.exists(unprocessed_file):
+          with open(unprocessed_file, 'w') as f:
+            f.write(f"# Unprocessed items file\n")
+            f.write(f"# First created at {datetime.now().isoformat()}\n\n")
+          self.logger.info(f"Created new unprocessed items file: {unprocessed_file}")
+        
+        # Write unprocessed items to file immediately if there are any
+        if unprocessed_items:
+          unprocessed_file = os.path.join(self.base_dir, 'gpt_data', 'unprocessed.txt')
+          os.makedirs(os.path.dirname(unprocessed_file), exist_ok=True)
+          with open(unprocessed_file, 'a') as f:
+            for item in unprocessed_items:
+              f.write(f"{item}\n")
+          self.logger.info(f"Added {len(unprocessed_items)} unprocessed items to {unprocessed_file}")
 
         # If batch_results is empty (due to parsing error), skip this batch
         if not batch_results:
-          self.logger.warning("No valid results from batch. Skipping.")
+          self.logger.warning(f"No valid results from batch {batch_count}. Skipping.")
           continue
 
+        # Create a mapping from batch items to their original paths
+        item_to_path = {item: path for item, path in batch_items}
+
         # Add results to cache and all_probs
-        for idx, (item, _) in enumerate(batch_items):
+        for idx, item in enumerate(processed_items):
           if idx < len(batch_results):  # Safety check
             all_probs.append(batch_results[idx])
             self.cache_manager.add_result(item, batch_results[idx].tolist())
@@ -525,6 +711,10 @@ class GPTImageClassifier:
     # Log the actual number of processed images vs requested limit
     if limit > 0:
       self.logger.info(f"Requested limit: {limit}, Actual processed: {len(all_probs)}")
+    
+    # Log total number of unprocessed items
+    if all_unprocessed_items:
+      self.logger.info(f"Total unprocessed items: {len(all_unprocessed_items)}")
 
     return np.array(all_probs)
 
