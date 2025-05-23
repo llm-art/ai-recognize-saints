@@ -1,33 +1,8 @@
-2025-03-20 17:26:10,926 - INFO - Logger initialized for wikidata/test_1/clip-vit-base-patch16
-2025-03-20 17:26:10,926 - INFO - Starting classification for dataset=wikidata, test=test_1, model=clip-vit-base-patch16
-2025-03-20 17:28:33,291 - INFO - Number of images: 712
-2025-03-20 17:28:33,292 - INFO - Using device: cuda
-2025-03-20 17:28:33,295 - INFO - #####################################################
-2025-03-20 17:28:33,295 - INFO - Processing images for test: test_1
-2025-03-20 17:28:33,295 - INFO - Model: clip-vit-base-patch16
-2025-03-20 17:28:37,886 - INFO - Probabilities shape: (712, 10)
-2025-03-20 18:39:37,955 - INFO - Logger initialized for wikidata/test_1/clip-vit-base-patch16
-2025-03-20 18:39:37,955 - INFO - Starting classification for dataset=wikidata, test=test_1, model=clip-vit-base-patch16
-2025-03-20 18:40:02,160 - INFO - Successfully loaded 712/712 images
-2025-03-20 18:40:02,169 - INFO - Number of images: 712
-2025-03-20 18:40:02,170 - INFO - Using device: cuda
-2025-03-20 18:40:02,174 - INFO - #####################################################
-2025-03-20 18:40:02,174 - INFO - Processing images for test: test_1
-2025-03-20 18:40:02,174 - INFO - Model: clip-vit-base-patch16
-2025-03-20 18:40:07,818 - INFO - Probabilities shape: (712, 10)
-2025-03-21 13:36:48,826 - INFO - Logger initialized for wikidata/test_1/clip-vit-base-patch16
-2025-03-21 13:36:48,826 - INFO - Starting classification for dataset=wikidata, test=test_1, model=clip-vit-base-patch16
-2025-03-21 13:36:50,244 - INFO - Number of images: 718
-2025-03-21 13:36:50,244 - INFO - Using device: cuda
-2025-03-21 13:36:50,246 - INFO - #####################################################
-2025-03-21 13:36:50,247 - INFO - Processing images for test: test_1
-2025-03-21 13:36:50,247 - INFO - Model: clip-vit-base-patch16
-2025-03-21 13:36:57,589 - INFO - Probabilities shape: (718, 10)
-2025-03-27 14:40:00,112 - INFO - Logger initialized for wikidata/test_1/clip-vit-base-patch16
-2025-03-27 14:40:00,112 - INFO - Starting classification for dataset=wikidata, test=test_1, model=clip-vit-base-patch16
-2025-03-27 14:40:01,430 - INFO - Number of images: 718
-2025-03-27 14:40:01,430 - INFO - Using device: cuda
-2025-03-27 14:40:01,433 - INFO - #####################################################
-2025-03-27 14:40:01,433 - INFO - Processing images for test: test_1
-2025-03-27 14:40:01,433 - INFO - Model: clip-vit-base-patch16
-2025-03-27 14:40:07,092 - INFO - Probabilities shape: (718, 10)
+2025-05-22 10:18:17,303 - INFO - Logger initialized for wikidata/test_1/clip-vit-base-patch16
+2025-05-22 10:18:17,304 - INFO - Starting classification for dataset=wikidata, test=test_1, model=clip-vit-base-patch16
+2025-05-22 10:19:18,391 - INFO - Number of images: 735
+2025-05-22 10:19:18,392 - INFO - Using device: cpu
+2025-05-22 10:19:18,396 - INFO - #####################################################
+2025-05-22 10:19:18,397 - INFO - Processing images for test: test_1
+2025-05-22 10:19:18,397 - INFO - Model: clip-vit-base-patch16
+2025-05-22 10:21:00,744 - INFO - Probabilities shape: (735, 10)

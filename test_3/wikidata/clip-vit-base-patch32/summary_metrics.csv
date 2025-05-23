@@ -1,2 +1,2 @@
 Model,Macro Average Precision,Micro Average Precision,Accuracy
-clip-vit-base-patch32,36.14%,44.57%,40.81%
+clip-vit-base-patch32,34.51%,46.31%,45.52%

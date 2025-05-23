@@ -1,8 +1,8 @@
-2025-03-27 14:41:13,573 - INFO - Logger initialized for wikidata/test_3/clip-vit-large-patch14
-2025-03-27 14:41:13,573 - INFO - Starting classification for dataset=wikidata, test=test_3, model=clip-vit-large-patch14
-2025-03-27 14:41:15,938 - INFO - Number of images: 718
-2025-03-27 14:41:15,939 - INFO - Using device: cuda
-2025-03-27 14:41:15,944 - INFO - #####################################################
-2025-03-27 14:41:15,945 - INFO - Processing images for test: test_3
-2025-03-27 14:41:15,945 - INFO - Model: clip-vit-large-patch14
-2025-03-27 14:41:32,620 - INFO - Probabilities shape: (718, 10)
+2025-05-22 10:57:00,180 - INFO - Logger initialized for wikidata/test_3/clip-vit-large-patch14
+2025-05-22 10:57:00,181 - INFO - Starting classification for dataset=wikidata, test=test_3, model=clip-vit-large-patch14
+2025-05-22 10:57:50,767 - INFO - Number of images: 735
+2025-05-22 10:57:50,768 - INFO - Using device: cpu
+2025-05-22 10:57:50,770 - INFO - #####################################################
+2025-05-22 10:57:50,771 - INFO - Processing images for test: test_3
+2025-05-22 10:57:50,771 - INFO - Model: clip-vit-large-patch14
+2025-05-22 11:01:10,655 - INFO - Probabilities shape: (735, 10)

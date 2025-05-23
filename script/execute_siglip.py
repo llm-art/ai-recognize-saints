@@ -8,6 +8,9 @@ from PIL import Image
 from tqdm import tqdm
 from transformers import AutoProcessor, AutoModelForZeroShotImageClassification, AutoModel
 
+# Increase PIL's DecompressionBombWarning threshold to ~200 million pixels
+Image.MAX_IMAGE_PIXELS = 200000000
+
 def load_images(test_items, dataset_dir):
     images = []
     for item in test_items:

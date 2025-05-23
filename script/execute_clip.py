@@ -8,6 +8,9 @@ from PIL import Image
 from tqdm import tqdm
 import logging
 
+# Increase PIL's DecompressionBombWarning threshold to ~200 million pixels
+Image.MAX_IMAGE_PIXELS = 200000000
+
 # Import custom logger
 import logger_utils
 
