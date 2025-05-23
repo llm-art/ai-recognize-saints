@@ -328,3 +328,23 @@
 2025-03-28 09:54:55,480 - INFO - Total output tokens used: 400
 2025-03-28 09:54:55,480 - INFO - Total cost of this call: $0.4927
 2025-03-28 09:54:55,481 - INFO - Probabilities shape: (717, 10)
+2025-05-23 12:52:29,154 - INFO - Logger initialized for wikidata/test_3/gpt-4o-mini
+2025-05-23 12:52:29,155 - INFO - Starting classification for dataset=wikidata, test=test_3, model=gpt-4o-mini
+2025-05-23 12:52:29,393 - INFO - Number of images: 735
+2025-05-23 12:52:29,394 - INFO - Processing dataset: wikidata
+2025-05-23 12:52:29,398 - INFO - Processing images for test: test_3
+2025-05-23 12:52:29,477 - INFO - Loaded 717 valid cached results (ignoring zero arrays)
+2025-05-23 12:52:29,477 - INFO - Using model: gpt-4o-mini
+2025-05-23 12:53:52,609 - INFO - Reconciled similar class: 11H(MARY MAGDALENE) -> 11HH(MARY MAGDALENE)
+2025-05-23 12:54:26,132 - INFO - Cache saved after 5 batches
+2025-05-23 12:55:05,089 - INFO - Reconciled similar class: 11H(MARY MAGDALENE) -> 11HH(MARY MAGDALENE)
+2025-05-23 12:55:37,195 - INFO - Cache saved after 10 batches
+2025-05-23 12:57:20,248 - INFO - Cache saved after 15 batches
+2025-05-23 12:58:48,298 - INFO - Cache saved after 20 batches
+2025-05-23 13:30:31,532 - ERROR - Error processing batch: Request timed out.
+2025-05-23 13:31:57,065 - INFO - Cache saved after 30 batches
+2025-05-23 13:33:48,628 - INFO - Cache saved after 35 batches
+2025-05-23 13:35:00,491 - INFO - Total input tokens used: 8438624
+2025-05-23 13:35:00,492 - INFO - Total output tokens used: 1151
+2025-05-23 13:35:00,492 - INFO - Total cost of this call: $1.2665
+2025-05-23 13:35:00,493 - INFO - Probabilities shape: (734, 10)

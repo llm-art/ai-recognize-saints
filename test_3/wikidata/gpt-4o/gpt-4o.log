@@ -61,3 +61,67 @@
 2025-03-28 09:54:00,342 - INFO - Total output tokens used: 378
 2025-03-28 09:54:00,342 - INFO - Total cost of this call: $0.2232
 2025-03-28 09:54:00,343 - INFO - Probabilities shape: (718, 10)
+2025-05-23 14:50:50,274 - INFO - Logger initialized for wikidata/test_3/gpt-4o
+2025-05-23 14:50:50,276 - INFO - Starting classification for dataset=wikidata, test=test_3, model=gpt-4o
+2025-05-23 14:50:50,555 - INFO - Number of images: 735
+2025-05-23 14:50:50,555 - INFO - Processing dataset: wikidata
+2025-05-23 14:50:50,560 - INFO - Processing images for test: test_3
+2025-05-23 14:50:50,642 - INFO - Loaded 718 cached results
+2025-05-23 14:50:50,643 - INFO - Using model: gpt-4o
+2025-05-23 14:50:50,643 - INFO - Limiting to 100 images
+2025-05-23 14:53:03,677 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-05-23 14:53:03,677 - WARNING - Mismatch between response texts (0) and batch items (1). Processing only valid items from batch 5.
+2025-05-23 14:53:03,678 - WARNING - Adding 1 items without responses to unprocessed list: ['Q19928829']
+2025-05-23 14:53:03,678 - INFO - Added 1 unprocessed items to /home/ubuntu/gspinaci/LLM-test/script/gpt_data/unprocessed.txt
+2025-05-23 14:53:03,678 - WARNING - No valid results from batch 5. Skipping.
+2025-05-23 14:54:19,942 - INFO - Cache saved after 10 batches
+2025-05-23 14:55:31,320 - INFO - Total input tokens used: 100932
+2025-05-23 14:55:31,320 - INFO - Total output tokens used: 433
+2025-05-23 14:55:31,320 - INFO - Total cost of this call: $0.2567
+2025-05-23 14:55:31,320 - INFO - Requested limit: 100, Actual processed: 99
+2025-05-23 14:55:31,320 - INFO - Total unprocessed items: 1
+2025-05-23 14:55:31,321 - INFO - Probabilities shape: (99, 10)
+2025-05-23 14:55:41,634 - INFO - Logger initialized for wikidata/test_3/gpt-4o
+2025-05-23 14:55:41,636 - INFO - Starting classification for dataset=wikidata, test=test_3, model=gpt-4o
+2025-05-23 14:55:41,904 - INFO - Number of images: 735
+2025-05-23 14:55:41,905 - INFO - Processing dataset: wikidata
+2025-05-23 14:55:41,909 - INFO - Processing images for test: test_3
+2025-05-23 14:55:41,985 - INFO - Loaded 741 cached results
+2025-05-23 14:55:41,986 - INFO - Using model: gpt-4o
+2025-05-23 14:55:41,986 - INFO - Limiting to 400 images
+2025-05-23 14:55:58,178 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-05-23 14:55:58,178 - WARNING - Mismatch between response texts (0) and batch items (1). Processing only valid items from batch 1.
+2025-05-23 14:55:58,179 - WARNING - Adding 1 items without responses to unprocessed list: ['Q19928829']
+2025-05-23 14:55:58,179 - INFO - Added 1 unprocessed items to /home/ubuntu/gspinaci/LLM-test/script/gpt_data/unprocessed.txt
+2025-05-23 14:55:58,179 - WARNING - No valid results from batch 1. Skipping.
+2025-05-23 14:57:34,735 - INFO - Cache saved after 5 batches
+2025-05-23 14:59:05,977 - INFO - Cache saved after 10 batches
+2025-05-23 15:29:42,392 - ERROR - Error processing batch: Request timed out.
+2025-05-23 15:30:18,230 - INFO - Total input tokens used: 98328
+2025-05-23 15:30:18,230 - INFO - Total output tokens used: 428
+2025-05-23 15:30:18,230 - INFO - Total cost of this call: $0.2501
+2025-05-23 15:30:18,230 - INFO - Requested limit: 400, Actual processed: 398
+2025-05-23 15:30:18,230 - INFO - Total unprocessed items: 1
+2025-05-23 15:30:18,231 - INFO - Probabilities shape: (398, 10)
+2025-05-23 15:46:16,618 - INFO - Logger initialized for wikidata/test_3/gpt-4o
+2025-05-23 15:46:16,620 - INFO - Starting classification for dataset=wikidata, test=test_3, model=gpt-4o
+2025-05-23 15:46:16,881 - INFO - Number of images: 735
+2025-05-23 15:46:16,881 - INFO - Processing dataset: wikidata
+2025-05-23 15:46:16,886 - INFO - Processing images for test: test_3
+2025-05-23 15:46:16,961 - INFO - Loaded 764 cached results
+2025-05-23 15:46:16,961 - INFO - Using model: gpt-4o
+2025-05-23 15:46:32,464 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-05-23 15:46:32,465 - WARNING - Mismatch between response texts (0) and batch items (1). Processing only valid items from batch 1.
+2025-05-23 15:46:32,465 - WARNING - Adding 1 items without responses to unprocessed list: ['Q19928829']
+2025-05-23 15:46:32,465 - INFO - Added 1 unprocessed items to /home/ubuntu/gspinaci/LLM-test/script/gpt_data/unprocessed.txt
+2025-05-23 15:46:32,466 - WARNING - No valid results from batch 1. Skipping.
+2025-05-23 16:16:40,867 - ERROR - Error processing batch: Request timed out.
+2025-05-23 16:17:35,542 - INFO - Cache saved after 5 batches
+2025-05-23 16:17:51,677 - INFO - Reconciled similar class: 11H(SEBASTIAN) -> 11H(JOHN THE BAPTIST)
+2025-05-23 16:17:51,678 - INFO - Reconciled similar class: 11H(SEBASTIAN) -> 11H(JOHN THE BAPTIST)
+2025-05-23 16:19:24,054 - INFO - Cache saved after 10 batches
+2025-05-23 16:20:27,457 - INFO - Total input tokens used: 96457
+2025-05-23 16:20:27,458 - INFO - Total output tokens used: 411
+2025-05-23 16:20:27,458 - INFO - Total cost of this call: $0.2453
+2025-05-23 16:20:27,458 - INFO - Total unprocessed items: 1
+2025-05-23 16:20:27,459 - INFO - Probabilities shape: (733, 10)

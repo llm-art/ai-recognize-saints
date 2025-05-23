@@ -37,7 +37,7 @@ In the current experiments, I tested two types of models: Vision-Language Encode
 | clip-vit-base-patch16          | 25.64%               | 29.13%                                                        | 28.70%                     |
 | clip-vit-large-patch14         | 30.58%               | 31.71%                                                        | 44.31%                     |
 | gemini-2.5-flash-preview-04-17 | 47.57%               | 48.85%                                                        | 49.14%                     |
-| gemini-2.5-pro-preview-05-06   | 50.54%               |                                                               |                            |
+| gemini-2.5-pro-preview-05-06   | 50.54%               | 58.72%                                                        | 66.76%                     |
 | siglip-base-patch16-512        | 48.71%               | 55.90%                                                        | 68.19%                     |
 | siglip-large-patch16-384       | 54.45%               | 53.49%                                                        | 72.21%                     |
 | siglip-so400m-patch14-384      | 53.86%               | 56.38%                                                        | 70.55%                     |
@@ -64,20 +64,18 @@ In the current experiments, I tested two types of models: Vision-Language Encode
 
 ### Wikidata
 
-
-## wikidata Results
+#### wikidata Results
 | Model                          | zero-shot (labels)   | few-shot[*](dataset/wikidata-data/few-shot/README.md) (labels)   | zero-shot (descriptions)   |
 |:-------------------------------|:---------------------|:-----------------------------------------------------------------|:---------------------------|
 | clip-vit-base-patch32          | 45.95%               | 45.52%                                                           | 44.52%                     |
 | clip-vit-base-patch16          | 50.78%               | 47.08%                                                           | 46.66%                     |
 | clip-vit-large-patch14         | 56.76%               | 55.48%                                                           | 56.61%                     |
-| gemini-2.5-flash-preview-04-17 | 58.87%               |                                                                  |                            |
-| gemini-2.5-pro-preview-05-06   |               |                                                               |                            |
+| gemini-2.5-flash-preview-04-17 | 58.87%               | 48.70%                                                           | 52.06%                     |
 | siglip-base-patch16-512        | 57.47%               | 56.05%                                                           | 46.94%                     |
 | siglip-large-patch16-384       | 60.03%               | 61.17%                                                           | 43.95%                     |
 | siglip-so400m-patch14-384      | 66.29%               | 64.86%                                                           | 59.60%                     |
-| gpt-4o-mini                    | 48.58%               |                                                                  |                            |
-| gpt-4o                         | 50.87%               |                                                                  |                            |
+| gpt-4o-mini                    | 48.58%               | 48.29%                                                           | 51.14%                     |
+| gpt-4o                         | 50.87%               | 65.19%                                                           | 57.41%                     |
 
 
 # References

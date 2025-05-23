@@ -1,0 +1,44 @@
+2025-05-23 14:18:04,679 - INFO - Logger initialized for wikidata/test_3/gemini-2.5-flash-preview-04-17
+2025-05-23 14:18:04,680 - INFO - Starting classification for dataset=wikidata, test=test_3, model=gemini-2.5-flash-preview-04-17
+2025-05-23 14:18:05,054 - INFO - Number of images: 735
+2025-05-23 14:18:05,054 - INFO - Processing dataset: wikidata
+2025-05-23 14:18:05,059 - INFO - Processing images for test: test_3
+2025-05-23 14:18:05,059 - INFO - Using model: gemini-2.5-flash-preview-04-17
+2025-05-23 14:19:04,762 - INFO - Cache saved after 5 batches
+2025-05-23 14:20:16,286 - INFO - Cache saved after 10 batches
+2025-05-23 14:21:19,682 - INFO - Cache saved after 15 batches
+2025-05-23 14:22:19,289 - INFO - Cache saved after 20 batches
+2025-05-23 14:23:45,511 - INFO - Cache saved after 25 batches
+2025-05-23 14:25:16,613 - INFO - Cache saved after 30 batches
+2025-05-23 14:26:25,960 - INFO - Cache saved after 35 batches
+2025-05-23 14:27:26,496 - INFO - Cache saved after 40 batches
+2025-05-23 14:28:38,196 - INFO - Cache saved after 45 batches
+2025-05-23 14:29:58,151 - ERROR - Error processing batch: Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 2.
+2025-05-23 14:29:58,151 - WARNING - No valid response for batch 49. Skipping.
+2025-05-23 14:30:16,548 - INFO - Cache saved after 50 batches
+2025-05-23 14:31:52,421 - INFO - Cache saved after 55 batches
+2025-05-23 14:32:41,138 - INFO - Cache saved after 60 batches
+2025-05-23 14:34:35,833 - ERROR - Error processing batch: Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 2.
+2025-05-23 14:34:35,833 - WARNING - No valid response for batch 63. Skipping.
+2025-05-23 14:35:12,932 - INFO - Cache saved after 65 batches
+2025-05-23 14:35:59,054 - INFO - Cache saved after 70 batches
+2025-05-23 14:37:50,454 - ERROR - Error processing batch: Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 2.
+2025-05-23 14:37:50,454 - WARNING - No valid response for batch 75. Skipping.
+2025-05-23 14:39:09,970 - INFO - Cache saved after 80 batches
+2025-05-23 14:40:00,479 - INFO - Cache saved after 85 batches
+2025-05-23 14:40:27,000 - INFO - Cache saved after 90 batches
+2025-05-23 14:41:32,506 - INFO - Cache saved after 95 batches
+2025-05-23 14:43:21,242 - INFO - Cache saved after 100 batches
+2025-05-23 14:44:07,226 - INFO - Cache saved after 105 batches
+2025-05-23 14:45:31,410 - INFO - Cache saved after 110 batches
+2025-05-23 14:47:08,488 - INFO - Cache saved after 115 batches
+2025-05-23 14:48:54,914 - INFO - Cache saved after 120 batches
+2025-05-23 14:49:49,324 - INFO - Cache saved after 125 batches
+2025-05-23 14:51:00,687 - INFO - Cache saved after 130 batches
+2025-05-23 14:52:31,020 - INFO - Cache saved after 135 batches
+2025-05-23 14:53:50,400 - INFO - Cache saved after 140 batches
+2025-05-23 14:55:16,877 - INFO - Cache saved after 145 batches
+2025-05-23 14:55:36,740 - INFO - Total input tokens used: 65088
+2025-05-23 14:55:36,741 - INFO - Total output tokens used: 6668
+2025-05-23 14:55:36,741 - INFO - Total cost of this call: $0.0294
+2025-05-23 14:55:36,747 - INFO - Probabilities shape: (720, 10)
