@@ -1,0 +1,21 @@
+2025-05-23 12:08:10,482 - INFO - Logger initialized for ArtDL/test_2/gemini-2.5-pro-preview-05-06
+2025-05-23 12:08:10,483 - INFO - Starting classification for dataset=ArtDL, test=test_2, model=gemini-2.5-pro-preview-05-06
+2025-05-23 12:08:11,030 - INFO - Number of images: 1864
+2025-05-23 12:08:11,030 - INFO - Processing dataset: ArtDL
+2025-05-23 12:08:11,034 - INFO - Processing images for test: test_2
+2025-05-23 12:08:11,034 - INFO - Using model: gemini-2.5-pro-preview-05-06
+2025-05-23 12:09:28,290 - INFO - Cache saved after 5 batches
+2025-05-23 12:11:20,337 - INFO - Cache saved after 10 batches
+2025-05-23 12:13:01,874 - INFO - Cache saved after 15 batches
+2025-05-23 12:14:46,875 - INFO - Cache saved after 20 batches
+2025-05-23 12:16:37,888 - INFO - Cache saved after 25 batches
+2025-05-23 12:18:32,040 - INFO - Cache saved after 30 batches
+2025-05-23 12:21:49,433 - INFO - Cache saved after 35 batches
+2025-05-23 12:25:02,503 - INFO - Cache saved after 40 batches
+2025-05-23 12:28:35,865 - INFO - Cache saved after 45 batches
+2025-05-23 12:30:36,424 - INFO - Cache saved after 50 batches
+2025-05-23 12:33:36,596 - INFO - Cache saved after 55 batches
+2025-05-23 12:37:03,976 - INFO - Cache saved after 60 batches
+2025-05-23 12:39:56,960 - INFO - Cache saved after 65 batches
+2025-05-23 12:43:41,922 - INFO - Cache saved after 70 batches
+2025-05-23 12:46:42,015 - INFO - Cache saved after 75 batches
