@@ -53,10 +53,20 @@ Two tests have been done: one where we classify the images with the labels provi
 
 #### Results
 
-Accuracy per model
-
-
-**Table X.**
+## ArtDL Results
+| Model                          | zero-shot (labels)   | few-shot[*](dataset/ArtDL-data/few-shot/README.md) (labels)   | zero-shot (descriptions)   |
+|:-------------------------------|:---------------------|:--------------------------------------------------------------|:---------------------------|
+| clip-vit-base-patch32          | 16.15%               | 21.41%                                                        | 31.55%                     |
+| clip-vit-base-patch16          | 25.64%               | 29.13%                                                        | 28.70%                     |
+| clip-vit-large-patch14         | 30.58%               | 31.71%                                                        | 44.31%                     |
+| gemini-2.5-flash-preview-04-17 | 47.57%               | 48.85%                                                        | 49.14%                     |
+| gemini-2.5-pro-preview-05-06   | 50.54%               |                                                               |                            |
+| siglip-base-patch16-512        | 48.71%               | 55.90%                                                        | 68.19%                     |
+| siglip-large-patch16-384       | 54.45%               | 53.49%                                                        | 72.21%                     |
+| siglip-so400m-patch14-384      | 53.86%               | 56.38%                                                        | 70.55%                     |
+| gpt-4o-mini                    | 75.32%               | 72.62%                                                        | 78.76%                     |
+| gpt-4o                         | 64.20%               | 85.68%                                                        | 87.02%                     |
+| Baseline                       | 84.44%               |                                                               |                            |
 
 ### ICONCLASS AI test set
 
@@ -124,6 +134,7 @@ The labels have been taken from the first ICONCLASS subclass with name e.g., 11H
 
 #### Results
 
+to re-execute
 
 ### Wikidata
 
@@ -168,6 +179,16 @@ With these data:
 | 11H(JOSEPH)           | St. Joseph           | the foster-father of Christ, Joseph of Nazareth, husband of Mary; possible attributes: flowering rod or wand, lily, carpenter's tools |
 
 ## wikidata Results
+| Model                     | zero-shot (labels)   | few-shot[*](dataset/wikidata-data/few-shot/README.md) (labels)   | zero-shot (descriptions)   |
+|:--------------------------|:---------------------|:-----------------------------------------------------------------|:---------------------------|
+| clip-vit-base-patch32     | 45.95%               | 45.52%                                                           | 44.52%                     |
+| clip-vit-base-patch16     | 50.78%               | 47.08%                                                           | 46.66%                     |
+| clip-vit-large-patch14    | 56.76%               | 55.48%                                                           | 56.61%                     |
+| siglip-base-patch16-512   | 57.47%               | 56.05%                                                           | 46.94%                     |
+| siglip-large-patch16-384  | 60.03%               | 61.17%                                                           | 43.95%                     |
+| siglip-so400m-patch14-384 | 66.29%               | 64.86%                                                           | 59.60%                     |
+| gpt-4o-mini               |                |                                                            |                      |
+| gpt-4o                    |                |                                                            |                      |
 
 
 # References
