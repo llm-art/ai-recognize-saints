@@ -5,8 +5,12 @@ import numpy as np
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
+from PIL import Image
 from sklearn.preprocessing import label_binarize
 from sklearn.metrics import confusion_matrix, precision_score, recall_score, f1_score, average_precision_score, accuracy_score
+
+# Increase PIL's DecompressionBombWarning threshold to ~200 million pixels
+Image.MAX_IMAGE_PIXELS = 200000000
 
 KEY_CLASS_NAME = 'class_name'
 KEY_NUM_IMAGES = '# of Images'
@@ -22,8 +26,26 @@ def evaluate(model, images, classes, ground_truth_dict):
   # Create confusion matrix using ground truth and predicted classes
   y_true = [ground_truth_dict.get(item) for item in images]
   y_pred = [classes[probs[i].argmax().item()][0] for i in range(min(len(images), len(probs)))]
-  y_true_indices = [next(i for i, t in enumerate(classes) if t[0] == cls) for cls in y_true[:len(y_pred)]]
-  y_pred_indices = [next(i for i, t in enumerate(classes) if t[0] == cls) for cls in y_pred]
+  
+  # Filter out classes that don't exist in the classes list
+  class_ids = [t[0] for t in classes]
+  
+  # Create paired lists of valid true and predicted classes
+  valid_pairs = []
+  valid_indices = []  # Track indices of valid pairs
+  for i, (true_cls, pred_cls) in enumerate(zip(y_true[:len(y_pred)], y_pred)):
+      if true_cls in class_ids and pred_cls in class_ids:
+          valid_pairs.append((true_cls, pred_cls))
+          valid_indices.append(i)  # Store the index
+
+  # Unzip the pairs into separate lists
+  valid_y_true, valid_y_pred = zip(*valid_pairs) if valid_pairs else ([], [])
+  
+  y_true_indices = [next(i for i, t in enumerate(classes) if t[0] == cls) for cls in valid_y_true]
+  y_pred_indices = [next(i for i, t in enumerate(classes) if t[0] == cls) for cls in valid_y_pred]
+
+  # Filter probs to match the valid indices
+  filtered_probs = probs[valid_indices] if valid_indices else np.array([])
 
   cm = confusion_matrix(y_true_indices, y_pred_indices, labels=range(len(classes)))
 
@@ -40,7 +62,7 @@ def evaluate(model, images, classes, ground_truth_dict):
   plt.savefig(os.path.join(model, 'confusion_matrix.png'), bbox_inches='tight')
   plt.close()
 
-  return y_true_indices, y_pred_indices, probs, acc
+  return y_true_indices, y_pred_indices, filtered_probs, acc
 
 def class_metrics(y_true_indices, y_pred_indices, probs, classes, class_image_counts, model_path):
   y_true_one_hot = label_binarize(y_true_indices, classes=range(len(classes)))
@@ -145,11 +167,11 @@ def main(models, folders, limit, datasets):
         print(f"{folder}, model: {model_path.split('/')[-1]}")
 
         # Perform evaluation
-        y_true_indices, y_pred_indices, probs, acc = evaluate(model_path, images, classes[folder], ground_truth_dict)
+        y_true_indices, y_pred_indices, filtered_probs, acc = evaluate(model_path, images, classes[folder], ground_truth_dict)
 
         # Class-level metrics
         class_image_counts = {cls[0]: y_true_indices.count(i) for i, cls in enumerate(classes[folder])}
-        macro_avg_precision, micro_avg_precision = class_metrics(y_true_indices, y_pred_indices, probs, classes[folder], class_image_counts, model_path)
+        macro_avg_precision, micro_avg_precision = class_metrics(y_true_indices, y_pred_indices, filtered_probs, classes[folder], class_image_counts, model_path)
 
         # Store macro, micro average precision and accuracy
         summary_df = pd.DataFrame([{
