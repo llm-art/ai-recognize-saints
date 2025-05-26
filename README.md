@@ -54,6 +54,7 @@ In the current experiments, I tested two types of models: Vision-Language Encode
 | clip-vit-base-patch16          | 28.89%               | 32.60%                                                            | 26.35%                     |
 | clip-vit-large-patch14         | 39.36%               | 42.74%                                                            | 34.29%                     |
 | gemini-2.5-flash-preview-04-17 | 15.28%               | 14.67%                                                            | 17.79%                     |
+| gemini-2.5-pro-preview-05-06   | 70.19%               |                                                                   |                            |
 | siglip-base-patch16-512        | 43.41%               | 42.23%                                                            | 31.59%                     |
 | siglip-large-patch16-384       | 49.16%               | 49.49%                                                            | 36.82%                     |
 | siglip-so400m-patch14-384      | 57.77%               | 59.46%                                                            | 51.69%                     |
