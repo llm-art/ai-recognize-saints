@@ -120,3 +120,72 @@
 2025-03-19 13:21:20,917 - INFO - Total output tokens used: 0
 2025-03-19 13:21:20,918 - INFO - Total cost of this call: $0.0000
 2025-03-19 13:21:20,919 - INFO - Probabilities shape: (592, 11)
+2025-05-23 13:39:48,363 - INFO - Logger initialized for ICONCLASS/test_1/gpt-4o-mini
+2025-05-23 13:39:48,372 - INFO - Starting classification for dataset=ICONCLASS, test=test_1, model=gpt-4o-mini
+2025-05-23 13:39:48,606 - INFO - Number of images: 592
+2025-05-23 13:39:48,607 - INFO - Processing dataset: ICONCLASS
+2025-05-23 13:39:48,611 - INFO - Processing images for test: test_1
+2025-05-23 13:39:48,692 - INFO - Loaded 592 valid cached results (ignoring zero arrays)
+2025-05-23 13:39:48,693 - INFO - Using model: gpt-4o-mini
+2025-05-23 14:31:06,931 - INFO - Logger initialized for ICONCLASS/test_1/gpt-4o-mini
+2025-05-23 14:31:06,933 - INFO - Starting classification for dataset=ICONCLASS, test=test_1, model=gpt-4o-mini
+2025-05-23 14:31:07,173 - INFO - Number of images: 592
+2025-05-23 14:31:07,174 - INFO - Processing dataset: ICONCLASS
+2025-05-23 14:31:07,179 - INFO - Processing images for test: test_1
+2025-05-23 14:31:07,254 - INFO - Loaded 592 valid cached results (ignoring zero arrays)
+2025-05-23 14:31:07,254 - INFO - Using model: gpt-4o-mini
+2025-05-23 14:55:33,773 - INFO - Logger initialized for ICONCLASS/test_1/gpt-4o-mini
+2025-05-23 14:55:33,774 - INFO - Starting classification for dataset=ICONCLASS, test=test_1, model=gpt-4o-mini
+2025-05-23 14:55:34,018 - INFO - Number of images: 592
+2025-05-23 14:55:34,018 - INFO - Processing dataset: ICONCLASS
+2025-05-23 14:55:34,023 - INFO - Processing images for test: test_1
+2025-05-23 14:55:34,101 - INFO - Loaded 592 valid cached results (ignoring zero arrays)
+2025-05-23 14:55:34,101 - INFO - Using model: gpt-4o-mini
+2025-05-23 14:55:34,106 - INFO - Total input tokens used: 0
+2025-05-23 14:55:34,106 - INFO - Total output tokens used: 0
+2025-05-23 14:55:34,106 - INFO - Total cost of this call: $0.0000
+2025-05-23 14:55:34,108 - INFO - Probabilities shape: (592, 11)
+2025-05-23 14:56:22,909 - INFO - Logger initialized for ICONCLASS/test_1/gpt-4o-mini
+2025-05-23 14:56:22,910 - INFO - Starting classification for dataset=ICONCLASS, test=test_1, model=gpt-4o-mini
+2025-05-23 14:56:23,156 - INFO - Number of images: 592
+2025-05-23 14:56:23,156 - INFO - Processing dataset: ICONCLASS
+2025-05-23 14:56:23,161 - INFO - Processing images for test: test_1
+2025-05-23 14:56:23,233 - INFO - Using model: gpt-4o-mini
+2025-05-23 14:56:40,187 - INFO - Reconciled similar class: 11H(JAMES) -> 11H(PAUL)
+2025-05-23 14:56:49,111 - INFO - Cache saved after 5 batches
+2025-05-23 14:57:13,652 - INFO - Cache saved after 10 batches
+2025-05-23 14:57:50,573 - INFO - Cache saved after 15 batches
+2025-05-23 14:58:01,221 - INFO - Reconciled similar class: 11H(MARY MAGDALENE) -> 11HH(MARY MAGDALENE)
+2025-05-23 14:58:12,238 - INFO - Reconciled similar class: 11H(MARY MAGDALENE) -> 11HH(MARY MAGDALENE)
+2025-05-23 14:58:12,240 - INFO - Cache saved after 20 batches
+2025-05-23 14:58:26,764 - INFO - Reconciled similar class: 11H(MARY MAGDALENE) -> 11HH(MARY MAGDALENE)
+2025-05-23 14:58:26,764 - INFO - Reconciled similar class: 11H(MARY MAGDALENE) -> 11HH(MARY MAGDALENE)
+2025-05-23 14:58:33,315 - INFO - Cache saved after 25 batches
+2025-05-23 14:58:42,692 - INFO - Reconciled similar class: 11H(MARY MAGDALENE) -> 11HH(MARY MAGDALENE)
+2025-05-23 14:58:52,263 - INFO - Reconciled similar class: 11H(MARY MAGDALENE) -> 11HH(MARY MAGDALENE)
+2025-05-23 14:58:57,557 - INFO - Cache saved after 30 batches
+2025-05-23 14:59:18,121 - INFO - Cache saved after 35 batches
+2025-05-23 14:59:37,933 - INFO - Cache saved after 40 batches
+2025-05-23 14:59:58,423 - INFO - Cache saved after 45 batches
+2025-05-23 15:00:18,593 - INFO - Reconciled similar class: 11H(CATHERINE) -> 11HH(CATHERINE)
+2025-05-23 15:00:26,289 - INFO - Cache saved after 50 batches
+2025-05-23 15:00:47,699 - INFO - Cache saved after 55 batches
+2025-05-23 15:01:07,150 - INFO - Cache saved after 60 batches
+2025-05-23 15:01:29,763 - INFO - Cache saved after 65 batches
+2025-05-23 15:01:50,856 - INFO - Cache saved after 70 batches
+2025-05-23 15:01:57,837 - INFO - Reconciled similar class: 11H(MARY MAGDALENE) -> 11HH(MARY MAGDALENE)
+2025-05-23 15:02:15,601 - INFO - Cache saved after 75 batches
+2025-05-23 15:02:22,563 - INFO - Reconciled similar class: 11H(MARY MAGDALENE) -> 11HH(MARY MAGDALENE)
+2025-05-23 15:02:35,373 - INFO - Cache saved after 80 batches
+2025-05-23 15:02:56,546 - INFO - Cache saved after 85 batches
+2025-05-23 15:03:27,414 - INFO - Cache saved after 90 batches
+2025-05-23 15:03:35,704 - INFO - Reconciled similar class: 11H(MARY MAGDALENE) -> 11HH(MARY MAGDALENE)
+2025-05-23 15:03:52,116 - INFO - Cache saved after 95 batches
+2025-05-23 15:04:22,698 - INFO - Cache saved after 100 batches
+2025-05-23 15:04:43,251 - INFO - Cache saved after 105 batches
+2025-05-23 15:05:24,033 - INFO - Cache saved after 110 batches
+2025-05-23 15:05:56,409 - INFO - Cache saved after 115 batches
+2025-05-23 15:06:12,148 - INFO - Total input tokens used: 5091659
+2025-05-23 15:06:12,148 - INFO - Total output tokens used: 11568
+2025-05-23 15:06:12,148 - INFO - Total cost of this call: $0.7707
+2025-05-23 15:06:12,149 - INFO - Probabilities shape: (592, 11)

@@ -160,3 +160,36 @@
 2025-03-19 13:41:09,045 - INFO - Total output tokens used: 88
 2025-03-19 13:41:09,045 - INFO - Total cost of this call: $0.0109
 2025-03-19 13:41:09,048 - INFO - Probabilities shape: (587, 11)
+2025-05-23 16:21:42,963 - INFO - Logger initialized for ICONCLASS/test_1/gpt-4o
+2025-05-23 16:21:42,966 - INFO - Starting classification for dataset=ICONCLASS, test=test_1, model=gpt-4o
+2025-05-23 16:21:43,195 - INFO - Number of images: 592
+2025-05-23 16:21:43,196 - INFO - Processing dataset: ICONCLASS
+2025-05-23 16:21:43,200 - INFO - Processing images for test: test_1
+2025-05-23 16:21:43,276 - INFO - Using model: gpt-4o
+2025-05-23 16:22:15,954 - INFO - Cache saved after 5 batches
+2025-05-23 16:23:17,894 - INFO - Cache saved after 10 batches
+2025-05-23 16:23:47,268 - INFO - Cache saved after 15 batches
+2025-05-23 16:24:23,506 - INFO - Cache saved after 20 batches
+2025-05-23 16:24:55,913 - INFO - Cache saved after 25 batches
+2025-05-23 16:25:27,199 - INFO - Cache saved after 30 batches
+2025-05-23 16:25:56,183 - INFO - Cache saved after 35 batches
+2025-05-23 16:26:20,939 - INFO - Cache saved after 40 batches
+2025-05-23 16:26:47,659 - INFO - Cache saved after 45 batches
+2025-05-23 16:27:14,461 - INFO - Cache saved after 50 batches
+2025-05-23 16:27:40,112 - INFO - Cache saved after 55 batches
+2025-05-23 16:28:02,585 - INFO - Cache saved after 60 batches
+2025-05-23 16:28:30,467 - INFO - Cache saved after 65 batches
+2025-05-23 16:28:59,024 - INFO - Cache saved after 70 batches
+2025-05-23 16:29:25,133 - INFO - Cache saved after 75 batches
+2025-05-23 16:30:00,782 - INFO - Cache saved after 80 batches
+2025-05-23 16:30:38,201 - INFO - Cache saved after 85 batches
+2025-05-23 16:31:05,515 - INFO - Cache saved after 90 batches
+2025-05-23 16:31:36,163 - INFO - Cache saved after 95 batches
+2025-05-23 16:31:59,872 - INFO - Cache saved after 100 batches
+2025-05-23 16:32:23,664 - INFO - Cache saved after 105 batches
+2025-05-23 16:32:54,380 - INFO - Cache saved after 110 batches
+2025-05-23 16:33:21,396 - INFO - Cache saved after 115 batches
+2025-05-23 16:33:42,818 - INFO - Total input tokens used: 210619
+2025-05-23 16:33:42,818 - INFO - Total output tokens used: 12014
+2025-05-23 16:33:42,818 - INFO - Total cost of this call: $0.6467
+2025-05-23 16:33:42,819 - INFO - Probabilities shape: (592, 11)

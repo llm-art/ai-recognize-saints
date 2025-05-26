@@ -35,3 +35,40 @@
 2025-03-19 14:29:52,090 - INFO - Total output tokens used: 11668
 2025-03-19 14:29:52,090 - INFO - Total cost of this call: $0.7277
 2025-03-19 14:29:52,092 - INFO - Probabilities shape: (590, 11)
+2025-05-23 16:21:50,703 - INFO - Logger initialized for ICONCLASS/test_2/gpt-4o
+2025-05-23 16:21:50,712 - INFO - Starting classification for dataset=ICONCLASS, test=test_2, model=gpt-4o
+2025-05-23 16:21:50,944 - INFO - Number of images: 592
+2025-05-23 16:21:50,944 - INFO - Processing dataset: ICONCLASS
+2025-05-23 16:21:50,949 - INFO - Processing images for test: test_2
+2025-05-23 16:21:51,025 - INFO - Using model: gpt-4o
+2025-05-23 16:22:37,011 - INFO - Cache saved after 5 batches
+2025-05-23 16:22:57,725 - INFO - Reconciled similar class: 11HH(SEBASTIAN) -> 11HH(MARY MAGDALENE)
+2025-05-23 16:23:03,822 - INFO - Cache saved after 10 batches
+2025-05-23 16:23:35,818 - INFO - Cache saved after 15 batches
+2025-05-23 16:24:02,453 - INFO - Cache saved after 20 batches
+2025-05-23 16:24:30,079 - INFO - Cache saved after 25 batches
+2025-05-23 16:24:53,641 - INFO - Cache saved after 30 batches
+2025-05-23 16:25:17,357 - INFO - Cache saved after 35 batches
+2025-05-23 16:25:46,546 - INFO - Cache saved after 40 batches
+2025-05-23 16:26:25,778 - INFO - Cache saved after 45 batches
+2025-05-23 16:26:31,637 - INFO - Reconciled similar class: 11H(MARY MAGDALENE) -> 11HH(MARY MAGDALENE)
+2025-05-23 16:27:01,584 - INFO - Cache saved after 50 batches
+2025-05-23 16:27:31,900 - INFO - Cache saved after 55 batches
+2025-05-23 16:27:58,647 - INFO - Reconciled similar class: 11H(JOSEPH) -> 11H(PAUL)
+2025-05-23 16:28:04,656 - INFO - Cache saved after 60 batches
+2025-05-23 16:28:31,840 - INFO - Cache saved after 65 batches
+2025-05-23 16:29:11,468 - INFO - Cache saved after 70 batches
+2025-05-23 16:29:39,910 - INFO - Cache saved after 75 batches
+2025-05-23 16:30:10,472 - INFO - Cache saved after 80 batches
+2025-05-23 16:30:40,695 - INFO - Cache saved after 85 batches
+2025-05-23 16:31:08,185 - INFO - Cache saved after 90 batches
+2025-05-23 16:31:34,742 - INFO - Cache saved after 95 batches
+2025-05-23 16:32:30,412 - INFO - Cache saved after 100 batches
+2025-05-23 16:33:15,431 - INFO - Cache saved after 105 batches
+2025-05-23 16:33:21,467 - INFO - Reconciled similar class: 11H(MARY MAGDALENE) -> 11HH(MARY MAGDALENE)
+2025-05-23 16:33:42,650 - INFO - Cache saved after 110 batches
+2025-05-23 16:34:07,332 - INFO - Cache saved after 115 batches
+2025-05-23 16:34:28,025 - INFO - Total input tokens used: 246914
+2025-05-23 16:34:28,026 - INFO - Total output tokens used: 11540
+2025-05-23 16:34:28,026 - INFO - Total cost of this call: $0.7327
+2025-05-23 16:34:28,027 - INFO - Probabilities shape: (592, 11)
