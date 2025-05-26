@@ -12,7 +12,7 @@
       "name": "IIHIM_RIJKS_1401436342",
       "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ICONCLASS/JPEGImages/IIHIM_RIJKS_1401436342.jpg",
       "ground_truth": "11HH(MARY MAGDALENE)",
-      "predicted": "11HH(MARY MAGDALENE)"
+      "predicted": "11HH(CATHERINE)"
     }
   ],
   [
@@ -28,7 +28,7 @@
       "name": "IIHIM_RIJKS_1827277148",
       "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ICONCLASS/JPEGImages/IIHIM_RIJKS_1827277148.jpg",
       "ground_truth": "11HH(CATHERINE)",
-      "predicted": "11HH(CATHERINE)"
+      "predicted": "11H(PAUL)"
     }
   ],
   [
@@ -533,7 +533,7 @@
       "name": "IIHIM_RIJKS_-649904531",
       "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ICONCLASS/JPEGImages/IIHIM_RIJKS_-649904531.jpg",
       "ground_truth": "11H(JEROME)",
-      "predicted": "11HH(CATHERINE)"
+      "predicted": "11H(JEROME)"
     },
     {
       "dataset": "wikidata",

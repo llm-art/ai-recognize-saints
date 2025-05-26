@@ -13,7 +13,7 @@
 
 | Pair | Image 1 | Dataset | Ground Truth | Predicted | Image 2 | Dataset | Ground Truth | Predicted |
 |------|---------|---------|--------------|-----------|---------|---------|--------------|-----------|
-| 1 | ![Image 1](../../example/image_1_ICCD3163621_13815-H.jpg) | ArtDL | 11F(MARY) | 11F(MARY) | ![Image 2](../../example/image_2_IIHIM_RIJKS_1401436342.jpg) | ICONCLASS | 11HH(MARY MAGDALENE) | 11H(PAUL) |
+| 1 | ![Image 1](../../example/image_1_ICCD3163621_13815-H.jpg) | ArtDL | 11F(MARY) | 11F(MARY) | ![Image 2](../../example/image_2_IIHIM_RIJKS_1401436342.jpg) | ICONCLASS | 11HH(MARY MAGDALENE) | 11HH(MARY MAGDALENE) |
 | 2 | ![Image 1](../../example/image_1_ICCD3710537_375754.jpg) | ArtDL | 11F(MARY) | 11HH(MARY MAGDALENE) | ![Image 2](../../example/image_2_IIHIM_RIJKS_1827277148.jpg) | ICONCLASS | 11HH(CATHERINE) | 11HH(CATHERINE) |
 | 3 | ![Image 1](../../example/image_1_1939_1_291.jpg) | ArtDL | 11H(JOHN THE BAPTIST) | 11H(JOHN THE BAPTIST) | ![Image 2](../../example/image_2_Q20173065.jpg) | wikidata | 11H(JOHN THE BAPTIST) | 11H(JOHN) |
 | 4 | ![Image 1](../../example/image_1_1939_1_80.jpg) | ArtDL | 11H(PETER) | 11H(PETER) | ![Image 2](../../example/image_2_Q20173671.jpg) | wikidata | 11H(PETER) | 11H(JEROME) |
@@ -42,4 +42,4 @@
 | 27 | ![Image 1](../../example/image_1_en-SK-A-3382.jpg) | ArtDL | 11H(JOHN THE BAPTIST) | 11H(JEROME) | ![Image 2](../../example/image_2_Q17334273.jpg) | wikidata | 11H(JOHN THE BAPTIST) | 11H(JOHN THE BAPTIST) |
 | 28 | ![Image 1](../../example/image_1_hemessen_jan_stjerom.jpg) | ArtDL | 11H(JEROME) | 11H(SEBASTIAN) | ![Image 2](../../example/image_2_Q114744953.jpg) | wikidata | 11H(JEROME) | 11HH(CATHERINE) |
 | 29 | ![Image 1](../../example/image_1_tintoret_3b_3ground_5maryma.jpg) | ArtDL | 11HH(MARY MAGDALENE) | 11H(JOHN THE BAPTIST) | ![Image 2](../../example/image_2_Q11769022.jpg) | wikidata | 11HH(MARY MAGDALENE) | 11HH(MARY MAGDALENE) |
-| 30 | ![Image 1](../../example/image_1_IIHIM_RIJKS_-649904531.jpg) | ICONCLASS | 11H(JEROME) | 11HH(CATHERINE) | ![Image 2](../../example/image_2_Q17328232.jpg) | wikidata | 11H(JEROME) | 11H(JEROME) |
+| 30 | ![Image 1](../../example/image_1_IIHIM_RIJKS_-649904531.jpg) | ICONCLASS | 11H(JEROME) | 11HH(MARY MAGDALENE) | ![Image 2](../../example/image_2_Q17328232.jpg) | wikidata | 11H(JEROME) | 11H(JEROME) |

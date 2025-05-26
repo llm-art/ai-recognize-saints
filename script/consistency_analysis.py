@@ -184,8 +184,17 @@ def generate_visualizations(metrics, output_dir):
     # Create DataFrame for plotting
     accuracy_consistency_data = []
     for (model, test_folder), metric in metrics.items():
-        # Extract model type (CLIP or SigLIP)
-        model_type = 'CLIP' if 'clip' in model.lower() else 'SigLIP' if 'siglip' in model.lower() else 'Other'
+        # Extract model type (CLIP, SigLIP, Gemini, GPT, or Other)
+        if 'clip' in model.lower():
+            model_type = 'CLIP'
+        elif 'siglip' in model.lower():
+            model_type = 'SigLIP'
+        elif 'gemini' in model.lower():
+            model_type = 'Gemini'
+        elif 'gpt' in model.lower():
+            model_type = 'GPT'
+        else:
+            model_type = 'Other'
         
         accuracy_consistency_data.append({
             'Model': model,

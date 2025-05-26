@@ -4,7 +4,7 @@ Script to generate consistency data for different models and tests.
 
 This script:
 1. Loads image pairs from robust_cross_duplicates.json
-2. For each model (siglip, clip, gpt) and test (1, 2, 3):
+2. For each model (siglip, clip, gpt, gemini) and test (1, 2, 3):
    - Creates a directory structure: data/consistency/{model}/{test}/
    - Loads ground truth data from the appropriate dataset's ground truth file
    - Gets model predictions for each image
@@ -239,7 +239,7 @@ def process_model_test(model, test_folder, pairs, output_dir):
     
     return output_path, readme_path
 
-def generate_summary(results, output_dir, clip_models, siglip_models, gpt_models, test_folders):
+def generate_summary(results, output_dir, clip_models, siglip_models, gpt_models, gemini_models, test_folders):
     """Generate a summary readme file with consistency statistics for all models and tests."""
     # Initialize results dictionary for summary
     summary_results = {}
@@ -315,6 +315,16 @@ def generate_summary(results, output_dir, clip_models, siglip_models, gpt_models
             consistency, valid_pairs, same_pred_count = summary_results[model][test_folder]
             markdown += f"| {model} | {test_folder} | {consistency:.2f} | {valid_pairs} | {same_pred_count} |\n"
     
+    # Gemini Models table
+    markdown += "\n## Gemini Models\n\n"
+    markdown += "| Model | Test | Consistency (%) | Valid Pairs | Same Predictions |\n"
+    markdown += "|-------|------|-----------------|-------------|------------------|\n"
+    
+    for model in gemini_models:
+        for test_folder in test_folders:
+            consistency, valid_pairs, same_pred_count = summary_results[model][test_folder]
+            markdown += f"| {model} | {test_folder} | {consistency:.2f} | {valid_pairs} | {same_pred_count} |\n"
+    
     # Key Observations
     markdown += "\n## Key Observations\n\n"
     
@@ -358,8 +368,9 @@ def main():
     clip_models = ['clip-vit-base-patch32', 'clip-vit-base-patch16', 'clip-vit-large-patch14']
     siglip_models = ['siglip-base-patch16-512', 'siglip-large-patch16-384', 'siglip-so400m-patch14-384']
     gpt_models = ['gpt-4o', 'gpt-4o-mini']
+    gemini_models = ['gemini-2.5-flash-preview-04-17', 'gemini-2.5-pro-preview-05-06']
     
-    all_models = clip_models + siglip_models + gpt_models
+    all_models = clip_models + siglip_models + gpt_models + gemini_models
     test_folders = ['test_1', 'test_2', 'test_3']
     
     # Load image pairs
@@ -378,7 +389,7 @@ def main():
             results[(model, test_folder)] = (output_path, readme_path)
     
     # Generate summary readme
-    summary_path = generate_summary(results, output_dir, clip_models, siglip_models, gpt_models, test_folders)
+    summary_path = generate_summary(results, output_dir, clip_models, siglip_models, gpt_models, gemini_models, test_folders)
     
     print(f"\nProcessing complete! Results saved to {output_dir}")
     print("Generated files:")
