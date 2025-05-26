@@ -30,7 +30,7 @@ In the current experiments, I tested two types of models: Vision-Language Encode
 
 ### ArtDL
 
-#### Results
+#### ArtDL Results
 | Model                          | zero-shot (labels)   | few-shot[*](dataset/ArtDL-data/few-shot/README.md) (labels)   | zero-shot (descriptions)   |
 |:-------------------------------|:---------------------|:--------------------------------------------------------------|:---------------------------|
 | clip-vit-base-patch32          | 16.15%               | 21.41%                                                        | 31.55%                     |
@@ -47,20 +47,18 @@ In the current experiments, I tested two types of models: Vision-Language Encode
 
 ### ICONCLASS
 
-#### Results
-
-| Model                     | zero-shot (labels)   | few-shot[*](dataset/ICONCLASS-data/few-shot/README.md) (labels)   | zero-shot (descriptions)   |
-|:--------------------------|:---------------------|:------------------------------------------------------------------|:---------------------------|
-| clip-vit-base-patch32     | 23.48%               | 29.56%                                                            | 26.35%                     |
-| clip-vit-base-patch16     | 28.89%               | 32.60%                                                            | 26.35%                     |
-| clip-vit-large-patch14    | 39.36%               | 42.74%                                                            | 34.29%                     |
-| gemini-2.5-flash-preview-04-17 |               |                                                     |                     |
-| gemini-2.5-pro-preview-05-06   |               |                                                               |                            |
-| siglip-base-patch16-512   | 43.41%               | 42.23%                                                            | 31.59%                     |
-| siglip-large-patch16-384  | 49.16%               | 49.49%                                                            | 36.82%                     |
-| siglip-so400m-patch14-384 | 57.77%               | 59.46%                                                            | 51.69%                     |
-| gpt-4o-mini               | | | |
-| gpt-4o                    | | | |
+#### ICONCLASS Results
+| Model                          | zero-shot (labels)   | few-shot[*](dataset/ICONCLASS-data/few-shot/README.md) (labels)   | zero-shot (descriptions)   |
+|:-------------------------------|:---------------------|:------------------------------------------------------------------|:---------------------------|
+| clip-vit-base-patch32          | 23.48%               | 29.56%                                                            | 26.35%                     |
+| clip-vit-base-patch16          | 28.89%               | 32.60%                                                            | 26.35%                     |
+| clip-vit-large-patch14         | 39.36%               | 42.74%                                                            | 34.29%                     |
+| gemini-2.5-flash-preview-04-17 | 15.28%               | 14.67%                                                            | 17.79%                     |
+| siglip-base-patch16-512        | 43.41%               | 42.23%                                                            | 31.59%                     |
+| siglip-large-patch16-384       | 49.16%               | 49.49%                                                            | 36.82%                     |
+| siglip-so400m-patch14-384      | 57.77%               | 59.46%                                                            | 51.69%                     |
+| gpt-4o-mini                    | 53.21%               | 52.53%                                                            | 22.58%                     |
+| gpt-4o                         | 65.03%               | 68.41%                                                            | 68.92%                     |
 
 ### Wikidata
 
@@ -76,12 +74,3 @@ In the current experiments, I tested two types of models: Vision-Language Encode
 | siglip-so400m-patch14-384      | 66.29%               | 64.86%                                                           | 59.60%                     |
 | gpt-4o-mini                    | 48.58%               | 48.29%                                                           | 51.14%                     |
 | gpt-4o                         | 50.87%               | 65.19%                                                           | 57.41%                     |
-
-
-# References
-
-[1] Milani, Federico, and Piero Fraternali. "A dataset and a convolutional model for iconography classification in paintings." Journal on Computing and Cultural Heritage (JOCCH) 14.4 (2021): 1-18.
-
-[3] E. Maksimova, M.-A. Meimer, M. Piirsalu, P. Järv. Viability of Zero-shot Classification and Search of Historical Photos CHR2024, Aarhus, Denmark, December 4-6, 2024.
-
-[4] N. Gonthier, «IconArt Dataset». Zenodo, ott. 05, 2018. doi: 10.5281/zenodo.4737435.
