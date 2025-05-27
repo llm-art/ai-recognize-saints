@@ -1,0 +1,41 @@
+2025-05-26 12:46:59,175 - INFO - Logger initialized for ICONCLASS/test_2/gemini-2.5-pro-preview-05-06
+2025-05-26 12:46:59,175 - INFO - Starting classification for dataset=ICONCLASS, test=test_2, model=gemini-2.5-pro-preview-05-06
+2025-05-26 12:46:59,477 - INFO - Number of images: 592
+2025-05-26 12:46:59,477 - INFO - Processing dataset: ICONCLASS
+2025-05-26 12:46:59,481 - INFO - Processing images for test: test_2
+2025-05-26 12:46:59,481 - INFO - Using model: gemini-2.5-pro-preview-05-06
+2025-05-26 12:50:01,912 - INFO - Cache saved after 5 batches
+2025-05-26 12:54:01,014 - ERROR - Error processing batch: Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 2.
+2025-05-26 12:54:01,014 - WARNING - No valid response for batch 9. Skipping.
+2025-05-26 12:54:42,545 - INFO - Cache saved after 10 batches
+2025-05-26 12:57:15,286 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-05-26 12:58:35,746 - INFO - Cache saved after 15 batches
+2025-05-26 13:01:35,221 - INFO - Cache saved after 20 batches
+2025-05-26 13:06:02,862 - INFO - Cache saved after 25 batches
+2025-05-26 13:09:05,266 - ERROR - Error processing batch: Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 2.
+2025-05-26 13:09:05,267 - WARNING - No valid response for batch 28. Skipping.
+2025-05-26 13:10:20,794 - INFO - Cache saved after 30 batches
+2025-05-26 13:13:45,526 - INFO - Cache saved after 35 batches
+2025-05-26 13:16:02,997 - INFO - Cache saved after 40 batches
+2025-05-26 13:18:33,815 - INFO - Cache saved after 45 batches
+2025-05-26 13:21:01,025 - INFO - Cache saved after 50 batches
+2025-05-26 13:24:33,353 - INFO - Cache saved after 55 batches
+2025-05-26 13:27:05,764 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-05-26 13:27:27,158 - INFO - Cache saved after 60 batches
+2025-05-26 13:30:57,474 - INFO - Cache saved after 65 batches
+2025-05-26 13:33:12,396 - INFO - Cache saved after 70 batches
+2025-05-26 13:37:37,549 - INFO - Cache saved after 75 batches
+2025-05-26 13:41:35,201 - INFO - Cache saved after 80 batches
+2025-05-26 13:45:09,930 - INFO - Cache saved after 85 batches
+2025-05-26 13:48:51,177 - INFO - Cache saved after 90 batches
+2025-05-26 13:51:35,608 - INFO - Cache saved after 95 batches
+2025-05-26 13:54:34,923 - INFO - Cache saved after 100 batches
+2025-05-26 13:56:34,304 - INFO - Cache saved after 105 batches
+2025-05-26 14:00:59,335 - INFO - Cache saved after 110 batches
+2025-05-26 14:04:14,995 - ERROR - Error processing batch: Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 2.
+2025-05-26 14:04:14,996 - WARNING - No valid response for batch 113. Skipping.
+2025-05-26 14:05:11,076 - INFO - Cache saved after 115 batches
+2025-05-26 14:09:14,394 - INFO - Total input tokens used: 80736
+2025-05-26 14:09:14,394 - INFO - Total output tokens used: 6247
+2025-05-26 14:09:14,394 - INFO - Total cost of this call: $0.0690
+2025-05-26 14:09:14,396 - INFO - Probabilities shape: (577, 11)

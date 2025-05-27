@@ -1,0 +1,44 @@
+2025-05-26 17:16:39,512 - INFO - Logger initialized for wikidata/test_2/gemini-2.5-pro-preview-05-06
+2025-05-26 17:16:39,512 - INFO - Starting classification for dataset=wikidata, test=test_2, model=gemini-2.5-pro-preview-05-06
+2025-05-26 17:16:39,850 - INFO - Number of images: 735
+2025-05-26 17:16:39,850 - INFO - Processing dataset: wikidata
+2025-05-26 17:16:39,854 - INFO - Processing images for test: test_2
+2025-05-26 17:16:39,855 - INFO - Using model: gemini-2.5-pro-preview-05-06
+2025-05-26 17:19:44,743 - INFO - Cache saved after 5 batches
+2025-05-26 17:23:44,877 - INFO - Cache saved after 10 batches
+2025-05-26 17:25:46,464 - INFO - Cache saved after 15 batches
+2025-05-26 17:29:33,108 - INFO - Cache saved after 20 batches
+2025-05-26 17:32:21,317 - INFO - Cache saved after 25 batches
+2025-05-26 17:35:20,162 - INFO - Cache saved after 30 batches
+2025-05-26 17:39:52,198 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-05-26 17:41:08,900 - INFO - Cache saved after 35 batches
+2025-05-26 17:44:34,259 - INFO - Cache saved after 40 batches
+2025-05-26 17:48:19,632 - INFO - Cache saved after 45 batches
+2025-05-26 17:52:56,247 - ERROR - Error processing batch: Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 2.
+2025-05-26 17:52:56,247 - WARNING - No valid response for batch 49. Skipping.
+2025-05-26 17:54:36,760 - ERROR - Error processing batch: Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 2.
+2025-05-26 17:54:36,761 - WARNING - No valid response for batch 50. Skipping.
+2025-05-26 17:59:02,119 - INFO - Cache saved after 55 batches
+2025-05-26 18:02:39,165 - INFO - Cache saved after 60 batches
+2025-05-26 18:08:51,397 - INFO - Cache saved after 65 batches
+2025-05-26 18:10:15,176 - INFO - Cache saved after 70 batches
+2025-05-26 18:15:11,452 - INFO - Cache saved after 75 batches
+2025-05-26 18:17:58,018 - INFO - Cache saved after 80 batches
+2025-05-26 18:19:10,000 - INFO - Cache saved after 85 batches
+2025-05-26 18:19:51,517 - INFO - Cache saved after 90 batches
+2025-05-26 18:23:32,041 - INFO - Cache saved after 95 batches
+2025-05-26 18:27:12,042 - INFO - Cache saved after 100 batches
+2025-05-26 18:30:37,338 - INFO - Cache saved after 105 batches
+2025-05-26 18:33:14,466 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-05-26 18:33:14,470 - INFO - Cache saved after 110 batches
+2025-05-26 18:36:50,640 - INFO - Cache saved after 115 batches
+2025-05-26 18:40:49,241 - INFO - Cache saved after 120 batches
+2025-05-26 18:43:30,201 - INFO - Cache saved after 125 batches
+2025-05-26 18:46:59,855 - INFO - Cache saved after 130 batches
+2025-05-26 18:51:10,286 - INFO - Cache saved after 135 batches
+2025-05-26 18:54:12,024 - INFO - Cache saved after 140 batches
+2025-05-26 18:58:37,963 - INFO - Cache saved after 145 batches
+2025-05-26 18:59:31,184 - INFO - Total input tokens used: 98600
+2025-05-26 18:59:31,184 - INFO - Total output tokens used: 6679
+2025-05-26 18:59:31,184 - INFO - Total cost of this call: $0.0824
+2025-05-26 18:59:31,185 - INFO - Probabilities shape: (725, 10)

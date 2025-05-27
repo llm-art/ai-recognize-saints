@@ -1,0 +1,44 @@
+2025-05-26 15:29:34,968 - INFO - Logger initialized for wikidata/test_1/gemini-2.5-pro-preview-05-06
+2025-05-26 15:29:34,969 - INFO - Starting classification for dataset=wikidata, test=test_1, model=gemini-2.5-pro-preview-05-06
+2025-05-26 15:29:35,295 - INFO - Number of images: 735
+2025-05-26 15:29:35,295 - INFO - Processing dataset: wikidata
+2025-05-26 15:29:35,299 - INFO - Processing images for test: test_1
+2025-05-26 15:29:35,299 - INFO - Using model: gemini-2.5-pro-preview-05-06
+2025-05-26 15:32:42,123 - INFO - Cache saved after 5 batches
+2025-05-26 15:35:59,809 - INFO - Cache saved after 10 batches
+2025-05-26 15:38:45,060 - INFO - Cache saved after 15 batches
+2025-05-26 15:41:50,513 - INFO - Cache saved after 20 batches
+2025-05-26 15:44:53,802 - ERROR - Error processing batch: Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 2.
+2025-05-26 15:44:53,802 - WARNING - No valid response for batch 24. Skipping.
+2025-05-26 15:45:05,132 - INFO - Cache saved after 25 batches
+2025-05-26 15:49:02,821 - INFO - Cache saved after 30 batches
+2025-05-26 15:54:22,698 - INFO - Cache saved after 35 batches
+2025-05-26 15:58:55,076 - INFO - Cache saved after 40 batches
+2025-05-26 16:03:04,732 - INFO - Cache saved after 45 batches
+2025-05-26 16:05:53,158 - ERROR - Error processing batch: Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 2.
+2025-05-26 16:05:53,158 - WARNING - No valid response for batch 47. Skipping.
+2025-05-26 16:10:18,554 - ERROR - Error processing batch: Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 2.
+2025-05-26 16:10:18,554 - WARNING - No valid response for batch 50. Skipping.
+2025-05-26 16:14:41,208 - INFO - Cache saved after 55 batches
+2025-05-26 16:17:20,235 - INFO - Cache saved after 60 batches
+2025-05-26 16:22:44,154 - INFO - Cache saved after 65 batches
+2025-05-26 16:24:23,662 - INFO - Cache saved after 70 batches
+2025-05-26 16:29:48,872 - INFO - Cache saved after 75 batches
+2025-05-26 16:32:43,610 - INFO - Cache saved after 80 batches
+2025-05-26 16:34:38,016 - INFO - Cache saved after 85 batches
+2025-05-26 16:35:40,956 - INFO - Cache saved after 90 batches
+2025-05-26 16:38:40,371 - INFO - Cache saved after 95 batches
+2025-05-26 16:42:24,038 - INFO - Cache saved after 100 batches
+2025-05-26 16:45:46,559 - INFO - Cache saved after 105 batches
+2025-05-26 16:47:51,680 - INFO - Cache saved after 110 batches
+2025-05-26 16:50:26,925 - INFO - Cache saved after 115 batches
+2025-05-26 16:54:30,969 - INFO - Cache saved after 120 batches
+2025-05-26 16:56:01,524 - INFO - Cache saved after 125 batches
+2025-05-26 16:59:43,110 - INFO - Cache saved after 130 batches
+2025-05-26 17:03:33,568 - INFO - Cache saved after 135 batches
+2025-05-26 17:06:16,702 - INFO - Cache saved after 140 batches
+2025-05-26 17:11:25,641 - INFO - Cache saved after 145 batches
+2025-05-26 17:13:10,232 - INFO - Total input tokens used: 58320
+2025-05-26 17:13:10,232 - INFO - Total output tokens used: 6629
+2025-05-26 17:13:10,233 - INFO - Total cost of this call: $0.0541
+2025-05-26 17:13:10,233 - INFO - Probabilities shape: (720, 10)

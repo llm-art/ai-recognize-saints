@@ -1,0 +1,48 @@
+2025-05-27 10:06:25,840 - INFO - Logger initialized for wikidata/test_3/gemini-2.5-pro-preview-05-06
+2025-05-27 10:06:25,840 - INFO - Starting classification for dataset=wikidata, test=test_3, model=gemini-2.5-pro-preview-05-06
+2025-05-27 10:06:26,193 - INFO - Number of images: 735
+2025-05-27 10:06:26,193 - INFO - Processing dataset: wikidata
+2025-05-27 10:06:26,197 - INFO - Processing images for test: test_3
+2025-05-27 10:06:26,197 - INFO - Using model: gemini-2.5-pro-preview-05-06
+2025-05-27 10:08:11,389 - INFO - Cache saved after 5 batches
+2025-05-27 10:10:36,526 - INFO - Cache saved after 10 batches
+2025-05-27 10:13:06,204 - INFO - Cache saved after 15 batches
+2025-05-27 10:14:55,034 - INFO - Cache saved after 20 batches
+2025-05-27 10:17:03,659 - INFO - Cache saved after 25 batches
+2025-05-27 10:19:36,577 - INFO - Cache saved after 30 batches
+2025-05-27 10:22:36,162 - INFO - Cache saved after 35 batches
+2025-05-27 10:25:38,499 - INFO - Cache saved after 40 batches
+2025-05-27 10:27:58,418 - INFO - Cache saved after 45 batches
+2025-05-27 10:33:17,830 - INFO - Cache saved after 50 batches
+2025-05-27 10:36:25,977 - INFO - Cache saved after 55 batches
+2025-05-27 10:37:50,946 - INFO - Cache saved after 60 batches
+2025-05-27 10:43:31,501 - INFO - Cache saved after 65 batches
+2025-05-27 10:44:19,730 - INFO - Cache saved after 70 batches
+2025-05-27 10:46:25,928 - INFO - Cache saved after 75 batches
+2025-05-27 10:48:00,341 - INFO - Cache saved after 80 batches
+2025-05-27 10:49:09,062 - INFO - Cache saved after 85 batches
+2025-05-27 10:49:53,566 - INFO - Cache saved after 90 batches
+2025-05-27 10:52:10,819 - INFO - Cache saved after 95 batches
+2025-05-27 10:55:21,901 - INFO - Cache saved after 100 batches
+2025-05-27 10:57:07,592 - ERROR - Error processing batch: Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 2.
+2025-05-27 10:57:07,592 - WARNING - No valid response for batch 101. Skipping.
+2025-05-27 10:57:56,549 - INFO - Cache saved after 105 batches
+2025-05-27 11:00:32,524 - INFO - Cache saved after 110 batches
+2025-05-27 11:04:30,015 - INFO - Cache saved after 115 batches
+2025-05-27 11:05:24,082 - INFO - Reconciled similar class: 11H(JOHN),St. John the Evangelist -> 11H(JOHN)
+2025-05-27 11:05:24,082 - INFO - Reconciled similar class: 11H(JOHN),St. John the Evangelist -> 11H(JOHN)
+2025-05-27 11:05:24,082 - INFO - Reconciled similar class: 11H(JOHN THE BAPTIST),St. John the Baptist -> 11H(JOHN THE BAPTIST)
+2025-05-27 11:05:24,082 - INFO - Reconciled similar class: 11H(JOHN),St. John the Evangelist -> 11H(JOHN)
+2025-05-27 11:05:24,083 - INFO - Reconciled similar class: 11H(JOHN),St. John the Evangelist -> 11H(JOHN)
+2025-05-27 11:08:28,270 - INFO - Cache saved after 120 batches
+2025-05-27 11:09:24,961 - INFO - Cache saved after 125 batches
+2025-05-27 11:12:10,497 - INFO - Cache saved after 130 batches
+2025-05-27 11:15:36,415 - INFO - Cache saved after 135 batches
+2025-05-27 11:17:39,924 - INFO - Cache saved after 140 batches
+2025-05-27 11:19:29,278 - ERROR - Error processing batch: Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 2.
+2025-05-27 11:19:29,279 - WARNING - No valid response for batch 141. Skipping.
+2025-05-27 11:22:46,429 - INFO - Cache saved after 145 batches
+2025-05-27 11:24:07,097 - INFO - Total input tokens used: 65540
+2025-05-27 11:24:07,097 - INFO - Total output tokens used: 6727
+2025-05-27 11:24:07,097 - INFO - Total cost of this call: $0.0593
+2025-05-27 11:24:07,098 - INFO - Probabilities shape: (725, 10)

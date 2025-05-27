@@ -54,7 +54,7 @@ In the current experiments, I tested two types of models: Vision-Language Encode
 | clip-vit-base-patch16          | 28.89%               | 32.60%                                                            | 26.35%                     |
 | clip-vit-large-patch14         | 39.36%               | 42.74%                                                            | 34.29%                     |
 | gemini-2.5-flash-preview-04-17 | 15.28%               | 14.67%                                                            | 17.79%                     |
-| gemini-2.5-pro-preview-05-06   | 70.19%               |                                                                   |                            |
+| gemini-2.5-pro-preview-05-06   | 70.19%               | 80.41%                                                            | 18.37%                     |
 | siglip-base-patch16-512        | 43.41%               | 42.23%                                                            | 31.59%                     |
 | siglip-large-patch16-384       | 49.16%               | 49.49%                                                            | 36.82%                     |
 | siglip-so400m-patch14-384      | 57.77%               | 59.46%                                                            | 51.69%                     |
@@ -70,6 +70,7 @@ In the current experiments, I tested two types of models: Vision-Language Encode
 | clip-vit-base-patch16          | 50.78%               | 47.08%                                                           | 46.66%                     |
 | clip-vit-large-patch14         | 56.76%               | 55.48%                                                           | 56.61%                     |
 | gemini-2.5-flash-preview-04-17 | 58.87%               | 48.70%                                                           | 52.06%                     |
+| gemini-2.5-pro-preview-05-06   | 43.19%               | 70.13%                                                           | 52.38%                     |
 | siglip-base-patch16-512        | 57.47%               | 56.05%                                                           | 46.94%                     |
 | siglip-large-patch16-384       | 60.03%               | 61.17%                                                           | 43.95%                     |
 | siglip-so400m-patch14-384      | 66.29%               | 64.86%                                                           | 59.60%                     |
