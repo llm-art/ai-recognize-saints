@@ -50,9 +50,9 @@ Consistency is measured by the percentage of image pairs where both images recei
 | gemini-2.5-flash-preview-04-17 | test_1 | 21.43 | 28 | 6 |
 | gemini-2.5-flash-preview-04-17 | test_2 | 30.00 | 30 | 9 |
 | gemini-2.5-flash-preview-04-17 | test_3 | 28.12 | 32 | 9 |
-| gemini-2.5-pro-preview-05-06 | test_1 | 0.00 | 0 | 0 |
-| gemini-2.5-pro-preview-05-06 | test_2 | 0.00 | 0 | 0 |
-| gemini-2.5-pro-preview-05-06 | test_3 | 0.00 | 0 | 0 |
+| gemini-2.5-pro-preview-05-06 | test_1 | 18.18 | 33 | 6 |
+| gemini-2.5-pro-preview-05-06 | test_2 | 15.15 | 33 | 5 |
+| gemini-2.5-pro-preview-05-06 | test_3 | 44.44 | 9 | 4 |
 
 ## Key Observations
 
