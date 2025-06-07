@@ -5,36 +5,21 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Evaluate all",
+      "name": "[GEMINI] classification gemini-2.5-flash ArtDL test_1",
       "type": "debugpy",
       "request": "launch",
-      "program": "/Users/gspinaci/projects/llm-art/LLM-test/evaluate.py",
-      "console": "integratedTerminal",
-      "args": []
-    },
-    {
-      "name": "Evaluate CLIP 32",
-      "type": "debugpy",
-      "request": "launch",
-      "program": "/Users/gspinaci/projects/llm-art/LLM-test/evaluate.py",
+      "program": "${workspaceFolder}/script/execute_gemini.py",
       "console": "integratedTerminal",
       "args": [
+        "--models",
+        "gemini-2.5-flash-preview-04-17",
         "--folders",
         "test_1",
-        "--models",
-        "clip-vit-base-patch32",
+        "--datasets",
+        "ArtDL",
+        "--limit",
+        "20"
       ]
     },
-    {
-      "name": "CLIP base 32",
-      "type": "debugpy",
-      "request": "launch",
-      "program": "/Users/gspinaci/projects/llm-art/LLM-test/test_1/clip.py",
-      "console": "integratedTerminal",
-      "args": [
-        "--models",
-        "clip-vit-base-patch32"
-      ]
-    }
   ]
 }
