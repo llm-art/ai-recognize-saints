@@ -148,6 +148,10 @@
     "class": "11H(JOHN)"
   },
   {
+    "item": "IIHIM_-763684979",
+    "class": "11HH(MARY MAGDALENE)"
+  },
+  {
     "item": "134c47_082r",
     "class": "11H(ANTONY ABBOT)"
   },
@@ -188,10 +192,6 @@
     "class": "11HH(MARY MAGDALENE)"
   },
   {
-    "item": "biblia_sacra_20131002024",
-    "class": "11H(JOHN THE BAPTIST)"
-  },
-  {
     "item": "IIHIM_RIJKS_-349227510",
     "class": "11H(JEROME)"
   },
@@ -220,8 +220,8 @@
     "class": "11H(PAUL)"
   },
   {
-    "item": "IIHIM_1352361476",
-    "class": "11H(JOHN THE BAPTIST)"
+    "item": "IIHIM_-2139732977",
+    "class": "11HH(MARY MAGDALENE)"
   },
   {
     "item": "IIHIM_RIJKS_2025182599",
@@ -352,10 +352,6 @@
     "class": "11H(PAUL)"
   },
   {
-    "item": "IIHIM_-85028962",
-    "class": "11H(JOHN THE BAPTIST)"
-  },
-  {
     "item": "bsb00025548_940",
     "class": "11H(JEROME)"
   },
@@ -412,6 +408,10 @@
     "class": "11H(PAUL)"
   },
   {
+    "item": "IIHIM_437535493",
+    "class": "11H(FRANCIS)"
+  },
+  {
     "item": "74g28_052r_min",
     "class": "11HH(CATHERINE)"
   },
@@ -442,18 +442,6 @@
   {
     "item": "IIHIM_-1164337903",
     "class": "11H(JEROME)"
-  },
-  {
-    "item": "IIHIM_-43916117",
-    "class": "11H(JOHN THE BAPTIST)"
-  },
-  {
-    "item": "biblia_sacra_20040130044",
-    "class": "11H(JOHN THE BAPTIST)"
-  },
-  {
-    "item": "IIHIM_765524498",
-    "class": "11H(JOHN THE BAPTIST)"
   },
   {
     "item": "mmw_10e33_442r_init",
@@ -528,6 +516,10 @@
     "class": "11HH(MARY MAGDALENE)"
   },
   {
+    "item": "IIHIM_-1215692960",
+    "class": "11H(JEROME)"
+  },
+  {
     "item": "IIHIM_126684857",
     "class": "11H(PAUL)"
   },
@@ -552,10 +544,6 @@
     "class": "11HH(CATHERINE)"
   },
   {
-    "item": "IIHIM_RIJKS_-803696147",
-    "class": "11H(JOHN THE BAPTIST)"
-  },
-  {
     "item": "IIHIM_2126380784",
     "class": "11H(JOHN)"
   },
@@ -578,10 +566,6 @@
   {
     "item": "IIHIM_-1240355268",
     "class": "11HH(MARY MAGDALENE)"
-  },
-  {
-    "item": "IIHIM_1168715458",
-    "class": "11H(JOHN THE BAPTIST)"
   },
   {
     "item": "IIHIM_-661964459",
@@ -636,6 +620,10 @@
     "class": "11H(JOHN)"
   },
   {
+    "item": "embhab_39-7-geom-2s_pic095",
+    "class": "11H(PAUL)"
+  },
+  {
     "item": "IIHIM_1177943213",
     "class": "11H(MATTHEW)"
   },
@@ -650,10 +638,6 @@
   {
     "item": "IIHIM_-1744768649",
     "class": "11HH(MARY MAGDALENE)"
-  },
-  {
-    "item": "76g17_020v_marge_onder",
-    "class": "11H(JOHN THE BAPTIST)"
   },
   {
     "item": "bsb00027317_404",
@@ -684,8 +668,8 @@
     "class": "11H(PETER)"
   },
   {
-    "item": "IIHIM_-710659456",
-    "class": "11H(JOHN THE BAPTIST)"
+    "item": "IIHIM_1807297303",
+    "class": "11H(JOHN)"
   },
   {
     "item": "IIHIM_-1678673875",
@@ -698,6 +682,10 @@
   {
     "item": "IIHIM_RIJKS_932509007",
     "class": "11H(ANTONY ABBOT)"
+  },
+  {
+    "item": "IIHIM_892138723",
+    "class": "11H(JOHN)"
   },
   {
     "item": "IIHIM_595633979",
@@ -750,6 +738,10 @@
   {
     "item": "IIHIM_-1042173373",
     "class": "11HH(MARY MAGDALENE)"
+  },
+  {
+    "item": "IIHIM_625712019",
+    "class": "11H(JOHN)"
   },
   {
     "item": "IIHIM_-1848347015",
@@ -822,10 +814,6 @@
   {
     "item": "biblia_sacra_20021212101",
     "class": "11H(JOHN)"
-  },
-  {
-    "item": "IIHIM_RIJKS_-1601822561",
-    "class": "11H(JOHN THE BAPTIST)"
   },
   {
     "item": "IIHIM_RIJKS_612711645",
@@ -988,20 +976,16 @@
     "class": "11H(PETER)"
   },
   {
-    "item": "IIHIM_RIJKS_743818675",
-    "class": "11H(JOHN THE BAPTIST)"
-  },
-  {
     "item": "IIHIM_-1384647525",
     "class": "11H(MATTHEW)"
   },
   {
-    "item": "biblia_sacra_20110829430",
-    "class": "11H(PAUL)"
+    "item": "IIHIM_RIJKS_-1480515124",
+    "class": "11HH(CATHERINE)"
   },
   {
-    "item": "IIHIM_-115228100",
-    "class": "11H(JOHN THE BAPTIST)"
+    "item": "biblia_sacra_20110829430",
+    "class": "11H(PAUL)"
   },
   {
     "item": "IIHIM_RIJKS_807621183",
@@ -1040,15 +1024,15 @@
     "class": "11HH(CATHERINE)"
   },
   {
-    "item": "IIHIM_2062770025",
-    "class": "11H(JOHN THE BAPTIST)"
-  },
-  {
     "item": "IIHIM_-334917998",
     "class": "11H(PAUL)"
   },
   {
     "item": "IIHIM_RIJKS_1827277148",
+    "class": "11HH(CATHERINE)"
+  },
+  {
+    "item": "IIHIM_-812263096",
     "class": "11HH(CATHERINE)"
   },
   {
@@ -1098,10 +1082,6 @@
   {
     "item": "biblia_sacra_20030725229",
     "class": "11H(PAUL)"
-  },
-  {
-    "item": "bl_royal1dx_pic003v1",
-    "class": "11H(JOHN THE BAPTIST)"
   },
   {
     "item": "IIHIM_RIJKS_-66438445",
@@ -1188,20 +1168,12 @@
     "class": "11H(PETER)"
   },
   {
-    "item": "IIHIM_-187671121",
-    "class": "11H(JOHN THE BAPTIST)"
-  },
-  {
     "item": "IIHIM_989082729",
     "class": "11H(JEROME)"
   },
   {
     "item": "74g35_085v_min",
     "class": "11H(PAUL)"
-  },
-  {
-    "item": "IIHIM_-1478371286",
-    "class": "11H(JOHN THE BAPTIST)"
   },
   {
     "item": "biblia_sacra_20021101117",
@@ -1216,12 +1188,12 @@
     "class": "11H(PAUL)"
   },
   {
-    "item": "IIHIM_1587459170",
-    "class": "11H(JOHN THE BAPTIST)"
-  },
-  {
     "item": "IIHIM_RIJKS_-1820439122",
     "class": "11H(JEROME)"
+  },
+  {
+    "item": "IIHIM_-1401170529",
+    "class": "11HH(MARY MAGDALENE)"
   },
   {
     "item": "IIHIM_-1687860892",
@@ -1232,20 +1204,12 @@
     "class": "11H(JEROME)"
   },
   {
-    "item": "IIHIM_-1496689030",
-    "class": "11H(JOHN THE BAPTIST)"
-  },
-  {
     "item": "biblia_sacra_20040128121",
     "class": "11H(PETER)"
   },
   {
     "item": "biblia_sacra_20030527172",
     "class": "11H(JOHN)"
-  },
-  {
-    "item": "IIHIM_-1919279003",
-    "class": "11H(JOHN THE BAPTIST)"
   },
   {
     "item": "IIHIM_-252118550",
@@ -1292,10 +1256,6 @@
     "class": "11H(PAUL)"
   },
   {
-    "item": "IIHIM_-77132730",
-    "class": "11H(JOHN THE BAPTIST)"
-  },
-  {
     "item": "IIHIM_185112450",
     "class": "11HH(CATHERINE)"
   },
@@ -1314,6 +1274,10 @@
   {
     "item": "76f14_120r_min",
     "class": "11H(JEROME)"
+  },
+  {
+    "item": "IIHIM_-1074355413",
+    "class": "11HH(MARY MAGDALENE)"
   },
   {
     "item": "130e26_detail_01_januari",
@@ -1362,10 +1326,6 @@
   {
     "item": "bsb00027719_456",
     "class": "11H(JOHN)"
-  },
-  {
-    "item": "76g21_149r",
-    "class": "11H(JOHN THE BAPTIST)"
   },
   {
     "item": "IIHIM_-1521678661",
@@ -1480,14 +1440,6 @@
     "class": "11H(PAUL)"
   },
   {
-    "item": "IIHIM_1988059662",
-    "class": "11H(JOHN THE BAPTIST)"
-  },
-  {
-    "item": "IIHIM_-918535061",
-    "class": "11H(JOHN THE BAPTIST)"
-  },
-  {
     "item": "IIHIM_-513363196",
     "class": "11HH(CATHERINE)"
   },
@@ -1504,16 +1456,8 @@
     "class": "11HH(CATHERINE)"
   },
   {
-    "item": "IIHIM_-1405684733",
-    "class": "11H(JOHN THE BAPTIST)"
-  },
-  {
     "item": "IIHIM_-1421064296",
     "class": "11HH(MARY MAGDALENE)"
-  },
-  {
-    "item": "IIHIM_264536375",
-    "class": "11H(JOHN THE BAPTIST)"
   },
   {
     "item": "IIHIM_-403250534",
@@ -1582,10 +1526,6 @@
   {
     "item": "goughlit2_fac025r",
     "class": "11H(JOHN)"
-  },
-  {
-    "item": "IIHIM_1295835583",
-    "class": "11H(JOHN THE BAPTIST)"
   },
   {
     "item": "IIHIM_RIJKS_-1897634343",
@@ -1676,16 +1616,16 @@
     "class": "11H(PAUL)"
   },
   {
-    "item": "IIHIM_RIJKS_-280871478",
-    "class": "11H(JOHN THE BAPTIST)"
-  },
-  {
     "item": "IIHIM_1373493842",
     "class": "11H(MATTHEW)"
   },
   {
-    "item": "IIHIM_RIJKS_-804191476",
-    "class": "11H(JOHN THE BAPTIST)"
+    "item": "IIHIM_-1730830470",
+    "class": "11HH(MARY MAGDALENE)"
+  },
+  {
+    "item": "IIHIM_640868611",
+    "class": "11H(JEROME)"
   },
   {
     "item": "IIHIM_RIJKS_786228401",
@@ -1840,6 +1780,10 @@
     "class": "11HH(CATHERINE)"
   },
   {
+    "item": "IIHIM_-1820701160",
+    "class": "11H(FRANCIS)"
+  },
+  {
     "item": "IIHIM_-1651115563",
     "class": "11H(ANTONY ABBOT)"
   },
@@ -1850,10 +1794,6 @@
   {
     "item": "76e22_394r_init",
     "class": "11H(PAUL)"
-  },
-  {
-    "item": "IIHIM_2013269468",
-    "class": "11H(JOHN THE BAPTIST)"
   },
   {
     "item": "71a22_180r_init",
@@ -1904,10 +1844,6 @@
     "class": "11HH(MARY MAGDALENE)"
   },
   {
-    "item": "IIHIM_RIJKS_-1041122259",
-    "class": "11H(JOHN THE BAPTIST)"
-  },
-  {
     "item": "IIHIM_1260836290",
     "class": "11H(ANTONY ABBOT)"
   },
@@ -1956,10 +1892,6 @@
     "class": "11H(PAUL)"
   },
   {
-    "item": "IIHIM_-71109736",
-    "class": "11H(JOHN THE BAPTIST)"
-  },
-  {
     "item": "76e22_412v_init",
     "class": "11H(JOHN)"
   },
@@ -1990,6 +1922,10 @@
   {
     "item": "IIHIM_-715284737",
     "class": "11HH(MARY MAGDALENE)"
+  },
+  {
+    "item": "IIHIM_-1004893467",
+    "class": "11H(JEROME)"
   },
   {
     "item": "71a22_261r_init",
@@ -2092,10 +2028,6 @@
     "class": "11H(PETER)"
   },
   {
-    "item": "bsb_clm835_pic137_001",
-    "class": "11H(JOHN THE BAPTIST)"
-  },
-  {
     "item": "mmw_10e3_206v_min",
     "class": "11H(JOHN)"
   },
@@ -2124,10 +2056,6 @@
     "class": "11H(PETER)"
   },
   {
-    "item": "76f2_247r_min",
-    "class": "11H(JOHN THE BAPTIST)"
-  },
-  {
     "item": "IIHIM_RIJKS_1315622382",
     "class": "11H(MATTHEW)"
   },
@@ -2150,10 +2078,6 @@
   {
     "item": "bsb00025548_747",
     "class": "11H(JEROME)"
-  },
-  {
-    "item": "IIHIM_1840011000",
-    "class": "11H(JOHN THE BAPTIST)"
   },
   {
     "item": "IIHIM_RIJKS_1335419893",
@@ -2248,20 +2172,12 @@
     "class": "11H(JOHN)"
   },
   {
-    "item": "IIHIM_1492590960",
-    "class": "11H(JOHN THE BAPTIST)"
-  },
-  {
     "item": "IIHIM_233174306",
     "class": "11HH(CATHERINE)"
   },
   {
     "item": "IIHIM_RIJKS_-1796461330",
     "class": "11H(PAUL)"
-  },
-  {
-    "item": "76f11_013r_init",
-    "class": "11H(JOHN THE BAPTIST)"
   },
   {
     "item": "IIHIM_-1817476610",
@@ -2330,10 +2246,6 @@
   {
     "item": "IIHIM_RIJKS_-1028441092",
     "class": "11H(PAUL)"
-  },
-  {
-    "item": "IIHIM_RIJKS_1639467002",
-    "class": "11H(JOHN THE BAPTIST)"
   },
   {
     "item": "76g9_131v_init",
