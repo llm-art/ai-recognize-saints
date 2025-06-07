@@ -169,6 +169,9 @@ def main(models, folders, limit, datasets):
         # Perform evaluation
         y_true_indices, y_pred_indices, filtered_probs, acc = evaluate(model_path, images, classes[folder], ground_truth_dict)
 
+        # Display accuracy in console
+        print(f"Accuracy: {acc:.2f}%")
+
         # Class-level metrics
         class_image_counts = {cls[0]: y_true_indices.count(i) for i, cls in enumerate(classes[folder])}
         macro_avg_precision, micro_avg_precision = class_metrics(y_true_indices, y_pred_indices, filtered_probs, classes[folder], class_image_counts, model_path)
