@@ -75,4 +75,4 @@ tzdata==2024.2
 umap-learn==0.5.5
 urllib3==2.2.3
 wcwidth==0.2.13
-google-generativeai==0.3.2
+google-generativeai
