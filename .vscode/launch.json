@@ -12,13 +12,87 @@
       "console": "integratedTerminal",
       "args": [
         "--models",
-        "gemini-2.5-flash-preview-04-17",
+        "gemini-2.5-flash-preview-05-20",
         "--folders",
         "test_1",
         "--datasets",
         "ArtDL",
         "--limit",
-        "20"
+        "-1",
+        "--clean"
+      ]
+    },
+    {
+      "name": "[GEMINI] classification gemini-2.5-flash ICONCLASS test_1",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/script/execute_gemini.py",
+      "console": "integratedTerminal",
+      "args": [
+        "--models",
+        "gemini-2.5-flash-preview-05-20",
+        "--folders",
+        "test_1",
+        "--datasets",
+        "ICONCLASS",
+        "--limit",
+        "-1",
+        "--clean"
+      ]
+    },
+    {
+      "name": "[GEMINI] classification gemini-2.5-flash ICONCLASS test_2",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/script/execute_gemini.py",
+      "console": "integratedTerminal",
+      "args": [
+        "--models",
+        "gemini-2.5-flash-preview-05-20",
+        "--folders",
+        "test_2",
+        "--datasets",
+        "ICONCLASS",
+        "--limit",
+        "-1",
+        "--clean"
+      ]
+    },
+    {
+      "name": "[GEMINI] classification gemini-2.5-flash ICONCLASS test_3",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/script/execute_gemini.py",
+      "console": "integratedTerminal",
+      "args": [
+        "--models",
+        "gemini-2.5-flash-preview-05-20",
+        "--folders",
+        "test_3",
+        "--datasets",
+        "ICONCLASS",
+        "--limit",
+        "-1",
+        "--clean"
+      ]
+    },
+    {
+      "name": "[GEMINI] evaluate gemini-2.5-flash ICONCLASS",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/script/evaluate.py",
+      "console": "integratedTerminal",
+      "args": [
+        "--models",
+        "gemini-2.5-flash-preview-05-20",
+        "--folders",
+        "test_1",
+        "--folders",
+        "test_2",
+        "--folders",
+        "test_3",
+        "--datasets",
+        "ICONCLASS",
       ]
     },
   ]

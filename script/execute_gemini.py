@@ -86,7 +86,7 @@ class ModelConfig:
 class CacheManager:
   """Manages caching of API responses to avoid redundant calls."""
 
-  def __init__(self, base_dir: str, dataset: str, test: str, model: str, ignore_zero_cache: bool = False, logger=None):
+  def __init__(self, base_dir: str, dataset: str, test: str, model: str, logger=None):
     """
     Initialize the cache manager.
 
@@ -95,19 +95,14 @@ class CacheManager:
         dataset: Dataset name (e.g., 'ArtDL')
         test: Test identifier (e.g., 'test_1')
         model: Model name (e.g., 'gemini-2.5-pro')
-        ignore_zero_cache: Whether to ignore zero arrays in cache
         logger: Logger instance
     """
-    self.cache_dir = os.path.join(base_dir, 'gemini_data', 'cache')
+    # Use the same directory structure as probability files: {test}/{dataset}/{model}
+    self.cache_dir = os.path.join(base_dir, os.pardir, test, dataset, model)
     os.makedirs(self.cache_dir, exist_ok=True)
 
-    # Create directories for the dataset and test
-    os.makedirs(os.path.join(self.cache_dir, dataset), exist_ok=True)
-    os.makedirs(os.path.join(self.cache_dir, dataset, test), exist_ok=True)
-
-    # For backward compatibility, use the old cache file format
-    self.cache_file = os.path.join(os.path.join(
-      self.cache_dir, dataset, test), f'{model}.json')
+    # Store cache file in the same directory as probability files
+    self.cache_file = os.path.join(self.cache_dir, 'cache.json')
 
     self.metadata = {
         "model": model,
@@ -117,7 +112,6 @@ class CacheManager:
         "version": "1.0"
     }
 
-    self.ignore_zero_cache = ignore_zero_cache
     self.logger = logger or logging.getLogger("default")
     self.cache = self._load_cache()
 
@@ -132,19 +126,10 @@ class CacheManager:
       with open(self.cache_file, 'r') as file:
         try:
           cache = json.load(file)
-
-          # Only filter out zero arrays if ignore_zero_cache is enabled
-          if self.ignore_zero_cache:
-            valid_cache = {k: v for k, v in cache.items()
-                           if isinstance(v, list) and len(v) > 0 and not all(x == 0 for x in v)}
-            self.logger.info(
-              f"Loaded {len(valid_cache)} valid cached results (ignoring zero arrays)")
-            return valid_cache
-          else:
-            valid_cache = {k: v for k, v in cache.items()
-                           if isinstance(v, list) and len(v) > 0}
-            self.logger.info(f"Loaded {len(valid_cache)} cached results")
-            return valid_cache
+          valid_cache = {k: v for k, v in cache.items()
+                         if isinstance(v, list) and len(v) > 0}
+          self.logger.info(f"Loaded {len(valid_cache)} cached results")
+          return valid_cache
         except json.JSONDecodeError:
           self.logger.warning(
             f"Cache file {self.cache_file} is corrupted. Creating new cache.")
@@ -161,13 +146,7 @@ class CacheManager:
     Returns:
         List of probabilities or None if not in cache
     """
-    result = self.cache.get(image_id)
-
-    # If ignore_zero_cache is True, treat all-zero arrays as cache misses
-    if self.ignore_zero_cache and result is not None and all(x == 0 for x in result):
-      return None
-
-    return result
+    return self.cache.get(image_id)
 
   def add_result(self, image_id: str, probabilities: List[float]) -> None:
     """
@@ -196,10 +175,69 @@ class CacheManager:
         self.logger.info(f"Cache saved after {batch_count} batches")
 
 
+class ClassAdapter:
+  """Adapter to convert between complex class IDs and human-readable aliases."""
+  
+  def __init__(self, classes: List[Tuple[str, str]]):
+    """
+    Initialize the class adapter.
+    
+    Args:
+        classes: List of (class_id, class_label) tuples
+    """
+    self.id_to_alias = {}
+    self.alias_to_id = {}
+    
+    for class_id, class_label in classes:
+      # Create human-readable alias from class_id
+      alias = self._create_alias(class_id)
+      self.id_to_alias[class_id] = alias
+      self.alias_to_id[alias] = class_id
+  
+  def _create_alias(self, class_id: str) -> str:
+    """
+    Create a human-readable alias from a class ID by extracting the saint's name.
+    
+    Args:
+        class_id: The class ID (e.g., '11H(PAUL)', '11HH(MARY MAGDALENE)')
+        
+    Returns:
+        Human-readable alias (e.g., 'paul', 'mary_magdalene')
+    """
+    import re
+    # Extract content within parentheses
+    match = re.search(r'\(([^)]+)\)', class_id)
+    if match:
+      name = match.group(1)
+      # Convert to lowercase and replace spaces with underscores
+      alias = name.lower().replace(' ', '_').replace('.', '').replace(',', '')
+      # Remove common prefixes
+      alias = alias.replace('st_', '').replace('saint_', '').replace('the_', '')
+      return alias
+    
+    # Fallback to original logic if no parentheses found
+    alias = class_id.lower().replace(' ', '_').replace('.', '').replace(',', '')
+    alias = alias.replace('st_', '').replace('saint_', '').replace('the_', '')
+    return alias
+  
+  def get_alias(self, class_id: str) -> str:
+    """Get human-readable alias for a class ID."""
+    return self.id_to_alias.get(class_id, class_id)
+  
+  def get_class_id(self, alias: str) -> str:
+    """Get class ID from human-readable alias."""
+    return self.alias_to_id.get(alias, alias)
+  
+  def get_all_aliases(self) -> List[Tuple[str, str]]:
+    """Get all (alias, class_id) pairs."""
+    return [(alias, class_id) for class_id, alias in self.id_to_alias.items()]
+
+
 class GeminiImageClassifier:
   """Classifies images using Google's Gemini models with vision capabilities."""
 
-  def __init__(self, model: str, api_key: str, dataset: str, test: str, base_dir: str, ignore_zero_cache: bool = False, logger=None):
+  def __init__(self, model: str, api_key: str, dataset: str, test: str, base_dir: str, 
+               temperature: float = 0.0, top_k: int = 32, logger=None):
     """
     Initialize the classifier.
 
@@ -209,7 +247,8 @@ class GeminiImageClassifier:
         dataset: Dataset name
         test: Test identifier
         base_dir: Base directory for the project
-        ignore_zero_cache: Whether to ignore zero arrays in cache
+        temperature: Temperature for generation
+        top_k: Top-k for sampling
         logger: Logger instance
     """
     self.model = model
@@ -217,13 +256,17 @@ class GeminiImageClassifier:
     self.dataset = dataset
     self.test = test
     self.base_dir = base_dir
+    
+    # Store hyperparameters
+    self.temperature = temperature
+    self.top_k = top_k
 
     # Set up logger
     self.logger = logger or logging.getLogger("default")
 
     # Initialize cache manager
     self.cache_manager = CacheManager(
-      base_dir, dataset, test, model, ignore_zero_cache=ignore_zero_cache, logger=self.logger)
+      base_dir, dataset, test, model, logger=self.logger)
 
     # Initialize prompt folder
     self.prompt_folder = os.path.join(base_dir, os.pardir, 'prompts')
@@ -232,24 +275,104 @@ class GeminiImageClassifier:
     self.total_input_tokens = 0
     self.total_output_tokens = 0
 
-  def _get_prompt_path(self, dataset: str, test: str) -> str:
+  def _generate_prompt(self, dataset: str, test: str, classes: List[Tuple[str, str]]) -> str:
     """
-    Get the path to the appropriate prompt file.
+    Generate the system prompt by combining base template with dynamic class list.
 
     Args:
         dataset: Dataset name
         test: Test identifier
+        classes: List of (class_id, class_description) tuples
 
     Returns:
-        Path to the prompt file
+        Complete system prompt string
     """
-    # Determine system prompt
-    self.prompt_folder = os.path.join(self.prompt_folder, dataset)
-    if not os.path.exists(self.prompt_folder):
-      raise FileNotFoundError(
-        f"Prompt folder does not exist: {self.prompt_folder}")
+    # Load base prompt template
+    base_template_path = os.path.join(self.prompt_folder, 'base_prompt_template.txt')
+    if not os.path.exists(base_template_path):
+      raise FileNotFoundError(f"Base prompt template not found: {base_template_path}")
+    
+    with open(base_template_path, 'r') as f:
+      base_template = f.read()
+    
+    # Create class adapter for human-readable aliases
+    self.class_adapter = ClassAdapter(classes)
+    
+    # Generate few-shot examples section for test_3
+    if test == 'test_3':
+      few_shot_section = self._generate_few_shot_section(dataset)
+    else:
+      few_shot_section = ""
+    
+    # Generate class list using human-readable aliases
+    class_list_lines = []
+    class_list_lines.append("Each <CATEGORY_ID> must be one of (use only the category ID as output):")
+    class_list_lines.append("")
+    
+    for class_id, class_desc in classes:
+      alias = self.class_adapter.get_alias(class_id)
+      class_list_lines.append(f'"{alias}" - {class_desc}')
+    
+    class_list = "\n".join(class_list_lines)
+    
+    # Replace placeholders with generated content
+    complete_prompt = base_template.replace("{FEW_SHOT_EXAMPLES}", few_shot_section)
+    complete_prompt = complete_prompt.replace("{CLASS_LIST}", class_list)
+    
+    # Log the generated prompt
+    self.logger.info("=== GENERATED PROMPT ===")
+    self.logger.info(f"Dataset: {dataset}, Test: {test}")
+    self.logger.info(f"Hyperparameters: temperature={self.temperature}, top_k={self.top_k}")
+    self.logger.info("Prompt content:")
+    self.logger.info(complete_prompt)
+    self.logger.info("=== END PROMPT ===")
+    
+    return complete_prompt
 
-    return os.path.join(self.prompt_folder, f'{test}.txt')
+  def _generate_few_shot_section(self, dataset: str) -> str:
+    """
+    Generate the few-shot examples section for test_3 prompts.
+
+    Args:
+        dataset: Dataset name
+
+    Returns:
+        Formatted few-shot section string
+    """
+    few_shot_folder = os.path.join(
+      self.base_dir, os.pardir, 'dataset', f"{dataset}-data", 'few-shot')
+    few_shot_file = os.path.join(few_shot_folder, 'train_data.csv')
+
+    if not os.path.exists(few_shot_file):
+      self.logger.warning(f"Few-shot file not found: {few_shot_file}")
+      return ""
+
+    try:
+      few_shot_df = pd.read_csv(few_shot_file)
+      
+      if few_shot_df.empty:
+        self.logger.warning(f"Few-shot file is empty: {few_shot_file}")
+        return ""
+
+      # Generate the few-shot examples list
+      examples_list = []
+      for _, row in few_shot_df.iterrows():
+        # Use aliases for the class IDs in the few-shot section
+        class_id = row['class']
+        alias = self.class_adapter.get_alias(class_id)
+        examples_list.append(f'  "{row["item"]}", "{alias}"')
+
+      few_shot_section = f"""You will be shown {len(few_shot_df)} example images categorized as follows:
+{{
+{chr(10).join(examples_list)}
+}}
+
+"""
+      return few_shot_section
+
+    except Exception as e:
+      self.logger.error(f"Error generating few-shot section: {e}")
+      return ""
 
   def _load_few_shot_examples(self, dataset: str) -> List[Dict[str, Any]]:
     """
@@ -377,7 +500,7 @@ class GeminiImageClassifier:
     
     return None
 
-  def _parse_response(self, content: str, batch_items: List[str], classes: List[Tuple[str, str]], batch_count: int) -> Tuple[List[List[float]], List[str], List[str]]:
+  def _parse_response(self, content: str, batch_items: List[str], classes: List[Tuple[str, str]], batch_count: int) -> Tuple[List[List[float]], List[str]]:
     """
     Parse the API response to extract class probabilities.
 
@@ -388,11 +511,10 @@ class GeminiImageClassifier:
         batch_count: Current batch count (for logging)
 
     Returns:
-        Tuple of (list of probability arrays for each image, list of corresponding batch items, list of unprocessed items)
+        Tuple of (list of probability arrays for each image, list of corresponding batch items)
     """
     results = []
     response_texts = []
-    unprocessed_items = []
 
     # Create a mapping from class ID to index for faster lookup
     class_id_to_idx = {cls_id: idx for idx, (cls_id, _) in enumerate(classes)}
@@ -585,40 +707,70 @@ class GeminiImageClassifier:
       if idx < len(response_texts):  # Safety check to prevent index errors
         probabilities = np.zeros(len(classes))
         append_prob = False
+        confidence_score = 1.0  # Default confidence
 
-        # Get the predicted class ID
-        predicted_class = response_texts[idx]
+        response_item = response_texts[idx]
+        
+        # Handle both old format (string) and new format (dict with class and confidence)
+        if isinstance(response_item, dict):
+          # New format: {"class": "CLASS_ID", "confidence": 0.85}
+          predicted_class = response_item.get("class", "")
+          confidence_score = response_item.get("confidence", 1.0)
+          
+          # Ensure confidence is within valid range
+          confidence_score = max(0.0, min(1.0, float(confidence_score)))
+        else:
+          # Old format: just the class ID as string
+          predicted_class = str(response_item)
+          confidence_score = 1.0
 
+        # Store original confidence for logging
+        original_confidence = confidence_score
+        
         # Find the index of the predicted class in the classes list
+        # First try direct class ID match
         if predicted_class in class_id_to_idx:
           cls_idx = class_id_to_idx[predicted_class]
+          # Convert to binary: 1 for predicted class, 0 for others
           probabilities[cls_idx] = 1.0
           append_prob = True
 
           # Log the mapping for debugging
           self.logger.debug(
-            f"Item {item}: Predicted class {predicted_class} -> Index {cls_idx}")
+            f"Item {item}: Predicted class {predicted_class} -> Index {cls_idx}, Original confidence: {original_confidence}")
         else:
-          # Try to find a similar class
-          similar_class = self._find_similar_class(predicted_class, classes)
-          if similar_class and similar_class in class_id_to_idx:
-            cls_idx = class_id_to_idx[similar_class]
+          # Try to find class by human-readable alias
+          actual_class_id = self.class_adapter.get_class_id(predicted_class)
+          if actual_class_id in class_id_to_idx:
+            cls_idx = class_id_to_idx[actual_class_id]
+            # Convert to binary: 1 for predicted class, 0 for others
             probabilities[cls_idx] = 1.0
             append_prob = True
             
-            # Log the reconciliation for debugging
+            # Log the alias mapping for debugging
             self.logger.debug(
-              f"Item {item}: Reconciled class {predicted_class} -> {similar_class} (Index {cls_idx})")
+              f"Item {item}: Alias {predicted_class} -> Class {actual_class_id} (Index {cls_idx}), Original confidence: {original_confidence}")
           else:
-            self.logger.warning(f"Unknown class ID: {predicted_class}")
-            unprocessed_items.append(item)
+            # Try to find a similar class
+            similar_class = self._find_similar_class(predicted_class, classes)
+            if similar_class and similar_class in class_id_to_idx:
+              cls_idx = class_id_to_idx[similar_class]
+              # Convert to binary: 1 for predicted class, 0 for others
+              probabilities[cls_idx] = 1.0
+              append_prob = True
+              
+              # Log the reconciliation for debugging
+              self.logger.debug(
+                f"Item {item}: Reconciled class {predicted_class} -> {similar_class} (Index {cls_idx}), Original confidence: {original_confidence}")
+            else:
+              self.logger.warning(f"Unknown class ID or alias: {predicted_class}")
 
         if append_prob:
           results.append(probabilities)
           processed_items.append(item)
 
-    # Return both the results and the corresponding batch items, plus unprocessed items
-    return results, processed_items, unprocessed_items
+    # Return both the results and the corresponding batch items
+    return results, processed_items
 
   def classify_images(self,
                       images: List[Tuple[str, str]],
@@ -641,14 +793,11 @@ class GeminiImageClassifier:
     """
     all_probs = []
     processed_count = 0  # Track how many images we've actually processed
-    all_unprocessed_items = []  # Track all unprocessed images
 
     self.logger.info(f"Using model: {self.model}")
 
-    # Load system prompt
-    system_prompt_path = self._get_prompt_path(self.dataset, self.test)
-    with open(system_prompt_path, 'r') as file:
-      system_prompt = file.read()
+    # Generate system prompt dynamically
+    system_prompt = self._generate_prompt(self.dataset, self.test, classes)
 
     # Limit images if specified
     if limit > 0:
@@ -657,15 +806,13 @@ class GeminiImageClassifier:
 
     # Load few-shot examples if needed
     few_shot_messages = []
-    if self.test in ['test_3', 'test_4']:
+    if self.test in ['test_3']:
       few_shot_messages = self._load_few_shot_examples(self.dataset)
 
-    # Initialize the Gemini model
+    # Initialize the Gemini model with hyperparameters
     generation_config = {
-      "temperature": 0.0,
-      "top_p": 1.0,
-      "top_k": 32,
-      "max_output_tokens": 8192,
+      "temperature": self.temperature,
+      "top_k": self.top_k,
     }
 
     model = genai.GenerativeModel(
@@ -760,10 +907,10 @@ class GeminiImageClassifier:
 
                 # Save safety filter information for debugging
                 safety_dir = os.path.join(
-                  self.base_dir, 'gemini_data', 'safety_filters')
+                  self.base_dir, os.pardir, self.test, self.dataset, self.model)
                 os.makedirs(safety_dir, exist_ok=True)
                 safety_file = os.path.join(
-                  safety_dir, f'{self.dataset}_{self.test}_{batch_count}_safety_filter.txt')
+                  safety_dir, f'safety_filter_batch_{batch_count}.txt')
 
                 try:
                   with open(safety_file, 'w') as f:
@@ -816,11 +963,11 @@ class GeminiImageClassifier:
             f"No valid response for batch {batch_count}. Skipping.")
           continue
 
-        # Save the raw response to a file for debugging
-        batches_dir = os.path.join(self.base_dir, 'gemini_data', 'batches')
+        # Save the raw response to a file for debugging in batches/ subfolder
+        batches_dir = os.path.join(
+          self.base_dir, os.pardir, self.test, self.dataset, self.model, 'batches')
         os.makedirs(batches_dir, exist_ok=True)
-        batch_file = os.path.join(
-          batches_dir, f'{self.dataset}_{self.test}_{batch_count}.txt')
+        batch_file = os.path.join(batches_dir, f'{batch_count}.txt')
         with open(batch_file, 'w') as f:
           f.write(f"Model: {self.model}\n")
           f.write(f"Batch items: {[item for item, _ in batch_items]}\n")
@@ -833,29 +980,9 @@ class GeminiImageClassifier:
         self.total_output_tokens += len(content) // 4  # Rough estimate
 
         # Parse response
-        batch_results, processed_items, unprocessed_items = self._parse_response(
+        batch_results, processed_items = self._parse_response(
           content, [item for item, _ in batch_items], classes, batch_count)
         
-        # Add unprocessed items to the global list
-        all_unprocessed_items.extend(unprocessed_items)
-        
-        # Create the unprocessed file directory if it doesn't exist
-        unprocessed_file = os.path.join(self.base_dir, 'gemini_data', 'unprocessed.txt')
-        os.makedirs(os.path.dirname(unprocessed_file), exist_ok=True)
-        
-        # Create the unprocessed file with header if it doesn't exist
-        if batch_count == 1 and not os.path.exists(unprocessed_file):
-          with open(unprocessed_file, 'w') as f:
-            f.write(f"# Unprocessed items file\n")
-            f.write(f"# First created at {datetime.now().isoformat()}\n\n")
-          self.logger.info(f"Created new unprocessed items file: {unprocessed_file}")
-        
-        # Write unprocessed items to file immediately if there are any
-        if unprocessed_items:
-          with open(unprocessed_file, 'a') as f:
-            for item in unprocessed_items:
-              f.write(f"{item}\n")
-          self.logger.info(f"Added {len(unprocessed_items)} unprocessed items to {unprocessed_file}")
 
         # If batch_results is empty (due to parsing error), skip this batch
         if not batch_results:
@@ -899,9 +1026,6 @@ class GeminiImageClassifier:
       self.logger.info(
         f"Requested limit: {limit}, Actual processed: {len(all_probs)}")
     
-    # Log total number of unprocessed items
-    if all_unprocessed_items:
-      self.logger.info(f"Total unprocessed items: {len(all_unprocessed_items)}")
 
     return np.array(all_probs)
 
@@ -1022,16 +1146,18 @@ def load_images(test_items: List[str], dataset_dir: str, logger=None) -> List[Tu
 
 
 @click.command()
-@click.option('--folders', multiple=True, default=['test_1', 'test_2'], help='List of folders to use')
+@click.option('--folders', multiple=True, help='List of folders to use')
 @click.option('--models', multiple=True, help='List of model names to use')
 @click.option('--limit', default=-1, help='Limit the number of images to process')
-@click.option('--batch_size', default=10, help='Number of images per batch')
+@click.option('--batch_size', default=5, help='Number of images per batch')
 @click.option('--save_frequency', default=5, help='How often to save cache (in batches)')
-@click.option('--datasets', multiple=True, default=['ArtDL'], help='List of datasets to use')
-@click.option('--ignore_zero_cache', is_flag=True, help='Ignore cached results with all-zero arrays')
+@click.option('--datasets', multiple=True, help='List of datasets to use')
 @click.option('--verbose', is_flag=True, help='Enable verbose logging (DEBUG level)')
+@click.option('--temperature', default=0.0, help='Temperature for generation (default: 0.0, min: 0.0)')
+@click.option('--top_k', default=32, help='Top-k for sampling (default: 32)')
+@click.option('--clean', is_flag=True, help='Remove cache and logs from previous runs before starting')
 def main(folders: List[str], models: List[str], limit: int, batch_size: int, save_frequency: int,
-         datasets: List[str], ignore_zero_cache: bool, verbose: bool):
+         datasets: List[str], verbose: bool, temperature: float, top_k: int, clean: bool):
   """
   Main function to run the Gemini image classification.
 
@@ -1042,7 +1168,6 @@ def main(folders: List[str], models: List[str], limit: int, batch_size: int, sav
       batch_size: Number of images per batch
       save_frequency: How often to save cache (in batches)
       datasets: List of datasets to use
-      ignore_zero_cache: Whether to ignore zero arrays in cache
       verbose: Whether to enable verbose logging
   """
   # Load Google API key from config file
@@ -1072,9 +1197,48 @@ def main(folders: List[str], models: List[str], limit: int, batch_size: int, sav
         output_folder = os.path.join(base_dir, folder, dataset, model)
         os.makedirs(output_folder, exist_ok=True)
 
+        # Clean previous runs if requested
+        if clean:
+          import shutil
+          # Remove cache and logs from the model directory
+          model_dir = os.path.join(base_dir, folder, dataset, model)
+          if os.path.exists(model_dir):
+            # List of files/directories to remove
+            items_to_remove = []
+            
+            # Cache file
+            cache_file = os.path.join(model_dir, 'cache.json')
+            if os.path.exists(cache_file):
+              items_to_remove.append(cache_file)
+            
+            # Batches directory
+            batches_dir = os.path.join(model_dir, 'batches')
+            if os.path.exists(batches_dir):
+              items_to_remove.append(batches_dir)
+            
+            # Safety filter files (if any exist in the model directory)
+            for file in os.listdir(model_dir):
+              if file.startswith('safety_filter_'):
+                items_to_remove.append(os.path.join(model_dir, file))
+            
+            # Remove the items
+            for item in items_to_remove:
+              try:
+                if os.path.isfile(item):
+                  os.remove(item)
+                  print(f"Removed file: {item}")
+                elif os.path.isdir(item):
+                  shutil.rmtree(item)
+                  print(f"Removed directory: {item}")
+              except Exception as e:
+                print(f"Warning: Could not remove {item}: {e}")
+
         # Setup logger for this specific combination
         logger = logger_utils.setup_logger(
           dataset, folder, model, output_folder, verbose)
+
+        if clean:
+          logger.info(f"Cleaned previous cache and logs for dataset={dataset}, test={folder}, model={model}")
 
         logger.info(
           f"Starting classification for dataset={dataset}, test={folder}, model={model}")
@@ -1090,7 +1254,7 @@ def main(folders: List[str], models: List[str], limit: int, batch_size: int, sav
 
         if folder in ['test_1', 'test_3']:
           classes = list(zip(classes_df['ID'], classes_df['Label']))
-        elif folder in ['test_2', 'test_4']:
+        elif folder in ['test_2']:
           classes = list(zip(classes_df['ID'], classes_df['Description']))
 
         logger.info(f"Processing images for test: {folder}")
@@ -1098,7 +1262,7 @@ def main(folders: List[str], models: List[str], limit: int, batch_size: int, sav
         # Initialize classifier and process images
         classifier = GeminiImageClassifier(
           model, api_key, dataset, folder, script_dir,
-          ignore_zero_cache=ignore_zero_cache, logger=logger)
+          temperature=temperature, top_k=top_k, logger=logger)
 
         all_probs = classifier.classify_images(
             images, classes, limit, batch_size, save_frequency

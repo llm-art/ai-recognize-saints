@@ -188,10 +188,70 @@ class CacheManager:
         self.logger.info(f"Cache saved after {batch_count} batches")
 
 
+class ClassAdapter:
+  """Adapter to convert between complex class IDs and human-readable aliases."""
+  
+  def __init__(self, classes: List[Tuple[str, str]]):
+    """
+    Initialize the class adapter.
+    
+    Args:
+        classes: List of (class_id, class_label) tuples
+    """
+    self.id_to_alias = {}
+    self.alias_to_id = {}
+    
+    for class_id, class_label in classes:
+      # Create human-readable alias from class_id
+      alias = self._create_alias(class_id)
+      self.id_to_alias[class_id] = alias
+      self.alias_to_id[alias] = class_id
+  
+  def _create_alias(self, class_id: str) -> str:
+    """
+    Create a human-readable alias from a class ID by extracting the saint's name.
+    
+    Args:
+        class_id: The class ID (e.g., '11H(PAUL)', '11HH(MARY MAGDALENE)')
+        
+    Returns:
+        Human-readable alias (e.g., 'paul', 'mary_magdalene')
+    """
+    import re
+    # Extract content within parentheses
+    match = re.search(r'\(([^)]+)\)', class_id)
+    if match:
+      name = match.group(1)
+      # Convert to lowercase and replace spaces with underscores
+      alias = name.lower().replace(' ', '_').replace('.', '').replace(',', '')
+      # Remove common prefixes
+      alias = alias.replace('st_', '').replace('saint_', '').replace('the_', '')
+      return alias
+    
+    # Fallback to original logic if no parentheses found
+    alias = class_id.lower().replace(' ', '_').replace('.', '').replace(',', '')
+    alias = alias.replace('st_', '').replace('saint_', '').replace('the_', '')
+    return alias
+  
+  def get_alias(self, class_id: str) -> str:
+    """Get human-readable alias for a class ID."""
+    return self.id_to_alias.get(class_id, class_id)
+  
+  def get_class_id(self, alias: str) -> str:
+    """Get class ID from human-readable alias."""
+    return self.alias_to_id.get(alias, alias)
+  
+  def get_all_aliases(self) -> List[Tuple[str, str]]:
+    """Get all (alias, class_id) pairs."""
+    return [(alias, class_id) for class_id, alias in self.id_to_alias.items()]
+
+
 class GPTImageClassifier:
   """Classifies images using OpenAI's GPT models with vision capabilities."""
 
-  def __init__(self, model: str, api_key: str, dataset: str, test: str, base_dir: str, ignore_zero_cache: bool = False, logger=None):
+  def __init__(self, model: str, api_key: str, dataset: str, test: str, base_dir: str, 
+               temperature: float = 0.0,
+               ignore_zero_cache: bool = False, logger=None):
     """
     Initialize the classifier.
 
@@ -201,6 +261,7 @@ class GPTImageClassifier:
         dataset: Dataset name
         test: Test identifier
         base_dir: Base directory for the project
+        temperature: Temperature for generation
         ignore_zero_cache: Whether to ignore zero arrays in cache
         logger: Logger instance
     """
@@ -209,6 +270,9 @@ class GPTImageClassifier:
     self.dataset = dataset
     self.test = test
     self.base_dir = base_dir
+    
+    # Store hyperparameters
+    self.temperature = temperature
 
     # Set up logger
     self.logger = logger or logging.getLogger("default")
@@ -224,24 +288,104 @@ class GPTImageClassifier:
     self.total_input_tokens = 0
     self.total_output_tokens = 0
 
-  def _get_prompt_path(self, dataset: str, test: str) -> str:
+  def _generate_prompt(self, dataset: str, test: str, classes: List[Tuple[str, str]]) -> str:
     """
-    Get the path to the appropriate prompt file.
+    Generate the system prompt by combining base template with dynamic class list.
 
     Args:
         dataset: Dataset name
         test: Test identifier
+        classes: List of (class_id, class_description) tuples
 
     Returns:
-        Path to the prompt file
+        Complete system prompt string
     """
-    # Determine system prompt
-    prompt_dataset_folder = os.path.join(self.prompt_folder, dataset)
-    if not os.path.exists(prompt_dataset_folder):
-      raise FileNotFoundError(
-        f"Prompt folder does not exist: {prompt_dataset_folder}")
+    # Load base prompt template
+    base_template_path = os.path.join(self.prompt_folder, 'base_prompt_template.txt')
+    if not os.path.exists(base_template_path):
+      raise FileNotFoundError(f"Base prompt template not found: {base_template_path}")
+    
+    with open(base_template_path, 'r') as f:
+      base_template = f.read()
+    
+    # Create class adapter for human-readable aliases
+    self.class_adapter = ClassAdapter(classes)
+    
+    # Generate few-shot examples section for test_3
+    if test == 'test_3':
+      few_shot_section = self._generate_few_shot_section(dataset)
+    else:
+      few_shot_section = ""
+    
+    # Generate class list using human-readable aliases
+    class_list_lines = []
+    class_list_lines.append("Each <CATEGORY_ID> must be one of (use only the category ID as output):")
+    class_list_lines.append("")
+    
+    for class_id, class_desc in classes:
+      alias = self.class_adapter.get_alias(class_id)
+      class_list_lines.append(f'"{alias}" - {class_desc}')
+    
+    class_list = "\n".join(class_list_lines)
+    
+    # Replace placeholders with generated content
+    complete_prompt = base_template.replace("{FEW_SHOT_EXAMPLES}", few_shot_section)
+    complete_prompt = complete_prompt.replace("{CLASS_LIST}", class_list)
+    
+    # Log the generated prompt
+    self.logger.info("=== GENERATED PROMPT ===")
+    self.logger.info(f"Dataset: {dataset}, Test: {test}")
+    self.logger.info(f"Hyperparameters: temperature={self.temperature}")
+    self.logger.info("Prompt content:")
+    self.logger.info(complete_prompt)
+    self.logger.info("=== END PROMPT ===")
+    
+    return complete_prompt
 
-    return os.path.join(prompt_dataset_folder, f'{test}.txt')
+  def _generate_few_shot_section(self, dataset: str) -> str:
+    """
+    Generate the few-shot examples section for test_3 prompts.
+
+    Args:
+        dataset: Dataset name
+
+    Returns:
+        Formatted few-shot section string
+    """
+    few_shot_folder = os.path.join(
+      self.base_dir, os.pardir, 'dataset', f"{dataset}-data", 'few-shot')
+    few_shot_file = os.path.join(few_shot_folder, 'train_data.csv')
+
+    if not os.path.exists(few_shot_file):
+      self.logger.warning(f"Few-shot file not found: {few_shot_file}")
+      return ""
+
+    try:
+      few_shot_df = pd.read_csv(few_shot_file)
+      
+      if few_shot_df.empty:
+        self.logger.warning(f"Few-shot file is empty: {few_shot_file}")
+        return ""
+
+      # Generate the few-shot examples list
+      examples_list = []
+      for _, row in few_shot_df.iterrows():
+        # Use aliases for the class IDs in the few-shot section
+        class_id = row['class']
+        alias = self.class_adapter.get_alias(class_id)
+        examples_list.append(f'  "{row["item"]}", "{alias}"')
+
+      few_shot_section = f"""You will be shown {len(few_shot_df)} example images categorized as follows:
+{{
+{chr(10).join(examples_list)}
+}}
+
+"""
+      return few_shot_section
+
+    except Exception as e:
+      self.logger.error(f"Error generating few-shot section: {e}")
+      return ""
 
   def _load_few_shot_examples(self, dataset: str) -> List[Dict[str, Any]]:
     """
@@ -520,33 +664,58 @@ class GPTImageClassifier:
       if idx < len(response_texts):  # Safety check to prevent index errors
         probabilities = np.zeros(len(classes))
         append_prob = False
+        confidence_score = 1.0  # Default confidence
+
+        response_item = response_texts[idx]
         
-        # Get the predicted class ID
-        predicted_class = response_texts[idx]
+        # Handle both old format (string) and new format (dict with class and confidence)
+        if isinstance(response_item, dict):
+          # New format: {"class": "CLASS_ID", "confidence": 0.85}
+          predicted_class = response_item.get("class", "")
+          confidence_score = response_item.get("confidence", 1.0)
+          
+          # Ensure confidence is within valid range
+          confidence_score = max(0.0, min(1.0, float(confidence_score)))
+        else:
+          # Old format: just the class ID as string
+          predicted_class = str(response_item)
+          confidence_score = 1.0
         
         # Find the index of the predicted class in the classes list
+        # First try direct class ID match
         if predicted_class in class_id_to_idx:
           cls_idx = class_id_to_idx[predicted_class]
-          probabilities[cls_idx] = 1.0
+          probabilities[cls_idx] = confidence_score
           append_prob = True
           
           # Log the mapping for debugging
           self.logger.debug(
-            f"Item {item}: Predicted class {predicted_class} -> Index {cls_idx}")
+            f"Item {item}: Predicted class {predicted_class} -> Index {cls_idx}, Confidence: {confidence_score}")
         else:
-          # Try to find a similar class
-          similar_class = self._find_similar_class(predicted_class, classes)
-          if similar_class and similar_class in class_id_to_idx:
-            cls_idx = class_id_to_idx[similar_class]
-            probabilities[cls_idx] = 1.0
+          # Try to find class by human-readable alias
+          actual_class_id = self.class_adapter.get_class_id(predicted_class)
+          if actual_class_id in class_id_to_idx:
+            cls_idx = class_id_to_idx[actual_class_id]
+            probabilities[cls_idx] = confidence_score
             append_prob = True
             
-            # Log the reconciliation for debugging
+            # Log the alias mapping for debugging
             self.logger.debug(
-              f"Item {item}: Reconciled class {predicted_class} -> {similar_class} (Index {cls_idx})")
+              f"Item {item}: Alias {predicted_class} -> Class {actual_class_id} (Index {cls_idx}), Confidence: {confidence_score}")
           else:
-            self.logger.warning(f"Unknown class ID: {predicted_class}")
-            unprocessed_items.append(item)
+            # Try to find a similar class
+            similar_class = self._find_similar_class(predicted_class, classes)
+            if similar_class and similar_class in class_id_to_idx:
+              cls_idx = class_id_to_idx[similar_class]
+              probabilities[cls_idx] = confidence_score
+              append_prob = True
+              
+              # Log the reconciliation for debugging
+              self.logger.debug(
+                f"Item {item}: Reconciled class {predicted_class} -> {similar_class} (Index {cls_idx}), Confidence: {confidence_score}")
+            else:
+              self.logger.warning(f"Unknown class ID or alias: {predicted_class}")
+              unprocessed_items.append(item)
           
         if append_prob:
           results.append(probabilities)
@@ -580,10 +749,8 @@ class GPTImageClassifier:
 
     self.logger.info(f"Using model: {self.model}")
 
-    # Load system prompt
-    system_prompt_path = self._get_prompt_path(self.dataset, self.test)
-    with open(system_prompt_path, 'r') as file:
-      system_prompt = file.read()
+    # Generate system prompt dynamically
+    system_prompt = self._generate_prompt(self.dataset, self.test, classes)
 
     # Limit images if specified
     if limit > 0:
@@ -628,7 +795,8 @@ class GPTImageClassifier:
           batch_items, system_prompt, few_shot_messages)
         response = self.client.chat.completions.create(
             model=self.model,
-            messages=messages
+            messages=messages,
+            temperature=self.temperature
         )
 
         # Extract response content and token usage
@@ -842,8 +1010,9 @@ def load_images(test_items: List[str], dataset_dir: str, logger=None) -> List[Tu
 @click.option('--datasets', multiple=True, default=['ArtDL'], help='List of datasets to use')
 @click.option('--ignore_zero_cache', is_flag=True, help='Ignore cached results with all-zero arrays')
 @click.option('--verbose', is_flag=True, help='Enable verbose logging (DEBUG level)')
+@click.option('--temperature', default=0.0, help='Temperature for generation (default: 0.0, min: 0.0)')
 def main(folders: List[str], models: List[str], limit: int, batch_size: int, save_frequency: int,
-         datasets: List[str], ignore_zero_cache: bool, verbose: bool):
+         datasets: List[str], ignore_zero_cache: bool, verbose: bool, temperature: float):
   """
   Main function to run the GPT image classification.
 
@@ -910,6 +1079,7 @@ def main(folders: List[str], models: List[str], limit: int, batch_size: int, sav
         # Initialize classifier and process images
         classifier = GPTImageClassifier(
           model, api_key, dataset, folder, script_dir,
+          temperature=temperature,
           ignore_zero_cache=ignore_zero_cache, logger=logger)
 
         all_probs = classifier.classify_images(
