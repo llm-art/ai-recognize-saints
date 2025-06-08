@@ -60,3 +60,29 @@ Some artworks include scenes of martyrdom or classical nudity as typical in reli
 Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
 
 2025-06-08 01:20:37,014 - INFO - === END PROMPT ===
+2025-06-08 01:23:28,041 - INFO - Cache saved after 5 batches
+2025-06-08 01:26:50,419 - INFO - Cache saved after 10 batches
+2025-06-08 01:29:59,279 - INFO - Cache saved after 15 batches
+2025-06-08 01:32:51,386 - INFO - Cache saved after 20 batches
+2025-06-08 01:34:53,703 - INFO - Cache saved after 25 batches
+2025-06-08 01:38:21,583 - INFO - Cache saved after 30 batches
+2025-06-08 01:41:01,785 - INFO - Cache saved after 35 batches
+2025-06-08 01:44:10,717 - INFO - Cache saved after 40 batches
+2025-06-08 01:46:57,735 - INFO - Cache saved after 45 batches
+2025-06-08 01:50:03,045 - INFO - Cache saved after 50 batches
+2025-06-08 01:53:15,587 - INFO - Cache saved after 55 batches
+2025-06-08 01:56:03,185 - INFO - Cache saved after 60 batches
+2025-06-08 01:59:11,555 - INFO - Cache saved after 65 batches
+2025-06-08 02:01:15,064 - INFO - Cache saved after 70 batches
+2025-06-08 02:04:16,824 - INFO - Cache saved after 75 batches
+2025-06-08 02:08:01,351 - INFO - Cache saved after 80 batches
+2025-06-08 02:11:05,322 - INFO - Cache saved after 85 batches
+2025-06-08 02:14:10,671 - INFO - Cache saved after 90 batches
+2025-06-08 02:16:10,271 - INFO - Cache saved after 95 batches
+2025-06-08 02:18:54,021 - INFO - Cache saved after 100 batches
+2025-06-08 02:21:39,912 - INFO - Cache saved after 105 batches
+2025-06-08 02:24:23,057 - INFO - Cache saved after 110 batches
+2025-06-08 02:28:00,189 - INFO - Total input tokens used: 57114
+2025-06-08 02:28:00,190 - INFO - Total output tokens used: 9687
+2025-06-08 02:28:00,190 - INFO - Total cost of this call: $0.0594
+2025-06-08 02:28:00,190 - INFO - Probabilities shape: (570, 10)
