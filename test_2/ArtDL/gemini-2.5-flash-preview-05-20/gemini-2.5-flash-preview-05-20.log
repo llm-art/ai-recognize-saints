@@ -104,3 +104,39 @@ Treat all content as scholarly, respectful of historical context, and strictly n
 2025-06-08 09:03:11,471 - INFO - Cache saved after 210 batches
 2025-06-08 09:04:00,244 - INFO - Cache saved after 215 batches
 2025-06-08 09:04:49,957 - INFO - Cache saved after 220 batches
+2025-06-08 09:05:40,771 - INFO - Cache saved after 225 batches
+2025-06-08 09:06:43,958 - INFO - Cache saved after 230 batches
+2025-06-08 09:07:49,023 - INFO - Cache saved after 235 batches
+2025-06-08 09:08:55,951 - INFO - Cache saved after 240 batches
+2025-06-08 09:09:57,161 - INFO - Cache saved after 245 batches
+2025-06-08 09:10:59,652 - INFO - Cache saved after 250 batches
+2025-06-08 09:12:29,675 - INFO - Cache saved after 255 batches
+2025-06-08 09:13:32,838 - INFO - Cache saved after 260 batches
+2025-06-08 09:14:30,478 - INFO - Cache saved after 265 batches
+2025-06-08 09:15:44,632 - INFO - Cache saved after 270 batches
+2025-06-08 09:16:55,687 - INFO - Cache saved after 275 batches
+2025-06-08 09:17:48,959 - INFO - Cache saved after 280 batches
+2025-06-08 09:18:46,245 - INFO - Cache saved after 285 batches
+2025-06-08 09:19:59,819 - INFO - Cache saved after 290 batches
+2025-06-08 09:20:51,706 - INFO - Cache saved after 295 batches
+2025-06-08 09:21:31,915 - INFO - Cache saved after 300 batches
+2025-06-08 09:22:40,935 - INFO - Cache saved after 305 batches
+2025-06-08 09:23:38,221 - INFO - Cache saved after 310 batches
+2025-06-08 09:24:58,622 - INFO - Cache saved after 315 batches
+2025-06-08 09:25:52,670 - INFO - Cache saved after 320 batches
+2025-06-08 09:26:53,881 - INFO - Cache saved after 325 batches
+2025-06-08 09:27:54,821 - INFO - Cache saved after 330 batches
+2025-06-08 09:28:41,853 - INFO - Cache saved after 335 batches
+2025-06-08 09:29:30,293 - INFO - Cache saved after 340 batches
+2025-06-08 09:30:22,154 - INFO - Cache saved after 345 batches
+2025-06-08 09:31:25,392 - INFO - Cache saved after 350 batches
+2025-06-08 09:32:09,376 - INFO - Cache saved after 355 batches
+2025-06-08 09:32:51,573 - WARNING - Only got responses for 4/5 items from JSON in batch 358.
+2025-06-08 09:32:51,573 - WARNING - Mismatch between response texts (4) and batch items (5). Processing only valid items from batch 358.
+2025-06-08 09:33:12,370 - INFO - Cache saved after 360 batches
+2025-06-08 09:34:11,282 - INFO - Cache saved after 365 batches
+2025-06-08 09:34:59,620 - INFO - Cache saved after 370 batches
+2025-06-08 09:35:31,121 - INFO - Total input tokens used: 284226
+2025-06-08 09:35:31,121 - INFO - Total output tokens used: 34540
+2025-06-08 09:35:31,121 - INFO - Total cost of this call: $0.1340
+2025-06-08 09:35:31,122 - INFO - Probabilities shape: (1863, 10)
