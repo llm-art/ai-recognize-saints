@@ -1,195 +1,67 @@
-2025-03-19 13:24:15,252 - INFO - Logger initialized for ICONCLASS/test_1/gpt-4o
-2025-03-19 13:24:15,258 - INFO - Starting classification for dataset=ICONCLASS, test=test_1, model=gpt-4o
-2025-03-19 13:24:15,262 - INFO - Number of images: 592
-2025-03-19 13:24:15,263 - INFO - Processing dataset: ICONCLASS
-2025-03-19 13:24:15,270 - INFO - Processing images for test: test_1
-2025-03-19 13:24:15,376 - INFO - Using model: gpt-4o
-2025-03-19 13:24:40,548 - INFO - Cache saved after 5 batches
-2025-03-19 13:24:45,885 - WARNING - No valid results from batch. Skipping.
-2025-03-19 13:25:13,969 - INFO - Cache saved after 10 batches
-2025-03-19 13:26:00,872 - WARNING - No valid results from batch. Skipping.
-2025-03-19 13:26:08,045 - INFO - Cache saved after 15 batches
-2025-03-19 13:26:31,108 - INFO - Cache saved after 20 batches
-2025-03-19 13:26:49,965 - WARNING - No valid results from batch. Skipping.
-2025-03-19 13:26:54,798 - INFO - Cache saved after 25 batches
-2025-03-19 13:26:59,131 - WARNING - No valid results from batch. Skipping.
-2025-03-19 13:27:16,798 - INFO - Cache saved after 30 batches
-2025-03-19 13:27:39,371 - INFO - Cache saved after 35 batches
-2025-03-19 13:28:03,560 - INFO - Cache saved after 40 batches
-2025-03-19 13:28:28,968 - INFO - Cache saved after 45 batches
-2025-03-19 13:28:53,581 - INFO - Cache saved after 50 batches
-2025-03-19 13:29:04,661 - WARNING - Failed to parse JSON response. Attempting text parsing.
-2025-03-19 13:29:14,226 - WARNING - No valid results from batch. Skipping.
-2025-03-19 13:29:18,978 - WARNING - No valid results from batch. Skipping.
-2025-03-19 13:29:42,090 - INFO - Cache saved after 60 batches
-2025-03-19 13:29:49,177 - WARNING - Failed to parse JSON response. Attempting text parsing.
-2025-03-19 13:30:01,559 - WARNING - Failed to parse JSON response. Attempting text parsing.
-2025-03-19 13:30:13,254 - INFO - Cache saved after 65 batches
-2025-03-19 13:30:18,016 - WARNING - Failed to parse JSON response. Attempting text parsing.
-2025-03-19 13:30:37,749 - WARNING - No valid results from batch. Skipping.
-2025-03-19 13:31:02,274 - INFO - Cache saved after 75 batches
-2025-03-19 13:31:08,407 - WARNING - No valid results from batch. Skipping.
-2025-03-19 13:31:34,496 - INFO - Cache saved after 80 batches
-2025-03-19 13:31:39,394 - WARNING - Failed to parse JSON response. Attempting text parsing.
-2025-03-19 13:31:39,396 - WARNING - Mismatch between response texts (4) and batch items (5). Skipping batch.
-2025-03-19 13:31:39,396 - WARNING - Response: ['11H(PETER)', '11H(PETER)', '11H(PETER)', '11H(PETER)']
-2025-03-19 13:31:39,397 - WARNING - No valid results from batch. Skipping.
-2025-03-19 13:31:52,593 - WARNING - No valid results from batch. Skipping.
-2025-03-19 13:31:59,253 - INFO - Cache saved after 85 batches
-2025-03-19 13:32:23,075 - WARNING - Failed to parse JSON response. Attempting text parsing.
-2025-03-19 13:32:27,497 - INFO - Cache saved after 90 batches
-2025-03-19 13:32:31,644 - WARNING - Failed to parse JSON response. Attempting text parsing.
-2025-03-19 13:32:50,404 - WARNING - No valid results from batch. Skipping.
-2025-03-19 13:33:02,424 - WARNING - No valid results from batch. Skipping.
-2025-03-19 13:33:08,753 - WARNING - No valid results from batch. Skipping.
-2025-03-19 13:33:13,241 - WARNING - Failed to parse JSON response. Attempting text parsing.
-2025-03-19 13:33:13,265 - INFO - Cache saved after 100 batches
-2025-03-19 13:33:37,053 - INFO - Cache saved after 105 batches
-2025-03-19 13:33:51,515 - WARNING - No valid results from batch. Skipping.
-2025-03-19 13:34:02,475 - INFO - Cache saved after 110 batches
-2025-03-19 13:34:08,192 - WARNING - No valid results from batch. Skipping.
-2025-03-19 13:34:29,019 - INFO - Cache saved after 115 batches
-2025-03-19 13:34:47,430 - INFO - Total input tokens used: 206216
-2025-03-19 13:34:47,430 - INFO - Total output tokens used: 12048
-2025-03-19 13:34:47,431 - INFO - Total cost of this call: $0.6360
-2025-03-19 13:34:47,432 - INFO - Probabilities shape: (517, 11)
-2025-03-19 13:36:58,316 - INFO - Logger initialized for ICONCLASS/test_1/gpt-4o
-2025-03-19 13:36:58,322 - INFO - Starting classification for dataset=ICONCLASS, test=test_1, model=gpt-4o
-2025-03-19 13:36:58,327 - INFO - Number of images: 592
-2025-03-19 13:36:58,327 - INFO - Processing dataset: ICONCLASS
-2025-03-19 13:36:58,334 - INFO - Processing images for test: test_1
-2025-03-19 13:36:58,451 - INFO - Loaded 517 valid cached results (ignoring zero arrays)
-2025-03-19 13:36:58,451 - INFO - Using model: gpt-4o
-2025-03-19 13:37:24,153 - WARNING - No valid results from batch. Skipping.
-2025-03-19 13:37:30,109 - WARNING - No valid results from batch. Skipping.
-2025-03-19 13:37:37,310 - WARNING - No valid results from batch. Skipping.
-2025-03-19 13:37:49,456 - WARNING - No valid results from batch. Skipping.
-2025-03-19 13:37:54,745 - WARNING - No valid results from batch. Skipping.
-2025-03-19 13:38:21,904 - WARNING - No valid results from batch. Skipping.
-2025-03-19 13:38:21,937 - INFO - Total input tokens used: 26100
-2025-03-19 13:38:21,938 - INFO - Total output tokens used: 1606
-2025-03-19 13:38:21,938 - INFO - Total cost of this call: $0.0813
-2025-03-19 13:38:21,940 - INFO - Probabilities shape: (562, 11)
-2025-03-19 13:39:12,969 - INFO - Logger initialized for ICONCLASS/test_1/gpt-4o
-2025-03-19 13:39:12,975 - INFO - Starting classification for dataset=ICONCLASS, test=test_1, model=gpt-4o
-2025-03-19 13:39:12,981 - INFO - Number of images: 592
-2025-03-19 13:39:12,981 - INFO - Processing dataset: ICONCLASS
-2025-03-19 13:39:12,989 - INFO - Processing images for test: test_1
-2025-03-19 13:39:13,106 - INFO - Loaded 562 valid cached results (ignoring zero arrays)
-2025-03-19 13:39:13,106 - INFO - Using model: gpt-4o
-2025-03-19 13:39:18,281 - WARNING - No valid results from batch. Skipping.
-2025-03-19 13:39:40,819 - WARNING - No valid results from batch. Skipping.
-2025-03-19 13:39:45,298 - WARNING - No valid results from batch. Skipping.
-2025-03-19 13:39:45,329 - INFO - Total input tokens used: 10452
-2025-03-19 13:39:45,329 - INFO - Total output tokens used: 671
-2025-03-19 13:39:45,330 - INFO - Total cost of this call: $0.0328
-2025-03-19 13:39:45,332 - INFO - Probabilities shape: (577, 11)
-2025-03-19 13:40:09,625 - INFO - Logger initialized for ICONCLASS/test_1/gpt-4o
-2025-03-19 13:40:09,632 - INFO - Starting classification for dataset=ICONCLASS, test=test_1, model=gpt-4o
-2025-03-19 13:40:09,636 - INFO - Number of images: 592
-2025-03-19 13:40:09,636 - INFO - Processing dataset: ICONCLASS
-2025-03-19 13:40:09,644 - INFO - Processing images for test: test_1
-2025-03-19 13:40:09,762 - INFO - Loaded 577 valid cached results (ignoring zero arrays)
-2025-03-19 13:40:09,762 - INFO - Using model: gpt-4o
-2025-03-19 13:40:18,864 - WARNING - No valid results from batch. Skipping.
-2025-03-19 13:40:23,678 - WARNING - No valid results from batch. Skipping.
-2025-03-19 13:40:23,709 - INFO - Total input tokens used: 5223
-2025-03-19 13:40:23,710 - INFO - Total output tokens used: 345
-2025-03-19 13:40:23,710 - INFO - Total cost of this call: $0.0165
-2025-03-19 13:40:23,712 - INFO - Probabilities shape: (582, 11)
-2025-03-19 13:40:31,620 - INFO - Logger initialized for ICONCLASS/test_1/gpt-4o
-2025-03-19 13:40:31,626 - INFO - Starting classification for dataset=ICONCLASS, test=test_1, model=gpt-4o
-2025-03-19 13:40:31,631 - INFO - Number of images: 592
-2025-03-19 13:40:31,631 - INFO - Processing dataset: ICONCLASS
-2025-03-19 13:40:31,638 - INFO - Processing images for test: test_1
-2025-03-19 13:40:31,760 - INFO - Loaded 582 valid cached results (ignoring zero arrays)
-2025-03-19 13:40:31,760 - INFO - Using model: gpt-4o
-2025-03-19 13:40:39,287 - WARNING - Failed to parse JSON response. Attempting text parsing.
-2025-03-19 13:40:39,288 - WARNING - Mismatch between response texts (0) and batch items (1). Skipping batch.
-2025-03-19 13:40:39,289 - WARNING - Response: []
-2025-03-19 13:40:39,289 - WARNING - No valid results from batch. Skipping.
-2025-03-19 13:40:40,616 - WARNING - No valid results from batch. Skipping.
-2025-03-19 13:40:41,802 - WARNING - Failed to parse JSON response. Attempting text parsing.
-2025-03-19 13:40:41,803 - WARNING - Mismatch between response texts (0) and batch items (1). Skipping batch.
-2025-03-19 13:40:41,804 - WARNING - Response: []
-2025-03-19 13:40:41,805 - WARNING - No valid results from batch. Skipping.
-2025-03-19 13:40:42,938 - WARNING - Failed to parse JSON response. Attempting text parsing.
-2025-03-19 13:40:42,939 - WARNING - Mismatch between response texts (0) and batch items (1). Skipping batch.
-2025-03-19 13:40:42,939 - WARNING - Response: []
-2025-03-19 13:40:42,940 - WARNING - No valid results from batch. Skipping.
-2025-03-19 13:40:49,552 - WARNING - Failed to parse JSON response. Attempting text parsing.
-2025-03-19 13:40:49,553 - WARNING - Mismatch between response texts (0) and batch items (1). Skipping batch.
-2025-03-19 13:40:49,553 - WARNING - Response: []
-2025-03-19 13:40:49,554 - WARNING - No valid results from batch. Skipping.
-2025-03-19 13:40:52,304 - WARNING - Failed to parse JSON response. Attempting text parsing.
-2025-03-19 13:40:52,305 - WARNING - Mismatch between response texts (0) and batch items (1). Skipping batch.
-2025-03-19 13:40:52,305 - WARNING - Response: []
-2025-03-19 13:40:52,306 - WARNING - No valid results from batch. Skipping.
-2025-03-19 13:40:52,336 - INFO - Total input tokens used: 6657
-2025-03-19 13:40:52,337 - INFO - Total output tokens used: 175
-2025-03-19 13:40:52,337 - INFO - Total cost of this call: $0.0184
-2025-03-19 13:40:52,339 - INFO - Probabilities shape: (586, 11)
-2025-03-19 13:40:59,068 - INFO - Logger initialized for ICONCLASS/test_1/gpt-4o
-2025-03-19 13:40:59,075 - INFO - Starting classification for dataset=ICONCLASS, test=test_1, model=gpt-4o
-2025-03-19 13:40:59,079 - INFO - Number of images: 592
-2025-03-19 13:40:59,079 - INFO - Processing dataset: ICONCLASS
-2025-03-19 13:40:59,087 - INFO - Processing images for test: test_1
-2025-03-19 13:40:59,206 - INFO - Loaded 586 valid cached results (ignoring zero arrays)
-2025-03-19 13:40:59,207 - INFO - Using model: gpt-4o
-2025-03-19 13:41:00,919 - WARNING - Failed to parse JSON response. Attempting text parsing.
-2025-03-19 13:41:00,920 - WARNING - Mismatch between response texts (0) and batch items (1). Skipping batch.
-2025-03-19 13:41:00,921 - WARNING - Response: []
-2025-03-19 13:41:00,921 - WARNING - No valid results from batch. Skipping.
-2025-03-19 13:41:05,339 - WARNING - Failed to parse JSON response. Attempting text parsing.
-2025-03-19 13:41:05,341 - WARNING - Mismatch between response texts (0) and batch items (1). Skipping batch.
-2025-03-19 13:41:05,343 - WARNING - Response: []
-2025-03-19 13:41:05,344 - WARNING - No valid results from batch. Skipping.
-2025-03-19 13:41:06,411 - WARNING - Failed to parse JSON response. Attempting text parsing.
-2025-03-19 13:41:06,413 - WARNING - Mismatch between response texts (0) and batch items (1). Skipping batch.
-2025-03-19 13:41:06,415 - WARNING - Response: []
-2025-03-19 13:41:06,415 - WARNING - No valid results from batch. Skipping.
-2025-03-19 13:41:07,983 - WARNING - Failed to parse JSON response. Attempting text parsing.
-2025-03-19 13:41:07,985 - WARNING - Mismatch between response texts (0) and batch items (1). Skipping batch.
-2025-03-19 13:41:07,986 - WARNING - Response: []
-2025-03-19 13:41:07,986 - WARNING - No valid results from batch. Skipping.
-2025-03-19 13:41:09,007 - WARNING - Failed to parse JSON response. Attempting text parsing.
-2025-03-19 13:41:09,010 - WARNING - Mismatch between response texts (0) and batch items (1). Skipping batch.
-2025-03-19 13:41:09,012 - WARNING - Response: []
-2025-03-19 13:41:09,013 - WARNING - No valid results from batch. Skipping.
-2025-03-19 13:41:09,045 - INFO - Total input tokens used: 3995
-2025-03-19 13:41:09,045 - INFO - Total output tokens used: 88
-2025-03-19 13:41:09,045 - INFO - Total cost of this call: $0.0109
-2025-03-19 13:41:09,048 - INFO - Probabilities shape: (587, 11)
-2025-05-23 16:21:42,963 - INFO - Logger initialized for ICONCLASS/test_1/gpt-4o
-2025-05-23 16:21:42,966 - INFO - Starting classification for dataset=ICONCLASS, test=test_1, model=gpt-4o
-2025-05-23 16:21:43,195 - INFO - Number of images: 592
-2025-05-23 16:21:43,196 - INFO - Processing dataset: ICONCLASS
-2025-05-23 16:21:43,200 - INFO - Processing images for test: test_1
-2025-05-23 16:21:43,276 - INFO - Using model: gpt-4o
-2025-05-23 16:22:15,954 - INFO - Cache saved after 5 batches
-2025-05-23 16:23:17,894 - INFO - Cache saved after 10 batches
-2025-05-23 16:23:47,268 - INFO - Cache saved after 15 batches
-2025-05-23 16:24:23,506 - INFO - Cache saved after 20 batches
-2025-05-23 16:24:55,913 - INFO - Cache saved after 25 batches
-2025-05-23 16:25:27,199 - INFO - Cache saved after 30 batches
-2025-05-23 16:25:56,183 - INFO - Cache saved after 35 batches
-2025-05-23 16:26:20,939 - INFO - Cache saved after 40 batches
-2025-05-23 16:26:47,659 - INFO - Cache saved after 45 batches
-2025-05-23 16:27:14,461 - INFO - Cache saved after 50 batches
-2025-05-23 16:27:40,112 - INFO - Cache saved after 55 batches
-2025-05-23 16:28:02,585 - INFO - Cache saved after 60 batches
-2025-05-23 16:28:30,467 - INFO - Cache saved after 65 batches
-2025-05-23 16:28:59,024 - INFO - Cache saved after 70 batches
-2025-05-23 16:29:25,133 - INFO - Cache saved after 75 batches
-2025-05-23 16:30:00,782 - INFO - Cache saved after 80 batches
-2025-05-23 16:30:38,201 - INFO - Cache saved after 85 batches
-2025-05-23 16:31:05,515 - INFO - Cache saved after 90 batches
-2025-05-23 16:31:36,163 - INFO - Cache saved after 95 batches
-2025-05-23 16:31:59,872 - INFO - Cache saved after 100 batches
-2025-05-23 16:32:23,664 - INFO - Cache saved after 105 batches
-2025-05-23 16:32:54,380 - INFO - Cache saved after 110 batches
-2025-05-23 16:33:21,396 - INFO - Cache saved after 115 batches
-2025-05-23 16:33:42,818 - INFO - Total input tokens used: 210619
-2025-05-23 16:33:42,818 - INFO - Total output tokens used: 12014
-2025-05-23 16:33:42,818 - INFO - Total cost of this call: $0.6467
-2025-05-23 16:33:42,819 - INFO - Probabilities shape: (592, 11)
+2025-06-08 08:23:09,934 - INFO - Logger initialized for ICONCLASS/test_1/gpt-4o
+2025-06-08 08:23:09,935 - INFO - Cleaned previous cache and logs for dataset=ICONCLASS, test=test_1, model=gpt-4o
+2025-06-08 08:23:09,935 - INFO - Starting classification for dataset=ICONCLASS, test=test_1, model=gpt-4o
+2025-06-08 08:23:43,134 - INFO - Number of images: 570
+2025-06-08 08:23:43,135 - INFO - Processing dataset: ICONCLASS
+2025-06-08 08:23:43,138 - INFO - Processing images for test: test_1
+2025-06-08 08:23:43,138 - INFO - Using model: gpt-4o
+2025-06-08 08:23:43,138 - INFO - === GENERATED PROMPT ===
+2025-06-08 08:23:43,138 - INFO - Dataset: ICONCLASS, Test: test_1
+2025-06-08 08:23:43,138 - INFO - Hyperparameters: temperature=0.0, top_k=32
+2025-06-08 08:23:43,138 - INFO - Prompt content:
+2025-06-08 08:23:43,138 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"paul" - St. Paul
+"jerome" - St. Jerome
+"mary_magdalene" - Mary Magdalene
+"john" - St. John the Evangelist
+"peter" - St. Peter
+"catherine" - St. Catherine
+"antony_abbot" - St. Anthony Abbot
+"matthew" - St. Matthew
+"francis" - St. Francis of Assisi
+"mark" - St. Mark
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2025-06-08 08:23:43,138 - INFO - === END PROMPT ===
+2025-06-08 08:23:43,138 - INFO - Limiting to 10 images
+2025-06-08 08:23:43,494 - ERROR - Error processing batch: 404 models/gpt-4o is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-06-08 08:23:43,495 - WARNING - No valid response for batch 1. Skipping.
+2025-06-08 08:23:43,621 - ERROR - Error processing batch: 404 models/gpt-4o is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-06-08 08:23:43,621 - WARNING - No valid response for batch 2. Skipping.
