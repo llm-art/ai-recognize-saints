@@ -78,7 +78,7 @@ class ModelConfig:
 class CacheManager:
   """Manages caching of API responses to avoid redundant calls."""
 
-  def __init__(self, base_dir: str, dataset: str, test: str, model: str, ignore_zero_cache: bool = False, logger=None):
+  def __init__(self, base_dir: str, dataset: str, test: str, model: str, logger=None):
     """
     Initialize the cache manager.
 
@@ -87,19 +87,14 @@ class CacheManager:
         dataset: Dataset name (e.g., 'ArtDL')
         test: Test identifier (e.g., 'test_1')
         model: Model name (e.g., 'gpt-4o')
-        ignore_zero_cache: Whether to ignore zero arrays in cache
         logger: Logger instance
     """
-    self.cache_dir = os.path.join(base_dir, 'gpt_data', 'cache')
+    # Use the same directory structure as probability files: {test}/{dataset}/{model}
+    self.cache_dir = os.path.join(base_dir, os.pardir, test, dataset, model)
     os.makedirs(self.cache_dir, exist_ok=True)
 
-    # Create directories for the dataset and test
-    os.makedirs(os.path.join(self.cache_dir, dataset), exist_ok=True)
-    os.makedirs(os.path.join(self.cache_dir, dataset, test), exist_ok=True)
-
-    # For backward compatibility, use the old cache file format
-    self.cache_file = os.path.join(os.path.join(
-      self.cache_dir, dataset, test), f'{model}.json')
+    # Store cache file in the same directory as probability files
+    self.cache_file = os.path.join(self.cache_dir, 'cache.json')
 
     self.metadata = {
         "model": model,
@@ -109,7 +104,6 @@ class CacheManager:
         "version": "1.0"
     }
 
-    self.ignore_zero_cache = ignore_zero_cache
     self.logger = logger or logging.getLogger("default")
     self.cache = self._load_cache()
 
@@ -124,19 +118,10 @@ class CacheManager:
       with open(self.cache_file, 'r') as file:
         try:
           cache = json.load(file)
-
-          # Only filter out zero arrays if ignore_zero_cache is enabled
-          if self.ignore_zero_cache:
-            valid_cache = {k: v for k, v in cache.items()
-                           if isinstance(v, list) and len(v) > 0 and not all(x == 0 for x in v)}
-            self.logger.info(
-              f"Loaded {len(valid_cache)} valid cached results (ignoring zero arrays)")
-            return valid_cache
-          else:
-            valid_cache = {k: v for k, v in cache.items()
-                           if isinstance(v, list) and len(v) > 0}
-            self.logger.info(f"Loaded {len(valid_cache)} cached results")
-            return valid_cache
+          valid_cache = {k: v for k, v in cache.items()
+                         if isinstance(v, list) and len(v) > 0}
+          self.logger.info(f"Loaded {len(valid_cache)} cached results")
+          return valid_cache
         except json.JSONDecodeError:
           self.logger.warning(
             f"Cache file {self.cache_file} is corrupted. Creating new cache.")
@@ -153,13 +138,7 @@ class CacheManager:
     Returns:
         List of probabilities or None if not in cache
     """
-    result = self.cache.get(image_id)
-
-    # If ignore_zero_cache is True, treat all-zero arrays as cache misses
-    if self.ignore_zero_cache and result is not None and all(x == 0 for x in result):
-      return None
-
-    return result
+    return self.cache.get(image_id)
 
   def add_result(self, image_id: str, probabilities: List[float]) -> None:
     """
@@ -250,8 +229,7 @@ class GPTImageClassifier:
   """Classifies images using OpenAI's GPT models with vision capabilities."""
 
   def __init__(self, model: str, api_key: str, dataset: str, test: str, base_dir: str, 
-               temperature: float = 0.0,
-               ignore_zero_cache: bool = False, logger=None):
+               temperature: float = 0.0, top_p: float = 0.1, logger=None):
     """
     Initialize the classifier.
 
@@ -262,7 +240,7 @@ class GPTImageClassifier:
         test: Test identifier
         base_dir: Base directory for the project
         temperature: Temperature for generation
-        ignore_zero_cache: Whether to ignore zero arrays in cache
+        top_p: Top-p (nucleus sampling) for generation
         logger: Logger instance
     """
     self.model = model
@@ -273,13 +251,14 @@ class GPTImageClassifier:
     
     # Store hyperparameters
     self.temperature = temperature
+    self.top_p = top_p
 
     # Set up logger
     self.logger = logger or logging.getLogger("default")
 
     # Initialize cache manager
     self.cache_manager = CacheManager(
-      base_dir, dataset, test, model, ignore_zero_cache=ignore_zero_cache, logger=self.logger)
+      base_dir, dataset, test, model, logger=self.logger)
 
     # Initialize prompt folder
     self.prompt_folder = os.path.join(base_dir, os.pardir, 'prompts')
@@ -335,7 +314,7 @@ class GPTImageClassifier:
     # Log the generated prompt
     self.logger.info("=== GENERATED PROMPT ===")
     self.logger.info(f"Dataset: {dataset}, Test: {test}")
-    self.logger.info(f"Hyperparameters: temperature={self.temperature}")
+    self.logger.info(f"Hyperparameters: temperature={self.temperature}, top_p={self.top_p}")
     self.logger.info("Prompt content:")
     self.logger.info(complete_prompt)
     self.logger.info("=== END PROMPT ===")
@@ -681,38 +660,44 @@ class GPTImageClassifier:
           predicted_class = str(response_item)
           confidence_score = 1.0
         
+        # Store original confidence for logging
+        original_confidence = confidence_score
+        
         # Find the index of the predicted class in the classes list
         # First try direct class ID match
         if predicted_class in class_id_to_idx:
           cls_idx = class_id_to_idx[predicted_class]
-          probabilities[cls_idx] = confidence_score
+          # Convert to binary: 1 for predicted class, 0 for others
+          probabilities[cls_idx] = 1.0
           append_prob = True
           
           # Log the mapping for debugging
           self.logger.debug(
-            f"Item {item}: Predicted class {predicted_class} -> Index {cls_idx}, Confidence: {confidence_score}")
+            f"Item {item}: Predicted class {predicted_class} -> Index {cls_idx}, Original confidence: {original_confidence}")
         else:
           # Try to find class by human-readable alias
           actual_class_id = self.class_adapter.get_class_id(predicted_class)
           if actual_class_id in class_id_to_idx:
             cls_idx = class_id_to_idx[actual_class_id]
-            probabilities[cls_idx] = confidence_score
+            # Convert to binary: 1 for predicted class, 0 for others
+            probabilities[cls_idx] = 1.0
             append_prob = True
             
             # Log the alias mapping for debugging
             self.logger.debug(
-              f"Item {item}: Alias {predicted_class} -> Class {actual_class_id} (Index {cls_idx}), Confidence: {confidence_score}")
+              f"Item {item}: Alias {predicted_class} -> Class {actual_class_id} (Index {cls_idx}), Original confidence: {original_confidence}")
           else:
             # Try to find a similar class
             similar_class = self._find_similar_class(predicted_class, classes)
             if similar_class and similar_class in class_id_to_idx:
               cls_idx = class_id_to_idx[similar_class]
-              probabilities[cls_idx] = confidence_score
+              # Convert to binary: 1 for predicted class, 0 for others
+              probabilities[cls_idx] = 1.0
               append_prob = True
               
               # Log the reconciliation for debugging
               self.logger.debug(
-                f"Item {item}: Reconciled class {predicted_class} -> {similar_class} (Index {cls_idx}), Confidence: {confidence_score}")
+                f"Item {item}: Reconciled class {predicted_class} -> {similar_class} (Index {cls_idx}), Original confidence: {original_confidence}")
             else:
               self.logger.warning(f"Unknown class ID or alias: {predicted_class}")
               unprocessed_items.append(item)
@@ -796,7 +781,8 @@ class GPTImageClassifier:
         response = self.client.chat.completions.create(
             model=self.model,
             messages=messages,
-            temperature=self.temperature
+            temperature=self.temperature,
+            top_p=self.top_p
         )
 
         # Extract response content and token usage
@@ -804,11 +790,11 @@ class GPTImageClassifier:
         self.total_input_tokens += response.usage.prompt_tokens
         self.total_output_tokens += response.usage.completion_tokens
 
-        # Save the raw response to a file for debugging
-        batches_dir = os.path.join(self.base_dir, 'gpt_data', 'batches')
+        # Save the raw response to a file for debugging in batches/ subfolder
+        batches_dir = os.path.join(
+          self.base_dir, os.pardir, self.test, self.dataset, self.model, 'batches')
         os.makedirs(batches_dir, exist_ok=True)
-        batch_file = os.path.join(
-          batches_dir, f'{self.dataset}_{self.test}_{batch_count}.txt')
+        batch_file = os.path.join(batches_dir, f'{batch_count}.txt')
         with open(batch_file, 'w') as f:
           f.write(f"Model: {self.model}\n")
           f.write(f"Batch items: {[item for item, _ in batch_items]}\n")
@@ -821,21 +807,20 @@ class GPTImageClassifier:
         # Add unprocessed items to the global list
         all_unprocessed_items.extend(unprocessed_items)
         
-        # Create the unprocessed file directory if it doesn't exist
-        unprocessed_file = os.path.join(self.base_dir, 'gpt_data', 'unprocessed.txt')
-        os.makedirs(os.path.dirname(unprocessed_file), exist_ok=True)
-        
-        # Create the unprocessed file with header if it doesn't exist
-        if batch_count == 1 and not os.path.exists(unprocessed_file):
-          with open(unprocessed_file, 'w') as f:
-            f.write(f"# Unprocessed items file\n")
-            f.write(f"# First created at {datetime.now().isoformat()}\n\n")
-          self.logger.info(f"Created new unprocessed items file: {unprocessed_file}")
-        
         # Write unprocessed items to file immediately if there are any
         if unprocessed_items:
-          unprocessed_file = os.path.join(self.base_dir, 'gpt_data', 'unprocessed.txt')
+          # Store unprocessed file in the same directory as cache and batches
+          unprocessed_file = os.path.join(
+            self.base_dir, os.pardir, self.test, self.dataset, self.model, 'unprocessed.txt')
           os.makedirs(os.path.dirname(unprocessed_file), exist_ok=True)
+          
+          # Create the unprocessed file with header if it doesn't exist
+          if not os.path.exists(unprocessed_file):
+            with open(unprocessed_file, 'w') as f:
+              f.write(f"# Unprocessed items file\n")
+              f.write(f"# First created at {datetime.now().isoformat()}\n\n")
+            self.logger.info(f"Created new unprocessed items file: {unprocessed_file}")
+          
           with open(unprocessed_file, 'a') as f:
             for item in unprocessed_items:
               f.write(f"{item}\n")
@@ -1002,17 +987,18 @@ def load_images(test_items: List[str], dataset_dir: str, logger=None) -> List[Tu
 
 
 @click.command()
-@click.option('--folders', multiple=True, default=['test_1', 'test_2'], help='List of folders to use')
+@click.option('--folders', multiple=True, help='List of folders to use')
 @click.option('--models', multiple=True, help='List of model names to use')
 @click.option('--limit', default=-1, help='Limit the number of images to process')
-@click.option('--batch_size', default=10, help='Number of images per batch')
+@click.option('--batch_size', default=5, help='Number of images per batch')
 @click.option('--save_frequency', default=5, help='How often to save cache (in batches)')
-@click.option('--datasets', multiple=True, default=['ArtDL'], help='List of datasets to use')
-@click.option('--ignore_zero_cache', is_flag=True, help='Ignore cached results with all-zero arrays')
+@click.option('--datasets', multiple=True, help='List of datasets to use')
 @click.option('--verbose', is_flag=True, help='Enable verbose logging (DEBUG level)')
-@click.option('--temperature', default=0.0, help='Temperature for generation (default: 0.0, min: 0.0)')
+@click.option('--temperature', default=0.00000001, help='Temperature for generation (default: 0.0, min: 0.0)')
+@click.option('--top_p', default=0.1, help='Top-p (nucleus sampling) for generation (default: 0.1)')
+@click.option('--clean', is_flag=True, help='Remove cache and logs from previous runs before starting')
 def main(folders: List[str], models: List[str], limit: int, batch_size: int, save_frequency: int,
-         datasets: List[str], ignore_zero_cache: bool, verbose: bool, temperature: float):
+         datasets: List[str], verbose: bool, temperature: float, top_p: float, clean: bool):
   """
   Main function to run the GPT image classification.
 
@@ -1023,8 +1009,8 @@ def main(folders: List[str], models: List[str], limit: int, batch_size: int, sav
       batch_size: Number of images per batch
       save_frequency: How often to save cache (in batches)
       datasets: List of datasets to use
-      ignore_zero_cache: Whether to ignore zero arrays in cache
       verbose: Whether to enable verbose logging
+      clean: Whether to remove cache and logs from previous runs
   """
   # Load OpenAI API key from config file
   script_dir = os.path.dirname(__file__)
@@ -1076,11 +1062,44 @@ def main(folders: List[str], models: List[str], limit: int, batch_size: int, sav
 
         logger.info(f"Processing images for test: {folder}")
 
+        # Clean previous runs if requested
+        if clean:
+          import shutil
+          # Remove cache and logs from the model directory
+          model_dir = os.path.join(base_dir, folder, dataset, model)
+          if os.path.exists(model_dir):
+            # List of files/directories to remove
+            items_to_remove = []
+            
+            # Cache file
+            cache_file = os.path.join(model_dir, 'cache.json')
+            if os.path.exists(cache_file):
+              items_to_remove.append(cache_file)
+            
+            # Batches directory
+            batches_dir = os.path.join(model_dir, 'batches')
+            if os.path.exists(batches_dir):
+              items_to_remove.append(batches_dir)
+            
+            # Remove the items
+            for item in items_to_remove:
+              try:
+                if os.path.isfile(item):
+                  os.remove(item)
+                  print(f"Removed file: {item}")
+                elif os.path.isdir(item):
+                  shutil.rmtree(item)
+                  print(f"Removed directory: {item}")
+              except Exception as e:
+                print(f"Warning: Could not remove {item}: {e}")
+
+        if clean:
+          logger.info(f"Cleaned previous cache and logs for dataset={dataset}, test={folder}, model={model}")
+
         # Initialize classifier and process images
         classifier = GPTImageClassifier(
           model, api_key, dataset, folder, script_dir,
-          temperature=temperature,
-          ignore_zero_cache=ignore_zero_cache, logger=logger)
+          temperature=temperature, top_p=top_p, logger=logger)
 
         all_probs = classifier.classify_images(
             images, classes, limit, batch_size, save_frequency

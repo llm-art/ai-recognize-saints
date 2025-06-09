@@ -170,3 +170,144 @@
 2025-05-23 16:47:00,068 - INFO - Total output tokens used: 0
 2025-05-23 16:47:00,068 - INFO - Total cost of this call: $0.0000
 2025-05-23 16:47:00,070 - INFO - Probabilities shape: (1848, 10)
+2025-06-09 11:11:13,043 - INFO - Logger initialized for ArtDL/test_1/gemini-2.5-pro-preview-05-06
+2025-06-09 11:11:13,043 - INFO - Starting classification for dataset=ArtDL, test=test_1, model=gemini-2.5-pro-preview-05-06
+2025-06-09 11:11:13,309 - INFO - Number of images: 1864
+2025-06-09 11:11:13,309 - INFO - Processing dataset: ArtDL
+2025-06-09 11:11:13,312 - INFO - Processing images for test: test_1
+2025-06-09 11:11:13,312 - INFO - Using model: gemini-2.5-pro-preview-05-06
+2025-06-09 11:11:13,312 - INFO - === GENERATED PROMPT ===
+2025-06-09 11:11:13,312 - INFO - Dataset: ArtDL, Test: test_1
+2025-06-09 11:11:13,312 - INFO - Hyperparameters: temperature=0.0, top_k=32
+2025-06-09 11:11:13,312 - INFO - Prompt content:
+2025-06-09 11:11:13,312 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"antony_of_padua" - Antony of Padua
+"john_baptist" - John the Baptist
+"paul" - Paul
+"francis" - Francis of Assisi
+"mary_magdalene" - Mary Magdalene
+"jerome" - Jerome
+"dominic" - Saint Dominic
+"mary" - Virgin Mary
+"peter" - Peter
+"sebastian" - Saint Sebastian
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2025-06-09 11:11:13,313 - INFO - === END PROMPT ===
+2025-06-09 11:12:29,088 - INFO - Cache saved after 5 batches
+2025-06-09 11:14:04,538 - INFO - Cache saved after 10 batches
+2025-06-09 11:16:15,288 - INFO - Cache saved after 15 batches
+2025-06-09 11:17:46,836 - INFO - Cache saved after 20 batches
+2025-06-09 11:19:27,383 - INFO - Cache saved after 25 batches
+2025-06-09 11:21:30,500 - INFO - Cache saved after 30 batches
+2025-06-09 11:23:43,871 - INFO - Cache saved after 35 batches
+2025-06-09 11:27:12,988 - INFO - Cache saved after 40 batches
+2025-06-09 11:28:34,080 - INFO - Cache saved after 45 batches
+2025-06-09 11:30:42,079 - INFO - Cache saved after 50 batches
+2025-06-09 11:31:50,022 - INFO - Cache saved after 55 batches
+2025-06-09 11:35:04,892 - INFO - Cache saved after 60 batches
+2025-06-09 11:37:33,169 - INFO - Cache saved after 65 batches
+2025-06-09 11:39:53,238 - INFO - Cache saved after 70 batches
+2025-06-09 11:41:36,693 - INFO - Cache saved after 75 batches
+2025-06-09 11:44:07,519 - INFO - Cache saved after 80 batches
+2025-06-09 11:47:21,045 - INFO - Cache saved after 85 batches
+2025-06-09 11:50:36,263 - INFO - Cache saved after 90 batches
+2025-06-09 11:52:01,179 - INFO - Cache saved after 95 batches
+2025-06-09 11:54:10,123 - INFO - Cache saved after 100 batches
+2025-06-09 11:57:03,631 - INFO - Cache saved after 105 batches
+2025-06-09 11:59:19,091 - INFO - Cache saved after 110 batches
+2025-06-09 12:00:37,287 - INFO - Cache saved after 115 batches
+2025-06-09 12:01:58,209 - INFO - Cache saved after 120 batches
+2025-06-09 12:03:12,266 - INFO - Cache saved after 125 batches
+2025-06-09 12:06:06,043 - INFO - Cache saved after 130 batches
+2025-06-09 12:08:22,356 - INFO - Cache saved after 135 batches
+2025-06-09 12:10:29,041 - INFO - Cache saved after 140 batches
+2025-06-09 12:12:51,633 - INFO - Cache saved after 145 batches
+2025-06-09 12:16:02,181 - INFO - Cache saved after 150 batches
+2025-06-09 12:17:28,726 - INFO - Cache saved after 155 batches
+2025-06-09 12:19:10,853 - INFO - Cache saved after 160 batches
+2025-06-09 12:21:02,060 - INFO - Cache saved after 165 batches
+2025-06-09 12:22:25,804 - INFO - Cache saved after 170 batches
+2025-06-09 12:25:06,060 - INFO - Cache saved after 175 batches
+2025-06-09 12:28:04,926 - INFO - Cache saved after 180 batches
+2025-06-09 12:31:43,274 - INFO - Cache saved after 185 batches
+2025-06-09 12:34:27,554 - INFO - Cache saved after 190 batches
+2025-06-09 12:36:57,996 - INFO - Cache saved after 195 batches
+2025-06-09 12:39:14,025 - INFO - Cache saved after 200 batches
+2025-06-09 12:41:34,410 - INFO - Cache saved after 205 batches
+2025-06-09 12:44:53,430 - INFO - Cache saved after 210 batches
+2025-06-09 12:46:32,518 - INFO - Cache saved after 215 batches
+2025-06-09 12:47:47,447 - INFO - Cache saved after 220 batches
+2025-06-09 12:49:53,758 - INFO - Cache saved after 225 batches
+2025-06-09 12:52:15,437 - INFO - Cache saved after 230 batches
+2025-06-09 12:55:48,688 - INFO - Cache saved after 235 batches
+2025-06-09 12:57:49,001 - INFO - Cache saved after 240 batches
+2025-06-09 12:59:39,225 - INFO - Cache saved after 245 batches
+2025-06-09 13:02:01,156 - INFO - Cache saved after 250 batches
+2025-06-09 13:03:55,743 - INFO - Cache saved after 255 batches
+2025-06-09 13:05:46,155 - INFO - Cache saved after 260 batches
+2025-06-09 13:07:31,037 - INFO - Cache saved after 265 batches
+2025-06-09 13:11:08,023 - INFO - Cache saved after 270 batches
+2025-06-09 13:14:34,635 - INFO - Cache saved after 275 batches
+2025-06-09 13:16:41,397 - INFO - Cache saved after 280 batches
+2025-06-09 13:18:31,488 - INFO - Cache saved after 285 batches
+2025-06-09 13:21:46,224 - INFO - Cache saved after 290 batches
+2025-06-09 13:23:14,373 - INFO - Cache saved after 295 batches
+2025-06-09 13:25:14,321 - INFO - Cache saved after 300 batches
+2025-06-09 13:28:19,459 - INFO - Cache saved after 305 batches
+2025-06-09 13:30:02,248 - INFO - Cache saved after 310 batches
+2025-06-09 13:30:19,223 - WARNING - Only got responses for 4/5 items from JSON in batch 311.
+2025-06-09 13:30:19,223 - WARNING - Mismatch between response texts (4) and batch items (5). Processing only valid items from batch 311.
+2025-06-09 13:31:59,394 - INFO - Cache saved after 315 batches
+2025-06-09 13:33:52,537 - INFO - Cache saved after 320 batches
+2025-06-09 13:35:36,190 - INFO - Cache saved after 325 batches
+2025-06-09 13:38:33,114 - INFO - Cache saved after 330 batches
+2025-06-09 13:40:00,936 - INFO - Cache saved after 335 batches
+2025-06-09 13:41:27,504 - INFO - Cache saved after 340 batches
+2025-06-09 13:43:34,775 - INFO - Cache saved after 345 batches
+2025-06-09 13:44:45,274 - INFO - Cache saved after 350 batches
+2025-06-09 13:45:46,632 - INFO - Cache saved after 355 batches
+2025-06-09 13:47:52,776 - INFO - Cache saved after 360 batches
+2025-06-09 13:48:58,941 - INFO - Cache saved after 365 batches
+2025-06-09 13:51:03,300 - INFO - Cache saved after 370 batches
+2025-06-09 13:51:47,154 - INFO - Total input tokens used: 186127
+2025-06-09 13:51:47,154 - INFO - Total output tokens used: 31834
+2025-06-09 13:51:47,154 - INFO - Total cost of this call: $0.1940
+2025-06-09 13:51:47,156 - INFO - Probabilities shape: (1863, 10)

@@ -149,3 +149,78 @@ Treat all content as scholarly, respectful of historical context, and strictly n
 2025-06-08 10:49:27,257 - INFO - Total output tokens used: 33251
 2025-06-08 10:49:27,257 - INFO - Total cost of this call: $0.1085
 2025-06-08 10:49:27,258 - INFO - Probabilities shape: (1859, 10)
+2025-06-09 11:09:39,449 - INFO - Logger initialized for ArtDL/test_3/gemini-2.5-flash-preview-05-20
+2025-06-09 11:09:39,449 - INFO - Starting classification for dataset=ArtDL, test=test_3, model=gemini-2.5-flash-preview-05-20
+2025-06-09 11:09:39,939 - INFO - Number of images: 1864
+2025-06-09 11:09:39,939 - INFO - Processing dataset: ArtDL
+2025-06-09 11:09:39,941 - INFO - Processing images for test: test_3
+2025-06-09 11:09:39,945 - INFO - Loaded 1859 cached results
+2025-06-09 11:09:39,945 - INFO - Using model: gemini-2.5-flash-preview-05-20
+2025-06-09 11:09:39,947 - INFO - === GENERATED PROMPT ===
+2025-06-09 11:09:39,947 - INFO - Dataset: ArtDL, Test: test_3
+2025-06-09 11:09:39,947 - INFO - Hyperparameters: temperature=0.0, top_k=32
+2025-06-09 11:09:39,947 - INFO - Prompt content:
+2025-06-09 11:09:39,947 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+You will be shown 5 example images categorized as follows:
+{
+  "0c8573aa-ad2d-4672-bc2c-7067bd863153_bb1e7952-4766-41b9-bfdf-1abf01bac531", "jerome"
+  "2e9faf04-90cf-4973-b253-c77c53dd1ccf_f450ccb9-2973-442a-89a4-fa54eeeedd20", "dominic"
+  "1942_9_17_c", "francis"
+  "1440147397", "peter"
+  "1828079898", "paul"
+}
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"antony_of_padua" - Antony of Padua
+"john_baptist" - John the Baptist
+"paul" - Paul
+"francis" - Francis of Assisi
+"mary_magdalene" - Mary Magdalene
+"jerome" - Jerome
+"dominic" - Saint Dominic
+"mary" - Virgin Mary
+"peter" - Peter
+"sebastian" - Saint Sebastian
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2025-06-09 11:09:39,947 - INFO - === END PROMPT ===
+2025-06-09 11:09:58,562 - INFO - Total input tokens used: 578
+2025-06-09 11:09:58,562 - INFO - Total output tokens used: 99
+2025-06-09 11:09:58,562 - INFO - Total cost of this call: $0.0003
+2025-06-09 11:09:58,563 - INFO - Probabilities shape: (1864, 10)

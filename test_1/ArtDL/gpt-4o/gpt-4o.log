@@ -376,3 +376,303 @@
 2025-05-23 09:55:51,522 - INFO - Total cost of this call: $3.9088
 2025-05-23 09:55:51,522 - INFO - Total unprocessed items: 1
 2025-05-23 09:55:51,524 - INFO - Probabilities shape: (1863, 10)
+2025-06-09 08:08:42,898 - INFO - Logger initialized for ArtDL/test_1/gpt-4o
+2025-06-09 08:08:42,899 - INFO - Starting classification for dataset=ArtDL, test=test_1, model=gpt-4o
+2025-06-09 08:08:43,188 - INFO - Number of images: 1864
+2025-06-09 08:08:43,188 - INFO - Processing dataset: ArtDL
+2025-06-09 08:08:43,191 - INFO - Processing images for test: test_1
+2025-06-09 08:08:43,191 - INFO - Cleaned previous cache and logs for dataset=ArtDL, test=test_1, model=gpt-4o
+2025-06-09 08:08:43,223 - INFO - Using model: gpt-4o
+2025-06-09 08:08:43,223 - INFO - === GENERATED PROMPT ===
+2025-06-09 08:08:43,223 - INFO - Dataset: ArtDL, Test: test_1
+2025-06-09 08:08:43,223 - INFO - Hyperparameters: temperature=0.0, top_p=0.1
+2025-06-09 08:08:43,223 - INFO - Prompt content:
+2025-06-09 08:08:43,223 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"antony_of_padua" - Antony of Padua
+"john_baptist" - John the Baptist
+"paul" - Paul
+"francis" - Francis of Assisi
+"mary_magdalene" - Mary Magdalene
+"jerome" - Jerome
+"dominic" - Saint Dominic
+"mary" - Virgin Mary
+"peter" - Peter
+"sebastian" - Saint Sebastian
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2025-06-09 08:08:43,223 - INFO - === END PROMPT ===
+2025-06-09 08:09:26,742 - INFO - Cache saved after 5 batches
+2025-06-09 08:10:14,992 - INFO - Cache saved after 10 batches
+2025-06-09 08:11:03,023 - INFO - Cache saved after 15 batches
+2025-06-09 08:11:45,623 - INFO - Cache saved after 20 batches
+2025-06-09 08:12:28,095 - INFO - Cache saved after 25 batches
+2025-06-09 08:13:10,955 - INFO - Cache saved after 30 batches
+2025-06-09 08:13:49,423 - INFO - Cache saved after 35 batches
+2025-06-09 08:14:26,787 - INFO - Cache saved after 40 batches
+2025-06-09 08:15:05,062 - INFO - Cache saved after 45 batches
+2025-06-09 08:15:47,984 - INFO - Cache saved after 50 batches
+2025-06-09 08:16:29,053 - INFO - Cache saved after 55 batches
+2025-06-09 08:17:03,087 - WARNING - Unknown class ID or alias: stephen
+2025-06-09 08:17:03,087 - INFO - Created new unprocessed items file: /home/vitadmin/gspinaci/LLM-test/script/../test_1/ArtDL/gpt-4o/unprocessed.txt
+2025-06-09 08:17:03,088 - INFO - Added 1 unprocessed items to /home/vitadmin/gspinaci/LLM-test/script/../test_1/ArtDL/gpt-4o/unprocessed.txt
+2025-06-09 08:17:13,415 - INFO - Cache saved after 60 batches
+2025-06-09 08:17:56,623 - INFO - Cache saved after 65 batches
+2025-06-09 08:18:40,822 - INFO - Cache saved after 70 batches
+2025-06-09 08:19:24,966 - INFO - Cache saved after 75 batches
+2025-06-09 08:20:08,375 - INFO - Cache saved after 80 batches
+2025-06-09 08:20:56,077 - INFO - Cache saved after 85 batches
+2025-06-09 08:21:42,441 - INFO - Cache saved after 90 batches
+2025-06-09 08:22:23,963 - INFO - Cache saved after 95 batches
+2025-06-09 08:23:17,519 - INFO - Cache saved after 100 batches
+2025-06-09 08:24:02,218 - INFO - Cache saved after 105 batches
+2025-06-09 08:24:44,889 - INFO - Cache saved after 110 batches
+2025-06-09 08:25:32,967 - INFO - Cache saved after 115 batches
+2025-06-09 08:26:16,040 - INFO - Cache saved after 120 batches
+2025-06-09 08:27:02,511 - INFO - Cache saved after 125 batches
+2025-06-09 08:27:44,101 - INFO - Cache saved after 130 batches
+2025-06-09 08:28:26,431 - INFO - Cache saved after 135 batches
+2025-06-09 08:29:10,819 - INFO - Cache saved after 140 batches
+2025-06-09 08:29:49,243 - INFO - Cache saved after 145 batches
+2025-06-09 08:30:38,788 - INFO - Cache saved after 150 batches
+2025-06-09 08:31:17,626 - INFO - Cache saved after 155 batches
+2025-06-09 08:31:59,709 - INFO - Cache saved after 160 batches
+2025-06-09 08:32:43,742 - INFO - Cache saved after 165 batches
+2025-06-09 08:33:24,593 - INFO - Cache saved after 170 batches
+2025-06-09 08:34:03,089 - INFO - Cache saved after 175 batches
+2025-06-09 08:34:57,244 - INFO - Cache saved after 180 batches
+2025-06-09 08:35:38,087 - INFO - Cache saved after 185 batches
+2025-06-09 08:36:20,647 - INFO - Cache saved after 190 batches
+2025-06-09 08:37:02,691 - INFO - Cache saved after 195 batches
+2025-06-09 08:37:22,274 - WARNING - Unknown class ID or alias: unknown
+2025-06-09 08:37:22,274 - INFO - Added 1 unprocessed items to /home/vitadmin/gspinaci/LLM-test/script/../test_1/ArtDL/gpt-4o/unprocessed.txt
+2025-06-09 08:37:46,050 - INFO - Cache saved after 200 batches
+2025-06-09 08:38:33,128 - INFO - Cache saved after 205 batches
+2025-06-09 08:39:15,766 - INFO - Cache saved after 210 batches
+2025-06-09 08:39:58,986 - INFO - Cache saved after 215 batches
+2025-06-09 08:40:42,225 - INFO - Cache saved after 220 batches
+2025-06-09 08:41:23,641 - INFO - Cache saved after 225 batches
+2025-06-09 08:42:05,670 - INFO - Cache saved after 230 batches
+2025-06-09 08:42:47,237 - INFO - Cache saved after 235 batches
+2025-06-09 08:43:30,626 - INFO - Cache saved after 240 batches
+2025-06-09 08:44:20,844 - INFO - Cache saved after 245 batches
+2025-06-09 08:45:01,683 - INFO - Cache saved after 250 batches
+2025-06-09 08:45:51,938 - INFO - Cache saved after 255 batches
+2025-06-09 08:46:50,306 - INFO - Cache saved after 260 batches
+2025-06-09 08:47:33,554 - INFO - Cache saved after 265 batches
+2025-06-09 08:48:17,600 - INFO - Cache saved after 270 batches
+2025-06-09 08:49:09,378 - INFO - Cache saved after 275 batches
+2025-06-09 08:49:56,908 - INFO - Cache saved after 280 batches
+2025-06-09 08:50:37,360 - INFO - Cache saved after 285 batches
+2025-06-09 08:51:26,735 - INFO - Cache saved after 290 batches
+2025-06-09 08:52:09,421 - INFO - Cache saved after 295 batches
+2025-06-09 08:52:53,541 - INFO - Cache saved after 300 batches
+2025-06-09 08:53:30,679 - INFO - Cache saved after 305 batches
+2025-06-09 08:54:12,799 - INFO - Cache saved after 310 batches
+2025-06-09 08:54:56,483 - WARNING - Unknown class ID or alias: george
+2025-06-09 08:54:56,483 - INFO - Added 1 unprocessed items to /home/vitadmin/gspinaci/LLM-test/script/../test_1/ArtDL/gpt-4o/unprocessed.txt
+2025-06-09 08:54:56,490 - INFO - Cache saved after 315 batches
+2025-06-09 08:55:29,421 - INFO - Cache saved after 320 batches
+2025-06-09 08:56:10,521 - INFO - Cache saved after 325 batches
+2025-06-09 08:56:55,832 - INFO - Cache saved after 330 batches
+2025-06-09 08:57:40,489 - INFO - Cache saved after 335 batches
+2025-06-09 08:58:18,835 - INFO - Cache saved after 340 batches
+2025-06-09 08:58:51,793 - INFO - Cache saved after 345 batches
+2025-06-09 08:59:35,502 - INFO - Cache saved after 350 batches
+2025-06-09 09:00:29,650 - INFO - Cache saved after 355 batches
+2025-06-09 09:01:20,320 - INFO - Cache saved after 360 batches
+2025-06-09 09:02:09,258 - INFO - Cache saved after 365 batches
+2025-06-09 09:02:54,692 - INFO - Cache saved after 370 batches
+2025-06-09 09:03:21,795 - INFO - Total input tokens used: 1704852
+2025-06-09 09:03:21,795 - INFO - Total output tokens used: 52023
+2025-06-09 09:03:21,795 - INFO - Total cost of this call: $4.7824
+2025-06-09 09:03:21,795 - INFO - Total unprocessed items: 3
+2025-06-09 09:03:21,796 - INFO - Probabilities shape: (1861, 10)
+2025-06-09 11:48:34,524 - INFO - Logger initialized for ArtDL/test_1/gpt-4o
+2025-06-09 11:48:34,525 - INFO - Starting classification for dataset=ArtDL, test=test_1, model=gpt-4o
+2025-06-09 11:48:34,817 - INFO - Number of images: 1864
+2025-06-09 11:48:34,817 - INFO - Processing dataset: ArtDL
+2025-06-09 11:48:34,819 - INFO - Processing images for test: test_1
+2025-06-09 11:48:34,852 - INFO - Loaded 1861 cached results
+2025-06-09 11:48:34,852 - INFO - Using model: gpt-4o
+2025-06-09 11:48:34,852 - INFO - === GENERATED PROMPT ===
+2025-06-09 11:48:34,852 - INFO - Dataset: ArtDL, Test: test_1
+2025-06-09 11:48:34,852 - INFO - Hyperparameters: temperature=0.0, top_p=0.1
+2025-06-09 11:48:34,852 - INFO - Prompt content:
+2025-06-09 11:48:34,852 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"antony_of_padua" - Antony of Padua
+"john_baptist" - John the Baptist
+"paul" - Paul
+"francis" - Francis of Assisi
+"mary_magdalene" - Mary Magdalene
+"jerome" - Jerome
+"dominic" - Saint Dominic
+"mary" - Virgin Mary
+"peter" - Peter
+"sebastian" - Saint Sebastian
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2025-06-09 11:48:34,852 - INFO - === END PROMPT ===
+2025-06-09 11:48:42,807 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-06-09 11:48:42,807 - WARNING - Mismatch between response texts (0) and batch items (1). Processing only valid items from batch 2.
+2025-06-09 11:48:42,808 - WARNING - Adding 1 items without responses to unprocessed list: ['ICCD4309046_Z0028765']
+2025-06-09 11:48:42,808 - INFO - Added 1 unprocessed items to /home/vitadmin/gspinaci/LLM-test/script/../test_1/ArtDL/gpt-4o/unprocessed.txt
+2025-06-09 11:48:42,808 - WARNING - No valid results from batch 2. Skipping.
+2025-06-09 11:48:45,781 - WARNING - Unknown class ID or alias: george
+2025-06-09 11:48:45,781 - INFO - Added 1 unprocessed items to /home/vitadmin/gspinaci/LLM-test/script/../test_1/ArtDL/gpt-4o/unprocessed.txt
+2025-06-09 11:48:45,782 - WARNING - No valid results from batch 3. Skipping.
+2025-06-09 11:48:45,790 - INFO - Total input tokens used: 4218
+2025-06-09 11:48:45,790 - INFO - Total output tokens used: 78
+2025-06-09 11:48:45,790 - INFO - Total cost of this call: $0.0113
+2025-06-09 11:48:45,790 - INFO - Total unprocessed items: 2
+2025-06-09 11:48:45,791 - INFO - Probabilities shape: (1862, 10)
+2025-06-09 11:50:10,617 - INFO - Logger initialized for ArtDL/test_1/gpt-4o
+2025-06-09 11:50:10,618 - INFO - Starting classification for dataset=ArtDL, test=test_1, model=gpt-4o
+2025-06-09 11:50:10,907 - INFO - Number of images: 1864
+2025-06-09 11:50:10,907 - INFO - Processing dataset: ArtDL
+2025-06-09 11:50:10,909 - INFO - Processing images for test: test_1
+2025-06-09 11:50:10,942 - INFO - Loaded 1862 cached results
+2025-06-09 11:50:10,942 - INFO - Using model: gpt-4o
+2025-06-09 11:50:10,942 - INFO - === GENERATED PROMPT ===
+2025-06-09 11:50:10,943 - INFO - Dataset: ArtDL, Test: test_1
+2025-06-09 11:50:10,943 - INFO - Hyperparameters: temperature=0.0, top_p=0.1
+2025-06-09 11:50:10,943 - INFO - Prompt content:
+2025-06-09 11:50:10,943 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"antony_of_padua" - Antony of Padua
+"john_baptist" - John the Baptist
+"paul" - Paul
+"francis" - Francis of Assisi
+"mary_magdalene" - Mary Magdalene
+"jerome" - Jerome
+"dominic" - Saint Dominic
+"mary" - Virgin Mary
+"peter" - Peter
+"sebastian" - Saint Sebastian
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2025-06-09 11:50:10,943 - INFO - === END PROMPT ===
+2025-06-09 11:50:14,280 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-06-09 11:50:14,280 - WARNING - Mismatch between response texts (0) and batch items (1). Processing only valid items from batch 1.
+2025-06-09 11:50:14,280 - WARNING - Adding 1 items without responses to unprocessed list: ['ICCD4309046_Z0028765']
+2025-06-09 11:50:14,280 - INFO - Added 1 unprocessed items to /home/vitadmin/gspinaci/LLM-test/script/../test_1/ArtDL/gpt-4o/unprocessed.txt
+2025-06-09 11:50:14,281 - WARNING - No valid results from batch 1. Skipping.
+2025-06-09 11:50:16,040 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-06-09 11:50:16,040 - WARNING - Mismatch between response texts (0) and batch items (1). Processing only valid items from batch 2.
+2025-06-09 11:50:16,040 - WARNING - Adding 1 items without responses to unprocessed list: ['ICCD8482203_4435']
+2025-06-09 11:50:16,040 - INFO - Added 1 unprocessed items to /home/vitadmin/gspinaci/LLM-test/script/../test_1/ArtDL/gpt-4o/unprocessed.txt
+2025-06-09 11:50:16,040 - WARNING - No valid results from batch 2. Skipping.
+2025-06-09 11:50:16,049 - INFO - Total input tokens used: 2923
+2025-06-09 11:50:16,049 - INFO - Total output tokens used: 22
+2025-06-09 11:50:16,049 - INFO - Total cost of this call: $0.0075
+2025-06-09 11:50:16,049 - INFO - Total unprocessed items: 2
+2025-06-09 11:50:16,050 - INFO - Probabilities shape: (1862, 10)

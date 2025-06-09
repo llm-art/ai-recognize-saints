@@ -36,13 +36,13 @@ In the current experiments, I tested two types of models: Vision-Language Encode
 | clip-vit-base-patch32          | 16.15%               | 21.41%                                                        | 31.55%                     |
 | clip-vit-base-patch16          | 25.64%               | 29.13%                                                        | 28.70%                     |
 | clip-vit-large-patch14         | 30.58%               | 31.71%                                                        | 44.31%                     |
-| gemini-2.5-flash-preview-04-17 | 47.57%               | 48.85%                                                        | 49.14%                     |
-| gemini-2.5-pro-preview-05-06   | 50.54%               | 58.72%                                                        | 66.76%                     |
+| gemini-2.5-flash-preview-05-20 | 88.20%               | 84.71%                                                        | 87.02%                     |
+| gemini-2.5-pro-preview-05-06   | 79.76%               | 86.59%                                                        | 90.18%                     |
 | siglip-base-patch16-512        | 48.71%               | 55.90%                                                        | 68.19%                     |
 | siglip-large-patch16-384       | 54.45%               | 53.49%                                                        | 72.21%                     |
 | siglip-so400m-patch14-384      | 53.86%               | 56.38%                                                        | 70.55%                     |
-| gpt-4o-mini                    | 75.32%               | 72.62%                                                        | 78.76%                     |
-| gpt-4o                         | 64.20%               | 85.68%                                                        | 87.02%                     |
+| gpt-4o-mini                    | 83.10%               | 85.19%                                                        | 84.98%                     |
+| gpt-4o                         | 64.77%               | 62.53%                                                        | 50.40%                     |
 | Baseline                       | 84.44%               |                                                               |                            |
 
 ### ICONCLASS
