@@ -1,0 +1,101 @@
+2025-06-08 16:37:47,202 - INFO - Logger initialized for ICONCLASS/test_2/gpt-4o-mini
+2025-06-08 16:37:47,202 - INFO - Starting classification for dataset=ICONCLASS, test=test_2, model=gpt-4o-mini
+2025-06-08 16:37:47,341 - INFO - Number of images: 570
+2025-06-08 16:37:47,341 - INFO - Processing dataset: ICONCLASS
+2025-06-08 16:37:47,343 - INFO - Processing images for test: test_2
+2025-06-08 16:37:47,343 - INFO - Cleaned previous cache and logs for dataset=ICONCLASS, test=test_2, model=gpt-4o-mini
+2025-06-08 16:37:47,362 - INFO - Using model: gpt-4o-mini
+2025-06-08 16:37:47,362 - INFO - === GENERATED PROMPT ===
+2025-06-08 16:37:47,362 - INFO - Dataset: ICONCLASS, Test: test_2
+2025-06-08 16:37:47,363 - INFO - Hyperparameters: temperature=0.0, top_p=0.1
+2025-06-08 16:37:47,363 - INFO - Prompt content:
+2025-06-08 16:37:47,363 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"paul" - the apostle Paul of Tarsus; possible attributes: book, scroll, sword
+"jerome" - the monk and hermit Jerome (Hieronymus); possible attributes: book, cardinal's hat, crucifix, hour-glass, lion, skull, stone
+"mary_magdalene" - the penitent harlot Mary Magdalene; possible attributes: book (or scroll), crown, crown of thorns, crucifix, jar of ointment, mirror, musical instrument, palm-branch, rosary, scourge
+"john" -  the apostle John the Evangelist; possible attributes: book, cauldron, chalice with snake, eagle, palm, scroll
+"peter" - the apostle Peter, first bishop of Rome; possible attributes: book, cock, (upturned) cross, (triple) crozier, fish, key, scroll, ship, tiara
+"catherine" - the virgin martyr Catherine of Alexandria; possible attributes: book, crown, emperor Maxentius, palm-branch, ring, sword, wheel
+"antony_abbot" - the hermit Antony Abbot (Antonius Abbas) of Egypt, also called the Great; possible attributes: bell, book, T-shaped staff, flames, pig
+"matthew" - the apostle and evangelist Matthew (Mattheus); possible attributes: angel, axe, book, halberd, pen and inkhorn, purse, scroll, square, sword
+"francis" - founder of the Order of Friars Minor (Franciscans), Francis(cus) of Assisi; possible attributes: book, crucifix, lily, skull, stigmata
+"mark" - Mark (Marcus) the evangelist, and bishop of Alexandria; possible attributes: book, (winged) lion, pen and inkhorn, scroll
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2025-06-08 16:37:47,363 - INFO - === END PROMPT ===
+2025-06-08 16:38:10,512 - INFO - Cache saved after 5 batches
+2025-06-08 16:38:35,576 - INFO - Cache saved after 10 batches
+2025-06-08 16:38:58,985 - INFO - Cache saved after 15 batches
+2025-06-08 16:39:20,942 - INFO - Cache saved after 20 batches
+2025-06-08 16:39:42,015 - INFO - Cache saved after 25 batches
+2025-06-08 16:39:51,274 - WARNING - Mismatch between response texts (4) and batch items (5). Processing only valid items from batch 27.
+2025-06-08 16:39:51,275 - WARNING - Adding 1 items without responses to unprocessed list: ['IIHIM_-659934498']
+2025-06-08 16:39:51,275 - INFO - Created new unprocessed items file: /home/vitadmin/gspinaci/LLM-test/script/../test_2/ICONCLASS/gpt-4o-mini/unprocessed.txt
+2025-06-08 16:39:51,275 - INFO - Added 1 unprocessed items to /home/vitadmin/gspinaci/LLM-test/script/../test_2/ICONCLASS/gpt-4o-mini/unprocessed.txt
+2025-06-08 16:40:07,084 - INFO - Cache saved after 30 batches
+2025-06-08 16:40:11,438 - WARNING - Unknown class ID or alias: judas
+2025-06-08 16:40:11,438 - INFO - Added 1 unprocessed items to /home/vitadmin/gspinaci/LLM-test/script/../test_2/ICONCLASS/gpt-4o-mini/unprocessed.txt
+2025-06-08 16:40:14,590 - WARNING - Mismatch between response texts (4) and batch items (5). Processing only valid items from batch 32.
+2025-06-08 16:40:14,591 - WARNING - Adding 1 items without responses to unprocessed list: ['IIHIM_-1744768649']
+2025-06-08 16:40:14,591 - INFO - Added 1 unprocessed items to /home/vitadmin/gspinaci/LLM-test/script/../test_2/ICONCLASS/gpt-4o-mini/unprocessed.txt
+2025-06-08 16:40:27,181 - INFO - Cache saved after 35 batches
+2025-06-08 16:40:47,849 - INFO - Cache saved after 40 batches
+2025-06-08 16:41:09,033 - INFO - Cache saved after 45 batches
+2025-06-08 16:41:33,679 - INFO - Cache saved after 50 batches
+2025-06-08 16:41:56,339 - INFO - Cache saved after 55 batches
+2025-06-08 16:42:20,006 - INFO - Cache saved after 60 batches
+2025-06-08 16:42:43,306 - INFO - Cache saved after 65 batches
+2025-06-08 16:43:06,028 - INFO - Cache saved after 70 batches
+2025-06-08 16:43:32,116 - INFO - Cache saved after 75 batches
+2025-06-08 16:43:53,360 - INFO - Cache saved after 80 batches
+2025-06-08 16:44:16,666 - INFO - Cache saved after 85 batches
+2025-06-08 16:44:38,809 - INFO - Cache saved after 90 batches
+2025-06-08 16:44:52,195 - WARNING - Mismatch between response texts (4) and batch items (5). Processing only valid items from batch 93.
+2025-06-08 16:44:52,196 - WARNING - Adding 1 items without responses to unprocessed list: ['135j50_191r']
+2025-06-08 16:44:52,196 - INFO - Added 1 unprocessed items to /home/vitadmin/gspinaci/LLM-test/script/../test_2/ICONCLASS/gpt-4o-mini/unprocessed.txt
+2025-06-08 16:45:01,873 - INFO - Cache saved after 95 batches
+2025-06-08 16:45:26,988 - INFO - Cache saved after 100 batches
+2025-06-08 16:46:05,072 - INFO - Cache saved after 105 batches
+2025-06-08 16:46:30,922 - INFO - Cache saved after 110 batches
+2025-06-08 16:46:47,513 - INFO - Total input tokens used: 4945851
+2025-06-08 16:46:47,513 - INFO - Total output tokens used: 15570
+2025-06-08 16:46:47,513 - INFO - Total cost of this call: $0.7512
+2025-06-08 16:46:47,513 - INFO - Total unprocessed items: 4
+2025-06-08 16:46:47,513 - INFO - Probabilities shape: (566, 10)
