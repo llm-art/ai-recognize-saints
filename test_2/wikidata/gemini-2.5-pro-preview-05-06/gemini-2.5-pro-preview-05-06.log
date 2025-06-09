@@ -42,3 +42,402 @@
 2025-05-26 18:59:31,184 - INFO - Total output tokens used: 6679
 2025-05-26 18:59:31,184 - INFO - Total cost of this call: $0.0824
 2025-05-26 18:59:31,185 - INFO - Probabilities shape: (725, 10)
+2025-06-08 21:25:50,219 - INFO - Logger initialized for wikidata/test_2/gemini-2.5-pro-preview-05-06
+2025-06-08 21:25:50,219 - INFO - Cleaned previous cache and logs for dataset=wikidata, test=test_2, model=gemini-2.5-pro-preview-05-06
+2025-06-08 21:25:50,219 - INFO - Starting classification for dataset=wikidata, test=test_2, model=gemini-2.5-pro-preview-05-06
+2025-06-08 21:25:50,608 - WARNING - Failed to find 24 images
+2025-06-08 21:25:50,609 - INFO - Number of images: 711
+2025-06-08 21:25:50,609 - INFO - Processing dataset: wikidata
+2025-06-08 21:25:50,611 - INFO - Processing images for test: test_2
+2025-06-08 21:25:50,612 - INFO - Using model: gemini-2.5-pro-preview-05-06
+2025-06-08 21:25:50,612 - INFO - === GENERATED PROMPT ===
+2025-06-08 21:25:50,612 - INFO - Dataset: wikidata, Test: test_2
+2025-06-08 21:25:50,612 - INFO - Hyperparameters: temperature=0.0, top_k=32
+2025-06-08 21:25:50,612 - INFO - Prompt content:
+2025-06-08 21:25:50,612 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"mary_magdalene" - the penitent harlot Mary Magdalene; possible attributes: book (or scroll), crown, crown of thorns, crucifix, jar of ointment, mirror, musical instrument, palm-branch, rosary, scourge
+"john_baptist" - John the Baptist; possible attributes: book, reed cross, baptismal cup, honeycomb, lamb, staff
+"jerome" - the monk and hermit Jerome (Hieronymus); possible attributes: book, cardinal's hat, crucifix, hour-glass, lion, skull, stone
+"catherine" - the virgin martyr Catherine of Alexandria; possible attributes: book, crown, emperor Maxentius, palm-branch, ring, sword, wheel
+"peter" - the apostle Peter, first bishop of Rome; possible attributes: book, cock, (upturned) cross, (triple) crozier, fish, key, scroll, ship, tiara
+"john" -  the apostle John the Evangelist; possible attributes: book, cauldron, chalice with snake, eagle, palm, scroll
+"paul" - the apostle Paul of Tarsus; possible attributes: book, scroll, sword
+"antony_abbot" - the hermit Antony Abbot (Antonius Abbas) of Egypt, also called the Great; possible attributes: bell, book, T-shaped staff, flames, pig
+"francis" - founder of the Order of Friars Minor (Franciscans), Francis(cus) of Assisi; possible attributes: book, crucifix, lily, skull, stigmata
+"joseph" -  the foster-father of Christ, Joseph of Nazareth, husband of Mary; possible attributes: flowering rod or wand, lily, carpenter's tools
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2025-06-08 21:25:50,612 - INFO - === END PROMPT ===
+2025-06-08 21:28:48,193 - INFO - Cache saved after 5 batches
+2025-06-08 21:32:17,386 - INFO - Cache saved after 10 batches
+2025-06-08 21:34:56,193 - INFO - Cache saved after 15 batches
+2025-06-08 21:39:15,636 - INFO - Cache saved after 20 batches
+2025-06-08 21:41:22,802 - INFO - Cache saved after 25 batches
+2025-06-08 21:45:52,304 - INFO - Cache saved after 30 batches
+2025-06-08 21:49:54,079 - INFO - Cache saved after 35 batches
+2025-06-08 21:54:15,329 - INFO - Cache saved after 40 batches
+2025-06-08 21:58:44,679 - INFO - Cache saved after 45 batches
+2025-06-08 22:04:54,566 - INFO - Cache saved after 50 batches
+2025-06-08 22:08:15,816 - INFO - Cache saved after 55 batches
+2025-06-08 22:11:04,444 - INFO - Cache saved after 60 batches
+2025-06-08 22:13:26,584 - INFO - Cache saved after 65 batches
+2025-06-08 22:16:13,054 - INFO - Cache saved after 70 batches
+2025-06-08 22:20:52,304 - INFO - Cache saved after 75 batches
+2025-06-08 22:22:47,336 - INFO - Cache saved after 80 batches
+2025-06-08 22:24:19,369 - INFO - Cache saved after 85 batches
+2025-06-08 22:25:55,357 - INFO - Cache saved after 90 batches
+2025-06-08 22:29:35,618 - INFO - Cache saved after 95 batches
+2025-06-08 22:31:44,584 - INFO - Cache saved after 100 batches
+2025-06-08 22:33:40,219 - INFO - Cache saved after 105 batches
+2025-06-08 22:37:29,220 - INFO - Cache saved after 110 batches
+2025-06-08 22:38:31,328 - ERROR - Error processing batch: 429 You exceeded your current quota. Go to https://aistudio.google.com/apikey to upgrade your quota tier, or submit a quota increase request in https://ai.google.dev/gemini-api/docs/rate-limits#request-rate-limit-increase [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_requests_per_model_per_day"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel"
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+]
+2025-06-08 22:38:31,329 - WARNING - No valid response for batch 113. Skipping.
+2025-06-08 22:38:32,956 - ERROR - Error processing batch: 429 You exceeded your current quota. Go to https://aistudio.google.com/apikey to upgrade your quota tier, or submit a quota increase request in https://ai.google.dev/gemini-api/docs/rate-limits#request-rate-limit-increase [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_requests_per_model_per_day"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel"
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+]
+2025-06-08 22:38:32,957 - WARNING - No valid response for batch 114. Skipping.
+2025-06-08 22:38:33,188 - ERROR - Error processing batch: 429 You exceeded your current quota. Go to https://aistudio.google.com/apikey to upgrade your quota tier, or submit a quota increase request in https://ai.google.dev/gemini-api/docs/rate-limits#request-rate-limit-increase [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_requests_per_model_per_day"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel"
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+]
+2025-06-08 22:38:33,188 - WARNING - No valid response for batch 115. Skipping.
+2025-06-08 22:38:34,156 - ERROR - Error processing batch: 429 You exceeded your current quota. Go to https://aistudio.google.com/apikey to upgrade your quota tier, or submit a quota increase request in https://ai.google.dev/gemini-api/docs/rate-limits#request-rate-limit-increase [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_requests_per_model_per_day"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel"
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+]
+2025-06-08 22:38:34,157 - WARNING - No valid response for batch 116. Skipping.
+2025-06-08 22:38:35,331 - ERROR - Error processing batch: 429 You exceeded your current quota. Go to https://aistudio.google.com/apikey to upgrade your quota tier, or submit a quota increase request in https://ai.google.dev/gemini-api/docs/rate-limits#request-rate-limit-increase [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_requests_per_model_per_day"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel"
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+]
+2025-06-08 22:38:35,332 - WARNING - No valid response for batch 117. Skipping.
+2025-06-08 22:38:35,532 - ERROR - Error processing batch: 429 You exceeded your current quota. Go to https://aistudio.google.com/apikey to upgrade your quota tier, or submit a quota increase request in https://ai.google.dev/gemini-api/docs/rate-limits#request-rate-limit-increase [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_requests_per_model_per_day"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel"
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+]
+2025-06-08 22:38:35,533 - WARNING - No valid response for batch 118. Skipping.
+2025-06-08 22:38:36,074 - ERROR - Error processing batch: 429 You exceeded your current quota. Go to https://aistudio.google.com/apikey to upgrade your quota tier, or submit a quota increase request in https://ai.google.dev/gemini-api/docs/rate-limits#request-rate-limit-increase [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_requests_per_model_per_day"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel"
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+]
+2025-06-08 22:38:36,075 - WARNING - No valid response for batch 119. Skipping.
+2025-06-08 22:38:36,402 - ERROR - Error processing batch: 429 You exceeded your current quota. Go to https://aistudio.google.com/apikey to upgrade your quota tier, or submit a quota increase request in https://ai.google.dev/gemini-api/docs/rate-limits#request-rate-limit-increase [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_requests_per_model_per_day"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel"
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+]
+2025-06-08 22:38:36,402 - WARNING - No valid response for batch 120. Skipping.
+2025-06-08 22:38:37,179 - ERROR - Error processing batch: 429 You exceeded your current quota. Go to https://aistudio.google.com/apikey to upgrade your quota tier, or submit a quota increase request in https://ai.google.dev/gemini-api/docs/rate-limits#request-rate-limit-increase [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_requests_per_model_per_day"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel"
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+]
+2025-06-08 22:38:37,179 - WARNING - No valid response for batch 121. Skipping.
+2025-06-08 22:38:40,386 - ERROR - Error processing batch: 429 You exceeded your current quota. Go to https://aistudio.google.com/apikey to upgrade your quota tier, or submit a quota increase request in https://ai.google.dev/gemini-api/docs/rate-limits#request-rate-limit-increase [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_requests_per_model_per_day"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel"
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+]
+2025-06-08 22:38:40,386 - WARNING - No valid response for batch 122. Skipping.
+2025-06-08 22:38:40,826 - ERROR - Error processing batch: 429 You exceeded your current quota. Go to https://aistudio.google.com/apikey to upgrade your quota tier, or submit a quota increase request in https://ai.google.dev/gemini-api/docs/rate-limits#request-rate-limit-increase [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_requests_per_model_per_day"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel"
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+]
+2025-06-08 22:38:40,827 - WARNING - No valid response for batch 123. Skipping.
+2025-06-08 22:38:42,054 - ERROR - Error processing batch: 429 You exceeded your current quota. Go to https://aistudio.google.com/apikey to upgrade your quota tier, or submit a quota increase request in https://ai.google.dev/gemini-api/docs/rate-limits#request-rate-limit-increase [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_requests_per_model_per_day"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel"
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+]
+2025-06-08 22:38:42,054 - WARNING - No valid response for batch 124. Skipping.
+2025-06-08 22:38:43,119 - ERROR - Error processing batch: 429 You exceeded your current quota. Go to https://aistudio.google.com/apikey to upgrade your quota tier, or submit a quota increase request in https://ai.google.dev/gemini-api/docs/rate-limits#request-rate-limit-increase [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_requests_per_model_per_day"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel"
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+]
+2025-06-08 22:38:43,120 - WARNING - No valid response for batch 125. Skipping.
+2025-06-08 22:38:43,406 - ERROR - Error processing batch: 429 You exceeded your current quota. Go to https://aistudio.google.com/apikey to upgrade your quota tier, or submit a quota increase request in https://ai.google.dev/gemini-api/docs/rate-limits#request-rate-limit-increase [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_requests_per_model_per_day"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel"
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+]
+2025-06-08 22:38:43,406 - WARNING - No valid response for batch 126. Skipping.
+2025-06-08 22:38:44,155 - ERROR - Error processing batch: 429 You exceeded your current quota. Go to https://aistudio.google.com/apikey to upgrade your quota tier, or submit a quota increase request in https://ai.google.dev/gemini-api/docs/rate-limits#request-rate-limit-increase [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_requests_per_model_per_day"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel"
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+]
+2025-06-08 22:38:44,155 - WARNING - No valid response for batch 127. Skipping.
+2025-06-08 22:38:44,691 - ERROR - Error processing batch: 429 You exceeded your current quota. Go to https://aistudio.google.com/apikey to upgrade your quota tier, or submit a quota increase request in https://ai.google.dev/gemini-api/docs/rate-limits#request-rate-limit-increase [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_requests_per_model_per_day"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel"
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+]
+2025-06-08 22:38:44,692 - WARNING - No valid response for batch 128. Skipping.
+2025-06-08 22:38:45,718 - ERROR - Error processing batch: 429 You exceeded your current quota. Go to https://aistudio.google.com/apikey to upgrade your quota tier, or submit a quota increase request in https://ai.google.dev/gemini-api/docs/rate-limits#request-rate-limit-increase [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_requests_per_model_per_day"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel"
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+]
+2025-06-08 22:38:45,718 - WARNING - No valid response for batch 129. Skipping.
+2025-06-08 22:38:47,232 - ERROR - Error processing batch: 429 You exceeded your current quota. Go to https://aistudio.google.com/apikey to upgrade your quota tier, or submit a quota increase request in https://ai.google.dev/gemini-api/docs/rate-limits#request-rate-limit-increase [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_requests_per_model_per_day"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel"
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+]
+2025-06-08 22:38:47,232 - WARNING - No valid response for batch 130. Skipping.
+2025-06-08 22:38:48,192 - ERROR - Error processing batch: 429 You exceeded your current quota. Go to https://aistudio.google.com/apikey to upgrade your quota tier, or submit a quota increase request in https://ai.google.dev/gemini-api/docs/rate-limits#request-rate-limit-increase [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_requests_per_model_per_day"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel"
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+]
+2025-06-08 22:38:48,192 - WARNING - No valid response for batch 131. Skipping.
+2025-06-08 22:38:48,704 - ERROR - Error processing batch: 429 You exceeded your current quota. Go to https://aistudio.google.com/apikey to upgrade your quota tier, or submit a quota increase request in https://ai.google.dev/gemini-api/docs/rate-limits#request-rate-limit-increase [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_requests_per_model_per_day"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel"
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+]
+2025-06-08 22:38:48,704 - WARNING - No valid response for batch 132. Skipping.
+2025-06-08 22:38:49,002 - ERROR - Error processing batch: 429 You exceeded your current quota. Go to https://aistudio.google.com/apikey to upgrade your quota tier, or submit a quota increase request in https://ai.google.dev/gemini-api/docs/rate-limits#request-rate-limit-increase [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_requests_per_model_per_day"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel"
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+]
+2025-06-08 22:38:49,002 - WARNING - No valid response for batch 133. Skipping.
+2025-06-08 22:38:49,398 - ERROR - Error processing batch: 429 You exceeded your current quota. Go to https://aistudio.google.com/apikey to upgrade your quota tier, or submit a quota increase request in https://ai.google.dev/gemini-api/docs/rate-limits#request-rate-limit-increase [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_requests_per_model_per_day"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel"
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+]
+2025-06-08 22:38:49,398 - WARNING - No valid response for batch 134. Skipping.
+2025-06-08 22:38:51,523 - ERROR - Error processing batch: 429 You exceeded your current quota. Go to https://aistudio.google.com/apikey to upgrade your quota tier, or submit a quota increase request in https://ai.google.dev/gemini-api/docs/rate-limits#request-rate-limit-increase [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_requests_per_model_per_day"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel"
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+]
+2025-06-08 22:38:51,524 - WARNING - No valid response for batch 135. Skipping.
+2025-06-08 22:38:53,764 - ERROR - Error processing batch: 429 You exceeded your current quota. Go to https://aistudio.google.com/apikey to upgrade your quota tier, or submit a quota increase request in https://ai.google.dev/gemini-api/docs/rate-limits#request-rate-limit-increase [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_requests_per_model_per_day"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel"
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+]
+2025-06-08 22:38:53,764 - WARNING - No valid response for batch 136. Skipping.
+2025-06-08 22:38:54,083 - ERROR - Error processing batch: 429 You exceeded your current quota. Go to https://aistudio.google.com/apikey to upgrade your quota tier, or submit a quota increase request in https://ai.google.dev/gemini-api/docs/rate-limits#request-rate-limit-increase [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_requests_per_model_per_day"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel"
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+]
+2025-06-08 22:38:54,083 - WARNING - No valid response for batch 137. Skipping.
+2025-06-08 22:38:54,597 - ERROR - Error processing batch: 429 You exceeded your current quota. Go to https://aistudio.google.com/apikey to upgrade your quota tier, or submit a quota increase request in https://ai.google.dev/gemini-api/docs/rate-limits#request-rate-limit-increase [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_requests_per_model_per_day"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel"
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+]
+2025-06-08 22:38:54,597 - WARNING - No valid response for batch 138. Skipping.
+2025-06-08 22:38:55,185 - ERROR - Error processing batch: 429 You exceeded your current quota. Go to https://aistudio.google.com/apikey to upgrade your quota tier, or submit a quota increase request in https://ai.google.dev/gemini-api/docs/rate-limits#request-rate-limit-increase [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_requests_per_model_per_day"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel"
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+]
+2025-06-08 22:38:55,185 - WARNING - No valid response for batch 139. Skipping.
+2025-06-08 22:38:57,005 - ERROR - Error processing batch: 429 You exceeded your current quota. Go to https://aistudio.google.com/apikey to upgrade your quota tier, or submit a quota increase request in https://ai.google.dev/gemini-api/docs/rate-limits#request-rate-limit-increase [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_requests_per_model_per_day"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel"
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+]
+2025-06-08 22:38:57,005 - WARNING - No valid response for batch 140. Skipping.
+2025-06-08 22:38:57,606 - ERROR - Error processing batch: 429 You exceeded your current quota. Go to https://aistudio.google.com/apikey to upgrade your quota tier, or submit a quota increase request in https://ai.google.dev/gemini-api/docs/rate-limits#request-rate-limit-increase [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_requests_per_model_per_day"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel"
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+]
+2025-06-08 22:38:57,607 - WARNING - No valid response for batch 141. Skipping.
+2025-06-08 22:38:58,240 - ERROR - Error processing batch: 429 You exceeded your current quota. Go to https://aistudio.google.com/apikey to upgrade your quota tier, or submit a quota increase request in https://ai.google.dev/gemini-api/docs/rate-limits#request-rate-limit-increase [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_requests_per_model_per_day"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel"
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+]
+2025-06-08 22:38:58,240 - WARNING - No valid response for batch 142. Skipping.
+2025-06-08 22:38:58,519 - ERROR - Error processing batch: 429 You exceeded your current quota. Go to https://aistudio.google.com/apikey to upgrade your quota tier, or submit a quota increase request in https://ai.google.dev/gemini-api/docs/rate-limits#request-rate-limit-increase [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_requests_per_model_per_day"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel"
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+]
+2025-06-08 22:38:58,519 - WARNING - No valid response for batch 143. Skipping.
+2025-06-08 22:38:58,522 - INFO - Total input tokens used: 87472
+2025-06-08 22:38:58,522 - INFO - Total output tokens used: 8622
+2025-06-08 22:38:58,522 - INFO - Total cost of this call: $0.0785
+2025-06-08 22:38:58,523 - INFO - Probabilities shape: (560, 10)

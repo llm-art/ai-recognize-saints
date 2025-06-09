@@ -18,3 +18,97 @@
 2025-05-23 12:45:41,095 - INFO - Total output tokens used: 1157
 2025-05-23 12:45:41,095 - INFO - Total cost of this call: $0.3453
 2025-05-23 12:45:41,096 - INFO - Probabilities shape: (734, 10)
+2025-06-09 12:58:16,977 - INFO - Logger initialized for wikidata/test_2/gpt-4o-mini
+2025-06-09 12:58:16,978 - INFO - Starting classification for dataset=wikidata, test=test_2, model=gpt-4o-mini
+2025-06-09 12:58:17,176 - WARNING - Failed to find 24 images
+2025-06-09 12:58:17,176 - INFO - Number of images: 711
+2025-06-09 12:58:17,176 - INFO - Processing dataset: wikidata
+2025-06-09 12:58:17,178 - INFO - Processing images for test: test_2
+2025-06-09 12:58:17,196 - INFO - Using model: gpt-4o-mini
+2025-06-09 12:58:17,196 - INFO - === GENERATED PROMPT ===
+2025-06-09 12:58:17,196 - INFO - Dataset: wikidata, Test: test_2
+2025-06-09 12:58:17,196 - INFO - Hyperparameters: temperature=0.0, top_p=0.1
+2025-06-09 12:58:17,196 - INFO - Prompt content:
+2025-06-09 12:58:17,196 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"mary_magdalene" - the penitent harlot Mary Magdalene; possible attributes: book (or scroll), crown, crown of thorns, crucifix, jar of ointment, mirror, musical instrument, palm-branch, rosary, scourge
+"john_baptist" - John the Baptist; possible attributes: book, reed cross, baptismal cup, honeycomb, lamb, staff
+"jerome" - the monk and hermit Jerome (Hieronymus); possible attributes: book, cardinal's hat, crucifix, hour-glass, lion, skull, stone
+"catherine" - the virgin martyr Catherine of Alexandria; possible attributes: book, crown, emperor Maxentius, palm-branch, ring, sword, wheel
+"peter" - the apostle Peter, first bishop of Rome; possible attributes: book, cock, (upturned) cross, (triple) crozier, fish, key, scroll, ship, tiara
+"john" -  the apostle John the Evangelist; possible attributes: book, cauldron, chalice with snake, eagle, palm, scroll
+"paul" - the apostle Paul of Tarsus; possible attributes: book, scroll, sword
+"antony_abbot" - the hermit Antony Abbot (Antonius Abbas) of Egypt, also called the Great; possible attributes: bell, book, T-shaped staff, flames, pig
+"francis" - founder of the Order of Friars Minor (Franciscans), Francis(cus) of Assisi; possible attributes: book, crucifix, lily, skull, stigmata
+"joseph" -  the foster-father of Christ, Joseph of Nazareth, husband of Mary; possible attributes: flowering rod or wand, lily, carpenter's tools
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2025-06-09 12:58:17,197 - INFO - === END PROMPT ===
+2025-06-09 12:59:16,721 - INFO - Cache saved after 5 batches
+2025-06-09 13:00:27,014 - INFO - Cache saved after 10 batches
+2025-06-09 13:01:32,430 - INFO - Cache saved after 15 batches
+2025-06-09 13:02:28,774 - INFO - Cache saved after 20 batches
+2025-06-09 13:03:36,324 - INFO - Cache saved after 25 batches
+2025-06-09 13:04:46,908 - INFO - Cache saved after 30 batches
+2025-06-09 13:05:48,604 - INFO - Cache saved after 35 batches
+2025-06-09 13:07:00,297 - INFO - Cache saved after 40 batches
+2025-06-09 13:08:00,450 - INFO - Cache saved after 45 batches
+2025-06-09 13:08:51,672 - INFO - Cache saved after 50 batches
+2025-06-09 13:09:59,437 - INFO - Cache saved after 55 batches
+2025-06-09 13:10:54,225 - INFO - Cache saved after 60 batches
+2025-06-09 13:11:50,783 - INFO - Cache saved after 65 batches
+2025-06-09 13:12:40,347 - INFO - Cache saved after 70 batches
+2025-06-09 13:13:54,727 - INFO - Cache saved after 75 batches
+2025-06-09 13:14:50,017 - INFO - Cache saved after 80 batches
+2025-06-09 13:15:51,449 - INFO - Cache saved after 85 batches
+2025-06-09 13:16:34,314 - INFO - Cache saved after 90 batches
+2025-06-09 13:17:38,045 - INFO - Cache saved after 95 batches
+2025-06-09 13:18:35,310 - INFO - Cache saved after 100 batches
+2025-06-09 13:19:36,531 - INFO - Cache saved after 105 batches
+2025-06-09 13:20:33,964 - INFO - Cache saved after 110 batches
+2025-06-09 13:21:22,950 - INFO - Cache saved after 115 batches
+2025-06-09 13:22:24,221 - INFO - Cache saved after 120 batches
+2025-06-09 13:23:35,551 - INFO - Cache saved after 125 batches
+2025-06-09 13:24:37,880 - INFO - Cache saved after 130 batches
+2025-06-09 13:25:50,740 - INFO - Cache saved after 135 batches
+2025-06-09 13:26:53,717 - INFO - Cache saved after 140 batches
+2025-06-09 13:27:24,668 - INFO - Total input tokens used: 21210745
+2025-06-09 13:27:24,669 - INFO - Total output tokens used: 16751
+2025-06-09 13:27:24,669 - INFO - Total cost of this call: $3.1917
+2025-06-09 13:27:24,669 - INFO - Probabilities shape: (711, 10)

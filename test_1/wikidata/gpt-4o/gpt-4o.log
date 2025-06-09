@@ -657,3 +657,105 @@
 2025-03-27 09:12:12,851 - INFO - Total output tokens used: 719
 2025-03-27 09:12:12,851 - INFO - Total cost of this call: $0.0755
 2025-03-27 09:12:12,853 - INFO - Probabilities shape: (678, 10)
+2025-06-09 14:38:34,369 - INFO - Logger initialized for wikidata/test_1/gpt-4o
+2025-06-09 14:38:34,370 - INFO - Starting classification for dataset=wikidata, test=test_1, model=gpt-4o
+2025-06-09 14:38:34,526 - WARNING - Failed to find 24 images
+2025-06-09 14:38:34,526 - INFO - Number of images: 711
+2025-06-09 14:38:34,526 - INFO - Processing dataset: wikidata
+2025-06-09 14:38:34,529 - INFO - Processing images for test: test_1
+2025-06-09 14:38:34,560 - INFO - Using model: gpt-4o
+2025-06-09 14:38:34,560 - INFO - === GENERATED PROMPT ===
+2025-06-09 14:38:34,560 - INFO - Dataset: wikidata, Test: test_1
+2025-06-09 14:38:34,560 - INFO - Hyperparameters: temperature=0.0, top_p=0.1
+2025-06-09 14:38:34,560 - INFO - Prompt content:
+2025-06-09 14:38:34,560 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"mary_magdalene" - Mary Magdalene
+"john_baptist" - St. John the Baptist
+"jerome" - St. Jerome
+"catherine" - St. Catherine
+"peter" - St. Peter
+"john" - St. John the Evangelist
+"paul" - St. Paul
+"antony_abbot" - St. Anthony Abbot
+"francis" - St. Francis of Assisi
+"joseph" - St. Joseph
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2025-06-09 14:38:34,560 - INFO - === END PROMPT ===
+2025-06-09 14:39:56,277 - INFO - Cache saved after 5 batches
+2025-06-09 14:41:16,385 - INFO - Cache saved after 10 batches
+2025-06-09 14:42:28,666 - INFO - Cache saved after 15 batches
+2025-06-09 14:43:38,548 - INFO - Cache saved after 20 batches
+2025-06-09 14:44:47,466 - INFO - Cache saved after 25 batches
+2025-06-09 14:46:05,500 - INFO - Cache saved after 30 batches
+2025-06-09 14:47:28,835 - INFO - Cache saved after 35 batches
+2025-06-09 14:48:55,620 - INFO - Cache saved after 40 batches
+2025-06-09 14:50:08,802 - INFO - Cache saved after 45 batches
+2025-06-09 14:51:19,349 - INFO - Cache saved after 50 batches
+2025-06-09 14:52:53,143 - INFO - Cache saved after 55 batches
+2025-06-09 14:53:59,033 - INFO - Cache saved after 60 batches
+2025-06-09 14:55:18,331 - INFO - Cache saved after 65 batches
+2025-06-09 14:56:14,008 - INFO - Cache saved after 70 batches
+2025-06-09 14:57:36,723 - INFO - Cache saved after 75 batches
+2025-06-09 14:58:41,392 - INFO - Cache saved after 80 batches
+2025-06-09 14:59:54,031 - INFO - Cache saved after 85 batches
+2025-06-09 15:00:52,449 - INFO - Cache saved after 90 batches
+2025-06-09 15:02:01,611 - INFO - Cache saved after 95 batches
+2025-06-09 15:03:09,334 - INFO - Cache saved after 100 batches
+2025-06-09 15:04:28,516 - INFO - Cache saved after 105 batches
+2025-06-09 15:05:27,556 - INFO - Cache saved after 110 batches
+2025-06-09 15:06:29,878 - INFO - Cache saved after 115 batches
+2025-06-09 15:06:47,457 - WARNING - Unknown class ID or alias: sebastian
+2025-06-09 15:06:47,457 - WARNING - Unknown class ID or alias: sebastian
+2025-06-09 15:06:47,457 - WARNING - Unknown class ID or alias: sebastian
+2025-06-09 15:06:47,457 - INFO - Created new unprocessed items file: /home/vitadmin/gspinaci/LLM-test/script/../test_1/wikidata/gpt-4o/unprocessed.txt
+2025-06-09 15:06:47,457 - INFO - Added 3 unprocessed items to /home/vitadmin/gspinaci/LLM-test/script/../test_1/wikidata/gpt-4o/unprocessed.txt
+2025-06-09 15:07:42,972 - INFO - Cache saved after 120 batches
+2025-06-09 15:09:12,363 - WARNING - Unknown class ID or alias: sebastian
+2025-06-09 15:09:12,363 - INFO - Added 1 unprocessed items to /home/vitadmin/gspinaci/LLM-test/script/../test_1/wikidata/gpt-4o/unprocessed.txt
+2025-06-09 15:09:12,366 - INFO - Cache saved after 125 batches
+2025-06-09 15:10:11,988 - INFO - Cache saved after 130 batches
+2025-06-09 15:11:23,603 - INFO - Cache saved after 135 batches
+2025-06-09 15:12:27,678 - INFO - Cache saved after 140 batches
+2025-06-09 15:12:59,689 - INFO - Total input tokens used: 714976
+2025-06-09 15:12:59,689 - INFO - Total output tokens used: 17259
+2025-06-09 15:12:59,689 - INFO - Total cost of this call: $1.9600
+2025-06-09 15:12:59,689 - INFO - Total unprocessed items: 4
+2025-06-09 15:12:59,690 - INFO - Probabilities shape: (707, 10)

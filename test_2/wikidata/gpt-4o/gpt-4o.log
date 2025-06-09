@@ -313,3 +313,108 @@
 2025-05-23 14:49:38,227 - INFO - Total cost of this call: $0.0575
 2025-05-23 14:49:38,227 - INFO - Total unprocessed items: 7
 2025-05-23 14:49:38,228 - INFO - Probabilities shape: (727, 10)
+2025-06-09 15:12:59,690 - INFO - Logger initialized for wikidata/test_2/gpt-4o
+2025-06-09 15:12:59,690 - INFO - Starting classification for dataset=wikidata, test=test_2, model=gpt-4o
+2025-06-09 15:12:59,885 - WARNING - Failed to find 24 images
+2025-06-09 15:12:59,886 - INFO - Number of images: 711
+2025-06-09 15:12:59,886 - INFO - Processing dataset: wikidata
+2025-06-09 15:12:59,888 - INFO - Processing images for test: test_2
+2025-06-09 15:12:59,906 - INFO - Using model: gpt-4o
+2025-06-09 15:12:59,907 - INFO - === GENERATED PROMPT ===
+2025-06-09 15:12:59,907 - INFO - Dataset: wikidata, Test: test_2
+2025-06-09 15:12:59,907 - INFO - Hyperparameters: temperature=0.0, top_p=0.1
+2025-06-09 15:12:59,907 - INFO - Prompt content:
+2025-06-09 15:12:59,907 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"mary_magdalene" - the penitent harlot Mary Magdalene; possible attributes: book (or scroll), crown, crown of thorns, crucifix, jar of ointment, mirror, musical instrument, palm-branch, rosary, scourge
+"john_baptist" - John the Baptist; possible attributes: book, reed cross, baptismal cup, honeycomb, lamb, staff
+"jerome" - the monk and hermit Jerome (Hieronymus); possible attributes: book, cardinal's hat, crucifix, hour-glass, lion, skull, stone
+"catherine" - the virgin martyr Catherine of Alexandria; possible attributes: book, crown, emperor Maxentius, palm-branch, ring, sword, wheel
+"peter" - the apostle Peter, first bishop of Rome; possible attributes: book, cock, (upturned) cross, (triple) crozier, fish, key, scroll, ship, tiara
+"john" -  the apostle John the Evangelist; possible attributes: book, cauldron, chalice with snake, eagle, palm, scroll
+"paul" - the apostle Paul of Tarsus; possible attributes: book, scroll, sword
+"antony_abbot" - the hermit Antony Abbot (Antonius Abbas) of Egypt, also called the Great; possible attributes: bell, book, T-shaped staff, flames, pig
+"francis" - founder of the Order of Friars Minor (Franciscans), Francis(cus) of Assisi; possible attributes: book, crucifix, lily, skull, stigmata
+"joseph" -  the foster-father of Christ, Joseph of Nazareth, husband of Mary; possible attributes: flowering rod or wand, lily, carpenter's tools
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2025-06-09 15:12:59,907 - INFO - === END PROMPT ===
+2025-06-09 15:14:05,937 - INFO - Cache saved after 5 batches
+2025-06-09 15:15:29,340 - INFO - Cache saved after 10 batches
+2025-06-09 15:16:28,886 - INFO - Cache saved after 15 batches
+2025-06-09 15:17:28,251 - INFO - Cache saved after 20 batches
+2025-06-09 15:18:32,916 - INFO - Cache saved after 25 batches
+2025-06-09 15:19:51,303 - INFO - Cache saved after 30 batches
+2025-06-09 15:21:09,111 - INFO - Cache saved after 35 batches
+2025-06-09 15:22:21,678 - INFO - Cache saved after 40 batches
+2025-06-09 15:23:34,578 - INFO - Cache saved after 45 batches
+2025-06-09 15:24:35,586 - INFO - Cache saved after 50 batches
+2025-06-09 15:25:16,461 - WARNING - Unknown class ID or alias: unknown
+2025-06-09 15:25:16,461 - INFO - Created new unprocessed items file: /home/vitadmin/gspinaci/LLM-test/script/../test_2/wikidata/gpt-4o/unprocessed.txt
+2025-06-09 15:25:16,461 - INFO - Added 1 unprocessed items to /home/vitadmin/gspinaci/LLM-test/script/../test_2/wikidata/gpt-4o/unprocessed.txt
+2025-06-09 15:25:43,897 - INFO - Cache saved after 55 batches
+2025-06-09 15:26:46,374 - INFO - Cache saved after 60 batches
+2025-06-09 15:27:57,624 - INFO - Cache saved after 65 batches
+2025-06-09 15:29:15,786 - INFO - Cache saved after 70 batches
+2025-06-09 15:30:45,114 - INFO - Cache saved after 75 batches
+2025-06-09 15:31:47,196 - INFO - Cache saved after 80 batches
+2025-06-09 15:33:01,908 - INFO - Cache saved after 85 batches
+2025-06-09 15:33:52,795 - INFO - Cache saved after 90 batches
+2025-06-09 15:34:58,895 - INFO - Cache saved after 95 batches
+2025-06-09 15:36:11,710 - INFO - Cache saved after 100 batches
+2025-06-09 15:37:31,233 - INFO - Cache saved after 105 batches
+2025-06-09 15:38:37,277 - INFO - Cache saved after 110 batches
+2025-06-09 15:39:35,150 - INFO - Cache saved after 115 batches
+2025-06-09 15:40:43,124 - INFO - Cache saved after 120 batches
+2025-06-09 15:42:02,012 - WARNING - Unknown class ID or alias: sebastian
+2025-06-09 15:42:02,012 - INFO - Added 1 unprocessed items to /home/vitadmin/gspinaci/LLM-test/script/../test_2/wikidata/gpt-4o/unprocessed.txt
+2025-06-09 15:42:02,015 - INFO - Cache saved after 125 batches
+2025-06-09 15:43:18,094 - INFO - Cache saved after 130 batches
+2025-06-09 15:44:33,444 - INFO - Cache saved after 135 batches
+2025-06-09 15:45:47,115 - INFO - Cache saved after 140 batches
+2025-06-09 15:46:24,277 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-06-09 15:46:24,277 - WARNING - Mismatch between response texts (0) and batch items (1). Processing only valid items from batch 143.
+2025-06-09 15:46:24,277 - WARNING - Adding 1 items without responses to unprocessed list: ['Q64789080']
+2025-06-09 15:46:24,278 - INFO - Added 1 unprocessed items to /home/vitadmin/gspinaci/LLM-test/script/../test_2/wikidata/gpt-4o/unprocessed.txt
+2025-06-09 15:46:24,278 - WARNING - No valid results from batch 143. Skipping.
+2025-06-09 15:46:24,281 - INFO - Total input tokens used: 754015
+2025-06-09 15:46:24,281 - INFO - Total output tokens used: 17254
+2025-06-09 15:46:24,281 - INFO - Total cost of this call: $2.0576
+2025-06-09 15:46:24,281 - INFO - Total unprocessed items: 3
+2025-06-09 15:46:24,282 - INFO - Probabilities shape: (708, 10)

@@ -348,3 +348,121 @@
 2025-05-23 13:35:00,492 - INFO - Total output tokens used: 1151
 2025-05-23 13:35:00,492 - INFO - Total cost of this call: $1.2665
 2025-05-23 13:35:00,493 - INFO - Probabilities shape: (734, 10)
+2025-06-09 13:27:24,669 - INFO - Logger initialized for wikidata/test_3/gpt-4o-mini
+2025-06-09 13:27:24,669 - INFO - Starting classification for dataset=wikidata, test=test_3, model=gpt-4o-mini
+2025-06-09 13:27:24,874 - WARNING - Failed to find 24 images
+2025-06-09 13:27:24,874 - INFO - Number of images: 711
+2025-06-09 13:27:24,874 - INFO - Processing dataset: wikidata
+2025-06-09 13:27:24,876 - INFO - Processing images for test: test_3
+2025-06-09 13:27:24,895 - INFO - Using model: gpt-4o-mini
+2025-06-09 13:27:24,896 - INFO - === GENERATED PROMPT ===
+2025-06-09 13:27:24,896 - INFO - Dataset: wikidata, Test: test_3
+2025-06-09 13:27:24,896 - INFO - Hyperparameters: temperature=0.0, top_p=0.1
+2025-06-09 13:27:24,896 - INFO - Prompt content:
+2025-06-09 13:27:24,896 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+You will be shown 5 example images categorized as follows:
+{
+  "Jacopo_Pontormo_041", "antony_abbot"
+  "Guido_Reni_-_St_Joseph_with_the_Infant_Jesus_-_WGA19304", "joseph"
+  "Rubens_apostel_paulus_grt", "paul"
+  "1942_9_17_c", "francis"
+  "1440147397", "peter"
+}
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"mary_magdalene" - Mary Magdalene
+"john_baptist" - St. John the Baptist
+"jerome" - St. Jerome
+"catherine" - St. Catherine
+"peter" - St. Peter
+"john" - St. John the Evangelist
+"paul" - St. Paul
+"antony_abbot" - St. Anthony Abbot
+"francis" - St. Francis of Assisi
+"joseph" - St. Joseph
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2025-06-09 13:27:24,896 - INFO - === END PROMPT ===
+2025-06-09 13:29:10,719 - INFO - Cache saved after 5 batches
+2025-06-09 13:29:26,095 - WARNING - Unknown class ID or alias: mary
+2025-06-09 13:29:26,095 - INFO - Created new unprocessed items file: /home/vitadmin/gspinaci/LLM-test/script/../test_3/wikidata/gpt-4o-mini/unprocessed.txt
+2025-06-09 13:29:26,095 - INFO - Added 1 unprocessed items to /home/vitadmin/gspinaci/LLM-test/script/../test_3/wikidata/gpt-4o-mini/unprocessed.txt
+2025-06-09 13:29:52,488 - WARNING - Mismatch between response texts (4) and batch items (5). Processing only valid items from batch 7.
+2025-06-09 13:29:52,489 - WARNING - Adding 1 items without responses to unprocessed list: ['Q18600212']
+2025-06-09 13:29:52,489 - INFO - Added 1 unprocessed items to /home/vitadmin/gspinaci/LLM-test/script/../test_3/wikidata/gpt-4o-mini/unprocessed.txt
+2025-06-09 13:30:23,500 - WARNING - Mismatch between response texts (4) and batch items (5). Processing only valid items from batch 9.
+2025-06-09 13:30:23,500 - WARNING - Adding 1 items without responses to unprocessed list: ['Q20199005']
+2025-06-09 13:30:23,500 - INFO - Added 1 unprocessed items to /home/vitadmin/gspinaci/LLM-test/script/../test_3/wikidata/gpt-4o-mini/unprocessed.txt
+2025-06-09 13:30:36,107 - INFO - Cache saved after 10 batches
+2025-06-09 13:32:14,122 - INFO - Cache saved after 15 batches
+2025-06-09 13:33:43,533 - INFO - Cache saved after 20 batches
+2025-06-09 13:35:12,123 - INFO - Cache saved after 25 batches
+2025-06-09 13:36:41,843 - INFO - Cache saved after 30 batches
+2025-06-09 13:38:15,340 - INFO - Cache saved after 35 batches
+2025-06-09 13:40:08,777 - INFO - Cache saved after 40 batches
+2025-06-09 13:41:36,732 - INFO - Cache saved after 45 batches
+2025-06-09 13:43:07,815 - INFO - Cache saved after 50 batches
+2025-06-09 13:44:30,045 - INFO - Cache saved after 55 batches
+2025-06-09 13:45:36,884 - INFO - Cache saved after 60 batches
+2025-06-09 13:47:04,790 - INFO - Cache saved after 65 batches
+2025-06-09 13:48:28,805 - INFO - Cache saved after 70 batches
+2025-06-09 13:50:09,839 - INFO - Cache saved after 75 batches
+2025-06-09 13:50:52,620 - WARNING - Mismatch between response texts (4) and batch items (5). Processing only valid items from batch 77.
+2025-06-09 13:50:52,620 - WARNING - Adding 1 items without responses to unprocessed list: ['Q29954235']
+2025-06-09 13:50:52,620 - INFO - Added 1 unprocessed items to /home/vitadmin/gspinaci/LLM-test/script/../test_3/wikidata/gpt-4o-mini/unprocessed.txt
+2025-06-09 13:51:33,155 - INFO - Cache saved after 80 batches
+2025-06-09 13:53:04,465 - INFO - Cache saved after 85 batches
+2025-06-09 13:54:11,020 - INFO - Cache saved after 90 batches
+2025-06-09 13:56:01,964 - INFO - Cache saved after 95 batches
+2025-06-09 13:57:30,948 - INFO - Cache saved after 100 batches
+2025-06-09 13:57:48,905 - WARNING - Unknown class ID or alias: mary
+2025-06-09 13:57:48,905 - INFO - Added 1 unprocessed items to /home/vitadmin/gspinaci/LLM-test/script/../test_3/wikidata/gpt-4o-mini/unprocessed.txt
+2025-06-09 13:59:00,078 - INFO - Cache saved after 105 batches
+2025-06-09 14:00:13,659 - INFO - Cache saved after 110 batches
+2025-06-09 14:01:33,593 - INFO - Cache saved after 115 batches
+2025-06-09 14:03:07,855 - INFO - Cache saved after 120 batches
+2025-06-09 14:05:15,722 - INFO - Cache saved after 125 batches
+2025-06-09 14:06:58,764 - INFO - Cache saved after 130 batches
+2025-06-09 14:08:30,008 - INFO - Cache saved after 135 batches
+2025-06-09 14:10:00,734 - INFO - Cache saved after 140 batches
+2025-06-09 14:10:49,295 - INFO - Total input tokens used: 44327124
+2025-06-09 14:10:49,295 - INFO - Total output tokens used: 16653
+2025-06-09 14:10:49,295 - INFO - Total cost of this call: $6.6591
+2025-06-09 14:10:49,295 - INFO - Total unprocessed items: 5
+2025-06-09 14:10:49,295 - INFO - Probabilities shape: (706, 10)
