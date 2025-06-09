@@ -50,16 +50,16 @@ In the current experiments, I tested two types of models: Vision-Language Encode
 #### ICONCLASS Results
 | Model                          | zero-shot (labels)   | few-shot[*](dataset/ICONCLASS-data/few-shot/README.md) (labels)   | zero-shot (descriptions)   |
 |:-------------------------------|:---------------------|:------------------------------------------------------------------|:---------------------------|
-| clip-vit-base-patch32          | 23.48%               | 29.56%                                                            | 26.35%                     |
-| clip-vit-base-patch16          | 28.89%               | 32.60%                                                            | 26.35%                     |
-| clip-vit-large-patch14         | 39.36%               | 42.74%                                                            | 34.29%                     |
-| gemini-2.5-flash-preview-04-17 | 15.28%               | 14.67%                                                            | 17.79%                     |
-| gemini-2.5-pro-preview-05-06   | 70.19%               | 80.41%                                                            | 18.37%                     |
-| siglip-base-patch16-512        | 43.41%               | 42.23%                                                            | 31.59%                     |
-| siglip-large-patch16-384       | 49.16%               | 49.49%                                                            | 36.82%                     |
-| siglip-so400m-patch14-384      | 57.77%               | 59.46%                                                            | 51.69%                     |
-| gpt-4o-mini                    | 53.21%               | 52.53%                                                            | 22.58%                     |
-| gpt-4o                         | 65.03%               | 68.41%                                                            | 68.92%                     |
+| clip-vit-base-patch32          | 24.74%               | 29.82%                                                            | 29.30%                     |
+| clip-vit-base-patch16          | 30.00%               | 33.51%                                                            | 27.37%                     |
+| clip-vit-large-patch14         | 40.00%               | 42.81%                                                            | 35.44%                     |
+| gemini-2.5-flash-preview-05-20 | 56.28%               | 75.26%                                                            | 71.15%                     |
+| gemini-2.5-pro-preview-05-06   | 78.77%               | 79.65%                                                            | 78.60%                     |
+| siglip-base-patch16-512        | 43.51%               | 41.93%                                                            | 33.33%                     |
+| siglip-large-patch16-384       | 48.95%               | 49.30%                                                            | 38.77%                     |
+| siglip-so400m-patch14-384      | 59.47%               | 60.88%                                                            | 53.16%                     |
+| gpt-4o-mini                    | 21.48%               | 26.02%                                                            | 22.08%                     |
+| gpt-4o                         | 68.42%               | 65.73%                                                            | 41.87%                     |
 
 ### Wikidata
 
@@ -76,3 +76,8 @@ In the current experiments, I tested two types of models: Vision-Language Encode
 | siglip-so400m-patch14-384      | 66.29%               | 64.86%                                                           | 59.60%                     |
 | gpt-4o-mini                    | 48.58%               | 48.29%                                                           | 51.14%                     |
 | gpt-4o                         | 50.87%               | 65.19%                                                           | 57.41%                     |
+
+
+
+
+see https://community.openai.com/t/achieving-deterministic-api-output-on-language-models-howto/418318
