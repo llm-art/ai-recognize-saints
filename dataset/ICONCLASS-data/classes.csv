@@ -1,11 +1,11 @@
-ID,Label,Description,ImageCount
-11H(PAUL),St. Paul,"the apostle Paul of Tarsus; possible attributes: book, scroll, sword",178
-11H(JEROME),St. Jerome,"the monk and hermit Jerome (Hieronymus); possible attributes: book, cardinal's hat, crucifix, hour-glass, lion, skull, stone",158
-11HH(MARY MAGDALENE),Mary Magdalene,"the penitent harlot Mary Magdalene; possible attributes: book (or scroll), crown, crown of thorns, crucifix, jar of ointment, mirror, musical instrument, palm-branch, rosary, scourge",153
-11H(JOHN),St. John the Evangelist," the apostle John the Evangelist; possible attributes: book, cauldron, chalice with snake, eagle, palm, scroll",132
-11H(PETER),St. Peter,"the apostle Peter, first bishop of Rome; possible attributes: book, cock, (upturned) cross, (triple) crozier, fish, key, scroll, ship, tiara",128
-11HH(CATHERINE),St. Catherine,"the virgin martyr Catherine of Alexandria; possible attributes: book, crown, emperor Maxentius, palm-branch, ring, sword, wheel",116
-11H(ANTONY ABBOT),St. Anthony Abbot,"the hermit Antony Abbot (Antonius Abbas) of Egypt, also called the Great; possible attributes: bell, book, T-shaped staff, flames, pig",109
-11H(MATTHEW),St. Matthew,"the apostle and evangelist Matthew (Mattheus); possible attributes: angel, axe, book, halberd, pen and inkhorn, purse, scroll, square, sword",94
-11H(FRANCIS),St. Francis of Assisi,"founder of the Order of Friars Minor (Franciscans), Francis(cus) of Assisi; possible attributes: book, crucifix, lily, skull, stigmata",78
-11H(MARK),St. Mark,"Mark (Marcus) the evangelist, and bishop of Alexandria; possible attributes: book, (winged) lion, pen and inkhorn, scroll",73
+ID,Label,Description
+11H(PAUL),St. Paul,"the apostle Paul of Tarsus; possible attributes: book, scroll, sword"
+11HH(MARY MAGDALENE),Mary Magdalene,"the penitent harlot Mary Magdalene; possible attributes: book (or scroll), crown, crown of thorns, crucifix, jar of ointment, mirror, musical instrument, palm-branch, rosary, scourge"
+11H(JEROME),St. Jerome,"the monk and hermit Jerome (Hieronymus); possible attributes: book, cardinal's hat, crucifix, hour-glass, lion, skull, stone"
+11H(JOHN),St. John the Evangelist," the apostle John the Evangelist; possible attributes: book, cauldron, chalice with snake, eagle, palm, scroll"
+11H(ANTONY ABBOT),St. Anthony Abbot,"the hermit Antony Abbot (Antonius Abbas) of Egypt, also called the Great; possible attributes: bell, book, T-shaped staff, flames, pig"
+11H(PETER),St. Peter,"the apostle Peter, first bishop of Rome; possible attributes: book, cock, (upturned) cross, (triple) crozier, fish, key, scroll, ship, tiara"
+11H(MATTHEW),St. Matthew,"the apostle and evangelist Matthew (Mattheus); possible attributes: angel, axe, book, halberd, pen and inkhorn, purse, scroll, square, sword"
+11HH(CATHERINE),St. Catherine,"the virgin martyr Catherine of Alexandria; possible attributes: book, crown, emperor Maxentius, palm-branch, ring, sword, wheel"
+11H(LUKE),St. Luke,"11H(LUKE) Luke the evangelist; possible attributes: book, (winged) ox, portrait of the Virgin, surgical instruments, painter's utensils, scroll"
+11H(FRANCIS),St. Francis of Assisi,"founder of the Order of Friars Minor (Franciscans), Francis(cus) of Assisi; possible attributes: book, crucifix, lily, skull, stigmata"

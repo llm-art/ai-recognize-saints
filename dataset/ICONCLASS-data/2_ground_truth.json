@@ -1,5 +1,13 @@
 [
   {
+    "item": "IIHIM_1214075818",
+    "class": "11HH(CATHERINE)"
+  },
+  {
+    "item": "IIHIM_1788338661",
+    "class": "11H(PETER)"
+  },
+  {
     "item": "IIHIM_RIJKS_-1965760330",
     "class": "11H(FRANCIS)"
   },
@@ -8,7 +16,15 @@
     "class": "11H(PAUL)"
   },
   {
+    "item": "IIHIM_-1963041518",
+    "class": "11H(JOHN)"
+  },
+  {
     "item": "bsb00025548_755",
+    "class": "11H(JEROME)"
+  },
+  {
+    "item": "IIHIM_408904967",
     "class": "11H(JEROME)"
   },
   {
@@ -20,16 +36,20 @@
     "class": "11H(JEROME)"
   },
   {
+    "item": "IIHIM_-605542097",
+    "class": "11H(LUKE)"
+  },
+  {
+    "item": "IIHIM_-1548783294",
+    "class": "11HH(CATHERINE)"
+  },
+  {
     "item": "IIHIM_-1578407314",
     "class": "11HH(MARY MAGDALENE)"
   },
   {
-    "item": "IIHIM_-914585004",
-    "class": "11H(FRANCIS)"
-  },
-  {
-    "item": "78d38_dl2_260v_init",
-    "class": "11H(PAUL)"
+    "item": "biblia_sacra_20021227082",
+    "class": "11H(JOHN)"
   },
   {
     "item": "IIHIM_-708292484",
@@ -40,12 +60,24 @@
     "class": "11H(PAUL)"
   },
   {
+    "item": "IIHIM_-487595164",
+    "class": "11HH(MARY MAGDALENE)"
+  },
+  {
+    "item": "biblia_sacra_20030110097",
+    "class": "11H(JOHN)"
+  },
+  {
     "item": "IIHIM_-512769350",
     "class": "11HH(CATHERINE)"
   },
   {
     "item": "IIHIM_-1057388368",
     "class": "11H(MATTHEW)"
+  },
+  {
+    "item": "IIHIM_RIJKS_1878098591",
+    "class": "11HH(CATHERINE)"
   },
   {
     "item": "mmw_10f33_026v_randv_2",
@@ -56,16 +88,40 @@
     "class": "11H(PETER)"
   },
   {
+    "item": "IIHIM_1190559786",
+    "class": "11H(JEROME)"
+  },
+  {
     "item": "IIHIM_-1855163734",
     "class": "11H(PETER)"
+  },
+  {
+    "item": "IIHIM_-346839778",
+    "class": "11H(JEROME)"
+  },
+  {
+    "item": "IIHIM_-1313261526",
+    "class": "11H(JEROME)"
   },
   {
     "item": "IIHIM_-104602331",
     "class": "11H(JOHN)"
   },
   {
+    "item": "biblia_sacra_20140728242",
+    "class": "11H(JOHN)"
+  },
+  {
+    "item": "biblia_sacra_20050416054",
+    "class": "11H(JOHN)"
+  },
+  {
     "item": "bsb00027320_9",
     "class": "11H(JEROME)"
+  },
+  {
+    "item": "IIHIM_550687301",
+    "class": "11HH(CATHERINE)"
   },
   {
     "item": "IIHIM_-1488129403",
@@ -80,20 +136,28 @@
     "class": "11H(MATTHEW)"
   },
   {
+    "item": "biblia_sacra_20030128063",
+    "class": "11H(PAUL)"
+  },
+  {
+    "item": "biblia_sacra_20040723157",
+    "class": "11H(PAUL)"
+  },
+  {
     "item": "IIHIM_RIJKS_-99434754",
     "class": "11H(FRANCIS)"
   },
   {
-    "item": "IIHIM_948567395",
-    "class": "11HH(CATHERINE)"
+    "item": "IIHIM_-1130578663",
+    "class": "11H(ANTONY ABBOT)"
   },
   {
     "item": "IIHIM_-359785513",
     "class": "11H(JOHN)"
   },
   {
-    "item": "bsb_clm835_pic058_001",
-    "class": "11H(JOHN)"
+    "item": "IIHIM_-1664961681",
+    "class": "11HH(CATHERINE)"
   },
   {
     "item": "bl_royal1dx_pic008r1",
@@ -104,19 +168,55 @@
     "class": "11H(PETER)"
   },
   {
+    "item": "76f23_291v_init",
+    "class": "11H(JOHN)"
+  },
+  {
+    "item": "IIHIM_RIJKS_135590222",
+    "class": "11H(LUKE)"
+  },
+  {
     "item": "133d25_361r_init",
     "class": "11H(PETER)"
   },
   {
-    "item": "IIHIM_-1915783281",
-    "class": "11H(FRANCIS)"
+    "item": "IIHIM_-1495486125",
+    "class": "11HH(MARY MAGDALENE)"
+  },
+  {
+    "item": "IIHIM_779223375",
+    "class": "11H(LUKE)"
+  },
+  {
+    "item": "biblia_sacra_20021228139",
+    "class": "11H(JOHN)"
+  },
+  {
+    "item": "IIHIM_756364533",
+    "class": "11HH(MARY MAGDALENE)"
   },
   {
     "item": "IIHIM_-1520124696",
     "class": "11H(PAUL)"
   },
   {
+    "item": "IIHIM_-468776046",
+    "class": "11HH(CATHERINE)"
+  },
+  {
     "item": "biblia_sacra_20021018044",
+    "class": "11H(JOHN)"
+  },
+  {
+    "item": "IIHIM_417155662",
+    "class": "11HH(MARY MAGDALENE)"
+  },
+  {
+    "item": "IIHIM_RIJKS_210840147",
+    "class": "11H(LUKE)"
+  },
+  {
+    "item": "biblia_sacra_20140728047",
     "class": "11H(JOHN)"
   },
   {
@@ -136,6 +236,10 @@
     "class": "11H(PETER)"
   },
   {
+    "item": "IIHIM_RIJKS_-1397183179",
+    "class": "11HH(MARY MAGDALENE)"
+  },
+  {
     "item": "IIHIM_RIJKS_-1207878587",
     "class": "11H(MATTHEW)"
   },
@@ -148,7 +252,11 @@
     "class": "11H(JOHN)"
   },
   {
-    "item": "IIHIM_-763684979",
+    "item": "IIHIM_-965661841",
+    "class": "11H(ANTONY ABBOT)"
+  },
+  {
+    "item": "IIHIM_1220088712",
     "class": "11HH(MARY MAGDALENE)"
   },
   {
@@ -160,16 +268,20 @@
     "class": "11H(ANTONY ABBOT)"
   },
   {
-    "item": "IIHIM_-652232099",
-    "class": "11HH(CATHERINE)"
+    "item": "biblia_sacra_20030725205",
+    "class": "11H(MATTHEW)"
   },
   {
-    "item": "IIHIM_2100254281",
-    "class": "11H(JEROME)"
+    "item": "bsb00039898_73",
+    "class": "11H(ANTONY ABBOT)"
   },
   {
     "item": "biblia_sacra_20021213133",
     "class": "11H(PAUL)"
+  },
+  {
+    "item": "IIHIM_RIJKS_1227196914",
+    "class": "11H(JEROME)"
   },
   {
     "item": "IIHIM_1192211092",
@@ -188,8 +300,20 @@
     "class": "11H(ANTONY ABBOT)"
   },
   {
-    "item": "IIHIM_-1632816665",
-    "class": "11HH(MARY MAGDALENE)"
+    "item": "IIHIM_1015757169",
+    "class": "11H(ANTONY ABBOT)"
+  },
+  {
+    "item": "bsb00027842_64",
+    "class": "11H(MATTHEW)"
+  },
+  {
+    "item": "78d38_dl1_001r_init",
+    "class": "11H(JEROME)"
+  },
+  {
+    "item": "IIHIM_RIJKS_380926384",
+    "class": "11H(JEROME)"
   },
   {
     "item": "IIHIM_RIJKS_-349227510",
@@ -204,8 +328,32 @@
     "class": "11HH(MARY MAGDALENE)"
   },
   {
+    "item": "IIHIM_2082888202",
+    "class": "11H(JEROME)"
+  },
+  {
+    "item": "IIHIM_RIJKS_1259631303",
+    "class": "11H(JEROME)"
+  },
+  {
+    "item": "IIHIM_RIJKS_683549140",
+    "class": "11H(LUKE)"
+  },
+  {
+    "item": "IIHIM_-126228140",
+    "class": "11H(LUKE)"
+  },
+  {
     "item": "71a22_083r_init",
     "class": "11H(PAUL)"
+  },
+  {
+    "item": "IIHIM_RIJKS_350813724",
+    "class": "11H(LUKE)"
+  },
+  {
+    "item": "bsb00032514_98",
+    "class": "11H(ANTONY ABBOT)"
   },
   {
     "item": "IIHIM_RIJKS_-81589362",
@@ -220,8 +368,16 @@
     "class": "11H(PAUL)"
   },
   {
-    "item": "IIHIM_-2139732977",
-    "class": "11HH(MARY MAGDALENE)"
+    "item": "IIHIM_-151299403",
+    "class": "11H(LUKE)"
+  },
+  {
+    "item": "bsb00032587_37",
+    "class": "11H(ANTONY ABBOT)"
+  },
+  {
+    "item": "IIHIM_166219215",
+    "class": "11H(MATTHEW)"
   },
   {
     "item": "IIHIM_RIJKS_2025182599",
@@ -236,7 +392,15 @@
     "class": "11H(PETER)"
   },
   {
+    "item": "biblia_sacra_20041222034",
+    "class": "11H(JEROME)"
+  },
+  {
     "item": "IIHIM_-558452630",
+    "class": "11HH(MARY MAGDALENE)"
+  },
+  {
+    "item": "IIHIM_-360947575",
     "class": "11HH(MARY MAGDALENE)"
   },
   {
@@ -244,12 +408,16 @@
     "class": "11HH(MARY MAGDALENE)"
   },
   {
+    "item": "IIHIM_RIJKS_246898350",
+    "class": "11H(JEROME)"
+  },
+  {
     "item": "IIHIM_-316351627",
     "class": "11HH(CATHERINE)"
   },
   {
-    "item": "IIHIM_RIJKS_-1267956549",
-    "class": "11HH(CATHERINE)"
+    "item": "IIHIM_RIJKS_1375453155",
+    "class": "11H(PAUL)"
   },
   {
     "item": "IIHIM_RIJKS_610746146",
@@ -268,7 +436,7 @@
     "class": "11HH(MARY MAGDALENE)"
   },
   {
-    "item": "bsb00034024_489",
+    "item": "IIHIM_RIJKS_244899003",
     "class": "11H(FRANCIS)"
   },
   {
@@ -276,12 +444,32 @@
     "class": "11H(MATTHEW)"
   },
   {
-    "item": "IIHIM_773701924",
-    "class": "11H(JEROME)"
+    "item": "IIHIM_619068847",
+    "class": "11H(FRANCIS)"
+  },
+  {
+    "item": "IIHIM_RIJKS_2142269965",
+    "class": "11H(ANTONY ABBOT)"
+  },
+  {
+    "item": "folger_ill_pic077433",
+    "class": "11H(LUKE)"
+  },
+  {
+    "item": "mmw_10e3_018r_min",
+    "class": "11H(MATTHEW)"
   },
   {
     "item": "IIHIM_507225582",
     "class": "11H(PAUL)"
+  },
+  {
+    "item": "IIHIM_1851727532",
+    "class": "11H(JOHN)"
+  },
+  {
+    "item": "IIHIM_RIJKS_500975758",
+    "class": "11H(JEROME)"
   },
   {
     "item": "IIHIM_RIJKS_1857201291",
@@ -296,6 +484,10 @@
     "class": "11H(PAUL)"
   },
   {
+    "item": "IIHIM_-1441493514",
+    "class": "11H(JEROME)"
+  },
+  {
     "item": "IIHIM_-840592781",
     "class": "11HH(MARY MAGDALENE)"
   },
@@ -304,8 +496,24 @@
     "class": "11HH(MARY MAGDALENE)"
   },
   {
+    "item": "bsb00034032_61",
+    "class": "11H(LUKE)"
+  },
+  {
+    "item": "IIHIM_RIJKS_-862145435",
+    "class": "11H(ANTONY ABBOT)"
+  },
+  {
     "item": "IIHIM_RIJKS_1750371457",
     "class": "11H(JOHN)"
+  },
+  {
+    "item": "IIHIM_RIJKS_-1795444554",
+    "class": "11H(JEROME)"
+  },
+  {
+    "item": "76f17_009v",
+    "class": "11H(MATTHEW)"
   },
   {
     "item": "IIHIM_RIJKS_-775593074",
@@ -324,12 +532,20 @@
     "class": "11H(MATTHEW)"
   },
   {
-    "item": "IIHIM_-439739538",
-    "class": "11H(PETER)"
+    "item": "biblia_sacra_20030130137",
+    "class": "11H(PAUL)"
   },
   {
-    "item": "IIHIM_930759549",
-    "class": "11H(ANTONY ABBOT)"
+    "item": "IIHIM_156673402",
+    "class": "11HH(MARY MAGDALENE)"
+  },
+  {
+    "item": "IIHIM_-417045885",
+    "class": "11H(JEROME)"
+  },
+  {
+    "item": "IIHIM_-439739538",
+    "class": "11H(PETER)"
   },
   {
     "item": "IIHIM_-1924013510",
@@ -340,12 +556,12 @@
     "class": "11H(FRANCIS)"
   },
   {
-    "item": "IIHIM_1491173427",
-    "class": "11HH(CATHERINE)"
+    "item": "IIHIM_RIJKS_-1847794270",
+    "class": "11HH(MARY MAGDALENE)"
   },
   {
-    "item": "IIHIM_782326994",
-    "class": "11HH(CATHERINE)"
+    "item": "135g19_137v",
+    "class": "11H(ANTONY ABBOT)"
   },
   {
     "item": "IIHIM_RIJKS_1471464583",
@@ -368,12 +584,32 @@
     "class": "11H(ANTONY ABBOT)"
   },
   {
+    "item": "IIHIM_1359909329",
+    "class": "11HH(MARY MAGDALENE)"
+  },
+  {
+    "item": "IIHIM_RIJKS_-1331137095",
+    "class": "11H(JOHN)"
+  },
+  {
+    "item": "IIHIM_619244044",
+    "class": "11H(JOHN)"
+  },
+  {
     "item": "IIHIM_-117529520",
     "class": "11HH(CATHERINE)"
   },
   {
     "item": "biblia_sacra_20061023045",
     "class": "11H(PAUL)"
+  },
+  {
+    "item": "biblia_sacra_20051113022",
+    "class": "11H(MATTHEW)"
+  },
+  {
+    "item": "IIHIM_358424043",
+    "class": "11H(JEROME)"
   },
   {
     "item": "IIHIM_1469630381",
@@ -388,12 +624,8 @@
     "class": "11H(PAUL)"
   },
   {
-    "item": "IIHIM_RIJKS_924586205",
-    "class": "11H(FRANCIS)"
-  },
-  {
-    "item": "IIHIM_-238657077",
-    "class": "11HH(MARY MAGDALENE)"
+    "item": "IIHIM_-1654130484",
+    "class": "11H(JEROME)"
   },
   {
     "item": "IIHIM_RIJKS_803752578",
@@ -404,16 +636,28 @@
     "class": "11H(JEROME)"
   },
   {
+    "item": "IIHIM_-207179480",
+    "class": "11H(LUKE)"
+  },
+  {
     "item": "biblia_sacra_20050509003",
     "class": "11H(PAUL)"
   },
   {
-    "item": "IIHIM_437535493",
-    "class": "11H(FRANCIS)"
-  },
-  {
     "item": "74g28_052r_min",
     "class": "11HH(CATHERINE)"
+  },
+  {
+    "item": "IIHIM_-1243985970",
+    "class": "11HH(CATHERINE)"
+  },
+  {
+    "item": "bsb00035236_48",
+    "class": "11H(ANTONY ABBOT)"
+  },
+  {
+    "item": "IIHIM_-316294963",
+    "class": "11H(JEROME)"
   },
   {
     "item": "IIHIM_RIJKS_2096079025",
@@ -424,15 +668,15 @@
     "class": "11HH(MARY MAGDALENE)"
   },
   {
-    "item": "IIHIM_-690135720",
-    "class": "11H(ANTONY ABBOT)"
+    "item": "IIHIM_653244618",
+    "class": "11H(LUKE)"
   },
   {
     "item": "biblia_sacra_20030812040",
     "class": "11H(PAUL)"
   },
   {
-    "item": "IIHIM_-88709121",
+    "item": "bsb00033919_36",
     "class": "11HH(CATHERINE)"
   },
   {
@@ -444,16 +688,40 @@
     "class": "11H(JEROME)"
   },
   {
+    "item": "biblia_sacra_20030913310",
+    "class": "11H(MATTHEW)"
+  },
+  {
     "item": "mmw_10e33_442r_init",
     "class": "11H(PETER)"
+  },
+  {
+    "item": "IIHIM_1654601319",
+    "class": "11H(JEROME)"
+  },
+  {
+    "item": "IIHIM_636137585",
+    "class": "11H(ANTONY ABBOT)"
   },
   {
     "item": "biblia_sacra_20021002011",
     "class": "11H(PETER)"
   },
   {
+    "item": "biblia_sacra_20021101128",
+    "class": "11H(MATTHEW)"
+  },
+  {
     "item": "IIHIM_1160721640",
     "class": "11H(MATTHEW)"
+  },
+  {
+    "item": "IIHIM_RIJKS_-1205940525",
+    "class": "11H(JEROME)"
+  },
+  {
+    "item": "IIHIM_-19415587",
+    "class": "11H(FRANCIS)"
   },
   {
     "item": "76e22_387v_init",
@@ -462,6 +730,14 @@
   {
     "item": "IIHIM_RIJKS_-664097330",
     "class": "11HH(MARY MAGDALENE)"
+  },
+  {
+    "item": "IIHIM_-374808327",
+    "class": "11HH(CATHERINE)"
+  },
+  {
+    "item": "bsb00025548_974",
+    "class": "11H(JEROME)"
   },
   {
     "item": "IIHIM_834698146",
@@ -492,10 +768,6 @@
     "class": "11HH(MARY MAGDALENE)"
   },
   {
-    "item": "bsb00034032_332",
-    "class": "11H(ANTONY ABBOT)"
-  },
-  {
     "item": "IIHIM_RIJKS_1869966580",
     "class": "11H(PETER)"
   },
@@ -512,11 +784,31 @@
     "class": "11H(JOHN)"
   },
   {
+    "item": "IIHIM_RIJKS_1110823090",
+    "class": "11H(JEROME)"
+  },
+  {
     "item": "IIHIM_838250489",
     "class": "11HH(MARY MAGDALENE)"
   },
   {
-    "item": "IIHIM_-1215692960",
+    "item": "IIHIM_-248337014",
+    "class": "11H(PAUL)"
+  },
+  {
+    "item": "IIHIM_1862160083",
+    "class": "11H(ANTONY ABBOT)"
+  },
+  {
+    "item": "IIHIM_1227319849",
+    "class": "11H(JEROME)"
+  },
+  {
+    "item": "IIHIM_RIJKS_828543530",
+    "class": "11H(JEROME)"
+  },
+  {
+    "item": "IIHIM_650815486",
     "class": "11H(JEROME)"
   },
   {
@@ -524,8 +816,12 @@
     "class": "11H(PAUL)"
   },
   {
-    "item": "IIHIM_-1580413867",
-    "class": "11HH(CATHERINE)"
+    "item": "IIHIM_-536314693",
+    "class": "11H(JEROME)"
+  },
+  {
+    "item": "gri_102125",
+    "class": "11H(ANTONY ABBOT)"
   },
   {
     "item": "IIHIM_-1542182354",
@@ -540,6 +836,14 @@
     "class": "11H(JOHN)"
   },
   {
+    "item": "biblia_sacra_20030527207",
+    "class": "11H(LUKE)"
+  },
+  {
+    "item": "IIHIM_-1383610424",
+    "class": "11HH(MARY MAGDALENE)"
+  },
+  {
     "item": "IIHIM_-1450683578",
     "class": "11HH(CATHERINE)"
   },
@@ -552,11 +856,23 @@
     "class": "11HH(CATHERINE)"
   },
   {
+    "item": "IIHIM_221633182",
+    "class": "11H(ANTONY ABBOT)"
+  },
+  {
     "item": "mmw_10c20_014r",
     "class": "11HH(MARY MAGDALENE)"
   },
   {
+    "item": "biblia_sacra_20021227084",
+    "class": "11H(JOHN)"
+  },
+  {
     "item": "IIHIM_586870312",
+    "class": "11H(MATTHEW)"
+  },
+  {
+    "item": "128g33_047v",
     "class": "11H(MATTHEW)"
   },
   {
@@ -572,16 +888,20 @@
     "class": "11H(ANTONY ABBOT)"
   },
   {
+    "item": "IIHIM_-482258441",
+    "class": "11HH(MARY MAGDALENE)"
+  },
+  {
+    "item": "IIHIM_RIJKS_-205304635",
+    "class": "11HH(MARY MAGDALENE)"
+  },
+  {
     "item": "IIHIM_RIJKS_-1272641269",
     "class": "11H(JOHN)"
   },
   {
     "item": "IIHIM_918375555",
     "class": "11H(PETER)"
-  },
-  {
-    "item": "IIHIM_RIJKS_-649904531",
-    "class": "11H(JEROME)"
   },
   {
     "item": "IIHIM_-881771503",
@@ -600,8 +920,12 @@
     "class": "11HH(CATHERINE)"
   },
   {
-    "item": "IIHIM_-589878999",
-    "class": "11H(PETER)"
+    "item": "133a1_011r_min",
+    "class": "11H(JEROME)"
+  },
+  {
+    "item": "IIHIM_33439360",
+    "class": "11HH(MARY MAGDALENE)"
   },
   {
     "item": "bsb_clm835_pic056_001",
@@ -612,19 +936,43 @@
     "class": "11HH(MARY MAGDALENE)"
   },
   {
+    "item": "biblia_sacra_20030128062",
+    "class": "11H(PAUL)"
+  },
+  {
+    "item": "IIHIM_RIJKS_41213193",
+    "class": "11H(JEROME)"
+  },
+  {
     "item": "IIHIM_-523165741",
     "class": "11H(PAUL)"
+  },
+  {
+    "item": "biblia_sacra_20021023013",
+    "class": "11H(PAUL)"
+  },
+  {
+    "item": "bsb00035257_46",
+    "class": "11H(ANTONY ABBOT)"
   },
   {
     "item": "IIHIM_366706169",
     "class": "11H(JOHN)"
   },
   {
-    "item": "embhab_39-7-geom-2s_pic095",
-    "class": "11H(PAUL)"
+    "item": "IIHIM_-655755835",
+    "class": "11HH(MARY MAGDALENE)"
+  },
+  {
+    "item": "IIHIM_RIJKS_861580777",
+    "class": "11HH(MARY MAGDALENE)"
   },
   {
     "item": "IIHIM_1177943213",
+    "class": "11H(MATTHEW)"
+  },
+  {
+    "item": "IIHIM_339900363",
     "class": "11H(MATTHEW)"
   },
   {
@@ -636,16 +984,36 @@
     "class": "11HH(MARY MAGDALENE)"
   },
   {
+    "item": "biblia_sacra_20030130136",
+    "class": "11H(PAUL)"
+  },
+  {
+    "item": "IIHIM_-962183275",
+    "class": "11H(JEROME)"
+  },
+  {
     "item": "IIHIM_-1744768649",
     "class": "11HH(MARY MAGDALENE)"
   },
   {
-    "item": "bsb00027317_404",
-    "class": "11H(MARK)"
+    "item": "biblia_sacra_20131031008",
+    "class": "11H(PAUL)"
+  },
+  {
+    "item": "IIHIM_527712377",
+    "class": "11H(JEROME)"
   },
   {
     "item": "biblia_sacra_20021213039",
     "class": "11H(PAUL)"
+  },
+  {
+    "item": "bsb00032587_9",
+    "class": "11H(ANTONY ABBOT)"
+  },
+  {
+    "item": "biblia_sacra_20031015275",
+    "class": "11H(LUKE)"
   },
   {
     "item": "135e18_116r",
@@ -656,8 +1024,20 @@
     "class": "11H(JEROME)"
   },
   {
+    "item": "IIHIM_-231922491",
+    "class": "11HH(MARY MAGDALENE)"
+  },
+  {
+    "item": "IIHIM_RIJKS_-2106816500",
+    "class": "11H(MATTHEW)"
+  },
+  {
     "item": "biblia_sacra_20021101116",
     "class": "11H(JOHN)"
+  },
+  {
+    "item": "IIHIM_1632387385",
+    "class": "11H(ANTONY ABBOT)"
   },
   {
     "item": "IIHIM_RIJKS_-1490686570",
@@ -666,10 +1046,6 @@
   {
     "item": "bsb00027564_402",
     "class": "11H(PETER)"
-  },
-  {
-    "item": "IIHIM_1807297303",
-    "class": "11H(JOHN)"
   },
   {
     "item": "IIHIM_-1678673875",
@@ -684,8 +1060,16 @@
     "class": "11H(ANTONY ABBOT)"
   },
   {
-    "item": "IIHIM_892138723",
-    "class": "11H(JOHN)"
+    "item": "bsb00025548_842",
+    "class": "11H(LUKE)"
+  },
+  {
+    "item": "IIHIM_1644974",
+    "class": "11H(JEROME)"
+  },
+  {
+    "item": "IIHIM_1865956396",
+    "class": "11H(JEROME)"
   },
   {
     "item": "IIHIM_595633979",
@@ -704,8 +1088,28 @@
     "class": "11H(JEROME)"
   },
   {
+    "item": "IIHIM_517826973",
+    "class": "11HH(CATHERINE)"
+  },
+  {
+    "item": "IIHIM_1998905365",
+    "class": "11HH(MARY MAGDALENE)"
+  },
+  {
+    "item": "biblia_sacra_20051105328",
+    "class": "11H(LUKE)"
+  },
+  {
     "item": "132f21_547r_init",
     "class": "11H(PAUL)"
+  },
+  {
+    "item": "IIHIM_-2114153303",
+    "class": "11H(ANTONY ABBOT)"
+  },
+  {
+    "item": "IIHIM_-2102432195",
+    "class": "11H(JEROME)"
   },
   {
     "item": "IIHIM_RIJKS_-1204123895",
@@ -728,6 +1132,14 @@
     "class": "11H(FRANCIS)"
   },
   {
+    "item": "IIHIM_RIJKS_-234717191",
+    "class": "11H(LUKE)"
+  },
+  {
+    "item": "IIHIM_1210849555",
+    "class": "11H(JEROME)"
+  },
+  {
     "item": "IIHIM_-1832795751",
     "class": "11HH(MARY MAGDALENE)"
   },
@@ -736,24 +1148,16 @@
     "class": "11HH(CATHERINE)"
   },
   {
-    "item": "IIHIM_-1042173373",
-    "class": "11HH(MARY MAGDALENE)"
+    "item": "biblia_sacra_20060523062",
+    "class": "11H(LUKE)"
   },
   {
-    "item": "IIHIM_625712019",
-    "class": "11H(JOHN)"
+    "item": "biblia_sacra_20121203107",
+    "class": "11H(MATTHEW)"
   },
   {
     "item": "IIHIM_-1848347015",
     "class": "11HH(MARY MAGDALENE)"
-  },
-  {
-    "item": "IIHIM_RIJKS_792119600",
-    "class": "11HH(CATHERINE)"
-  },
-  {
-    "item": "IIHIM_1943209054",
-    "class": "11H(PAUL)"
   },
   {
     "item": "IIHIM_-1173818038",
@@ -808,7 +1212,19 @@
     "class": "11HH(CATHERINE)"
   },
   {
-    "item": "IIHIM_-2015603587",
+    "item": "IIHIM_-1134790477",
+    "class": "11H(PETER)"
+  },
+  {
+    "item": "76f23_293r_init",
+    "class": "11H(JOHN)"
+  },
+  {
+    "item": "biblia_sacra_20140113176",
+    "class": "11H(PAUL)"
+  },
+  {
+    "item": "IIHIM_2141898642",
     "class": "11H(JEROME)"
   },
   {
@@ -816,16 +1232,16 @@
     "class": "11H(JOHN)"
   },
   {
-    "item": "IIHIM_RIJKS_612711645",
+    "item": "mmw_10b23_544v_min",
+    "class": "11H(PAUL)"
+  },
+  {
+    "item": "IIHIM_-1038588857",
     "class": "11HH(CATHERINE)"
   },
   {
     "item": "mmw_10e32_441r_init",
     "class": "11H(PAUL)"
-  },
-  {
-    "item": "mmw_10e4_099v_min",
-    "class": "11HH(CATHERINE)"
   },
   {
     "item": "bsb00046261_68",
@@ -844,8 +1260,20 @@
     "class": "11HH(MARY MAGDALENE)"
   },
   {
+    "item": "IIHIM_683664731",
+    "class": "11HH(CATHERINE)"
+  },
+  {
     "item": "IIHIM_1295857240",
     "class": "11H(JOHN)"
+  },
+  {
+    "item": "IIHIM_716875732",
+    "class": "11HH(MARY MAGDALENE)"
+  },
+  {
+    "item": "IIHIM_1224881786",
+    "class": "11H(ANTONY ABBOT)"
   },
   {
     "item": "IIHIM_-2048182594",
@@ -856,24 +1284,24 @@
     "class": "11H(PAUL)"
   },
   {
-    "item": "IIHIM_876673044",
-    "class": "11HH(CATHERINE)"
-  },
-  {
     "item": "biblia_sacra_20021223080",
     "class": "11H(JOHN)"
   },
   {
-    "item": "bsb00025989_359",
-    "class": "11H(MARK)"
+    "item": "IIHIM_1195649509",
+    "class": "11H(ANTONY ABBOT)"
   },
   {
-    "item": "IIHIM_1141475819",
-    "class": "11H(MARK)"
+    "item": "IIHIM_RIJKS_1196450443",
+    "class": "11HH(MARY MAGDALENE)"
   },
   {
     "item": "mmw_10f14_122v_min",
     "class": "11H(JOHN)"
+  },
+  {
+    "item": "IIHIM_-1175000927",
+    "class": "11H(JEROME)"
   },
   {
     "item": "IIHIM_RIJKS_410147938",
@@ -892,20 +1320,28 @@
     "class": "11H(JEROME)"
   },
   {
-    "item": "bsb00027260_32",
-    "class": "11H(MARK)"
+    "item": "biblia_sacra_20040126189",
+    "class": "11H(JOHN)"
+  },
+  {
+    "item": "IIHIM_-740930972",
+    "class": "11H(ANTONY ABBOT)"
+  },
+  {
+    "item": "IIHIM_RIJKS_-1378289435",
+    "class": "11H(JEROME)"
   },
   {
     "item": "bsb00046261_70",
     "class": "11H(ANTONY ABBOT)"
   },
   {
-    "item": "IIHIM_-268884366",
-    "class": "11H(MARK)"
-  },
-  {
     "item": "bsb00027346_211",
     "class": "11HH(MARY MAGDALENE)"
+  },
+  {
+    "item": "IIHIM_-1126611574",
+    "class": "11H(ANTONY ABBOT)"
   },
   {
     "item": "74g22_196v",
@@ -914,10 +1350,6 @@
   {
     "item": "IIHIM_RIJKS_-3355871",
     "class": "11H(PETER)"
-  },
-  {
-    "item": "IIHIM_-599992492",
-    "class": "11HH(CATHERINE)"
   },
   {
     "item": "bsb00025548_418",
@@ -940,8 +1372,20 @@
     "class": "11HH(MARY MAGDALENE)"
   },
   {
-    "item": "bsb00027251_40",
-    "class": "11H(MARK)"
+    "item": "biblia_sacra_20121017346",
+    "class": "11H(LUKE)"
+  },
+  {
+    "item": "biblia_sacra_20140526036",
+    "class": "11H(JOHN)"
+  },
+  {
+    "item": "IIHIM_423561052",
+    "class": "11HH(CATHERINE)"
+  },
+  {
+    "item": "bsb00025548_829",
+    "class": "11H(LUKE)"
   },
   {
     "item": "IIHIM_RIJKS_-1102960863",
@@ -953,6 +1397,10 @@
   },
   {
     "item": "IIHIM_-1583071816",
+    "class": "11HH(MARY MAGDALENE)"
+  },
+  {
+    "item": "IIHIM_-1933986004",
     "class": "11HH(MARY MAGDALENE)"
   },
   {
@@ -980,12 +1428,20 @@
     "class": "11H(MATTHEW)"
   },
   {
-    "item": "IIHIM_RIJKS_-1480515124",
-    "class": "11HH(CATHERINE)"
+    "item": "biblia_sacra_20021213126",
+    "class": "11H(LUKE)"
+  },
+  {
+    "item": "76f23_130r_init",
+    "class": "11H(JEROME)"
   },
   {
     "item": "biblia_sacra_20110829430",
     "class": "11H(PAUL)"
+  },
+  {
+    "item": "biblia_sacra_20051204010",
+    "class": "11H(MATTHEW)"
   },
   {
     "item": "IIHIM_RIJKS_807621183",
@@ -1020,8 +1476,28 @@
     "class": "11HH(MARY MAGDALENE)"
   },
   {
+    "item": "IIHIM_-2009750632",
+    "class": "11H(ANTONY ABBOT)"
+  },
+  {
     "item": "135e18_120v",
     "class": "11HH(CATHERINE)"
+  },
+  {
+    "item": "biblia_sacra_20040128129",
+    "class": "11H(JOHN)"
+  },
+  {
+    "item": "IIHIM_-1335425534",
+    "class": "11HH(MARY MAGDALENE)"
+  },
+  {
+    "item": "IIHIM_-1752761673",
+    "class": "11H(MATTHEW)"
+  },
+  {
+    "item": "mmw_10e36_569v_init",
+    "class": "11H(PAUL)"
   },
   {
     "item": "IIHIM_-334917998",
@@ -1032,16 +1508,28 @@
     "class": "11HH(CATHERINE)"
   },
   {
-    "item": "IIHIM_-812263096",
-    "class": "11HH(CATHERINE)"
-  },
-  {
-    "item": "IIHIM_-1927500928",
-    "class": "11H(FRANCIS)"
+    "item": "IIHIM_1966699600",
+    "class": "11H(JEROME)"
   },
   {
     "item": "IIHIM_415489436",
     "class": "11HH(MARY MAGDALENE)"
+  },
+  {
+    "item": "biblia_sacra_20040723100",
+    "class": "11H(LUKE)"
+  },
+  {
+    "item": "IIHIM_RIJKS_2044758572",
+    "class": "11H(LUKE)"
+  },
+  {
+    "item": "IIHIM_RIJKS_397342928",
+    "class": "11H(ANTONY ABBOT)"
+  },
+  {
+    "item": "biblia_sacra_20040424118",
+    "class": "11H(JOHN)"
   },
   {
     "item": "biblia_sacra_20030130058",
@@ -1060,6 +1548,10 @@
     "class": "11H(PETER)"
   },
   {
+    "item": "IIHIM_-1760720326",
+    "class": "11H(ANTONY ABBOT)"
+  },
+  {
     "item": "IIHIM_RIJKS_-19276851",
     "class": "11H(FRANCIS)"
   },
@@ -1076,8 +1568,32 @@
     "class": "11H(PAUL)"
   },
   {
+    "item": "IIHIM_RIJKS_-1185079930",
+    "class": "11H(LUKE)"
+  },
+  {
+    "item": "75a2_dl4_085v",
+    "class": "11H(ANTONY ABBOT)"
+  },
+  {
     "item": "IIHIM_RIJKS_-1789362355",
     "class": "11H(ANTONY ABBOT)"
+  },
+  {
+    "item": "biblia_sacra_20040723387",
+    "class": "11H(MATTHEW)"
+  },
+  {
+    "item": "IIHIM_RIJKS_-2012736697",
+    "class": "11H(FRANCIS)"
+  },
+  {
+    "item": "biblia_sacra_20030825152",
+    "class": "11H(JOHN)"
+  },
+  {
+    "item": "IIHIM_1846757905",
+    "class": "11H(JEROME)"
   },
   {
     "item": "biblia_sacra_20030725229",
@@ -1088,12 +1604,20 @@
     "class": "11HH(MARY MAGDALENE)"
   },
   {
+    "item": "IIHIM_1369363113",
+    "class": "11HH(CATHERINE)"
+  },
+  {
     "item": "IIHIM_-79815601",
     "class": "11HH(MARY MAGDALENE)"
   },
   {
     "item": "biblia_sacra_20030106159",
     "class": "11H(PETER)"
+  },
+  {
+    "item": "IIHIM_718061395",
+    "class": "11H(ANTONY ABBOT)"
   },
   {
     "item": "bsb00030855_4",
@@ -1104,36 +1628,36 @@
     "class": "11H(PETER)"
   },
   {
-    "item": "IIHIM_-458699567",
-    "class": "11H(JEROME)"
-  },
-  {
     "item": "128c2_222r_init",
     "class": "11H(PAUL)"
+  },
+  {
+    "item": "biblia_sacra_20070105009",
+    "class": "11H(MATTHEW)"
   },
   {
     "item": "IIHIM_RIJKS_427127010",
     "class": "11H(MATTHEW)"
   },
   {
-    "item": "IIHIM_-803689830",
-    "class": "11H(JOHN)"
-  },
-  {
     "item": "biblia_sacra_20040127182",
     "class": "11H(PAUL)"
+  },
+  {
+    "item": "biblia_sacra_20051105325",
+    "class": "11H(MATTHEW)"
   },
   {
     "item": "IIHIM_79958908",
     "class": "11H(JOHN)"
   },
   {
-    "item": "IIHIM_-1919311034",
-    "class": "11H(JOHN)"
+    "item": "IIHIM_517019411",
+    "class": "11H(JEROME)"
   },
   {
-    "item": "IIHIM_1512926083",
-    "class": "11H(MARK)"
+    "item": "IIHIM_-1919311034",
+    "class": "11H(JOHN)"
   },
   {
     "item": "IIHIM_1856430843",
@@ -1144,6 +1668,10 @@
     "class": "11H(JEROME)"
   },
   {
+    "item": "IIHIM_1734785829",
+    "class": "11H(LUKE)"
+  },
+  {
     "item": "IIHIM_1732589600",
     "class": "11H(JOHN)"
   },
@@ -1152,12 +1680,12 @@
     "class": "11H(MATTHEW)"
   },
   {
-    "item": "bsb00025548_724",
-    "class": "11H(JEROME)"
+    "item": "IIHIM_1473221516",
+    "class": "11H(FRANCIS)"
   },
   {
-    "item": "IIHIM_952669921",
-    "class": "11HH(CATHERINE)"
+    "item": "bsb00025548_724",
+    "class": "11H(JEROME)"
   },
   {
     "item": "IIHIM_RIJKS_-409721807",
@@ -1168,6 +1696,14 @@
     "class": "11H(PETER)"
   },
   {
+    "item": "IIHIM_1366307782",
+    "class": "11H(ANTONY ABBOT)"
+  },
+  {
+    "item": "biblia_sacra_20051111014",
+    "class": "11H(JOHN)"
+  },
+  {
     "item": "IIHIM_989082729",
     "class": "11H(JEROME)"
   },
@@ -1176,12 +1712,16 @@
     "class": "11H(PAUL)"
   },
   {
-    "item": "biblia_sacra_20021101117",
-    "class": "11H(JOHN)"
+    "item": "biblia_sacra_20030128065",
+    "class": "11H(PAUL)"
   },
   {
-    "item": "IIHIM_RIJKS_-541969297",
-    "class": "11H(MATTHEW)"
+    "item": "biblia_sacra_20140728034",
+    "class": "11H(LUKE)"
+  },
+  {
+    "item": "biblia_sacra_20021101117",
+    "class": "11H(JOHN)"
   },
   {
     "item": "mmw_10e35_560r_init",
@@ -1192,15 +1732,11 @@
     "class": "11H(JEROME)"
   },
   {
-    "item": "IIHIM_-1401170529",
-    "class": "11HH(MARY MAGDALENE)"
-  },
-  {
-    "item": "IIHIM_-1687860892",
-    "class": "11HH(CATHERINE)"
-  },
-  {
     "item": "76f23_223r_init_a",
+    "class": "11H(JEROME)"
+  },
+  {
+    "item": "IIHIM_2017153380",
     "class": "11H(JEROME)"
   },
   {
@@ -1240,8 +1776,8 @@
     "class": "11H(PETER)"
   },
   {
-    "item": "IIHIM_-239685006",
-    "class": "11H(MARK)"
+    "item": "IIHIM_2095387173",
+    "class": "11HH(MARY MAGDALENE)"
   },
   {
     "item": "biblia_sacra_20040127040",
@@ -1254,6 +1790,18 @@
   {
     "item": "biblia_sacra_20040130106",
     "class": "11H(PAUL)"
+  },
+  {
+    "item": "mmw_10b23_531r_min",
+    "class": "11H(PAUL)"
+  },
+  {
+    "item": "IIHIM_-2020912657",
+    "class": "11H(ANTONY ABBOT)"
+  },
+  {
+    "item": "IIHIM_-862803841",
+    "class": "11H(JEROME)"
   },
   {
     "item": "IIHIM_185112450",
@@ -1276,24 +1824,44 @@
     "class": "11H(JEROME)"
   },
   {
-    "item": "IIHIM_-1074355413",
-    "class": "11HH(MARY MAGDALENE)"
+    "item": "IIHIM_472796088",
+    "class": "11H(JOHN)"
+  },
+  {
+    "item": "biblia_sacra_20021227065",
+    "class": "11H(LUKE)"
+  },
+  {
+    "item": "IIHIM_-1568382502",
+    "class": "11H(FRANCIS)"
+  },
+  {
+    "item": "IIHIM_RIJKS_427191839",
+    "class": "11HH(CATHERINE)"
   },
   {
     "item": "130e26_detail_01_januari",
     "class": "11H(PAUL)"
   },
   {
+    "item": "IIHIM_1889517886",
+    "class": "11HH(MARY MAGDALENE)"
+  },
+  {
     "item": "bsb00027261_378",
     "class": "11H(PETER)"
   },
   {
-    "item": "IIHIM_RIJKS_1628695292",
+    "item": "IIHIM_1164944549",
     "class": "11HH(MARY MAGDALENE)"
   },
   {
-    "item": "IIHIM_1164944549",
-    "class": "11HH(MARY MAGDALENE)"
+    "item": "IIHIM_-1800284433",
+    "class": "11H(ANTONY ABBOT)"
+  },
+  {
+    "item": "76g19_015r",
+    "class": "11H(LUKE)"
   },
   {
     "item": "IIHIM_RIJKS_1984784737",
@@ -1302,6 +1870,10 @@
   {
     "item": "bsb00027250_198",
     "class": "11HH(CATHERINE)"
+  },
+  {
+    "item": "IIHIM_-293615285",
+    "class": "11H(LUKE)"
   },
   {
     "item": "IIHIM_RIJKS_-2027266547",
@@ -1316,11 +1888,23 @@
     "class": "11HH(CATHERINE)"
   },
   {
+    "item": "biblia_sacra_20110829515",
+    "class": "11H(JOHN)"
+  },
+  {
+    "item": "78d38_dl2_274r_init",
+    "class": "11H(JOHN)"
+  },
+  {
     "item": "bsb00035257_16",
     "class": "11H(JEROME)"
   },
   {
-    "item": "IIHIM_RIJKS_-598727493",
+    "item": "IIHIM_-346353027",
+    "class": "11H(ANTONY ABBOT)"
+  },
+  {
+    "item": "IIHIM_RIJKS_2033920572",
     "class": "11HH(MARY MAGDALENE)"
   },
   {
@@ -1336,11 +1920,23 @@
     "class": "11H(PAUL)"
   },
   {
+    "item": "IIHIM_832212832",
+    "class": "11H(JOHN)"
+  },
+  {
     "item": "IIHIM_-1871088056",
     "class": "11H(PETER)"
   },
   {
+    "item": "IIHIM_RIJKS_197007238",
+    "class": "11H(LUKE)"
+  },
+  {
     "item": "IIHIM_RIJKS_-1838862342",
+    "class": "11H(JEROME)"
+  },
+  {
+    "item": "IIHIM_-796257796",
     "class": "11H(JEROME)"
   },
   {
@@ -1348,24 +1944,32 @@
     "class": "11H(PAUL)"
   },
   {
-    "item": "IIHIM_1810292563",
-    "class": "11HH(CATHERINE)"
-  },
-  {
-    "item": "IIHIM_479882441",
-    "class": "11H(ANTONY ABBOT)"
+    "item": "biblia_sacra_20130724002",
+    "class": "11H(MATTHEW)"
   },
   {
     "item": "biblia_sacra_20030725231",
     "class": "11H(PAUL)"
   },
   {
-    "item": "IIHIM_623728170",
+    "item": "mmw_10e33_409v_init",
+    "class": "11H(PAUL)"
+  },
+  {
+    "item": "IIHIM_-2032572812",
     "class": "11HH(CATHERINE)"
   },
   {
-    "item": "IIHIM_1958703262",
-    "class": "11HH(CATHERINE)"
+    "item": "bsb00039898_34",
+    "class": "11H(ANTONY ABBOT)"
+  },
+  {
+    "item": "IIHIM_1465110216",
+    "class": "11H(FRANCIS)"
+  },
+  {
+    "item": "74g28_017r_min",
+    "class": "11H(MATTHEW)"
   },
   {
     "item": "IIHIM_RIJKS_1415870087",
@@ -1376,8 +1980,28 @@
     "class": "11H(PETER)"
   },
   {
+    "item": "biblia_sacra_20110822121",
+    "class": "11H(PAUL)"
+  },
+  {
+    "item": "IIHIM_-1434470121",
+    "class": "11H(JEROME)"
+  },
+  {
+    "item": "IIHIM_-1335026802",
+    "class": "11H(JEROME)"
+  },
+  {
+    "item": "IIHIM_-1200511659",
+    "class": "11HH(CATHERINE)"
+  },
+  {
     "item": "biblia_sacra_20021213130",
     "class": "11H(PAUL)"
+  },
+  {
+    "item": "IIHIM_773001098",
+    "class": "11H(JEROME)"
   },
   {
     "item": "IIHIM_1738278544",
@@ -1396,12 +2020,20 @@
     "class": "11HH(MARY MAGDALENE)"
   },
   {
-    "item": "IIHIM_-1873783069",
-    "class": "11HH(MARY MAGDALENE)"
+    "item": "IIHIM_1689268809",
+    "class": "11HH(CATHERINE)"
   },
   {
-    "item": "IIHIM_-1442091469",
-    "class": "11HH(CATHERINE)"
+    "item": "IIHIM_RIJKS_1617191877",
+    "class": "11H(JEROME)"
+  },
+  {
+    "item": "biblia_sacra_20050416077",
+    "class": "11H(MATTHEW)"
+  },
+  {
+    "item": "IIHIM_-1873783069",
+    "class": "11HH(MARY MAGDALENE)"
   },
   {
     "item": "biblia_sacra_20031015507",
@@ -1412,12 +2044,12 @@
     "class": "11HH(CATHERINE)"
   },
   {
-    "item": "IIHIM_-887666809",
-    "class": "11H(PETER)"
-  },
-  {
     "item": "biblia_sacra_20031015442",
     "class": "11H(PAUL)"
+  },
+  {
+    "item": "biblia_sacra_20030128076",
+    "class": "11H(JOHN)"
   },
   {
     "item": "biblia_sacra_20100830014",
@@ -1432,31 +2064,55 @@
     "class": "11H(FRANCIS)"
   },
   {
+    "item": "IIHIM_-126843641",
+    "class": "11H(ANTONY ABBOT)"
+  },
+  {
     "item": "76f7_104r_init",
     "class": "11H(JOHN)"
+  },
+  {
+    "item": "IIHIM_RIJKS_918341367",
+    "class": "11H(FRANCIS)"
+  },
+  {
+    "item": "IIHIM_-99214252",
+    "class": "11HH(MARY MAGDALENE)"
   },
   {
     "item": "71a22_145v_init",
     "class": "11H(PAUL)"
   },
   {
-    "item": "IIHIM_-513363196",
-    "class": "11HH(CATHERINE)"
+    "item": "biblia_sacra_20051105329",
+    "class": "11H(JOHN)"
   },
   {
     "item": "IIHIM_RIJKS_-1350537747",
     "class": "11H(JOHN)"
   },
   {
-    "item": "IIHIM_RIJKS_1817219816",
-    "class": "11H(MARK)"
-  },
-  {
     "item": "IIHIM_1988204314",
     "class": "11HH(CATHERINE)"
   },
   {
+    "item": "biblia_sacra_20040424117",
+    "class": "11H(MATTHEW)"
+  },
+  {
+    "item": "biblia_sacra_20021106018",
+    "class": "11H(MATTHEW)"
+  },
+  {
+    "item": "biblia_sacra_20021224042",
+    "class": "11H(LUKE)"
+  },
+  {
     "item": "IIHIM_-1421064296",
+    "class": "11HH(MARY MAGDALENE)"
+  },
+  {
+    "item": "IIHIM_1620427358",
     "class": "11HH(MARY MAGDALENE)"
   },
   {
@@ -1464,12 +2120,20 @@
     "class": "11HH(MARY MAGDALENE)"
   },
   {
-    "item": "IIHIM_-1303173190",
+    "item": "IIHIM_-678743258",
     "class": "11HH(MARY MAGDALENE)"
   },
   {
-    "item": "IIHIM_RIJKS_-168753985",
-    "class": "11H(MARK)"
+    "item": "bsb00029868_49",
+    "class": "11HH(CATHERINE)"
+  },
+  {
+    "item": "IIHIM_-1656120159",
+    "class": "11H(JEROME)"
+  },
+  {
+    "item": "IIHIM_-252006497",
+    "class": "11H(JEROME)"
   },
   {
     "item": "IIHIM_799370140",
@@ -1480,12 +2144,28 @@
     "class": "11H(PETER)"
   },
   {
-    "item": "IIHIM_536094525",
-    "class": "11HH(CATHERINE)"
+    "item": "biblia_sacra_20140728236",
+    "class": "11H(LUKE)"
+  },
+  {
+    "item": "IIHIM_-535143056",
+    "class": "11H(ANTONY ABBOT)"
+  },
+  {
+    "item": "IIHIM_1441633156",
+    "class": "11H(JEROME)"
   },
   {
     "item": "IIHIM_RIJKS_-1581670988",
     "class": "11H(FRANCIS)"
+  },
+  {
+    "item": "IIHIM_RIJKS_-13929716",
+    "class": "11H(PETER)"
+  },
+  {
+    "item": "IIHIM_RIJKS_-18855729",
+    "class": "11H(JEROME)"
   },
   {
     "item": "IIHIM_RIJKS_1277054482",
@@ -1496,8 +2176,16 @@
     "class": "11H(PETER)"
   },
   {
+    "item": "IIHIM_-1909338635",
+    "class": "11H(ANTONY ABBOT)"
+  },
+  {
     "item": "bsb00034032_279",
     "class": "11H(JOHN)"
+  },
+  {
+    "item": "bsb00027320_100",
+    "class": "11H(LUKE)"
   },
   {
     "item": "IIHIM_-2114173944",
@@ -1512,12 +2200,36 @@
     "class": "11H(PETER)"
   },
   {
+    "item": "IIHIM_-1066294694",
+    "class": "11HH(MARY MAGDALENE)"
+  },
+  {
+    "item": "IIHIM_426401253",
+    "class": "11H(LUKE)"
+  },
+  {
+    "item": "IIHIM_RIJKS_1249810586",
+    "class": "11H(JEROME)"
+  },
+  {
+    "item": "IIHIM_RIJKS_-1900758912",
+    "class": "11H(JOHN)"
+  },
+  {
     "item": "IIHIM_-1001521089",
     "class": "11H(JOHN)"
   },
   {
+    "item": "IIHIM_-1843054024",
+    "class": "11H(FRANCIS)"
+  },
+  {
     "item": "IIHIM_RIJKS_8022237",
     "class": "11H(JOHN)"
+  },
+  {
+    "item": "IIHIM_RIJKS_1065800220",
+    "class": "11H(JEROME)"
   },
   {
     "item": "IIHIM_RIJKS_-1840067008",
@@ -1532,12 +2244,28 @@
     "class": "11HH(CATHERINE)"
   },
   {
+    "item": "IIHIM_-1717514333",
+    "class": "11H(ANTONY ABBOT)"
+  },
+  {
     "item": "76f7_027v_min",
     "class": "11HH(CATHERINE)"
   },
   {
+    "item": "IIHIM_115738986",
+    "class": "11H(JEROME)"
+  },
+  {
     "item": "IIHIM_1997691335",
     "class": "11H(PAUL)"
+  },
+  {
+    "item": "IIHIM_1924970992",
+    "class": "11HH(MARY MAGDALENE)"
+  },
+  {
+    "item": "biblia_sacra_20030305028",
+    "class": "11H(LUKE)"
   },
   {
     "item": "biblia_sacra_20030123055",
@@ -1546,6 +2274,10 @@
   {
     "item": "bsb00027720_412",
     "class": "11H(PETER)"
+  },
+  {
+    "item": "IIHIM_-141860695",
+    "class": "11HH(MARY MAGDALENE)"
   },
   {
     "item": "biblia_sacra_20051111028",
@@ -1584,8 +2316,20 @@
     "class": "11H(MATTHEW)"
   },
   {
+    "item": "IIHIM_1064513098",
+    "class": "11H(LUKE)"
+  },
+  {
     "item": "IIHIM_-1782209624",
     "class": "11H(PETER)"
+  },
+  {
+    "item": "bsb00044259_243",
+    "class": "11HH(MARY MAGDALENE)"
+  },
+  {
+    "item": "IIHIM_RIJKS_539406978",
+    "class": "11H(FRANCIS)"
   },
   {
     "item": "IIHIM_85028952",
@@ -1596,6 +2340,10 @@
     "class": "11H(ANTONY ABBOT)"
   },
   {
+    "item": "bsb00026205_618",
+    "class": "11H(LUKE)"
+  },
+  {
     "item": "71a22_287r_init",
     "class": "11H(PAUL)"
   },
@@ -1604,7 +2352,7 @@
     "class": "11HH(MARY MAGDALENE)"
   },
   {
-    "item": "bsb00029629_85",
+    "item": "biblia_sacra_20030701195",
     "class": "11H(MATTHEW)"
   },
   {
@@ -1620,16 +2368,28 @@
     "class": "11H(MATTHEW)"
   },
   {
-    "item": "IIHIM_-1730830470",
-    "class": "11HH(MARY MAGDALENE)"
+    "item": "IIHIM_818594402",
+    "class": "11H(LUKE)"
   },
   {
-    "item": "IIHIM_640868611",
-    "class": "11H(JEROME)"
+    "item": "bsb00032514_32",
+    "class": "11H(ANTONY ABBOT)"
+  },
+  {
+    "item": "IIHIM_-1435655286",
+    "class": "11H(ANTONY ABBOT)"
   },
   {
     "item": "IIHIM_RIJKS_786228401",
     "class": "11HH(MARY MAGDALENE)"
+  },
+  {
+    "item": "IIHIM_1973286543",
+    "class": "11H(JEROME)"
+  },
+  {
+    "item": "biblia_sacra_20061214027",
+    "class": "11H(MATTHEW)"
   },
   {
     "item": "biblia_sacra_20021002004",
@@ -1640,16 +2400,16 @@
     "class": "11H(ANTONY ABBOT)"
   },
   {
-    "item": "folger_book_334215_fac075662",
-    "class": "11H(MATTHEW)"
-  },
-  {
     "item": "bsb00025548_663",
     "class": "11H(JEROME)"
   },
   {
     "item": "IIHIM_RIJKS_-477620106",
     "class": "11H(PETER)"
+  },
+  {
+    "item": "biblia_sacra_20030207021",
+    "class": "11H(JOHN)"
   },
   {
     "item": "IIHIM_-657451578",
@@ -1662,6 +2422,10 @@
   {
     "item": "IIHIM_-998488228",
     "class": "11HH(CATHERINE)"
+  },
+  {
+    "item": "IIHIM_912540594",
+    "class": "11H(JEROME)"
   },
   {
     "item": "IIHIM_RIJKS_1106529109",
@@ -1684,12 +2448,16 @@
     "class": "11H(PETER)"
   },
   {
+    "item": "IIHIM_-2016053519",
+    "class": "11HH(CATHERINE)"
+  },
+  {
     "item": "bsb00027250_518",
     "class": "11H(PETER)"
   },
   {
-    "item": "IIHIM_2141673932",
-    "class": "11H(JOHN)"
+    "item": "uiuc_emblems0027_pic147",
+    "class": "11H(FRANCIS)"
   },
   {
     "item": "IIHIM_1555147244",
@@ -1700,8 +2468,24 @@
     "class": "11HH(MARY MAGDALENE)"
   },
   {
+    "item": "IIHIM_707714395",
+    "class": "11H(MATTHEW)"
+  },
+  {
     "item": "embhab_xb-189_pic283",
     "class": "11H(MATTHEW)"
+  },
+  {
+    "item": "IIHIM_RIJKS_-1289258139",
+    "class": "11H(MATTHEW)"
+  },
+  {
+    "item": "biblia_sacra_20030729014",
+    "class": "11H(MATTHEW)"
+  },
+  {
+    "item": "IIHIM_-610624458",
+    "class": "11H(FRANCIS)"
   },
   {
     "item": "IIHIM_RIJKS_-1069535908",
@@ -1710,6 +2494,14 @@
   {
     "item": "biblia_sacra_20021213134",
     "class": "11H(PAUL)"
+  },
+  {
+    "item": "biblia_sacra_20110829320",
+    "class": "11H(LUKE)"
+  },
+  {
+    "item": "IIHIM_RIJKS_2096247977",
+    "class": "11H(LUKE)"
   },
   {
     "item": "IIHIM_-61964267",
@@ -1724,15 +2516,11 @@
     "class": "11H(ANTONY ABBOT)"
   },
   {
-    "item": "IIHIM_1318492220",
-    "class": "11H(MARK)"
+    "item": "IIHIM_RIJKS_1502406661",
+    "class": "11H(JOHN)"
   },
   {
     "item": "mmw_10e35_546r_init",
-    "class": "11H(PAUL)"
-  },
-  {
-    "item": "76f23_279v_init",
     "class": "11H(PAUL)"
   },
   {
@@ -1744,44 +2532,60 @@
     "class": "11H(PAUL)"
   },
   {
+    "item": "IIHIM_RIJKS_447999001",
+    "class": "11H(JEROME)"
+  },
+  {
+    "item": "IIHIM_998645978",
+    "class": "11H(JEROME)"
+  },
+  {
     "item": "IIHIM_196999379",
     "class": "11H(FRANCIS)"
+  },
+  {
+    "item": "130e17_019r",
+    "class": "11HH(MARY MAGDALENE)"
   },
   {
     "item": "IIHIM_-1749355490",
     "class": "11HH(MARY MAGDALENE)"
   },
   {
-    "item": "IIHIM_RIJKS_1176580950",
-    "class": "11H(PETER)"
-  },
-  {
-    "item": "78d38_dl2_253r_init",
-    "class": "11H(PAUL)"
+    "item": "IIHIM_RIJKS_-1999785055",
+    "class": "11H(JEROME)"
   },
   {
     "item": "IIHIM_-1016818648",
     "class": "11H(PETER)"
   },
   {
-    "item": "bsb00027260_355",
-    "class": "11H(JEROME)"
+    "item": "mmw_10f33_017r_min",
+    "class": "11H(MATTHEW)"
+  },
+  {
+    "item": "mmw_10b23_543r_min",
+    "class": "11H(PAUL)"
   },
   {
     "item": "IIHIM_198865548",
     "class": "11H(PAUL)"
   },
   {
-    "item": "IIHIM_-854084363",
-    "class": "11HH(CATHERINE)"
+    "item": "IIHIM_RIJKS_-2076027312",
+    "class": "11H(LUKE)"
+  },
+  {
+    "item": "IIHIM_1538339989",
+    "class": "11H(JEROME)"
+  },
+  {
+    "item": "biblia_sacra_20050501094",
+    "class": "11H(JEROME)"
   },
   {
     "item": "IIHIM_-1386559131",
     "class": "11HH(CATHERINE)"
-  },
-  {
-    "item": "IIHIM_-1820701160",
-    "class": "11H(FRANCIS)"
   },
   {
     "item": "IIHIM_-1651115563",
@@ -1792,24 +2596,64 @@
     "class": "11H(PETER)"
   },
   {
+    "item": "IIHIM_RIJKS_-499193321",
+    "class": "11H(LUKE)"
+  },
+  {
+    "item": "IIHIM_1118898824",
+    "class": "11H(LUKE)"
+  },
+  {
+    "item": "IIHIM_-1764558268",
+    "class": "11HH(CATHERINE)"
+  },
+  {
+    "item": "IIHIM_-1896413994",
+    "class": "11H(JOHN)"
+  },
+  {
     "item": "76e22_394r_init",
     "class": "11H(PAUL)"
+  },
+  {
+    "item": "IIHIM_2044171789",
+    "class": "11H(ANTONY ABBOT)"
+  },
+  {
+    "item": "IIHIM_-1416550831",
+    "class": "11HH(MARY MAGDALENE)"
+  },
+  {
+    "item": "IIHIM_1448192479",
+    "class": "11H(JEROME)"
+  },
+  {
+    "item": "IIHIM_RIJKS_471055588",
+    "class": "11H(FRANCIS)"
   },
   {
     "item": "71a22_180r_init",
     "class": "11H(PAUL)"
   },
   {
-    "item": "IIHIM_396194256",
-    "class": "11H(JOHN)"
+    "item": "IIHIM_-995059667",
+    "class": "11H(FRANCIS)"
   },
   {
-    "item": "bsb00034024_281",
-    "class": "11H(MARK)"
+    "item": "mmw_10a11_046r_min_1",
+    "class": "11H(JEROME)"
   },
   {
     "item": "biblia_sacra_20051005090",
     "class": "11H(PAUL)"
+  },
+  {
+    "item": "IIHIM_RIJKS_1064455836",
+    "class": "11H(JEROME)"
+  },
+  {
+    "item": "IIHIM_-1588496378",
+    "class": "11H(JEROME)"
   },
   {
     "item": "IIHIM_-1160018766",
@@ -1820,6 +2664,14 @@
     "class": "11H(PETER)"
   },
   {
+    "item": "biblia_sacra_20051105375",
+    "class": "11H(MATTHEW)"
+  },
+  {
+    "item": "IIHIM_RIJKS_-385887201",
+    "class": "11H(JEROME)"
+  },
+  {
     "item": "biblia_sacra_20030527151",
     "class": "11H(PAUL)"
   },
@@ -1828,19 +2680,55 @@
     "class": "11H(MATTHEW)"
   },
   {
+    "item": "biblia_sacra_20131031013",
+    "class": "11H(PAUL)"
+  },
+  {
     "item": "IIHIM_RIJKS_-617768917",
     "class": "11H(PETER)"
+  },
+  {
+    "item": "IIHIM_-1758496839",
+    "class": "11H(FRANCIS)"
   },
   {
     "item": "75a2_dl4_092v",
     "class": "11HH(MARY MAGDALENE)"
   },
   {
+    "item": "IIHIM_-1946638645",
+    "class": "11H(JEROME)"
+  },
+  {
     "item": "IIHIM_RIJKS_-33353933",
     "class": "11H(PAUL)"
   },
   {
+    "item": "IIHIM_-957536488",
+    "class": "11HH(CATHERINE)"
+  },
+  {
+    "item": "biblia_sacra_20040128007",
+    "class": "11H(MATTHEW)"
+  },
+  {
+    "item": "IIHIM_-1608524674",
+    "class": "11H(JEROME)"
+  },
+  {
+    "item": "IIHIM_RIJKS_1946975168",
+    "class": "11H(PAUL)"
+  },
+  {
     "item": "IIHIM_-1258484116",
+    "class": "11HH(MARY MAGDALENE)"
+  },
+  {
+    "item": "IIHIM_RIJKS_1347175949",
+    "class": "11H(JEROME)"
+  },
+  {
+    "item": "IIHIM_-924647939",
     "class": "11HH(MARY MAGDALENE)"
   },
   {
@@ -1856,12 +2744,24 @@
     "class": "11H(PAUL)"
   },
   {
+    "item": "IIHIM_-1971031063",
+    "class": "11H(FRANCIS)"
+  },
+  {
     "item": "135j50_191r",
     "class": "11H(PAUL)"
   },
   {
     "item": "bsb00027317_344",
     "class": "11H(MATTHEW)"
+  },
+  {
+    "item": "mmw_10a16_172v_init",
+    "class": "11H(PETER)"
+  },
+  {
+    "item": "IIHIM_RIJKS_-1188043976",
+    "class": "11H(JEROME)"
   },
   {
     "item": "bsb00026204_25",
@@ -1872,20 +2772,16 @@
     "class": "11H(JEROME)"
   },
   {
+    "item": "76f2_270r_min",
+    "class": "11H(FRANCIS)"
+  },
+  {
     "item": "bsb00029323_623",
     "class": "11HH(MARY MAGDALENE)"
   },
   {
-    "item": "IIHIM_RIJKS_-1197328113",
-    "class": "11H(PETER)"
-  },
-  {
     "item": "biblia_sacra_20031015367",
     "class": "11H(PAUL)"
-  },
-  {
-    "item": "bsb00027858_30",
-    "class": "11H(MARK)"
   },
   {
     "item": "mmw_10e33_417v_init",
@@ -1908,64 +2804,64 @@
     "class": "11H(JOHN)"
   },
   {
-    "item": "IIHIM_-1449749065",
-    "class": "11HH(CATHERINE)"
-  },
-  {
-    "item": "IIHIM_1449086973",
-    "class": "11HH(CATHERINE)"
-  },
-  {
-    "item": "IIHIM_-1718581280",
-    "class": "11H(JOHN)"
-  },
-  {
     "item": "IIHIM_-715284737",
     "class": "11HH(MARY MAGDALENE)"
-  },
-  {
-    "item": "IIHIM_-1004893467",
-    "class": "11H(JEROME)"
   },
   {
     "item": "71a22_261r_init",
     "class": "11H(PAUL)"
   },
   {
-    "item": "bsb00035253_100",
-    "class": "11H(JEROME)"
+    "item": "IIHIM_1883564635",
+    "class": "11HH(CATHERINE)"
+  },
+  {
+    "item": "IIHIM_-607799024",
+    "class": "11H(MATTHEW)"
   },
   {
     "item": "IIHIM_-1965721711",
     "class": "11HH(MARY MAGDALENE)"
   },
   {
-    "item": "bsb00035236_74",
-    "class": "11H(JEROME)"
+    "item": "biblia_sacra_20051111013",
+    "class": "11H(LUKE)"
   },
   {
     "item": "76f2_248r_min",
     "class": "11H(PAUL)"
   },
   {
-    "item": "bsb00029323_10",
-    "class": "11H(JEROME)"
+    "item": "bsb00032514_103",
+    "class": "11H(ANTONY ABBOT)"
   },
   {
-    "item": "bsb00026205_457",
-    "class": "11H(MARK)"
+    "item": "bsb00029323_10",
+    "class": "11H(JEROME)"
   },
   {
     "item": "IIHIM_-1959402650",
     "class": "11H(JOHN)"
   },
   {
-    "item": "bsb00027260_380",
-    "class": "11H(FRANCIS)"
+    "item": "IIHIM_115488417",
+    "class": "11HH(CATHERINE)"
+  },
+  {
+    "item": "IIHIM_-2030784631",
+    "class": "11H(ANTONY ABBOT)"
+  },
+  {
+    "item": "76f1_ns_162r_afb",
+    "class": "11H(JOHN)"
   },
   {
     "item": "bsb00027260_572",
     "class": "11H(JOHN)"
+  },
+  {
+    "item": "IIHIM_RIJKS_-1501281016",
+    "class": "11H(FRANCIS)"
   },
   {
     "item": "biblia_sacra_20050501081",
@@ -1976,6 +2872,14 @@
     "class": "11H(PETER)"
   },
   {
+    "item": "bsb00025984_596",
+    "class": "11H(LUKE)"
+  },
+  {
+    "item": "uiuc_0961b84_pic053",
+    "class": "11H(ANTONY ABBOT)"
+  },
+  {
     "item": "biblia_sacra_20021228054",
     "class": "11H(PAUL)"
   },
@@ -1984,36 +2888,64 @@
     "class": "11H(JOHN)"
   },
   {
-    "item": "IIHIM_783795008",
-    "class": "11H(ANTONY ABBOT)"
+    "item": "biblia_sacra_20050207092",
+    "class": "11H(LUKE)"
   },
   {
-    "item": "IIHIM_-83287925",
-    "class": "11HH(CATHERINE)"
+    "item": "IIHIM_783795008",
+    "class": "11H(ANTONY ABBOT)"
   },
   {
     "item": "biblia_sacra_20021002009",
     "class": "11H(PAUL)"
   },
   {
-    "item": "bsb00029323_501",
-    "class": "11H(MARK)"
+    "item": "76f17_109r",
+    "class": "11HH(CATHERINE)"
   },
   {
     "item": "IIHIM_RIJKS_543704882",
     "class": "11H(JOHN)"
   },
   {
+    "item": "IIHIM_747764415",
+    "class": "11H(JEROME)"
+  },
+  {
     "item": "bsb00026914_190",
     "class": "11H(MATTHEW)"
+  },
+  {
+    "item": "IIHIM_1711072494",
+    "class": "11HH(MARY MAGDALENE)"
+  },
+  {
+    "item": "IIHIM_RIJKS_1871998621",
+    "class": "11H(PAUL)"
   },
   {
     "item": "biblia_sacra_20030725348",
     "class": "11H(PAUL)"
   },
   {
+    "item": "mmw_10e32_413v_init",
+    "class": "11H(JOHN)"
+  },
+  {
+    "item": "IIHIM_-1656816416",
+    "class": "11H(JEROME)"
+  },
+  {
     "item": "bsb00026205_424",
     "class": "11H(MATTHEW)"
+  },
+  {
+    "item": "IIHIM_-167262263",
+    "class": "11H(JEROME)"
+  },
+  {
+    "item": "IIHIM_-675478443",
+    "class": "11H(FRANCIS)"
   },
   {
     "item": "IIHIM_462941942",
@@ -2024,16 +2956,20 @@
     "class": "11H(FRANCIS)"
   },
   {
-    "item": "IIHIM_RIJKS_-1313102251",
-    "class": "11H(PETER)"
+    "item": "mmw_10e34_444v",
+    "class": "11H(PAUL)"
   },
   {
     "item": "mmw_10e3_206v_min",
     "class": "11H(JOHN)"
   },
   {
-    "item": "76f20_033r",
-    "class": "11HH(CATHERINE)"
+    "item": "IIHIM_277063458",
+    "class": "11H(FRANCIS)"
+  },
+  {
+    "item": "IIHIM_-1771442948",
+    "class": "11H(JEROME)"
   },
   {
     "item": "IIHIM_-1747331724",
@@ -2044,8 +2980,40 @@
     "class": "11H(JOHN)"
   },
   {
-    "item": "IIHIM_1625430109",
-    "class": "11HH(CATHERINE)"
+    "item": "biblia_sacra_20110822112",
+    "class": "11H(MATTHEW)"
+  },
+  {
+    "item": "IIHIM_RIJKS_-781599651",
+    "class": "11H(JOHN)"
+  },
+  {
+    "item": "IIHIM_-1696985584",
+    "class": "11H(ANTONY ABBOT)"
+  },
+  {
+    "item": "IIHIM_-1977966561",
+    "class": "11H(JEROME)"
+  },
+  {
+    "item": "IIHIM_RIJKS_259504037",
+    "class": "11H(JEROME)"
+  },
+  {
+    "item": "IIHIM_-600599039",
+    "class": "11H(LUKE)"
+  },
+  {
+    "item": "IIHIM_-1667812316",
+    "class": "11HH(MARY MAGDALENE)"
+  },
+  {
+    "item": "bsb00039898_80",
+    "class": "11H(ANTONY ABBOT)"
+  },
+  {
+    "item": "IIHIM_2140020008",
+    "class": "11HH(MARY MAGDALENE)"
   },
   {
     "item": "IIHIM_RIJKS_-995984535",
@@ -2056,12 +3024,28 @@
     "class": "11H(PETER)"
   },
   {
+    "item": "biblia_sacra_20140113003",
+    "class": "11H(MATTHEW)"
+  },
+  {
+    "item": "biblia_sacra_20050207079",
+    "class": "11H(PAUL)"
+  },
+  {
     "item": "IIHIM_RIJKS_1315622382",
     "class": "11H(MATTHEW)"
   },
   {
+    "item": "IIHIM_-1703814268",
+    "class": "11H(ANTONY ABBOT)"
+  },
+  {
     "item": "bsb00027574_16",
     "class": "11H(JEROME)"
+  },
+  {
+    "item": "IIHIM_RIJKS_1239778730",
+    "class": "11H(FRANCIS)"
   },
   {
     "item": "folger_ill_fac064793",
@@ -2076,12 +3060,28 @@
     "class": "11H(JOHN)"
   },
   {
+    "item": "IIHIM_859642866",
+    "class": "11H(MATTHEW)"
+  },
+  {
     "item": "bsb00025548_747",
     "class": "11H(JEROME)"
   },
   {
-    "item": "IIHIM_RIJKS_1335419893",
-    "class": "11H(FRANCIS)"
+    "item": "IIHIM_RIJKS_-1044220297",
+    "class": "11H(JEROME)"
+  },
+  {
+    "item": "IIHIM_371631973",
+    "class": "11H(ANTONY ABBOT)"
+  },
+  {
+    "item": "IIHIM_-106049247",
+    "class": "11H(JOHN)"
+  },
+  {
+    "item": "132f21_592v_init",
+    "class": "11H(JOHN)"
   },
   {
     "item": "IIHIM_RIJKS_251106567",
@@ -2092,12 +3092,36 @@
     "class": "11H(JOHN)"
   },
   {
+    "item": "IIHIM_829379476",
+    "class": "11H(PAUL)"
+  },
+  {
     "item": "biblia_sacra_20021213131",
     "class": "11H(PAUL)"
   },
   {
     "item": "IIHIM_476056511",
     "class": "11HH(MARY MAGDALENE)"
+  },
+  {
+    "item": "biblia_sacra_20031015458",
+    "class": "11H(PAUL)"
+  },
+  {
+    "item": "IIHIM_566123952",
+    "class": "11H(JEROME)"
+  },
+  {
+    "item": "IIHIM_1302728066",
+    "class": "11H(JEROME)"
+  },
+  {
+    "item": "biblia_sacra_20040130085",
+    "class": "11H(MATTHEW)"
+  },
+  {
+    "item": "IIHIM_-1822894718",
+    "class": "11HH(CATHERINE)"
   },
   {
     "item": "biblia_sacra_20051005008",
@@ -2108,6 +3132,10 @@
     "class": "11HH(CATHERINE)"
   },
   {
+    "item": "IIHIM_-1626716146",
+    "class": "11HH(MARY MAGDALENE)"
+  },
+  {
     "item": "bsb00025548_768",
     "class": "11H(JEROME)"
   },
@@ -2116,12 +3144,24 @@
     "class": "11H(PAUL)"
   },
   {
+    "item": "biblia_sacra_20021227052",
+    "class": "11H(JOHN)"
+  },
+  {
+    "item": "IIHIM_-1905139793",
+    "class": "11H(FRANCIS)"
+  },
+  {
     "item": "IIHIM_RIJKS_846561409",
     "class": "11H(FRANCIS)"
   },
   {
-    "item": "bl_arundel157_pic010v2",
-    "class": "11H(JOHN)"
+    "item": "IIHIM_RIJKS_965701925",
+    "class": "11H(JEROME)"
+  },
+  {
+    "item": "IIHIM_RIJKS_915770222",
+    "class": "11H(FRANCIS)"
   },
   {
     "item": "biblia_sacra_20111116164",
@@ -2140,12 +3180,32 @@
     "class": "11HH(CATHERINE)"
   },
   {
-    "item": "IIHIM_-1106836300",
+    "item": "IIHIM_-359497242",
     "class": "11HH(CATHERINE)"
+  },
+  {
+    "item": "IIHIM_55604723",
+    "class": "11H(ANTONY ABBOT)"
+  },
+  {
+    "item": "76e17_100v_min",
+    "class": "11H(JOHN)"
+  },
+  {
+    "item": "IIHIM_RIJKS_-1859500173",
+    "class": "11H(PETER)"
+  },
+  {
+    "item": "IIHIM_-111423920",
+    "class": "11H(LUKE)"
   },
   {
     "item": "IIHIM_RIJKS_86071078",
     "class": "11H(JEROME)"
+  },
+  {
+    "item": "IIHIM_1645979735",
+    "class": "11HH(MARY MAGDALENE)"
   },
   {
     "item": "76g2_383v_init",
@@ -2156,6 +3216,10 @@
     "class": "11H(JEROME)"
   },
   {
+    "item": "IIHIM_-1628530387",
+    "class": "11HH(MARY MAGDALENE)"
+  },
+  {
     "item": "IIHIM_-259671101",
     "class": "11HH(MARY MAGDALENE)"
   },
@@ -2164,16 +3228,32 @@
     "class": "11HH(MARY MAGDALENE)"
   },
   {
+    "item": "IIHIM_RIJKS_-1475361335",
+    "class": "11H(FRANCIS)"
+  },
+  {
+    "item": "embhab_39-7-geom-2s_pic143",
+    "class": "11H(PETER)"
+  },
+  {
     "item": "IIHIM_RIJKS_1401436342",
     "class": "11HH(MARY MAGDALENE)"
   },
   {
-    "item": "IIHIM_RIJKS_1687458681",
-    "class": "11H(JOHN)"
+    "item": "IIHIM_1217947786",
+    "class": "11HH(MARY MAGDALENE)"
   },
   {
-    "item": "IIHIM_233174306",
-    "class": "11HH(CATHERINE)"
+    "item": "74g22_017v",
+    "class": "11H(MATTHEW)"
+  },
+  {
+    "item": "IIHIM_-2093870965",
+    "class": "11H(MATTHEW)"
+  },
+  {
+    "item": "IIHIM_-1523094074",
+    "class": "11H(FRANCIS)"
   },
   {
     "item": "IIHIM_RIJKS_-1796461330",
@@ -2182,6 +3262,22 @@
   {
     "item": "IIHIM_-1817476610",
     "class": "11H(PAUL)"
+  },
+  {
+    "item": "IIHIM_1798406255",
+    "class": "11H(JEROME)"
+  },
+  {
+    "item": "biblia_sacra_20030812222",
+    "class": "11H(PAUL)"
+  },
+  {
+    "item": "bsb00046261_48",
+    "class": "11H(ANTONY ABBOT)"
+  },
+  {
+    "item": "IIHIM_257795567",
+    "class": "11H(JEROME)"
   },
   {
     "item": "IIHIM_RIJKS_-728650159",
@@ -2200,16 +3296,40 @@
     "class": "11H(JOHN)"
   },
   {
+    "item": "biblia_sacra_20040128138",
+    "class": "11H(JOHN)"
+  },
+  {
     "item": "biblia_sacra_20021228060",
     "class": "11H(JOHN)"
+  },
+  {
+    "item": "IIHIM_1023174482",
+    "class": "11H(JEROME)"
   },
   {
     "item": "IIHIM_1317055348",
     "class": "11HH(MARY MAGDALENE)"
   },
   {
+    "item": "IIHIM_-975874578",
+    "class": "11H(ANTONY ABBOT)"
+  },
+  {
+    "item": "biblia_sacra_20030807048",
+    "class": "11H(PAUL)"
+  },
+  {
     "item": "IIHIM_-321611140",
     "class": "11H(JOHN)"
+  },
+  {
+    "item": "biblia_sacra_20121017224",
+    "class": "11H(LUKE)"
+  },
+  {
+    "item": "biblia_sacra_20030106162",
+    "class": "11H(LUKE)"
   },
   {
     "item": "biblia_sacra_20050501196",
@@ -2220,12 +3340,32 @@
     "class": "11HH(CATHERINE)"
   },
   {
-    "item": "IIHIM_-1659774179",
-    "class": "11HH(MARY MAGDALENE)"
+    "item": "IIHIM_1045076603",
+    "class": "11H(ANTONY ABBOT)"
+  },
+  {
+    "item": "IIHIM_-212400205",
+    "class": "11H(JEROME)"
+  },
+  {
+    "item": "76g14_014r",
+    "class": "11H(LUKE)"
+  },
+  {
+    "item": "IIHIM_2062610690",
+    "class": "11H(ANTONY ABBOT)"
   },
   {
     "item": "bsb00035253_55",
     "class": "11H(ANTONY ABBOT)"
+  },
+  {
+    "item": "IIHIM_RIJKS_-1139421089",
+    "class": "11H(ANTONY ABBOT)"
+  },
+  {
+    "item": "IIHIM_2091444973",
+    "class": "11HH(CATHERINE)"
   },
   {
     "item": "IIHIM_-1596500749",
@@ -2248,8 +3388,16 @@
     "class": "11H(PAUL)"
   },
   {
+    "item": "IIHIM_-114756584",
+    "class": "11HH(MARY MAGDALENE)"
+  },
+  {
     "item": "76g9_131v_init",
     "class": "11H(FRANCIS)"
+  },
+  {
+    "item": "IIHIM_1569095467",
+    "class": "11H(ANTONY ABBOT)"
   },
   {
     "item": "IIHIM_RIJKS_-1111227124",
@@ -2257,6 +3405,14 @@
   },
   {
     "item": "135j10_142v_143r",
+    "class": "11HH(MARY MAGDALENE)"
+  },
+  {
+    "item": "IIHIM_RIJKS_1216471690",
+    "class": "11H(JEROME)"
+  },
+  {
+    "item": "IIHIM_590183406",
     "class": "11HH(MARY MAGDALENE)"
   },
   {
@@ -2276,7 +3432,23 @@
     "class": "11H(PAUL)"
   },
   {
+    "item": "IIHIM_RIJKS_-986787626",
+    "class": "11HH(CATHERINE)"
+  },
+  {
+    "item": "IIHIM_-1673861402",
+    "class": "11H(FRANCIS)"
+  },
+  {
     "item": "mmw_10e4_092r_min",
+    "class": "11H(PAUL)"
+  },
+  {
+    "item": "76f23_176v_init",
+    "class": "11H(JEROME)"
+  },
+  {
+    "item": "mmw_10e35_562v_init",
     "class": "11H(PAUL)"
   }
 ]
