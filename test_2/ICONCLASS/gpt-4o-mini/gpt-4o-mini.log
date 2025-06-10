@@ -99,3 +99,105 @@ Treat all content as scholarly, respectful of historical context, and strictly n
 2025-06-08 16:46:47,513 - INFO - Total cost of this call: $0.7512
 2025-06-08 16:46:47,513 - INFO - Total unprocessed items: 4
 2025-06-08 16:46:47,513 - INFO - Probabilities shape: (566, 10)
+2025-06-10 08:29:48,832 - INFO - Logger initialized for ICONCLASS/test_2/gpt-4o-mini
+2025-06-10 08:29:48,832 - INFO - Starting classification for dataset=ICONCLASS, test=test_2, model=gpt-4o-mini
+2025-06-10 08:29:49,010 - INFO - Number of images: 863
+2025-06-10 08:29:49,010 - INFO - Processing dataset: ICONCLASS
+2025-06-10 08:29:49,012 - INFO - Processing images for test: test_2
+2025-06-10 08:29:49,031 - INFO - Loaded 566 cached results
+2025-06-10 08:29:49,031 - INFO - Using model: gpt-4o-mini
+2025-06-10 08:29:49,031 - INFO - === GENERATED PROMPT ===
+2025-06-10 08:29:49,032 - INFO - Dataset: ICONCLASS, Test: test_2
+2025-06-10 08:29:49,032 - INFO - Hyperparameters: temperature=0.0, top_p=0.1
+2025-06-10 08:29:49,032 - INFO - Prompt content:
+2025-06-10 08:29:49,032 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"paul" - the apostle Paul of Tarsus; possible attributes: book, scroll, sword
+"mary_magdalene" - the penitent harlot Mary Magdalene; possible attributes: book (or scroll), crown, crown of thorns, crucifix, jar of ointment, mirror, musical instrument, palm-branch, rosary, scourge
+"jerome" - the monk and hermit Jerome (Hieronymus); possible attributes: book, cardinal's hat, crucifix, hour-glass, lion, skull, stone
+"john" -  the apostle John the Evangelist; possible attributes: book, cauldron, chalice with snake, eagle, palm, scroll
+"antony_abbot" - the hermit Antony Abbot (Antonius Abbas) of Egypt, also called the Great; possible attributes: bell, book, T-shaped staff, flames, pig
+"peter" - the apostle Peter, first bishop of Rome; possible attributes: book, cock, (upturned) cross, (triple) crozier, fish, key, scroll, ship, tiara
+"matthew" - the apostle and evangelist Matthew (Mattheus); possible attributes: angel, axe, book, halberd, pen and inkhorn, purse, scroll, square, sword
+"catherine" - the virgin martyr Catherine of Alexandria; possible attributes: book, crown, emperor Maxentius, palm-branch, ring, sword, wheel
+"luke" - 11H(LUKE) Luke the evangelist; possible attributes: book, (winged) ox, portrait of the Virgin, surgical instruments, painter's utensils, scroll
+"francis" - founder of the Order of Friars Minor (Franciscans), Francis(cus) of Assisi; possible attributes: book, crucifix, lily, skull, stigmata
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2025-06-10 08:29:49,032 - INFO - === END PROMPT ===
+2025-06-10 08:30:03,471 - INFO - Cache saved after 5 batches
+2025-06-10 08:30:19,693 - INFO - Cache saved after 10 batches
+2025-06-10 08:30:29,964 - INFO - Cache saved after 15 batches
+2025-06-10 08:30:47,467 - INFO - Cache saved after 20 batches
+2025-06-10 08:31:05,035 - INFO - Cache saved after 25 batches
+2025-06-10 08:31:20,924 - INFO - Cache saved after 30 batches
+2025-06-10 08:31:36,850 - INFO - Cache saved after 35 batches
+2025-06-10 08:31:56,048 - INFO - Cache saved after 40 batches
+2025-06-10 08:32:10,548 - INFO - Cache saved after 45 batches
+2025-06-10 08:32:29,914 - INFO - Cache saved after 50 batches
+2025-06-10 08:32:48,019 - INFO - Cache saved after 55 batches
+2025-06-10 08:33:06,161 - INFO - Cache saved after 60 batches
+2025-06-10 08:33:18,012 - INFO - Cache saved after 65 batches
+2025-06-10 08:33:32,790 - INFO - Cache saved after 70 batches
+2025-06-10 08:33:46,086 - INFO - Cache saved after 75 batches
+2025-06-10 08:33:58,099 - INFO - Cache saved after 80 batches
+2025-06-10 08:34:09,510 - INFO - Cache saved after 85 batches
+2025-06-10 08:34:24,321 - INFO - Cache saved after 90 batches
+2025-06-10 08:34:42,800 - INFO - Cache saved after 95 batches
+2025-06-10 08:35:03,125 - INFO - Cache saved after 100 batches
+2025-06-10 08:35:19,882 - INFO - Cache saved after 105 batches
+2025-06-10 08:35:38,025 - INFO - Cache saved after 110 batches
+2025-06-10 08:35:49,289 - INFO - Cache saved after 115 batches
+2025-06-10 08:36:08,801 - INFO - Cache saved after 120 batches
+2025-06-10 08:36:24,747 - INFO - Cache saved after 125 batches
+2025-06-10 08:36:40,262 - INFO - Cache saved after 130 batches
+2025-06-10 08:36:53,846 - INFO - Cache saved after 135 batches
+2025-06-10 08:37:15,232 - INFO - Cache saved after 140 batches
+2025-06-10 08:37:23,473 - WARNING - Unknown class ID or alias: moses
+2025-06-10 08:37:23,473 - INFO - Added 1 unprocessed items to /home/vitadmin/gspinaci/LLM-test/script/../test_2/ICONCLASS/gpt-4o-mini/unprocessed.txt
+2025-06-10 08:37:23,473 - WARNING - No valid results from batch 143. Skipping.
+2025-06-10 08:37:29,238 - INFO - Cache saved after 145 batches
+2025-06-10 08:37:45,035 - INFO - Cache saved after 150 batches
+2025-06-10 08:38:02,401 - INFO - Cache saved after 155 batches
+2025-06-10 08:38:25,621 - INFO - Cache saved after 160 batches
+2025-06-10 08:38:33,358 - INFO - Total input tokens used: 3548102
+2025-06-10 08:38:33,358 - INFO - Total output tokens used: 11180
+2025-06-10 08:38:33,358 - INFO - Total cost of this call: $0.5389
+2025-06-10 08:38:33,358 - INFO - Total unprocessed items: 1
+2025-06-10 08:38:33,359 - INFO - Probabilities shape: (862, 10)

@@ -95,3 +95,222 @@ Treat all content as scholarly, respectful of historical context, and strictly n
 2025-06-08 01:15:17,758 - INFO - Total output tokens used: 9982
 2025-06-08 01:15:17,758 - INFO - Total cost of this call: $0.0342
 2025-06-08 01:15:17,759 - INFO - Probabilities shape: (570, 10)
+2025-06-09 17:31:51,251 - INFO - Logger initialized for ICONCLASS/test_3/gemini-2.5-flash-preview-05-20
+2025-06-09 17:31:51,251 - INFO - Cleaned previous cache and logs for dataset=ICONCLASS, test=test_3, model=gemini-2.5-flash-preview-05-20
+2025-06-09 17:31:51,251 - INFO - Starting classification for dataset=ICONCLASS, test=test_3, model=gemini-2.5-flash-preview-05-20
+2025-06-09 17:31:51,625 - INFO - Number of images: 863
+2025-06-09 17:31:51,625 - INFO - Processing dataset: ICONCLASS
+2025-06-09 17:31:51,627 - INFO - Processing images for test: test_3
+2025-06-09 17:31:51,628 - INFO - Using model: gemini-2.5-flash-preview-05-20
+2025-06-09 17:31:51,629 - INFO - === GENERATED PROMPT ===
+2025-06-09 17:31:51,630 - INFO - Dataset: ICONCLASS, Test: test_3
+2025-06-09 17:31:51,630 - INFO - Hyperparameters: temperature=0.0, top_k=32
+2025-06-09 17:31:51,630 - INFO - Prompt content:
+2025-06-09 17:31:51,630 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+You will be shown 5 example images categorized as follows:
+{
+  "RKD Research De apostel Marcus, na 1616", "11H(MARK)"
+  "RKD Research De apostel Paulus een brief schrijvend, jaren 1630", "paul"
+  "RKD Research De Heilige Catharina, eerste helft 16de eeuw", "catherine"
+  "RKD Research De heilige Hieronymus", "jerome"
+  "RKD Research De Heilige Maria Magdalena met zalfpot en boek, eerste helft 16de eeuw", "mary_magdalene"
+}
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"paul" - St. Paul
+"mary_magdalene" - Mary Magdalene
+"jerome" - St. Jerome
+"john" - St. John the Evangelist
+"antony_abbot" - St. Anthony Abbot
+"peter" - St. Peter
+"matthew" - St. Matthew
+"catherine" - St. Catherine
+"luke" - St. Luke
+"francis" - St. Francis of Assisi
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2025-06-09 17:31:51,630 - INFO - === END PROMPT ===
+2025-06-09 17:33:30,092 - INFO - Cache saved after 5 batches
+2025-06-09 17:34:55,231 - INFO - Cache saved after 10 batches
+2025-06-09 17:36:30,049 - INFO - Cache saved after 15 batches
+2025-06-09 17:37:41,699 - INFO - Cache saved after 20 batches
+2025-06-09 17:38:50,236 - INFO - Cache saved after 25 batches
+2025-06-09 17:40:04,190 - INFO - Cache saved after 30 batches
+2025-06-09 17:41:35,643 - INFO - Cache saved after 35 batches
+2025-06-09 17:43:02,122 - INFO - Cache saved after 40 batches
+2025-06-09 17:44:22,670 - INFO - Cache saved after 45 batches
+2025-06-09 17:45:50,023 - INFO - Cache saved after 50 batches
+2025-06-09 17:47:24,238 - INFO - Cache saved after 55 batches
+2025-06-09 17:48:36,636 - INFO - Cache saved after 60 batches
+2025-06-09 17:49:56,065 - INFO - Cache saved after 65 batches
+2025-06-09 17:51:24,021 - INFO - Cache saved after 70 batches
+2025-06-09 17:53:01,078 - INFO - Cache saved after 75 batches
+2025-06-09 17:54:11,868 - INFO - Cache saved after 80 batches
+2025-06-09 17:55:18,698 - INFO - Cache saved after 85 batches
+2025-06-09 17:56:40,742 - INFO - Cache saved after 90 batches
+2025-06-09 17:57:57,314 - INFO - Cache saved after 95 batches
+2025-06-09 17:59:17,054 - INFO - Cache saved after 100 batches
+2025-06-09 18:00:42,097 - INFO - Cache saved after 105 batches
+2025-06-09 18:01:59,444 - INFO - Cache saved after 110 batches
+2025-06-09 18:03:01,662 - INFO - Cache saved after 115 batches
+2025-06-09 18:04:37,434 - INFO - Cache saved after 120 batches
+2025-06-09 18:06:09,014 - INFO - Cache saved after 125 batches
+2025-06-09 18:07:26,071 - INFO - Cache saved after 130 batches
+2025-06-09 18:08:48,201 - INFO - Cache saved after 135 batches
+2025-06-09 18:10:22,467 - INFO - Cache saved after 140 batches
+2025-06-09 18:11:40,207 - INFO - Cache saved after 145 batches
+2025-06-09 18:13:03,493 - INFO - Cache saved after 150 batches
+2025-06-09 18:14:17,512 - INFO - Cache saved after 155 batches
+2025-06-09 18:15:38,625 - INFO - Cache saved after 160 batches
+2025-06-09 18:16:50,781 - INFO - Cache saved after 165 batches
+2025-06-09 18:18:14,157 - INFO - Cache saved after 170 batches
+2025-06-09 18:19:11,758 - INFO - Total input tokens used: 105011
+2025-06-09 18:19:11,758 - INFO - Total output tokens used: 15565
+2025-06-09 18:19:11,758 - INFO - Total cost of this call: $0.0523
+2025-06-09 18:19:11,759 - INFO - Probabilities shape: (863, 10)
+2025-06-10 13:22:39,789 - INFO - Logger initialized for ICONCLASS/test_3/gemini-2.5-flash-preview-05-20
+2025-06-10 13:22:39,790 - INFO - Cleaned previous cache and logs for dataset=ICONCLASS, test=test_3, model=gemini-2.5-flash-preview-05-20
+2025-06-10 13:22:39,790 - INFO - Starting classification for dataset=ICONCLASS, test=test_3, model=gemini-2.5-flash-preview-05-20
+2025-06-10 13:22:39,965 - INFO - Number of images: 863
+2025-06-10 13:22:39,965 - INFO - Processing dataset: ICONCLASS
+2025-06-10 13:22:39,968 - INFO - Processing images for test: test_3
+2025-06-10 13:22:39,968 - INFO - Using model: gemini-2.5-flash-preview-05-20
+2025-06-10 13:22:39,970 - INFO - === GENERATED PROMPT ===
+2025-06-10 13:22:39,970 - INFO - Dataset: ICONCLASS, Test: test_3
+2025-06-10 13:22:39,970 - INFO - Hyperparameters: temperature=0.0, top_k=32
+2025-06-10 13:22:39,970 - INFO - Prompt content:
+2025-06-10 13:22:39,970 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+You will be shown 5 example images categorized as follows:
+{
+  "1942_9_17_c", "francis"
+  "RKD Research De apostel Paulus een brief schrijvend, jaren 1630", "paul"
+  "RKD Research De Heilige Catharina, eerste helft 16de eeuw", "catherine"
+  "RKD Research De heilige Hieronymus", "jerome"
+  "RKD Research De Heilige Maria Magdalena met zalfpot en boek, eerste helft 16de eeuw", "mary_magdalene"
+}
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"paul" - St. Paul
+"mary_magdalene" - Mary Magdalene
+"jerome" - St. Jerome
+"john" - St. John the Evangelist
+"antony_abbot" - St. Anthony Abbot
+"peter" - St. Peter
+"matthew" - St. Matthew
+"catherine" - St. Catherine
+"luke" - St. Luke
+"francis" - St. Francis of Assisi
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2025-06-10 13:22:39,970 - INFO - === END PROMPT ===
+2025-06-10 13:23:56,095 - INFO - Cache saved after 5 batches
+2025-06-10 13:25:17,766 - INFO - Cache saved after 10 batches
+2025-06-10 13:26:46,568 - INFO - Cache saved after 15 batches
+2025-06-10 13:27:46,290 - INFO - Cache saved after 20 batches
+2025-06-10 13:28:47,496 - INFO - Cache saved after 25 batches
+2025-06-10 13:29:57,689 - INFO - Cache saved after 30 batches
+2025-06-10 13:31:14,690 - INFO - Cache saved after 35 batches
+2025-06-10 13:32:16,908 - INFO - Cache saved after 40 batches
+2025-06-10 13:33:47,483 - INFO - Cache saved after 45 batches
+2025-06-10 13:35:05,797 - INFO - Cache saved after 50 batches
+2025-06-10 13:36:19,656 - INFO - Cache saved after 55 batches
+2025-06-10 13:37:25,521 - INFO - Cache saved after 60 batches
+2025-06-10 13:38:36,159 - INFO - Cache saved after 65 batches
+2025-06-10 13:39:47,025 - INFO - Cache saved after 70 batches
+2025-06-10 13:41:00,432 - INFO - Cache saved after 75 batches
+2025-06-10 13:41:58,301 - INFO - Cache saved after 80 batches
+2025-06-10 13:43:14,482 - INFO - Cache saved after 85 batches
+2025-06-10 13:44:18,293 - INFO - Cache saved after 90 batches
+2025-06-10 13:45:22,034 - INFO - Cache saved after 95 batches
+2025-06-10 13:46:31,622 - INFO - Cache saved after 100 batches
+2025-06-10 13:51:51,803 - ERROR - Error processing batch: Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 2.
+2025-06-10 13:51:51,803 - WARNING - No valid response for batch 105. Skipping.
+2025-06-10 13:52:55,028 - INFO - Cache saved after 110 batches
+2025-06-10 13:53:50,137 - INFO - Cache saved after 115 batches
+2025-06-10 13:55:12,062 - INFO - Cache saved after 120 batches
+2025-06-10 13:56:15,285 - INFO - Cache saved after 125 batches
+2025-06-10 13:57:32,699 - INFO - Cache saved after 130 batches
+2025-06-10 13:58:47,109 - INFO - Cache saved after 135 batches
+2025-06-10 13:59:47,611 - INFO - Cache saved after 140 batches
+2025-06-10 14:01:02,523 - INFO - Cache saved after 145 batches
+2025-06-10 14:02:06,238 - INFO - Cache saved after 150 batches
+2025-06-10 14:02:58,631 - INFO - Cache saved after 155 batches
+2025-06-10 14:04:22,301 - INFO - Cache saved after 160 batches
+2025-06-10 14:05:26,347 - INFO - Cache saved after 165 batches
+2025-06-10 14:06:40,264 - INFO - Cache saved after 170 batches
+2025-06-10 14:07:46,275 - INFO - Total input tokens used: 103200
+2025-06-10 14:07:46,275 - INFO - Total output tokens used: 15321
+2025-06-10 14:07:46,275 - INFO - Total cost of this call: $0.0514
+2025-06-10 14:07:46,275 - INFO - Probabilities shape: (858, 10)

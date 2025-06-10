@@ -86,3 +86,131 @@ Treat all content as scholarly, respectful of historical context, and strictly n
 2025-06-08 15:49:37,944 - INFO - Total output tokens used: 16002
 2025-06-08 15:49:37,944 - INFO - Total cost of this call: $0.6926
 2025-06-08 15:49:37,944 - INFO - Probabilities shape: (570, 10)
+2025-06-09 23:41:28,670 - INFO - Logger initialized for ICONCLASS/test_1/gpt-4o
+2025-06-09 23:41:28,670 - INFO - Starting classification for dataset=ICONCLASS, test=test_1, model=gpt-4o
+2025-06-09 23:41:28,825 - INFO - Number of images: 863
+2025-06-09 23:41:28,825 - INFO - Processing dataset: ICONCLASS
+2025-06-09 23:41:28,828 - INFO - Processing images for test: test_1
+2025-06-09 23:41:28,903 - INFO - Loaded 570 cached results
+2025-06-09 23:41:28,904 - INFO - Using model: gpt-4o
+2025-06-09 23:41:28,904 - INFO - === GENERATED PROMPT ===
+2025-06-09 23:41:28,904 - INFO - Dataset: ICONCLASS, Test: test_1
+2025-06-09 23:41:28,904 - INFO - Hyperparameters: temperature=0.0, top_p=0.1
+2025-06-09 23:41:28,904 - INFO - Prompt content:
+2025-06-09 23:41:28,904 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"paul" - St. Paul
+"mary_magdalene" - Mary Magdalene
+"jerome" - St. Jerome
+"john" - St. John the Evangelist
+"antony_abbot" - St. Anthony Abbot
+"peter" - St. Peter
+"matthew" - St. Matthew
+"catherine" - St. Catherine
+"luke" - St. Luke
+"francis" - St. Francis of Assisi
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2025-06-09 23:41:28,904 - INFO - === END PROMPT ===
+2025-06-09 23:41:51,015 - INFO - Cache saved after 5 batches
+2025-06-09 23:42:14,001 - INFO - Cache saved after 10 batches
+2025-06-09 23:42:32,466 - INFO - Cache saved after 15 batches
+2025-06-09 23:42:54,534 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-06-09 23:42:54,535 - WARNING - Mismatch between response texts (0) and batch items (1). Processing only valid items from batch 20.
+2025-06-09 23:42:54,535 - WARNING - Adding 1 items without responses to unprocessed list: ['biblia_sacra_20041222034']
+2025-06-09 23:42:54,535 - INFO - Created new unprocessed items file: /home/vitadmin/gspinaci/LLM-test/script/../test_1/ICONCLASS/gpt-4o/unprocessed.txt
+2025-06-09 23:42:54,535 - INFO - Added 1 unprocessed items to /home/vitadmin/gspinaci/LLM-test/script/../test_1/ICONCLASS/gpt-4o/unprocessed.txt
+2025-06-09 23:42:54,535 - WARNING - No valid results from batch 20. Skipping.
+2025-06-09 23:43:14,175 - INFO - Cache saved after 25 batches
+2025-06-09 23:43:30,836 - INFO - Cache saved after 30 batches
+2025-06-09 23:43:56,585 - INFO - Cache saved after 35 batches
+2025-06-09 23:44:46,748 - INFO - Cache saved after 40 batches
+2025-06-09 23:45:09,440 - INFO - Cache saved after 45 batches
+2025-06-09 23:45:33,613 - INFO - Cache saved after 50 batches
+2025-06-09 23:45:51,225 - INFO - Cache saved after 55 batches
+2025-06-09 23:46:13,725 - INFO - Cache saved after 60 batches
+2025-06-09 23:46:28,741 - INFO - Cache saved after 65 batches
+2025-06-09 23:46:31,276 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-06-09 23:46:31,276 - WARNING - Mismatch between response texts (0) and batch items (1). Processing only valid items from batch 66.
+2025-06-09 23:46:31,276 - WARNING - Adding 1 items without responses to unprocessed list: ['biblia_sacra_20051204010']
+2025-06-09 23:46:31,276 - INFO - Added 1 unprocessed items to /home/vitadmin/gspinaci/LLM-test/script/../test_1/ICONCLASS/gpt-4o/unprocessed.txt
+2025-06-09 23:46:31,276 - WARNING - No valid results from batch 66. Skipping.
+2025-06-09 23:46:32,531 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-06-09 23:46:32,531 - WARNING - Mismatch between response texts (0) and batch items (1). Processing only valid items from batch 67.
+2025-06-09 23:46:32,531 - WARNING - Adding 1 items without responses to unprocessed list: ['IIHIM_-2009750632']
+2025-06-09 23:46:32,531 - INFO - Added 1 unprocessed items to /home/vitadmin/gspinaci/LLM-test/script/../test_1/ICONCLASS/gpt-4o/unprocessed.txt
+2025-06-09 23:46:32,531 - WARNING - No valid results from batch 67. Skipping.
+2025-06-09 23:46:51,925 - INFO - Cache saved after 70 batches
+2025-06-09 23:47:08,855 - INFO - Cache saved after 75 batches
+2025-06-09 23:47:13,778 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-06-09 23:47:13,778 - WARNING - Mismatch between response texts (0) and batch items (1). Processing only valid items from batch 77.
+2025-06-09 23:47:13,779 - WARNING - Adding 1 items without responses to unprocessed list: ['IIHIM_1734785829']
+2025-06-09 23:47:13,779 - INFO - Added 1 unprocessed items to /home/vitadmin/gspinaci/LLM-test/script/../test_1/ICONCLASS/gpt-4o/unprocessed.txt
+2025-06-09 23:47:13,779 - WARNING - No valid results from batch 77. Skipping.
+2025-06-09 23:47:27,344 - INFO - Cache saved after 80 batches
+2025-06-09 23:47:42,516 - INFO - Cache saved after 85 batches
+2025-06-09 23:48:00,339 - INFO - Cache saved after 90 batches
+2025-06-09 23:48:30,271 - INFO - Cache saved after 95 batches
+2025-06-09 23:48:58,102 - INFO - Cache saved after 100 batches
+2025-06-09 23:49:17,318 - INFO - Cache saved after 105 batches
+2025-06-09 23:49:37,535 - INFO - Cache saved after 110 batches
+2025-06-09 23:49:51,910 - INFO - Cache saved after 115 batches
+2025-06-09 23:50:10,928 - INFO - Cache saved after 120 batches
+2025-06-09 23:50:33,016 - INFO - Cache saved after 125 batches
+2025-06-09 23:50:53,536 - INFO - Cache saved after 130 batches
+2025-06-09 23:51:11,673 - INFO - Cache saved after 135 batches
+2025-06-09 23:51:34,420 - INFO - Cache saved after 140 batches
+2025-06-09 23:51:46,835 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-06-09 23:51:46,836 - WARNING - Mismatch between response texts (0) and batch items (1). Processing only valid items from batch 143.
+2025-06-09 23:51:46,836 - WARNING - Adding 1 items without responses to unprocessed list: ['IIHIM_RIJKS_1239778730']
+2025-06-09 23:51:46,836 - INFO - Added 1 unprocessed items to /home/vitadmin/gspinaci/LLM-test/script/../test_1/ICONCLASS/gpt-4o/unprocessed.txt
+2025-06-09 23:51:46,836 - WARNING - No valid results from batch 143. Skipping.
+2025-06-09 23:51:56,837 - INFO - Cache saved after 145 batches
+2025-06-09 23:52:17,096 - INFO - Cache saved after 150 batches
+2025-06-09 23:52:34,158 - WARNING - Failed to parse JSON response. Attempting text parsing.
+2025-06-09 23:52:34,158 - WARNING - Mismatch between response texts (0) and batch items (1). Processing only valid items from batch 155.
+2025-06-09 23:52:34,158 - WARNING - Adding 1 items without responses to unprocessed list: ['biblia_sacra_20040128138']
+2025-06-09 23:52:34,158 - INFO - Added 1 unprocessed items to /home/vitadmin/gspinaci/LLM-test/script/../test_1/ICONCLASS/gpt-4o/unprocessed.txt
+2025-06-09 23:52:34,158 - WARNING - No valid results from batch 155. Skipping.
+2025-06-09 23:52:54,040 - INFO - Cache saved after 160 batches
+2025-06-09 23:53:05,951 - INFO - Total input tokens used: 192538
+2025-06-09 23:53:05,951 - INFO - Total output tokens used: 11591
+2025-06-09 23:53:05,951 - INFO - Total cost of this call: $0.5973
+2025-06-09 23:53:05,951 - INFO - Total unprocessed items: 6
+2025-06-09 23:53:05,951 - INFO - Probabilities shape: (857, 10)

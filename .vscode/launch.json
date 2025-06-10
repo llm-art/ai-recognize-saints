@@ -69,7 +69,7 @@
         "ICONCLASS"
       ]
     },
-        {
+    {
       "name": "[SIGLIP] classification ICONCLASS",
       "type": "debugpy",
       "request": "launch",
@@ -90,6 +90,35 @@
         "test_3",
         "--datasets",
         "ICONCLASS"
+      ]
+    },
+        {
+      "name": "[Vision-Language Encoders] evaluate",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/script/evaluate.py",
+      "console": "integratedTerminal",
+      "args": [
+        "--models",
+        "clip-vit-base-patch32",
+        "--models",
+        "clip-vit-base-patch16",
+        "--models",
+        "clip-vit-large-patch14",
+        "--models",
+        "siglip-base-patch16-512",
+        "--models",
+        "siglip-large-patch16-384",
+        "--models",
+        "siglip-so400m-patch14-384",
+        "--folders",
+        "test_1",
+        "--folders",
+        "test_2",
+        "--folders",
+        "test_3",
+        "--datasets",
+        "ICONCLASS",
       ]
     },
     {
@@ -187,8 +216,8 @@
       "args": [
         "--models",
         "gemini-2.5-flash-preview-05-20",
-        //"--models",
-        //"gemini-2.5-pro-preview-05-06",
+        "--models",
+        "gemini-2.5-pro-preview-05-06",
         "--folders",
         "test_1",
         "--folders",
@@ -218,7 +247,28 @@
       ]
     },
     {
-      "name": "[GPT] evaluate GPT ICONCLASS",
+      "name": "[GPT] evaluate ArtDL",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/script/evaluate.py",
+      "console": "integratedTerminal",
+      "args": [
+        "--models",
+        "gpt-4o",
+        "--models",
+        "gpt-4o-mini",
+        "--folders",
+        "test_1",
+        "--folders",
+        "test_2",
+        "--folders",
+        "test_3",
+        "--datasets",
+        "ArtDL",
+      ]
+    },
+    {
+      "name": "[GPT] evaluate ICONCLASS",
       "type": "debugpy",
       "request": "launch",
       "program": "${workspaceFolder}/script/evaluate.py",
@@ -239,7 +289,7 @@
       ]
     },
     {
-      "name": "[GPT] evaluate GPT ArtDL",
+      "name": "[GPT] evaluate wikidata",
       "type": "debugpy",
       "request": "launch",
       "program": "${workspaceFolder}/script/evaluate.py",
@@ -256,8 +306,8 @@
         "--folders",
         "test_3",
         "--datasets",
-        "ArtDL",
+        "wikidata",
       ]
-    },
+    }
   ]
 }

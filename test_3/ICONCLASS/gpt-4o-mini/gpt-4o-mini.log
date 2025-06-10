@@ -111,3 +111,244 @@ Treat all content as scholarly, respectful of historical context, and strictly n
 2025-06-08 17:12:26,325 - INFO - Total cost of this call: $3.2246
 2025-06-08 17:12:26,325 - INFO - Total unprocessed items: 5
 2025-06-08 17:12:26,326 - INFO - Probabilities shape: (565, 10)
+2025-06-10 08:38:33,359 - INFO - Logger initialized for ICONCLASS/test_3/gpt-4o-mini
+2025-06-10 08:38:33,359 - INFO - Starting classification for dataset=ICONCLASS, test=test_3, model=gpt-4o-mini
+2025-06-10 08:38:33,540 - INFO - Number of images: 863
+2025-06-10 08:38:33,540 - INFO - Processing dataset: ICONCLASS
+2025-06-10 08:38:33,542 - INFO - Processing images for test: test_3
+2025-06-10 08:38:33,560 - INFO - Loaded 565 cached results
+2025-06-10 08:38:33,561 - INFO - Using model: gpt-4o-mini
+2025-06-10 08:38:33,562 - INFO - === GENERATED PROMPT ===
+2025-06-10 08:38:33,562 - INFO - Dataset: ICONCLASS, Test: test_3
+2025-06-10 08:38:33,562 - INFO - Hyperparameters: temperature=0.0, top_p=0.1
+2025-06-10 08:38:33,562 - INFO - Prompt content:
+2025-06-10 08:38:33,562 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+You will be shown 5 example images categorized as follows:
+{
+  "RKD Research De apostel Marcus, na 1616", "11H(MARK)"
+  "RKD Research De apostel Paulus een brief schrijvend, jaren 1630", "paul"
+  "RKD Research De Heilige Catharina, eerste helft 16de eeuw", "catherine"
+  "RKD Research De heilige Hieronymus", "jerome"
+  "RKD Research De Heilige Maria Magdalena met zalfpot en boek, eerste helft 16de eeuw", "mary_magdalene"
+}
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"paul" - St. Paul
+"mary_magdalene" - Mary Magdalene
+"jerome" - St. Jerome
+"john" - St. John the Evangelist
+"antony_abbot" - St. Anthony Abbot
+"peter" - St. Peter
+"matthew" - St. Matthew
+"catherine" - St. Catherine
+"luke" - St. Luke
+"francis" - St. Francis of Assisi
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2025-06-10 08:38:33,562 - INFO - === END PROMPT ===
+2025-06-10 08:39:38,379 - INFO - Cache saved after 5 batches
+2025-06-10 08:40:50,309 - INFO - Cache saved after 10 batches
+2025-06-10 08:41:51,963 - INFO - Cache saved after 15 batches
+2025-06-10 08:42:58,197 - INFO - Cache saved after 20 batches
+2025-06-10 08:43:48,715 - INFO - Cache saved after 25 batches
+2025-06-10 08:43:59,567 - WARNING - Mismatch between response texts (2) and batch items (3). Processing only valid items from batch 26.
+2025-06-10 08:43:59,568 - WARNING - Adding 1 items without responses to unprocessed list: ['76f17_009v']
+2025-06-10 08:43:59,568 - INFO - Added 1 unprocessed items to /home/vitadmin/gspinaci/LLM-test/script/../test_3/ICONCLASS/gpt-4o-mini/unprocessed.txt
+2025-06-10 08:44:43,920 - WARNING - Unknown class ID or alias: mark
+2025-06-10 08:44:43,920 - INFO - Added 1 unprocessed items to /home/vitadmin/gspinaci/LLM-test/script/../test_3/ICONCLASS/gpt-4o-mini/unprocessed.txt
+2025-06-10 08:44:43,923 - INFO - Cache saved after 30 batches
+2025-06-10 08:45:48,997 - INFO - Cache saved after 35 batches
+2025-06-10 08:46:52,092 - INFO - Cache saved after 40 batches
+2025-06-10 08:47:50,734 - INFO - Cache saved after 45 batches
+2025-06-10 08:48:50,235 - INFO - Cache saved after 50 batches
+2025-06-10 08:49:51,441 - INFO - Cache saved after 55 batches
+2025-06-10 08:51:05,861 - INFO - Cache saved after 60 batches
+2025-06-10 08:52:08,384 - INFO - Cache saved after 65 batches
+2025-06-10 08:53:09,379 - INFO - Cache saved after 70 batches
+2025-06-10 08:54:06,139 - INFO - Cache saved after 75 batches
+2025-06-10 08:54:56,173 - INFO - Cache saved after 80 batches
+2025-06-10 08:55:57,101 - INFO - Cache saved after 85 batches
+2025-06-10 08:56:47,800 - INFO - Cache saved after 90 batches
+2025-06-10 08:57:43,614 - INFO - Cache saved after 95 batches
+2025-06-10 08:58:49,219 - INFO - Cache saved after 100 batches
+2025-06-10 08:59:47,862 - INFO - Cache saved after 105 batches
+2025-06-10 09:00:42,957 - INFO - Cache saved after 110 batches
+2025-06-10 09:01:41,993 - INFO - Cache saved after 115 batches
+2025-06-10 09:02:50,787 - INFO - Cache saved after 120 batches
+2025-06-10 09:03:41,896 - INFO - Cache saved after 125 batches
+2025-06-10 09:04:38,059 - INFO - Cache saved after 130 batches
+2025-06-10 09:05:33,378 - INFO - Cache saved after 135 batches
+2025-06-10 09:06:37,853 - INFO - Cache saved after 140 batches
+2025-06-10 09:07:11,931 - WARNING - Unknown class ID or alias: moses
+2025-06-10 09:07:11,932 - INFO - Added 1 unprocessed items to /home/vitadmin/gspinaci/LLM-test/script/../test_3/ICONCLASS/gpt-4o-mini/unprocessed.txt
+2025-06-10 09:07:11,932 - WARNING - No valid results from batch 143. Skipping.
+2025-06-10 09:07:25,216 - WARNING - Unknown class ID or alias: mark
+2025-06-10 09:07:25,216 - INFO - Added 1 unprocessed items to /home/vitadmin/gspinaci/LLM-test/script/../test_3/ICONCLASS/gpt-4o-mini/unprocessed.txt
+2025-06-10 09:07:36,860 - INFO - Cache saved after 145 batches
+2025-06-10 09:08:45,833 - INFO - Cache saved after 150 batches
+2025-06-10 09:09:37,581 - INFO - Cache saved after 155 batches
+2025-06-10 09:10:12,031 - WARNING - Unknown class ID or alias: mark
+2025-06-10 09:10:12,031 - INFO - Added 1 unprocessed items to /home/vitadmin/gspinaci/LLM-test/script/../test_3/ICONCLASS/gpt-4o-mini/unprocessed.txt
+2025-06-10 09:10:27,637 - INFO - Cache saved after 160 batches
+2025-06-10 09:11:09,413 - INFO - Total input tokens used: 27120019
+2025-06-10 09:11:09,413 - INFO - Total output tokens used: 11104
+2025-06-10 09:11:09,413 - INFO - Total cost of this call: $4.0747
+2025-06-10 09:11:09,413 - INFO - Total unprocessed items: 5
+2025-06-10 09:11:09,414 - INFO - Probabilities shape: (858, 10)
+2025-06-10 10:52:44,356 - INFO - Logger initialized for ICONCLASS/test_3/gpt-4o-mini
+2025-06-10 10:52:44,356 - INFO - Starting classification for dataset=ICONCLASS, test=test_3, model=gpt-4o-mini
+2025-06-10 10:52:44,529 - INFO - Number of images: 863
+2025-06-10 10:52:44,529 - INFO - Processing dataset: ICONCLASS
+2025-06-10 10:52:44,531 - INFO - Processing images for test: test_3
+2025-06-10 10:52:44,534 - INFO - Cleaned previous cache and logs for dataset=ICONCLASS, test=test_3, model=gpt-4o-mini
+2025-06-10 10:52:44,565 - INFO - Using model: gpt-4o-mini
+2025-06-10 10:52:44,589 - INFO - === GENERATED PROMPT ===
+2025-06-10 10:52:44,589 - INFO - Dataset: ICONCLASS, Test: test_3
+2025-06-10 10:52:44,589 - INFO - Hyperparameters: temperature=0.0, top_p=0.1
+2025-06-10 10:52:44,589 - INFO - Prompt content:
+2025-06-10 10:52:44,590 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+You will be shown 5 example images categorized as follows:
+{
+  "1942_9_17_c", "francis"
+  "RKD Research De apostel Paulus een brief schrijvend, jaren 1630", "paul"
+  "RKD Research De Heilige Catharina, eerste helft 16de eeuw", "catherine"
+  "RKD Research De heilige Hieronymus", "jerome"
+  "RKD Research De Heilige Maria Magdalena met zalfpot en boek, eerste helft 16de eeuw", "mary_magdalene"
+}
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"paul" - St. Paul
+"mary_magdalene" - Mary Magdalene
+"jerome" - St. Jerome
+"john" - St. John the Evangelist
+"antony_abbot" - St. Anthony Abbot
+"peter" - St. Peter
+"matthew" - St. Matthew
+"catherine" - St. Catherine
+"luke" - St. Luke
+"francis" - St. Francis of Assisi
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2025-06-10 10:52:44,590 - INFO - === END PROMPT ===
+2025-06-10 10:53:11,462 - WARNING - Mismatch between response texts (4) and batch items (5). Processing only valid items from batch 1.
+2025-06-10 10:53:11,462 - WARNING - Adding 1 items without responses to unprocessed list: ['IIHIM_-1963041518']
+2025-06-10 10:53:11,462 - INFO - Added 1 unprocessed items to /home/vitadmin/gspinaci/LLM-test/script/../test_3/ICONCLASS/gpt-4o-mini/unprocessed.txt
+2025-06-10 10:55:11,701 - INFO - Cache saved after 5 batches
+2025-06-10 10:56:33,390 - WARNING - Mismatch between response texts (4) and batch items (5). Processing only valid items from batch 8.
+2025-06-10 10:56:33,391 - WARNING - Adding 1 items without responses to unprocessed list: ['IIHIM_-1664961681']
+2025-06-10 10:56:33,391 - INFO - Added 1 unprocessed items to /home/vitadmin/gspinaci/LLM-test/script/../test_3/ICONCLASS/gpt-4o-mini/unprocessed.txt
+2025-06-10 10:57:46,385 - INFO - Cache saved after 10 batches
+2025-06-10 11:00:23,405 - INFO - Cache saved after 15 batches
+2025-06-10 11:02:41,606 - INFO - Cache saved after 20 batches
+2025-06-10 11:05:30,945 - INFO - Cache saved after 25 batches
+2025-06-10 11:07:39,847 - INFO - Cache saved after 30 batches
+2025-06-10 11:10:06,878 - INFO - Cache saved after 35 batches
+2025-06-10 11:12:46,315 - INFO - Cache saved after 40 batches
+2025-06-10 11:15:13,368 - INFO - Cache saved after 45 batches
+2025-06-10 11:18:05,031 - INFO - Cache saved after 50 batches
+2025-06-10 11:20:16,149 - INFO - Cache saved after 55 batches
+2025-06-10 11:23:29,167 - INFO - Cache saved after 60 batches
+2025-06-10 11:25:46,795 - INFO - Cache saved after 65 batches
+2025-06-10 11:28:09,493 - INFO - Cache saved after 70 batches
+2025-06-10 11:30:28,034 - INFO - Cache saved after 75 batches
+2025-06-10 11:32:51,770 - INFO - Cache saved after 80 batches
+2025-06-10 11:35:01,131 - INFO - Cache saved after 85 batches
+2025-06-10 11:36:52,836 - INFO - Cache saved after 90 batches
+2025-06-10 11:38:29,820 - INFO - Cache saved after 95 batches
+2025-06-10 11:40:37,261 - INFO - Cache saved after 100 batches
+2025-06-10 11:42:29,623 - INFO - Cache saved after 105 batches
+2025-06-10 11:44:42,539 - INFO - Cache saved after 110 batches
+2025-06-10 11:46:24,397 - INFO - Cache saved after 115 batches
+2025-06-10 11:47:46,293 - INFO - Cache saved after 120 batches
+2025-06-10 11:49:24,006 - INFO - Cache saved after 125 batches
+2025-06-10 11:51:25,803 - INFO - Cache saved after 130 batches
+2025-06-10 11:51:38,294 - WARNING - Mismatch between response texts (4) and batch items (5). Processing only valid items from batch 131.
+2025-06-10 11:51:38,294 - WARNING - Adding 1 items without responses to unprocessed list: ['IIHIM_2044171789']
+2025-06-10 11:51:38,294 - INFO - Added 1 unprocessed items to /home/vitadmin/gspinaci/LLM-test/script/../test_3/ICONCLASS/gpt-4o-mini/unprocessed.txt
+2025-06-10 11:52:34,335 - INFO - Cache saved after 135 batches
+2025-06-10 11:54:15,916 - INFO - Cache saved after 140 batches
+2025-06-10 11:56:02,237 - INFO - Cache saved after 145 batches
+2025-06-10 11:58:28,105 - INFO - Cache saved after 150 batches
+2025-06-10 12:00:26,483 - INFO - Cache saved after 155 batches
+2025-06-10 12:00:53,913 - WARNING - Unknown class ID or alias: unknown
+2025-06-10 12:00:53,914 - INFO - Added 1 unprocessed items to /home/vitadmin/gspinaci/LLM-test/script/../test_3/ICONCLASS/gpt-4o-mini/unprocessed.txt
+2025-06-10 12:02:24,964 - INFO - Cache saved after 160 batches
+2025-06-10 12:04:23,417 - INFO - Cache saved after 165 batches
+2025-06-10 12:06:40,659 - INFO - Cache saved after 170 batches
+2025-06-10 12:07:58,173 - INFO - Total input tokens used: 34474348
+2025-06-10 12:07:58,173 - INFO - Total output tokens used: 23491
+2025-06-10 12:07:58,173 - INFO - Total cost of this call: $5.1852
+2025-06-10 12:07:58,173 - INFO - Total unprocessed items: 4
+2025-06-10 12:07:58,174 - INFO - Probabilities shape: (859, 10)

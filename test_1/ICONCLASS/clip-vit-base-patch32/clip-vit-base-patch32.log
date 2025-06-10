@@ -42,3 +42,11 @@
 2025-06-09 10:37:43,668 - INFO - Processing images for test: test_1
 2025-06-09 10:37:43,668 - INFO - Model: clip-vit-base-patch32
 2025-06-09 10:37:48,754 - INFO - Probabilities shape: (570, 10)
+2025-06-10 10:51:50,150 - INFO - Logger initialized for ICONCLASS/test_1/clip-vit-base-patch32
+2025-06-10 10:51:50,150 - INFO - Starting classification for dataset=ICONCLASS, test=test_1, model=clip-vit-base-patch32
+2025-06-10 10:51:51,067 - INFO - Number of images: 863
+2025-06-10 10:51:51,067 - INFO - Using device: cuda
+2025-06-10 10:51:51,069 - INFO - #####################################################
+2025-06-10 10:51:51,069 - INFO - Processing images for test: test_1
+2025-06-10 10:51:51,069 - INFO - Model: clip-vit-base-patch32
+2025-06-10 10:51:57,227 - INFO - Probabilities shape: (863, 10)

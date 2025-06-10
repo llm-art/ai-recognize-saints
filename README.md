@@ -43,7 +43,7 @@ In the current experiments, I tested two types of models: Vision-Language Encode
 | siglip-so400m-patch14-384      | 53.86%               | 56.38%                                                        | 70.55%                     |
 | gpt-4o-mini                    | 83.10%               | 85.19%                                                        | 84.98%                     |
 | gpt-4o                         | 64.77%               | 62.53%                                                        | 50.40%                     |
-| Baseline                       | 84.44%               |                                                               |                            |
+| Baseline                       | 84.44%               |                                                               |                            |                                                           |                            |
 
 ### ICONCLASS
 
@@ -53,13 +53,13 @@ In the current experiments, I tested two types of models: Vision-Language Encode
 | clip-vit-base-patch32          | 24.74%               | 29.82%                                                            | 29.30%                     |
 | clip-vit-base-patch16          | 30.00%               | 33.51%                                                            | 27.37%                     |
 | clip-vit-large-patch14         | 40.00%               | 42.81%                                                            | 35.44%                     |
-| gemini-2.5-flash-preview-05-20 | 56.28%               | 75.26%                                                            | 71.15%                     |
-| gemini-2.5-pro-preview-05-06   | 78.77%               | 79.65%                                                            | 78.60%                     |
+| gemini-2.5-flash-preview-05-20 | 77.17%               | 51.40%                                                            | 77.75%                     |
+| gemini-2.5-pro-preview-05-06   | 83.31%               | 84.59%                                                            | 84.82%                     |
 | siglip-base-patch16-512        | 43.51%               | 41.93%                                                            | 33.33%                     |
 | siglip-large-patch16-384       | 48.95%               | 49.30%                                                            | 38.77%                     |
 | siglip-so400m-patch14-384      | 59.47%               | 60.88%                                                            | 53.16%                     |
-| gpt-4o-mini                    | 21.48%               | 26.02%                                                            | 22.08%                     |
-| gpt-4o                         | 68.42%               | 65.73%                                                            | 41.87%                     |
+| gpt-4o-mini                    | 18.60%               | 11.18%                                                            | 21.35%                     |
+| gpt-4o                         | 16.45%               | 30.05%                                                            | 15.02%                     |
 
 ### Wikidata
 
@@ -76,6 +76,5 @@ In the current experiments, I tested two types of models: Vision-Language Encode
 | siglip-so400m-patch14-384      | 66.29%               | 64.86%                                                           | 59.60%                     |
 | gpt-4o-mini                    | 34.46%               | 33.53%                                                           | 36.51%                     |
 | gpt-4o                         | 44.69%               | 43.13%                                                           | 44.48%                     |
-
 
 see https://community.openai.com/t/achieving-deterministic-api-output-on-language-models-howto/418318

@@ -12,7 +12,7 @@ The images retrieved for the few-shot training are selected from ICONCLASS with 
 ![alt text](<RKD Research De Heilige Maria Magdalena met zalfpot en boek, eerste helft 16de eeuw.jpg>)
 **De Heilige Maria Magdalena met zalfpot en boek, eerste helft 16de eeuw** Available at [RKD](https://research.rkd.nl/nl/detail/https%3A%2F%2Fdata.rkd.nl%2Fimages%2F31402)
 
-## 11H(MARK)
+## 11H(FRANCIS)
 ![alt text](<RKD Research De apostel Marcus, na 1616.jpg>)
 **De apostel Marcus, na 1616** Available at [RKD](https://research.rkd.nl/nl/detail/https%3A%2F%2Fdata.rkd.nl%2Fimages%2F116132)
 

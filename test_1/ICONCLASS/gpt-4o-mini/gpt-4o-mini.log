@@ -93,3 +93,109 @@ Treat all content as scholarly, respectful of historical context, and strictly n
 2025-06-08 16:37:47,201 - INFO - Total cost of this call: $0.7462
 2025-06-08 16:37:47,201 - INFO - Total unprocessed items: 2
 2025-06-08 16:37:47,201 - INFO - Probabilities shape: (568, 10)
+2025-06-10 08:20:59,845 - INFO - Logger initialized for ICONCLASS/test_1/gpt-4o-mini
+2025-06-10 08:20:59,845 - INFO - Starting classification for dataset=ICONCLASS, test=test_1, model=gpt-4o-mini
+2025-06-10 08:21:00,005 - INFO - Number of images: 863
+2025-06-10 08:21:00,006 - INFO - Processing dataset: ICONCLASS
+2025-06-10 08:21:00,008 - INFO - Processing images for test: test_1
+2025-06-10 08:21:00,066 - INFO - Loaded 568 cached results
+2025-06-10 08:21:00,066 - INFO - Using model: gpt-4o-mini
+2025-06-10 08:21:00,066 - INFO - === GENERATED PROMPT ===
+2025-06-10 08:21:00,067 - INFO - Dataset: ICONCLASS, Test: test_1
+2025-06-10 08:21:00,067 - INFO - Hyperparameters: temperature=0.0, top_p=0.1
+2025-06-10 08:21:00,067 - INFO - Prompt content:
+2025-06-10 08:21:00,067 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"paul" - St. Paul
+"mary_magdalene" - Mary Magdalene
+"jerome" - St. Jerome
+"john" - St. John the Evangelist
+"antony_abbot" - St. Anthony Abbot
+"peter" - St. Peter
+"matthew" - St. Matthew
+"catherine" - St. Catherine
+"luke" - St. Luke
+"francis" - St. Francis of Assisi
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2025-06-10 08:21:00,067 - INFO - === END PROMPT ===
+2025-06-10 08:21:15,834 - INFO - Cache saved after 5 batches
+2025-06-10 08:21:32,553 - INFO - Cache saved after 10 batches
+2025-06-10 08:21:45,544 - INFO - Cache saved after 15 batches
+2025-06-10 08:22:03,376 - INFO - Cache saved after 20 batches
+2025-06-10 08:22:19,914 - INFO - Cache saved after 25 batches
+2025-06-10 08:22:33,791 - INFO - Cache saved after 30 batches
+2025-06-10 08:22:53,227 - INFO - Cache saved after 35 batches
+2025-06-10 08:23:16,629 - INFO - Cache saved after 40 batches
+2025-06-10 08:23:32,425 - INFO - Cache saved after 45 batches
+2025-06-10 08:23:52,984 - INFO - Cache saved after 50 batches
+2025-06-10 08:24:07,793 - INFO - Cache saved after 55 batches
+2025-06-10 08:24:16,345 - WARNING - Unknown class ID or alias: daniel
+2025-06-10 08:24:16,345 - INFO - Added 1 unprocessed items to /home/vitadmin/gspinaci/LLM-test/script/../test_1/ICONCLASS/gpt-4o-mini/unprocessed.txt
+2025-06-10 08:24:23,677 - INFO - Cache saved after 60 batches
+2025-06-10 08:24:36,524 - INFO - Cache saved after 65 batches
+2025-06-10 08:24:52,586 - INFO - Cache saved after 70 batches
+2025-06-10 08:25:03,408 - INFO - Cache saved after 75 batches
+2025-06-10 08:25:14,391 - INFO - Cache saved after 80 batches
+2025-06-10 08:25:26,769 - INFO - Cache saved after 85 batches
+2025-06-10 08:25:41,143 - INFO - Cache saved after 90 batches
+2025-06-10 08:25:53,108 - INFO - Cache saved after 95 batches
+2025-06-10 08:26:09,272 - INFO - Cache saved after 100 batches
+2025-06-10 08:26:33,378 - INFO - Cache saved after 105 batches
+2025-06-10 08:26:46,495 - INFO - Cache saved after 110 batches
+2025-06-10 08:26:59,251 - INFO - Cache saved after 115 batches
+2025-06-10 08:27:20,155 - INFO - Cache saved after 120 batches
+2025-06-10 08:27:37,628 - INFO - Cache saved after 125 batches
+2025-06-10 08:27:46,576 - WARNING - Unknown class ID or alias: daniel
+2025-06-10 08:27:46,577 - INFO - Added 1 unprocessed items to /home/vitadmin/gspinaci/LLM-test/script/../test_1/ICONCLASS/gpt-4o-mini/unprocessed.txt
+2025-06-10 08:27:56,275 - INFO - Cache saved after 130 batches
+2025-06-10 08:28:09,326 - INFO - Cache saved after 135 batches
+2025-06-10 08:28:26,122 - INFO - Cache saved after 140 batches
+2025-06-10 08:28:37,975 - WARNING - Unknown class ID or alias: moses
+2025-06-10 08:28:37,976 - INFO - Added 1 unprocessed items to /home/vitadmin/gspinaci/LLM-test/script/../test_1/ICONCLASS/gpt-4o-mini/unprocessed.txt
+2025-06-10 08:28:37,976 - WARNING - No valid results from batch 143. Skipping.
+2025-06-10 08:28:47,159 - INFO - Cache saved after 145 batches
+2025-06-10 08:29:04,791 - INFO - Cache saved after 150 batches
+2025-06-10 08:29:21,443 - INFO - Cache saved after 155 batches
+2025-06-10 08:29:37,681 - INFO - Cache saved after 160 batches
+2025-06-10 08:29:48,831 - INFO - Total input tokens used: 3482830
+2025-06-10 08:29:48,831 - INFO - Total output tokens used: 11111
+2025-06-10 08:29:48,831 - INFO - Total cost of this call: $0.5291
+2025-06-10 08:29:48,831 - INFO - Total unprocessed items: 3
+2025-06-10 08:29:48,832 - INFO - Probabilities shape: (860, 10)
