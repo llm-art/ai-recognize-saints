@@ -1533,3 +1533,139 @@ Treat all content as scholarly, respectful of historical context, and strictly n
 2025-06-18 17:30:57,453 - INFO - Total cost of this call: $7.5006
 2025-06-18 17:30:57,453 - INFO - Total unprocessed items: 4
 2025-06-18 17:30:57,454 - INFO - Probabilities shape: (1860, 10)
+2025-06-19 13:25:49,764 - INFO - Logger initialized for ArtDL/test_1/gpt-4o-mini
+2025-06-19 13:25:49,764 - INFO - Starting classification for dataset=ArtDL, test=test_1, model=gpt-4o-mini
+2025-06-19 13:25:50,061 - INFO - Number of images: 1864
+2025-06-19 13:25:50,061 - INFO - Processing dataset: ArtDL
+2025-06-19 13:25:50,064 - INFO - Processing images for test: test_1
+2025-06-19 13:25:50,095 - INFO - Loaded 1860 cached results
+2025-06-19 13:25:50,096 - INFO - Using model: gpt-4o-mini
+2025-06-19 13:25:50,096 - INFO - === GENERATED PROMPT ===
+2025-06-19 13:25:50,096 - INFO - Dataset: ArtDL, Test: test_1
+2025-06-19 13:25:50,096 - INFO - Hyperparameters: temperature=0.0, top_p=0.1, seed=12345
+2025-06-19 13:25:50,096 - INFO - Prompt content:
+2025-06-19 13:25:50,096 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"antony_of_padua" - Antony of Padua
+"john_baptist" - John the Baptist
+"paul" - Paul
+"francis" - Francis of Assisi
+"mary_magdalene" - Mary Magdalene
+"jerome" - Jerome
+"dominic" - Saint Dominic
+"mary" - Virgin Mary
+"peter" - Peter
+"sebastian" - Saint Sebastian
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2025-06-19 13:25:50,096 - INFO - === END PROMPT ===
+2025-06-19 13:25:53,149 - INFO - Batch 1: system_fingerprint=fp_62a23a81ef
+2025-06-19 13:25:54,820 - INFO - Batch 2: system_fingerprint=fp_62a23a81ef
+2025-06-19 13:25:57,446 - INFO - Batch 3: system_fingerprint=fp_62a23a81ef
+2025-06-19 13:25:59,421 - INFO - Batch 4: system_fingerprint=fp_62a23a81ef
+2025-06-19 13:25:59,429 - INFO - Total input tokens used: 104112
+2025-06-19 13:25:59,430 - INFO - Total output tokens used: 113
+2025-06-19 13:25:59,430 - INFO - Total cost of this call: $0.0157
+2025-06-19 13:25:59,431 - INFO - Probabilities shape: (1864, 10)
+2025-06-19 13:32:41,284 - INFO - Logger initialized for ArtDL/test_1/gpt-4o-mini
+2025-06-19 13:32:41,284 - INFO - Starting classification for dataset=ArtDL, test=test_1, model=gpt-4o-mini
+2025-06-19 13:32:41,589 - INFO - Number of images: 1864
+2025-06-19 13:32:41,589 - INFO - Processing dataset: ArtDL
+2025-06-19 13:32:41,591 - INFO - Processing images for test: test_1
+2025-06-19 13:32:41,623 - INFO - Loaded 1864 cached results
+2025-06-19 13:32:41,623 - INFO - Using model: gpt-4o-mini
+2025-06-19 13:32:41,623 - INFO - === GENERATED PROMPT ===
+2025-06-19 13:32:41,623 - INFO - Dataset: ArtDL, Test: test_1
+2025-06-19 13:32:41,623 - INFO - Hyperparameters: temperature=0.0, top_p=0.1, seed=12345
+2025-06-19 13:32:41,623 - INFO - Prompt content:
+2025-06-19 13:32:41,623 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"antony_of_padua" - Antony of Padua
+"john_baptist" - John the Baptist
+"paul" - Paul
+"francis" - Francis of Assisi
+"mary_magdalene" - Mary Magdalene
+"jerome" - Jerome
+"dominic" - Saint Dominic
+"mary" - Virgin Mary
+"peter" - Peter
+"sebastian" - Saint Sebastian
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2025-06-19 13:32:41,624 - INFO - === END PROMPT ===
+2025-06-19 13:32:41,632 - INFO - Total input tokens used: 0
+2025-06-19 13:32:41,632 - INFO - Total output tokens used: 0
+2025-06-19 13:32:41,632 - INFO - Total cost of this call: $0.0000
+2025-06-19 13:32:41,633 - INFO - Probabilities shape: (1864, 10)
