@@ -26,6 +26,21 @@
       ]
     },
     {
+      "name": "[OVERLAP] Basic Usage",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/script/compute_overlap.py",
+      "console": "integratedTerminal",
+      "args": []
+    },
+    {
+      "name": "[CONSISTENCY] check the consistency",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/script/generate_consistency_data.py",
+      "console": "integratedTerminal"
+    },
+    {
       "name": "[CLIP] classification ICONCLASS",
       "type": "debugpy",
       "request": "launch",
