@@ -384,3 +384,69 @@ Treat all content as scholarly, respectful of historical context, and strictly n
 2025-06-10 09:04:50,802 - INFO - Total output tokens used: 0
 2025-06-10 09:04:50,802 - INFO - Total cost of this call: $0.0000
 2025-06-10 09:04:50,803 - INFO - Probabilities shape: (863, 10)
+2025-06-19 13:39:03,977 - INFO - Logger initialized for ICONCLASS/test_2/gemini-2.5-pro-preview-05-06
+2025-06-19 13:39:03,978 - INFO - Starting classification for dataset=ICONCLASS, test=test_2, model=gemini-2.5-pro-preview-05-06
+2025-06-19 13:39:04,237 - INFO - Number of images: 863
+2025-06-19 13:39:04,238 - INFO - Processing dataset: ICONCLASS
+2025-06-19 13:39:04,239 - INFO - Processing images for test: test_2
+2025-06-19 13:39:04,241 - INFO - Loaded 863 cached results
+2025-06-19 13:39:04,241 - INFO - Using model: gemini-2.5-pro-preview-05-06
+2025-06-19 13:39:04,241 - INFO - === GENERATED PROMPT ===
+2025-06-19 13:39:04,241 - INFO - Dataset: ICONCLASS, Test: test_2
+2025-06-19 13:39:04,242 - INFO - Hyperparameters: temperature=0.0, top_k=32
+2025-06-19 13:39:04,242 - INFO - Prompt content:
+2025-06-19 13:39:04,242 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"paul" - the apostle Paul of Tarsus; possible attributes: book, scroll, sword
+"mary_magdalene" - the penitent harlot Mary Magdalene; possible attributes: book (or scroll), crown, crown of thorns, crucifix, jar of ointment, mirror, musical instrument, palm-branch, rosary, scourge
+"jerome" - the monk and hermit Jerome (Hieronymus); possible attributes: book, cardinal's hat, crucifix, hour-glass, lion, skull, stone
+"john" -  the apostle John the Evangelist; possible attributes: book, cauldron, chalice with snake, eagle, palm, scroll
+"antony_abbot" - the hermit Antony Abbot (Antonius Abbas) of Egypt, also called the Great; possible attributes: bell, book, T-shaped staff, flames, pig
+"peter" - the apostle Peter, first bishop of Rome; possible attributes: book, cock, (upturned) cross, (triple) crozier, fish, key, scroll, ship, tiara
+"matthew" - the apostle and evangelist Matthew (Mattheus); possible attributes: angel, axe, book, halberd, pen and inkhorn, purse, scroll, square, sword
+"catherine" - the virgin martyr Catherine of Alexandria; possible attributes: book, crown, emperor Maxentius, palm-branch, ring, sword, wheel
+"luke" - 11H(LUKE) Luke the evangelist; possible attributes: book, (winged) ox, portrait of the Virgin, surgical instruments, painter's utensils, scroll
+"francis" - founder of the Order of Friars Minor (Franciscans), Francis(cus) of Assisi; possible attributes: book, crucifix, lily, skull, stigmata
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2025-06-19 13:39:04,242 - INFO - === END PROMPT ===
+2025-06-19 13:39:04,246 - INFO - Total input tokens used: 0
+2025-06-19 13:39:04,246 - INFO - Total output tokens used: 0
+2025-06-19 13:39:04,246 - INFO - Total cost of this call: $0.0000
+2025-06-19 13:39:04,247 - INFO - Probabilities shape: (863, 10)

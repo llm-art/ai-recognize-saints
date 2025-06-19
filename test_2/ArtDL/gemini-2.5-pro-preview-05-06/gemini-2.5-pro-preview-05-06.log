@@ -299,3 +299,69 @@ Treat all content as scholarly, respectful of historical context, and strictly n
 2025-06-09 13:53:24,394 - INFO - Total output tokens used: 100
 2025-06-09 13:53:24,394 - INFO - Total cost of this call: $0.0013
 2025-06-09 13:53:24,395 - INFO - Probabilities shape: (1864, 10)
+2025-06-19 13:39:02,454 - INFO - Logger initialized for ArtDL/test_2/gemini-2.5-pro-preview-05-06
+2025-06-19 13:39:02,454 - INFO - Starting classification for dataset=ArtDL, test=test_2, model=gemini-2.5-pro-preview-05-06
+2025-06-19 13:39:02,741 - INFO - Number of images: 1864
+2025-06-19 13:39:02,741 - INFO - Processing dataset: ArtDL
+2025-06-19 13:39:02,743 - INFO - Processing images for test: test_2
+2025-06-19 13:39:02,746 - INFO - Loaded 1864 cached results
+2025-06-19 13:39:02,747 - INFO - Using model: gemini-2.5-pro-preview-05-06
+2025-06-19 13:39:02,747 - INFO - === GENERATED PROMPT ===
+2025-06-19 13:39:02,747 - INFO - Dataset: ArtDL, Test: test_2
+2025-06-19 13:39:02,747 - INFO - Hyperparameters: temperature=0.0, top_k=32
+2025-06-19 13:39:02,747 - INFO - Prompt content:
+2025-06-19 13:39:02,747 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"antony_of_padua" - the Franciscan monk Antony of Padua; possible attributes: ass, book, crucifix, flowered cross, flaming heart, infant Christ (on book), lily - portrait of male saint
+"john_baptist" - John the Baptist; possible attributes: book, reed cross, baptismal cup, honeycomb, lamb, staff
+"paul" - the apostle Paul of Tarsus; possible attributes: book, scroll, sword
+"francis" - founder of the Order of Friars Minor (Franciscans), Francis(cus) of Assisi; possible attributes: book, crucifix, lily, skull, stigmata
+"mary_magdalene" - the penitent harlot Mary Magdalene; possible attributes: book (or scroll), crown, crown of thorns, crucifix, jar of ointment, mirror, musical instrument, palm-branch, rosary, scourge
+"jerome" - the monk and hermit Jerome (Hieronymus); possible attributes: book, cardinal's hat, crucifix, hour-glass, lion, skull, stone
+"dominic" - Dominic(us) Guzman of Calerueja, founder of the Order of Preachers (or Dominican (Black) Friars; possible attributes: book, dog with flaming torch, lily, loaf of bread, rosary, star
+"mary" - the Virgin Mary
+"peter" - the apostle Peter, first bishop of Rome; possible attributes: book, cock, (upturned) cross, (triple) crozier, fish, key, scroll, ship, tiara
+"sebastian" - the martyr Sebastian; possible attributes: arrow(s), bow, tree-trunk
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2025-06-19 13:39:02,747 - INFO - === END PROMPT ===
+2025-06-19 13:39:02,756 - INFO - Total input tokens used: 0
+2025-06-19 13:39:02,756 - INFO - Total output tokens used: 0
+2025-06-19 13:39:02,756 - INFO - Total cost of this call: $0.0000
+2025-06-19 13:39:02,757 - INFO - Probabilities shape: (1864, 10)

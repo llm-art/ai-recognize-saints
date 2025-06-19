@@ -314,3 +314,78 @@ Treat all content as scholarly, respectful of historical context, and strictly n
 2025-06-10 14:07:46,275 - INFO - Total output tokens used: 15321
 2025-06-10 14:07:46,275 - INFO - Total cost of this call: $0.0514
 2025-06-10 14:07:46,275 - INFO - Probabilities shape: (858, 10)
+2025-06-19 13:39:04,247 - INFO - Logger initialized for ICONCLASS/test_3/gemini-2.5-flash-preview-05-20
+2025-06-19 13:39:04,248 - INFO - Starting classification for dataset=ICONCLASS, test=test_3, model=gemini-2.5-flash-preview-05-20
+2025-06-19 13:39:04,445 - INFO - Number of images: 863
+2025-06-19 13:39:04,445 - INFO - Processing dataset: ICONCLASS
+2025-06-19 13:39:04,447 - INFO - Processing images for test: test_3
+2025-06-19 13:39:04,448 - INFO - Loaded 858 cached results
+2025-06-19 13:39:04,448 - INFO - Using model: gemini-2.5-flash-preview-05-20
+2025-06-19 13:39:04,449 - INFO - === GENERATED PROMPT ===
+2025-06-19 13:39:04,449 - INFO - Dataset: ICONCLASS, Test: test_3
+2025-06-19 13:39:04,450 - INFO - Hyperparameters: temperature=0.0, top_k=32
+2025-06-19 13:39:04,450 - INFO - Prompt content:
+2025-06-19 13:39:04,450 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+You will be shown 5 example images categorized as follows:
+{
+  "1942_9_17_c", "francis"
+  "RKD Research De apostel Paulus een brief schrijvend, jaren 1630", "paul"
+  "RKD Research De Heilige Catharina, eerste helft 16de eeuw", "catherine"
+  "RKD Research De heilige Hieronymus", "jerome"
+  "RKD Research De Heilige Maria Magdalena met zalfpot en boek, eerste helft 16de eeuw", "mary_magdalene"
+}
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"paul" - St. Paul
+"mary_magdalene" - Mary Magdalene
+"jerome" - St. Jerome
+"john" - St. John the Evangelist
+"antony_abbot" - St. Anthony Abbot
+"peter" - St. Peter
+"matthew" - St. Matthew
+"catherine" - St. Catherine
+"luke" - St. Luke
+"francis" - St. Francis of Assisi
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2025-06-19 13:39:04,450 - INFO - === END PROMPT ===
+2025-06-19 13:39:19,051 - INFO - Total input tokens used: 600
+2025-06-19 13:39:19,051 - INFO - Total output tokens used: 86
+2025-06-19 13:39:19,051 - INFO - Total cost of this call: $0.0003
+2025-06-19 13:39:19,052 - INFO - Probabilities shape: (863, 10)

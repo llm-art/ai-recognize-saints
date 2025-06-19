@@ -38,8 +38,8 @@ In the current experiments, I tested two types of models: Vision-Language Encode
 | siglip-base-patch16-512        | 48.71%               | 55.90%                     | 68.19%                                                        |
 | siglip-large-patch16-384       | 54.45%               | 53.49%                     | 72.21%                                                        |
 | siglip-so400m-patch14-384      | 53.86%               | 56.38%                     | 70.55%                                                        |
-| gpt-4o-mini                    | 51.24%               | 62.23%                     | 64.54%                                                        |
-| gpt-4o                         | 52.90%               | 48.97%                     | 49.92%                                                        |
+| gpt-4o-mini                    | 82.78%               | 85.41%                     | 85.19%                                                        |
+| gpt-4o                         | 62.30%               | 49.22%                     | 49.03%                                                        |
 | gemini-2.5-flash-preview-05-20 | 88.20%               | 84.71%                     | 87.02%                                                        |
 | gemini-2.5-pro-preview-05-06   | 79.76%               | 86.59%                     | 90.18%                                                        |
 | Baseline                       | 84.44%               |                            |                                                               |
@@ -54,9 +54,9 @@ In the current experiments, I tested two types of models: Vision-Language Encode
 | siglip-base-patch16-512        | 43.51%               | 41.93%                     | 33.33%                                                            |
 | siglip-large-patch16-384       | 48.95%               | 49.30%                     | 38.77%                                                            |
 | siglip-so400m-patch14-384      | 59.47%               | 60.88%                     | 53.16%                                                            |
-| gpt-4o-mini                    | 8.39%                | 11.73%                     | 10.12%                                                            |
+| gpt-4o-mini                    | 45.13%               | 55.97%                     | 58.86%                                                            |
 | gpt-4o                         | 64.04%               | 30.05%                     | 14.19%                                                            |
-| gemini-2.5-flash-preview-05-20 | 77.17%               | 51.40%                     | 77.75%                                                            |
+| gemini-2.5-flash-preview-05-20 | 77.17%               | 78.22%                     | 77.75%                                                            |
 | gemini-2.5-pro-preview-05-06   | 83.31%               | 84.59%                     | 84.82%                                                            |
 
 
@@ -70,9 +70,9 @@ In the current experiments, I tested two types of models: Vision-Language Encode
 | siglip-base-patch16-512        | 57.47%               | 56.05%                     | 46.94%                                                           |
 | siglip-large-patch16-384       | 60.03%               | 61.17%                     | 43.95%                                                           |
 | siglip-so400m-patch14-384      | 66.29%               | 64.86%                     | 59.60%                                                           |
-| gpt-4o-mini                    | 35.19%               | 32.54%                     | 37.10%                                                           |
-| gpt-4o                         | 43.43%               | 43.61%                     | 45.52%                                                           |
-| gemini-2.5-flash-preview-05-20 | 44.72%               | 44.57%                     | 45.31%                                                           |
-| gemini-2.5-pro-preview-05-06   | 45.89%               | 47.07%                     | 55.31%                                                           |
+| gpt-4o-mini                    | 35.19%               | 34.46%                     | 37.10%                                                           |
+| gpt-4o                         | 44.99%               | 43.61%                     | 45.52%                                                           |
+| gemini-2.5-flash-preview-05-20 | 45.45%               | 44.57%                     | 45.31%                                                           |
+| gemini-2.5-pro-preview-05-06   | 45.89%               | 47.07%                     | 45.31%                                                           |
 
 see https://community.openai.com/t/achieving-deterministic-api-output-on-language-models-howto/418318
