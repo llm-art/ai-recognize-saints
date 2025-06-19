@@ -229,7 +229,7 @@ class GPTImageClassifier:
   """Classifies images using OpenAI's GPT models with vision capabilities."""
 
   def __init__(self, model: str, api_key: str, dataset: str, test: str, base_dir: str, 
-               temperature: float = 0.0, top_p: float = 0.1, logger=None):
+               temperature: float = 0.0, top_p: float = 0.1, seed: int = 12345, logger=None):
     """
     Initialize the classifier.
 
@@ -241,6 +241,7 @@ class GPTImageClassifier:
         base_dir: Base directory for the project
         temperature: Temperature for generation
         top_p: Top-p (nucleus sampling) for generation
+        seed: Seed for deterministic results
         logger: Logger instance
     """
     self.model = model
@@ -252,6 +253,7 @@ class GPTImageClassifier:
     # Store hyperparameters
     self.temperature = temperature
     self.top_p = top_p
+    self.seed = seed
 
     # Set up logger
     self.logger = logger or logging.getLogger("default")
@@ -314,7 +316,7 @@ class GPTImageClassifier:
     # Log the generated prompt
     self.logger.info("=== GENERATED PROMPT ===")
     self.logger.info(f"Dataset: {dataset}, Test: {test}")
-    self.logger.info(f"Hyperparameters: temperature={self.temperature}, top_p={self.top_p}")
+    self.logger.info(f"Hyperparameters: temperature={self.temperature}, top_p={self.top_p}, seed={self.seed}")
     self.logger.info("Prompt content:")
     self.logger.info(complete_prompt)
     self.logger.info("=== END PROMPT ===")
@@ -782,13 +784,18 @@ class GPTImageClassifier:
             model=self.model,
             messages=messages,
             temperature=self.temperature,
-            top_p=self.top_p
+            top_p=self.top_p,
+            seed=self.seed
         )
 
         # Extract response content and token usage
         content = response.choices[0].message.content
         self.total_input_tokens += response.usage.prompt_tokens
         self.total_output_tokens += response.usage.completion_tokens
+        
+        # Log system fingerprint for determinism tracking
+        system_fingerprint = getattr(response, 'system_fingerprint', 'N/A')
+        self.logger.info(f"Batch {batch_count}: system_fingerprint={system_fingerprint}")
 
         # Save the raw response to a file for debugging in batches/ subfolder
         batches_dir = os.path.join(
@@ -797,6 +804,7 @@ class GPTImageClassifier:
         batch_file = os.path.join(batches_dir, f'{batch_count}.txt')
         with open(batch_file, 'w') as f:
           f.write(f"Model: {self.model}\n")
+          f.write(f"System fingerprint: {system_fingerprint}\n")
           f.write(f"Batch items: {[item for item, _ in batch_items]}\n")
           f.write(f"Response:\n{content}\n")
 
@@ -994,11 +1002,12 @@ def load_images(test_items: List[str], dataset_dir: str, logger=None) -> List[Tu
 @click.option('--save_frequency', default=5, help='How often to save cache (in batches)')
 @click.option('--datasets', multiple=True, help='List of datasets to use')
 @click.option('--verbose', is_flag=True, help='Enable verbose logging (DEBUG level)')
-@click.option('--temperature', default=0.00000001, help='Temperature for generation (default: 0.0, min: 0.0)')
+@click.option('--temperature', default=0.0, help='Temperature for generation (default: 0.0, min: 0.0)')
 @click.option('--top_p', default=0.1, help='Top-p (nucleus sampling) for generation (default: 0.1)')
+@click.option('--seed', default=12345, help='Seed for deterministic results (default: 12345)')
 @click.option('--clean', is_flag=True, help='Remove cache and logs from previous runs before starting')
 def main(folders: List[str], models: List[str], limit: int, batch_size: int, save_frequency: int,
-         datasets: List[str], verbose: bool, temperature: float, top_p: float, clean: bool):
+         datasets: List[str], verbose: bool, temperature: float, top_p: float, seed: int, clean: bool):
   """
   Main function to run the GPT image classification.
 
@@ -1081,6 +1090,16 @@ def main(folders: List[str], models: List[str], limit: int, batch_size: int, sav
             if os.path.exists(batches_dir):
               items_to_remove.append(batches_dir)
             
+            # Log files
+            log_file = os.path.join(model_dir, f'{dataset}_{folder}_{model}.log')
+            if os.path.exists(log_file):
+              items_to_remove.append(log_file)
+            
+            # Unprocessed items file
+            unprocessed_file = os.path.join(model_dir, 'unprocessed.txt')
+            if os.path.exists(unprocessed_file):
+              items_to_remove.append(unprocessed_file)
+            
             # Remove the items
             for item in items_to_remove:
               try:
@@ -1099,7 +1118,7 @@ def main(folders: List[str], models: List[str], limit: int, batch_size: int, sav
         # Initialize classifier and process images
         classifier = GPTImageClassifier(
           model, api_key, dataset, folder, script_dir,
-          temperature=temperature, top_p=top_p, logger=logger)
+          temperature=temperature, top_p=top_p, seed=seed, logger=logger)
 
         all_probs = classifier.classify_images(
             images, classes, limit, batch_size, save_frequency
