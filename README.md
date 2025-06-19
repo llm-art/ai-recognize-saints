@@ -29,7 +29,6 @@ In the current experiments, I tested two types of models: Vision-Language Encode
 | GPT-4o mini       | Multimodal LLM            | 128k tokens              | 16.4k tokens     | No         | Jul 2024      | Oct 2023           |
 
 ### ArtDL
-
 #### ArtDL Results
 | Model                          | zero-shot (labels)   | zero-shot (descriptions)   | few-shot[*](dataset/ArtDL-data/few-shot/README.md) (labels)   |
 |:-------------------------------|:---------------------|:---------------------------|:--------------------------------------------------------------|
@@ -39,14 +38,13 @@ In the current experiments, I tested two types of models: Vision-Language Encode
 | siglip-base-patch16-512        | 48.71%               | 55.90%                     | 68.19%                                                        |
 | siglip-large-patch16-384       | 54.45%               | 53.49%                     | 72.21%                                                        |
 | siglip-so400m-patch14-384      | 53.86%               | 56.38%                     | 70.55%                                                        |
-| gpt-4o-mini                    | 83.10%               | 85.19%                     | 84.98%                                                        |
-| gpt-4o                         | 64.77%               | 62.53%                     | 50.40%                                                        |
+| gpt-4o-mini                    | 51.24%               | 62.23%                     | 64.54%                                                        |
+| gpt-4o                         | 52.90%               | 48.97%                     | 49.92%                                                        |
 | gemini-2.5-flash-preview-05-20 | 88.20%               | 84.71%                     | 87.02%                                                        |
 | gemini-2.5-pro-preview-05-06   | 79.76%               | 86.59%                     | 90.18%                                                        |
 | Baseline                       | 84.44%               |                            |                                                               |
 
 ### ICONCLASS
-
 #### ICONCLASS Results
 | Model                          | zero-shot (labels)   | zero-shot (descriptions)   | few-shot[*](dataset/ICONCLASS-data/few-shot/README.md) (labels)   |
 |:-------------------------------|:---------------------|:---------------------------|:------------------------------------------------------------------|
@@ -56,14 +54,13 @@ In the current experiments, I tested two types of models: Vision-Language Encode
 | siglip-base-patch16-512        | 43.51%               | 41.93%                     | 33.33%                                                            |
 | siglip-large-patch16-384       | 48.95%               | 49.30%                     | 38.77%                                                            |
 | siglip-so400m-patch14-384      | 59.47%               | 60.88%                     | 53.16%                                                            |
-| gpt-4o-mini                    | 8.85%                | 12.20%                     | 9.78%                                                             |
-| gpt-4o                         | 18.58%               | 30.39%                     | 19.77%                                                            |
+| gpt-4o-mini                    | 8.39%                | 11.73%                     | 10.12%                                                            |
+| gpt-4o                         | 64.04%               | 30.05%                     | 14.19%                                                            |
 | gemini-2.5-flash-preview-05-20 | 77.17%               | 51.40%                     | 77.75%                                                            |
 | gemini-2.5-pro-preview-05-06   | 83.31%               | 84.59%                     | 84.82%                                                            |
 
 
 ### Wikidata
-
 #### wikidata Results
 | Model                          | zero-shot (labels)   | zero-shot (descriptions)   | few-shot[*](dataset/wikidata-data/few-shot/README.md) (labels)   |
 |:-------------------------------|:---------------------|:---------------------------|:-----------------------------------------------------------------|
@@ -73,8 +70,8 @@ In the current experiments, I tested two types of models: Vision-Language Encode
 | siglip-base-patch16-512        | 57.47%               | 56.05%                     | 46.94%                                                           |
 | siglip-large-patch16-384       | 60.03%               | 61.17%                     | 43.95%                                                           |
 | siglip-so400m-patch14-384      | 66.29%               | 64.86%                     | 59.60%                                                           |
-| gpt-4o-mini                    | 34.46%               | 33.53%                     | 36.51%                                                           |
-| gpt-4o                         | 44.69%               | 43.13%                     | 44.48%                                                           |
+| gpt-4o-mini                    | 35.19%               | 32.54%                     | 37.10%                                                           |
+| gpt-4o                         | 43.43%               | 43.61%                     | 45.52%                                                           |
 | gemini-2.5-flash-preview-05-20 | 44.72%               | 44.57%                     | 45.31%                                                           |
 | gemini-2.5-pro-preview-05-06   | 45.89%               | 47.07%                     | 55.31%                                                           |
 
