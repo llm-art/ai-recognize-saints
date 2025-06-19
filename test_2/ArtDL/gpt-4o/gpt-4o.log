@@ -476,3 +476,538 @@ Treat all content as scholarly, respectful of historical context, and strictly n
 2025-06-09 11:50:32,571 - INFO - Total cost of this call: $0.0299
 2025-06-09 11:50:32,571 - INFO - Total unprocessed items: 7
 2025-06-09 11:50:32,572 - INFO - Probabilities shape: (1857, 10)
+2025-06-18 19:10:24,517 - INFO - Logger initialized for ArtDL/test_2/gpt-4o
+2025-06-18 19:10:24,517 - INFO - Starting classification for dataset=ArtDL, test=test_2, model=gpt-4o
+2025-06-18 19:10:24,814 - INFO - Number of images: 1864
+2025-06-18 19:10:24,814 - INFO - Processing dataset: ArtDL
+2025-06-18 19:10:24,816 - INFO - Processing images for test: test_2
+2025-06-18 19:10:24,821 - INFO - Cleaned previous cache and logs for dataset=ArtDL, test=test_2, model=gpt-4o
+2025-06-18 19:10:24,840 - INFO - Using model: gpt-4o
+2025-06-18 19:10:24,841 - INFO - === GENERATED PROMPT ===
+2025-06-18 19:10:24,841 - INFO - Dataset: ArtDL, Test: test_2
+2025-06-18 19:10:24,841 - INFO - Hyperparameters: temperature=0.0, top_p=0.1, seed=12345
+2025-06-18 19:10:24,841 - INFO - Prompt content:
+2025-06-18 19:10:24,841 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"antony_of_padua" - the Franciscan monk Antony of Padua; possible attributes: ass, book, crucifix, flowered cross, flaming heart, infant Christ (on book), lily - portrait of male saint
+"john_baptist" - John the Baptist; possible attributes: book, reed cross, baptismal cup, honeycomb, lamb, staff
+"paul" - the apostle Paul of Tarsus; possible attributes: book, scroll, sword
+"francis" - founder of the Order of Friars Minor (Franciscans), Francis(cus) of Assisi; possible attributes: book, crucifix, lily, skull, stigmata
+"mary_magdalene" - the penitent harlot Mary Magdalene; possible attributes: book (or scroll), crown, crown of thorns, crucifix, jar of ointment, mirror, musical instrument, palm-branch, rosary, scourge
+"jerome" - the monk and hermit Jerome (Hieronymus); possible attributes: book, cardinal's hat, crucifix, hour-glass, lion, skull, stone
+"dominic" - Dominic(us) Guzman of Calerueja, founder of the Order of Preachers (or Dominican (Black) Friars; possible attributes: book, dog with flaming torch, lily, loaf of bread, rosary, star
+"mary" - the Virgin Mary
+"peter" - the apostle Peter, first bishop of Rome; possible attributes: book, cock, (upturned) cross, (triple) crozier, fish, key, scroll, ship, tiara
+"sebastian" - the martyr Sebastian; possible attributes: arrow(s), bow, tree-trunk
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2025-06-18 19:10:24,841 - INFO - === END PROMPT ===
+2025-06-18 19:10:35,281 - INFO - Batch 1: system_fingerprint=fp_a288987b44
+2025-06-18 19:10:43,484 - INFO - Batch 2: system_fingerprint=fp_a288987b44
+2025-06-18 19:10:52,717 - INFO - Batch 3: system_fingerprint=fp_a288987b44
+2025-06-18 19:11:02,924 - INFO - Batch 4: system_fingerprint=fp_a288987b44
+2025-06-18 19:11:08,989 - INFO - Batch 5: system_fingerprint=fp_a288987b44
+2025-06-18 19:11:08,990 - INFO - Cache saved after 5 batches
+2025-06-18 19:11:17,244 - INFO - Batch 6: system_fingerprint=fp_a288987b44
+2025-06-18 19:11:26,820 - INFO - Batch 7: system_fingerprint=fp_a288987b44
+2025-06-18 19:11:35,853 - INFO - Batch 8: system_fingerprint=fp_a288987b44
+2025-06-18 19:11:44,307 - INFO - Batch 9: system_fingerprint=fp_a288987b44
+2025-06-18 19:11:50,975 - INFO - Batch 10: system_fingerprint=fp_a288987b44
+2025-06-18 19:11:50,976 - INFO - Cache saved after 10 batches
+2025-06-18 19:12:00,438 - INFO - Batch 11: system_fingerprint=fp_a288987b44
+2025-06-18 19:12:13,017 - INFO - Batch 12: system_fingerprint=fp_a288987b44
+2025-06-18 19:12:23,777 - INFO - Batch 13: system_fingerprint=fp_a288987b44
+2025-06-18 19:12:35,674 - INFO - Batch 14: system_fingerprint=fp_a288987b44
+2025-06-18 19:12:43,455 - INFO - Batch 15: system_fingerprint=fp_a288987b44
+2025-06-18 19:12:43,456 - INFO - Cache saved after 15 batches
+2025-06-18 19:12:55,047 - INFO - Batch 16: system_fingerprint=fp_a288987b44
+2025-06-18 19:13:04,038 - INFO - Batch 17: system_fingerprint=fp_a288987b44
+2025-06-18 19:13:12,098 - INFO - Batch 18: system_fingerprint=fp_a288987b44
+2025-06-18 19:13:19,368 - INFO - Batch 19: system_fingerprint=fp_a288987b44
+2025-06-18 19:13:32,971 - INFO - Batch 20: system_fingerprint=fp_a288987b44
+2025-06-18 19:13:32,973 - INFO - Cache saved after 20 batches
+2025-06-18 19:13:40,630 - INFO - Batch 21: system_fingerprint=fp_a288987b44
+2025-06-18 19:13:49,846 - INFO - Batch 22: system_fingerprint=fp_a288987b44
+2025-06-18 19:13:58,732 - INFO - Batch 23: system_fingerprint=fp_a288987b44
+2025-06-18 19:13:58,732 - WARNING - Unknown class ID or alias: unknown
+2025-06-18 19:13:58,732 - WARNING - Unknown class ID or alias: unknown
+2025-06-18 19:13:58,732 - WARNING - Unknown class ID or alias: unknown
+2025-06-18 19:13:58,732 - INFO - Created new unprocessed items file: /home/vitadmin/gspinaci/LLM-test/script/../test_2/ArtDL/gpt-4o/unprocessed.txt
+2025-06-18 19:13:58,733 - INFO - Added 3 unprocessed items to /home/vitadmin/gspinaci/LLM-test/script/../test_2/ArtDL/gpt-4o/unprocessed.txt
+2025-06-18 19:14:23,563 - INFO - Batch 24: system_fingerprint=fp_a288987b44
+2025-06-18 19:14:34,441 - INFO - Batch 25: system_fingerprint=fp_a288987b44
+2025-06-18 19:14:34,442 - INFO - Cache saved after 25 batches
+2025-06-18 19:14:42,516 - INFO - Batch 26: system_fingerprint=fp_a288987b44
+2025-06-18 19:14:53,589 - INFO - Batch 27: system_fingerprint=fp_a288987b44
+2025-06-18 19:15:02,389 - INFO - Batch 28: system_fingerprint=fp_a288987b44
+2025-06-18 19:15:12,729 - INFO - Batch 29: system_fingerprint=fp_a288987b44
+2025-06-18 19:15:23,380 - INFO - Batch 30: system_fingerprint=fp_a288987b44
+2025-06-18 19:15:23,381 - INFO - Cache saved after 30 batches
+2025-06-18 19:15:33,947 - INFO - Batch 31: system_fingerprint=fp_a288987b44
+2025-06-18 19:15:41,483 - INFO - Batch 32: system_fingerprint=fp_a288987b44
+2025-06-18 19:15:41,484 - WARNING - Unknown class ID or alias: unknown
+2025-06-18 19:15:41,484 - INFO - Added 1 unprocessed items to /home/vitadmin/gspinaci/LLM-test/script/../test_2/ArtDL/gpt-4o/unprocessed.txt
+2025-06-18 19:15:55,801 - INFO - Batch 33: system_fingerprint=fp_a288987b44
+2025-06-18 19:16:05,391 - INFO - Batch 34: system_fingerprint=fp_a288987b44
+2025-06-18 19:16:15,329 - INFO - Batch 35: system_fingerprint=fp_a288987b44
+2025-06-18 19:16:15,330 - INFO - Cache saved after 35 batches
+2025-06-18 19:16:25,564 - INFO - Batch 36: system_fingerprint=fp_a288987b44
+2025-06-18 19:16:34,894 - INFO - Batch 37: system_fingerprint=fp_a288987b44
+2025-06-18 19:16:42,647 - INFO - Batch 38: system_fingerprint=fp_a288987b44
+2025-06-18 19:16:49,833 - INFO - Batch 39: system_fingerprint=fp_a288987b44
+2025-06-18 19:17:00,558 - INFO - Batch 40: system_fingerprint=fp_a288987b44
+2025-06-18 19:17:00,560 - INFO - Cache saved after 40 batches
+2025-06-18 19:17:11,671 - INFO - Batch 41: system_fingerprint=fp_a288987b44
+2025-06-18 19:17:18,934 - INFO - Batch 42: system_fingerprint=fp_a288987b44
+2025-06-18 19:17:28,402 - INFO - Batch 43: system_fingerprint=fp_a288987b44
+2025-06-18 19:17:35,359 - INFO - Batch 44: system_fingerprint=fp_a288987b44
+2025-06-18 19:17:44,735 - INFO - Batch 45: system_fingerprint=fp_a288987b44
+2025-06-18 19:17:44,737 - INFO - Cache saved after 45 batches
+2025-06-18 19:17:54,210 - INFO - Batch 46: system_fingerprint=fp_a288987b44
+2025-06-18 19:18:03,632 - INFO - Batch 47: system_fingerprint=fp_a288987b44
+2025-06-18 19:18:14,478 - INFO - Batch 48: system_fingerprint=fp_a288987b44
+2025-06-18 19:18:21,409 - INFO - Batch 49: system_fingerprint=fp_a288987b44
+2025-06-18 19:18:29,982 - INFO - Batch 50: system_fingerprint=fp_a288987b44
+2025-06-18 19:18:29,984 - INFO - Cache saved after 50 batches
+2025-06-18 19:18:45,254 - INFO - Batch 51: system_fingerprint=fp_a288987b44
+2025-06-18 19:18:53,667 - INFO - Batch 52: system_fingerprint=fp_a288987b44
+2025-06-18 19:19:05,194 - INFO - Batch 53: system_fingerprint=fp_a288987b44
+2025-06-18 19:19:16,923 - INFO - Batch 54: system_fingerprint=fp_a288987b44
+2025-06-18 19:19:30,016 - INFO - Batch 55: system_fingerprint=fp_a288987b44
+2025-06-18 19:19:30,018 - INFO - Cache saved after 55 batches
+2025-06-18 19:19:39,753 - INFO - Batch 56: system_fingerprint=fp_a288987b44
+2025-06-18 19:19:48,123 - INFO - Batch 57: system_fingerprint=fp_a288987b44
+2025-06-18 19:19:55,657 - INFO - Batch 58: system_fingerprint=fp_a288987b44
+2025-06-18 19:20:07,838 - INFO - Batch 59: system_fingerprint=fp_a288987b44
+2025-06-18 19:20:07,839 - WARNING - Unknown class ID or alias: stephen
+2025-06-18 19:20:07,839 - INFO - Added 1 unprocessed items to /home/vitadmin/gspinaci/LLM-test/script/../test_2/ArtDL/gpt-4o/unprocessed.txt
+2025-06-18 19:20:19,852 - INFO - Batch 60: system_fingerprint=fp_a288987b44
+2025-06-18 19:20:19,854 - INFO - Cache saved after 60 batches
+2025-06-18 19:20:28,371 - INFO - Batch 61: system_fingerprint=fp_a288987b44
+2025-06-18 19:20:38,384 - INFO - Batch 62: system_fingerprint=fp_a288987b44
+2025-06-18 19:20:45,710 - INFO - Batch 63: system_fingerprint=fp_a288987b44
+2025-06-18 19:20:57,785 - INFO - Batch 64: system_fingerprint=fp_a288987b44
+2025-06-18 19:21:08,101 - INFO - Batch 65: system_fingerprint=fp_a288987b44
+2025-06-18 19:21:08,103 - INFO - Cache saved after 65 batches
+2025-06-18 19:21:16,084 - INFO - Batch 66: system_fingerprint=fp_a288987b44
+2025-06-18 19:21:24,077 - INFO - Batch 67: system_fingerprint=fp_a288987b44
+2025-06-18 19:21:33,271 - INFO - Batch 68: system_fingerprint=fp_a288987b44
+2025-06-18 19:21:43,537 - INFO - Batch 69: system_fingerprint=fp_a288987b44
+2025-06-18 19:21:55,609 - INFO - Batch 70: system_fingerprint=fp_a288987b44
+2025-06-18 19:21:55,611 - INFO - Cache saved after 70 batches
+2025-06-18 19:22:04,081 - INFO - Batch 71: system_fingerprint=fp_a288987b44
+2025-06-18 19:22:14,748 - INFO - Batch 72: system_fingerprint=fp_a288987b44
+2025-06-18 19:22:25,814 - INFO - Batch 73: system_fingerprint=fp_a288987b44
+2025-06-18 19:22:39,356 - INFO - Batch 74: system_fingerprint=fp_a288987b44
+2025-06-18 19:22:47,916 - INFO - Batch 75: system_fingerprint=fp_a288987b44
+2025-06-18 19:22:47,918 - INFO - Cache saved after 75 batches
+2025-06-18 19:22:56,895 - INFO - Batch 76: system_fingerprint=fp_a288987b44
+2025-06-18 19:23:04,487 - INFO - Batch 77: system_fingerprint=fp_a288987b44
+2025-06-18 19:23:13,493 - INFO - Batch 78: system_fingerprint=fp_a288987b44
+2025-06-18 19:23:26,594 - INFO - Batch 79: system_fingerprint=fp_a288987b44
+2025-06-18 19:23:36,972 - INFO - Batch 80: system_fingerprint=fp_a288987b44
+2025-06-18 19:23:36,974 - INFO - Cache saved after 80 batches
+2025-06-18 19:23:48,985 - INFO - Batch 81: system_fingerprint=fp_a288987b44
+2025-06-18 19:23:56,795 - INFO - Batch 82: system_fingerprint=fp_a288987b44
+2025-06-18 19:24:05,228 - INFO - Batch 83: system_fingerprint=fp_a288987b44
+2025-06-18 19:24:13,867 - INFO - Batch 84: system_fingerprint=fp_a288987b44
+2025-06-18 19:24:13,868 - WARNING - Unknown class ID or alias: unknown
+2025-06-18 19:24:13,868 - INFO - Added 1 unprocessed items to /home/vitadmin/gspinaci/LLM-test/script/../test_2/ArtDL/gpt-4o/unprocessed.txt
+2025-06-18 19:24:26,225 - INFO - Batch 85: system_fingerprint=fp_a288987b44
+2025-06-18 19:24:26,228 - INFO - Cache saved after 85 batches
+2025-06-18 19:24:35,243 - INFO - Batch 86: system_fingerprint=fp_a288987b44
+2025-06-18 19:24:45,167 - INFO - Batch 87: system_fingerprint=fp_a288987b44
+2025-06-18 19:24:55,622 - INFO - Batch 88: system_fingerprint=fp_a288987b44
+2025-06-18 19:25:02,748 - INFO - Batch 89: system_fingerprint=fp_a288987b44
+2025-06-18 19:25:10,323 - INFO - Batch 90: system_fingerprint=fp_a288987b44
+2025-06-18 19:25:10,326 - INFO - Cache saved after 90 batches
+2025-06-18 19:25:19,545 - INFO - Batch 91: system_fingerprint=fp_a288987b44
+2025-06-18 19:25:27,483 - INFO - Batch 92: system_fingerprint=fp_a288987b44
+2025-06-18 19:25:34,237 - INFO - Batch 93: system_fingerprint=fp_a288987b44
+2025-06-18 19:25:44,221 - INFO - Batch 94: system_fingerprint=fp_a288987b44
+2025-06-18 19:25:53,139 - INFO - Batch 95: system_fingerprint=fp_a288987b44
+2025-06-18 19:25:53,142 - INFO - Cache saved after 95 batches
+2025-06-18 19:26:04,670 - INFO - Batch 96: system_fingerprint=fp_a288987b44
+2025-06-18 19:26:16,209 - INFO - Batch 97: system_fingerprint=fp_a288987b44
+2025-06-18 19:26:24,971 - INFO - Batch 98: system_fingerprint=fp_a288987b44
+2025-06-18 19:26:35,313 - INFO - Batch 99: system_fingerprint=fp_a288987b44
+2025-06-18 19:26:43,658 - INFO - Batch 100: system_fingerprint=fp_a288987b44
+2025-06-18 19:26:43,661 - INFO - Cache saved after 100 batches
+2025-06-18 19:26:51,844 - INFO - Batch 101: system_fingerprint=fp_a288987b44
+2025-06-18 19:26:58,981 - INFO - Batch 102: system_fingerprint=fp_a288987b44
+2025-06-18 19:27:08,234 - INFO - Batch 103: system_fingerprint=fp_a288987b44
+2025-06-18 19:27:15,157 - INFO - Batch 104: system_fingerprint=fp_a288987b44
+2025-06-18 19:27:24,729 - INFO - Batch 105: system_fingerprint=fp_a288987b44
+2025-06-18 19:27:24,732 - INFO - Cache saved after 105 batches
+2025-06-18 19:27:32,653 - INFO - Batch 106: system_fingerprint=fp_a288987b44
+2025-06-18 19:27:38,697 - INFO - Batch 107: system_fingerprint=fp_a288987b44
+2025-06-18 19:27:48,238 - INFO - Batch 108: system_fingerprint=fp_a288987b44
+2025-06-18 19:27:58,762 - INFO - Batch 109: system_fingerprint=fp_a288987b44
+2025-06-18 19:28:06,663 - INFO - Batch 110: system_fingerprint=fp_a288987b44
+2025-06-18 19:28:06,666 - INFO - Cache saved after 110 batches
+2025-06-18 19:28:16,934 - INFO - Batch 111: system_fingerprint=fp_a288987b44
+2025-06-18 19:28:34,297 - INFO - Batch 112: system_fingerprint=fp_a288987b44
+2025-06-18 19:28:43,440 - INFO - Batch 113: system_fingerprint=fp_a288987b44
+2025-06-18 19:28:56,885 - INFO - Batch 114: system_fingerprint=fp_a288987b44
+2025-06-18 19:29:06,825 - INFO - Batch 115: system_fingerprint=fp_a288987b44
+2025-06-18 19:29:06,828 - INFO - Cache saved after 115 batches
+2025-06-18 19:29:15,753 - INFO - Batch 116: system_fingerprint=fp_a288987b44
+2025-06-18 19:29:24,616 - INFO - Batch 117: system_fingerprint=fp_a288987b44
+2025-06-18 19:29:36,701 - INFO - Batch 118: system_fingerprint=fp_a288987b44
+2025-06-18 19:29:45,231 - INFO - Batch 119: system_fingerprint=fp_a288987b44
+2025-06-18 19:29:54,455 - INFO - Batch 120: system_fingerprint=fp_a288987b44
+2025-06-18 19:29:54,459 - INFO - Cache saved after 120 batches
+2025-06-18 19:30:04,676 - INFO - Batch 121: system_fingerprint=fp_a288987b44
+2025-06-18 19:30:12,949 - INFO - Batch 122: system_fingerprint=fp_a288987b44
+2025-06-18 19:30:25,920 - INFO - Batch 123: system_fingerprint=fp_a288987b44
+2025-06-18 19:30:37,182 - INFO - Batch 124: system_fingerprint=fp_a288987b44
+2025-06-18 19:30:46,478 - INFO - Batch 125: system_fingerprint=fp_a288987b44
+2025-06-18 19:30:46,481 - INFO - Cache saved after 125 batches
+2025-06-18 19:30:57,229 - INFO - Batch 126: system_fingerprint=fp_a288987b44
+2025-06-18 19:31:03,143 - INFO - Batch 127: system_fingerprint=fp_a288987b44
+2025-06-18 19:31:12,640 - INFO - Batch 128: system_fingerprint=fp_a288987b44
+2025-06-18 19:31:21,538 - INFO - Batch 129: system_fingerprint=fp_a288987b44
+2025-06-18 19:31:29,643 - INFO - Batch 130: system_fingerprint=fp_a288987b44
+2025-06-18 19:31:29,646 - INFO - Cache saved after 130 batches
+2025-06-18 19:31:36,544 - INFO - Batch 131: system_fingerprint=fp_a288987b44
+2025-06-18 19:31:46,542 - INFO - Batch 132: system_fingerprint=fp_a288987b44
+2025-06-18 19:31:55,685 - INFO - Batch 133: system_fingerprint=fp_a288987b44
+2025-06-18 19:32:04,203 - INFO - Batch 134: system_fingerprint=fp_a288987b44
+2025-06-18 19:32:12,778 - INFO - Batch 135: system_fingerprint=fp_a288987b44
+2025-06-18 19:32:12,781 - INFO - Cache saved after 135 batches
+2025-06-18 19:32:21,938 - INFO - Batch 136: system_fingerprint=fp_a288987b44
+2025-06-18 19:32:32,849 - INFO - Batch 137: system_fingerprint=fp_a288987b44
+2025-06-18 19:32:42,388 - INFO - Batch 138: system_fingerprint=fp_a288987b44
+2025-06-18 19:32:49,063 - INFO - Batch 139: system_fingerprint=fp_a288987b44
+2025-06-18 19:32:56,156 - INFO - Batch 140: system_fingerprint=fp_a288987b44
+2025-06-18 19:32:56,160 - INFO - Cache saved after 140 batches
+2025-06-18 19:33:05,861 - INFO - Batch 141: system_fingerprint=fp_a288987b44
+2025-06-18 19:33:14,503 - INFO - Batch 142: system_fingerprint=fp_a288987b44
+2025-06-18 19:33:23,630 - INFO - Batch 143: system_fingerprint=fp_a288987b44
+2025-06-18 19:33:32,108 - INFO - Batch 144: system_fingerprint=fp_a288987b44
+2025-06-18 19:33:40,000 - INFO - Batch 145: system_fingerprint=fp_a288987b44
+2025-06-18 19:33:40,003 - INFO - Cache saved after 145 batches
+2025-06-18 19:33:49,511 - INFO - Batch 146: system_fingerprint=fp_a288987b44
+2025-06-18 19:33:56,759 - INFO - Batch 147: system_fingerprint=fp_a288987b44
+2025-06-18 19:34:04,017 - INFO - Batch 148: system_fingerprint=fp_a288987b44
+2025-06-18 19:34:12,645 - INFO - Batch 149: system_fingerprint=fp_a288987b44
+2025-06-18 19:34:22,682 - INFO - Batch 150: system_fingerprint=fp_a288987b44
+2025-06-18 19:34:22,686 - INFO - Cache saved after 150 batches
+2025-06-18 19:34:29,801 - INFO - Batch 151: system_fingerprint=fp_a288987b44
+2025-06-18 19:34:36,522 - INFO - Batch 152: system_fingerprint=fp_a288987b44
+2025-06-18 19:34:44,439 - INFO - Batch 153: system_fingerprint=fp_a288987b44
+2025-06-18 19:35:04,035 - INFO - Batch 154: system_fingerprint=fp_a288987b44
+2025-06-18 19:35:16,526 - INFO - Batch 155: system_fingerprint=fp_a288987b44
+2025-06-18 19:35:16,530 - INFO - Cache saved after 155 batches
+2025-06-18 19:35:25,041 - INFO - Batch 156: system_fingerprint=fp_a288987b44
+2025-06-18 19:35:32,840 - INFO - Batch 157: system_fingerprint=fp_a288987b44
+2025-06-18 19:35:39,796 - INFO - Batch 158: system_fingerprint=fp_a288987b44
+2025-06-18 19:35:49,058 - INFO - Batch 159: system_fingerprint=fp_a288987b44
+2025-06-18 19:35:57,769 - INFO - Batch 160: system_fingerprint=fp_a288987b44
+2025-06-18 19:35:57,774 - INFO - Cache saved after 160 batches
+2025-06-18 19:36:06,617 - INFO - Batch 161: system_fingerprint=fp_a288987b44
+2025-06-18 19:36:13,145 - INFO - Batch 162: system_fingerprint=fp_a288987b44
+2025-06-18 19:36:20,495 - INFO - Batch 163: system_fingerprint=fp_a288987b44
+2025-06-18 19:36:28,709 - INFO - Batch 164: system_fingerprint=fp_a288987b44
+2025-06-18 19:36:37,352 - INFO - Batch 165: system_fingerprint=fp_a288987b44
+2025-06-18 19:36:37,356 - INFO - Cache saved after 165 batches
+2025-06-18 19:36:44,290 - INFO - Batch 166: system_fingerprint=fp_a288987b44
+2025-06-18 19:36:53,958 - INFO - Batch 167: system_fingerprint=fp_a288987b44
+2025-06-18 19:37:00,487 - INFO - Batch 168: system_fingerprint=fp_a288987b44
+2025-06-18 19:37:07,281 - INFO - Batch 169: system_fingerprint=fp_a288987b44
+2025-06-18 19:37:16,010 - INFO - Batch 170: system_fingerprint=fp_a288987b44
+2025-06-18 19:37:16,014 - INFO - Cache saved after 170 batches
+2025-06-18 19:37:24,401 - INFO - Batch 171: system_fingerprint=fp_a288987b44
+2025-06-18 19:37:29,823 - INFO - Batch 172: system_fingerprint=fp_a288987b44
+2025-06-18 19:37:39,066 - INFO - Batch 173: system_fingerprint=fp_a288987b44
+2025-06-18 19:37:48,129 - INFO - Batch 174: system_fingerprint=fp_a288987b44
+2025-06-18 19:37:55,387 - INFO - Batch 175: system_fingerprint=fp_a288987b44
+2025-06-18 19:37:55,388 - WARNING - Unknown class ID or alias: unknown
+2025-06-18 19:37:55,388 - INFO - Added 1 unprocessed items to /home/vitadmin/gspinaci/LLM-test/script/../test_2/ArtDL/gpt-4o/unprocessed.txt
+2025-06-18 19:37:55,392 - INFO - Cache saved after 175 batches
+2025-06-18 19:38:02,679 - INFO - Batch 176: system_fingerprint=fp_a288987b44
+2025-06-18 19:38:11,076 - INFO - Batch 177: system_fingerprint=fp_a288987b44
+2025-06-18 19:38:20,232 - INFO - Batch 178: system_fingerprint=fp_a288987b44
+2025-06-18 19:38:27,219 - INFO - Batch 179: system_fingerprint=fp_a288987b44
+2025-06-18 19:38:35,206 - INFO - Batch 180: system_fingerprint=fp_a288987b44
+2025-06-18 19:38:35,211 - INFO - Cache saved after 180 batches
+2025-06-18 19:38:44,382 - INFO - Batch 181: system_fingerprint=fp_a288987b44
+2025-06-18 19:38:53,438 - INFO - Batch 182: system_fingerprint=fp_a288987b44
+2025-06-18 19:38:53,439 - WARNING - Unknown class ID or alias: unknown
+2025-06-18 19:38:53,439 - INFO - Added 1 unprocessed items to /home/vitadmin/gspinaci/LLM-test/script/../test_2/ArtDL/gpt-4o/unprocessed.txt
+2025-06-18 19:39:00,821 - INFO - Batch 183: system_fingerprint=fp_a288987b44
+2025-06-18 19:39:09,666 - INFO - Batch 184: system_fingerprint=fp_a288987b44
+2025-06-18 19:39:19,627 - INFO - Batch 185: system_fingerprint=fp_a288987b44
+2025-06-18 19:39:19,632 - INFO - Cache saved after 185 batches
+2025-06-18 19:39:29,565 - INFO - Batch 186: system_fingerprint=fp_a288987b44
+2025-06-18 19:39:40,014 - INFO - Batch 187: system_fingerprint=fp_a288987b44
+2025-06-18 19:39:48,718 - INFO - Batch 188: system_fingerprint=fp_a288987b44
+2025-06-18 19:39:55,792 - INFO - Batch 189: system_fingerprint=fp_a288987b44
+2025-06-18 19:40:03,007 - INFO - Batch 190: system_fingerprint=fp_a288987b44
+2025-06-18 19:40:03,011 - INFO - Cache saved after 190 batches
+2025-06-18 19:40:16,715 - INFO - Batch 191: system_fingerprint=fp_a288987b44
+2025-06-18 19:40:23,199 - INFO - Batch 192: system_fingerprint=fp_a288987b44
+2025-06-18 19:40:30,119 - INFO - Batch 193: system_fingerprint=fp_a288987b44
+2025-06-18 19:40:39,223 - INFO - Batch 194: system_fingerprint=fp_a288987b44
+2025-06-18 19:40:49,069 - INFO - Batch 195: system_fingerprint=fp_a288987b44
+2025-06-18 19:40:49,073 - INFO - Cache saved after 195 batches
+2025-06-18 19:40:57,149 - INFO - Batch 196: system_fingerprint=fp_a288987b44
+2025-06-18 19:41:04,324 - INFO - Batch 197: system_fingerprint=fp_a288987b44
+2025-06-18 19:41:04,324 - WARNING - Unknown class ID or alias: unknown
+2025-06-18 19:41:04,325 - INFO - Added 1 unprocessed items to /home/vitadmin/gspinaci/LLM-test/script/../test_2/ArtDL/gpt-4o/unprocessed.txt
+2025-06-18 19:41:14,927 - INFO - Batch 198: system_fingerprint=fp_a288987b44
+2025-06-18 19:41:22,794 - INFO - Batch 199: system_fingerprint=fp_a288987b44
+2025-06-18 19:41:29,959 - INFO - Batch 200: system_fingerprint=fp_a288987b44
+2025-06-18 19:41:29,964 - INFO - Cache saved after 200 batches
+2025-06-18 19:41:38,750 - INFO - Batch 201: system_fingerprint=fp_a288987b44
+2025-06-18 19:41:46,109 - INFO - Batch 202: system_fingerprint=fp_a288987b44
+2025-06-18 19:41:57,805 - INFO - Batch 203: system_fingerprint=fp_a288987b44
+2025-06-18 19:42:05,191 - INFO - Batch 204: system_fingerprint=fp_a288987b44
+2025-06-18 19:42:14,344 - INFO - Batch 205: system_fingerprint=fp_a288987b44
+2025-06-18 19:42:14,345 - WARNING - Unknown class ID or alias: unknown
+2025-06-18 19:42:14,345 - INFO - Added 1 unprocessed items to /home/vitadmin/gspinaci/LLM-test/script/../test_2/ArtDL/gpt-4o/unprocessed.txt
+2025-06-18 19:42:14,350 - INFO - Cache saved after 205 batches
+2025-06-18 19:42:22,038 - INFO - Batch 206: system_fingerprint=fp_a288987b44
+2025-06-18 19:42:29,862 - INFO - Batch 207: system_fingerprint=fp_a288987b44
+2025-06-18 19:42:37,444 - INFO - Batch 208: system_fingerprint=fp_a288987b44
+2025-06-18 19:42:47,038 - INFO - Batch 209: system_fingerprint=fp_a288987b44
+2025-06-18 19:42:58,744 - INFO - Batch 210: system_fingerprint=fp_a288987b44
+2025-06-18 19:42:58,749 - INFO - Cache saved after 210 batches
+2025-06-18 19:43:07,299 - INFO - Batch 211: system_fingerprint=fp_a288987b44
+2025-06-18 19:43:14,753 - INFO - Batch 212: system_fingerprint=fp_a288987b44
+2025-06-18 19:43:23,569 - INFO - Batch 213: system_fingerprint=fp_a288987b44
+2025-06-18 19:43:31,233 - INFO - Batch 214: system_fingerprint=fp_a288987b44
+2025-06-18 19:43:40,610 - INFO - Batch 215: system_fingerprint=fp_a288987b44
+2025-06-18 19:43:40,616 - INFO - Cache saved after 215 batches
+2025-06-18 19:43:47,648 - INFO - Batch 216: system_fingerprint=fp_a288987b44
+2025-06-18 19:43:55,922 - INFO - Batch 217: system_fingerprint=fp_a288987b44
+2025-06-18 19:44:05,999 - INFO - Batch 218: system_fingerprint=fp_a288987b44
+2025-06-18 19:44:14,806 - INFO - Batch 219: system_fingerprint=fp_a288987b44
+2025-06-18 19:44:20,922 - INFO - Batch 220: system_fingerprint=fp_a288987b44
+2025-06-18 19:44:20,928 - INFO - Cache saved after 220 batches
+2025-06-18 19:44:29,155 - INFO - Batch 221: system_fingerprint=fp_a288987b44
+2025-06-18 19:44:37,956 - INFO - Batch 222: system_fingerprint=fp_a288987b44
+2025-06-18 19:44:45,187 - INFO - Batch 223: system_fingerprint=fp_a288987b44
+2025-06-18 19:44:51,666 - INFO - Batch 224: system_fingerprint=fp_a288987b44
+2025-06-18 19:45:00,438 - INFO - Batch 225: system_fingerprint=fp_a288987b44
+2025-06-18 19:45:00,443 - INFO - Cache saved after 225 batches
+2025-06-18 19:45:06,456 - INFO - Batch 226: system_fingerprint=fp_a288987b44
+2025-06-18 19:45:17,209 - INFO - Batch 227: system_fingerprint=fp_a288987b44
+2025-06-18 19:45:26,343 - INFO - Batch 228: system_fingerprint=fp_a288987b44
+2025-06-18 19:45:35,813 - INFO - Batch 229: system_fingerprint=fp_a288987b44
+2025-06-18 19:45:45,463 - INFO - Batch 230: system_fingerprint=fp_a288987b44
+2025-06-18 19:45:45,469 - INFO - Cache saved after 230 batches
+2025-06-18 19:45:56,727 - INFO - Batch 231: system_fingerprint=fp_a288987b44
+2025-06-18 19:46:07,229 - INFO - Batch 232: system_fingerprint=fp_a288987b44
+2025-06-18 19:46:17,680 - INFO - Batch 233: system_fingerprint=fp_a288987b44
+2025-06-18 19:46:26,514 - INFO - Batch 234: system_fingerprint=fp_a288987b44
+2025-06-18 19:46:33,523 - INFO - Batch 235: system_fingerprint=fp_a288987b44
+2025-06-18 19:46:33,529 - INFO - Cache saved after 235 batches
+2025-06-18 19:46:42,512 - INFO - Batch 236: system_fingerprint=fp_a288987b44
+2025-06-18 19:46:49,444 - INFO - Batch 237: system_fingerprint=fp_a288987b44
+2025-06-18 19:46:57,337 - INFO - Batch 238: system_fingerprint=fp_a288987b44
+2025-06-18 19:47:05,651 - INFO - Batch 239: system_fingerprint=fp_a288987b44
+2025-06-18 19:47:11,971 - INFO - Batch 240: system_fingerprint=fp_a288987b44
+2025-06-18 19:47:11,977 - INFO - Cache saved after 240 batches
+2025-06-18 19:47:21,394 - INFO - Batch 241: system_fingerprint=fp_a288987b44
+2025-06-18 19:47:28,998 - INFO - Batch 242: system_fingerprint=fp_a288987b44
+2025-06-18 19:47:39,287 - INFO - Batch 243: system_fingerprint=fp_a288987b44
+2025-06-18 19:47:47,024 - INFO - Batch 244: system_fingerprint=fp_a288987b44
+2025-06-18 19:47:56,097 - INFO - Batch 245: system_fingerprint=fp_a288987b44
+2025-06-18 19:47:56,103 - INFO - Cache saved after 245 batches
+2025-06-18 19:48:05,794 - INFO - Batch 246: system_fingerprint=fp_a288987b44
+2025-06-18 19:48:13,876 - INFO - Batch 247: system_fingerprint=fp_a288987b44
+2025-06-18 19:48:21,208 - INFO - Batch 248: system_fingerprint=fp_a288987b44
+2025-06-18 19:48:32,309 - INFO - Batch 249: system_fingerprint=fp_a288987b44
+2025-06-18 19:48:39,809 - INFO - Batch 250: system_fingerprint=fp_a288987b44
+2025-06-18 19:48:39,815 - INFO - Cache saved after 250 batches
+2025-06-18 19:48:48,064 - INFO - Batch 251: system_fingerprint=fp_a288987b44
+2025-06-18 19:48:58,401 - INFO - Batch 252: system_fingerprint=fp_a288987b44
+2025-06-18 19:49:04,725 - INFO - Batch 253: system_fingerprint=fp_a288987b44
+2025-06-18 19:49:13,024 - INFO - Batch 254: system_fingerprint=fp_a288987b44
+2025-06-18 19:49:24,224 - INFO - Batch 255: system_fingerprint=fp_a288987b44
+2025-06-18 19:49:24,230 - INFO - Cache saved after 255 batches
+2025-06-18 19:49:30,611 - INFO - Batch 256: system_fingerprint=fp_a288987b44
+2025-06-18 19:49:38,368 - INFO - Batch 257: system_fingerprint=fp_a288987b44
+2025-06-18 19:49:49,535 - INFO - Batch 258: system_fingerprint=fp_a288987b44
+2025-06-18 19:50:00,802 - INFO - Batch 259: system_fingerprint=fp_a288987b44
+2025-06-18 19:50:10,531 - INFO - Batch 260: system_fingerprint=fp_a288987b44
+2025-06-18 19:50:10,537 - INFO - Cache saved after 260 batches
+2025-06-18 19:50:18,386 - INFO - Batch 261: system_fingerprint=fp_a288987b44
+2025-06-18 19:50:24,920 - INFO - Batch 262: system_fingerprint=fp_a288987b44
+2025-06-18 19:50:31,361 - INFO - Batch 263: system_fingerprint=fp_a288987b44
+2025-06-18 19:50:40,885 - INFO - Batch 264: system_fingerprint=fp_a288987b44
+2025-06-18 19:50:51,094 - INFO - Batch 265: system_fingerprint=fp_a288987b44
+2025-06-18 19:50:51,100 - INFO - Cache saved after 265 batches
+2025-06-18 19:50:58,878 - INFO - Batch 266: system_fingerprint=fp_a288987b44
+2025-06-18 19:51:06,529 - INFO - Batch 267: system_fingerprint=fp_a288987b44
+2025-06-18 19:51:15,278 - INFO - Batch 268: system_fingerprint=fp_a288987b44
+2025-06-18 19:51:22,519 - INFO - Batch 269: system_fingerprint=fp_a288987b44
+2025-06-18 19:51:32,556 - INFO - Batch 270: system_fingerprint=fp_a288987b44
+2025-06-18 19:51:32,562 - INFO - Cache saved after 270 batches
+2025-06-18 19:51:41,394 - INFO - Batch 271: system_fingerprint=fp_a288987b44
+2025-06-18 19:51:52,103 - INFO - Batch 272: system_fingerprint=fp_a288987b44
+2025-06-18 19:51:57,762 - INFO - Batch 273: system_fingerprint=fp_a288987b44
+2025-06-18 19:52:08,535 - INFO - Batch 274: system_fingerprint=fp_a288987b44
+2025-06-18 19:52:17,491 - INFO - Batch 275: system_fingerprint=fp_a288987b44
+2025-06-18 19:52:17,498 - INFO - Cache saved after 275 batches
+2025-06-18 19:52:23,875 - INFO - Batch 276: system_fingerprint=fp_a288987b44
+2025-06-18 19:52:30,171 - INFO - Batch 277: system_fingerprint=fp_a288987b44
+2025-06-18 19:52:36,659 - INFO - Batch 278: system_fingerprint=fp_a288987b44
+2025-06-18 19:52:45,951 - INFO - Batch 279: system_fingerprint=fp_a288987b44
+2025-06-18 19:52:56,200 - INFO - Batch 280: system_fingerprint=fp_a288987b44
+2025-06-18 19:52:56,207 - INFO - Cache saved after 280 batches
+2025-06-18 19:53:03,865 - INFO - Batch 281: system_fingerprint=fp_a288987b44
+2025-06-18 19:53:10,145 - INFO - Batch 282: system_fingerprint=fp_a288987b44
+2025-06-18 19:53:17,185 - INFO - Batch 283: system_fingerprint=fp_a288987b44
+2025-06-18 19:53:23,662 - INFO - Batch 284: system_fingerprint=fp_a288987b44
+2025-06-18 19:53:34,007 - INFO - Batch 285: system_fingerprint=fp_a288987b44
+2025-06-18 19:53:34,014 - INFO - Cache saved after 285 batches
+2025-06-18 19:53:44,951 - INFO - Batch 286: system_fingerprint=fp_a288987b44
+2025-06-18 19:53:56,435 - INFO - Batch 287: system_fingerprint=fp_a288987b44
+2025-06-18 19:54:09,146 - INFO - Batch 288: system_fingerprint=fp_a288987b44
+2025-06-18 19:54:18,235 - INFO - Batch 289: system_fingerprint=fp_a288987b44
+2025-06-18 19:54:32,927 - INFO - Batch 290: system_fingerprint=fp_a288987b44
+2025-06-18 19:54:32,934 - INFO - Cache saved after 290 batches
+2025-06-18 19:54:44,909 - INFO - Batch 291: system_fingerprint=fp_a288987b44
+2025-06-18 19:54:54,068 - INFO - Batch 292: system_fingerprint=fp_a288987b44
+2025-06-18 19:55:06,561 - INFO - Batch 293: system_fingerprint=fp_a288987b44
+2025-06-18 19:55:14,331 - INFO - Batch 294: system_fingerprint=fp_a288987b44
+2025-06-18 19:55:24,517 - INFO - Batch 295: system_fingerprint=fp_a288987b44
+2025-06-18 19:55:24,525 - INFO - Cache saved after 295 batches
+2025-06-18 19:55:33,787 - INFO - Batch 296: system_fingerprint=fp_a288987b44
+2025-06-18 19:55:40,042 - INFO - Batch 297: system_fingerprint=fp_a288987b44
+2025-06-18 19:55:47,845 - INFO - Batch 298: system_fingerprint=fp_a288987b44
+2025-06-18 19:55:56,139 - INFO - Batch 299: system_fingerprint=fp_a288987b44
+2025-06-18 19:56:03,483 - INFO - Batch 300: system_fingerprint=fp_a288987b44
+2025-06-18 19:56:03,490 - INFO - Cache saved after 300 batches
+2025-06-18 19:56:13,044 - INFO - Batch 301: system_fingerprint=fp_a288987b44
+2025-06-18 19:56:21,726 - INFO - Batch 302: system_fingerprint=fp_a288987b44
+2025-06-18 19:56:28,932 - INFO - Batch 303: system_fingerprint=fp_a288987b44
+2025-06-18 19:56:38,045 - INFO - Batch 304: system_fingerprint=fp_a288987b44
+2025-06-18 19:56:48,829 - INFO - Batch 305: system_fingerprint=fp_a288987b44
+2025-06-18 19:56:48,836 - INFO - Cache saved after 305 batches
+2025-06-18 19:56:56,427 - INFO - Batch 306: system_fingerprint=fp_a288987b44
+2025-06-18 19:57:03,081 - INFO - Batch 307: system_fingerprint=fp_a288987b44
+2025-06-18 19:57:12,925 - INFO - Batch 308: system_fingerprint=fp_a288987b44
+2025-06-18 19:57:20,317 - INFO - Batch 309: system_fingerprint=fp_a288987b44
+2025-06-18 19:57:27,918 - INFO - Batch 310: system_fingerprint=fp_a288987b44
+2025-06-18 19:57:27,925 - INFO - Cache saved after 310 batches
+2025-06-18 19:57:38,131 - INFO - Batch 311: system_fingerprint=fp_a288987b44
+2025-06-18 19:57:47,067 - INFO - Batch 312: system_fingerprint=fp_a288987b44
+2025-06-18 19:57:54,006 - INFO - Batch 313: system_fingerprint=fp_a288987b44
+2025-06-18 19:58:02,157 - INFO - Batch 314: system_fingerprint=fp_a288987b44
+2025-06-18 19:58:12,275 - INFO - Batch 315: system_fingerprint=fp_a288987b44
+2025-06-18 19:58:12,276 - WARNING - Unknown class ID or alias: george
+2025-06-18 19:58:12,276 - INFO - Added 1 unprocessed items to /home/vitadmin/gspinaci/LLM-test/script/../test_2/ArtDL/gpt-4o/unprocessed.txt
+2025-06-18 19:58:12,283 - INFO - Cache saved after 315 batches
+2025-06-18 19:58:19,473 - INFO - Batch 316: system_fingerprint=fp_a288987b44
+2025-06-18 19:58:26,211 - INFO - Batch 317: system_fingerprint=fp_a288987b44
+2025-06-18 19:58:35,198 - INFO - Batch 318: system_fingerprint=fp_a288987b44
+2025-06-18 19:58:43,635 - INFO - Batch 319: system_fingerprint=fp_a288987b44
+2025-06-18 19:58:54,425 - INFO - Batch 320: system_fingerprint=fp_a288987b44
+2025-06-18 19:58:54,432 - INFO - Cache saved after 320 batches
+2025-06-18 19:59:04,694 - INFO - Batch 321: system_fingerprint=fp_a288987b44
+2025-06-18 19:59:13,106 - INFO - Batch 322: system_fingerprint=fp_a288987b44
+2025-06-18 19:59:29,343 - INFO - Batch 323: system_fingerprint=fp_a288987b44
+2025-06-18 19:59:37,126 - INFO - Batch 324: system_fingerprint=fp_a288987b44
+2025-06-18 19:59:46,777 - INFO - Batch 325: system_fingerprint=fp_a288987b44
+2025-06-18 19:59:46,785 - INFO - Cache saved after 325 batches
+2025-06-18 19:59:57,675 - INFO - Batch 326: system_fingerprint=fp_a288987b44
+2025-06-18 20:00:06,525 - INFO - Batch 327: system_fingerprint=fp_a288987b44
+2025-06-18 20:00:16,904 - INFO - Batch 328: system_fingerprint=fp_a288987b44
+2025-06-18 20:00:25,256 - INFO - Batch 329: system_fingerprint=fp_a288987b44
+2025-06-18 20:00:34,048 - INFO - Batch 330: system_fingerprint=fp_a288987b44
+2025-06-18 20:00:34,056 - INFO - Cache saved after 330 batches
+2025-06-18 20:00:43,478 - INFO - Batch 331: system_fingerprint=fp_a288987b44
+2025-06-18 20:00:50,240 - INFO - Batch 332: system_fingerprint=fp_a288987b44
+2025-06-18 20:01:00,481 - INFO - Batch 333: system_fingerprint=fp_a288987b44
+2025-06-18 20:01:11,138 - INFO - Batch 334: system_fingerprint=fp_a288987b44
+2025-06-18 20:01:21,283 - INFO - Batch 335: system_fingerprint=fp_a288987b44
+2025-06-18 20:01:21,291 - INFO - Cache saved after 335 batches
+2025-06-18 20:01:30,657 - INFO - Batch 336: system_fingerprint=fp_a288987b44
+2025-06-18 20:01:40,025 - INFO - Batch 337: system_fingerprint=fp_a288987b44
+2025-06-18 20:01:46,749 - INFO - Batch 338: system_fingerprint=fp_a288987b44
+2025-06-18 20:01:55,567 - INFO - Batch 339: system_fingerprint=fp_a288987b44
+2025-06-18 20:02:04,864 - INFO - Batch 340: system_fingerprint=fp_a288987b44
+2025-06-18 20:02:04,872 - INFO - Cache saved after 340 batches
+2025-06-18 20:02:13,175 - INFO - Batch 341: system_fingerprint=fp_a288987b44
+2025-06-18 20:02:21,620 - INFO - Batch 342: system_fingerprint=fp_a288987b44
+2025-06-18 20:02:29,147 - INFO - Batch 343: system_fingerprint=fp_a288987b44
+2025-06-18 20:02:38,523 - INFO - Batch 344: system_fingerprint=fp_a288987b44
+2025-06-18 20:02:45,223 - INFO - Batch 345: system_fingerprint=fp_a288987b44
+2025-06-18 20:02:45,231 - INFO - Cache saved after 345 batches
+2025-06-18 20:02:54,740 - INFO - Batch 346: system_fingerprint=fp_a288987b44
+2025-06-18 20:03:04,624 - INFO - Batch 347: system_fingerprint=fp_a288987b44
+2025-06-18 20:03:21,022 - INFO - Batch 348: system_fingerprint=fp_a288987b44
+2025-06-18 20:03:31,896 - INFO - Batch 349: system_fingerprint=fp_a288987b44
+2025-06-18 20:03:41,917 - INFO - Batch 350: system_fingerprint=fp_a288987b44
+2025-06-18 20:03:41,926 - INFO - Cache saved after 350 batches
+2025-06-18 20:03:53,130 - INFO - Batch 351: system_fingerprint=fp_a288987b44
+2025-06-18 20:04:01,938 - INFO - Batch 352: system_fingerprint=fp_a288987b44
+2025-06-18 20:04:12,399 - INFO - Batch 353: system_fingerprint=fp_a288987b44
+2025-06-18 20:04:20,479 - INFO - Batch 354: system_fingerprint=fp_a288987b44
+2025-06-18 20:04:32,111 - INFO - Batch 355: system_fingerprint=fp_a288987b44
+2025-06-18 20:04:32,119 - INFO - Cache saved after 355 batches
+2025-06-18 20:04:43,589 - INFO - Batch 356: system_fingerprint=fp_a288987b44
+2025-06-18 20:04:53,898 - INFO - Batch 357: system_fingerprint=fp_a288987b44
+2025-06-18 20:05:06,066 - INFO - Batch 358: system_fingerprint=fp_a288987b44
+2025-06-18 20:05:19,262 - INFO - Batch 359: system_fingerprint=fp_a288987b44
+2025-06-18 20:05:28,912 - INFO - Batch 360: system_fingerprint=fp_a288987b44
+2025-06-18 20:05:28,921 - INFO - Cache saved after 360 batches
+2025-06-18 20:05:39,210 - INFO - Batch 361: system_fingerprint=fp_a288987b44
+2025-06-18 20:05:48,237 - INFO - Batch 362: system_fingerprint=fp_a288987b44
+2025-06-18 20:06:04,822 - INFO - Batch 363: system_fingerprint=fp_a288987b44
+2025-06-18 20:06:13,912 - INFO - Batch 364: system_fingerprint=fp_a288987b44
+2025-06-18 20:06:22,389 - INFO - Batch 365: system_fingerprint=fp_a288987b44
+2025-06-18 20:06:22,397 - INFO - Cache saved after 365 batches
+2025-06-18 20:06:33,123 - INFO - Batch 366: system_fingerprint=fp_a288987b44
+2025-06-18 20:06:40,973 - INFO - Batch 367: system_fingerprint=fp_a288987b44
+2025-06-18 20:06:48,146 - INFO - Batch 368: system_fingerprint=fp_a288987b44
+2025-06-18 20:06:57,362 - INFO - Batch 369: system_fingerprint=fp_a288987b44
+2025-06-18 20:07:08,146 - INFO - Batch 370: system_fingerprint=fp_a288987b44
+2025-06-18 20:07:08,154 - INFO - Cache saved after 370 batches
+2025-06-18 20:07:18,279 - INFO - Batch 371: system_fingerprint=fp_a288987b44
+2025-06-18 20:07:26,834 - INFO - Batch 372: system_fingerprint=fp_a288987b44
+2025-06-18 20:07:35,724 - INFO - Batch 373: system_fingerprint=fp_a288987b44
+2025-06-18 20:07:35,733 - INFO - Total input tokens used: 1806681
+2025-06-18 20:07:35,733 - INFO - Total output tokens used: 51988
+2025-06-18 20:07:35,733 - INFO - Total cost of this call: $5.0366
+2025-06-18 20:07:35,733 - INFO - Total unprocessed items: 11
+2025-06-18 20:07:35,734 - INFO - Probabilities shape: (1853, 10)
