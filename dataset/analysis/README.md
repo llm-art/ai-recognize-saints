@@ -9,8 +9,8 @@ This analysis examines the similarity between images across different datasets u
 The following datasets were analyzed:
 
 - ArtDL (1864 images)
-- ICONCLASS (592 images)
-- wikidata (735 images)
+- ICONCLASS (863 images)
+- wikidata (711 images)
 
 
 ## Methodology
@@ -53,6 +53,7 @@ Below are all pairs of similar images found across different datasets.
 
 | Image 1 | Image 2 |
 |---------|---------|
+| ![eyck_van_jan_02page_31jerom](examples/eyck_van_jan_02page_31jerom.jpg) <br> **Dataset:** ArtDL <br> **Filename:** eyck_van_jan_02page_31jerom | ![IIHIM_1441633156](examples/IIHIM_1441633156.jpg) <br> **Dataset:** ICONCLASS <br> **Filename:** IIHIM_1441633156 |
 | ![1939_1_291](examples/1939_1_291.jpg) <br> **Dataset:** ArtDL <br> **Filename:** 1939_1_291 | ![Q20173065](examples/Q20173065.jpg) <br> **Dataset:** wikidata <br> **Filename:** Q20173065 |
 | ![1939_1_80](examples/1939_1_80.jpg) <br> **Dataset:** ArtDL <br> **Filename:** 1939_1_80 | ![Q20173671](examples/Q20173671.jpg) <br> **Dataset:** wikidata <br> **Filename:** Q20173671 |
 | ![1950_11_1_a](examples/1950_11_1_a.jpg) <br> **Dataset:** ArtDL <br> **Filename:** 1950_11_1_a | ![Q20173413](examples/Q20173413.jpg) <br> **Dataset:** wikidata <br> **Filename:** Q20173413 |
@@ -81,15 +82,11 @@ Below are all pairs of similar images found across different datasets.
 | ![Q510799](examples/Q510799.jpg) <br> **Dataset:** ArtDL <br> **Filename:** Q510799 | ![Q510799](examples/Q510799.jpg) <br> **Dataset:** wikidata <br> **Filename:** Q510799 |
 | ![Q55102676](examples/Q55102676.jpg) <br> **Dataset:** ArtDL <br> **Filename:** Q55102676 | ![Q55102676](examples/Q55102676.jpg) <br> **Dataset:** wikidata <br> **Filename:** Q55102676 |
 | ![Q6004260](examples/ArtDL_Q6004260.jpg) <br> **Dataset:** ArtDL <br> **Filename:** Q6004260 | ![Q6004260](examples/Q6004260.jpg) <br> **Dataset:** wikidata <br> **Filename:** Q6004260 |
-| ![Q9073676](examples/Q9073676.jpg) <br> **Dataset:** ArtDL <br> **Filename:** Q9073676 | ![Q9073676](examples/Q9073676.jpg) <br> **Dataset:** wikidata <br> **Filename:** Q9073676 |
-| ![_C_438722921_7632](examples/_C_438722921_7632.jpg) <br> **Dataset:** ArtDL <br> **Filename:** _C_438722921_7632 | ![Q9015206](examples/Q9015206.jpg) <br> **Dataset:** wikidata <br> **Filename:** Q9015206 |
 | ![__EX_1000788252_18423](examples/__EX_1000788252_18423.jpg) <br> **Dataset:** ArtDL <br> **Filename:** __EX_1000788252_18423 | ![Q20172983](examples/Q20172983.jpg) <br> **Dataset:** wikidata <br> **Filename:** Q20172983 |
 | ![caravagg_07_44jerome](examples/caravagg_07_44jerome.jpg) <br> **Dataset:** ArtDL <br> **Filename:** caravagg_07_44jerome | ![Q2715177](examples/Q2715177.jpg) <br> **Dataset:** wikidata <br> **Filename:** Q2715177 |
-| ![caravagg_11_71baptis](examples/caravagg_11_71baptis.jpg) <br> **Dataset:** ArtDL <br> **Filename:** caravagg_11_71baptis | ![Q9015206](examples/Q9015206.jpg) <br> **Dataset:** wikidata <br> **Filename:** Q9015206 |
 | ![clouet_jean_francbap](examples/clouet_jean_francbap.jpg) <br> **Dataset:** ArtDL <br> **Filename:** clouet_jean_francbap | ![Q30096142](examples/Q30096142.jpg) <br> **Dataset:** wikidata <br> **Filename:** Q30096142 |
 | ![en-SK-A-3382](examples/en-SK-A-3382.jpg) <br> **Dataset:** ArtDL <br> **Filename:** en-SK-A-3382 | ![Q17334273](examples/Q17334273.jpg) <br> **Dataset:** wikidata <br> **Filename:** Q17334273 |
 | ![en-SK-A-4006](examples/en-SK-A-4006.jpg) <br> **Dataset:** ArtDL <br> **Filename:** en-SK-A-4006 | ![Q17335839](examples/Q17335839.jpg) <br> **Dataset:** wikidata <br> **Filename:** Q17335839 |
-| ![greco_el_06_0603grec](examples/greco_el_06_0603grec.jpg) <br> **Dataset:** ArtDL <br> **Filename:** greco_el_06_0603grec | ![Q9026835](examples/Q9026835.jpg) <br> **Dataset:** wikidata <br> **Filename:** Q9026835 |
 | ![greco_el_17_1703grec](examples/greco_el_17_1703grec.jpg) <br> **Dataset:** ArtDL <br> **Filename:** greco_el_17_1703grec | ![Q16589363](examples/Q16589363.jpg) <br> **Dataset:** wikidata <br> **Filename:** Q16589363 |
 | ![hemessen_jan_stjerom](examples/hemessen_jan_stjerom.jpg) <br> **Dataset:** ArtDL <br> **Filename:** hemessen_jan_stjerom | ![Q114744953](examples/Q114744953.jpg) <br> **Dataset:** wikidata <br> **Filename:** Q114744953 |
 | ![la_tour_georges_1_10penite](examples/la_tour_georges_1_10penite.jpg) <br> **Dataset:** ArtDL <br> **Filename:** la_tour_georges_1_10penite | ![Q3210251](examples/Q3210251.jpg) <br> **Dataset:** wikidata <br> **Filename:** Q3210251 |
@@ -97,17 +94,19 @@ Below are all pairs of similar images found across different datasets.
 | ![piero_co_z_other_mary_mag](examples/piero_co_z_other_mary_mag.jpg) <br> **Dataset:** ArtDL <br> **Filename:** piero_co_z_other_mary_mag | ![Q28229479](examples/Q28229479.jpg) <br> **Dataset:** wikidata <br> **Filename:** Q28229479 |
 | ![tintoret_3b_3ground_5maryma](examples/tintoret_3b_3ground_5maryma.jpg) <br> **Dataset:** ArtDL <br> **Filename:** tintoret_3b_3ground_5maryma | ![Q11769022](examples/Q11769022.jpg) <br> **Dataset:** wikidata <br> **Filename:** Q11769022 |
 | ![IIHIM_-1578407314](examples/IIHIM_-1578407314.jpg) <br> **Dataset:** ICONCLASS <br> **Filename:** IIHIM_-1578407314 | ![Q107443479](examples/Q107443479.jpg) <br> **Dataset:** wikidata <br> **Filename:** Q107443479 |
+| ![IIHIM_1359909329](examples/IIHIM_1359909329.jpg) <br> **Dataset:** ICONCLASS <br> **Filename:** IIHIM_1359909329 | ![Q117226027](examples/Q117226027.jpg) <br> **Dataset:** wikidata <br> **Filename:** Q117226027 |
 | ![IIHIM_838250489](examples/IIHIM_838250489.jpg) <br> **Dataset:** ICONCLASS <br> **Filename:** IIHIM_838250489 | ![Q63191747](examples/Q63191747.jpg) <br> **Dataset:** wikidata <br> **Filename:** Q63191747 |
-| ![IIHIM_RIJKS_-649904531](examples/IIHIM_RIJKS_-649904531.jpg) <br> **Dataset:** ICONCLASS <br> **Filename:** IIHIM_RIJKS_-649904531 | ![Q17328232](examples/Q17328232.jpg) <br> **Dataset:** wikidata <br> **Filename:** Q17328232 |
 | ![IIHIM_-1583071816](examples/IIHIM_-1583071816.jpg) <br> **Dataset:** ICONCLASS <br> **Filename:** IIHIM_-1583071816 | ![Q29648941](examples/Q29648941.jpg) <br> **Dataset:** wikidata <br> **Filename:** Q29648941 |
-| ![IIHIM_-458699567](examples/IIHIM_-458699567.jpg) <br> **Dataset:** ICONCLASS <br> **Filename:** IIHIM_-458699567 | ![Q61932253](examples/Q61932253.jpg) <br> **Dataset:** wikidata <br> **Filename:** Q61932253 |
+| ![IIHIM_RIJKS_2033920572](examples/IIHIM_RIJKS_2033920572.jpg) <br> **Dataset:** ICONCLASS <br> **Filename:** IIHIM_RIJKS_2033920572 | ![Q17347293](examples/Q17347293.jpg) <br> **Dataset:** wikidata <br> **Filename:** Q17347293 |
 
 ### Robust Hash Pairs
 
 | Image 1 | Image 2 |
 |---------|---------|
+| ![ICCD3163621_13815-H](examples/ICCD3163621_13815-H.jpg) <br> **Dataset:** ArtDL <br> **Filename:** ICCD3163621_13815-H | ![IIHIM_-1335425534](examples/IIHIM_-1335425534.jpg) <br> **Dataset:** ICONCLASS <br> **Filename:** IIHIM_-1335425534 |
 | ![ICCD3163621_13815-H](examples/ICCD3163621_13815-H.jpg) <br> **Dataset:** ArtDL <br> **Filename:** ICCD3163621_13815-H | ![IIHIM_RIJKS_1401436342](examples/IIHIM_RIJKS_1401436342.jpg) <br> **Dataset:** ICONCLASS <br> **Filename:** IIHIM_RIJKS_1401436342 |
 | ![ICCD3710537_375754](examples/ICCD3710537_375754.jpg) <br> **Dataset:** ArtDL <br> **Filename:** ICCD3710537_375754 | ![IIHIM_RIJKS_1827277148](examples/IIHIM_RIJKS_1827277148.jpg) <br> **Dataset:** ICONCLASS <br> **Filename:** IIHIM_RIJKS_1827277148 |
+| ![ICCD4203971_00069043](examples/ICCD4203971_00069043.jpg) <br> **Dataset:** ArtDL <br> **Filename:** ICCD4203971_00069043 | ![IIHIM_-1335425534](examples/IIHIM_-1335425534.jpg) <br> **Dataset:** ICONCLASS <br> **Filename:** IIHIM_-1335425534 |
 | ![1939_1_291](examples/1939_1_291.jpg) <br> **Dataset:** ArtDL <br> **Filename:** 1939_1_291 | ![Q20173065](examples/Q20173065.jpg) <br> **Dataset:** wikidata <br> **Filename:** Q20173065 |
 | ![1939_1_80](examples/1939_1_80.jpg) <br> **Dataset:** ArtDL <br> **Filename:** 1939_1_80 | ![Q20173671](examples/Q20173671.jpg) <br> **Dataset:** wikidata <br> **Filename:** Q20173671 |
 | ![1950_11_1_a](examples/1950_11_1_a.jpg) <br> **Dataset:** ArtDL <br> **Filename:** 1950_11_1_a | ![Q20173413](examples/Q20173413.jpg) <br> **Dataset:** wikidata <br> **Filename:** Q20173413 |
@@ -131,7 +130,6 @@ Below are all pairs of similar images found across different datasets.
 | ![Q510799](examples/ArtDL_Q510799.jpg) <br> **Dataset:** ArtDL <br> **Filename:** Q510799 | ![Q510799](examples/Q510799.jpg) <br> **Dataset:** wikidata <br> **Filename:** Q510799 |
 | ![Q55102676](examples/ArtDL_Q55102676.jpg) <br> **Dataset:** ArtDL <br> **Filename:** Q55102676 | ![Q55102676](examples/Q55102676.jpg) <br> **Dataset:** wikidata <br> **Filename:** Q55102676 |
 | ![Q6004260](examples/ArtDL_Q6004260.jpg) <br> **Dataset:** ArtDL <br> **Filename:** Q6004260 | ![Q6004260](examples/Q6004260.jpg) <br> **Dataset:** wikidata <br> **Filename:** Q6004260 |
-| ![Q9073676](examples/ArtDL_Q9073676.jpg) <br> **Dataset:** ArtDL <br> **Filename:** Q9073676 | ![Q9073676](examples/Q9073676.jpg) <br> **Dataset:** wikidata <br> **Filename:** Q9073676 |
 | ![__EX_1000788252_18423](examples/__EX_1000788252_18423.jpg) <br> **Dataset:** ArtDL <br> **Filename:** __EX_1000788252_18423 | ![Q20172983](examples/Q20172983.jpg) <br> **Dataset:** wikidata <br> **Filename:** Q20172983 |
 | ![clouet_jean_francbap](examples/clouet_jean_francbap.jpg) <br> **Dataset:** ArtDL <br> **Filename:** clouet_jean_francbap | ![Q30096142](examples/Q30096142.jpg) <br> **Dataset:** wikidata <br> **Filename:** Q30096142 |
 | ![en-SK-A-3382](examples/en-SK-A-3382.jpg) <br> **Dataset:** ArtDL <br> **Filename:** en-SK-A-3382 | ![Q17334273](examples/Q17334273.jpg) <br> **Dataset:** wikidata <br> **Filename:** Q17334273 |
@@ -139,7 +137,8 @@ Below are all pairs of similar images found across different datasets.
 | ![greco_el_17_1703grec](examples/greco_el_17_1703grec.jpg) <br> **Dataset:** ArtDL <br> **Filename:** greco_el_17_1703grec | ![Q16589363](examples/Q16589363.jpg) <br> **Dataset:** wikidata <br> **Filename:** Q16589363 |
 | ![hemessen_jan_stjerom](examples/hemessen_jan_stjerom.jpg) <br> **Dataset:** ArtDL <br> **Filename:** hemessen_jan_stjerom | ![Q114744953](examples/Q114744953.jpg) <br> **Dataset:** wikidata <br> **Filename:** Q114744953 |
 | ![tintoret_3b_3ground_5maryma](examples/tintoret_3b_3ground_5maryma.jpg) <br> **Dataset:** ArtDL <br> **Filename:** tintoret_3b_3ground_5maryma | ![Q11769022](examples/Q11769022.jpg) <br> **Dataset:** wikidata <br> **Filename:** Q11769022 |
-| ![IIHIM_RIJKS_-649904531](examples/IIHIM_RIJKS_-649904531.jpg) <br> **Dataset:** ICONCLASS <br> **Filename:** IIHIM_RIJKS_-649904531 | ![Q17328232](examples/Q17328232.jpg) <br> **Dataset:** wikidata <br> **Filename:** Q17328232 |
+| ![IIHIM_1359909329](examples/IIHIM_1359909329.jpg) <br> **Dataset:** ICONCLASS <br> **Filename:** IIHIM_1359909329 | ![Q117226027](examples/Q117226027.jpg) <br> **Dataset:** wikidata <br> **Filename:** Q117226027 |
+| ![IIHIM_RIJKS_2033920572](examples/IIHIM_RIJKS_2033920572.jpg) <br> **Dataset:** ICONCLASS <br> **Filename:** IIHIM_RIJKS_2033920572 | ![Q17347293](examples/Q17347293.jpg) <br> **Dataset:** wikidata <br> **Filename:** Q17347293 |
 
 
 ## Dataset-specific Files

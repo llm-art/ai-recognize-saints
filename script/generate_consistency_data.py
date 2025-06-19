@@ -25,7 +25,7 @@ def load_pairs(file_path):
 
 def load_ground_truth(dataset):
     """Load ground truth data for a specific dataset."""
-    gt_path = f"/home/ubuntu/gspinaci/LLM-test/dataset/{dataset}-data/2_ground_truth.json"
+    gt_path = f"/home/vitadmin/gspinaci/LLM-test/dataset/{dataset}-data/2_ground_truth.json"
     try:
         with open(gt_path, 'r') as f:
             gt_data = json.load(f)
@@ -36,7 +36,7 @@ def load_ground_truth(dataset):
 
 def load_classes(dataset, test_folder):
     """Load class definitions for a dataset."""
-    classes_path = f"/home/ubuntu/gspinaci/LLM-test/dataset/{dataset}-data/classes.csv"
+    classes_path = f"/home/vitadmin/gspinaci/LLM-test/dataset/{dataset}-data/classes.csv"
     try:
         import pandas as pd
         classes_df = pd.read_csv(classes_path)
@@ -52,7 +52,7 @@ def load_classes(dataset, test_folder):
 def get_prediction(image_name, model, test_folder, dataset):
     """Get the predicted class for an image using a specific model."""
     # Load test items to find the index of our image
-    test_items_path = f"/home/ubuntu/gspinaci/LLM-test/dataset/{dataset}-data/2_test.txt"
+    test_items_path = f"/home/vitadmin/gspinaci/LLM-test/dataset/{dataset}-data/2_test.txt"
     try:
         with open(test_items_path, 'r') as f:
             test_items = f.read().splitlines()
@@ -63,7 +63,7 @@ def get_prediction(image_name, model, test_folder, dataset):
         image_index = test_items.index(image_name)
         
         # Load model predictions
-        model_path = f"/home/ubuntu/gspinaci/LLM-test/{test_folder}/{dataset}/{model}"
+        model_path = f"/home/vitadmin/gspinaci/LLM-test/{test_folder}/{dataset}/{model}"
         probs_path = os.path.join(model_path, 'probs.npy')
         
         if not os.path.exists(probs_path):
@@ -374,11 +374,11 @@ def main():
     test_folders = ['test_1', 'test_2', 'test_3']
     
     # Load image pairs
-    pairs_path = "/home/ubuntu/gspinaci/LLM-test/dataset/analysis/robust_cross_duplicates.json"
+    pairs_path = "/home/vitadmin/gspinaci/LLM-test/dataset/analysis/robust_cross_duplicates.json"
     pairs = load_pairs(pairs_path)
     
     # Create output directory
-    output_dir = "/home/ubuntu/gspinaci/LLM-test/dataset/consistency"
+    output_dir = "/home/vitadmin/gspinaci/LLM-test/dataset/consistency"
     os.makedirs(output_dir, exist_ok=True)
     
     # Process each model and test folder

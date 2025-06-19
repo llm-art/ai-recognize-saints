@@ -2,577 +2,541 @@
   [
     {
       "dataset": "ArtDL",
+      "name": "eyck_van_jan_02page_31jerom",
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/eyck_van_jan_02page_31jerom.jpg"
+    },
+    {
+      "dataset": "ICONCLASS",
+      "name": "IIHIM_1441633156",
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/ICONCLASS/JPEGImages/IIHIM_1441633156.jpg"
+    }
+  ],
+  [
+    {
+      "dataset": "ArtDL",
       "name": "1939_1_291",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/1939_1_291.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/1939_1_291.jpg"
     },
     {
       "dataset": "wikidata",
       "name": "Q20173065",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q20173065.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q20173065.jpg"
     }
   ],
   [
     {
       "dataset": "ArtDL",
       "name": "1939_1_80",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/1939_1_80.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/1939_1_80.jpg"
     },
     {
       "dataset": "wikidata",
       "name": "Q20173671",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q20173671.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q20173671.jpg"
     }
   ],
   [
     {
       "dataset": "ArtDL",
       "name": "1950_11_1_a",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/1950_11_1_a.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/1950_11_1_a.jpg"
     },
     {
       "dataset": "wikidata",
       "name": "Q20173413",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q20173413.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q20173413.jpg"
     }
   ],
   [
     {
       "dataset": "ArtDL",
       "name": "253141",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/253141.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/253141.jpg"
     },
     {
       "dataset": "wikidata",
       "name": "Q3947314",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q3947314.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q3947314.jpg"
     }
   ],
   [
     {
       "dataset": "ArtDL",
       "name": "253669",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/253669.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/253669.jpg"
     },
     {
       "dataset": "wikidata",
       "name": "Q20540321",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q20540321.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q20540321.jpg"
     }
   ],
   [
     {
       "dataset": "ArtDL",
       "name": "258398",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/258398.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/258398.jpg"
     },
     {
       "dataset": "wikidata",
       "name": "Q19820268",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q19820268.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q19820268.jpg"
     }
   ],
   [
     {
       "dataset": "ArtDL",
       "name": "273854",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/273854.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/273854.jpg"
     },
     {
       "dataset": "wikidata",
       "name": "Q6004260",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q6004260.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q6004260.jpg"
     }
   ],
   [
     {
       "dataset": "ArtDL",
       "name": "408706434",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/408706434.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/408706434.jpg"
     },
     {
       "dataset": "wikidata",
       "name": "Q20173671",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q20173671.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q20173671.jpg"
     }
   ],
   [
     {
       "dataset": "ArtDL",
       "name": "Q15974339",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q15974339.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q15974339.jpg"
     },
     {
       "dataset": "wikidata",
       "name": "Q15974339",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q15974339.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q15974339.jpg"
     }
   ],
   [
     {
       "dataset": "ArtDL",
       "name": "Q17335796",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q17335796.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q17335796.jpg"
     },
     {
       "dataset": "wikidata",
       "name": "Q17335796",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q17335796.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q17335796.jpg"
     }
   ],
   [
     {
       "dataset": "ArtDL",
       "name": "Q18225338",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q18225338.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q18225338.jpg"
     },
     {
       "dataset": "wikidata",
       "name": "Q18225338",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q18225338.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q18225338.jpg"
     }
   ],
   [
     {
       "dataset": "ArtDL",
       "name": "Q18748614",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q18748614.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q18748614.jpg"
     },
     {
       "dataset": "wikidata",
       "name": "Q18748614",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q18748614.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q18748614.jpg"
     }
   ],
   [
     {
       "dataset": "ArtDL",
       "name": "Q19925792",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q19925792.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q19925792.jpg"
     },
     {
       "dataset": "wikidata",
       "name": "Q19925792",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q19925792.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q19925792.jpg"
     }
   ],
   [
     {
       "dataset": "ArtDL",
       "name": "Q19926040",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q19926040.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q19926040.jpg"
     },
     {
       "dataset": "wikidata",
       "name": "Q19926040",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q19926040.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q19926040.jpg"
     }
   ],
   [
     {
       "dataset": "ArtDL",
       "name": "Q20173413",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q20173413.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q20173413.jpg"
     },
     {
       "dataset": "wikidata",
       "name": "Q20173413",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q20173413.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q20173413.jpg"
     }
   ],
   [
     {
       "dataset": "ArtDL",
       "name": "Q20173883",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q20173883.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q20173883.jpg"
     },
     {
       "dataset": "wikidata",
       "name": "Q20173883",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q20173883.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q20173883.jpg"
     }
   ],
   [
     {
       "dataset": "ArtDL",
       "name": "Q20267955",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q20267955.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q20267955.jpg"
     },
     {
       "dataset": "wikidata",
       "name": "Q20267955",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q20267955.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q20267955.jpg"
     }
   ],
   [
     {
       "dataset": "ArtDL",
       "name": "Q21283213",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q21283213.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q21283213.jpg"
     },
     {
       "dataset": "wikidata",
       "name": "Q21283213",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q21283213.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q21283213.jpg"
     }
   ],
   [
     {
       "dataset": "ArtDL",
       "name": "Q2715177",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q2715177.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q2715177.jpg"
     },
     {
       "dataset": "wikidata",
       "name": "Q2715177",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q2715177.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q2715177.jpg"
     }
   ],
   [
     {
       "dataset": "ArtDL",
       "name": "Q27981491",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q27981491.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q27981491.jpg"
     },
     {
       "dataset": "wikidata",
       "name": "Q27981491",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q27981491.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q27981491.jpg"
     }
   ],
   [
     {
       "dataset": "ArtDL",
       "name": "Q29024815",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q29024815.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q29024815.jpg"
     },
     {
       "dataset": "wikidata",
       "name": "Q29024815",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q29024815.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q29024815.jpg"
     }
   ],
   [
     {
       "dataset": "ArtDL",
       "name": "Q29477236",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q29477236.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q29477236.jpg"
     },
     {
       "dataset": "wikidata",
       "name": "Q29477236",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q29477236.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q29477236.jpg"
     }
   ],
   [
     {
       "dataset": "ArtDL",
       "name": "Q4448822",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q4448822.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q4448822.jpg"
     },
     {
       "dataset": "wikidata",
       "name": "Q4448822",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q4448822.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q4448822.jpg"
     }
   ],
   [
     {
       "dataset": "ArtDL",
       "name": "Q4448822",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q4448822.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q4448822.jpg"
     },
     {
       "dataset": "wikidata",
       "name": "Q17321337",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q17321337.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q17321337.jpg"
     }
   ],
   [
     {
       "dataset": "ArtDL",
       "name": "Q4448822",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q4448822.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q4448822.jpg"
     },
     {
       "dataset": "wikidata",
       "name": "Q29939692",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q29939692.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q29939692.jpg"
     }
   ],
   [
     {
       "dataset": "ArtDL",
       "name": "Q510799",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q510799.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q510799.jpg"
     },
     {
       "dataset": "wikidata",
       "name": "Q510799",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q510799.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q510799.jpg"
     }
   ],
   [
     {
       "dataset": "ArtDL",
       "name": "Q55102676",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q55102676.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q55102676.jpg"
     },
     {
       "dataset": "wikidata",
       "name": "Q55102676",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q55102676.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q55102676.jpg"
     }
   ],
   [
     {
       "dataset": "ArtDL",
       "name": "Q6004260",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q6004260.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q6004260.jpg"
     },
     {
       "dataset": "wikidata",
       "name": "Q6004260",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q6004260.jpg"
-    }
-  ],
-  [
-    {
-      "dataset": "ArtDL",
-      "name": "Q9073676",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/Q9073676.jpg"
-    },
-    {
-      "dataset": "wikidata",
-      "name": "Q9073676",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q9073676.jpg"
-    }
-  ],
-  [
-    {
-      "dataset": "ArtDL",
-      "name": "_C_438722921_7632",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/_C_438722921_7632.jpg"
-    },
-    {
-      "dataset": "wikidata",
-      "name": "Q9015206",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q9015206.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q6004260.jpg"
     }
   ],
   [
     {
       "dataset": "ArtDL",
       "name": "__EX_1000788252_18423",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/__EX_1000788252_18423.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/__EX_1000788252_18423.jpg"
     },
     {
       "dataset": "wikidata",
       "name": "Q20172983",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q20172983.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q20172983.jpg"
     }
   ],
   [
     {
       "dataset": "ArtDL",
       "name": "caravagg_07_44jerome",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/caravagg_07_44jerome.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/caravagg_07_44jerome.jpg"
     },
     {
       "dataset": "wikidata",
       "name": "Q2715177",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q2715177.jpg"
-    }
-  ],
-  [
-    {
-      "dataset": "ArtDL",
-      "name": "caravagg_11_71baptis",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/caravagg_11_71baptis.jpg"
-    },
-    {
-      "dataset": "wikidata",
-      "name": "Q9015206",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q9015206.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q2715177.jpg"
     }
   ],
   [
     {
       "dataset": "ArtDL",
       "name": "clouet_jean_francbap",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/clouet_jean_francbap.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/clouet_jean_francbap.jpg"
     },
     {
       "dataset": "wikidata",
       "name": "Q30096142",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q30096142.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q30096142.jpg"
     }
   ],
   [
     {
       "dataset": "ArtDL",
       "name": "en-SK-A-3382",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/en-SK-A-3382.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/en-SK-A-3382.jpg"
     },
     {
       "dataset": "wikidata",
       "name": "Q17334273",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q17334273.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q17334273.jpg"
     }
   ],
   [
     {
       "dataset": "ArtDL",
       "name": "en-SK-A-4006",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/en-SK-A-4006.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/en-SK-A-4006.jpg"
     },
     {
       "dataset": "wikidata",
       "name": "Q17335839",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q17335839.jpg"
-    }
-  ],
-  [
-    {
-      "dataset": "ArtDL",
-      "name": "greco_el_06_0603grec",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/greco_el_06_0603grec.jpg"
-    },
-    {
-      "dataset": "wikidata",
-      "name": "Q9026835",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q9026835.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q17335839.jpg"
     }
   ],
   [
     {
       "dataset": "ArtDL",
       "name": "greco_el_17_1703grec",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/greco_el_17_1703grec.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/greco_el_17_1703grec.jpg"
     },
     {
       "dataset": "wikidata",
       "name": "Q16589363",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q16589363.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q16589363.jpg"
     }
   ],
   [
     {
       "dataset": "ArtDL",
       "name": "hemessen_jan_stjerom",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/hemessen_jan_stjerom.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/hemessen_jan_stjerom.jpg"
     },
     {
       "dataset": "wikidata",
       "name": "Q114744953",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q114744953.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q114744953.jpg"
     }
   ],
   [
     {
       "dataset": "ArtDL",
       "name": "la_tour_georges_1_10penite",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/la_tour_georges_1_10penite.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/la_tour_georges_1_10penite.jpg"
     },
     {
       "dataset": "wikidata",
       "name": "Q3210251",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q3210251.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q3210251.jpg"
     }
   ],
   [
     {
       "dataset": "ArtDL",
       "name": "nogari_apostle",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/nogari_apostle.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/nogari_apostle.jpg"
     },
     {
       "dataset": "wikidata",
       "name": "Q50326658",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q50326658.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q50326658.jpg"
     }
   ],
   [
     {
       "dataset": "ArtDL",
       "name": "piero_co_z_other_mary_mag",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/piero_co_z_other_mary_mag.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/piero_co_z_other_mary_mag.jpg"
     },
     {
       "dataset": "wikidata",
       "name": "Q28229479",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q28229479.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q28229479.jpg"
     }
   ],
   [
     {
       "dataset": "ArtDL",
       "name": "tintoret_3b_3ground_5maryma",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/tintoret_3b_3ground_5maryma.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/ArtDL/JPEGImages/tintoret_3b_3ground_5maryma.jpg"
     },
     {
       "dataset": "wikidata",
       "name": "Q11769022",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q11769022.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q11769022.jpg"
     }
   ],
   [
     {
       "dataset": "ICONCLASS",
       "name": "IIHIM_-1578407314",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ICONCLASS/JPEGImages/IIHIM_-1578407314.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/ICONCLASS/JPEGImages/IIHIM_-1578407314.jpg"
     },
     {
       "dataset": "wikidata",
       "name": "Q107443479",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q107443479.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q107443479.jpg"
+    }
+  ],
+  [
+    {
+      "dataset": "ICONCLASS",
+      "name": "IIHIM_1359909329",
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/ICONCLASS/JPEGImages/IIHIM_1359909329.jpg"
+    },
+    {
+      "dataset": "wikidata",
+      "name": "Q117226027",
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q117226027.jpg"
     }
   ],
   [
     {
       "dataset": "ICONCLASS",
       "name": "IIHIM_838250489",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ICONCLASS/JPEGImages/IIHIM_838250489.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/ICONCLASS/JPEGImages/IIHIM_838250489.jpg"
     },
     {
       "dataset": "wikidata",
       "name": "Q63191747",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q63191747.jpg"
-    }
-  ],
-  [
-    {
-      "dataset": "ICONCLASS",
-      "name": "IIHIM_RIJKS_-649904531",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ICONCLASS/JPEGImages/IIHIM_RIJKS_-649904531.jpg"
-    },
-    {
-      "dataset": "wikidata",
-      "name": "Q17328232",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q17328232.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q63191747.jpg"
     }
   ],
   [
     {
       "dataset": "ICONCLASS",
       "name": "IIHIM_-1583071816",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ICONCLASS/JPEGImages/IIHIM_-1583071816.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/ICONCLASS/JPEGImages/IIHIM_-1583071816.jpg"
     },
     {
       "dataset": "wikidata",
       "name": "Q29648941",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q29648941.jpg"
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q29648941.jpg"
     }
   ],
   [
     {
       "dataset": "ICONCLASS",
-      "name": "IIHIM_-458699567",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/ICONCLASS/JPEGImages/IIHIM_-458699567.jpg"
+      "name": "IIHIM_RIJKS_2033920572",
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/ICONCLASS/JPEGImages/IIHIM_RIJKS_2033920572.jpg"
     },
     {
       "dataset": "wikidata",
-      "name": "Q61932253",
-      "path": "/home/ubuntu/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q61932253.jpg"
+      "name": "Q17347293",
+      "path": "/home/vitadmin/gspinaci/LLM-test/script/../dataset/wikidata/JPEGImages/Q17347293.jpg"
     }
   ]
 ]
