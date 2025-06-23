@@ -1,0 +1,7 @@
+class_name,# of Images,Precision,Recall,F1 Score,Average Precision
+11HH(MARY MAGDALENE),127,27.32%,39.37%,32.26%,23.90%
+11H(JEROME),127,30.30%,39.37%,34.25%,28.95%
+11H(PETER),72,18.18%,5.56%,8.51%,22.96%
+11H(FRANCIS),46,0.00%,0.00%,0.00%,19.90%
+Macro,-,18.95%,21.07%,18.75%,23.93%
+Micro,-,27.96%,27.96%,27.96%,25.98%

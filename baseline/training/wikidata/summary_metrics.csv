@@ -1,0 +1,2 @@
+Model,Macro Average Precision,Micro Average Precision,Accuracy
+vanilla-resnet50,44.75%,49.97%,43.97%
