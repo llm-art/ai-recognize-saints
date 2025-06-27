@@ -41,7 +41,7 @@ In the current experiments, I tested two types of models: Vision-Language Encode
 | gpt-4o-mini                    | 82.78%               | 85.41%                     | 85.19%                                                        |
 | gpt-4o                         | 62.30%               | 49.22%                     | 49.03%                                                        |
 | gemini-2.5-flash-preview-05-20 | 88.20%               | 84.71%                     | 87.02%                                                        |
-| gemini-2.5-pro-preview-05-06   | 79.76%               | 86.59%                     | 90.18%                                                        |
+| gemini-2.5-pro-preview-05-06   | 90.45%               | 86.59%                     | 90.18%                                                        |
 | Baseline                       | 84.44%               |                            |                                                               |
 
 ### ICONCLASS
@@ -58,7 +58,9 @@ In the current experiments, I tested two types of models: Vision-Language Encode
 | gpt-4o                         | 64.04%               | 30.05%                     | 14.19%                                                            |
 | gemini-2.5-flash-preview-05-20 | 77.17%               | 78.22%                     | 77.75%                                                            |
 | gemini-2.5-pro-preview-05-06   | 83.31%               | 84.59%                     | 84.82%                                                            |
-
+| baseline artdl full            | 12.05%               |                            |                                                                   |
+| baseline artdl shared          | 27.96%               |                            |                                                                   |
+| baseline resnet50 trained      | 40.46%               |                            |                                                                   |
 
 ### Wikidata
 #### wikidata Results
@@ -74,5 +76,8 @@ In the current experiments, I tested two types of models: Vision-Language Encode
 | gpt-4o                         | 44.99%               | 43.61%                     | 45.52%                                                           |
 | gemini-2.5-flash-preview-05-20 | 45.45%               | 44.57%                     | 45.31%                                                           |
 | gemini-2.5-pro-preview-05-06   | 45.89%               | 47.07%                     | 45.31%                                                           |
+| baseline artdl full            | 15.75%               |                            |                                                                  |
+| baseline artdl shared          | 28.08%               |                            |                                                                  |
+| baseline resnet50 trained      | 43.97%               |                            |                                                                  |
 
 see https://community.openai.com/t/achieving-deterministic-api-output-on-language-models-howto/418318
