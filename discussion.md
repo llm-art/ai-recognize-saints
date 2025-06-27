@@ -5,6 +5,7 @@
 * Zero-shot with descriptions typically improved accuracy over label-only conditions, especially for contrastive models (e.g., CLIP-ViT-L/14 saw large gains on ICONCLASS)
 * Few-shot improvements were inconsistent. In some cases (e.g., GPT-4o on ICONCLASS), performance decreased, showing it sensitive to prompt formatting and class imbalance.
 * LLMs have betters results for Zero Shot classification with labels only, while constrastive models are balanced even when labels are noisy (descriptions)
+* Wikidata is unstructured. It may have been used for training but it has a huge amount of metadata, maybe Iconclass classes weights are diluited
 
 ### GPT 4o, Few Shot on ICONCLASS
 ![alt text](test_3/ICONCLASS/gpt-4o/confusion_matrix.png)
