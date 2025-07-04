@@ -1,2 +1,2 @@
 Model,Macro Average Precision,Micro Average Precision,Accuracy
-gpt-4o,15.45%,16.02%,30.05%
+gpt-4o,56.48%,57.58%,74.16%

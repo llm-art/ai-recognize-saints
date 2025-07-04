@@ -32,32 +32,32 @@ In the current experiments, I tested two types of models: Vision-Language Encode
 #### ArtDL Results
 | Model                          | zero-shot (labels)   | zero-shot (descriptions)   | few-shot[*](dataset/ArtDL-data/few-shot/README.md) (labels)   |
 |:-------------------------------|:---------------------|:---------------------------|:--------------------------------------------------------------|
-| clip-vit-base-patch32          | 16.15%               | 21.41%                     | 31.55%                                                        |
-| clip-vit-base-patch16          | 25.64%               | 29.13%                     | 28.70%                                                        |
-| clip-vit-large-patch14         | 30.58%               | 31.71%                     | 44.31%                                                        |
-| siglip-base-patch16-512        | 48.71%               | 55.90%                     | 68.19%                                                        |
-| siglip-large-patch16-384       | 54.45%               | 53.49%                     | 72.21%                                                        |
-| siglip-so400m-patch14-384      | 53.86%               | 56.38%                     | 70.55%                                                        |
-| gpt-4o-mini                    | 82.78%               | 85.41%                     | 85.19%                                                        |
-| gpt-4o                         | 62.30%               | 49.22%                     | 49.03%                                                        |
-| gemini-2.5-flash-preview-05-20 | 88.20%               | 84.71%                     | 87.02%                                                        |
-| gemini-2.5-pro-preview-05-06   | 90.45%               | 86.59%                     | 90.18%                                                        |
+| clip-vit-base-patch32          | 16.15%               | 31.55%                     | 21.41%                                                        |
+| clip-vit-base-patch16          | 25.64%               | 28.70%                     | 29.13%                                                        |
+| clip-vit-large-patch14         | 30.58%               | 44.31%                     | 31.71%                                                        |
+| siglip-base-patch16-512        | 48.71%               | 68.19%                     | 55.90%                                                        |
+| siglip-large-patch16-384       | 54.45%               | 72.21%                     | 53.49%                                                        |
+| siglip-so400m-patch14-384      | 53.86%               | 70.55%                     | 56.38%                                                        |
+| gpt-4o-mini                    | 82.78%               | 85.19%                     | 85.41%                                                        |
+| gpt-4o                         | 62.30%               | 49.03%                     | 49.22%                                                        |
+| gemini-2.5-flash-preview-05-20 | 88.20%               | 87.02%                     | 84.71%                                                        |
+| gemini-2.5-pro-preview-05-06   | 90.45%               | 90.18%                     | 86.59%                                                        |
 | Baseline                       | 84.44%               |                            |                                                               |
 
 ### ICONCLASS
 #### ICONCLASS Results
 | Model                          | zero-shot (labels)   | zero-shot (descriptions)   | few-shot[*](dataset/ICONCLASS-data/few-shot/README.md) (labels)   |
 |:-------------------------------|:---------------------|:---------------------------|:------------------------------------------------------------------|
-| clip-vit-base-patch32          | 24.74%               | 29.82%                     | 29.30%                                                            |
-| clip-vit-base-patch16          | 30.00%               | 33.51%                     | 27.37%                                                            |
-| clip-vit-large-patch14         | 40.00%               | 42.81%                     | 35.44%                                                            |
-| siglip-base-patch16-512        | 43.51%               | 41.93%                     | 33.33%                                                            |
-| siglip-large-patch16-384       | 48.95%               | 49.30%                     | 38.77%                                                            |
-| siglip-so400m-patch14-384      | 59.47%               | 60.88%                     | 53.16%                                                            |
-| gpt-4o-mini                    | 45.13%               | 55.97%                     | 58.86%                                                            |
-| gpt-4o                         | 64.04%               | 30.05%                     | 14.19%                                                            |
-| gemini-2.5-flash-preview-05-20 | 77.17%               | 78.22%                     | 77.75%                                                            |
-| gemini-2.5-pro-preview-05-06   | 83.31%               | 84.59%                     | 84.82%                                                            |
+| clip-vit-base-patch32          | 24.74%               | 29.30%                     | 29.82%                                                            |
+| clip-vit-base-patch16          | 30.00%               | 27.37%                     | 33.51%                                                            |
+| clip-vit-large-patch14         | 40.00%               | 35.44%                     | 42.81%                                                            |
+| siglip-base-patch16-512        | 43.51%               | 33.33%                     | 41.93%                                                            |
+| siglip-large-patch16-384       | 48.95%               | 38.77%                     | 49.30%                                                            |
+| siglip-so400m-patch14-384      | 59.47%               | 53.16%                     | 60.88%                                                            |
+| gpt-4o-mini                    | 45.13%               | 58.86%                     | 55.97%                                                            |
+| gpt-4o                         | 64.04%               | 14.19%                     | 74.16%                                                            |
+| gemini-2.5-flash-preview-05-20 | 77.17%               | 77.75%                     | 78.22%                                                            |
+| gemini-2.5-pro-preview-05-06   | 83.31%               | 84.82%                     | 84.59%                                                            |
 | baseline artdl full            | 12.05%               |                            |                                                                   |
 | baseline artdl shared          | 27.96%               |                            |                                                                   |
 | baseline resnet50 trained      | 40.46%               |                            |                                                                   |
@@ -66,16 +66,16 @@ In the current experiments, I tested two types of models: Vision-Language Encode
 #### wikidata Results
 | Model                          | zero-shot (labels)   | zero-shot (descriptions)   | few-shot[*](dataset/wikidata-data/few-shot/README.md) (labels)   |
 |:-------------------------------|:---------------------|:---------------------------|:-----------------------------------------------------------------|
-| clip-vit-base-patch32          | 45.95%               | 45.52%                     | 44.52%                                                           |
-| clip-vit-base-patch16          | 50.78%               | 47.08%                     | 46.66%                                                           |
-| clip-vit-large-patch14         | 56.76%               | 55.48%                     | 56.61%                                                           |
-| siglip-base-patch16-512        | 57.47%               | 56.05%                     | 46.94%                                                           |
-| siglip-large-patch16-384       | 60.03%               | 61.17%                     | 43.95%                                                           |
-| siglip-so400m-patch14-384      | 66.29%               | 64.86%                     | 59.60%                                                           |
-| gpt-4o-mini                    | 35.19%               | 34.46%                     | 37.10%                                                           |
-| gpt-4o                         | 44.99%               | 43.61%                     | 45.52%                                                           |
-| gemini-2.5-flash-preview-05-20 | 45.45%               | 44.57%                     | 45.31%                                                           |
-| gemini-2.5-pro-preview-05-06   | 45.89%               | 47.07%                     | 45.31%                                                           |
+| clip-vit-base-patch32          | 45.95%               | 44.52%                     | 45.52%                                                           |
+| clip-vit-base-patch16          | 50.78%               | 46.66%                     | 47.08%                                                           |
+| clip-vit-large-patch14         | 56.76%               | 56.61%                     | 55.48%                                                           |
+| siglip-base-patch16-512        | 57.47%               | 46.94%                     | 56.05%                                                           |
+| siglip-large-patch16-384       | 60.03%               | 43.95%                     | 61.17%                                                           |
+| siglip-so400m-patch14-384      | 66.29%               | 59.60%                     | 64.86%                                                           |
+| gpt-4o-mini                    | 35.19%               | 37.10%                     | 34.46%                                                           |
+| gpt-4o                         | 44.99%               | 45.52%                     | 43.61%                                                           |
+| gemini-2.5-flash-preview-05-20 | 45.45%               | 45.31%                     | 44.57%                                                           |
+| gemini-2.5-pro-preview-05-06   | 45.89%               | 45.31%                     | 47.07%                                                           |
 | baseline artdl full            | 15.75%               |                            |                                                                  |
 | baseline artdl shared          | 28.08%               |                            |                                                                  |
 | baseline resnet50 trained      | 43.97%               |                            |                                                                  |
