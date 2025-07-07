@@ -51,11 +51,11 @@ In the current experiments, I tested two types of models: Vision-Language Encode
 | clip-vit-base-patch32          | 24.74%               | 29.30%                     | 29.82%                                                            |
 | clip-vit-base-patch16          | 30.00%               | 27.37%                     | 33.51%                                                            |
 | clip-vit-large-patch14         | 40.00%               | 35.44%                     | 42.81%                                                            |
+| gpt-4o-2024-08-06              | 75.32%               | 75.43%                     | 73.46%                                                            |
+| gpt-4o-mini-2024-07-18         | 55.74%               | 59.56%                     | 55.50%                                                            |
 | siglip-base-patch16-512        | 43.51%               | 33.33%                     | 41.93%                                                            |
 | siglip-large-patch16-384       | 48.95%               | 38.77%                     | 49.30%                                                            |
 | siglip-so400m-patch14-384      | 59.47%               | 53.16%                     | 60.88%                                                            |
-| gpt-4o-mini                    | 45.13%               | 58.86%                     | 55.97%                                                            |
-| gpt-4o                         | 64.04%               | 14.19%                     | 74.16%                                                            |
 | gemini-2.5-flash-preview-05-20 | 77.17%               | 77.75%                     | 78.22%                                                            |
 | gemini-2.5-pro-preview-05-06   | 83.31%               | 84.82%                     | 84.59%                                                            |
 | baseline artdl full            | 12.05%               |                            |                                                                   |

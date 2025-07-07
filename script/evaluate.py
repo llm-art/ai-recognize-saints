@@ -5,9 +5,13 @@ import numpy as np
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
+import warnings
 from PIL import Image
 from sklearn.preprocessing import label_binarize
 from sklearn.metrics import confusion_matrix, precision_score, recall_score, f1_score, average_precision_score, accuracy_score
+
+# Suppress sklearn warnings about no positive class found
+warnings.filterwarnings("ignore", message="No positive class found in y_true")
 
 # Increase PIL's DecompressionBombWarning threshold to ~200 million pixels
 Image.MAX_IMAGE_PIXELS = 200000000

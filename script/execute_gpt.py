@@ -197,27 +197,8 @@ class ClassResolver:
     return None
 
 
-class ResponseParser(ABC):
-  """Abstract base class for response parsers."""
-
-  @abstractmethod
-  def parse(self, content: str, batch_items: List[str], classes: List[Tuple[str, str]]) -> Tuple[List[str], List[str]]:
-    """
-    Parse response content to extract class predictions.
-
-    Args:
-        content: Response content from the API
-        batch_items: List of image IDs in the batch
-        classes: List of (class_id, class_description) tuples
-
-    Returns:
-        Tuple of (response_texts, unprocessed_items)
-    """
-    pass
-
-
-class JSONResponseParser(ResponseParser):
-  """Parser for JSON-formatted responses."""
+class JSONResponseParser:
+  """Simplified parser for JSON-formatted responses only."""
 
   def __init__(self, logger=None):
     """
@@ -228,49 +209,38 @@ class JSONResponseParser(ResponseParser):
     """
     self.logger = logger or logging.getLogger("default")
 
-  def parse(self, content: str, batch_items: List[str], classes: List[Tuple[str, str]]) -> Tuple[List[str], List[str]]:
+  def parse(self, content: str, batch_items: List[str]) -> Dict[str, str]:
     """
-    Parse JSON response content.
+    Parse JSON response content and return ordered predictions.
 
     Args:
         content: Response content from the API
-        batch_items: List of image IDs in the batch
-        classes: List of (class_id, class_description) tuples
+        batch_items: List of image IDs in the batch (in order)
 
     Returns:
-        Tuple of (response_texts, unprocessed_items)
+        Dictionary mapping item IDs to predicted classes, maintaining order
     """
     # Extract JSON from markdown if present
     json_content_str = JSONExtractor.extract_from_markdown(content)
 
     try:
-      # Try to parse as JSON
+      # Parse as JSON
       json_content = json.loads(json_content_str)
+      
+      if not isinstance(json_content, dict):
+        self.logger.error(f"Expected JSON object, got {type(json_content)}")
+        return {}
 
-      # Check if we have the expected structure
-      if isinstance(json_content, dict):
-        response_dict = self._parse_json_structure(json_content, batch_items)
+      response_dict = self._parse_json_structure(json_content, batch_items)
+      self.logger.debug(f"JSON parsing successful: {len(response_dict)} items parsed")
+      return response_dict
 
-        # Convert to list format expected by downstream code
-        response_texts = [response_dict[item]
-                          for item in batch_items if item in response_dict]
-        unprocessed_items = [
-          item for item in batch_items if item not in response_dict]
+    except json.JSONDecodeError as e:
+      self.logger.error(f"Failed to parse JSON response: {e}")
+      self.logger.debug(f"Raw content: {content}")
+      return {}
 
-        self.logger.debug(
-          f"JSON parsing successful: {len(response_texts)} items parsed")
-        return response_texts, unprocessed_items
-      else:
-        # Handle unexpected JSON structure (like array)
-        response_texts = json_content if isinstance(
-          json_content, list) else [json_content]
-        return response_texts, []
-
-    except json.JSONDecodeError:
-      self.logger.debug("Failed to parse as JSON")
-      return [], batch_items
-
-  def _parse_json_structure(self, json_content: dict, batch_items: List[str]) -> dict:
+  def _parse_json_structure(self, json_content: dict, batch_items: List[str]) -> Dict[str, str]:
     """
     Parse different JSON structure formats.
 
@@ -282,7 +252,6 @@ class JSONResponseParser(ResponseParser):
         Dictionary mapping item IDs to predicted classes
     """
     response_dict = {}
-    item_to_idx = {item: idx for idx, item in enumerate(batch_items)}
 
     # Handle different possible JSON structures
     if any(key.startswith("image_") for key in json_content.keys()):
@@ -291,144 +260,54 @@ class JSONResponseParser(ResponseParser):
         if key.startswith("image_"):
           # Try to extract the item ID from the key
           item_id = key[6:]  # Remove "image_" prefix
-          if item_id in item_to_idx:
+          
+          # Extract class from value (handle both string and dict formats)
+          predicted_class = self._extract_class_from_value(value)
+          
+          if item_id in batch_items:
             # Direct match with item ID
-            response_dict[item_id] = value
+            response_dict[item_id] = predicted_class
           else:
             # Try to match by position (image_1, image_2, etc.)
             try:
               idx = int(item_id) - 1
               if 0 <= idx < len(batch_items):
-                response_dict[batch_items[idx]] = value
+                response_dict[batch_items[idx]] = predicted_class
             except ValueError:
               # Not a numeric index, skip
-              pass
+              self.logger.warning(f"Could not parse image key: {key}")
     else:
-      # Direct mapping format
+      # Direct mapping format: {"item_id": "CLASS_ID", ...} or {"item_id": {"class": "...", "confidence": ...}, ...}
       for item in batch_items:
         if item in json_content:
-          response_dict[item] = json_content[item]
+          predicted_class = self._extract_class_from_value(json_content[item])
+          response_dict[item] = predicted_class
         elif str(item) in json_content:
-          response_dict[item] = json_content[str(item)]
+          predicted_class = self._extract_class_from_value(json_content[str(item)])
+          response_dict[item] = predicted_class
 
     return response_dict
 
-
-class TextResponseParser(ResponseParser):
-  """Parser for text-based responses (fallback when JSON parsing fails)."""
-
-  def __init__(self, logger=None):
+  def _extract_class_from_value(self, value) -> str:
     """
-    Initialize the text response parser.
-
+    Extract class name from response value, handling both string and dict formats.
+    
     Args:
-        logger: Logger instance
-    """
-    self.logger = logger or logging.getLogger("default")
-
-  def parse(self, content: str, batch_items: List[str], classes: List[Tuple[str, str]]) -> Tuple[List[str], List[str]]:
-    """
-    Parse text response content using pattern matching.
-
-    Args:
-        content: Response content from the API
-        batch_items: List of image IDs in the batch
-        classes: List of (class_id, class_description) tuples
-
+        value: Either a string (class name) or dict with 'class' key
+        
     Returns:
-        Tuple of (response_texts, unprocessed_items)
+        The predicted class name as string
     """
-    self.logger.warning(
-      "Failed to parse JSON response. Attempting text parsing.")
-    lines = content.strip().split('\n')
-    response_texts = []
-    unprocessed_items = []
-
-    # Try to extract class IDs from text
-    for item_idx, item in enumerate(batch_items):
-      item_found = False
-
-      # Look for lines that mention the item ID
-      for line in lines:
-        if (f"Image (ID: {item})" in line or
-            f"image_{item_idx + 1}" in line.lower() or
-                f"image {item_idx + 1}" in line.lower()):
-          # Found a line referencing this item, now look for a class ID
-          for cls_id, _ in classes:
-            if cls_id in line:
-              response_texts.append(cls_id)
-              item_found = True
-              break
-          # If we found a class ID, move to the next item
-          if item_found:
-            break
-
-      # If we didn't find a class ID for this item, try looking for it in the entire content
-      if not item_found:
-        for cls_id, _ in classes:
-          # Look for patterns like "Image 1: CLASS_ID" or "image_1: CLASS_ID"
-          patterns = [
-              f"Image {item_idx + 1}: {cls_id}",
-              f"image_{item_idx + 1}: {cls_id}",
-              f"Image (ID: {item}): {cls_id}",
-              f"{item}: {cls_id}"
-          ]
-          for pattern in patterns:
-            if pattern in content:
-              response_texts.append(cls_id)
-              item_found = True
-              break
-          if item_found:
-            break
-
-      if not item_found:
-        unprocessed_items.append(item)
-
-    self.logger.debug(
-      f"Text parsing completed: {len(response_texts)} items parsed, {len(unprocessed_items)} unprocessed")
-    return response_texts, unprocessed_items
-
-
-class CompositeResponseParser(ResponseParser):
-  """Composite parser that tries multiple parsing strategies in sequence."""
-
-  def __init__(self, logger=None):
-    """
-    Initialize the composite response parser.
-
-    Args:
-        logger: Logger instance
-    """
-    self.logger = logger or logging.getLogger("default")
-    self.parsers = [
-        JSONResponseParser(logger),
-        TextResponseParser(logger)
-    ]
-
-  def parse(self, content: str, batch_items: List[str], classes: List[Tuple[str, str]]) -> Tuple[List[str], List[str]]:
-    """
-    Parse response content using multiple strategies.
-
-    Args:
-        content: Response content from the API
-        batch_items: List of image IDs in the batch
-        classes: List of (class_id, class_description) tuples
-
-    Returns:
-        Tuple of (response_texts, unprocessed_items)
-    """
-    for parser in self.parsers:
-      response_texts, unprocessed_items = parser.parse(
-        content, batch_items, classes)
-
-      # If we got some results, use them
-      if response_texts:
-        self.logger.debug(f"Parser {parser.__class__.__name__} succeeded")
-        return response_texts, unprocessed_items
-
-    # If all parsers failed, return empty results
-    self.logger.warning("All parsers failed to extract meaningful results")
-    return [], batch_items
+    if isinstance(value, dict):
+      # Handle {"class": "CLASS_NAME", "confidence": 0.95} format
+      if "class" in value:
+        return str(value["class"])
+      else:
+        self.logger.warning(f"Dict value missing 'class' key: {value}")
+        return ""
+    else:
+      # Handle direct string format
+      return str(value)
 
 
 class ModelConfig:
@@ -440,6 +319,18 @@ class ModelConfig:
           "output_cost": 10.0  # Cost per 1M output tokens
       },
       "gpt-4o-mini": {
+          "input_cost": 0.150,  # Cost per 1M input tokens
+          "output_cost": 0.600  # Cost per 1M output tokens
+      },
+      "gpt-4o-2024-05-13": {
+          "input_cost": 2.5,   # Cost per 1M input tokens
+          "output_cost": 10.0  # Cost per 1M output tokens
+      },
+      "gpt-4o-2024-08-06": {
+          "input_cost": 2.5,   # Cost per 1M input tokens
+          "output_cost": 10.0  # Cost per 1M output tokens
+      },
+      "gpt-4o-mini-2024-07-18": {
           "input_cost": 0.150,  # Cost per 1M input tokens
           "output_cost": 0.600  # Cost per 1M output tokens
       }
@@ -851,97 +742,60 @@ class GPTImageClassifier:
         few_shot_messages + [{"role": "user", "content": content}]
     return messages
 
-  def _parse_response(self, content: str, batch_items: List[str], classes: List[Tuple[str, str]], batch_count: int = 0) -> Tuple[List[List[float]], List[str], List[str]]:
+  def _parse_response(self, content: str, batch_items: List[str], classes: List[Tuple[str, str]], batch_count: int = 0) -> Dict[str, np.ndarray]:
     """
-    Parse the API response to extract class probabilities using the new refactored parser system.
+    Parse the API response to extract class probabilities with positional tracking.
 
     Args:
         content: Response content from the API
-        batch_items: List of image IDs in the batch
+        batch_items: List of image IDs in the batch (in order)
         classes: List of (class_id, class_description) tuples
         batch_count: Current batch count (for logging)
 
     Returns:
-        Tuple of (list of probability arrays for each image, list of corresponding batch items, list of unprocessed items)
+        Dictionary mapping item IDs to probability arrays
     """
-    # Initialize the new parsing components
-    response_parser = CompositeResponseParser(self.logger)
+    # Initialize parsing components
+    response_parser = JSONResponseParser(self.logger)
     class_resolver = ClassResolver(classes, self.class_adapter, self.logger)
     prob_builder = ProbabilityArrayBuilder(len(classes))
 
     # Parse the response content to extract predicted classes
-    response_texts, initial_unprocessed = response_parser.parse(
-      content, batch_items, classes)
+    response_dict = response_parser.parse(content, batch_items)
 
     # Log the response for debugging
-    self.logger.debug(f"Parsed response texts: {response_texts}")
+    self.logger.debug(f"Parsed response dict: {response_dict}")
     self.logger.debug(f"Batch items: {batch_items}")
 
-    # Handle mismatch between response texts and batch items
-    if len(response_texts) != len(batch_items):
-      self.logger.warning(
-          f"Mismatch between response texts ({len(response_texts)}) and batch items ({len(batch_items)}). Processing only valid items from batch {batch_count}.")
-
-      # If we have fewer responses than batch items, add the unprocessed items
-      if len(response_texts) < len(batch_items):
-        # Items without responses are considered unprocessed
-        missing_items = batch_items[len(response_texts):]
-        initial_unprocessed.extend(missing_items)
-        self.logger.warning(
-            f"Adding {len(missing_items)} items without responses to unprocessed list: {missing_items}")
-
-      # Create a mapping between response texts and batch items
-      # We'll only process items that have a valid response
-      valid_items = min(len(response_texts), len(batch_items))
-
-      # Truncate response_texts or batch_items if needed
-      response_texts = response_texts[:valid_items]
-      batch_items = batch_items[:valid_items]
-
-    # Process the parsed responses
-    results = []
-    processed_items = []
-    unprocessed_items = list(initial_unprocessed)
-
-    for idx, item in enumerate(batch_items):
-      if idx < len(response_texts):  # Safety check to prevent index errors
-        response_item = response_texts[idx]
-
-        # Handle both old format (string) and new format (dict with class and confidence)
-        if isinstance(response_item, dict):
-          # New format: {"class": "CLASS_ID", "confidence": 0.85}
-          predicted_class = response_item.get("class", "")
-          confidence_score = response_item.get("confidence", 1.0)
-
-          # Ensure confidence is within valid range
-          confidence_score = max(0.0, min(1.0, float(confidence_score)))
-        else:
-          # Old format: just the class ID as string
-          predicted_class = str(response_item)
-          confidence_score = 1.0
-
-        # Store original confidence for logging
-        original_confidence = confidence_score
-
+    # Process predictions for each item in the batch
+    results = {}
+    
+    for item in batch_items:
+      if item in response_dict:
+        predicted_class = response_dict[item]
+        
         # Resolve the predicted class to a class index
         cls_idx = class_resolver.resolve_class(predicted_class, item)
-
+        
         if cls_idx is not None:
           # Build probability array
-          probabilities = prob_builder.build_array(
-            cls_idx, 1.0)  # Using 1.0 for binary classification
-          results.append(probabilities)
-          processed_items.append(item)
-
+          probabilities = prob_builder.build_array(cls_idx, 1.0)
+          results[item] = probabilities
+          
           # Log the successful resolution
-          self.logger.debug(
-            f"Item {item}: Successfully resolved to index {cls_idx}, Original confidence: {original_confidence}")
+          self.logger.debug(f"Item {item}: Successfully resolved to index {cls_idx}")
         else:
-          # Could not resolve the class
-          unprocessed_items.append(item)
+          # Could not resolve the class - create uniform distribution
+          uniform_probs = np.full(len(classes), 1.0 / len(classes))
+          results[item] = uniform_probs
+          self.logger.warning(f"Item {item}: Could not resolve class '{predicted_class}', using uniform distribution")
+      else:
+        # No prediction for this item - create uniform distribution
+        uniform_probs = np.full(len(classes), 1.0 / len(classes))
+        results[item] = uniform_probs
+        self.logger.warning(f"Item {item}: No prediction in response, using uniform distribution")
 
-    # Return both the results and the corresponding batch items, plus unprocessed items
-    return results, processed_items, unprocessed_items
+    return results
 
   def classify_images(self,
                       images: List[Tuple[str, str]],
@@ -950,7 +804,7 @@ class GPTImageClassifier:
                       batch_size: int = 10,
                       save_frequency: int = 5) -> np.ndarray:
     """
-    Classify a list of images using the GPT model.
+    Classify a list of images using the GPT model with positional tracking.
 
     Args:
         images: List of (item_id, image_path) tuples
@@ -962,10 +816,6 @@ class GPTImageClassifier:
     Returns:
         NumPy array of shape [n_images, n_classes] with class probabilities
     """
-    all_probs = []
-    processed_count = 0  # Track how many images we've actually processed
-    all_unprocessed_items = []  # Track all unprocessed images
-
     self.logger.info(f"Using model: {self.model}")
 
     # Generate system prompt dynamically
@@ -976,6 +826,15 @@ class GPTImageClassifier:
       images = images[:limit]
       self.logger.info(f"Limiting to {limit} images")
 
+    # Pre-allocate results array with correct size to maintain positional alignment
+    total_images = len(images)
+    all_probs = [None] * total_images
+    
+    # Track failed items for potential repair
+    failed_items = {}  # {position: (item_id, image_path)}
+    
+    self.logger.info(f"Pre-allocated results array for {total_images} images")
+
     # Load few-shot examples if needed
     few_shot_messages = []
     if self.test in ['test_3', 'test_4']:
@@ -983,27 +842,21 @@ class GPTImageClassifier:
 
     batch_count = 0
     for i in tqdm(range(0, len(images), batch_size), desc="Processing Images", unit="batch"):
-      # Check if we've reached the limit
-      if limit > 0 and processed_count >= limit:
-        self.logger.info(
-          f"Reached limit of {limit} processed images. Stopping.")
-        break
-
       batch = images[i:i + batch_size]
       batch_items = []
+      batch_positions = []  # Track original positions in the full image list
 
       # Check cache for each image in the batch
-      for item, image_path in batch:
-        # Skip if we've reached the limit
-        if limit > 0 and processed_count >= limit:
-          break
-
+      for idx, (item, image_path) in enumerate(batch):
+        original_pos = i + idx
+        
         cached_result = self.cache_manager.get_result(item)
         if cached_result:
-          all_probs.append(cached_result)
-          processed_count += 1
+          all_probs[original_pos] = np.array(cached_result)
+          self.logger.debug(f"Using cached result for {item} at position {original_pos}")
         else:
           batch_items.append((item, image_path))
+          batch_positions.append(original_pos)
 
       if not batch_items:
         continue
@@ -1041,84 +894,78 @@ class GPTImageClassifier:
           f.write(f"Model: {self.model}\n")
           f.write(f"System fingerprint: {system_fingerprint}\n")
           f.write(f"Batch items: {[item for item, _ in batch_items]}\n")
+          f.write(f"Batch positions: {batch_positions}\n")
           f.write(f"Response:\n{content}\n")
 
-        # Parse response
-        batch_results, processed_items, unprocessed_items = self._parse_response(
+        # Parse response - returns dict mapping item_id -> probability array
+        batch_results = self._parse_response(
           content, [item for item, _ in batch_items], classes, batch_count)
 
-        # Add unprocessed items to the global list
-        all_unprocessed_items.extend(unprocessed_items)
-
-        # Write unprocessed items to file immediately if there are any
-        if unprocessed_items:
-          # Store unprocessed file in the same directory as cache and batches
-          unprocessed_file = os.path.join(
-            self.base_dir, os.pardir, self.test, self.dataset, self.model, 'unprocessed.txt')
-          os.makedirs(os.path.dirname(unprocessed_file), exist_ok=True)
-
-          # Create the unprocessed file with header if it doesn't exist
-          if not os.path.exists(unprocessed_file):
-            with open(unprocessed_file, 'w') as f:
-              f.write(f"# Unprocessed items file\n")
-              f.write(f"# First created at {datetime.now().isoformat()}\n\n")
-            self.logger.info(
-              f"Created new unprocessed items file: {unprocessed_file}")
-
-          with open(unprocessed_file, 'a') as f:
-            for item in unprocessed_items:
-              f.write(f"{item}\n")
-          self.logger.info(
-            f"Added {len(unprocessed_items)} unprocessed items to {unprocessed_file}")
-
-        # If batch_results is empty (due to parsing error), skip this batch
-        if not batch_results:
-          self.logger.warning(
-            f"No valid results from batch {batch_count}. Skipping.")
-          continue
-
-        # Create a mapping from batch items to their original paths
-        item_to_path = {item: path for item, path in batch_items}
-
-        # Add results to cache and all_probs
-        for idx, item in enumerate(processed_items):
-          if idx < len(batch_results):  # Safety check
-            all_probs.append(batch_results[idx])
-            self.cache_manager.add_result(item, batch_results[idx].tolist())
-            processed_count += 1
-
-            # Check if we've reached the limit after each image
-            if limit > 0 and processed_count >= limit:
-              self.logger.info(
-                f"Reached limit of {limit} processed images during batch processing.")
-              break
+        # Insert results at correct positions
+        for idx, (item, image_path) in enumerate(batch_items):
+          original_pos = batch_positions[idx]
+          
+          if item in batch_results:
+            # Successfully processed - insert at correct position
+            all_probs[original_pos] = batch_results[item]
+            self.cache_manager.add_result(item, batch_results[item].tolist())
+            self.logger.debug(f"Inserted result for {item} at position {original_pos}")
+          else:
+            # Failed to process - track for potential repair
+            failed_items[original_pos] = (item, image_path)
+            self.logger.warning(f"Failed to process {item} at position {original_pos}")
 
         # Periodically save cache
         self.cache_manager.save(
           periodic=True, batch_count=batch_count, save_frequency=save_frequency)
 
       except Exception as e:
-        self.logger.error(f"Error processing batch: {e}")
-        # Don't add zero arrays for failed batches - this was causing the count mismatch
-        # Instead, log the error and continue
+        self.logger.error(f"Error processing batch {batch_count}: {e}")
+        
+        # Track all items in this batch as failed
+        for idx, (item, image_path) in enumerate(batch_items):
+          original_pos = batch_positions[idx]
+          failed_items[original_pos] = (item, image_path)
+
+    # Fill any remaining None positions with uniform distribution
+    uniform_probs = np.full(len(classes), 1.0 / len(classes))
+    failed_count = 0
+    
+    for i, prob in enumerate(all_probs):
+      if prob is None:
+        all_probs[i] = uniform_probs
+        failed_count += 1
+
+    # Save failed items for potential repair
+    if failed_items:
+      failed_file = os.path.join(
+        self.base_dir, os.pardir, self.test, self.dataset, self.model, 'failed_items.json')
+      os.makedirs(os.path.dirname(failed_file), exist_ok=True)
+      
+      with open(failed_file, 'w') as f:
+        json.dump(failed_items, f, indent=2)
+      
+      self.logger.info(f"Saved {len(failed_items)} failed items to {failed_file}")
 
     # Final cache save
     self.cache_manager.save()
 
     # Calculate and display cost information
-    self._display_cost_info(len(all_probs), len(images))
+    self._display_cost_info(total_images - failed_count, total_images)
 
-    # Log the actual number of processed images vs requested limit
-    if limit > 0:
-      self.logger.info(
-        f"Requested limit: {limit}, Actual processed: {len(all_probs)}")
+    # Log statistics
+    self.logger.info(f"Total images processed: {total_images}")
+    self.logger.info(f"Successfully processed: {total_images - failed_count}")
+    self.logger.info(f"Failed/uniform placeholders: {failed_count}")
+    
+    if failed_count > 0:
+      self.logger.warning(f"Used uniform distribution for {failed_count} failed predictions")
 
-    # Log total number of unprocessed items
-    if all_unprocessed_items:
-      self.logger.info(
-        f"Total unprocessed items: {len(all_unprocessed_items)}")
-
-    return np.array(all_probs)
+    # Convert to numpy array - all positions are now guaranteed to be filled
+    result_array = np.array(all_probs)
+    self.logger.info(f"Final probabilities shape: {result_array.shape}")
+    
+    return result_array
 
   def _display_cost_info(self, processed_count: int, total_count: int) -> None:
     """
@@ -1217,7 +1064,7 @@ def load_images_parallel(test_items: List[str], dataset_dir: str, logger=None, m
 @click.option('--folders', multiple=True, help='List of folders to use')
 @click.option('--models', multiple=True, help='List of model names to use')
 @click.option('--limit', default=-1, help='Limit the number of images to process')
-@click.option('--batch_size', default=5, help='Number of images per batch')
+@click.option('--batch_size', default=1, help='Number of images per batch')
 @click.option('--save_frequency', default=5, help='How often to save cache (in batches)')
 @click.option('--datasets', multiple=True, help='List of datasets to use')
 @click.option('--verbose', is_flag=True, help='Enable verbose logging (DEBUG level)')
@@ -1263,11 +1110,66 @@ def main(folders: List[str], models: List[str], limit: int, batch_size: int, sav
     # Process each test folder and model
     for folder in folders:
       for model in models:
-        # Setup output folder and logger
+        # Setup output folder
         output_folder = os.path.join(base_dir, folder, dataset, model)
         os.makedirs(output_folder, exist_ok=True)
 
-        # Setup logger for this specific combination
+        # Clean previous runs if requested (BEFORE setting up logger)
+        if clean:
+          import shutil
+          # Remove cache and logs from the model directory
+          model_dir = os.path.join(base_dir, folder, dataset, model)
+          if os.path.exists(model_dir):
+            # List of files/directories to remove
+            items_to_remove = []
+
+            # Cache file
+            cache_file = os.path.join(model_dir, 'cache.json')
+            if os.path.exists(cache_file):
+              items_to_remove.append(cache_file)
+
+            # Batches directory
+            batches_dir = os.path.join(model_dir, 'batches')
+            if os.path.exists(batches_dir):
+              items_to_remove.append(batches_dir)
+
+            # Log files - check multiple possible log file patterns
+            log_patterns = [
+              f'{dataset}_{folder}_{model}.log',  # Original pattern
+              f'{model}.log',                     # Simple model name pattern
+              f'{folder}_{model}.log',            # Folder + model pattern
+            ]
+            
+            for log_pattern in log_patterns:
+              log_file = os.path.join(model_dir, log_pattern)
+              if os.path.exists(log_file):
+                items_to_remove.append(log_file)
+
+            # Unprocessed items file
+            unprocessed_file = os.path.join(model_dir, 'unprocessed.txt')
+            if os.path.exists(unprocessed_file):
+              items_to_remove.append(unprocessed_file)
+
+            # Failed items file
+            failed_file = os.path.join(model_dir, 'failed_items.json')
+            if os.path.exists(failed_file):
+              items_to_remove.append(failed_file)
+
+            # Remove the items
+            for item in items_to_remove:
+              try:
+                if os.path.isfile(item):
+                  os.remove(item)
+                  print(f"Removed file: {item}")
+                elif os.path.isdir(item):
+                  shutil.rmtree(item)
+                  print(f"Removed directory: {item}")
+              except Exception as e:
+                print(f"Warning: Could not remove {item}: {e}")
+
+            print(f"Cleaned previous cache and logs for dataset={dataset}, test={folder}, model={model}")
+
+        # Setup logger AFTER cleaning (so it can create a fresh log file)
         logger = logger_utils.setup_logger(
           dataset, folder, model, output_folder, verbose)
 
@@ -1289,52 +1191,6 @@ def main(folders: List[str], models: List[str], limit: int, batch_size: int, sav
           classes = list(zip(classes_df['ID'], classes_df['Description']))
 
         logger.info(f"Processing images for test: {folder}")
-
-        # Clean previous runs if requested
-        if clean:
-          import shutil
-          # Remove cache and logs from the model directory
-          model_dir = os.path.join(base_dir, folder, dataset, model)
-          if os.path.exists(model_dir):
-            # List of files/directories to remove
-            items_to_remove = []
-
-            # Cache file
-            cache_file = os.path.join(model_dir, 'cache.json')
-            if os.path.exists(cache_file):
-              items_to_remove.append(cache_file)
-
-            # Batches directory
-            batches_dir = os.path.join(model_dir, 'batches')
-            if os.path.exists(batches_dir):
-              items_to_remove.append(batches_dir)
-
-            # Log files
-            log_file = os.path.join(
-              model_dir, f'{dataset}_{folder}_{model}.log')
-            if os.path.exists(log_file):
-              items_to_remove.append(log_file)
-
-            # Unprocessed items file
-            unprocessed_file = os.path.join(model_dir, 'unprocessed.txt')
-            if os.path.exists(unprocessed_file):
-              items_to_remove.append(unprocessed_file)
-
-            # Remove the items
-            for item in items_to_remove:
-              try:
-                if os.path.isfile(item):
-                  os.remove(item)
-                  print(f"Removed file: {item}")
-                elif os.path.isdir(item):
-                  shutil.rmtree(item)
-                  print(f"Removed directory: {item}")
-              except Exception as e:
-                print(f"Warning: Could not remove {item}: {e}")
-
-        if clean:
-          logger.info(
-            f"Cleaned previous cache and logs for dataset={dataset}, test={folder}, model={model}")
 
         # Initialize classifier and process images
         classifier = GPTImageClassifier(
