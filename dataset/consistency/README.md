@@ -36,22 +36,22 @@ Consistency is measured by the percentage of image pairs where both images recei
 
 | Model | Test | Consistency (%) | Valid Pairs | Same Predictions |
 |-------|------|-----------------|-------------|------------------|
-| gpt-4o | test_1 | 11.43 | 35 | 4 |
-| gpt-4o | test_2 | 2.86 | 35 | 1 |
-| gpt-4o | test_3 | 14.29 | 35 | 5 |
-| gpt-4o-mini | test_1 | 11.11 | 36 | 4 |
-| gpt-4o-mini | test_2 | 11.11 | 36 | 4 |
-| gpt-4o-mini | test_3 | 11.76 | 34 | 4 |
+| gpt-4o-2024-08-06 | test_1 | 25.00 | 36 | 9 |
+| gpt-4o-2024-08-06 | test_2 | 27.78 | 36 | 10 |
+| gpt-4o-2024-08-06 | test_3 | 27.78 | 36 | 10 |
+| gpt-4o-mini-2024-07-18 | test_1 | 22.22 | 36 | 8 |
+| gpt-4o-mini-2024-07-18 | test_2 | 30.56 | 36 | 11 |
+| gpt-4o-mini-2024-07-18 | test_3 | 25.00 | 36 | 9 |
 
 ## Gemini Models
 
 | Model | Test | Consistency (%) | Valid Pairs | Same Predictions |
 |-------|------|-----------------|-------------|------------------|
-| gemini-2.5-flash-preview-04-17 | test_1 | 0.00 | 0 | 0 |
-| gemini-2.5-flash-preview-04-17 | test_2 | 0.00 | 0 | 0 |
-| gemini-2.5-flash-preview-04-17 | test_3 | 0.00 | 0 | 0 |
-| gemini-2.5-pro-preview-05-06 | test_1 | 11.11 | 36 | 4 |
-| gemini-2.5-pro-preview-05-06 | test_2 | 46.15 | 26 | 12 |
+| gemini-2.5-flash-preview-05-20 | test_1 | 30.56 | 36 | 11 |
+| gemini-2.5-flash-preview-05-20 | test_2 | 30.56 | 36 | 11 |
+| gemini-2.5-flash-preview-05-20 | test_3 | 33.33 | 36 | 12 |
+| gemini-2.5-pro-preview-05-06 | test_1 | 33.33 | 36 | 12 |
+| gemini-2.5-pro-preview-05-06 | test_2 | 33.33 | 36 | 12 |
 | gemini-2.5-pro-preview-05-06 | test_3 | 33.33 | 36 | 12 |
 
 ## Key Observations
@@ -60,4 +60,4 @@ Consistency is measured by the percentage of image pairs where both images recei
 - For test_1, the clip-vit-base-patch16 model shows the highest consistency (66.67%).
 - For test_2, the clip-vit-large-patch14 model shows the highest consistency (86.11%).
 - For test_3, the clip-vit-base-patch16 model shows the highest consistency (72.22%).
-- gpt-4o shows extreme variation across tests: ranging from 2.86% to 14.29%.
+- gpt-4o-mini-2024-07-18 shows extreme variation across tests: ranging from 22.22% to 30.56%.

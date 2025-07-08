@@ -113,13 +113,15 @@ def generate_readme(model, test_folder, processed_pairs, model_test_dir, output_
     def process_pair(pair, is_correct):
         pair_data = []
         for j, img in enumerate(pair):
-            # Extract image name and create destination path
+            # Extract image name and create destination path with dataset prefix
             img_name = os.path.basename(img['path'])
-            # Create a unique filename based on the image name
-            dest_path = os.path.join(example_dir, f"image_{j+1}_{img_name}")
+            dataset = img['dataset']
+            # Create filename with format: {dataset}_{filename}
+            dest_filename = f"{dataset}_{img_name}"
+            dest_path = os.path.join(example_dir, dest_filename)
             
-            # Copy image if it exists and it's not already copied
-            if os.path.exists(img['path']) and not os.path.exists(dest_path):
+            # Copy image if it exists (always copy to ensure consistency folder is updated)
+            if os.path.exists(img['path']):
                 shutil.copy2(img['path'], dest_path)
             
             # Use path relative to the model_test_dir (where the readme file is located)
@@ -367,8 +369,8 @@ def main():
     # Define models and test folders
     clip_models = ['clip-vit-base-patch32', 'clip-vit-base-patch16', 'clip-vit-large-patch14']
     siglip_models = ['siglip-base-patch16-512', 'siglip-large-patch16-384', 'siglip-so400m-patch14-384']
-    gpt_models = ['gpt-4o', 'gpt-4o-mini']
-    gemini_models = ['gemini-2.5-flash-preview-04-17', 'gemini-2.5-pro-preview-05-06']
+    gpt_models = ['gpt-4o-2024-08-06', 'gpt-4o-mini-2024-07-18']
+    gemini_models = ['gemini-2.5-flash-preview-05-20', 'gemini-2.5-pro-preview-05-06']
     
     all_models = clip_models + siglip_models + gpt_models + gemini_models
     test_folders = ['test_1', 'test_2', 'test_3']
