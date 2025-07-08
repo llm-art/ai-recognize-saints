@@ -1,0 +1,521 @@
+2025-07-08 13:20:00,529 - INFO - Logger initialized for ArtDL/test_2/gpt-4o-mini-2024-07-18
+2025-07-08 13:20:00,529 - INFO - Starting classification for dataset=ArtDL, test=test_2, model=gpt-4o-mini-2024-07-18
+2025-07-08 13:20:00,860 - INFO - Number of images: 1864
+2025-07-08 13:20:00,860 - INFO - Processing dataset: ArtDL
+2025-07-08 13:20:00,861 - INFO - Processing images for test: test_2
+2025-07-08 13:20:00,879 - INFO - Using model: gpt-4o-mini-2024-07-18
+2025-07-08 13:20:00,879 - INFO - === GENERATED PROMPT ===
+2025-07-08 13:20:00,879 - INFO - Dataset: ArtDL, Test: test_2
+2025-07-08 13:20:00,880 - INFO - Hyperparameters: temperature=0.0, top_p=0.1, seed=12345
+2025-07-08 13:20:00,880 - INFO - Prompt content:
+2025-07-08 13:20:00,880 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"antony_of_padua" - the Franciscan monk Antony of Padua; possible attributes: ass, book, crucifix, flowered cross, flaming heart, infant Christ (on book), lily - portrait of male saint
+"john_baptist" - John the Baptist; possible attributes: book, reed cross, baptismal cup, honeycomb, lamb, staff
+"paul" - the apostle Paul of Tarsus; possible attributes: book, scroll, sword
+"francis" - founder of the Order of Friars Minor (Franciscans), Francis(cus) of Assisi; possible attributes: book, crucifix, lily, skull, stigmata
+"mary_magdalene" - the penitent harlot Mary Magdalene; possible attributes: book (or scroll), crown, crown of thorns, crucifix, jar of ointment, mirror, musical instrument, palm-branch, rosary, scourge
+"jerome" - the monk and hermit Jerome (Hieronymus); possible attributes: book, cardinal's hat, crucifix, hour-glass, lion, skull, stone
+"dominic" - Dominic(us) Guzman of Calerueja, founder of the Order of Preachers (or Dominican (Black) Friars; possible attributes: book, dog with flaming torch, lily, loaf of bread, rosary, star
+"mary" - the Virgin Mary
+"peter" - the apostle Peter, first bishop of Rome; possible attributes: book, cock, (upturned) cross, (triple) crozier, fish, key, scroll, ship, tiara
+"sebastian" - the martyr Sebastian; possible attributes: arrow(s), bow, tree-trunk
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2025-07-08 13:20:00,880 - INFO - === END PROMPT ===
+2025-07-08 13:20:00,880 - INFO - Pre-allocated results array for 1864 images
+2025-07-08 13:20:07,792 - INFO - Batch 1: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:20:14,812 - INFO - Batch 2: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:20:18,700 - INFO - Batch 3: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:20:26,936 - INFO - Batch 4: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:20:32,150 - INFO - Batch 5: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:20:32,150 - INFO - Cache saved after 5 batches
+2025-07-08 13:20:35,654 - INFO - Batch 6: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:20:39,459 - INFO - Batch 7: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:20:48,661 - INFO - Batch 8: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:20:51,937 - INFO - Batch 9: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:20:56,560 - INFO - Batch 10: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:20:56,560 - INFO - Cache saved after 10 batches
+2025-07-08 13:21:05,447 - INFO - Batch 11: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:21:10,831 - INFO - Batch 12: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:21:14,937 - INFO - Batch 13: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:21:19,982 - INFO - Batch 14: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:21:27,200 - INFO - Batch 15: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:21:27,201 - INFO - Cache saved after 15 batches
+2025-07-08 13:21:39,181 - INFO - Batch 16: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:21:44,913 - INFO - Batch 17: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:21:50,689 - INFO - Batch 18: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:22:00,122 - INFO - Batch 19: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:22:06,608 - INFO - Batch 20: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:22:06,609 - INFO - Cache saved after 20 batches
+2025-07-08 13:22:11,862 - INFO - Batch 21: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:22:16,432 - INFO - Batch 22: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:22:21,196 - INFO - Batch 23: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:22:26,954 - INFO - Batch 24: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:22:33,878 - INFO - Batch 25: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:22:33,880 - INFO - Cache saved after 25 batches
+2025-07-08 13:22:40,279 - INFO - Batch 26: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:22:47,915 - INFO - Batch 27: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:22:53,525 - INFO - Batch 28: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:22:57,307 - INFO - Batch 29: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:23:03,443 - INFO - Batch 30: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:23:03,444 - INFO - Cache saved after 30 batches
+2025-07-08 13:23:08,585 - INFO - Batch 31: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:23:15,370 - INFO - Batch 32: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:23:22,457 - INFO - Batch 33: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:23:32,461 - INFO - Batch 34: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:23:39,405 - INFO - Batch 35: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:23:39,406 - INFO - Cache saved after 35 batches
+2025-07-08 13:23:43,527 - INFO - Batch 36: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:23:47,921 - INFO - Batch 37: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:23:53,627 - INFO - Batch 38: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:23:59,629 - INFO - Batch 39: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:24:05,940 - INFO - Batch 40: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:24:05,941 - INFO - Cache saved after 40 batches
+2025-07-08 13:24:11,041 - INFO - Batch 41: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:24:15,346 - INFO - Batch 42: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:24:20,729 - INFO - Batch 43: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:24:25,968 - INFO - Batch 44: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:24:33,439 - INFO - Batch 45: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:24:33,441 - INFO - Cache saved after 45 batches
+2025-07-08 13:24:40,974 - INFO - Batch 46: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:24:45,585 - INFO - Batch 47: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:24:50,726 - INFO - Batch 48: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:24:56,799 - INFO - Batch 49: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:25:01,944 - INFO - Batch 50: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:25:01,946 - INFO - Cache saved after 50 batches
+2025-07-08 13:25:08,537 - INFO - Batch 51: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:25:16,779 - INFO - Batch 52: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:25:20,801 - INFO - Batch 53: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:25:24,269 - INFO - Batch 54: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:25:28,316 - INFO - Batch 55: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:25:28,318 - INFO - Cache saved after 55 batches
+2025-07-08 13:25:35,788 - INFO - Batch 56: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:25:40,878 - INFO - Batch 57: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:25:45,727 - INFO - Batch 58: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:25:49,531 - INFO - Batch 59: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:25:53,385 - INFO - Batch 60: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:25:53,387 - INFO - Cache saved after 60 batches
+2025-07-08 13:26:00,001 - INFO - Batch 61: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:26:05,832 - INFO - Batch 62: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:26:11,916 - INFO - Batch 63: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:26:17,165 - INFO - Batch 64: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:26:21,461 - INFO - Batch 65: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:26:21,463 - INFO - Cache saved after 65 batches
+2025-07-08 13:26:25,823 - INFO - Batch 66: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:26:32,502 - INFO - Batch 67: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:26:37,839 - INFO - Batch 68: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:26:41,779 - INFO - Batch 69: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:26:46,861 - INFO - Batch 70: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:26:46,863 - INFO - Cache saved after 70 batches
+2025-07-08 13:26:52,673 - INFO - Batch 71: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:26:56,718 - INFO - Batch 72: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:27:03,999 - INFO - Batch 73: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:27:09,560 - INFO - Batch 74: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:27:15,217 - INFO - Batch 75: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:27:15,220 - INFO - Cache saved after 75 batches
+2025-07-08 13:27:24,554 - INFO - Batch 76: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:27:28,352 - INFO - Batch 77: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:27:31,878 - INFO - Batch 78: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:27:40,298 - INFO - Batch 79: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:27:45,560 - INFO - Batch 80: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:27:45,562 - INFO - Cache saved after 80 batches
+2025-07-08 13:27:48,790 - INFO - Batch 81: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:27:53,501 - INFO - Batch 82: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:27:59,977 - INFO - Batch 83: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:28:04,437 - INFO - Batch 84: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:28:10,516 - INFO - Batch 85: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:28:10,519 - INFO - Cache saved after 85 batches
+2025-07-08 13:28:15,482 - INFO - Batch 86: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:28:20,917 - INFO - Batch 87: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:28:26,319 - INFO - Batch 88: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:28:31,486 - INFO - Batch 89: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:28:37,788 - INFO - Batch 90: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:28:37,790 - INFO - Cache saved after 90 batches
+2025-07-08 13:28:44,600 - INFO - Batch 91: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:28:51,113 - INFO - Batch 92: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:28:54,553 - INFO - Batch 93: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:28:58,874 - INFO - Batch 94: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:29:05,321 - INFO - Batch 95: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:29:05,323 - INFO - Cache saved after 95 batches
+2025-07-08 13:29:09,517 - INFO - Batch 96: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:29:15,801 - INFO - Batch 97: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:29:19,727 - INFO - Batch 98: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:29:27,880 - INFO - Batch 99: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:29:32,884 - INFO - Batch 100: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:29:32,886 - INFO - Cache saved after 100 batches
+2025-07-08 13:29:41,326 - INFO - Batch 101: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:29:48,665 - INFO - Batch 102: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:29:57,064 - INFO - Batch 103: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:30:01,710 - INFO - Batch 104: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:30:05,452 - INFO - Batch 105: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:30:05,455 - INFO - Cache saved after 105 batches
+2025-07-08 13:30:11,237 - INFO - Batch 106: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:30:16,380 - INFO - Batch 107: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:30:21,895 - INFO - Batch 108: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:30:27,334 - INFO - Batch 109: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:30:30,547 - INFO - Batch 110: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:30:30,550 - INFO - Cache saved after 110 batches
+2025-07-08 13:30:37,090 - INFO - Batch 111: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:30:54,157 - INFO - Batch 112: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:31:04,242 - INFO - Batch 113: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:31:10,492 - INFO - Batch 114: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:31:18,978 - INFO - Batch 115: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:31:18,982 - INFO - Cache saved after 115 batches
+2025-07-08 13:31:24,723 - INFO - Batch 116: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:31:29,517 - INFO - Batch 117: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:31:36,079 - INFO - Batch 118: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:31:42,431 - INFO - Batch 119: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:31:47,080 - INFO - Batch 120: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:31:47,083 - INFO - Cache saved after 120 batches
+2025-07-08 13:31:54,478 - INFO - Batch 121: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:32:02,864 - INFO - Batch 122: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:32:06,082 - INFO - Batch 123: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:32:15,181 - INFO - Batch 124: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:32:22,196 - INFO - Batch 125: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:32:22,200 - INFO - Cache saved after 125 batches
+2025-07-08 13:32:26,910 - INFO - Batch 126: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:32:32,710 - INFO - Batch 127: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:32:40,991 - INFO - Batch 128: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:32:47,735 - INFO - Batch 129: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:32:52,086 - INFO - Batch 130: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:32:52,090 - INFO - Cache saved after 130 batches
+2025-07-08 13:32:57,410 - INFO - Batch 131: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:33:08,766 - INFO - Batch 132: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:33:12,193 - INFO - Batch 133: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:33:16,882 - INFO - Batch 134: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:33:22,627 - INFO - Batch 135: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:33:22,631 - INFO - Cache saved after 135 batches
+2025-07-08 13:33:26,098 - INFO - Batch 136: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:33:31,241 - INFO - Batch 137: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:33:39,210 - INFO - Batch 138: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:33:47,796 - INFO - Batch 139: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:33:54,314 - INFO - Batch 140: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:33:54,318 - INFO - Cache saved after 140 batches
+2025-07-08 13:33:57,686 - INFO - Batch 141: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:34:04,011 - INFO - Batch 142: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:34:09,132 - INFO - Batch 143: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:34:17,166 - INFO - Batch 144: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:34:21,549 - INFO - Batch 145: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:34:21,553 - INFO - Cache saved after 145 batches
+2025-07-08 13:34:26,117 - INFO - Batch 146: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:34:29,698 - INFO - Batch 147: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:34:32,529 - INFO - Batch 148: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:34:37,171 - INFO - Batch 149: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:34:41,047 - INFO - Batch 150: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:34:41,051 - INFO - Cache saved after 150 batches
+2025-07-08 13:34:48,189 - INFO - Batch 151: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:34:51,591 - INFO - Batch 152: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:34:58,180 - INFO - Batch 153: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:35:03,045 - INFO - Batch 154: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:35:09,877 - INFO - Batch 155: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:35:09,881 - INFO - Cache saved after 155 batches
+2025-07-08 13:35:17,279 - INFO - Batch 156: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:35:24,212 - INFO - Batch 157: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:35:33,154 - INFO - Batch 158: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:35:40,144 - INFO - Batch 159: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:35:46,792 - INFO - Batch 160: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:35:46,796 - INFO - Cache saved after 160 batches
+2025-07-08 13:35:52,264 - INFO - Batch 161: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:35:58,063 - INFO - Batch 162: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:36:21,348 - INFO - Batch 163: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:36:29,435 - INFO - Batch 164: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:36:33,532 - INFO - Batch 165: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:36:33,536 - INFO - Cache saved after 165 batches
+2025-07-08 13:36:38,950 - INFO - Batch 166: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:36:43,260 - INFO - Batch 167: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:36:47,956 - INFO - Batch 168: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:36:55,294 - INFO - Batch 169: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:36:59,134 - INFO - Batch 170: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:36:59,138 - INFO - Cache saved after 170 batches
+2025-07-08 13:37:04,144 - INFO - Batch 171: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:37:12,808 - INFO - Batch 172: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:37:16,608 - INFO - Batch 173: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:37:22,238 - INFO - Batch 174: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:37:26,324 - INFO - Batch 175: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:37:26,329 - INFO - Cache saved after 175 batches
+2025-07-08 13:37:30,267 - INFO - Batch 176: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:37:35,292 - INFO - Batch 177: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:37:39,646 - INFO - Batch 178: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:37:43,104 - INFO - Batch 179: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:37:51,424 - INFO - Batch 180: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:37:51,429 - INFO - Cache saved after 180 batches
+2025-07-08 13:37:57,873 - INFO - Batch 181: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:38:06,530 - INFO - Batch 182: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:38:06,530 - WARNING - Item ICCD4095155_00128059: No prediction in response, using uniform distribution
+2025-07-08 13:38:06,530 - WARNING - Item ICCD4095161_00128062: No prediction in response, using uniform distribution
+2025-07-08 13:38:13,315 - INFO - Batch 183: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:38:13,316 - WARNING - Unknown class ID or alias: michael
+2025-07-08 13:38:13,316 - WARNING - Item ICCD4100255_00128910: Could not resolve class 'michael', using uniform distribution
+2025-07-08 13:38:18,717 - INFO - Batch 184: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:38:22,937 - INFO - Batch 185: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:38:22,942 - INFO - Cache saved after 185 batches
+2025-07-08 13:38:28,159 - INFO - Batch 186: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:38:32,690 - INFO - Batch 187: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:38:36,107 - INFO - Batch 188: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:38:40,793 - INFO - Batch 189: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:38:47,152 - INFO - Batch 190: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:38:47,157 - INFO - Cache saved after 190 batches
+2025-07-08 13:38:52,108 - INFO - Batch 191: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:39:03,186 - INFO - Batch 192: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:39:10,853 - INFO - Batch 193: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:39:14,209 - INFO - Batch 194: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:39:20,552 - INFO - Batch 195: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:39:20,557 - INFO - Cache saved after 195 batches
+2025-07-08 13:39:28,931 - INFO - Batch 196: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:39:34,296 - INFO - Batch 197: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:39:45,071 - INFO - Batch 198: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:39:49,841 - INFO - Batch 199: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:39:59,463 - INFO - Batch 200: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:39:59,468 - INFO - Cache saved after 200 batches
+2025-07-08 13:40:03,660 - INFO - Batch 201: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:40:08,373 - INFO - Batch 202: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:40:12,007 - INFO - Batch 203: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:40:20,655 - INFO - Batch 204: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:40:25,716 - INFO - Batch 205: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:40:25,721 - INFO - Cache saved after 205 batches
+2025-07-08 13:40:32,531 - INFO - Batch 206: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:40:40,364 - INFO - Batch 207: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:40:44,113 - INFO - Batch 208: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:40:53,411 - INFO - Batch 209: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:40:59,774 - INFO - Batch 210: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:40:59,779 - INFO - Cache saved after 210 batches
+2025-07-08 13:41:07,371 - INFO - Batch 211: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:41:10,442 - INFO - Batch 212: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:41:15,681 - INFO - Batch 213: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:41:21,485 - INFO - Batch 214: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:41:28,491 - INFO - Batch 215: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:41:28,496 - INFO - Cache saved after 215 batches
+2025-07-08 13:41:35,839 - INFO - Batch 216: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:41:39,693 - INFO - Batch 217: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:41:43,494 - INFO - Batch 218: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:41:48,082 - INFO - Batch 219: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:41:53,403 - INFO - Batch 220: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:41:53,409 - INFO - Cache saved after 220 batches
+2025-07-08 13:42:00,631 - INFO - Batch 221: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:42:03,956 - INFO - Batch 222: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:42:08,953 - INFO - Batch 223: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:42:13,042 - INFO - Batch 224: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:42:19,304 - INFO - Batch 225: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:42:19,309 - INFO - Cache saved after 225 batches
+2025-07-08 13:42:24,113 - INFO - Batch 226: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:42:29,694 - INFO - Batch 227: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:42:35,558 - INFO - Batch 228: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:42:41,868 - INFO - Batch 229: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:42:47,569 - INFO - Batch 230: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:42:47,575 - INFO - Cache saved after 230 batches
+2025-07-08 13:42:53,625 - INFO - Batch 231: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:42:59,420 - INFO - Batch 232: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:43:03,305 - INFO - Batch 233: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:43:08,757 - INFO - Batch 234: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:43:12,750 - INFO - Batch 235: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:43:12,756 - INFO - Cache saved after 235 batches
+2025-07-08 13:43:19,752 - INFO - Batch 236: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:43:24,689 - INFO - Batch 237: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:43:30,417 - INFO - Batch 238: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:43:35,683 - INFO - Batch 239: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:43:41,618 - INFO - Batch 240: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:43:41,624 - INFO - Cache saved after 240 batches
+2025-07-08 13:43:45,694 - INFO - Batch 241: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:43:50,739 - INFO - Batch 242: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:43:55,210 - INFO - Batch 243: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:44:01,390 - INFO - Batch 244: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:44:06,250 - INFO - Batch 245: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:44:06,257 - INFO - Cache saved after 245 batches
+2025-07-08 13:44:09,910 - INFO - Batch 246: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:44:16,520 - INFO - Batch 247: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:44:19,889 - INFO - Batch 248: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:44:27,285 - INFO - Batch 249: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:44:32,852 - INFO - Batch 250: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:44:32,858 - INFO - Cache saved after 250 batches
+2025-07-08 13:44:39,439 - INFO - Batch 251: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:44:45,134 - INFO - Batch 252: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:44:52,633 - INFO - Batch 253: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:44:58,576 - INFO - Batch 254: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:45:03,848 - INFO - Batch 255: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:45:03,854 - INFO - Cache saved after 255 batches
+2025-07-08 13:45:11,443 - INFO - Batch 256: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:45:18,591 - INFO - Batch 257: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:45:25,940 - INFO - Batch 258: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:45:30,500 - INFO - Batch 259: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:45:37,432 - INFO - Batch 260: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:45:37,438 - INFO - Cache saved after 260 batches
+2025-07-08 13:45:41,945 - INFO - Batch 261: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:45:46,513 - INFO - Batch 262: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:45:52,162 - INFO - Batch 263: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:45:56,062 - INFO - Batch 264: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:46:01,752 - INFO - Batch 265: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:46:01,758 - INFO - Cache saved after 265 batches
+2025-07-08 13:46:06,441 - INFO - Batch 266: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:46:10,438 - INFO - Batch 267: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:46:16,943 - INFO - Batch 268: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:46:22,916 - INFO - Batch 269: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:46:28,315 - INFO - Batch 270: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:46:28,322 - INFO - Cache saved after 270 batches
+2025-07-08 13:46:32,997 - INFO - Batch 271: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:46:37,325 - INFO - Batch 272: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:46:42,191 - INFO - Batch 273: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:46:46,460 - INFO - Batch 274: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:46:52,832 - INFO - Batch 275: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:46:52,839 - INFO - Cache saved after 275 batches
+2025-07-08 13:46:56,980 - INFO - Batch 276: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:47:00,439 - INFO - Batch 277: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:47:05,808 - INFO - Batch 278: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:47:10,578 - INFO - Batch 279: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:47:14,501 - INFO - Batch 280: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:47:14,508 - INFO - Cache saved after 280 batches
+2025-07-08 13:47:19,323 - INFO - Batch 281: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:47:24,396 - INFO - Batch 282: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:47:30,523 - INFO - Batch 283: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:47:37,333 - INFO - Batch 284: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:47:42,735 - INFO - Batch 285: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:47:42,742 - INFO - Cache saved after 285 batches
+2025-07-08 13:47:51,433 - INFO - Batch 286: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:48:00,860 - INFO - Batch 287: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:48:17,856 - INFO - Batch 288: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:48:31,218 - INFO - Batch 289: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:48:36,214 - INFO - Batch 290: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:48:36,221 - INFO - Cache saved after 290 batches
+2025-07-08 13:48:54,107 - INFO - Batch 291: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:48:59,242 - INFO - Batch 292: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:49:03,611 - INFO - Batch 293: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:49:10,429 - INFO - Batch 294: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:49:24,813 - INFO - Batch 295: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:49:24,821 - INFO - Cache saved after 295 batches
+2025-07-08 13:49:29,480 - INFO - Batch 296: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:49:34,845 - INFO - Batch 297: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:49:39,099 - INFO - Batch 298: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:49:42,935 - INFO - Batch 299: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:49:47,122 - INFO - Batch 300: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:49:47,130 - INFO - Cache saved after 300 batches
+2025-07-08 13:49:51,596 - INFO - Batch 301: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:50:00,422 - INFO - Batch 302: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:50:03,707 - INFO - Batch 303: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:50:13,208 - INFO - Batch 304: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:50:17,900 - INFO - Batch 305: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:50:17,908 - INFO - Cache saved after 305 batches
+2025-07-08 13:50:26,133 - INFO - Batch 306: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:50:42,207 - INFO - Batch 307: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:50:48,727 - INFO - Batch 308: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:50:56,459 - INFO - Batch 309: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:51:02,097 - INFO - Batch 310: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:51:02,105 - INFO - Cache saved after 310 batches
+2025-07-08 13:51:06,090 - INFO - Batch 311: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:51:09,901 - INFO - Batch 312: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:51:15,352 - INFO - Batch 313: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:51:19,919 - INFO - Batch 314: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:51:28,445 - INFO - Batch 315: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:51:28,454 - INFO - Cache saved after 315 batches
+2025-07-08 13:51:37,632 - INFO - Batch 316: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:51:42,706 - INFO - Batch 317: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:51:48,181 - INFO - Batch 318: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:51:53,868 - INFO - Batch 319: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:51:59,628 - INFO - Batch 320: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:51:59,637 - INFO - Cache saved after 320 batches
+2025-07-08 13:52:06,443 - INFO - Batch 321: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:52:10,542 - INFO - Batch 322: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:52:16,390 - INFO - Batch 323: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:52:22,873 - INFO - Batch 324: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:52:30,093 - INFO - Batch 325: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:52:30,101 - INFO - Cache saved after 325 batches
+2025-07-08 13:52:35,519 - INFO - Batch 326: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:52:39,249 - INFO - Batch 327: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:52:44,143 - INFO - Batch 328: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:52:46,947 - INFO - Batch 329: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:52:50,241 - INFO - Batch 330: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:52:50,250 - INFO - Cache saved after 330 batches
+2025-07-08 13:52:54,253 - INFO - Batch 331: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:52:59,239 - INFO - Batch 332: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:53:04,071 - INFO - Batch 333: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:53:07,814 - INFO - Batch 334: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:53:12,391 - INFO - Batch 335: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:53:12,399 - INFO - Cache saved after 335 batches
+2025-07-08 13:53:17,387 - INFO - Batch 336: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:53:22,318 - INFO - Batch 337: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:53:27,122 - INFO - Batch 338: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:53:30,257 - INFO - Batch 339: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:53:34,403 - INFO - Batch 340: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:53:34,412 - INFO - Cache saved after 340 batches
+2025-07-08 13:53:40,873 - INFO - Batch 341: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:53:43,891 - INFO - Batch 342: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:53:51,162 - INFO - Batch 343: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:53:55,868 - INFO - Batch 344: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:54:03,067 - INFO - Batch 345: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:54:03,076 - INFO - Cache saved after 345 batches
+2025-07-08 13:54:07,958 - INFO - Batch 346: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:54:12,458 - INFO - Batch 347: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:54:19,890 - INFO - Batch 348: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:54:37,858 - INFO - Batch 349: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:54:55,704 - INFO - Batch 350: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:54:55,712 - INFO - Cache saved after 350 batches
+2025-07-08 13:55:01,756 - INFO - Batch 351: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:55:06,610 - INFO - Batch 352: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:55:11,849 - INFO - Batch 353: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:55:21,711 - INFO - Batch 354: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:55:28,084 - INFO - Batch 355: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:55:28,094 - INFO - Cache saved after 355 batches
+2025-07-08 13:55:31,357 - INFO - Batch 356: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:55:42,644 - INFO - Batch 357: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:55:59,120 - INFO - Batch 358: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:56:03,351 - INFO - Batch 359: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:56:07,318 - INFO - Batch 360: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:56:07,327 - INFO - Cache saved after 360 batches
+2025-07-08 13:56:11,851 - INFO - Batch 361: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:56:16,898 - INFO - Batch 362: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:56:19,807 - INFO - Batch 363: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:56:28,036 - INFO - Batch 364: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:56:31,593 - INFO - Batch 365: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:56:31,601 - INFO - Cache saved after 365 batches
+2025-07-08 13:56:36,550 - INFO - Batch 366: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:56:42,422 - INFO - Batch 367: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:56:47,657 - INFO - Batch 368: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:56:52,906 - INFO - Batch 369: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:56:57,319 - INFO - Batch 370: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:56:57,328 - INFO - Cache saved after 370 batches
+2025-07-08 13:57:02,496 - INFO - Batch 371: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:57:07,658 - INFO - Batch 372: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:57:11,636 - INFO - Batch 373: system_fingerprint=fp_62a23a81ef
+2025-07-08 13:57:11,645 - INFO - Total input tokens used: 49904499
+2025-07-08 13:57:11,645 - INFO - Total output tokens used: 50302
+2025-07-08 13:57:11,645 - INFO - Total cost of this call: $7.5159
+2025-07-08 13:57:11,645 - INFO - Total images processed: 1864
+2025-07-08 13:57:11,645 - INFO - Successfully processed: 1864
+2025-07-08 13:57:11,645 - INFO - Failed/uniform placeholders: 0
+2025-07-08 13:57:11,645 - INFO - Final probabilities shape: (1864, 10)
+2025-07-08 13:57:11,646 - INFO - Probabilities shape: (1864, 10)
