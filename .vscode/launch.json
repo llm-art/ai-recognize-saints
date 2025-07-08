@@ -304,6 +304,27 @@
       ]
     },
     {
+      "name": "[GPT] evaluate",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/script/evaluate.py",
+      "console": "integratedTerminal",
+      "args": [
+        "--models",
+        "gpt-4o-2024-08-06",
+        "--models",
+        "gpt-4o-mini-2024-07-18",
+        "--datasets",
+        "ArtDL",
+        "--folders",
+        "test_1",
+        "--folders",
+        "test_2",
+        "--folders",
+        "test_3",
+      ]
+    },
+    {
       "name": "[GPT] evaluate wikidata",
       "type": "debugpy",
       "request": "launch",
