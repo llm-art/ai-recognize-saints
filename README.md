@@ -1,19 +1,8 @@
-# Zero-shot classification for Christian iconography
+# Benchmarking Multimodal Large Language Models in Zero-shot and Few-shot Scenarios: A study on Christian Iconography
 
-This experiment involves testing Zero-shot (and few-shot) image classification with LLMs against the performances of a fine-tuned supervised approach.
-Specifically, we consider the datasets proposed in [XX, XX, XX].
+This repository is a work in progress. Currently, it serves as the repository for the publication "Benchmarking Multimodal Large Language Models in Zero-shot and Few-shot Scenarios: preliminary results on studying Christian Iconography".
 
-Primary datasets:
-
-1. [ArtDL](https://artdl.org/)
-2. [ICONCLASS AI test set](https://iconclass.org/testset/)
-3. [Wikidata]()
-
-For each dataset, we perform three tests:
-
-1. A zero-shot approach with only labels
-2. A few-shot approach with 5 to 10 images.
-3. zero-shot approach with labels and their descriptions
+Currently, analyses on Gemini and GPT are complete, while CLIP and SigLIP require further fine-tuning.
 
 ## Models
 
@@ -79,5 +68,3 @@ In the current experiments, I tested two types of models: Vision-Language Encode
 | baseline artdl full            | 15.75%               |                            |                                                                  |
 | baseline artdl shared          | 28.08%               |                            |                                                                  |
 | baseline resnet50 trained      | 43.97%               |                            |                                                                  |
-
-see https://community.openai.com/t/achieving-deterministic-api-output-on-language-models-howto/418318
