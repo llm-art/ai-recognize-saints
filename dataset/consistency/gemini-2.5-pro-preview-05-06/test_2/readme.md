@@ -21,14 +21,10 @@
 
 | Pair | Image 1 | Dataset | Ground Truth | Predicted | Image 2 | Dataset | Ground Truth | Predicted |
 |------|---------|---------|--------------|-----------|---------|---------|--------------|-----------|
-| 1 | ![Image 1](../../example/ArtDL_ICCD3163621_13815-H.jpg) | ArtDL | 11F(MARY) | 11F(MARY) | ![Image 2](../../example/ICONCLASS_IIHIM_-1335425534.jpg) | ICONCLASS | 11HH(MARY MAGDALENE) | 11HH(MARY MAGDALENE) |
-| 2 | ![Image 1](../../example/ArtDL_ICCD3163621_13815-H.jpg) | ArtDL | 11F(MARY) | 11F(MARY) | ![Image 2](../../example/ICONCLASS_IIHIM_RIJKS_1401436342.jpg) | ICONCLASS | 11HH(MARY MAGDALENE) | 11HH(MARY MAGDALENE) |
-| 3 | ![Image 1](../../example/ArtDL_ICCD3710537_375754.jpg) | ArtDL | 11F(MARY) | 11F(MARY) | ![Image 2](../../example/ICONCLASS_IIHIM_RIJKS_1827277148.jpg) | ICONCLASS | 11HH(CATHERINE) | 11HH(CATHERINE) |
-| 4 | ![Image 1](../../example/ArtDL_ICCD4203971_00069043.jpg) | ArtDL | 11F(MARY) | 11F(MARY) | ![Image 2](../../example/ICONCLASS_IIHIM_-1335425534.jpg) | ICONCLASS | 11HH(MARY MAGDALENE) | 11HH(MARY MAGDALENE) |
-| 5 | ![Image 1](../../example/ArtDL_1939_1_291.jpg) | ArtDL | 11H(JOHN THE BAPTIST) | 11H(JOHN THE BAPTIST) | ![Image 2](../../example/wikidata_Q20173065.jpg) | wikidata | 11H(JOHN THE BAPTIST) | 11H(PAUL) |
-| 6 | ![Image 1](../../example/ArtDL_1939_1_80.jpg) | ArtDL | 11H(PETER) | 11H(PETER) | ![Image 2](../../example/wikidata_Q20173671.jpg) | wikidata | 11H(PETER) | 11H(JOHN THE BAPTIST) |
-| 7 | ![Image 1](../../example/ArtDL_1950_11_1_a.jpg) | ArtDL | 11H(PETER) | 11H(PETER) | ![Image 2](../../example/wikidata_Q20173413.jpg) | wikidata | 11H(PETER) | 11H(JOHN THE BAPTIST) |
-| 8 | ![Image 1](../../example/ArtDL_253141.jpg) | ArtDL | 11H(JEROME) | 11H(JEROME) | ![Image 2](../../example/wikidata_Q3947314.jpg) | wikidata | 11H(JEROME) | 11HH(CATHERINE) |
+| 1 | ![Image 1](../../example/ArtDL_1939_1_291.jpg) | ArtDL | 11H(JOHN THE BAPTIST) | 11H(JOHN THE BAPTIST) | ![Image 2](../../example/wikidata_Q20173065.jpg) | wikidata | 11H(JOHN THE BAPTIST) | 11H(PAUL) |
+| 2 | ![Image 1](../../example/ArtDL_1939_1_80.jpg) | ArtDL | 11H(PETER) | 11H(PETER) | ![Image 2](../../example/wikidata_Q20173671.jpg) | wikidata | 11H(PETER) | 11H(JOHN THE BAPTIST) |
+| 3 | ![Image 1](../../example/ArtDL_1950_11_1_a.jpg) | ArtDL | 11H(PETER) | 11H(PETER) | ![Image 2](../../example/wikidata_Q20173413.jpg) | wikidata | 11H(PETER) | 11H(JOHN THE BAPTIST) |
+| 4 | ![Image 1](../../example/ArtDL_253141.jpg) | ArtDL | 11H(JEROME) | 11H(JEROME) | ![Image 2](../../example/wikidata_Q3947314.jpg) | wikidata | 11H(JEROME) | 11HH(CATHERINE) |
 | 9 | ![Image 1](../../example/ArtDL_253669.jpg) | ArtDL | 11HH(MARY MAGDALENE) | 11HH(MARY MAGDALENE) | ![Image 2](../../example/wikidata_Q20540321.jpg) | wikidata | 11HH(MARY MAGDALENE) | 11H(PETER) |
 | 10 | ![Image 1](../../example/ArtDL_Q19925792.jpg) | ArtDL | 11HH(MARY MAGDALENE) | 11HH(MARY MAGDALENE) | ![Image 2](../../example/wikidata_Q19925792.jpg) | wikidata | 11HH(MARY MAGDALENE) | 11H(JEROME) |
 | 11 | ![Image 1](../../example/ArtDL_Q20173413.jpg) | ArtDL | 11H(PETER) | 11H(PETER) | ![Image 2](../../example/wikidata_Q20173413.jpg) | wikidata | 11H(PETER) | 11H(JOHN THE BAPTIST) |
