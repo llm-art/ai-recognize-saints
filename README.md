@@ -3,29 +3,68 @@
 This repository contains a the work for the preliminary result of the paper  
 **Benchmarking Multimodal Large Language Models in Zero-shot and Few-shot Scenarios: preliminary results on studying Christian Iconography**.
 
+## Prompt Engineering Example
 
-## Key Findings - Publication-Ready Results
+The evaluation framework uses carefully crafted prompts optimized for Christian iconography classification. Here's an example from the ArtDL dataset (zero-shot with labels):
 
-### Multimodal LLM Performance (Validated Results)
+```plaintext
+You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
 
-1. **Superior classification accuracy** - Gemini 2.5 Pro and GPT-4o achieve 83-90% accuracy across Christian iconography datasets
-2. **Consistent cross-dataset performance** - LLMs maintain robust performance across ArtDL, ICONCLASS, and Wikidata datasets
-3. **Minimal prompt sensitivity** - Performance remains stable whether using class labels or detailed descriptions
-4. **Cost-effective few-shot learning** - Few-shot approaches show marginal improvements over zero-shot, indicating strong pre-training capabilities
 
-### Cross-Dataset Analysis (LLM Focus)
 
-- **ArtDL**: Highest LLM performance (Gemini 2.5 Pro: 90.45%, GPT-4o: 86.00%)
-- **ICONCLASS**: Strong LLM performance (Gemini 2.5 Pro: 83.31%, GPT-4o: 75.32%)  
-- **Wikidata**: Moderate LLM performance showing dataset complexity effects
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
 
-### Experimental Results (Vision-Language Encoders)
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
 
-*Note: The following results are preliminary and under development for publication standards.*
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
 
-- **CLIP variants**: Performance scales with model size, ranging from 16-57% accuracy
-- **SigLIP models**: Generally outperform CLIP variants, achieving 43-66% accuracy
-- **Contrastive learning limitations**: Significant performance gap compared to generative LLMs
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"antony_of_padua" - Antony of Padua
+"john_baptist" - John the Baptist
+"paul" - Paul
+"francis" - Francis of Assisi
+"mary_magdalene" - Mary Magdalene
+"jerome" - Jerome
+"dominic" - Saint Dominic
+"mary" - Virgin Mary
+"peter" - Peter
+"sebastian" - Saint Sebastian
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+```
+
+**Prompt Variations:**
+- **`test_1/`**: Zero-shot classification using only category labels
+- **`test_2/`**: Zero-shot classification with detailed iconographic descriptions  
+- **`test_3/`**: Few-shot learning with 5-10 example images per category
+
+All prompts are stored in the `prompts/` directory, organized by dataset and test configuration.
 
 ## Repository Overview
 
@@ -38,7 +77,7 @@ This repository presents a comprehensive evaluation framework for zero-shot and 
 - **Traditional Supervised Baselines** (ResNet-50) - Established baseline comparisons
 
 **Experimental/Development Status:**
-- **Vision-Language Encoders** (CLIP, SigLIP) - Results available but not finalized for publication
+- **Vision-Language Encoders** (CLIP, SigLIP, BLIP2) - Not all results available
 
 The evaluation is conducted across three specialized datasets focusing on Christian iconography and religious art classification.
 
@@ -50,7 +89,7 @@ The evaluation is conducted across three specialized datasets focusing on Christ
 
 ## Scripts Overview and Usage
 
-The `script/` directory contains the core evaluation framework with distinct categories of execution scripts based on publication readiness.
+The `script/` directory contains the core evaluation framework.
 
 ### Publication-Ready: Multimodal LLM Scripts
 
@@ -255,16 +294,16 @@ The following models have been thoroughly evaluated and validated for publicatio
 
 | Model Name        | Type                     | Status                   | Notes                     |
 |------------------|--------------------------|--------------------------|---------------------------|
-| CLIP (ViT-B/32)   | Vision-Language Encoder   | Experimental             | Contrastive learning evaluation in progress |
-| CLIP (ViT-B/16)   | Vision-Language Encoder   | Experimental             | Under development for publication |
-| CLIP (ViT-L/14)   | Vision-Language Encoder   | Experimental             | Preliminary results only |
-| SigLIP (ViT-B/16) | Vision-Language Encoder   | Experimental             | Sigmoid-based training evaluation |
-| SigLIP (ViT-L/16) | Vision-Language Encoder   | Experimental             | Not ready for publication |
-| SigLIP (So400M)   | Vision-Language Encoder   | Experimental             | Large-scale model under evaluation |
+| CLIP (ViT-B/32)   |                          |                          |                           |
+| CLIP (ViT-B/16)   |                          |                          |                           |
+| CLIP (ViT-L/14)   |                          |                          |                           |
+| SigLIP (ViT-B/16) |                          |                          |                           |
+| SigLIP (ViT-L/16) |                          |                          |                           |
+| SigLIP (So400M)   |                          |                          |                           |
 
 ## Publication-Ready Results
 
-### ArtDL Dataset Results (Validated)
+### ArtDL Dataset Results
 | Model                          | zero-shot (labels)   | zero-shot (descriptions)   | few-shot (labels)   |
 |:-------------------------------|:---------------------|:---------------------------|:-------------------|
 | **gpt-4o-2024-08-06**          | **86.00%**           | **87.45%**                 | **86.48%**         |
@@ -273,7 +312,7 @@ The following models have been thoroughly evaluated and validated for publicatio
 | **gemini-2.5-pro-preview**     | **90.45%**           | **90.18%**                 | **86.59%**         |
 | Baseline (ResNet-50)           | 84.44%               | -                          | -                  |
 
-### ICONCLASS Dataset Results (Validated)
+### ICONCLASS Dataset Results
 | Model                          | zero-shot (labels)   | zero-shot (descriptions)   | few-shot (labels)   |
 |:-------------------------------|:---------------------|:---------------------------|:-------------------|
 | **gpt-4o-2024-08-06**          | **75.32%**           | **75.43%**                 | **73.46%**         |
@@ -282,7 +321,7 @@ The following models have been thoroughly evaluated and validated for publicatio
 | **gemini-2.5-pro-preview**     | **83.31%**           | **84.82%**                 | **84.59%**         |
 | Baseline (ResNet-50)           | 40.46%               | -                          | -                  |
 
-### Wikidata Dataset Results (Validated)  
+### Wikidata Dataset Results 
 | Model                          | zero-shot (labels)   | zero-shot (descriptions)   | few-shot (labels)   |
 |:-------------------------------|:---------------------|:---------------------------|:-------------------|
 | **gpt-4o-2024-08-06**          | **45.75%**           | **45.31%**                 | **45.31%**         |
@@ -291,71 +330,7 @@ The following models have been thoroughly evaluated and validated for publicatio
 | **gemini-2.5-pro-preview**     | **45.89%**           | **45.31%**                 | **47.07%**         |
 | Baseline (ResNet-50)           | 43.97%               | -                          | -                  |
 
-## Experimental Results (Development Status)
-
-*The following results are preliminary and under development for publication standards.*
-
-### ArtDL Dataset - Experimental Models
-| Model                          | zero-shot (labels)   | zero-shot (descriptions)   | few-shot (labels)   |
-|:-------------------------------|:---------------------|:---------------------------|:-------------------|
-| clip-vit-base-patch32          | 16.15%               | 31.55%                     | 21.41%             |
-| clip-vit-base-patch16          | 25.64%               | 28.70%                     | 29.13%             |
-| clip-vit-large-patch14         | 30.58%               | 44.31%                     | 31.71%             |
-| siglip-base-patch16-512        | 48.71%               | 68.19%                     | 55.90%             |
-| siglip-large-patch16-384       | 54.45%               | 72.21%                     | 53.49%             |
-| siglip-so400m-patch14-384      | 53.86%               | 70.55%                     | 56.38%             |
-
-### ICONCLASS Dataset - Experimental Models
-| Model                          | zero-shot (labels)   | zero-shot (descriptions)   | few-shot (labels)   |
-|:-------------------------------|:---------------------|:---------------------------|:-------------------|
-| clip-vit-base-patch32          | 24.74%               | 29.30%                     | 29.82%             |
-| clip-vit-base-patch16          | 30.00%               | 27.37%                     | 33.51%             |
-| clip-vit-large-patch14         | 40.00%               | 35.44%                     | 42.81%             |
-| siglip-base-patch16-512        | 43.51%               | 33.33%                     | 41.93%             |
-| siglip-large-patch16-384       | 48.95%               | 38.77%                     | 49.30%             |
-| siglip-so400m-patch14-384      | 59.47%               | 53.16%                     | 60.88%             |
-
-### Wikidata Dataset - Experimental Models
-| Model                          | zero-shot (labels)   | zero-shot (descriptions)   | few-shot (labels)   |
-|:-------------------------------|:---------------------|:---------------------------|:-------------------|
-| clip-vit-base-patch32          | 45.95%               | 44.52%                     | 45.52%             |
-| clip-vit-base-patch16          | 50.78%               | 46.66%                     | 47.08%             |
-| clip-vit-large-patch14         | 56.76%               | 56.61%                     | 55.48%             |
-| siglip-base-patch16-512        | 57.47%               | 46.94%                     | 56.05%             |
-| siglip-large-patch16-384       | 60.03%               | 43.95%                     | 61.17%             |
-| siglip-so400m-patch14-384      | 66.29%               | 59.60%                     | 64.86%             |
-## Future Work
-
-This framework provides a foundation for several research directions:
-
-- **Extended model evaluation** - Testing additional vision-language models and architectures
-- **Cross-domain transfer** - Evaluating model performance across different artistic domains
-- **Prompt engineering** - Systematic optimization of prompts for improved classification
-- **Multimodal fusion** - Combining multiple model outputs for enhanced performance
-- **Temporal analysis** - Studying how model capabilities evolve with new releases
 
 ## Citation
 
-If you use this work in your research, please cite:
-
-```bibtex
-@article{author2024iconography,
-  title={Zero-shot Classification for Christian Iconography: A Comparative Study of Vision-Language Models},
-  author={Author Name},
-  journal={Conference/Journal Name},
-  year={2024}
-}
-```
-
-## References
-
-For implementation details and additional context, see:
-- [OpenAI API Documentation](https://platform.openai.com/docs)
-- [Google Gemini API](https://ai.google.dev/docs)
-- [Hugging Face Transformers](https://huggingface.co/docs/transformers)
-
----
-
-*Note: API costs and deterministic output considerations are documented in the OpenAI community guidelines.*
-
-see https://community.openai.com/t/achieving-deterministic-api-output-on-language-models-howto/418318
+todo
