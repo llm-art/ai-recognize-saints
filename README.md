@@ -1,11 +1,11 @@
 # Benchmarking Multimodal Large Language Models in Zero-shot and Few-shot Scenarios: A study on Christian Iconography
 
-This repository contains a the work for the preliminary result of the paper  
+This repository contains the code for the following paper:
 **Benchmarking Multimodal Large Language Models in Zero-shot and Few-shot Scenarios: preliminary results on studying Christian Iconography**.
 
 ## Prompt Engineering Example
 
-The evaluation framework uses carefully crafted prompts optimized for Christian iconography classification. Here's an example from the ArtDL dataset (zero-shot with labels):
+The evaluation framework creates the prompts at runtime. Here is an example of the full prompt created by the script for the ArtDL dataset (zero-shot with labels):
 
 ```plaintext
 You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
@@ -59,27 +59,26 @@ Some artworks include scenes of martyrdom or classical nudity as typical in reli
 Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
 ```
 
-**Prompt Variations:**
+The prompt varies from test to test
 - **`test_1/`**: Zero-shot classification using only category labels
 - **`test_2/`**: Zero-shot classification with detailed iconographic descriptions  
-- **`test_3/`**: Few-shot learning with 5-10 example images per category
+- **`test_3/`**: Few-shot learning with 5 example images per category
 
 All prompts are stored in the `prompts/` directory, organized by dataset and test configuration.
 
 ## Repository Overview
 
-This repository presents a comprehensive evaluation framework for zero-shot and few-shot image classification approaches on Christian iconography datasets. The primary focus is on **Multimodal Large Language Models (MLLMs)**, which have been thoroughly tested and validated for publication.
+This repository presents a comprehensive evaluation framework for zero-shot and few-shot image classification approaches on Christian iconography datasets. The primary focus is on **Multimodal Large Language Models (MLLMs)**
 
 ### Model Categories
 
-**Publication-Ready Results:**
 - **Large Multimodal Models** (GPT-4o, Gemini 2.5) - Complete evaluation with validated results
 - **Traditional Supervised Baselines** (ResNet-50) - Established baseline comparisons
 
-**Experimental/Development Status:**
+**Uncompleted Status:**
 - **Vision-Language Encoders** (CLIP, SigLIP, BLIP2) - Not all results available
 
-The evaluation is conducted across three specialized datasets focusing on Christian iconography and religious art classification.
+The evaluation is conducted across three specialized datasets, focusing on Christian iconography and the classification of religious art.
 
 ## Primary Datasets
 
@@ -91,23 +90,35 @@ The evaluation is conducted across three specialized datasets focusing on Christ
 
 The `script/` directory contains the core evaluation framework.
 
-### Publication-Ready: Multimodal LLM Scripts
-
-These scripts have been fully tested and validated for publication:
+### Multimodal LLM Scripts
 
 #### `execute_gpt.py` - OpenAI GPT Models
 **Purpose:** Executes GPT-4o and GPT-4o-mini models for zero-shot and few-shot image classification.
 
-**Key Features:**
-- API-based inference with comprehensive caching system
-- Cost estimation and budget tracking
-- Support for multiple test configurations
-- Robust error handling and retry mechanisms
-
 **Usage:**
+
+```bash
+Options:
+  --folders TEXT            List of folders to use
+  --models TEXT             List of model names to use
+  --limit INTEGER           Limit the number of images to process
+  --batch_size INTEGER      Number of images per batch
+  --save_frequency INTEGER  How often to save cache (in batches)
+  --datasets TEXT           List of datasets to use
+  --verbose                 Enable verbose logging (DEBUG level)
+  --temperature FLOAT       Temperature for generation (default: 0.0, min:
+                            0.0)
+  --top_p FLOAT             Top-p (nucleus sampling) for generation (default:
+                            0.1)
+  --seed INTEGER            Seed for deterministic results (default: 12345)
+  --clean                   Remove cache and logs from previous runs before
+                            starting
+  --help                    Show this message and exit.
+```
+
 ```bash
 # Basic execution for GPT models
-python script/execute_gpt.py --models gpt-4o gpt-4o-mini --datasets ArtDL ICONCLASS --folders test_1 test_2
+python script/execute_gpt.py --models gpt-4o gpt-4o-mini --datasets ArtDL ICONCLASS wikidata --folders test_1 test_2 test_3
 
 # With custom parameters
 python script/execute_gpt.py --models gpt-4o --datasets ArtDL --folders test_1 --limit 100 --batch_size 5
@@ -118,16 +129,28 @@ python script/execute_gpt.py --models gpt-4o --datasets ArtDL --folders test_1 -
 #### `execute_gemini.py` - Google Gemini Models  
 **Purpose:** Executes Gemini 2.5 Pro and Flash models for multimodal classification tasks.
 
-**Key Features:**
-- Integration with Google's Gemini API
-- Optimized prompt engineering for religious art classification
-- Advanced caching and cost management
-- Support for large context windows (1M tokens)
-
 **Usage:**
 ```bash
+Options:
+  --folders TEXT            List of folders to use
+  --models TEXT             List of model names to use
+  --limit INTEGER           Limit the number of images to process
+  --batch_size INTEGER      Number of images per batch
+  --save_frequency INTEGER  How often to save cache (in batches)
+  --datasets TEXT           List of datasets to use
+  --verbose                 Enable verbose logging (DEBUG level)
+  --temperature FLOAT       Temperature for generation (default: 0.0, min:
+                            0.0)
+  --top_k INTEGER           Top-k for sampling (default: 32)
+  --clean                   Remove cache and logs from previous runs before
+                            starting
+  --help                    Show this message and exit.
+```
+
+
+```bash
 # Run Gemini models
-python script/execute_gemini.py --models gemini-2.5-pro gemini-2.5-flash --datasets ArtDL --folders test_1 test_2
+python script/execute_gemini.py --models gemini-2.5-pro gemini-2.5-flash --datasets ArtDL ICONCLASS wikidata --folders test_1 test_2
 
 # Few-shot evaluation
 python script/execute_gemini.py --models gemini-2.5-pro --datasets ICONCLASS --folders test_3
@@ -135,24 +158,18 @@ python script/execute_gemini.py --models gemini-2.5-pro --datasets ICONCLASS --f
 
 **Configuration Required:** API key in `script/gemini_data/config.ini`
 
-### Experimental: Vision-Language Encoder Scripts
+Vision-Language Encoder Scripts
 
-⚠️ **Note:** These scripts contain experimental results not yet ready for publication.
-
-#### `execute_clip.py` - CLIP Models (Experimental)
+#### `execute_clip.py` - CLIP Models
 **Purpose:** Implements CLIP variants for contrastive learning-based classification.
 
-**Status:** Results available but under development for publication standards.
-
 ```bash
-# CLIP execution (experimental)
+# CLIP execution
 python script/execute_clip.py --models clip-vit-base-patch32 --datasets ArtDL --folders test_1
 ```
 
-#### `execute_siglip.py` - SigLIP Models (Experimental)  
+#### `execute_siglip.py` - SigLIP Models 
 **Purpose:** Runs SigLIP models with sigmoid-based contrastive learning.
-
-**Status:** Experimental implementation with preliminary results.
 
 ```bash
 # SigLIP execution (experimental)  
@@ -164,18 +181,13 @@ python script/execute_siglip.py --models siglip-base-patch16-512 --datasets ArtD
 #### `evaluate.py` - Comprehensive Results Analysis
 **Purpose:** Generates standardized evaluation metrics for all models.
 
-**Features:**
-- Confusion matrices and visualizations
-- Per-class and macro/micro metrics
-- Cross-model performance comparisons
-- Publication-ready result tables
 
 **Usage:**
 ```bash
-# Evaluate LLM results (publication-ready)
+# Evaluate LLM results
 python script/evaluate.py --models gpt-4o gemini-2.5-pro --datasets ArtDL ICONCLASS --folders test_1 test_2
 
-# Full evaluation including experimental models
+# Full evaluation
 python script/evaluate.py --models gpt-4o gemini-2.5-pro clip-vit-base-patch32 --datasets ArtDL --folders test_1
 ```
 
@@ -187,8 +199,6 @@ python script/evaluate.py --models gpt-4o gemini-2.5-pro clip-vit-base-patch32 -
 # Fine-tune models for few-shot learning
 python script/few-shot.py --models clip-vit-base-patch32 --datasets ArtDL --folders test_3 --num_epochs 150
 ```
-
-### Baseline and Supporting Scripts
 
 ### Baseline and Supporting Scripts
 
@@ -277,29 +287,17 @@ test_3/                    # Few-shot learning
 
 ## Models Evaluated
 
-### Publication-Ready Models
+### LLM Models
 
 The following models have been thoroughly evaluated and validated for publication:
 
 | Model Name        | Type                     | Input Context Window     | Output Tokens     | Open Source | Release Date | Knowledge Cut-off |
-|------------------|--------------------------|--------------------------|-------------------|--------------|---------------|--------------------|
+|-------------------|--------------------------|--------------------------|-------------------|--------------|---------------|--------------------|
 | GPT-4o            | Multimodal LLM            | 128k tokens              | 16.4k tokens     | No         | Aug 2024      | Oct 2023           |
 | GPT-4o mini       | Multimodal LLM            | 128k tokens              | 16.4k tokens     | No         | Jul 2024      | Oct 2023           |
 | Gemini 2.5 Pro    | Multimodal LLM            | 1M tokens                | 64k tokens    | No         | Mar 2024      | Jan 2025   |
 | Gemini 2.5 Flash  | Multimodal LLM            | 1M tokens                | 65k tokens    | No         | Apr 2025      | Jan 2025    |
 
-### Experimental Models (Development Status)
-
-*Note: Results available but not finalized for publication standards.*
-
-| Model Name        | Type                     | Status                   | Notes                     |
-|------------------|--------------------------|--------------------------|---------------------------|
-| CLIP (ViT-B/32)   |                          |                          |                           |
-| CLIP (ViT-B/16)   |                          |                          |                           |
-| CLIP (ViT-L/14)   |                          |                          |                           |
-| SigLIP (ViT-B/16) |                          |                          |                           |
-| SigLIP (ViT-L/16) |                          |                          |                           |
-| SigLIP (So400M)   |                          |                          |                           |
 
 ## Publication-Ready Results
 
