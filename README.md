@@ -1,4 +1,4 @@
-# Benchmarking Multimodal Large Language Models in Zero-shot and Few-shot Scenarios: A study on Christian Iconography
+# Can AI Recognize the Saints? Evaluating Multimodal Models for Christian Iconography 
 
 ## Prompt Engineering Example
 
