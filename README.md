@@ -1,4 +1,5 @@
-# Can AI Recognize the Saints? Evaluating Multimodal Models for Christian Iconography 
+# Can AI Recognize the Saints? 
+Evaluating Multimodal Models for Christian Iconography 
 
 ## Prompt Engineering Example
 
