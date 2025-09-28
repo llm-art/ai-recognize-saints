@@ -1,8 +1,5 @@
 # Benchmarking Multimodal Large Language Models in Zero-shot and Few-shot Scenarios: A study on Christian Iconography
 
-This repository contains the code for the following paper:
-**Benchmarking Multimodal Large Language Models in Zero-shot and Few-shot Scenarios: preliminary results on studying Christian Iconography**.
-
 ## Prompt Engineering Example
 
 The evaluation framework creates the prompts at runtime. Here is an example of the full prompt created by the script for the ArtDL dataset (zero-shot with labels):
@@ -73,10 +70,8 @@ This repository presents a comprehensive evaluation framework for zero-shot and 
 ### Model Categories
 
 - **Large Multimodal Models** (GPT-4o, Gemini 2.5) - Complete evaluation with validated results
+- **Vision-Language Encoders** (CLIP, SigLIP) - Not all results available
 - **Traditional Supervised Baselines** (ResNet-50) - Established baseline comparisons
-
-**Uncompleted Status:**
-- **Vision-Language Encoders** (CLIP, SigLIP, BLIP2) - Not all results available
 
 The evaluation is conducted across three specialized datasets, focusing on Christian iconography and the classification of religious art.
 
@@ -284,51 +279,3 @@ test_1/                    # Zero-shot with labels
 test_2/                    # Zero-shot with descriptions  
 test_3/                    # Few-shot learning
 ```
-
-## Models Evaluated
-
-### LLM Models
-
-The following models have been thoroughly evaluated and validated for publication:
-
-| Model Name        | Type                     | Input Context Window     | Output Tokens     | Open Source | Release Date | Knowledge Cut-off |
-|-------------------|--------------------------|--------------------------|-------------------|--------------|---------------|--------------------|
-| GPT-4o            | Multimodal LLM            | 128k tokens              | 16.4k tokens     | No         | Aug 2024      | Oct 2023           |
-| GPT-4o mini       | Multimodal LLM            | 128k tokens              | 16.4k tokens     | No         | Jul 2024      | Oct 2023           |
-| Gemini 2.5 Pro    | Multimodal LLM            | 1M tokens                | 64k tokens    | No         | Mar 2024      | Jan 2025   |
-| Gemini 2.5 Flash  | Multimodal LLM            | 1M tokens                | 65k tokens    | No         | Apr 2025      | Jan 2025    |
-
-
-## Publication-Ready Results
-
-### ArtDL Dataset Results
-| Model                          | zero-shot (labels)   | zero-shot (descriptions)   | few-shot (labels)   |
-|:-------------------------------|:---------------------|:---------------------------|:-------------------|
-| **gpt-4o-2024-08-06**          | **86.00%**           | **87.45%**                 | **86.48%**         |
-| **gpt-4o-mini-2024-07-18**     | **82.46%**           | **84.98%**                 | **84.60%**         |
-| **gemini-2.5-flash-preview**   | **88.20%**           | **87.02%**                 | **84.71%**         |
-| **gemini-2.5-pro-preview**     | **90.45%**           | **90.18%**                 | **86.59%**         |
-| Baseline (ResNet-50)           | 84.44%               | -                          | -                  |
-
-### ICONCLASS Dataset Results
-| Model                          | zero-shot (labels)   | zero-shot (descriptions)   | few-shot (labels)   |
-|:-------------------------------|:---------------------|:---------------------------|:-------------------|
-| **gpt-4o-2024-08-06**          | **75.32%**           | **75.43%**                 | **73.46%**         |
-| **gpt-4o-mini-2024-07-18**     | **55.74%**           | **59.56%**                 | **55.50%**         |
-| **gemini-2.5-flash-preview**   | **77.17%**           | **77.75%**                 | **78.22%**         |
-| **gemini-2.5-pro-preview**     | **83.31%**           | **84.82%**                 | **84.59%**         |
-| Baseline (ResNet-50)           | 40.46%               | -                          | -                  |
-
-### Wikidata Dataset Results 
-| Model                          | zero-shot (labels)   | zero-shot (descriptions)   | few-shot (labels)   |
-|:-------------------------------|:---------------------|:---------------------------|:-------------------|
-| **gpt-4o-2024-08-06**          | **45.75%**           | **45.31%**                 | **45.31%**         |
-| **gpt-4o-mini-2024-07-18**     | **35.78%**           | **36.95%**                 | **34.31%**         |
-| **gemini-2.5-flash-preview**   | **45.45%**           | **45.31%**                 | **44.57%**         |
-| **gemini-2.5-pro-preview**     | **45.89%**           | **45.31%**                 | **47.07%**         |
-| Baseline (ResNet-50)           | 43.97%               | -                          | -                  |
-
-
-## Citation
-
-todo
