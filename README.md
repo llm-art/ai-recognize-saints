@@ -8,7 +8,7 @@ The evaluation framework creates the prompts at runtime. Here is an example of t
 ```plaintext
 You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
 
-
+{FEW_SHOT_EXAMPLES}
 
 Look for:
 1. Distinctive attributes (objects, clothing, etc.)
@@ -34,18 +34,7 @@ Confidence guidelines:
 - 0.3-0.5: Low confidence, limited visual evidence
 - 0.0-0.3: Very uncertain, minimal supporting evidence
 
-Each <CATEGORY_ID> must be one of (use only the category ID as output):
-
-"antony_of_padua" - Antony of Padua
-"john_baptist" - John the Baptist
-"paul" - Paul
-"francis" - Francis of Assisi
-"mary_magdalene" - Mary Magdalene
-"jerome" - Jerome
-"dominic" - Saint Dominic
-"mary" - Virgin Mary
-"peter" - Peter
-"sebastian" - Saint Sebastian
+{CLASS_LIST}
 
 Batching note:
 - Process only the current batch of images.
