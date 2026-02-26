@@ -7,7 +7,7 @@ It supports different datasets, test configurations, and includes a caching syst
 to avoid redundant API calls.
 
 Usage:
-    python execute_gemini.py --models gemini-2.5-pro gemini-2.5-flash --datasets ArtDL IconArt --folders test_1 test_2
+    python execute_gemini.py --models gemini-2.5-pro,gemini-2.5-flash --datasets ArtDL,IconArt --folders test_1,test_2
     
 Features:
     - Supports multiple Gemini models (gemini-2.5-pro, gemini-2.5-flash, etc.)
@@ -23,18 +23,17 @@ import numpy as np
 import pandas as pd
 from PIL import Image
 from tqdm import tqdm
-import google.generativeai as genai
+from google import genai
+from google.genai import types
 
 # Increase PIL's DecompressionBombWarning threshold to ~200 million pixels
 Image.MAX_IMAGE_PIXELS = 200000000
-import base64
 import json
 import logging
 from configparser import ConfigParser
 from typing import List, Tuple, Dict, Any, Optional
 from datetime import datetime
 from concurrent.futures import ProcessPoolExecutor
-from google.generativeai.types import HarmCategory, HarmBlockThreshold
 
 # Import custom logger
 import logger_utils
@@ -51,7 +50,11 @@ class ModelConfig:
       "gemini-2.5-flash": {
           "input_cost": 0.35,  # Cost per 1M input tokens
           "output_cost": 1.0   # Cost per 1M output tokens
-      }
+      },
+      "gemini-3-flash": {
+          "input_cost": 0.50,  # Cost per 1M input tokens
+          "output_cost": 3.0   # Cost per 1M output tokens
+      },
   }
 
   @classmethod
@@ -252,7 +255,7 @@ class GeminiImageClassifier:
         logger: Logger instance
     """
     self.model = model
-    genai.configure(api_key=api_key)
+    self.client = genai.Client(api_key=api_key)
     self.dataset = dataset
     self.test = test
     self.base_dir = base_dir
@@ -407,14 +410,13 @@ class GeminiImageClassifier:
         continue
 
       # Enhanced user message with clear instruction
+      with open(image_path, 'rb') as f:
+        image_bytes = f.read()
       few_shot_messages.append(
-          {"role": "user", "parts": [
-              {"text": "Please classify this image into one of the provided categories."},
-              {"inline_data": {
-                "mime_type": "image/jpeg",
-                "data": encode_image_base64(image_path)
-              }}
-          ]},
+          types.Content(role="user", parts=[
+              types.Part(text="Please classify this image into one of the provided categories."),
+              types.Part.from_bytes(data=image_bytes, mime_type="image/jpeg"),
+          ])
       )
 
       # Enhanced assistant response with reasoning
@@ -428,7 +430,7 @@ class GeminiImageClassifier:
       assistant_response += "."
 
       few_shot_messages.append(
-          {"role": "model", "parts": [assistant_response]}
+          types.Content(role="model", parts=[types.Part(text=assistant_response)])
       )
 
     return few_shot_messages
@@ -446,17 +448,16 @@ class GeminiImageClassifier:
         List of message dictionaries for the API request
     """
     parts = [
-        {"text": "Please classify the following set of images:"}
+        types.Part(text="Please classify the following set of images:")
     ]
 
     for item, image_path in batch:
-      parts.append({"text": f"Image (ID: {item}):"})
-      parts.append({"inline_data": {
-                   "mime_type": "image/jpeg",
-                   "data": encode_image_base64(image_path)
-                   }})
+      parts.append(types.Part(text=f"Image (ID: {item}):"))
+      with open(image_path, 'rb') as f:
+        image_bytes = f.read()
+      parts.append(types.Part.from_bytes(data=image_bytes, mime_type="image/jpeg"))
 
-    messages = few_shot_messages + [{"role": "user", "parts": parts}]
+    messages = few_shot_messages + [types.Content(role="user", parts=parts)]
     return messages, system_prompt
 
   def _find_similar_class(self, predicted_class: str, classes: List[Tuple[str, str]]) -> Optional[str]:
@@ -809,32 +810,15 @@ class GeminiImageClassifier:
     if self.test in ['test_3']:
       few_shot_messages = self._load_few_shot_examples(self.dataset)
 
-    # Initialize the Gemini model with hyperparameters
-    generation_config = {
-      "temperature": self.temperature,
-      "top_k": self.top_k,
-    }
-
-    model = genai.GenerativeModel(
-      model_name=self.model,
-      generation_config=generation_config,
+    # Initialize the Gemini generation config with hyperparameters and safety settings
+    config = types.GenerateContentConfig(
+      temperature=self.temperature,
+      top_k=self.top_k,
       safety_settings=[
-        {
-          "category": HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT,
-          "threshold": HarmBlockThreshold.BLOCK_NONE
-        },
-        {
-          "category": HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT,
-          "threshold": HarmBlockThreshold.BLOCK_NONE
-        },
-        {
-          "category": HarmCategory.HARM_CATEGORY_HARASSMENT,
-          "threshold": HarmBlockThreshold.BLOCK_NONE
-        },
-        {
-          "category": HarmCategory.HARM_CATEGORY_HATE_SPEECH,
-          "threshold": HarmBlockThreshold.BLOCK_NONE
-        }
+        types.SafetySetting(category='HARM_CATEGORY_SEXUALLY_EXPLICIT', threshold='BLOCK_NONE'),
+        types.SafetySetting(category='HARM_CATEGORY_DANGEROUS_CONTENT', threshold='BLOCK_NONE'),
+        types.SafetySetting(category='HARM_CATEGORY_HARASSMENT', threshold='BLOCK_NONE'),
+        types.SafetySetting(category='HARM_CATEGORY_HATE_SPEECH', threshold='BLOCK_NONE'),
       ]
     )
 
@@ -872,15 +856,12 @@ class GeminiImageClassifier:
           batch_items, system_prompt, few_shot_messages)
 
         # Create a chat session
-        chat = model.start_chat(history=messages)
+        chat = self.client.chats.create(model=self.model, config=config, history=messages)
 
         # Generate a response without retry
         content = None
         try:
-          response = chat.send_message(
-              system_prompt_text,
-              stream=False
-          )
+          response = chat.send_message(message=system_prompt_text)
 
           # Check if response has text content
           if hasattr(response, 'text') and response.text:
@@ -901,7 +882,7 @@ class GeminiImageClassifier:
                 f"Response has no text content. Finish reason: {finish_reason}")
 
               # If safety filtered, log the response and skip this batch
-              if finish_reason == 2:  # Safety filtered
+              if finish_reason == types.FinishReason.SAFETY:
                 self.logger.warning(
                   f"Response was filtered by safety systems. Skipping batch {batch_count}.")
 
@@ -973,11 +954,14 @@ class GeminiImageClassifier:
           f.write(f"Batch items: {[item for item, _ in batch_items]}\n")
           f.write(f"Response:\n{content}\n")
 
-        # Update token usage (Gemini doesn't provide token counts directly)
-        # This is an approximation
-        # Rough estimate
-        self.total_input_tokens += len(system_prompt_text) // 4
-        self.total_output_tokens += len(content) // 4  # Rough estimate
+        # Update token usage from real usage metadata
+        if hasattr(response, 'usage_metadata') and response.usage_metadata:
+          self.total_input_tokens += response.usage_metadata.prompt_token_count or 0
+          self.total_output_tokens += response.usage_metadata.candidates_token_count or 0
+        else:
+          # Fallback to rough character-based estimate
+          self.total_input_tokens += len(system_prompt_text) // 4
+          self.total_output_tokens += len(content) // 4
 
         # Parse response
         batch_results, processed_items = self._parse_response(
@@ -1050,18 +1034,6 @@ class GeminiImageClassifier:
       f"Total cost of this call: ${total_cost:.4f}")
 
 
-def encode_image_base64(image_path: str) -> str:
-  """
-  Encode an image as a base64 string.
-
-  Args:
-      image_path: Path to the image file
-
-  Returns:
-      Base64-encoded image data
-  """
-  with open(image_path, "rb") as image_file:
-    return base64.b64encode(image_file.read()).decode("utf-8")
 
 
 def check_image_exists(item_path_tuple: Tuple[str, str]) -> Optional[Tuple[str, str]]:
@@ -1145,13 +1117,20 @@ def load_images(test_items: List[str], dataset_dir: str, logger=None) -> List[Tu
   return images
 
 
+def _split_csv(ctx, param, value):
+  """Click callback: split a comma-separated string into a tuple."""
+  if not value:
+    return ()
+  return tuple(v.strip() for v in value.split(',') if v.strip())
+
+
 @click.command()
-@click.option('--folders', multiple=True, help='List of folders to use')
-@click.option('--models', multiple=True, help='List of model names to use')
+@click.option('--folders', default='', callback=_split_csv, help='Comma-separated list of folders to use')
+@click.option('--models', default='', callback=_split_csv, help='Comma-separated list of model names to use')
 @click.option('--limit', default=-1, help='Limit the number of images to process')
 @click.option('--batch_size', default=5, help='Number of images per batch')
 @click.option('--save_frequency', default=5, help='How often to save cache (in batches)')
-@click.option('--datasets', multiple=True, help='List of datasets to use')
+@click.option('--datasets', default='', callback=_split_csv, help='Comma-separated list of datasets to use')
 @click.option('--verbose', is_flag=True, help='Enable verbose logging (DEBUG level)')
 @click.option('--temperature', default=0.0, help='Temperature for generation (default: 0.0, min: 0.0)')
 @click.option('--top_k', default=32, help='Top-k for sampling (default: 32)')
