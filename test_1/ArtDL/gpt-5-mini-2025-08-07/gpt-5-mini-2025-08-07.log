@@ -1,0 +1,666 @@
+2026-03-02 18:27:38,424 - INFO - Logger initialized for ArtDL/test_1/gpt-5-mini-2025-08-07
+2026-03-02 18:27:38,425 - INFO - Starting classification for dataset=ArtDL, test=test_1, model=gpt-5-mini-2025-08-07
+2026-03-02 18:27:38,756 - INFO - Number of images: 1864
+2026-03-02 18:27:38,756 - INFO - Processing dataset: ArtDL
+2026-03-02 18:27:38,758 - INFO - Processing images for test: test_1
+2026-03-02 18:27:38,788 - INFO - Using model: gpt-5-mini-2025-08-07
+2026-03-02 18:27:38,788 - INFO - === GENERATED PROMPT ===
+2026-03-02 18:27:38,788 - INFO - Dataset: ArtDL, Test: test_1
+2026-03-02 18:27:38,788 - INFO - Hyperparameters: temperature=0.0, top_p=0.1, seed=12345
+2026-03-02 18:27:38,788 - INFO - Prompt content:
+2026-03-02 18:27:38,788 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"antony_of_padua" - Antony of Padua
+"john_baptist" - John the Baptist
+"paul" - Paul
+"francis" - Francis of Assisi
+"mary_magdalene" - Mary Magdalene
+"jerome" - Jerome
+"dominic" - Saint Dominic
+"mary" - Virgin Mary
+"peter" - Peter
+"sebastian" - Saint Sebastian
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2026-03-02 18:27:38,789 - INFO - === END PROMPT ===
+2026-03-02 18:27:38,789 - INFO - Limiting to 10 images
+2026-03-02 18:27:38,789 - INFO - Pre-allocated results array for 10 images
+2026-03-02 18:27:44,869 - INFO - Batch 1: system_fingerprint=None
+2026-03-02 18:27:51,723 - INFO - Batch 2: system_fingerprint=None
+2026-03-02 18:27:57,815 - INFO - Batch 3: system_fingerprint=None
+2026-03-02 18:28:02,451 - INFO - Batch 4: system_fingerprint=None
+2026-03-02 18:28:05,514 - INFO - Batch 5: system_fingerprint=None
+2026-03-02 18:28:05,514 - INFO - Cache saved after 5 batches
+2026-03-02 18:28:11,134 - INFO - Batch 6: system_fingerprint=None
+2026-03-02 18:28:14,084 - INFO - Batch 7: system_fingerprint=None
+2026-03-02 18:28:22,187 - INFO - Batch 8: system_fingerprint=None
+2026-03-02 18:28:24,823 - INFO - Batch 9: system_fingerprint=None
+2026-03-02 18:28:28,841 - INFO - Batch 10: system_fingerprint=None
+2026-03-02 18:28:28,842 - INFO - Cache saved after 10 batches
+2026-03-02 18:28:28,842 - INFO - Total input tokens used: 11846
+2026-03-02 18:28:28,842 - INFO - Total output tokens used: 2261
+2026-03-02 18:28:28,842 - INFO - Total cost of this call: $0.0075
+2026-03-02 18:28:28,842 - INFO - Total images processed: 10
+2026-03-02 18:28:28,842 - INFO - Successfully processed: 10
+2026-03-02 18:28:28,842 - INFO - Failed/uniform placeholders: 0
+2026-03-02 18:28:28,842 - INFO - Final probabilities shape: (10, 10)
+2026-03-02 18:28:28,843 - INFO - Probabilities shape: (10, 10)
+2026-03-02 18:28:56,950 - INFO - Logger initialized for ArtDL/test_1/gpt-5-mini-2025-08-07
+2026-03-02 18:28:56,950 - INFO - Starting classification for dataset=ArtDL, test=test_1, model=gpt-5-mini-2025-08-07
+2026-03-02 18:28:57,258 - INFO - Number of images: 1864
+2026-03-02 18:28:57,258 - INFO - Processing dataset: ArtDL
+2026-03-02 18:28:57,260 - INFO - Processing images for test: test_1
+2026-03-02 18:28:57,290 - INFO - Loaded 10 cached results
+2026-03-02 18:28:57,290 - INFO - Using model: gpt-5-mini-2025-08-07
+2026-03-02 18:28:57,290 - INFO - === GENERATED PROMPT ===
+2026-03-02 18:28:57,290 - INFO - Dataset: ArtDL, Test: test_1
+2026-03-02 18:28:57,290 - INFO - Hyperparameters: temperature=0.0, top_p=0.1, seed=12345
+2026-03-02 18:28:57,290 - INFO - Prompt content:
+2026-03-02 18:28:57,290 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"antony_of_padua" - Antony of Padua
+"john_baptist" - John the Baptist
+"paul" - Paul
+"francis" - Francis of Assisi
+"mary_magdalene" - Mary Magdalene
+"jerome" - Jerome
+"dominic" - Saint Dominic
+"mary" - Virgin Mary
+"peter" - Peter
+"sebastian" - Saint Sebastian
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2026-03-02 18:28:57,290 - INFO - === END PROMPT ===
+2026-03-02 18:28:57,291 - INFO - Pre-allocated results array for 1864 images
+2026-03-02 18:29:04,420 - INFO - Batch 1: system_fingerprint=None
+2026-03-02 18:29:08,139 - INFO - Batch 2: system_fingerprint=None
+2026-03-02 18:29:11,469 - INFO - Batch 3: system_fingerprint=None
+2026-03-02 18:29:14,367 - INFO - Batch 4: system_fingerprint=None
+2026-03-02 18:29:47,502 - INFO - Logger initialized for ArtDL/test_1/gpt-5-mini-2025-08-07
+2026-03-02 18:29:47,503 - INFO - Starting classification for dataset=ArtDL, test=test_1, model=gpt-5-mini-2025-08-07
+2026-03-02 18:29:47,789 - INFO - Number of images: 1864
+2026-03-02 18:29:47,789 - INFO - Processing dataset: ArtDL
+2026-03-02 18:29:47,792 - INFO - Processing images for test: test_1
+2026-03-02 18:29:47,822 - INFO - Loaded 10 cached results
+2026-03-02 18:29:47,822 - INFO - Using model: gpt-5-mini-2025-08-07
+2026-03-02 18:29:47,822 - INFO - === GENERATED PROMPT ===
+2026-03-02 18:29:47,822 - INFO - Dataset: ArtDL, Test: test_1
+2026-03-02 18:29:47,822 - INFO - Hyperparameters: temperature=0.0, top_p=0.1, seed=12345
+2026-03-02 18:29:47,822 - INFO - Prompt content:
+2026-03-02 18:29:47,822 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"antony_of_padua" - Antony of Padua
+"john_baptist" - John the Baptist
+"paul" - Paul
+"francis" - Francis of Assisi
+"mary_magdalene" - Mary Magdalene
+"jerome" - Jerome
+"dominic" - Saint Dominic
+"mary" - Virgin Mary
+"peter" - Peter
+"sebastian" - Saint Sebastian
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2026-03-02 18:29:47,822 - INFO - === END PROMPT ===
+2026-03-02 18:29:47,822 - INFO - Pre-allocated results array for 1864 images
+2026-03-02 18:30:07,635 - INFO - Batch 1: system_fingerprint=None
+2026-03-02 18:30:22,609 - INFO - Batch 2: system_fingerprint=None
+2026-03-02 18:30:47,815 - INFO - Batch 3: system_fingerprint=None
+2026-03-02 18:31:40,177 - INFO - Batch 4: system_fingerprint=None
+2026-03-02 18:32:02,037 - INFO - Batch 5: system_fingerprint=None
+2026-03-02 18:32:02,038 - INFO - Cache saved after 5 batches
+2026-03-02 18:32:19,081 - INFO - Batch 6: system_fingerprint=None
+2026-03-02 18:32:44,632 - INFO - Batch 7: system_fingerprint=None
+2026-03-02 18:33:04,666 - INFO - Batch 8: system_fingerprint=None
+2026-03-02 18:33:30,434 - INFO - Batch 9: system_fingerprint=None
+2026-03-02 18:33:52,530 - INFO - Batch 10: system_fingerprint=None
+2026-03-02 18:33:52,531 - INFO - Cache saved after 10 batches
+2026-03-02 18:34:28,729 - INFO - Batch 11: system_fingerprint=None
+2026-03-02 18:34:48,912 - INFO - Batch 12: system_fingerprint=None
+2026-03-02 18:35:03,984 - INFO - Batch 13: system_fingerprint=None
+2026-03-02 18:35:42,302 - INFO - Batch 14: system_fingerprint=None
+2026-03-02 18:36:02,314 - INFO - Batch 15: system_fingerprint=None
+2026-03-02 18:36:02,315 - INFO - Cache saved after 15 batches
+2026-03-02 18:36:23,214 - INFO - Batch 16: system_fingerprint=None
+2026-03-02 18:36:32,939 - INFO - Batch 17: system_fingerprint=None
+2026-03-02 18:37:04,680 - INFO - Batch 18: system_fingerprint=None
+2026-03-02 18:37:43,338 - INFO - Batch 19: system_fingerprint=None
+2026-03-02 18:38:23,599 - INFO - Batch 20: system_fingerprint=None
+2026-03-02 18:38:23,600 - INFO - Cache saved after 20 batches
+2026-03-02 18:38:55,762 - INFO - Batch 21: system_fingerprint=None
+2026-03-02 18:39:09,628 - INFO - Batch 22: system_fingerprint=None
+2026-03-02 18:39:25,136 - INFO - Batch 23: system_fingerprint=None
+2026-03-02 18:39:43,157 - INFO - Batch 24: system_fingerprint=None
+2026-03-02 18:40:24,360 - INFO - Batch 25: system_fingerprint=None
+2026-03-02 18:40:24,361 - INFO - Cache saved after 25 batches
+2026-03-02 18:40:40,162 - INFO - Batch 26: system_fingerprint=None
+2026-03-02 18:40:55,625 - INFO - Batch 27: system_fingerprint=None
+2026-03-02 18:41:17,273 - INFO - Batch 28: system_fingerprint=None
+2026-03-02 18:41:53,951 - INFO - Batch 29: system_fingerprint=None
+2026-03-02 18:42:12,306 - INFO - Batch 30: system_fingerprint=None
+2026-03-02 18:42:12,308 - INFO - Cache saved after 30 batches
+2026-03-02 18:42:42,811 - INFO - Batch 31: system_fingerprint=None
+2026-03-02 18:42:52,805 - INFO - Batch 32: system_fingerprint=None
+2026-03-02 18:43:14,143 - INFO - Batch 33: system_fingerprint=None
+2026-03-02 18:43:34,414 - INFO - Batch 34: system_fingerprint=None
+2026-03-02 18:44:10,883 - INFO - Batch 35: system_fingerprint=None
+2026-03-02 18:44:10,885 - INFO - Cache saved after 35 batches
+2026-03-02 18:44:42,386 - INFO - Batch 36: system_fingerprint=None
+2026-03-02 18:45:14,567 - INFO - Batch 37: system_fingerprint=None
+2026-03-02 18:45:40,263 - INFO - Batch 38: system_fingerprint=None
+2026-03-02 18:46:14,217 - INFO - Batch 39: system_fingerprint=None
+2026-03-02 18:46:40,135 - INFO - Batch 40: system_fingerprint=None
+2026-03-02 18:46:40,137 - INFO - Cache saved after 40 batches
+2026-03-02 18:47:01,347 - INFO - Batch 41: system_fingerprint=None
+2026-03-02 18:47:13,693 - INFO - Batch 42: system_fingerprint=None
+2026-03-02 18:47:40,278 - INFO - Batch 43: system_fingerprint=None
+2026-03-02 18:47:53,668 - INFO - Batch 44: system_fingerprint=None
+2026-03-02 18:48:11,492 - INFO - Batch 45: system_fingerprint=None
+2026-03-02 18:48:11,493 - INFO - Cache saved after 45 batches
+2026-03-02 18:48:44,672 - INFO - Batch 46: system_fingerprint=None
+2026-03-02 18:49:14,715 - INFO - Batch 47: system_fingerprint=None
+2026-03-02 18:49:30,704 - INFO - Batch 48: system_fingerprint=None
+2026-03-02 18:49:56,249 - INFO - Batch 49: system_fingerprint=None
+2026-03-02 18:50:27,349 - INFO - Batch 50: system_fingerprint=None
+2026-03-02 18:50:27,351 - INFO - Cache saved after 50 batches
+2026-03-02 18:51:02,996 - INFO - Batch 51: system_fingerprint=None
+2026-03-02 18:51:45,593 - INFO - Batch 52: system_fingerprint=None
+2026-03-02 18:52:00,660 - INFO - Batch 53: system_fingerprint=None
+2026-03-02 18:52:34,579 - INFO - Batch 54: system_fingerprint=None
+2026-03-02 18:53:04,299 - INFO - Batch 55: system_fingerprint=None
+2026-03-02 18:53:04,302 - INFO - Cache saved after 55 batches
+2026-03-02 18:53:18,681 - INFO - Batch 56: system_fingerprint=None
+2026-03-02 18:53:52,125 - INFO - Batch 57: system_fingerprint=None
+2026-03-02 18:54:30,518 - INFO - Batch 58: system_fingerprint=None
+2026-03-02 18:55:19,199 - INFO - Batch 59: system_fingerprint=None
+2026-03-02 18:55:36,564 - INFO - Batch 60: system_fingerprint=None
+2026-03-02 18:55:36,566 - INFO - Cache saved after 60 batches
+2026-03-02 18:56:11,160 - INFO - Batch 61: system_fingerprint=None
+2026-03-02 18:56:26,875 - INFO - Batch 62: system_fingerprint=None
+2026-03-02 18:56:39,916 - INFO - Batch 63: system_fingerprint=None
+2026-03-02 18:57:14,644 - INFO - Batch 64: system_fingerprint=None
+2026-03-02 18:57:33,861 - INFO - Batch 65: system_fingerprint=None
+2026-03-02 18:57:33,864 - INFO - Cache saved after 65 batches
+2026-03-02 18:58:03,518 - INFO - Batch 66: system_fingerprint=None
+2026-03-02 18:58:49,371 - INFO - Batch 67: system_fingerprint=None
+2026-03-02 18:59:10,196 - INFO - Batch 68: system_fingerprint=None
+2026-03-02 18:59:40,642 - INFO - Batch 69: system_fingerprint=None
+2026-03-02 19:00:01,078 - INFO - Batch 70: system_fingerprint=None
+2026-03-02 19:00:01,081 - INFO - Cache saved after 70 batches
+2026-03-02 19:00:16,780 - INFO - Batch 71: system_fingerprint=None
+2026-03-02 19:00:55,381 - INFO - Batch 72: system_fingerprint=None
+2026-03-02 19:01:15,999 - INFO - Batch 73: system_fingerprint=None
+2026-03-02 19:01:22,479 - INFO - Batch 74: system_fingerprint=None
+2026-03-02 19:01:44,970 - INFO - Batch 75: system_fingerprint=None
+2026-03-02 19:01:44,972 - INFO - Cache saved after 75 batches
+2026-03-02 19:02:20,010 - INFO - Batch 76: system_fingerprint=None
+2026-03-02 19:02:39,902 - INFO - Batch 77: system_fingerprint=None
+2026-03-02 19:03:04,428 - INFO - Batch 78: system_fingerprint=None
+2026-03-02 19:03:30,240 - INFO - Batch 79: system_fingerprint=None
+2026-03-02 19:04:12,753 - INFO - Batch 80: system_fingerprint=None
+2026-03-02 19:04:12,756 - INFO - Cache saved after 80 batches
+2026-03-02 19:04:55,461 - INFO - Batch 81: system_fingerprint=None
+2026-03-02 19:05:27,024 - INFO - Batch 82: system_fingerprint=None
+2026-03-02 19:05:42,241 - INFO - Batch 83: system_fingerprint=None
+2026-03-02 19:06:26,550 - INFO - Batch 84: system_fingerprint=None
+2026-03-02 19:06:57,558 - INFO - Batch 85: system_fingerprint=None
+2026-03-02 19:06:57,560 - INFO - Cache saved after 85 batches
+2026-03-02 19:07:24,961 - INFO - Batch 86: system_fingerprint=None
+2026-03-02 19:08:38,127 - INFO - Batch 87: system_fingerprint=None
+2026-03-02 19:08:58,692 - INFO - Batch 88: system_fingerprint=None
+2026-03-02 19:09:16,121 - INFO - Batch 89: system_fingerprint=None
+2026-03-02 19:09:33,973 - INFO - Batch 90: system_fingerprint=None
+2026-03-02 19:09:33,976 - INFO - Cache saved after 90 batches
+2026-03-02 19:10:14,001 - INFO - Batch 91: system_fingerprint=None
+2026-03-02 19:10:28,974 - INFO - Batch 92: system_fingerprint=None
+2026-03-02 19:10:56,965 - INFO - Batch 93: system_fingerprint=None
+2026-03-02 19:11:18,169 - INFO - Batch 94: system_fingerprint=None
+2026-03-02 19:11:43,060 - INFO - Batch 95: system_fingerprint=None
+2026-03-02 19:11:43,063 - INFO - Cache saved after 95 batches
+2026-03-02 19:12:09,529 - INFO - Batch 96: system_fingerprint=None
+2026-03-02 19:12:22,331 - INFO - Batch 97: system_fingerprint=None
+2026-03-02 19:12:42,768 - INFO - Batch 98: system_fingerprint=None
+2026-03-02 19:13:29,499 - INFO - Batch 99: system_fingerprint=None
+2026-03-02 19:13:42,153 - INFO - Batch 100: system_fingerprint=None
+2026-03-02 19:13:42,156 - INFO - Cache saved after 100 batches
+2026-03-02 19:14:16,506 - INFO - Batch 101: system_fingerprint=None
+2026-03-02 19:14:27,615 - INFO - Batch 102: system_fingerprint=None
+2026-03-02 19:15:04,633 - INFO - Batch 103: system_fingerprint=None
+2026-03-02 19:15:58,893 - INFO - Batch 104: system_fingerprint=None
+2026-03-02 19:16:23,096 - INFO - Batch 105: system_fingerprint=None
+2026-03-02 19:16:23,099 - INFO - Cache saved after 105 batches
+2026-03-02 19:16:46,236 - INFO - Batch 106: system_fingerprint=None
+2026-03-02 19:17:08,374 - INFO - Batch 107: system_fingerprint=None
+2026-03-02 19:17:38,077 - INFO - Batch 108: system_fingerprint=None
+2026-03-02 19:18:01,739 - INFO - Batch 109: system_fingerprint=None
+2026-03-02 19:18:18,863 - INFO - Batch 110: system_fingerprint=None
+2026-03-02 19:18:18,866 - INFO - Cache saved after 110 batches
+2026-03-02 19:18:45,188 - INFO - Batch 111: system_fingerprint=None
+2026-03-02 19:19:09,135 - INFO - Batch 112: system_fingerprint=None
+2026-03-02 19:19:23,784 - INFO - Batch 113: system_fingerprint=None
+2026-03-02 19:19:50,610 - INFO - Batch 114: system_fingerprint=None
+2026-03-02 19:20:12,404 - INFO - Batch 115: system_fingerprint=None
+2026-03-02 19:20:12,407 - INFO - Cache saved after 115 batches
+2026-03-02 19:20:35,378 - INFO - Batch 116: system_fingerprint=None
+2026-03-02 19:21:09,278 - INFO - Batch 117: system_fingerprint=None
+2026-03-02 19:21:21,282 - INFO - Batch 118: system_fingerprint=None
+2026-03-02 19:21:41,413 - INFO - Batch 119: system_fingerprint=None
+2026-03-02 19:21:56,476 - INFO - Batch 120: system_fingerprint=None
+2026-03-02 19:21:56,479 - INFO - Cache saved after 120 batches
+2026-03-02 19:22:16,193 - INFO - Batch 121: system_fingerprint=None
+2026-03-02 19:22:38,058 - INFO - Batch 122: system_fingerprint=None
+2026-03-02 19:23:06,349 - INFO - Batch 123: system_fingerprint=None
+2026-03-02 19:23:25,777 - INFO - Batch 124: system_fingerprint=None
+2026-03-02 19:23:56,117 - INFO - Batch 125: system_fingerprint=None
+2026-03-02 19:23:56,120 - INFO - Cache saved after 125 batches
+2026-03-02 19:24:11,183 - INFO - Batch 126: system_fingerprint=None
+2026-03-02 19:24:27,422 - INFO - Batch 127: system_fingerprint=None
+2026-03-02 19:24:50,932 - INFO - Batch 128: system_fingerprint=None
+2026-03-02 19:25:04,436 - INFO - Batch 129: system_fingerprint=None
+2026-03-02 19:25:51,754 - INFO - Batch 130: system_fingerprint=None
+2026-03-02 19:25:51,757 - INFO - Cache saved after 130 batches
+2026-03-02 19:26:34,333 - INFO - Batch 131: system_fingerprint=None
+2026-03-02 19:27:10,075 - INFO - Batch 132: system_fingerprint=None
+2026-03-02 19:27:29,148 - INFO - Batch 133: system_fingerprint=None
+2026-03-02 19:27:52,693 - INFO - Batch 134: system_fingerprint=None
+2026-03-02 19:28:19,518 - INFO - Batch 135: system_fingerprint=None
+2026-03-02 19:28:19,523 - INFO - Cache saved after 135 batches
+2026-03-02 19:28:35,813 - INFO - Batch 136: system_fingerprint=None
+2026-03-02 19:29:07,284 - INFO - Batch 137: system_fingerprint=None
+2026-03-02 19:29:21,831 - INFO - Batch 138: system_fingerprint=None
+2026-03-02 19:29:42,561 - INFO - Batch 139: system_fingerprint=None
+2026-03-02 19:30:02,185 - INFO - Batch 140: system_fingerprint=None
+2026-03-02 19:30:02,189 - INFO - Cache saved after 140 batches
+2026-03-02 19:30:26,868 - INFO - Batch 141: system_fingerprint=None
+2026-03-02 19:31:00,079 - INFO - Batch 142: system_fingerprint=None
+2026-03-02 19:31:12,891 - INFO - Batch 143: system_fingerprint=None
+2026-03-02 19:32:11,496 - INFO - Batch 144: system_fingerprint=None
+2026-03-02 19:32:59,099 - INFO - Batch 145: system_fingerprint=None
+2026-03-02 19:32:59,103 - INFO - Cache saved after 145 batches
+2026-03-02 19:33:11,435 - INFO - Batch 146: system_fingerprint=None
+2026-03-02 19:33:31,710 - INFO - Batch 147: system_fingerprint=None
+2026-03-02 19:33:56,377 - INFO - Batch 148: system_fingerprint=None
+2026-03-02 19:34:22,990 - INFO - Batch 149: system_fingerprint=None
+2026-03-02 19:34:52,881 - INFO - Batch 150: system_fingerprint=None
+2026-03-02 19:34:52,885 - INFO - Cache saved after 150 batches
+2026-03-02 19:35:09,264 - INFO - Batch 151: system_fingerprint=None
+2026-03-02 19:36:16,253 - INFO - Batch 152: system_fingerprint=None
+2026-03-02 19:36:34,148 - INFO - Batch 153: system_fingerprint=None
+2026-03-02 19:36:48,178 - INFO - Batch 154: system_fingerprint=None
+2026-03-02 19:37:14,416 - INFO - Batch 155: system_fingerprint=None
+2026-03-02 19:37:14,420 - INFO - Cache saved after 155 batches
+2026-03-02 19:37:55,635 - INFO - Batch 156: system_fingerprint=None
+2026-03-02 19:38:35,252 - INFO - Batch 157: system_fingerprint=None
+2026-03-02 19:39:01,901 - INFO - Batch 158: system_fingerprint=None
+2026-03-02 19:39:25,116 - INFO - Batch 159: system_fingerprint=None
+2026-03-02 19:39:51,464 - INFO - Batch 160: system_fingerprint=None
+2026-03-02 19:39:51,469 - INFO - Cache saved after 160 batches
+2026-03-02 19:40:01,410 - INFO - Batch 161: system_fingerprint=None
+2026-03-02 19:40:19,252 - INFO - Batch 162: system_fingerprint=None
+2026-03-02 19:40:44,293 - INFO - Batch 163: system_fingerprint=None
+2026-03-02 19:41:15,475 - INFO - Batch 164: system_fingerprint=None
+2026-03-02 19:41:43,406 - INFO - Batch 165: system_fingerprint=None
+2026-03-02 19:41:43,411 - INFO - Cache saved after 165 batches
+2026-03-02 19:42:06,901 - INFO - Batch 166: system_fingerprint=None
+2026-03-02 19:42:25,583 - INFO - Batch 167: system_fingerprint=None
+2026-03-02 19:42:40,164 - INFO - Batch 168: system_fingerprint=None
+2026-03-02 19:43:01,916 - INFO - Batch 169: system_fingerprint=None
+2026-03-02 19:43:14,908 - INFO - Batch 170: system_fingerprint=None
+2026-03-02 19:43:14,913 - INFO - Cache saved after 170 batches
+2026-03-02 19:43:25,603 - INFO - Batch 171: system_fingerprint=None
+2026-03-02 19:43:55,796 - INFO - Batch 172: system_fingerprint=None
+2026-03-02 19:44:14,000 - INFO - Batch 173: system_fingerprint=None
+2026-03-02 19:44:34,934 - INFO - Batch 174: system_fingerprint=None
+2026-03-02 19:44:49,043 - INFO - Batch 175: system_fingerprint=None
+2026-03-02 19:44:49,047 - INFO - Cache saved after 175 batches
+2026-03-02 19:45:17,400 - INFO - Batch 176: system_fingerprint=None
+2026-03-02 19:45:35,559 - INFO - Batch 177: system_fingerprint=None
+2026-03-02 19:46:07,523 - INFO - Batch 178: system_fingerprint=None
+2026-03-02 19:46:33,351 - INFO - Batch 179: system_fingerprint=None
+2026-03-02 19:47:16,377 - INFO - Batch 180: system_fingerprint=None
+2026-03-02 19:47:16,381 - INFO - Cache saved after 180 batches
+2026-03-02 19:47:31,214 - INFO - Batch 181: system_fingerprint=None
+2026-03-02 19:48:10,477 - INFO - Batch 182: system_fingerprint=None
+2026-03-02 19:48:28,841 - INFO - Batch 183: system_fingerprint=None
+2026-03-02 19:48:44,955 - INFO - Batch 184: system_fingerprint=None
+2026-03-02 19:49:08,905 - INFO - Batch 185: system_fingerprint=None
+2026-03-02 19:49:08,910 - INFO - Cache saved after 185 batches
+2026-03-02 19:49:25,927 - INFO - Batch 186: system_fingerprint=None
+2026-03-02 19:49:48,508 - INFO - Batch 187: system_fingerprint=None
+2026-03-02 19:50:08,618 - INFO - Batch 188: system_fingerprint=None
+2026-03-02 19:50:17,073 - INFO - Batch 189: system_fingerprint=None
+2026-03-02 19:50:35,277 - INFO - Batch 190: system_fingerprint=None
+2026-03-02 19:50:35,282 - INFO - Cache saved after 190 batches
+2026-03-02 19:50:49,256 - INFO - Batch 191: system_fingerprint=None
+2026-03-02 19:51:48,853 - INFO - Batch 192: system_fingerprint=None
+2026-03-02 19:52:02,516 - INFO - Batch 193: system_fingerprint=None
+2026-03-02 19:52:14,245 - INFO - Batch 194: system_fingerprint=None
+2026-03-02 19:52:36,294 - INFO - Batch 195: system_fingerprint=None
+2026-03-02 19:52:36,299 - INFO - Cache saved after 195 batches
+2026-03-02 19:53:07,650 - INFO - Batch 196: system_fingerprint=None
+2026-03-02 19:53:23,043 - INFO - Batch 197: system_fingerprint=None
+2026-03-02 19:53:49,192 - INFO - Batch 198: system_fingerprint=None
+2026-03-02 19:54:02,317 - INFO - Batch 199: system_fingerprint=None
+2026-03-02 19:54:31,207 - INFO - Batch 200: system_fingerprint=None
+2026-03-02 19:54:31,212 - INFO - Cache saved after 200 batches
+2026-03-02 19:54:57,326 - INFO - Batch 201: system_fingerprint=None
+2026-03-02 19:55:24,800 - INFO - Batch 202: system_fingerprint=None
+2026-03-02 19:55:56,542 - INFO - Batch 203: system_fingerprint=None
+2026-03-02 19:56:16,692 - INFO - Batch 204: system_fingerprint=None
+2026-03-02 19:56:30,868 - INFO - Batch 205: system_fingerprint=None
+2026-03-02 19:56:30,873 - INFO - Cache saved after 205 batches
+2026-03-02 19:57:08,564 - INFO - Batch 206: system_fingerprint=None
+2026-03-02 19:57:42,515 - INFO - Batch 207: system_fingerprint=None
+2026-03-02 19:58:18,714 - INFO - Batch 208: system_fingerprint=None
+2026-03-02 19:58:40,157 - INFO - Batch 209: system_fingerprint=None
+2026-03-02 19:59:01,395 - INFO - Batch 210: system_fingerprint=None
+2026-03-02 19:59:01,401 - INFO - Cache saved after 210 batches
+2026-03-02 20:00:07,450 - INFO - Batch 211: system_fingerprint=None
+2026-03-02 20:00:19,670 - INFO - Batch 212: system_fingerprint=None
+2026-03-02 20:00:37,552 - INFO - Batch 213: system_fingerprint=None
+2026-03-02 20:01:00,354 - INFO - Batch 214: system_fingerprint=None
+2026-03-02 20:01:22,483 - INFO - Batch 215: system_fingerprint=None
+2026-03-02 20:01:22,489 - INFO - Cache saved after 215 batches
+2026-03-02 20:01:33,654 - INFO - Batch 216: system_fingerprint=None
+2026-03-02 20:01:43,926 - INFO - Batch 217: system_fingerprint=None
+2026-03-02 20:01:56,915 - INFO - Batch 218: system_fingerprint=None
+2026-03-02 20:02:16,026 - INFO - Batch 219: system_fingerprint=None
+2026-03-02 20:02:31,364 - INFO - Batch 220: system_fingerprint=None
+2026-03-02 20:02:31,369 - INFO - Cache saved after 220 batches
+2026-03-02 20:02:46,574 - INFO - Batch 221: system_fingerprint=None
+2026-03-02 20:03:02,183 - INFO - Batch 222: system_fingerprint=None
+2026-03-02 20:03:31,725 - INFO - Batch 223: system_fingerprint=None
+2026-03-02 20:03:57,681 - INFO - Batch 224: system_fingerprint=None
+2026-03-02 20:04:19,163 - INFO - Batch 225: system_fingerprint=None
+2026-03-02 20:04:19,168 - INFO - Cache saved after 225 batches
+2026-03-02 20:04:28,770 - INFO - Batch 226: system_fingerprint=None
+2026-03-02 20:04:47,646 - INFO - Batch 227: system_fingerprint=None
+2026-03-02 20:05:16,898 - INFO - Batch 228: system_fingerprint=None
+2026-03-02 20:05:59,710 - INFO - Batch 229: system_fingerprint=None
+2026-03-02 20:06:14,919 - INFO - Batch 230: system_fingerprint=None
+2026-03-02 20:06:14,925 - INFO - Cache saved after 230 batches
+2026-03-02 20:06:25,940 - INFO - Batch 231: system_fingerprint=None
+2026-03-02 20:06:37,241 - INFO - Batch 232: system_fingerprint=None
+2026-03-02 20:07:08,965 - INFO - Batch 233: system_fingerprint=None
+2026-03-02 20:07:20,441 - INFO - Batch 234: system_fingerprint=None
+2026-03-02 20:07:48,716 - INFO - Batch 235: system_fingerprint=None
+2026-03-02 20:07:48,722 - INFO - Cache saved after 235 batches
+2026-03-02 20:08:14,945 - INFO - Batch 236: system_fingerprint=None
+2026-03-02 20:08:32,948 - INFO - Batch 237: system_fingerprint=None
+2026-03-02 20:08:50,747 - INFO - Batch 238: system_fingerprint=None
+2026-03-02 20:09:05,902 - INFO - Batch 239: system_fingerprint=None
+2026-03-02 20:09:36,930 - INFO - Batch 240: system_fingerprint=None
+2026-03-02 20:09:36,935 - INFO - Cache saved after 240 batches
+2026-03-02 20:10:13,558 - INFO - Batch 241: system_fingerprint=None
+2026-03-02 20:10:35,969 - INFO - Batch 242: system_fingerprint=None
+2026-03-02 20:11:05,251 - INFO - Batch 243: system_fingerprint=None
+2026-03-02 20:11:26,972 - INFO - Batch 244: system_fingerprint=None
+2026-03-02 20:11:44,418 - INFO - Batch 245: system_fingerprint=None
+2026-03-02 20:11:44,424 - INFO - Cache saved after 245 batches
+2026-03-02 20:12:13,533 - INFO - Batch 246: system_fingerprint=None
+2026-03-02 20:12:35,898 - INFO - Batch 247: system_fingerprint=None
+2026-03-02 20:13:03,244 - INFO - Batch 248: system_fingerprint=None
+2026-03-02 20:13:22,893 - INFO - Batch 249: system_fingerprint=None
+2026-03-02 20:13:46,304 - INFO - Batch 250: system_fingerprint=None
+2026-03-02 20:13:46,310 - INFO - Cache saved after 250 batches
+2026-03-02 20:14:01,140 - INFO - Batch 251: system_fingerprint=None
+2026-03-02 20:14:56,350 - INFO - Batch 252: system_fingerprint=None
+2026-03-02 20:15:18,236 - INFO - Batch 253: system_fingerprint=None
+2026-03-02 20:15:46,309 - INFO - Batch 254: system_fingerprint=None
+2026-03-02 20:16:24,372 - INFO - Batch 255: system_fingerprint=None
+2026-03-02 20:16:24,378 - INFO - Cache saved after 255 batches
+2026-03-02 20:16:51,624 - INFO - Batch 256: system_fingerprint=None
+2026-03-02 20:17:11,610 - INFO - Batch 257: system_fingerprint=None
+2026-03-02 20:17:23,458 - INFO - Batch 258: system_fingerprint=None
+2026-03-02 20:17:48,393 - INFO - Batch 259: system_fingerprint=None
+2026-03-02 20:18:10,036 - INFO - Batch 260: system_fingerprint=None
+2026-03-02 20:18:10,043 - INFO - Cache saved after 260 batches
+2026-03-02 20:18:58,135 - INFO - Batch 261: system_fingerprint=None
+2026-03-02 20:19:26,310 - INFO - Batch 262: system_fingerprint=None
+2026-03-02 20:20:03,983 - INFO - Batch 263: system_fingerprint=None
+2026-03-02 20:20:20,059 - INFO - Batch 264: system_fingerprint=None
+2026-03-02 20:20:47,111 - INFO - Batch 265: system_fingerprint=None
+2026-03-02 20:20:47,118 - INFO - Cache saved after 265 batches
+2026-03-02 20:21:16,213 - INFO - Batch 266: system_fingerprint=None
+2026-03-02 20:21:46,357 - INFO - Batch 267: system_fingerprint=None
+2026-03-02 20:22:08,561 - INFO - Batch 268: system_fingerprint=None
+2026-03-02 20:22:52,994 - INFO - Batch 269: system_fingerprint=None
+2026-03-02 20:23:25,044 - INFO - Batch 270: system_fingerprint=None
+2026-03-02 20:23:25,051 - INFO - Cache saved after 270 batches
+2026-03-02 20:23:50,788 - INFO - Batch 271: system_fingerprint=None
+2026-03-02 20:24:20,312 - INFO - Batch 272: system_fingerprint=None
+2026-03-02 20:24:41,595 - INFO - Batch 273: system_fingerprint=None
+2026-03-02 20:25:06,512 - INFO - Batch 274: system_fingerprint=None
+2026-03-02 20:25:38,999 - INFO - Batch 275: system_fingerprint=None
+2026-03-02 20:25:39,006 - INFO - Cache saved after 275 batches
+2026-03-02 20:25:51,623 - INFO - Batch 276: system_fingerprint=None
+2026-03-02 20:26:41,549 - INFO - Batch 277: system_fingerprint=None
+2026-03-02 20:26:51,439 - INFO - Batch 278: system_fingerprint=None
+2026-03-02 20:27:33,449 - INFO - Batch 279: system_fingerprint=None
+2026-03-02 20:28:07,487 - INFO - Batch 280: system_fingerprint=None
+2026-03-02 20:28:07,493 - INFO - Cache saved after 280 batches
+2026-03-02 20:28:44,790 - INFO - Batch 281: system_fingerprint=None
+2026-03-02 20:29:00,198 - INFO - Batch 282: system_fingerprint=None
+2026-03-02 20:29:16,384 - INFO - Batch 283: system_fingerprint=None
+2026-03-02 20:29:34,034 - INFO - Batch 284: system_fingerprint=None
+2026-03-02 20:30:10,226 - INFO - Batch 285: system_fingerprint=None
+2026-03-02 20:30:10,233 - INFO - Cache saved after 285 batches
+2026-03-02 20:30:57,376 - INFO - Batch 286: system_fingerprint=None
+2026-03-02 20:31:14,770 - INFO - Batch 287: system_fingerprint=None
+2026-03-02 20:31:41,423 - INFO - Batch 288: system_fingerprint=None
+2026-03-02 20:32:08,526 - INFO - Batch 289: system_fingerprint=None
+2026-03-02 20:32:29,730 - INFO - Batch 290: system_fingerprint=None
+2026-03-02 20:32:29,737 - INFO - Cache saved after 290 batches
+2026-03-02 20:33:02,773 - INFO - Batch 291: system_fingerprint=None
+2026-03-02 20:33:15,574 - INFO - Batch 292: system_fingerprint=None
+2026-03-02 20:33:27,291 - INFO - Batch 293: system_fingerprint=None
+2026-03-02 20:33:46,525 - INFO - Batch 294: system_fingerprint=None
+2026-03-02 20:33:55,318 - INFO - Batch 295: system_fingerprint=None
+2026-03-02 20:33:55,325 - INFO - Cache saved after 295 batches
+2026-03-02 20:34:04,704 - INFO - Batch 296: system_fingerprint=None
+2026-03-02 20:34:19,538 - INFO - Batch 297: system_fingerprint=None
+2026-03-02 20:34:44,332 - INFO - Batch 298: system_fingerprint=None
+2026-03-02 20:35:08,557 - INFO - Batch 299: system_fingerprint=None
+2026-03-02 20:35:26,341 - INFO - Batch 300: system_fingerprint=None
+2026-03-02 20:35:26,348 - INFO - Cache saved after 300 batches
+2026-03-02 20:35:48,138 - INFO - Batch 301: system_fingerprint=None
+2026-03-02 20:36:13,771 - INFO - Batch 302: system_fingerprint=None
+2026-03-02 20:36:26,002 - INFO - Batch 303: system_fingerprint=None
+2026-03-02 20:36:56,397 - INFO - Batch 304: system_fingerprint=None
+2026-03-02 20:37:23,485 - INFO - Batch 305: system_fingerprint=None
+2026-03-02 20:37:23,492 - INFO - Cache saved after 305 batches
+2026-03-02 20:37:38,857 - INFO - Batch 306: system_fingerprint=None
+2026-03-02 20:37:51,103 - INFO - Batch 307: system_fingerprint=None
+2026-03-02 20:38:22,332 - INFO - Batch 308: system_fingerprint=None
+2026-03-02 20:38:38,056 - INFO - Batch 309: system_fingerprint=None
+2026-03-02 20:39:29,479 - INFO - Batch 310: system_fingerprint=None
+2026-03-02 20:39:29,487 - INFO - Cache saved after 310 batches
+2026-03-02 20:39:50,218 - INFO - Batch 311: system_fingerprint=None
+2026-03-02 20:40:16,885 - INFO - Batch 312: system_fingerprint=None
+2026-03-02 20:41:09,416 - INFO - Batch 313: system_fingerprint=None
+2026-03-02 20:41:32,745 - INFO - Batch 314: system_fingerprint=None
+2026-03-02 20:42:10,069 - INFO - Batch 315: system_fingerprint=None
+2026-03-02 20:42:10,076 - INFO - Cache saved after 315 batches
+2026-03-02 20:42:54,054 - INFO - Batch 316: system_fingerprint=None
+2026-03-02 20:43:18,091 - INFO - Batch 317: system_fingerprint=None
+2026-03-02 20:43:45,043 - INFO - Batch 318: system_fingerprint=None
+2026-03-02 20:44:35,436 - INFO - Batch 319: system_fingerprint=None
+2026-03-02 20:44:44,580 - INFO - Batch 320: system_fingerprint=None
+2026-03-02 20:44:44,588 - INFO - Cache saved after 320 batches
+2026-03-02 20:45:15,318 - INFO - Batch 321: system_fingerprint=None
+2026-03-02 20:45:24,911 - INFO - Batch 322: system_fingerprint=None
+2026-03-02 20:45:58,659 - INFO - Batch 323: system_fingerprint=None
+2026-03-02 20:46:23,377 - INFO - Batch 324: system_fingerprint=None
+2026-03-02 20:46:41,254 - INFO - Batch 325: system_fingerprint=None
+2026-03-02 20:46:41,262 - INFO - Cache saved after 325 batches
+2026-03-02 20:47:07,764 - INFO - Batch 326: system_fingerprint=None
+2026-03-02 20:47:19,709 - INFO - Batch 327: system_fingerprint=None
+2026-03-02 20:47:45,262 - INFO - Batch 328: system_fingerprint=None
+2026-03-02 20:48:06,074 - INFO - Batch 329: system_fingerprint=None
+2026-03-02 20:48:19,095 - INFO - Batch 330: system_fingerprint=None
+2026-03-02 20:48:19,103 - INFO - Cache saved after 330 batches
+2026-03-02 20:49:04,835 - INFO - Batch 331: system_fingerprint=None
+2026-03-02 20:49:26,404 - INFO - Batch 332: system_fingerprint=None
+2026-03-02 20:49:41,764 - INFO - Batch 333: system_fingerprint=None
+2026-03-02 20:50:05,165 - INFO - Batch 334: system_fingerprint=None
+2026-03-02 20:50:40,020 - INFO - Batch 335: system_fingerprint=None
+2026-03-02 20:50:40,028 - INFO - Cache saved after 335 batches
+2026-03-02 20:50:57,316 - INFO - Batch 336: system_fingerprint=None
+2026-03-02 20:51:22,006 - INFO - Batch 337: system_fingerprint=None
+2026-03-02 20:51:40,021 - INFO - Batch 338: system_fingerprint=None
+2026-03-02 20:51:54,057 - INFO - Batch 339: system_fingerprint=None
+2026-03-02 20:52:06,835 - INFO - Batch 340: system_fingerprint=None
+2026-03-02 20:52:06,844 - INFO - Cache saved after 340 batches
+2026-03-02 20:52:19,477 - INFO - Batch 341: system_fingerprint=None
+2026-03-02 20:52:53,321 - INFO - Batch 342: system_fingerprint=None
+2026-03-02 20:53:40,808 - INFO - Batch 343: system_fingerprint=None
+2026-03-02 20:53:56,915 - INFO - Batch 344: system_fingerprint=None
+2026-03-02 20:54:38,015 - INFO - Batch 345: system_fingerprint=None
+2026-03-02 20:54:38,023 - INFO - Cache saved after 345 batches
+2026-03-02 20:54:59,974 - INFO - Batch 346: system_fingerprint=None
+2026-03-02 20:56:10,365 - INFO - Batch 347: system_fingerprint=None
+2026-03-02 20:56:35,806 - INFO - Batch 348: system_fingerprint=None
+2026-03-02 20:57:07,281 - INFO - Batch 349: system_fingerprint=None
+2026-03-02 20:57:29,025 - INFO - Batch 350: system_fingerprint=None
+2026-03-02 20:57:29,033 - INFO - Cache saved after 350 batches
+2026-03-02 20:57:46,229 - INFO - Batch 351: system_fingerprint=None
+2026-03-02 20:58:13,005 - INFO - Batch 352: system_fingerprint=None
+2026-03-02 20:58:22,708 - INFO - Batch 353: system_fingerprint=None
+2026-03-02 20:58:31,299 - INFO - Batch 354: system_fingerprint=None
+2026-03-02 20:58:56,362 - INFO - Batch 355: system_fingerprint=None
+2026-03-02 20:58:56,371 - INFO - Cache saved after 355 batches
+2026-03-02 20:59:17,684 - INFO - Batch 356: system_fingerprint=None
+2026-03-02 20:59:35,319 - INFO - Batch 357: system_fingerprint=None
+2026-03-02 20:59:52,636 - INFO - Batch 358: system_fingerprint=None
+2026-03-02 21:00:05,092 - INFO - Batch 359: system_fingerprint=None
+2026-03-02 21:00:17,943 - INFO - Batch 360: system_fingerprint=None
+2026-03-02 21:00:17,952 - INFO - Cache saved after 360 batches
+2026-03-02 21:00:29,180 - INFO - Batch 361: system_fingerprint=None
+2026-03-02 21:00:48,208 - INFO - Batch 362: system_fingerprint=None
+2026-03-02 21:01:00,133 - INFO - Batch 363: system_fingerprint=None
+2026-03-02 21:01:26,481 - INFO - Batch 364: system_fingerprint=None
+2026-03-02 21:01:46,260 - INFO - Batch 365: system_fingerprint=None
+2026-03-02 21:01:46,269 - INFO - Cache saved after 365 batches
+2026-03-02 21:02:01,584 - INFO - Batch 366: system_fingerprint=None
+2026-03-02 21:02:11,149 - INFO - Batch 367: system_fingerprint=None
+2026-03-02 21:02:27,270 - INFO - Batch 368: system_fingerprint=None
+2026-03-02 21:02:39,725 - INFO - Batch 369: system_fingerprint=None
+2026-03-02 21:02:52,979 - INFO - Batch 370: system_fingerprint=None
+2026-03-02 21:02:52,988 - INFO - Cache saved after 370 batches
+2026-03-02 21:03:12,771 - INFO - Batch 371: system_fingerprint=None
+2026-03-02 21:03:12,780 - INFO - Total input tokens used: 1340345
+2026-03-02 21:03:12,780 - INFO - Total output tokens used: 520099
+2026-03-02 21:03:12,780 - INFO - Total cost of this call: $1.3753
+2026-03-02 21:03:12,780 - INFO - Total images processed: 1864
+2026-03-02 21:03:12,780 - INFO - Successfully processed: 1864
+2026-03-02 21:03:12,780 - INFO - Failed/uniform placeholders: 0
+2026-03-02 21:03:12,780 - INFO - Final probabilities shape: (1864, 10)
+2026-03-02 21:03:12,781 - INFO - Probabilities shape: (1864, 10)

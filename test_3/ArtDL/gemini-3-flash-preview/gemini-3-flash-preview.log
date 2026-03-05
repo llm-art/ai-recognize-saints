@@ -1,0 +1,224 @@
+2026-03-02 20:11:54,439 - INFO - Logger initialized for ArtDL/test_3/gemini-3-flash-preview
+2026-03-02 20:11:54,440 - INFO - Starting classification for dataset=ArtDL, test=test_3, model=gemini-3-flash-preview
+2026-03-02 20:11:54,808 - INFO - Number of images: 1864
+2026-03-02 20:11:54,808 - INFO - Processing dataset: ArtDL
+2026-03-02 20:11:54,811 - INFO - Processing images for test: test_3
+2026-03-02 20:11:54,858 - INFO - Using model: gemini-3-flash-preview
+2026-03-02 20:11:54,859 - INFO - === GENERATED PROMPT ===
+2026-03-02 20:11:54,859 - INFO - Dataset: ArtDL, Test: test_3
+2026-03-02 20:11:54,859 - INFO - Hyperparameters: temperature=0.0, top_k=32
+2026-03-02 20:11:54,859 - INFO - Prompt content:
+2026-03-02 20:11:54,859 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+You will be shown 5 example images categorized as follows:
+{
+  "0c8573aa-ad2d-4672-bc2c-7067bd863153_bb1e7952-4766-41b9-bfdf-1abf01bac531", "jerome"
+  "2e9faf04-90cf-4973-b253-c77c53dd1ccf_f450ccb9-2973-442a-89a4-fa54eeeedd20", "dominic"
+  "1942_9_17_c", "francis"
+  "1440147397", "peter"
+  "1828079898", "paul"
+}
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"antony_of_padua" - Antony of Padua
+"john_baptist" - John the Baptist
+"paul" - Paul
+"francis" - Francis of Assisi
+"mary_magdalene" - Mary Magdalene
+"jerome" - Jerome
+"dominic" - Saint Dominic
+"mary" - Virgin Mary
+"peter" - Peter
+"sebastian" - Saint Sebastian
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2026-03-02 20:11:54,859 - INFO - === END PROMPT ===
+2026-03-02 20:12:32,873 - INFO - Cache saved after 5 batches
+2026-03-02 20:13:21,405 - INFO - Cache saved after 10 batches
+2026-03-02 20:14:07,888 - WARNING - Mismatch between response texts (4) and batch items (5). Processing only valid items from batch 13.
+2026-03-02 20:14:32,894 - INFO - Cache saved after 15 batches
+2026-03-02 20:15:36,388 - INFO - Cache saved after 20 batches
+2026-03-02 20:17:25,993 - INFO - Cache saved after 25 batches
+2026-03-02 20:18:16,166 - INFO - Cache saved after 30 batches
+2026-03-02 20:19:56,618 - INFO - Cache saved after 35 batches
+2026-03-02 20:22:32,887 - INFO - Cache saved after 40 batches
+2026-03-02 20:24:04,157 - INFO - Cache saved after 45 batches
+2026-03-02 20:26:08,069 - INFO - Cache saved after 50 batches
+2026-03-02 20:27:28,648 - INFO - Cache saved after 55 batches
+2026-03-02 20:29:08,614 - INFO - Cache saved after 60 batches
+2026-03-02 20:30:14,308 - INFO - Cache saved after 65 batches
+2026-03-02 20:37:02,477 - INFO - Cache saved after 70 batches
+2026-03-02 20:38:56,419 - INFO - Cache saved after 75 batches
+2026-03-02 20:40:14,028 - INFO - Cache saved after 80 batches
+2026-03-02 20:42:23,540 - INFO - Cache saved after 85 batches
+2026-03-02 20:44:19,488 - INFO - Cache saved after 90 batches
+2026-03-02 20:45:28,719 - INFO - Cache saved after 95 batches
+2026-03-02 20:46:22,276 - INFO - Cache saved after 100 batches
+2026-03-02 20:48:20,328 - INFO - Cache saved after 105 batches
+2026-03-02 20:49:46,427 - INFO - Cache saved after 110 batches
+2026-03-02 20:51:22,715 - INFO - Cache saved after 115 batches
+2026-03-02 20:52:40,030 - INFO - Cache saved after 120 batches
+2026-03-02 20:53:44,138 - INFO - Cache saved after 125 batches
+2026-03-02 20:54:39,899 - INFO - Cache saved after 130 batches
+2026-03-02 20:55:43,604 - INFO - Cache saved after 135 batches
+2026-03-02 20:57:13,789 - INFO - Cache saved after 140 batches
+2026-03-02 20:58:27,523 - INFO - Cache saved after 145 batches
+2026-03-02 21:00:12,954 - INFO - Cache saved after 150 batches
+2026-03-02 21:01:33,446 - INFO - Cache saved after 155 batches
+2026-03-02 21:02:55,712 - INFO - Cache saved after 160 batches
+2026-03-02 21:03:48,994 - INFO - Cache saved after 165 batches
+2026-03-02 21:04:55,374 - INFO - Cache saved after 170 batches
+2026-03-02 21:07:31,718 - INFO - Cache saved after 175 batches
+2026-03-02 21:10:12,160 - INFO - Cache saved after 180 batches
+2026-03-02 21:12:50,039 - INFO - Cache saved after 185 batches
+2026-03-02 21:14:36,320 - INFO - Cache saved after 190 batches
+2026-03-02 21:20:36,399 - INFO - Cache saved after 195 batches
+2026-03-02 21:22:14,357 - INFO - Cache saved after 200 batches
+2026-03-02 21:23:47,619 - INFO - Cache saved after 205 batches
+2026-03-02 21:25:11,954 - INFO - Cache saved after 210 batches
+2026-03-02 21:26:31,690 - INFO - Cache saved after 215 batches
+2026-03-02 21:27:34,809 - INFO - Cache saved after 220 batches
+2026-03-02 21:28:55,425 - INFO - Cache saved after 225 batches
+2026-03-02 21:30:01,252 - INFO - Cache saved after 230 batches
+2026-03-02 21:31:28,019 - INFO - Cache saved after 235 batches
+2026-03-02 21:32:49,658 - INFO - Cache saved after 240 batches
+2026-03-02 21:34:05,231 - INFO - Cache saved after 245 batches
+2026-03-02 21:35:25,282 - INFO - Cache saved after 250 batches
+2026-03-02 21:36:55,765 - INFO - Cache saved after 255 batches
+2026-03-02 21:38:07,973 - INFO - Cache saved after 260 batches
+2026-03-02 21:39:17,423 - INFO - Cache saved after 265 batches
+2026-03-02 21:42:14,518 - INFO - Cache saved after 270 batches
+2026-03-02 21:43:23,984 - INFO - Cache saved after 275 batches
+2026-03-02 21:44:23,491 - INFO - Cache saved after 280 batches
+2026-03-02 21:45:28,795 - INFO - Cache saved after 285 batches
+2026-03-02 21:46:17,570 - INFO - Cache saved after 290 batches
+2026-03-02 21:47:11,778 - INFO - Cache saved after 295 batches
+2026-03-02 21:47:58,400 - INFO - Cache saved after 300 batches
+2026-03-02 21:49:09,023 - INFO - Cache saved after 305 batches
+2026-03-02 21:50:00,791 - INFO - Cache saved after 310 batches
+2026-03-02 21:51:48,838 - INFO - Cache saved after 315 batches
+2026-03-02 21:52:49,785 - INFO - Cache saved after 320 batches
+2026-03-02 21:54:22,745 - INFO - Cache saved after 325 batches
+2026-03-02 21:55:22,852 - INFO - Cache saved after 330 batches
+2026-03-02 21:56:11,418 - INFO - Cache saved after 335 batches
+2026-03-02 21:56:58,805 - INFO - Cache saved after 340 batches
+2026-03-02 21:57:45,358 - INFO - Cache saved after 345 batches
+2026-03-02 21:58:50,817 - INFO - Cache saved after 350 batches
+2026-03-02 21:59:30,456 - INFO - Cache saved after 355 batches
+2026-03-02 22:00:35,541 - INFO - Cache saved after 360 batches
+2026-03-02 22:01:14,809 - INFO - Cache saved after 365 batches
+2026-03-02 22:02:07,520 - INFO - Cache saved after 370 batches
+2026-03-02 22:02:31,842 - INFO - Total input tokens used: 4473876
+2026-03-02 22:02:31,842 - INFO - Total output tokens used: 67664
+2026-03-02 22:02:31,842 - INFO - Total cost of this call: $2.4399
+2026-03-02 22:02:31,843 - INFO - Probabilities shape: (1863, 10)
+2026-03-05 14:59:39,518 - INFO - Logger initialized for ArtDL/test_3/gemini-3-flash-preview
+2026-03-05 14:59:39,519 - INFO - Starting classification for dataset=ArtDL, test=test_3, model=gemini-3-flash-preview
+2026-03-05 14:59:39,890 - INFO - Number of images: 1864
+2026-03-05 14:59:39,891 - INFO - Processing dataset: ArtDL
+2026-03-05 14:59:39,893 - INFO - Processing images for test: test_3
+2026-03-05 14:59:39,941 - INFO - Loaded 1863 cached results
+2026-03-05 14:59:39,941 - INFO - Using model: gemini-3-flash-preview
+2026-03-05 14:59:39,943 - INFO - === GENERATED PROMPT ===
+2026-03-05 14:59:39,943 - INFO - Dataset: ArtDL, Test: test_3
+2026-03-05 14:59:39,943 - INFO - Hyperparameters: temperature=0.0, top_k=32
+2026-03-05 14:59:39,943 - INFO - Prompt content:
+2026-03-05 14:59:39,943 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+You will be shown 5 example images categorized as follows:
+{
+  "0c8573aa-ad2d-4672-bc2c-7067bd863153_bb1e7952-4766-41b9-bfdf-1abf01bac531", "jerome"
+  "2e9faf04-90cf-4973-b253-c77c53dd1ccf_f450ccb9-2973-442a-89a4-fa54eeeedd20", "dominic"
+  "1942_9_17_c", "francis"
+  "1440147397", "peter"
+  "1828079898", "paul"
+}
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"antony_of_padua" - Antony of Padua
+"john_baptist" - John the Baptist
+"paul" - Paul
+"francis" - Francis of Assisi
+"mary_magdalene" - Mary Magdalene
+"jerome" - Jerome
+"dominic" - Saint Dominic
+"mary" - Virgin Mary
+"peter" - Peter
+"sebastian" - Saint Sebastian
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2026-03-05 14:59:39,943 - INFO - === END PROMPT ===
+2026-03-05 14:59:46,513 - INFO - Total input tokens used: 7566
+2026-03-05 14:59:46,513 - INFO - Total output tokens used: 37
+2026-03-05 14:59:46,513 - INFO - Total cost of this call: $0.0039
+2026-03-05 14:59:46,514 - INFO - Probabilities shape: (1864, 10)

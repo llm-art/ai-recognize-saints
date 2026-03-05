@@ -1,0 +1,2 @@
+Model,Macro Average Precision,Micro Average Precision,Accuracy
+gemini-3-flash-preview,73.71%,84.15%,91.25%

@@ -1,0 +1,205 @@
+2026-03-02 18:19:31,645 - INFO - Logger initialized for ArtDL/test_2/gemini-3-flash-preview
+2026-03-02 18:19:31,646 - INFO - Starting classification for dataset=ArtDL, test=test_2, model=gemini-3-flash-preview
+2026-03-02 18:19:32,042 - INFO - Number of images: 1864
+2026-03-02 18:19:32,042 - INFO - Processing dataset: ArtDL
+2026-03-02 18:19:32,045 - INFO - Processing images for test: test_2
+2026-03-02 18:19:32,091 - INFO - Using model: gemini-3-flash-preview
+2026-03-02 18:19:32,091 - INFO - === GENERATED PROMPT ===
+2026-03-02 18:19:32,091 - INFO - Dataset: ArtDL, Test: test_2
+2026-03-02 18:19:32,091 - INFO - Hyperparameters: temperature=0.0, top_k=32
+2026-03-02 18:19:32,091 - INFO - Prompt content:
+2026-03-02 18:19:32,091 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"antony_of_padua" - the Franciscan monk Antony of Padua; possible attributes: ass, book, crucifix, flowered cross, flaming heart, infant Christ (on book), lily - portrait of male saint
+"john_baptist" - John the Baptist; possible attributes: book, reed cross, baptismal cup, honeycomb, lamb, staff
+"paul" - the apostle Paul of Tarsus; possible attributes: book, scroll, sword
+"francis" - founder of the Order of Friars Minor (Franciscans), Francis(cus) of Assisi; possible attributes: book, crucifix, lily, skull, stigmata
+"mary_magdalene" - the penitent harlot Mary Magdalene; possible attributes: book (or scroll), crown, crown of thorns, crucifix, jar of ointment, mirror, musical instrument, palm-branch, rosary, scourge
+"jerome" - the monk and hermit Jerome (Hieronymus); possible attributes: book, cardinal's hat, crucifix, hour-glass, lion, skull, stone
+"dominic" - Dominic(us) Guzman of Calerueja, founder of the Order of Preachers (or Dominican (Black) Friars; possible attributes: book, dog with flaming torch, lily, loaf of bread, rosary, star
+"mary" - the Virgin Mary
+"peter" - the apostle Peter, first bishop of Rome; possible attributes: book, cock, (upturned) cross, (triple) crozier, fish, key, scroll, ship, tiara
+"sebastian" - the martyr Sebastian; possible attributes: arrow(s), bow, tree-trunk
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2026-03-02 18:19:32,091 - INFO - === END PROMPT ===
+2026-03-02 18:20:10,159 - INFO - Cache saved after 5 batches
+2026-03-02 18:20:59,268 - INFO - Cache saved after 10 batches
+2026-03-02 18:22:01,412 - INFO - Cache saved after 15 batches
+2026-03-02 18:22:49,214 - INFO - Cache saved after 20 batches
+2026-03-02 18:24:11,188 - INFO - Cache saved after 25 batches
+2026-03-02 18:24:59,539 - INFO - Cache saved after 30 batches
+2026-03-02 18:31:26,403 - INFO - Cache saved after 35 batches
+2026-03-02 18:33:23,934 - INFO - Cache saved after 40 batches
+2026-03-02 18:35:16,514 - INFO - Cache saved after 45 batches
+2026-03-02 18:41:06,636 - INFO - Cache saved after 50 batches
+2026-03-02 18:42:34,494 - INFO - Cache saved after 55 batches
+2026-03-02 18:44:13,372 - INFO - Cache saved after 60 batches
+2026-03-02 18:45:26,278 - INFO - Cache saved after 65 batches
+2026-03-02 18:46:15,565 - INFO - Cache saved after 70 batches
+2026-03-02 18:48:27,551 - INFO - Cache saved after 75 batches
+2026-03-02 18:49:22,137 - INFO - Cache saved after 80 batches
+2026-03-02 18:51:24,820 - INFO - Cache saved after 85 batches
+2026-03-02 18:52:56,866 - INFO - Cache saved after 90 batches
+2026-03-02 18:53:50,499 - INFO - Cache saved after 95 batches
+2026-03-02 18:55:02,096 - INFO - Cache saved after 100 batches
+2026-03-02 18:56:12,155 - INFO - Cache saved after 105 batches
+2026-03-02 18:57:26,824 - INFO - Cache saved after 110 batches
+2026-03-02 19:03:05,794 - INFO - Cache saved after 115 batches
+2026-03-02 19:04:03,178 - INFO - Cache saved after 120 batches
+2026-03-02 19:04:38,188 - INFO - Cache saved after 125 batches
+2026-03-02 19:05:19,006 - INFO - Cache saved after 130 batches
+2026-03-02 19:06:36,630 - INFO - Cache saved after 135 batches
+2026-03-02 19:07:37,089 - INFO - Cache saved after 140 batches
+2026-03-02 19:08:48,219 - INFO - Cache saved after 145 batches
+2026-03-02 19:09:54,015 - INFO - Cache saved after 150 batches
+2026-03-02 19:11:00,596 - INFO - Cache saved after 155 batches
+2026-03-02 19:11:37,619 - INFO - Cache saved after 160 batches
+2026-03-02 19:12:19,508 - INFO - Cache saved after 165 batches
+2026-03-02 19:13:08,463 - INFO - Cache saved after 170 batches
+2026-03-02 19:15:11,874 - INFO - Cache saved after 175 batches
+2026-03-02 19:17:21,254 - INFO - Cache saved after 180 batches
+2026-03-02 19:19:17,561 - INFO - Cache saved after 185 batches
+2026-03-02 19:21:12,171 - INFO - Cache saved after 190 batches
+2026-03-02 19:26:19,024 - INFO - Cache saved after 195 batches
+2026-03-02 19:30:33,916 - INFO - Cache saved after 200 batches
+2026-03-02 19:31:38,566 - INFO - Cache saved after 205 batches
+2026-03-02 19:37:00,563 - INFO - Cache saved after 210 batches
+2026-03-02 19:37:38,716 - INFO - Cache saved after 215 batches
+2026-03-02 19:38:32,031 - INFO - Cache saved after 220 batches
+2026-03-02 19:39:16,547 - INFO - Cache saved after 225 batches
+2026-03-02 19:40:29,733 - INFO - Cache saved after 230 batches
+2026-03-02 19:41:37,739 - INFO - Cache saved after 235 batches
+2026-03-02 19:42:45,942 - INFO - Cache saved after 240 batches
+2026-03-02 19:44:25,482 - INFO - Cache saved after 245 batches
+2026-03-02 19:45:39,606 - INFO - Cache saved after 250 batches
+2026-03-02 19:46:59,511 - INFO - Cache saved after 255 batches
+2026-03-02 19:47:59,456 - INFO - Cache saved after 260 batches
+2026-03-02 19:48:35,708 - INFO - Cache saved after 265 batches
+2026-03-02 19:50:46,710 - INFO - Cache saved after 270 batches
+2026-03-02 19:51:44,260 - INFO - Cache saved after 275 batches
+2026-03-02 19:52:32,568 - INFO - Cache saved after 280 batches
+2026-03-02 19:53:37,779 - INFO - Cache saved after 285 batches
+2026-03-02 19:54:32,809 - INFO - Cache saved after 290 batches
+2026-03-02 19:55:21,426 - INFO - Cache saved after 295 batches
+2026-03-02 19:56:07,613 - INFO - Cache saved after 300 batches
+2026-03-02 19:57:22,253 - INFO - Cache saved after 305 batches
+2026-03-02 19:57:53,619 - INFO - Cache saved after 310 batches
+2026-03-02 19:59:57,351 - INFO - Cache saved after 315 batches
+2026-03-02 20:01:07,256 - INFO - Cache saved after 320 batches
+2026-03-02 20:02:54,211 - INFO - Cache saved after 325 batches
+2026-03-02 20:03:56,257 - INFO - Cache saved after 330 batches
+2026-03-02 20:04:40,421 - INFO - Cache saved after 335 batches
+2026-03-02 20:05:16,398 - INFO - Cache saved after 340 batches
+2026-03-02 20:06:15,523 - INFO - Cache saved after 345 batches
+2026-03-02 20:06:55,601 - INFO - Cache saved after 350 batches
+2026-03-02 20:07:31,872 - INFO - Cache saved after 355 batches
+2026-03-02 20:08:21,845 - INFO - Cache saved after 360 batches
+2026-03-02 20:08:56,010 - INFO - Cache saved after 365 batches
+2026-03-02 20:09:47,725 - INFO - Cache saved after 370 batches
+2026-03-02 20:10:06,351 - INFO - Total input tokens used: 2358220
+2026-03-02 20:10:06,352 - INFO - Total output tokens used: 67568
+2026-03-02 20:10:06,352 - INFO - Total cost of this call: $1.3818
+2026-03-02 20:10:06,353 - INFO - Probabilities shape: (1864, 10)
+2026-03-05 14:59:34,271 - INFO - Logger initialized for ArtDL/test_2/gemini-3-flash-preview
+2026-03-05 14:59:34,272 - INFO - Starting classification for dataset=ArtDL, test=test_2, model=gemini-3-flash-preview
+2026-03-05 14:59:34,659 - INFO - Number of images: 1864
+2026-03-05 14:59:34,659 - INFO - Processing dataset: ArtDL
+2026-03-05 14:59:34,662 - INFO - Processing images for test: test_2
+2026-03-05 14:59:34,710 - INFO - Loaded 1864 cached results
+2026-03-05 14:59:34,710 - INFO - Using model: gemini-3-flash-preview
+2026-03-05 14:59:34,710 - INFO - === GENERATED PROMPT ===
+2026-03-05 14:59:34,710 - INFO - Dataset: ArtDL, Test: test_2
+2026-03-05 14:59:34,710 - INFO - Hyperparameters: temperature=0.0, top_k=32
+2026-03-05 14:59:34,710 - INFO - Prompt content:
+2026-03-05 14:59:34,710 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"antony_of_padua" - the Franciscan monk Antony of Padua; possible attributes: ass, book, crucifix, flowered cross, flaming heart, infant Christ (on book), lily - portrait of male saint
+"john_baptist" - John the Baptist; possible attributes: book, reed cross, baptismal cup, honeycomb, lamb, staff
+"paul" - the apostle Paul of Tarsus; possible attributes: book, scroll, sword
+"francis" - founder of the Order of Friars Minor (Franciscans), Francis(cus) of Assisi; possible attributes: book, crucifix, lily, skull, stigmata
+"mary_magdalene" - the penitent harlot Mary Magdalene; possible attributes: book (or scroll), crown, crown of thorns, crucifix, jar of ointment, mirror, musical instrument, palm-branch, rosary, scourge
+"jerome" - the monk and hermit Jerome (Hieronymus); possible attributes: book, cardinal's hat, crucifix, hour-glass, lion, skull, stone
+"dominic" - Dominic(us) Guzman of Calerueja, founder of the Order of Preachers (or Dominican (Black) Friars; possible attributes: book, dog with flaming torch, lily, loaf of bread, rosary, star
+"mary" - the Virgin Mary
+"peter" - the apostle Peter, first bishop of Rome; possible attributes: book, cock, (upturned) cross, (triple) crozier, fish, key, scroll, ship, tiara
+"sebastian" - the martyr Sebastian; possible attributes: arrow(s), bow, tree-trunk
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2026-03-05 14:59:34,710 - INFO - === END PROMPT ===
+2026-03-05 14:59:34,721 - INFO - Total input tokens used: 0
+2026-03-05 14:59:34,721 - INFO - Total output tokens used: 0
+2026-03-05 14:59:34,721 - INFO - Total cost of this call: $0.0000
+2026-03-05 14:59:34,722 - INFO - Probabilities shape: (1864, 10)

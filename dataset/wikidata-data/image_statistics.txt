@@ -1,9 +1,9 @@
 Image Statistics:
-Width: 2096.86 ± 1848.12 pixels
-Height: 2539.37 ± 1988.35 pixels
+Width:  1232.31 ± 753.77 pixels
+Height: 1587.26 ± 1009.91 pixels
 Target from paper: Width: 778.84 ± 198.74, Height: 669.36 ± 174.18
 
-Total images: 735
-Min width: 216, Max width: 15886
-Min height: 189, Max height: 14223
-Failed downloads: 5
+Total images: 717
+Min width: 139, Max width: 6272
+Min height: 263, Max height: 8078
+Failed downloads: 45

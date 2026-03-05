@@ -155,7 +155,7 @@ def main(models, folders, limit, datasets):
     if limit > 0:
       images = images[:limit]
 
-    models = {folder: [os.path.join(base_dir, folder, dataset, model_name) for model_name in models] for folder in folders}
+    model_paths = {folder: [os.path.join(base_dir, folder, dataset, model_name) for model_name in models] for folder in folders}
     
     classes_df = pd.read_csv(os.path.join(dataset_data_dir, 'classes.csv'))
     classes['test_1'] = list(classes_df[['ID', 'Label']].itertuples(index=False, name=None))
@@ -166,7 +166,7 @@ def main(models, folders, limit, datasets):
     print(f"Dataset: {dataset}")
 
     for folder in folders:
-      for model_path in models[folder]:
+      for model_path in model_paths[folder]:
         
         print(f"{folder}, model: {model_path.split('/')[-1]}")
 

@@ -1,0 +1,293 @@
+2026-03-04 15:56:24,622 - INFO - Logger initialized for ICONCLASS/test_1/gemini-3.1-pro-preview
+2026-03-04 15:56:24,623 - INFO - Starting classification for dataset=ICONCLASS, test=test_1, model=gemini-3.1-pro-preview
+2026-03-04 15:56:24,918 - INFO - Number of images: 863
+2026-03-04 15:56:24,918 - INFO - Processing dataset: ICONCLASS
+2026-03-04 15:56:24,920 - INFO - Processing images for test: test_1
+2026-03-04 15:56:24,968 - INFO - Using model: gemini-3.1-pro-preview
+2026-03-04 15:56:24,969 - INFO - === GENERATED PROMPT ===
+2026-03-04 15:56:24,969 - INFO - Dataset: ICONCLASS, Test: test_1
+2026-03-04 15:56:24,969 - INFO - Hyperparameters: temperature=0.0, top_k=32
+2026-03-04 15:56:24,969 - INFO - Prompt content:
+2026-03-04 15:56:24,969 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"paul" - St. Paul
+"mary_magdalene" - Mary Magdalene
+"jerome" - St. Jerome
+"john" - St. John the Evangelist
+"antony_abbot" - St. Anthony Abbot
+"peter" - St. Peter
+"matthew" - St. Matthew
+"catherine" - St. Catherine
+"luke" - St. Luke
+"francis" - St. Francis of Assisi
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2026-03-04 15:56:24,969 - INFO - === END PROMPT ===
+2026-03-04 15:58:45,931 - INFO - Cache saved after 5 batches
+2026-03-04 16:00:00,891 - INFO - Cache saved after 10 batches
+2026-03-04 16:01:46,741 - INFO - Cache saved after 15 batches
+2026-03-04 16:04:25,227 - INFO - Cache saved after 20 batches
+2026-03-04 16:06:05,762 - INFO - Cache saved after 25 batches
+2026-03-04 16:07:06,381 - INFO - Cache saved after 30 batches
+2026-03-04 16:16:32,306 - INFO - Cache saved after 35 batches
+2026-03-04 16:17:43,676 - INFO - Cache saved after 40 batches
+2026-03-04 16:20:22,145 - INFO - Cache saved after 45 batches
+2026-03-04 16:22:00,936 - INFO - Cache saved after 50 batches
+2026-03-04 16:23:40,133 - INFO - Cache saved after 55 batches
+2026-03-04 16:24:42,735 - INFO - Cache saved after 60 batches
+2026-03-04 16:27:06,333 - INFO - Cache saved after 65 batches
+2026-03-04 16:28:51,507 - INFO - Cache saved after 70 batches
+2026-03-04 16:30:20,075 - INFO - Cache saved after 75 batches
+2026-03-04 16:31:50,076 - INFO - Cache saved after 80 batches
+2026-03-04 16:33:39,795 - INFO - Cache saved after 85 batches
+2026-03-04 16:35:04,803 - INFO - Cache saved after 90 batches
+2026-03-04 16:43:36,200 - INFO - Cache saved after 95 batches
+2026-03-04 16:45:11,213 - INFO - Cache saved after 100 batches
+2026-03-04 16:46:59,880 - INFO - Cache saved after 105 batches
+2026-03-04 16:48:09,264 - INFO - Cache saved after 110 batches
+2026-03-04 16:49:19,353 - INFO - Cache saved after 115 batches
+2026-03-04 16:52:06,208 - INFO - Cache saved after 120 batches
+2026-03-04 16:54:07,902 - INFO - Cache saved after 125 batches
+2026-03-04 16:55:30,786 - INFO - Cache saved after 130 batches
+2026-03-04 16:56:51,717 - INFO - Cache saved after 135 batches
+2026-03-04 16:58:11,721 - INFO - Cache saved after 140 batches
+2026-03-04 16:59:50,838 - INFO - Cache saved after 145 batches
+2026-03-04 17:00:57,513 - INFO - Cache saved after 150 batches
+2026-03-04 17:02:04,003 - INFO - Cache saved after 155 batches
+2026-03-04 17:04:02,641 - INFO - Cache saved after 160 batches
+2026-03-04 17:05:40,718 - INFO - Cache saved after 165 batches
+2026-03-04 17:15:18,351 - INFO - Cache saved after 170 batches
+2026-03-04 20:46:02,184 - INFO - Logger initialized for ICONCLASS/test_1/gemini-3.1-pro-preview
+2026-03-04 20:46:02,184 - INFO - Starting classification for dataset=ICONCLASS, test=test_1, model=gemini-3.1-pro-preview
+2026-03-04 20:46:02,466 - INFO - Number of images: 863
+2026-03-04 20:46:02,466 - INFO - Processing dataset: ICONCLASS
+2026-03-04 20:46:02,469 - INFO - Processing images for test: test_1
+2026-03-04 20:46:02,517 - INFO - Loaded 863 cached results
+2026-03-04 20:46:02,517 - INFO - Using model: gemini-3.1-pro-preview
+2026-03-04 20:46:02,517 - INFO - === GENERATED PROMPT ===
+2026-03-04 20:46:02,517 - INFO - Dataset: ICONCLASS, Test: test_1
+2026-03-04 20:46:02,517 - INFO - Hyperparameters: temperature=0.0, top_k=32
+2026-03-04 20:46:02,518 - INFO - Prompt content:
+2026-03-04 20:46:02,518 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"paul" - St. Paul
+"mary_magdalene" - Mary Magdalene
+"jerome" - St. Jerome
+"john" - St. John the Evangelist
+"antony_abbot" - St. Anthony Abbot
+"peter" - St. Peter
+"matthew" - St. Matthew
+"catherine" - St. Catherine
+"luke" - St. Luke
+"francis" - St. Francis of Assisi
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2026-03-04 20:46:02,518 - INFO - === END PROMPT ===
+2026-03-04 20:46:02,524 - INFO - Total input tokens used: 0
+2026-03-04 20:46:02,524 - INFO - Total output tokens used: 0
+2026-03-04 20:46:02,524 - INFO - Total cost of this call: $0.0000
+2026-03-04 20:46:02,524 - INFO - Probabilities shape: (863, 10)
+2026-03-05 14:10:24,521 - INFO - Logger initialized for ICONCLASS/test_1/gemini-3.1-pro-preview
+2026-03-05 14:10:24,521 - INFO - Starting classification for dataset=ICONCLASS, test=test_1, model=gemini-3.1-pro-preview
+2026-03-05 14:10:24,804 - INFO - Number of images: 863
+2026-03-05 14:10:24,804 - INFO - Processing dataset: ICONCLASS
+2026-03-05 14:10:24,807 - INFO - Processing images for test: test_1
+2026-03-05 14:10:24,854 - INFO - Loaded 863 cached results
+2026-03-05 14:10:24,855 - INFO - Using model: gemini-3.1-pro-preview
+2026-03-05 14:10:24,855 - INFO - === GENERATED PROMPT ===
+2026-03-05 14:10:24,855 - INFO - Dataset: ICONCLASS, Test: test_1
+2026-03-05 14:10:24,855 - INFO - Hyperparameters: temperature=0.0, top_k=32
+2026-03-05 14:10:24,855 - INFO - Prompt content:
+2026-03-05 14:10:24,855 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"paul" - St. Paul
+"mary_magdalene" - Mary Magdalene
+"jerome" - St. Jerome
+"john" - St. John the Evangelist
+"antony_abbot" - St. Anthony Abbot
+"peter" - St. Peter
+"matthew" - St. Matthew
+"catherine" - St. Catherine
+"luke" - St. Luke
+"francis" - St. Francis of Assisi
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2026-03-05 14:10:24,855 - INFO - === END PROMPT ===
+2026-03-05 14:10:24,861 - INFO - Total input tokens used: 0
+2026-03-05 14:10:24,861 - INFO - Total output tokens used: 0
+2026-03-05 14:10:24,861 - INFO - Total cost of this call: $0.0000
+2026-03-05 14:10:24,862 - INFO - Probabilities shape: (863, 10)
+2026-03-05 14:57:59,132 - INFO - Logger initialized for ICONCLASS/test_1/gemini-3.1-pro-preview
+2026-03-05 14:57:59,132 - INFO - Starting classification for dataset=ICONCLASS, test=test_1, model=gemini-3.1-pro-preview
+2026-03-05 14:57:59,426 - INFO - Number of images: 863
+2026-03-05 14:57:59,426 - INFO - Processing dataset: ICONCLASS
+2026-03-05 14:57:59,428 - INFO - Processing images for test: test_1
+2026-03-05 14:57:59,474 - INFO - Loaded 863 cached results
+2026-03-05 14:57:59,474 - INFO - Using model: gemini-3.1-pro-preview
+2026-03-05 14:57:59,475 - INFO - === GENERATED PROMPT ===
+2026-03-05 14:57:59,475 - INFO - Dataset: ICONCLASS, Test: test_1
+2026-03-05 14:57:59,475 - INFO - Hyperparameters: temperature=0.0, top_k=32
+2026-03-05 14:57:59,475 - INFO - Prompt content:
+2026-03-05 14:57:59,475 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"paul" - St. Paul
+"mary_magdalene" - Mary Magdalene
+"jerome" - St. Jerome
+"john" - St. John the Evangelist
+"antony_abbot" - St. Anthony Abbot
+"peter" - St. Peter
+"matthew" - St. Matthew
+"catherine" - St. Catherine
+"luke" - St. Luke
+"francis" - St. Francis of Assisi
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2026-03-05 14:57:59,475 - INFO - === END PROMPT ===
+2026-03-05 14:57:59,481 - INFO - Total input tokens used: 0
+2026-03-05 14:57:59,481 - INFO - Total output tokens used: 0
+2026-03-05 14:57:59,481 - INFO - Total cost of this call: $0.0000
+2026-03-05 14:57:59,482 - INFO - Probabilities shape: (863, 10)

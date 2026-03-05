@@ -7,7 +7,7 @@ It supports different datasets, test configurations, and includes a caching syst
 to avoid redundant API calls.
 
 Usage:
-    python execute_gpt.py --models gpt-4o gpt-4o-mini --datasets ArtDL IconArt --folders test_1 test_2
+    python execute_gpt.py --models gpt-4o,gpt-4o-mini --datasets ArtDL,IconArt --folders test_1,test_2
     
 Features:
     - Supports multiple GPT models (gpt-4o, gpt-4o-mini, etc.)
@@ -333,8 +333,23 @@ class ModelConfig:
       "gpt-4o-mini-2024-07-18": {
           "input_cost": 0.150,  # Cost per 1M input tokens
           "output_cost": 0.600  # Cost per 1M output tokens
+      },
+      "gpt-5-mini-2025-08-07": {
+          "input_cost": 0.25,             # Cost per 1M input tokens
+          "output_cost": 2.0,             # Cost per 1M output tokens
+          "fixed_temperature": True
+      },
+      "gpt-5.2-2025-12-11": {
+          "input_cost": 1.75,             # Cost per 1M input tokens
+          "output_cost": 14.0,            # Cost per 1M output tokens
+          "fixed_temperature": True
       }
   }
+
+  @classmethod
+  def has_fixed_temperature(cls, model: str) -> bool:
+    """Return True if the model only supports the default temperature."""
+    return cls.MODELS.get(model, {}).get("fixed_temperature", False)
 
   @classmethod
   def get_costs(cls, model: str) -> Tuple[float, float]:
@@ -866,14 +881,14 @@ class GPTImageClassifier:
         # Prepare and send API request
         messages = self._prepare_batch_request(
           batch_items, system_prompt, few_shot_messages)
-        response = self.client.chat.completions.create(
+        api_params = dict(
             model=self.model,
             messages=messages,
-            temperature=self.temperature,
-            top_p=self.top_p,
-            seed=self.seed,
             response_format={"type": "json_object"}
         )
+        if not ModelConfig.has_fixed_temperature(self.model):
+          api_params.update(temperature=self.temperature, top_p=self.top_p, seed=self.seed)
+        response = self.client.chat.completions.create(**api_params)
 
         # Extract response content and token usage
         content = response.choices[0].message.content
@@ -1060,13 +1075,20 @@ def load_images_parallel(test_items: List[str], dataset_dir: str, logger=None, m
   return images
 
 
+def _split_csv(ctx, param, value):
+  """Click callback: split a comma-separated string into a tuple."""
+  if not value:
+    return ()
+  return tuple(v.strip() for v in value.split(',') if v.strip())
+
+
 @click.command()
-@click.option('--folders', multiple=True, help='List of folders to use')
-@click.option('--models', multiple=True, help='List of model names to use')
+@click.option('--folders', default='', callback=_split_csv, help='Comma-separated list of folders to use')
+@click.option('--models', default='', callback=_split_csv, help='Comma-separated list of model names to use')
 @click.option('--limit', default=-1, help='Limit the number of images to process')
 @click.option('--batch_size', default=1, help='Number of images per batch')
 @click.option('--save_frequency', default=5, help='How often to save cache (in batches)')
-@click.option('--datasets', multiple=True, help='List of datasets to use')
+@click.option('--datasets', default='', callback=_split_csv, help='Comma-separated list of datasets to use')
 @click.option('--verbose', is_flag=True, help='Enable verbose logging (DEBUG level)')
 @click.option('--temperature', default=0.0, help='Temperature for generation (default: 0.0, min: 0.0)')
 @click.option('--top_p', default=0.1, help='Top-p (nucleus sampling) for generation (default: 0.1)')

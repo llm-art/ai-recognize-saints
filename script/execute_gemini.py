@@ -55,6 +55,10 @@ class ModelConfig:
           "input_cost": 0.50,  # Cost per 1M input tokens
           "output_cost": 3.0   # Cost per 1M output tokens
       },
+      "gemini-3.1-pro": {
+          "input_cost": 1.25,  # Cost per 1M input tokens
+          "output_cost": 5.0   # Cost per 1M output tokens
+      },
   }
 
   @classmethod
@@ -1135,8 +1139,9 @@ def _split_csv(ctx, param, value):
 @click.option('--temperature', default=0.0, help='Temperature for generation (default: 0.0, min: 0.0)')
 @click.option('--top_k', default=32, help='Top-k for sampling (default: 32)')
 @click.option('--clean', is_flag=True, help='Remove cache and logs from previous runs before starting')
+@click.option('--api_key_name', default='gemini_api', help='Key name in config.ini [google] section (default: gemini_api)')
 def main(folders: List[str], models: List[str], limit: int, batch_size: int, save_frequency: int,
-         datasets: List[str], verbose: bool, temperature: float, top_k: int, clean: bool):
+         datasets: List[str], verbose: bool, temperature: float, top_k: int, clean: bool, api_key_name: str):
   """
   Main function to run the Gemini image classification.
 
@@ -1156,9 +1161,9 @@ def main(folders: List[str], models: List[str], limit: int, batch_size: int, sav
   config = ConfigParser()
   config.read(os.path.join(script_dir, 'gemini_data', 'psw.ini'))
 
-  api_key = config.get('google', 'api_key', fallback=None)
+  api_key = config.get('google', api_key_name, fallback=None)
   if not api_key:
-    raise ValueError("Google API key is not set in the config file.")
+    raise ValueError(f"API key '{api_key_name}' not found in [google] section of psw.ini.")
 
   # Process each dataset
   for dataset in datasets:

@@ -3,7 +3,7 @@
 Script to generate consistency data for different models and tests.
 
 This script:
-1. Loads image pairs from robust_cross_duplicates.json
+1. Loads image pairs from perceptual_cross_duplicates.json or robust_cross_duplicates.json
 2. For each model (siglip, clip, gpt, gemini) and test (1, 2, 3):
    - Creates a directory structure: data/consistency/{model}/{test}/
    - Loads ground truth data from the appropriate dataset's ground truth file
@@ -14,9 +14,12 @@ This script:
 
 import os
 import json
+import argparse
 import numpy as np
 import shutil
 from pathlib import Path
+
+BASE_DIR = os.path.join(os.path.dirname(__file__), os.pardir)
 
 def load_pairs(file_path):
     """Load image pairs from the JSON file."""
@@ -25,7 +28,7 @@ def load_pairs(file_path):
 
 def load_ground_truth(dataset):
     """Load ground truth data for a specific dataset."""
-    gt_path = f"/home/vitadmin/gspinaci/LLM-test/dataset/{dataset}-data/2_ground_truth.json"
+    gt_path = os.path.join(BASE_DIR, 'dataset', f'{dataset}-data', '2_ground_truth.json')
     try:
         with open(gt_path, 'r') as f:
             gt_data = json.load(f)
@@ -36,7 +39,7 @@ def load_ground_truth(dataset):
 
 def load_classes(dataset, test_folder):
     """Load class definitions for a dataset."""
-    classes_path = f"/home/vitadmin/gspinaci/LLM-test/dataset/{dataset}-data/classes.csv"
+    classes_path = os.path.join(BASE_DIR, 'dataset', f'{dataset}-data', 'classes.csv')
     try:
         import pandas as pd
         classes_df = pd.read_csv(classes_path)
@@ -52,18 +55,18 @@ def load_classes(dataset, test_folder):
 def get_prediction(image_name, model, test_folder, dataset):
     """Get the predicted class for an image using a specific model."""
     # Load test items to find the index of our image
-    test_items_path = f"/home/vitadmin/gspinaci/LLM-test/dataset/{dataset}-data/2_test.txt"
+    test_items_path = os.path.join(BASE_DIR, 'dataset', f'{dataset}-data', '2_test.txt')
     try:
         with open(test_items_path, 'r') as f:
             test_items = f.read().splitlines()
-        
+
         if image_name not in test_items:
             return None
-        
+
         image_index = test_items.index(image_name)
-        
+
         # Load model predictions
-        model_path = f"/home/vitadmin/gspinaci/LLM-test/{test_folder}/{dataset}/{model}"
+        model_path = os.path.join(BASE_DIR, test_folder, dataset, model)
         probs_path = os.path.join(model_path, 'probs.npy')
         
         if not os.path.exists(probs_path):
@@ -366,21 +369,37 @@ def generate_summary(results, output_dir, clip_models, siglip_models, gpt_models
     return readme_path
 
 def main():
+    parser = argparse.ArgumentParser(description='Generate consistency data for different models and tests.')
+    parser.add_argument(
+        '--hash-method',
+        choices=['perceptual', 'robust'],
+        default='robust',
+        help='Hashing method used to find duplicate image pairs (default: robust)',
+    )
+    args = parser.parse_args()
+
     # Define models and test folders
     clip_models = ['clip-vit-base-patch32', 'clip-vit-base-patch16', 'clip-vit-large-patch14']
     siglip_models = ['siglip-base-patch16-512', 'siglip-large-patch16-384', 'siglip-so400m-patch14-384']
-    gpt_models = ['gpt-4o-2024-08-06', 'gpt-4o-mini-2024-07-18']
-    gemini_models = ['gemini-2.5-flash-preview-05-20', 'gemini-2.5-pro-preview-05-06']
-    
+    gpt_models = ['gpt-4o-2024-08-06', 'gpt-4o-mini-2024-07-18', 'gpt-5.2-2025-12-11', 'gpt-5-mini-2025-08-07']
+    gemini_models = [
+        'gemini-2.5-flash-preview-05-20',
+        'gemini-2.5-pro-preview-05-06',
+        'gemini-3-flash-preview',
+        'gemini-3.1-pro-preview',
+    ]
+
     all_models = clip_models + siglip_models + gpt_models + gemini_models
     test_folders = ['test_1', 'test_2', 'test_3']
-    
+
     # Load image pairs
-    pairs_path = "/home/vitadmin/gspinaci/LLM-test/dataset/analysis/robust_cross_duplicates.json"
+    pairs_filename = f'{args.hash_method}_cross_duplicates.json'
+    pairs_path = os.path.join(BASE_DIR, 'dataset', 'analysis', pairs_filename)
+    print(f"Loading pairs from {pairs_path} ({args.hash_method} hashing)")
     pairs = load_pairs(pairs_path)
-    
+
     # Create output directory
-    output_dir = "/home/vitadmin/gspinaci/LLM-test/dataset/consistency"
+    output_dir = os.path.join(BASE_DIR, 'dataset', 'consistency')
     os.makedirs(output_dir, exist_ok=True)
     
     # Process each model and test folder
