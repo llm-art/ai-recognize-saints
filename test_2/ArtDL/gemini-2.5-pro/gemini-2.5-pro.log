@@ -1,0 +1,471 @@
+2026-03-07 00:05:17,750 - INFO - Logger initialized for ArtDL/test_2/gemini-2.5-pro
+2026-03-07 00:05:17,750 - INFO - Starting classification for dataset=ArtDL, test=test_2, model=gemini-2.5-pro
+2026-03-07 00:05:18,058 - INFO - Number of images: 1864
+2026-03-07 00:05:18,058 - INFO - Processing dataset: ArtDL
+2026-03-07 00:05:18,060 - INFO - Processing images for test: test_2
+2026-03-07 00:05:18,098 - INFO - Using model: gemini-2.5-pro
+2026-03-07 00:05:18,098 - INFO - === GENERATED PROMPT ===
+2026-03-07 00:05:18,098 - INFO - Dataset: ArtDL, Test: test_2
+2026-03-07 00:05:18,098 - INFO - Hyperparameters: temperature=0.0, top_k=32
+2026-03-07 00:05:18,098 - INFO - Prompt content:
+2026-03-07 00:05:18,098 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"antony_of_padua" - the Franciscan monk Antony of Padua; possible attributes: ass, book, crucifix, flowered cross, flaming heart, infant Christ (on book), lily - portrait of male saint
+"john_baptist" - John the Baptist; possible attributes: book, reed cross, baptismal cup, honeycomb, lamb, staff
+"paul" - the apostle Paul of Tarsus; possible attributes: book, scroll, sword
+"francis" - founder of the Order of Friars Minor (Franciscans), Francis(cus) of Assisi; possible attributes: book, crucifix, lily, skull, stigmata
+"mary_magdalene" - the penitent harlot Mary Magdalene; possible attributes: book (or scroll), crown, crown of thorns, crucifix, jar of ointment, mirror, musical instrument, palm-branch, rosary, scourge
+"jerome" - the monk and hermit Jerome (Hieronymus); possible attributes: book, cardinal's hat, crucifix, hour-glass, lion, skull, stone
+"dominic" - Dominic(us) Guzman of Calerueja, founder of the Order of Preachers (or Dominican (Black) Friars; possible attributes: book, dog with flaming torch, lily, loaf of bread, rosary, star
+"mary" - the Virgin Mary
+"peter" - the apostle Peter, first bishop of Rome; possible attributes: book, cock, (upturned) cross, (triple) crozier, fish, key, scroll, ship, tiara
+"sebastian" - the martyr Sebastian; possible attributes: arrow(s), bow, tree-trunk
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2026-03-07 00:05:18,098 - INFO - === END PROMPT ===
+2026-03-07 00:06:34,099 - INFO - Cache saved after 5 batches
+2026-03-07 00:07:57,434 - INFO - Cache saved after 10 batches
+2026-03-07 00:09:15,220 - INFO - Cache saved after 15 batches
+2026-03-07 00:10:36,312 - INFO - Cache saved after 20 batches
+2026-03-07 00:12:17,051 - INFO - Cache saved after 25 batches
+2026-03-07 00:13:42,898 - INFO - Cache saved after 30 batches
+2026-03-07 00:15:02,128 - INFO - Cache saved after 35 batches
+2026-03-07 00:17:07,600 - INFO - Cache saved after 40 batches
+2026-03-07 00:18:37,418 - INFO - Cache saved after 45 batches
+2026-03-07 00:20:04,229 - INFO - Cache saved after 50 batches
+2026-03-07 00:21:32,112 - INFO - Cache saved after 55 batches
+2026-03-07 00:23:31,264 - INFO - Cache saved after 60 batches
+2026-03-07 00:25:08,727 - INFO - Cache saved after 65 batches
+2026-03-07 00:27:07,798 - INFO - Cache saved after 70 batches
+2026-03-07 00:28:44,905 - INFO - Cache saved after 75 batches
+2026-03-07 00:30:10,373 - INFO - Cache saved after 80 batches
+2026-03-07 00:32:13,884 - INFO - Cache saved after 85 batches
+2026-03-07 00:34:37,683 - INFO - Cache saved after 90 batches
+2026-03-07 00:35:55,578 - INFO - Cache saved after 95 batches
+2026-03-07 00:37:26,284 - INFO - Cache saved after 100 batches
+2026-03-07 00:39:14,681 - INFO - Cache saved after 105 batches
+2026-03-07 00:41:02,580 - INFO - Cache saved after 110 batches
+2026-03-07 00:42:19,869 - INFO - Cache saved after 115 batches
+2026-03-07 00:43:59,540 - INFO - Cache saved after 120 batches
+2026-03-07 00:45:19,834 - INFO - Cache saved after 125 batches
+2026-03-07 00:46:50,153 - INFO - Cache saved after 130 batches
+2026-03-07 00:48:25,398 - INFO - Cache saved after 135 batches
+2026-03-07 00:49:54,796 - INFO - Cache saved after 140 batches
+2026-03-07 00:51:24,734 - INFO - Cache saved after 145 batches
+2026-03-07 00:52:57,692 - INFO - Cache saved after 150 batches
+2026-03-07 00:54:13,266 - INFO - Cache saved after 155 batches
+2026-03-07 00:55:40,033 - INFO - Cache saved after 160 batches
+2026-03-07 00:57:10,186 - INFO - Cache saved after 165 batches
+2026-03-07 00:58:33,758 - INFO - Cache saved after 170 batches
+2026-03-07 01:00:23,159 - INFO - Cache saved after 175 batches
+2026-03-07 01:02:08,500 - INFO - Cache saved after 180 batches
+2026-03-07 01:04:04,875 - INFO - Cache saved after 185 batches
+2026-03-07 01:05:54,954 - INFO - Cache saved after 190 batches
+2026-03-07 01:07:32,047 - INFO - Cache saved after 195 batches
+2026-03-07 01:09:19,059 - INFO - Cache saved after 200 batches
+2026-03-07 01:11:06,486 - INFO - Cache saved after 205 batches
+2026-03-07 01:12:59,208 - INFO - Cache saved after 210 batches
+2026-03-07 01:14:26,175 - INFO - Cache saved after 215 batches
+2026-03-07 01:15:48,162 - INFO - Cache saved after 220 batches
+2026-03-07 01:17:08,533 - INFO - Cache saved after 225 batches
+2026-03-07 01:18:44,217 - INFO - Cache saved after 230 batches
+2026-03-07 01:20:07,640 - INFO - Cache saved after 235 batches
+2026-03-07 01:21:28,232 - INFO - Cache saved after 240 batches
+2026-03-07 01:22:55,217 - INFO - Cache saved after 245 batches
+2026-03-07 01:24:13,642 - INFO - Cache saved after 250 batches
+2026-03-07 01:25:54,533 - INFO - Cache saved after 255 batches
+2026-03-07 01:27:05,477 - INFO - Cache saved after 260 batches
+2026-03-07 01:28:39,861 - INFO - Cache saved after 265 batches
+2026-03-07 01:30:12,889 - INFO - Cache saved after 270 batches
+2026-03-07 01:31:48,495 - INFO - Cache saved after 275 batches
+2026-03-07 01:33:00,688 - WARNING - Only got responses for 4/5 items from JSON in batch 279.
+2026-03-07 01:33:00,688 - WARNING - Mismatch between response texts (4) and batch items (5). Processing only valid items from batch 279.
+2026-03-07 01:33:09,416 - INFO - Cache saved after 280 batches
+2026-03-07 01:34:40,118 - INFO - Cache saved after 285 batches
+2026-03-07 01:36:21,015 - INFO - Cache saved after 290 batches
+2026-03-07 01:37:39,130 - INFO - Cache saved after 295 batches
+2026-03-07 01:39:06,193 - INFO - Cache saved after 300 batches
+2026-03-07 01:40:48,662 - INFO - Cache saved after 305 batches
+2026-03-07 01:42:09,354 - INFO - Cache saved after 310 batches
+2026-03-07 01:44:16,398 - INFO - Cache saved after 315 batches
+2026-03-07 01:45:33,655 - INFO - Cache saved after 320 batches
+2026-03-07 01:47:34,391 - INFO - Cache saved after 325 batches
+2026-03-07 01:48:58,000 - INFO - Cache saved after 330 batches
+2026-03-07 01:50:12,751 - INFO - Cache saved after 335 batches
+2026-03-07 01:51:30,881 - INFO - Cache saved after 340 batches
+2026-03-07 01:52:59,325 - INFO - Cache saved after 345 batches
+2026-03-07 01:54:11,844 - INFO - Cache saved after 350 batches
+2026-03-07 01:55:24,218 - INFO - Cache saved after 355 batches
+2026-03-07 01:56:58,677 - INFO - Cache saved after 360 batches
+2026-03-07 01:58:08,900 - INFO - Cache saved after 365 batches
+2026-03-07 01:59:24,874 - INFO - Cache saved after 370 batches
+2026-03-07 02:00:10,735 - INFO - Total input tokens used: 814861
+2026-03-07 02:00:10,735 - INFO - Total output tokens used: 81890
+2026-03-07 02:00:10,735 - INFO - Total cost of this call: $0.7342
+2026-03-07 02:00:10,737 - INFO - Probabilities shape: (1863, 10)
+2026-03-08 18:12:32,092 - INFO - Logger initialized for ArtDL/test_2/gemini-2.5-pro
+2026-03-08 18:12:32,092 - INFO - Starting classification for dataset=ArtDL, test=test_2, model=gemini-2.5-pro
+2026-03-08 18:12:32,400 - INFO - Number of images: 1864
+2026-03-08 18:12:32,400 - INFO - Processing dataset: ArtDL
+2026-03-08 18:12:32,402 - INFO - Processing images for test: test_2
+2026-03-08 18:12:32,440 - INFO - Loaded 1863 cached results
+2026-03-08 18:12:32,441 - INFO - Using model: gemini-2.5-pro
+2026-03-08 18:12:32,442 - INFO - === GENERATED PROMPT ===
+2026-03-08 18:12:32,442 - INFO - Dataset: ArtDL, Test: test_2
+2026-03-08 18:12:32,442 - INFO - Hyperparameters: temperature=0.0, top_k=32
+2026-03-08 18:12:32,442 - INFO - Prompt content:
+2026-03-08 18:12:32,442 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"antony_of_padua" - the Franciscan monk Antony of Padua; possible attributes: ass, book, crucifix, flowered cross, flaming heart, infant Christ (on book), lily - portrait of male saint
+"john_baptist" - John the Baptist; possible attributes: book, reed cross, baptismal cup, honeycomb, lamb, staff
+"paul" - the apostle Paul of Tarsus; possible attributes: book, scroll, sword
+"francis" - founder of the Order of Friars Minor (Franciscans), Francis(cus) of Assisi; possible attributes: book, crucifix, lily, skull, stigmata
+"mary_magdalene" - the penitent harlot Mary Magdalene; possible attributes: book (or scroll), crown, crown of thorns, crucifix, jar of ointment, mirror, musical instrument, palm-branch, rosary, scourge
+"jerome" - the monk and hermit Jerome (Hieronymus); possible attributes: book, cardinal's hat, crucifix, hour-glass, lion, skull, stone
+"dominic" - Dominic(us) Guzman of Calerueja, founder of the Order of Preachers (or Dominican (Black) Friars; possible attributes: book, dog with flaming torch, lily, loaf of bread, rosary, star
+"mary" - the Virgin Mary
+"peter" - the apostle Peter, first bishop of Rome; possible attributes: book, cock, (upturned) cross, (triple) crozier, fish, key, scroll, ship, tiara
+"sebastian" - the martyr Sebastian; possible attributes: arrow(s), bow, tree-trunk
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2026-03-08 18:12:32,442 - INFO - === END PROMPT ===
+2026-03-08 18:12:41,478 - INFO - Total input tokens used: 1067
+2026-03-08 18:12:41,478 - INFO - Total output tokens used: 50
+2026-03-08 18:12:41,478 - INFO - Total cost of this call: $0.0008
+2026-03-08 18:12:41,479 - INFO - Probabilities shape: (1864, 10)
+2026-03-09 10:42:53,919 - INFO - Logger initialized for ArtDL/test_2/gemini-2.5-pro
+2026-03-09 10:42:53,919 - INFO - Starting classification for dataset=ArtDL, test=test_2, model=gemini-2.5-pro
+2026-03-09 10:42:54,188 - INFO - Number of images: 1864
+2026-03-09 10:42:54,189 - INFO - Processing dataset: ArtDL
+2026-03-09 10:42:54,191 - INFO - Processing images for test: test_2
+2026-03-09 10:42:54,229 - INFO - Loaded 1864 cached results
+2026-03-09 10:42:54,231 - INFO - Using model: gemini-2.5-pro
+2026-03-09 10:42:54,232 - INFO - === GENERATED PROMPT ===
+2026-03-09 10:42:54,232 - INFO - Dataset: ArtDL, Test: test_2
+2026-03-09 10:42:54,232 - INFO - Hyperparameters: temperature=0.0, top_k=32
+2026-03-09 10:42:54,232 - INFO - Prompt content:
+2026-03-09 10:42:54,232 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"antony_of_padua" - the Franciscan monk Antony of Padua; possible attributes: ass, book, crucifix, flowered cross, flaming heart, infant Christ (on book), lily - portrait of male saint
+"john_baptist" - John the Baptist; possible attributes: book, reed cross, baptismal cup, honeycomb, lamb, staff
+"paul" - the apostle Paul of Tarsus; possible attributes: book, scroll, sword
+"francis" - founder of the Order of Friars Minor (Franciscans), Francis(cus) of Assisi; possible attributes: book, crucifix, lily, skull, stigmata
+"mary_magdalene" - the penitent harlot Mary Magdalene; possible attributes: book (or scroll), crown, crown of thorns, crucifix, jar of ointment, mirror, musical instrument, palm-branch, rosary, scourge
+"jerome" - the monk and hermit Jerome (Hieronymus); possible attributes: book, cardinal's hat, crucifix, hour-glass, lion, skull, stone
+"dominic" - Dominic(us) Guzman of Calerueja, founder of the Order of Preachers (or Dominican (Black) Friars; possible attributes: book, dog with flaming torch, lily, loaf of bread, rosary, star
+"mary" - the Virgin Mary
+"peter" - the apostle Peter, first bishop of Rome; possible attributes: book, cock, (upturned) cross, (triple) crozier, fish, key, scroll, ship, tiara
+"sebastian" - the martyr Sebastian; possible attributes: arrow(s), bow, tree-trunk
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2026-03-09 10:42:54,232 - INFO - === END PROMPT ===
+2026-03-09 10:42:54,240 - INFO - Total input tokens used: 0
+2026-03-09 10:42:54,241 - INFO - Total output tokens used: 0
+2026-03-09 10:42:54,241 - INFO - Total cost of this call: $0.0000
+2026-03-09 10:42:54,242 - INFO - Probabilities shape: (1864, 10)
+2026-03-09 10:48:44,481 - INFO - Logger initialized for ArtDL/test_2/gemini-2.5-pro
+2026-03-09 10:48:44,481 - INFO - Starting classification for dataset=ArtDL, test=test_2, model=gemini-2.5-pro
+2026-03-09 10:48:44,767 - INFO - Number of images: 1864
+2026-03-09 10:48:44,767 - INFO - Processing dataset: ArtDL
+2026-03-09 10:48:44,769 - INFO - Processing images for test: test_2
+2026-03-09 10:48:44,808 - INFO - Loaded 1864 cached results
+2026-03-09 10:48:44,810 - INFO - Using model: gemini-2.5-pro
+2026-03-09 10:48:44,811 - INFO - === GENERATED PROMPT ===
+2026-03-09 10:48:44,811 - INFO - Dataset: ArtDL, Test: test_2
+2026-03-09 10:48:44,811 - INFO - Hyperparameters: temperature=0.0, top_k=32
+2026-03-09 10:48:44,811 - INFO - Prompt content:
+2026-03-09 10:48:44,811 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"antony_of_padua" - the Franciscan monk Antony of Padua; possible attributes: ass, book, crucifix, flowered cross, flaming heart, infant Christ (on book), lily - portrait of male saint
+"john_baptist" - John the Baptist; possible attributes: book, reed cross, baptismal cup, honeycomb, lamb, staff
+"paul" - the apostle Paul of Tarsus; possible attributes: book, scroll, sword
+"francis" - founder of the Order of Friars Minor (Franciscans), Francis(cus) of Assisi; possible attributes: book, crucifix, lily, skull, stigmata
+"mary_magdalene" - the penitent harlot Mary Magdalene; possible attributes: book (or scroll), crown, crown of thorns, crucifix, jar of ointment, mirror, musical instrument, palm-branch, rosary, scourge
+"jerome" - the monk and hermit Jerome (Hieronymus); possible attributes: book, cardinal's hat, crucifix, hour-glass, lion, skull, stone
+"dominic" - Dominic(us) Guzman of Calerueja, founder of the Order of Preachers (or Dominican (Black) Friars; possible attributes: book, dog with flaming torch, lily, loaf of bread, rosary, star
+"mary" - the Virgin Mary
+"peter" - the apostle Peter, first bishop of Rome; possible attributes: book, cock, (upturned) cross, (triple) crozier, fish, key, scroll, ship, tiara
+"sebastian" - the martyr Sebastian; possible attributes: arrow(s), bow, tree-trunk
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2026-03-09 10:48:44,811 - INFO - === END PROMPT ===
+2026-03-09 10:48:44,820 - INFO - Total input tokens used: 0
+2026-03-09 10:48:44,820 - INFO - Total output tokens used: 0
+2026-03-09 10:48:44,820 - INFO - Total cost of this call: $0.0000
+2026-03-09 10:48:44,821 - INFO - Probabilities shape: (1864, 10)
+2026-03-09 10:48:59,026 - INFO - Logger initialized for ArtDL/test_2/gemini-2.5-pro
+2026-03-09 10:48:59,026 - INFO - Starting classification for dataset=ArtDL, test=test_2, model=gemini-2.5-pro
+2026-03-09 10:48:59,316 - INFO - Number of images: 1864
+2026-03-09 10:48:59,316 - INFO - Processing dataset: ArtDL
+2026-03-09 10:48:59,318 - INFO - Processing images for test: test_2
+2026-03-09 10:48:59,356 - INFO - Loaded 1864 cached results
+2026-03-09 10:48:59,358 - INFO - Using model: gemini-2.5-pro
+2026-03-09 10:48:59,359 - INFO - === GENERATED PROMPT ===
+2026-03-09 10:48:59,359 - INFO - Dataset: ArtDL, Test: test_2
+2026-03-09 10:48:59,359 - INFO - Hyperparameters: temperature=0.0, top_k=32
+2026-03-09 10:48:59,359 - INFO - Prompt content:
+2026-03-09 10:48:59,359 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"antony_of_padua" - the Franciscan monk Antony of Padua; possible attributes: ass, book, crucifix, flowered cross, flaming heart, infant Christ (on book), lily - portrait of male saint
+"john_baptist" - John the Baptist; possible attributes: book, reed cross, baptismal cup, honeycomb, lamb, staff
+"paul" - the apostle Paul of Tarsus; possible attributes: book, scroll, sword
+"francis" - founder of the Order of Friars Minor (Franciscans), Francis(cus) of Assisi; possible attributes: book, crucifix, lily, skull, stigmata
+"mary_magdalene" - the penitent harlot Mary Magdalene; possible attributes: book (or scroll), crown, crown of thorns, crucifix, jar of ointment, mirror, musical instrument, palm-branch, rosary, scourge
+"jerome" - the monk and hermit Jerome (Hieronymus); possible attributes: book, cardinal's hat, crucifix, hour-glass, lion, skull, stone
+"dominic" - Dominic(us) Guzman of Calerueja, founder of the Order of Preachers (or Dominican (Black) Friars; possible attributes: book, dog with flaming torch, lily, loaf of bread, rosary, star
+"mary" - the Virgin Mary
+"peter" - the apostle Peter, first bishop of Rome; possible attributes: book, cock, (upturned) cross, (triple) crozier, fish, key, scroll, ship, tiara
+"sebastian" - the martyr Sebastian; possible attributes: arrow(s), bow, tree-trunk
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2026-03-09 10:48:59,359 - INFO - === END PROMPT ===
+2026-03-09 10:48:59,368 - INFO - Total input tokens used: 0
+2026-03-09 10:48:59,368 - INFO - Total output tokens used: 0
+2026-03-09 10:48:59,368 - INFO - Total cost of this call: $0.0000
+2026-03-09 10:48:59,369 - INFO - Probabilities shape: (1864, 10)
+2026-03-09 11:32:22,255 - INFO - Logger initialized for ArtDL/test_2/gemini-2.5-pro
+2026-03-09 11:32:22,255 - INFO - Starting classification for dataset=ArtDL, test=test_2, model=gemini-2.5-pro
+2026-03-09 11:32:22,538 - INFO - Number of images: 1864
+2026-03-09 11:32:22,538 - INFO - Processing dataset: ArtDL
+2026-03-09 11:32:22,540 - INFO - Processing images for test: test_2
+2026-03-09 11:32:22,578 - INFO - Loaded 1864 cached results
+2026-03-09 11:32:22,580 - INFO - Using model: gemini-2.5-pro
+2026-03-09 11:32:22,581 - INFO - === GENERATED PROMPT ===
+2026-03-09 11:32:22,581 - INFO - Dataset: ArtDL, Test: test_2
+2026-03-09 11:32:22,581 - INFO - Hyperparameters: temperature=0.0, top_k=32
+2026-03-09 11:32:22,581 - INFO - Prompt content:
+2026-03-09 11:32:22,581 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"antony_of_padua" - the Franciscan monk Antony of Padua; possible attributes: ass, book, crucifix, flowered cross, flaming heart, infant Christ (on book), lily - portrait of male saint
+"john_baptist" - John the Baptist; possible attributes: book, reed cross, baptismal cup, honeycomb, lamb, staff
+"paul" - the apostle Paul of Tarsus; possible attributes: book, scroll, sword
+"francis" - founder of the Order of Friars Minor (Franciscans), Francis(cus) of Assisi; possible attributes: book, crucifix, lily, skull, stigmata
+"mary_magdalene" - the penitent harlot Mary Magdalene; possible attributes: book (or scroll), crown, crown of thorns, crucifix, jar of ointment, mirror, musical instrument, palm-branch, rosary, scourge
+"jerome" - the monk and hermit Jerome (Hieronymus); possible attributes: book, cardinal's hat, crucifix, hour-glass, lion, skull, stone
+"dominic" - Dominic(us) Guzman of Calerueja, founder of the Order of Preachers (or Dominican (Black) Friars; possible attributes: book, dog with flaming torch, lily, loaf of bread, rosary, star
+"mary" - the Virgin Mary
+"peter" - the apostle Peter, first bishop of Rome; possible attributes: book, cock, (upturned) cross, (triple) crozier, fish, key, scroll, ship, tiara
+"sebastian" - the martyr Sebastian; possible attributes: arrow(s), bow, tree-trunk
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2026-03-09 11:32:22,581 - INFO - === END PROMPT ===
+2026-03-09 11:32:22,589 - INFO - Total input tokens used: 0
+2026-03-09 11:32:22,589 - INFO - Total output tokens used: 0
+2026-03-09 11:32:22,589 - INFO - Total cost of this call: $0.0000
+2026-03-09 11:32:22,591 - INFO - Probabilities shape: (1864, 10)

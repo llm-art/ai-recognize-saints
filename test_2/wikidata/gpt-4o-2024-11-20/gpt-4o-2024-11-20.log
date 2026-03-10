@@ -1,0 +1,396 @@
+2026-03-06 17:02:22,311 - INFO - Logger initialized for wikidata/test_2/gpt-4o-2024-11-20
+2026-03-06 17:02:22,311 - INFO - Starting classification for dataset=wikidata, test=test_2, model=gpt-4o-2024-11-20
+2026-03-06 17:02:22,502 - INFO - Number of images: 717
+2026-03-06 17:02:22,503 - INFO - Processing dataset: wikidata
+2026-03-06 17:02:22,504 - INFO - Processing images for test: test_2
+2026-03-06 17:02:22,523 - INFO - Using model: gpt-4o-2024-11-20
+2026-03-06 17:02:22,523 - INFO - === GENERATED PROMPT ===
+2026-03-06 17:02:22,523 - INFO - Dataset: wikidata, Test: test_2
+2026-03-06 17:02:22,523 - INFO - Hyperparameters: temperature=0.0, top_p=0.1, seed=12345
+2026-03-06 17:02:22,523 - INFO - Prompt content:
+2026-03-06 17:02:22,523 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"mary_magdalene" - the penitent harlot Mary Magdalene; possible attributes: book (or scroll), crown, crown of thorns, crucifix, jar of ointment, mirror, musical instrument, palm-branch, rosary, scourge
+"john_baptist" - John the Baptist; possible attributes: book, reed cross, baptismal cup, honeycomb, lamb, staff
+"jerome" - the monk and hermit Jerome (Hieronymus); possible attributes: book, cardinal's hat, crucifix, hour-glass, lion, skull, stone
+"catherine" - the virgin martyr Catherine of Alexandria; possible attributes: book, crown, emperor Maxentius, palm-branch, ring, sword, wheel
+"peter" - the apostle Peter, first bishop of Rome; possible attributes: book, cock, (upturned) cross, (triple) crozier, fish, key, scroll, ship, tiara
+"john" -  the apostle John the Evangelist; possible attributes: book, cauldron, chalice with snake, eagle, palm, scroll
+"paul" - the apostle Paul of Tarsus; possible attributes: book, scroll, sword
+"antony_abbot" - the hermit Antony Abbot (Antonius Abbas) of Egypt, also called the Great; possible attributes: bell, book, T-shaped staff, flames, pig
+"francis" - founder of the Order of Friars Minor (Franciscans), Francis(cus) of Assisi; possible attributes: book, crucifix, lily, skull, stigmata
+"joseph" -  the foster-father of Christ, Joseph of Nazareth, husband of Mary; possible attributes: flowering rod or wand, lily, carpenter's tools
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2026-03-06 17:02:22,523 - INFO - === END PROMPT ===
+2026-03-06 17:02:22,523 - INFO - Pre-allocated results array for 717 images
+2026-03-06 17:02:29,244 - INFO - Batch 1: system_fingerprint=fp_68568b1653
+2026-03-06 17:02:37,647 - INFO - Batch 2: system_fingerprint=fp_68568b1653
+2026-03-06 17:02:45,076 - INFO - Batch 3: system_fingerprint=fp_68568b1653
+2026-03-06 17:02:50,760 - INFO - Batch 4: system_fingerprint=fp_68568b1653
+2026-03-06 17:02:56,179 - INFO - Batch 5: system_fingerprint=fp_68568b1653
+2026-03-06 17:02:56,179 - INFO - Cache saved after 5 batches
+2026-03-06 17:03:02,183 - INFO - Batch 6: system_fingerprint=fp_68568b1653
+2026-03-06 17:03:08,758 - INFO - Batch 7: system_fingerprint=fp_68568b1653
+2026-03-06 17:03:15,846 - INFO - Batch 8: system_fingerprint=fp_68568b1653
+2026-03-06 17:03:21,596 - INFO - Batch 9: system_fingerprint=fp_68568b1653
+2026-03-06 17:03:26,645 - INFO - Batch 10: system_fingerprint=fp_68568b1653
+2026-03-06 17:03:26,645 - INFO - Cache saved after 10 batches
+2026-03-06 17:03:33,407 - INFO - Batch 11: system_fingerprint=fp_68568b1653
+2026-03-06 17:03:40,753 - INFO - Batch 12: system_fingerprint=fp_68568b1653
+2026-03-06 17:03:47,072 - INFO - Batch 13: system_fingerprint=fp_68568b1653
+2026-03-06 17:03:54,186 - INFO - Batch 14: system_fingerprint=fp_68568b1653
+2026-03-06 17:04:01,631 - INFO - Batch 15: system_fingerprint=fp_68568b1653
+2026-03-06 17:04:01,632 - INFO - Cache saved after 15 batches
+2026-03-06 17:04:09,231 - INFO - Batch 16: system_fingerprint=fp_68568b1653
+2026-03-06 17:04:15,726 - INFO - Batch 17: system_fingerprint=fp_68568b1653
+2026-03-06 17:04:24,074 - INFO - Batch 18: system_fingerprint=fp_a55f00f25a
+2026-03-06 17:04:28,449 - INFO - Batch 19: system_fingerprint=fp_68568b1653
+2026-03-06 17:04:33,017 - INFO - Batch 20: system_fingerprint=fp_68568b1653
+2026-03-06 17:04:33,018 - INFO - Cache saved after 20 batches
+2026-03-06 17:04:39,270 - INFO - Batch 21: system_fingerprint=fp_57528f477b
+2026-03-06 17:04:45,067 - INFO - Batch 22: system_fingerprint=fp_68568b1653
+2026-03-06 17:04:49,864 - INFO - Batch 23: system_fingerprint=fp_68568b1653
+2026-03-06 17:04:54,954 - INFO - Batch 24: system_fingerprint=fp_68568b1653
+2026-03-06 17:05:00,247 - INFO - Batch 25: system_fingerprint=fp_68568b1653
+2026-03-06 17:05:00,248 - INFO - Cache saved after 25 batches
+2026-03-06 17:05:05,735 - INFO - Batch 26: system_fingerprint=fp_68568b1653
+2026-03-06 17:05:11,808 - INFO - Batch 27: system_fingerprint=fp_68568b1653
+2026-03-06 17:05:18,660 - INFO - Batch 28: system_fingerprint=fp_68568b1653
+2026-03-06 17:05:25,110 - INFO - Batch 29: system_fingerprint=fp_57528f477b
+2026-03-06 17:05:30,774 - INFO - Batch 30: system_fingerprint=fp_68568b1653
+2026-03-06 17:05:30,776 - INFO - Cache saved after 30 batches
+2026-03-06 17:05:36,123 - INFO - Batch 31: system_fingerprint=fp_68568b1653
+2026-03-06 17:05:40,752 - INFO - Batch 32: system_fingerprint=fp_68568b1653
+2026-03-06 17:05:47,525 - INFO - Batch 33: system_fingerprint=fp_68568b1653
+2026-03-06 17:05:52,713 - INFO - Batch 34: system_fingerprint=fp_68568b1653
+2026-03-06 17:05:59,267 - INFO - Batch 35: system_fingerprint=fp_68568b1653
+2026-03-06 17:05:59,269 - INFO - Cache saved after 35 batches
+2026-03-06 17:06:04,431 - INFO - Batch 36: system_fingerprint=fp_68568b1653
+2026-03-06 17:06:10,973 - INFO - Batch 37: system_fingerprint=fp_68568b1653
+2026-03-06 17:06:17,706 - INFO - Batch 38: system_fingerprint=fp_68568b1653
+2026-03-06 17:06:23,759 - INFO - Batch 39: system_fingerprint=fp_68568b1653
+2026-03-06 17:06:29,545 - INFO - Batch 40: system_fingerprint=fp_68568b1653
+2026-03-06 17:06:29,547 - INFO - Cache saved after 40 batches
+2026-03-06 17:06:36,237 - INFO - Batch 41: system_fingerprint=fp_68568b1653
+2026-03-06 17:06:42,194 - INFO - Batch 42: system_fingerprint=fp_68568b1653
+2026-03-06 17:06:48,416 - INFO - Batch 43: system_fingerprint=fp_a55f00f25a
+2026-03-06 17:06:55,136 - INFO - Batch 44: system_fingerprint=fp_68568b1653
+2026-03-06 17:07:01,632 - INFO - Batch 45: system_fingerprint=fp_68568b1653
+2026-03-06 17:07:01,634 - INFO - Cache saved after 45 batches
+2026-03-06 17:07:06,813 - INFO - Batch 46: system_fingerprint=fp_68568b1653
+2026-03-06 17:07:12,124 - INFO - Batch 47: system_fingerprint=fp_68568b1653
+2026-03-06 17:07:17,237 - INFO - Batch 48: system_fingerprint=fp_68568b1653
+2026-03-06 17:07:23,019 - INFO - Batch 49: system_fingerprint=fp_68568b1653
+2026-03-06 17:07:23,020 - WARNING - Unknown class ID or alias: george
+2026-03-06 17:07:23,020 - WARNING - Item Q57393090: Could not resolve class 'george', using uniform distribution
+2026-03-06 17:07:23,020 - WARNING - Unknown class ID or alias: sebastian
+2026-03-06 17:07:23,020 - WARNING - Item Q57393432: Could not resolve class 'sebastian', using uniform distribution
+2026-03-06 17:07:23,021 - WARNING - Unknown class ID or alias: sebastian
+2026-03-06 17:07:23,021 - WARNING - Item Q64789137: Could not resolve class 'sebastian', using uniform distribution
+2026-03-06 17:07:29,362 - INFO - Batch 50: system_fingerprint=fp_68568b1653
+2026-03-06 17:07:29,364 - INFO - Cache saved after 50 batches
+2026-03-06 17:07:34,698 - INFO - Batch 51: system_fingerprint=fp_68568b1653
+2026-03-06 17:07:39,332 - INFO - Batch 52: system_fingerprint=fp_68568b1653
+2026-03-06 17:07:45,381 - INFO - Batch 53: system_fingerprint=fp_68568b1653
+2026-03-06 17:07:50,527 - INFO - Batch 54: system_fingerprint=fp_68568b1653
+2026-03-06 17:07:55,310 - INFO - Batch 55: system_fingerprint=fp_68568b1653
+2026-03-06 17:07:55,312 - INFO - Cache saved after 55 batches
+2026-03-06 17:08:00,587 - INFO - Batch 56: system_fingerprint=fp_68568b1653
+2026-03-06 17:08:05,087 - INFO - Batch 57: system_fingerprint=fp_68568b1653
+2026-03-06 17:08:05,088 - WARNING - Unknown class ID or alias: unknown
+2026-03-06 17:08:05,088 - WARNING - Item Q19912116: Could not resolve class 'unknown', using uniform distribution
+2026-03-06 17:08:10,182 - INFO - Batch 58: system_fingerprint=fp_68568b1653
+2026-03-06 17:08:15,334 - INFO - Batch 59: system_fingerprint=fp_68568b1653
+2026-03-06 17:08:20,541 - INFO - Batch 60: system_fingerprint=fp_68568b1653
+2026-03-06 17:08:20,543 - INFO - Cache saved after 60 batches
+2026-03-06 17:08:26,427 - INFO - Batch 61: system_fingerprint=fp_68568b1653
+2026-03-06 17:08:31,862 - INFO - Batch 62: system_fingerprint=fp_68568b1653
+2026-03-06 17:08:36,585 - INFO - Batch 63: system_fingerprint=fp_68568b1653
+2026-03-06 17:08:40,942 - INFO - Batch 64: system_fingerprint=fp_68568b1653
+2026-03-06 17:08:46,135 - INFO - Batch 65: system_fingerprint=fp_68568b1653
+2026-03-06 17:08:46,137 - INFO - Cache saved after 65 batches
+2026-03-06 17:08:51,341 - INFO - Batch 66: system_fingerprint=fp_68568b1653
+2026-03-06 17:08:57,471 - INFO - Batch 67: system_fingerprint=fp_68568b1653
+2026-03-06 17:09:01,269 - INFO - Batch 68: system_fingerprint=fp_68568b1653
+2026-03-06 17:09:06,710 - INFO - Batch 69: system_fingerprint=fp_68568b1653
+2026-03-06 17:09:14,673 - INFO - Batch 70: system_fingerprint=fp_68568b1653
+2026-03-06 17:09:14,675 - INFO - Cache saved after 70 batches
+2026-03-06 17:09:20,120 - INFO - Batch 71: system_fingerprint=fp_68568b1653
+2026-03-06 17:09:25,196 - INFO - Batch 72: system_fingerprint=fp_68568b1653
+2026-03-06 17:09:31,900 - INFO - Batch 73: system_fingerprint=fp_68568b1653
+2026-03-06 17:09:36,731 - INFO - Batch 74: system_fingerprint=fp_68568b1653
+2026-03-06 17:09:43,624 - INFO - Batch 75: system_fingerprint=fp_68568b1653
+2026-03-06 17:09:43,626 - INFO - Cache saved after 75 batches
+2026-03-06 17:09:48,220 - INFO - Batch 76: system_fingerprint=fp_68568b1653
+2026-03-06 17:09:53,599 - INFO - Batch 77: system_fingerprint=fp_68568b1653
+2026-03-06 17:09:59,026 - INFO - Batch 78: system_fingerprint=fp_68568b1653
+2026-03-06 17:10:04,669 - INFO - Batch 79: system_fingerprint=fp_68568b1653
+2026-03-06 17:10:10,026 - INFO - Batch 80: system_fingerprint=fp_68568b1653
+2026-03-06 17:10:10,029 - INFO - Cache saved after 80 batches
+2026-03-06 17:10:15,809 - INFO - Batch 81: system_fingerprint=fp_68568b1653
+2026-03-06 17:10:21,561 - INFO - Batch 82: system_fingerprint=fp_68568b1653
+2026-03-06 17:10:26,611 - INFO - Batch 83: system_fingerprint=fp_68568b1653
+2026-03-06 17:10:32,318 - INFO - Batch 84: system_fingerprint=fp_68568b1653
+2026-03-06 17:10:36,988 - INFO - Batch 85: system_fingerprint=fp_68568b1653
+2026-03-06 17:10:36,991 - INFO - Cache saved after 85 batches
+2026-03-06 17:10:45,018 - INFO - Batch 86: system_fingerprint=fp_68568b1653
+2026-03-06 17:10:50,920 - INFO - Batch 87: system_fingerprint=fp_68568b1653
+2026-03-06 17:10:56,913 - INFO - Batch 88: system_fingerprint=fp_68568b1653
+2026-03-06 17:11:03,540 - INFO - Batch 89: system_fingerprint=fp_68568b1653
+2026-03-06 17:11:08,146 - INFO - Batch 90: system_fingerprint=fp_68568b1653
+2026-03-06 17:11:08,148 - INFO - Cache saved after 90 batches
+2026-03-06 17:11:13,732 - INFO - Batch 91: system_fingerprint=fp_68568b1653
+2026-03-06 17:11:18,763 - INFO - Batch 92: system_fingerprint=fp_68568b1653
+2026-03-06 17:11:26,870 - INFO - Batch 93: system_fingerprint=fp_68568b1653
+2026-03-06 17:11:32,454 - INFO - Batch 94: system_fingerprint=fp_68568b1653
+2026-03-06 17:11:37,388 - INFO - Batch 95: system_fingerprint=fp_68568b1653
+2026-03-06 17:11:37,391 - INFO - Cache saved after 95 batches
+2026-03-06 17:11:43,230 - INFO - Batch 96: system_fingerprint=fp_68568b1653
+2026-03-06 17:11:47,999 - INFO - Batch 97: system_fingerprint=fp_a55f00f25a
+2026-03-06 17:11:56,388 - INFO - Batch 98: system_fingerprint=fp_68568b1653
+2026-03-06 17:12:02,154 - INFO - Batch 99: system_fingerprint=fp_68568b1653
+2026-03-06 17:12:08,705 - INFO - Batch 100: system_fingerprint=fp_68568b1653
+2026-03-06 17:12:08,708 - INFO - Cache saved after 100 batches
+2026-03-06 17:12:13,959 - INFO - Batch 101: system_fingerprint=fp_68568b1653
+2026-03-06 17:12:18,733 - INFO - Batch 102: system_fingerprint=fp_68568b1653
+2026-03-06 17:12:23,827 - INFO - Batch 103: system_fingerprint=fp_68568b1653
+2026-03-06 17:12:28,644 - INFO - Batch 104: system_fingerprint=fp_68568b1653
+2026-03-06 17:12:34,539 - INFO - Batch 105: system_fingerprint=fp_68568b1653
+2026-03-06 17:12:34,542 - INFO - Cache saved after 105 batches
+2026-03-06 17:12:40,384 - INFO - Batch 106: system_fingerprint=fp_68568b1653
+2026-03-06 17:12:48,471 - INFO - Batch 107: system_fingerprint=fp_68568b1653
+2026-03-06 17:12:53,577 - INFO - Batch 108: system_fingerprint=fp_68568b1653
+2026-03-06 17:12:59,850 - INFO - Batch 109: system_fingerprint=fp_68568b1653
+2026-03-06 17:13:06,455 - INFO - Batch 110: system_fingerprint=fp_68568b1653
+2026-03-06 17:13:06,458 - INFO - Cache saved after 110 batches
+2026-03-06 17:13:12,168 - INFO - Batch 111: system_fingerprint=fp_68568b1653
+2026-03-06 17:13:17,954 - INFO - Batch 112: system_fingerprint=fp_68568b1653
+2026-03-06 17:13:22,941 - INFO - Batch 113: system_fingerprint=fp_68568b1653
+2026-03-06 17:13:28,576 - INFO - Batch 114: system_fingerprint=fp_68568b1653
+2026-03-06 17:13:28,577 - WARNING - Unknown class ID or alias: none
+2026-03-06 17:13:28,577 - WARNING - Item Q22081775: Could not resolve class 'none', using uniform distribution
+2026-03-06 17:13:28,577 - WARNING - Unknown class ID or alias: none
+2026-03-06 17:13:28,577 - WARNING - Item Q29655380: Could not resolve class 'none', using uniform distribution
+2026-03-06 17:13:33,546 - INFO - Batch 115: system_fingerprint=fp_68568b1653
+2026-03-06 17:13:33,549 - INFO - Cache saved after 115 batches
+2026-03-06 17:13:38,019 - INFO - Batch 116: system_fingerprint=fp_68568b1653
+2026-03-06 17:13:43,020 - INFO - Batch 117: system_fingerprint=fp_68568b1653
+2026-03-06 17:13:47,939 - INFO - Batch 118: system_fingerprint=fp_68568b1653
+2026-03-06 17:13:52,716 - INFO - Batch 119: system_fingerprint=fp_68568b1653
+2026-03-06 17:14:01,217 - INFO - Batch 120: system_fingerprint=fp_68568b1653
+2026-03-06 17:14:01,220 - INFO - Cache saved after 120 batches
+2026-03-06 17:14:06,679 - INFO - Batch 121: system_fingerprint=fp_68568b1653
+2026-03-06 17:14:12,264 - INFO - Batch 122: system_fingerprint=fp_68568b1653
+2026-03-06 17:14:17,345 - INFO - Batch 123: system_fingerprint=fp_68568b1653
+2026-03-06 17:14:22,071 - INFO - Batch 124: system_fingerprint=fp_68568b1653
+2026-03-06 17:14:26,993 - INFO - Batch 125: system_fingerprint=fp_68568b1653
+2026-03-06 17:14:26,996 - INFO - Cache saved after 125 batches
+2026-03-06 17:14:32,567 - INFO - Batch 126: system_fingerprint=fp_68568b1653
+2026-03-06 17:14:37,690 - INFO - Batch 127: system_fingerprint=fp_68568b1653
+2026-03-06 17:14:42,685 - INFO - Batch 128: system_fingerprint=fp_68568b1653
+2026-03-06 17:14:46,835 - INFO - Batch 129: system_fingerprint=fp_68568b1653
+2026-03-06 17:14:51,672 - INFO - Batch 130: system_fingerprint=fp_68568b1653
+2026-03-06 17:14:51,675 - INFO - Cache saved after 130 batches
+2026-03-06 17:14:58,243 - INFO - Batch 131: system_fingerprint=fp_68568b1653
+2026-03-06 17:15:04,371 - INFO - Batch 132: system_fingerprint=fp_68568b1653
+2026-03-06 17:15:09,345 - INFO - Batch 133: system_fingerprint=fp_68568b1653
+2026-03-06 17:15:20,442 - INFO - Batch 134: system_fingerprint=fp_68568b1653
+2026-03-06 17:15:26,486 - INFO - Batch 135: system_fingerprint=fp_68568b1653
+2026-03-06 17:15:26,490 - INFO - Cache saved after 135 batches
+2026-03-06 17:15:31,588 - INFO - Batch 136: system_fingerprint=fp_68568b1653
+2026-03-06 17:15:36,310 - INFO - Batch 137: system_fingerprint=fp_68568b1653
+2026-03-06 17:15:42,615 - INFO - Batch 138: system_fingerprint=fp_68568b1653
+2026-03-06 17:15:48,885 - INFO - Batch 139: system_fingerprint=fp_68568b1653
+2026-03-06 17:15:53,704 - INFO - Batch 140: system_fingerprint=fp_68568b1653
+2026-03-06 17:15:53,708 - INFO - Cache saved after 140 batches
+2026-03-06 17:15:58,777 - INFO - Batch 141: system_fingerprint=fp_68568b1653
+2026-03-06 17:16:04,411 - INFO - Batch 142: system_fingerprint=fp_68568b1653
+2026-03-06 17:16:09,819 - INFO - Batch 143: system_fingerprint=fp_68568b1653
+2026-03-06 17:16:12,659 - INFO - Batch 144: system_fingerprint=fp_68568b1653
+2026-03-06 17:16:12,663 - INFO - Total input tokens used: 597787
+2026-03-06 17:16:12,663 - INFO - Total output tokens used: 16833
+2026-03-06 17:16:12,663 - INFO - Total cost of this call: $1.6628
+2026-03-06 17:16:12,663 - INFO - Total images processed: 717
+2026-03-06 17:16:12,663 - INFO - Successfully processed: 717
+2026-03-06 17:16:12,663 - INFO - Failed/uniform placeholders: 0
+2026-03-06 17:16:12,663 - INFO - Final probabilities shape: (717, 10)
+2026-03-06 17:16:12,664 - INFO - Probabilities shape: (717, 10)
+2026-03-06 21:42:57,275 - INFO - Logger initialized for wikidata/test_2/gpt-4o-2024-11-20
+2026-03-06 21:42:57,275 - INFO - Starting classification for dataset=wikidata, test=test_2, model=gpt-4o-2024-11-20
+2026-03-06 21:42:57,435 - INFO - Number of images: 717
+2026-03-06 21:42:57,436 - INFO - Processing dataset: wikidata
+2026-03-06 21:42:57,437 - INFO - Processing images for test: test_2
+2026-03-06 21:42:57,455 - INFO - Loaded 717 cached results
+2026-03-06 21:42:57,455 - INFO - Using model: gpt-4o-2024-11-20
+2026-03-06 21:42:57,455 - INFO - === GENERATED PROMPT ===
+2026-03-06 21:42:57,455 - INFO - Dataset: wikidata, Test: test_2
+2026-03-06 21:42:57,455 - INFO - Hyperparameters: temperature=0.0, top_p=0.1, seed=12345
+2026-03-06 21:42:57,455 - INFO - Prompt content:
+2026-03-06 21:42:57,455 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"mary_magdalene" - the penitent harlot Mary Magdalene; possible attributes: book (or scroll), crown, crown of thorns, crucifix, jar of ointment, mirror, musical instrument, palm-branch, rosary, scourge
+"john_baptist" - John the Baptist; possible attributes: book, reed cross, baptismal cup, honeycomb, lamb, staff
+"jerome" - the monk and hermit Jerome (Hieronymus); possible attributes: book, cardinal's hat, crucifix, hour-glass, lion, skull, stone
+"catherine" - the virgin martyr Catherine of Alexandria; possible attributes: book, crown, emperor Maxentius, palm-branch, ring, sword, wheel
+"peter" - the apostle Peter, first bishop of Rome; possible attributes: book, cock, (upturned) cross, (triple) crozier, fish, key, scroll, ship, tiara
+"john" -  the apostle John the Evangelist; possible attributes: book, cauldron, chalice with snake, eagle, palm, scroll
+"paul" - the apostle Paul of Tarsus; possible attributes: book, scroll, sword
+"antony_abbot" - the hermit Antony Abbot (Antonius Abbas) of Egypt, also called the Great; possible attributes: bell, book, T-shaped staff, flames, pig
+"francis" - founder of the Order of Friars Minor (Franciscans), Francis(cus) of Assisi; possible attributes: book, crucifix, lily, skull, stigmata
+"joseph" -  the foster-father of Christ, Joseph of Nazareth, husband of Mary; possible attributes: flowering rod or wand, lily, carpenter's tools
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2026-03-06 21:42:57,456 - INFO - === END PROMPT ===
+2026-03-06 21:42:57,456 - INFO - Pre-allocated results array for 717 images
+2026-03-06 21:42:57,459 - INFO - Total input tokens used: 0
+2026-03-06 21:42:57,460 - INFO - Total output tokens used: 0
+2026-03-06 21:42:57,460 - INFO - Total cost of this call: $0.0000
+2026-03-06 21:42:57,460 - INFO - Total images processed: 717
+2026-03-06 21:42:57,460 - INFO - Successfully processed: 717
+2026-03-06 21:42:57,460 - INFO - Failed/uniform placeholders: 0
+2026-03-06 21:42:57,460 - INFO - Final probabilities shape: (717, 10)
+2026-03-06 21:42:57,460 - INFO - Probabilities shape: (717, 10)
+2026-03-08 10:08:28,599 - INFO - Logger initialized for wikidata/test_2/gpt-4o-2024-11-20
+2026-03-08 10:08:28,599 - INFO - Starting classification for dataset=wikidata, test=test_2, model=gpt-4o-2024-11-20
+2026-03-08 10:08:28,808 - INFO - Number of images: 717
+2026-03-08 10:08:28,808 - INFO - Processing dataset: wikidata
+2026-03-08 10:08:28,809 - INFO - Processing images for test: test_2
+2026-03-08 10:08:28,831 - INFO - Loaded 717 cached results
+2026-03-08 10:08:28,831 - INFO - Using model: gpt-4o-2024-11-20
+2026-03-08 10:08:28,831 - INFO - === GENERATED PROMPT ===
+2026-03-08 10:08:28,831 - INFO - Dataset: wikidata, Test: test_2
+2026-03-08 10:08:28,831 - INFO - Hyperparameters: temperature=0.0, top_p=0.1, seed=12345
+2026-03-08 10:08:28,831 - INFO - Prompt content:
+2026-03-08 10:08:28,831 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"mary_magdalene" - the penitent harlot Mary Magdalene; possible attributes: book (or scroll), crown, crown of thorns, crucifix, jar of ointment, mirror, musical instrument, palm-branch, rosary, scourge
+"john_baptist" - John the Baptist; possible attributes: book, reed cross, baptismal cup, honeycomb, lamb, staff
+"jerome" - the monk and hermit Jerome (Hieronymus); possible attributes: book, cardinal's hat, crucifix, hour-glass, lion, skull, stone
+"catherine" - the virgin martyr Catherine of Alexandria; possible attributes: book, crown, emperor Maxentius, palm-branch, ring, sword, wheel
+"peter" - the apostle Peter, first bishop of Rome; possible attributes: book, cock, (upturned) cross, (triple) crozier, fish, key, scroll, ship, tiara
+"john" -  the apostle John the Evangelist; possible attributes: book, cauldron, chalice with snake, eagle, palm, scroll
+"paul" - the apostle Paul of Tarsus; possible attributes: book, scroll, sword
+"antony_abbot" - the hermit Antony Abbot (Antonius Abbas) of Egypt, also called the Great; possible attributes: bell, book, T-shaped staff, flames, pig
+"francis" - founder of the Order of Friars Minor (Franciscans), Francis(cus) of Assisi; possible attributes: book, crucifix, lily, skull, stigmata
+"joseph" -  the foster-father of Christ, Joseph of Nazareth, husband of Mary; possible attributes: flowering rod or wand, lily, carpenter's tools
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2026-03-08 10:08:28,831 - INFO - === END PROMPT ===
+2026-03-08 10:08:28,831 - INFO - Pre-allocated results array for 717 images
+2026-03-08 10:08:28,835 - INFO - Total input tokens used: 0
+2026-03-08 10:08:28,835 - INFO - Total output tokens used: 0
+2026-03-08 10:08:28,835 - INFO - Total cost of this call: $0.0000
+2026-03-08 10:08:28,835 - INFO - Total images processed: 717
+2026-03-08 10:08:28,835 - INFO - Successfully processed: 717
+2026-03-08 10:08:28,835 - INFO - Failed/uniform placeholders: 0
+2026-03-08 10:08:28,835 - INFO - Final probabilities shape: (717, 10)
+2026-03-08 10:08:28,836 - INFO - Probabilities shape: (717, 10)

@@ -1,0 +1,340 @@
+2026-03-06 16:04:38,834 - INFO - Logger initialized for wikidata/test_2/gemini-2.5-flash-lite
+2026-03-06 16:04:38,834 - INFO - Starting classification for dataset=wikidata, test=test_2, model=gemini-2.5-flash-lite
+2026-03-06 16:04:39,006 - INFO - Number of images: 717
+2026-03-06 16:04:39,007 - INFO - Processing dataset: wikidata
+2026-03-06 16:04:39,009 - INFO - Processing images for test: test_2
+2026-03-06 16:04:39,045 - INFO - Using model: gemini-2.5-flash-lite
+2026-03-06 16:04:39,046 - INFO - === GENERATED PROMPT ===
+2026-03-06 16:04:39,046 - INFO - Dataset: wikidata, Test: test_2
+2026-03-06 16:04:39,046 - INFO - Hyperparameters: temperature=0.0, top_k=32
+2026-03-06 16:04:39,046 - INFO - Prompt content:
+2026-03-06 16:04:39,046 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"mary_magdalene" - the penitent harlot Mary Magdalene; possible attributes: book (or scroll), crown, crown of thorns, crucifix, jar of ointment, mirror, musical instrument, palm-branch, rosary, scourge
+"john_baptist" - John the Baptist; possible attributes: book, reed cross, baptismal cup, honeycomb, lamb, staff
+"jerome" - the monk and hermit Jerome (Hieronymus); possible attributes: book, cardinal's hat, crucifix, hour-glass, lion, skull, stone
+"catherine" - the virgin martyr Catherine of Alexandria; possible attributes: book, crown, emperor Maxentius, palm-branch, ring, sword, wheel
+"peter" - the apostle Peter, first bishop of Rome; possible attributes: book, cock, (upturned) cross, (triple) crozier, fish, key, scroll, ship, tiara
+"john" -  the apostle John the Evangelist; possible attributes: book, cauldron, chalice with snake, eagle, palm, scroll
+"paul" - the apostle Paul of Tarsus; possible attributes: book, scroll, sword
+"antony_abbot" - the hermit Antony Abbot (Antonius Abbas) of Egypt, also called the Great; possible attributes: bell, book, T-shaped staff, flames, pig
+"francis" - founder of the Order of Friars Minor (Franciscans), Francis(cus) of Assisi; possible attributes: book, crucifix, lily, skull, stigmata
+"joseph" -  the foster-father of Christ, Joseph of Nazareth, husband of Mary; possible attributes: flowering rod or wand, lily, carpenter's tools
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2026-03-06 16:04:39,046 - INFO - === END PROMPT ===
+2026-03-06 16:04:48,996 - INFO - Cache saved after 5 batches
+2026-03-06 16:04:55,486 - ERROR - Error processing batch: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+2026-03-06 16:04:55,487 - WARNING - No valid response for batch 8. Skipping.
+2026-03-06 16:04:56,045 - ERROR - Error processing batch: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+2026-03-06 16:04:56,045 - WARNING - No valid response for batch 9. Skipping.
+2026-03-06 16:04:56,595 - ERROR - Error processing batch: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+2026-03-06 16:04:56,595 - WARNING - No valid response for batch 10. Skipping.
+2026-03-06 16:05:08,849 - INFO - Cache saved after 15 batches
+2026-03-06 16:05:09,390 - ERROR - Error processing batch: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+2026-03-06 16:05:09,390 - WARNING - No valid response for batch 16. Skipping.
+2026-03-06 16:05:15,967 - INFO - Cache saved after 20 batches
+2026-03-06 16:05:16,693 - ERROR - Error processing batch: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+2026-03-06 16:05:16,694 - WARNING - No valid response for batch 21. Skipping.
+2026-03-06 16:05:24,972 - INFO - Cache saved after 25 batches
+2026-03-06 16:05:33,279 - INFO - Cache saved after 30 batches
+2026-03-06 16:05:35,605 - ERROR - Error processing batch: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+2026-03-06 16:05:35,605 - WARNING - No valid response for batch 32. Skipping.
+2026-03-06 16:05:37,473 - ERROR - Error processing batch: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+2026-03-06 16:05:37,473 - WARNING - No valid response for batch 33. Skipping.
+2026-03-06 16:05:38,446 - ERROR - Error processing batch: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+2026-03-06 16:05:38,446 - WARNING - No valid response for batch 34. Skipping.
+2026-03-06 16:05:40,439 - INFO - Cache saved after 35 batches
+2026-03-06 16:05:40,917 - ERROR - Error processing batch: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+2026-03-06 16:05:40,918 - WARNING - No valid response for batch 36. Skipping.
+2026-03-06 16:05:45,896 - ERROR - Error processing batch: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+2026-03-06 16:05:45,896 - WARNING - No valid response for batch 39. Skipping.
+2026-03-06 16:05:47,609 - INFO - Cache saved after 40 batches
+2026-03-06 16:05:57,179 - INFO - Cache saved after 45 batches
+2026-03-06 16:06:01,286 - ERROR - Error processing batch: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+2026-03-06 16:06:01,287 - WARNING - No valid response for batch 48. Skipping.
+2026-03-06 16:06:04,299 - INFO - Cache saved after 50 batches
+2026-03-06 16:06:06,811 - ERROR - Error processing batch: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+2026-03-06 16:06:06,811 - WARNING - No valid response for batch 51. Skipping.
+2026-03-06 16:06:09,185 - ERROR - Error processing batch: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+2026-03-06 16:06:09,186 - WARNING - No valid response for batch 52. Skipping.
+2026-03-06 16:06:10,408 - ERROR - Error processing batch: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+2026-03-06 16:06:10,408 - WARNING - No valid response for batch 53. Skipping.
+2026-03-06 16:06:13,107 - INFO - Cache saved after 55 batches
+2026-03-06 16:06:14,211 - ERROR - Error processing batch: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+2026-03-06 16:06:14,212 - WARNING - No valid response for batch 56. Skipping.
+2026-03-06 16:06:24,792 - INFO - Cache saved after 60 batches
+2026-03-06 16:06:30,842 - ERROR - Error processing batch: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+2026-03-06 16:06:30,842 - WARNING - No valid response for batch 63. Skipping.
+2026-03-06 16:06:34,624 - INFO - Cache saved after 65 batches
+2026-03-06 16:06:39,277 - ERROR - Error processing batch: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+2026-03-06 16:06:39,277 - WARNING - No valid response for batch 67. Skipping.
+2026-03-06 16:06:44,967 - INFO - Cache saved after 70 batches
+2026-03-06 16:06:52,617 - INFO - Cache saved after 75 batches
+2026-03-06 16:07:02,783 - INFO - Cache saved after 80 batches
+2026-03-06 16:07:07,013 - ERROR - Error processing batch: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+2026-03-06 16:07:07,014 - WARNING - No valid response for batch 82. Skipping.
+2026-03-06 16:07:10,943 - INFO - Cache saved after 85 batches
+2026-03-06 16:07:18,115 - INFO - Cache saved after 90 batches
+2026-03-06 16:07:26,810 - INFO - Cache saved after 95 batches
+2026-03-06 16:07:34,250 - INFO - Cache saved after 100 batches
+2026-03-06 16:07:45,333 - INFO - Cache saved after 105 batches
+2026-03-06 16:07:47,823 - ERROR - Error processing batch: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+2026-03-06 16:07:47,823 - WARNING - No valid response for batch 107. Skipping.
+2026-03-06 16:07:53,581 - INFO - Cache saved after 110 batches
+2026-03-06 16:07:58,780 - ERROR - Error processing batch: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+2026-03-06 16:07:58,781 - WARNING - No valid response for batch 114. Skipping.
+2026-03-06 16:07:59,882 - INFO - Cache saved after 115 batches
+2026-03-06 16:08:06,394 - WARNING - Unknown class ID or alias: sebastian
+2026-03-06 16:08:09,740 - WARNING - Unknown class ID or alias: sebastian
+2026-03-06 16:08:09,741 - WARNING - Unknown class ID or alias: sebastian
+2026-03-06 16:08:09,743 - INFO - Cache saved after 120 batches
+2026-03-06 16:08:18,602 - INFO - Cache saved after 125 batches
+2026-03-06 16:08:22,472 - WARNING - Unknown class ID or alias: landscape
+2026-03-06 16:08:26,101 - INFO - Cache saved after 130 batches
+2026-03-06 16:08:33,204 - ERROR - Error processing batch: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+2026-03-06 16:08:33,204 - WARNING - No valid response for batch 133. Skipping.
+2026-03-06 16:08:36,488 - INFO - Cache saved after 135 batches
+2026-03-06 16:08:46,381 - INFO - Cache saved after 140 batches
+2026-03-06 16:08:53,173 - INFO - Total input tokens used: 264852
+2026-03-06 16:08:53,173 - INFO - Total output tokens used: 23162
+2026-03-06 16:08:53,173 - INFO - Total cost of this call: $0.1159
+2026-03-06 16:08:53,174 - INFO - Probabilities shape: (608, 10)
+2026-03-06 16:20:33,962 - INFO - Logger initialized for wikidata/test_2/gemini-2.5-flash-lite
+2026-03-06 16:20:33,962 - INFO - Starting classification for dataset=wikidata, test=test_2, model=gemini-2.5-flash-lite
+2026-03-06 16:20:34,146 - INFO - Number of images: 717
+2026-03-06 16:20:34,146 - INFO - Processing dataset: wikidata
+2026-03-06 16:20:34,149 - INFO - Processing images for test: test_2
+2026-03-06 16:20:34,183 - INFO - Loaded 608 cached results
+2026-03-06 16:20:34,185 - INFO - Using model: gemini-2.5-flash-lite
+2026-03-06 16:20:34,186 - INFO - === GENERATED PROMPT ===
+2026-03-06 16:20:34,186 - INFO - Dataset: wikidata, Test: test_2
+2026-03-06 16:20:34,186 - INFO - Hyperparameters: temperature=0.0, top_k=32
+2026-03-06 16:20:34,186 - INFO - Prompt content:
+2026-03-06 16:20:34,186 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"mary_magdalene" - the penitent harlot Mary Magdalene; possible attributes: book (or scroll), crown, crown of thorns, crucifix, jar of ointment, mirror, musical instrument, palm-branch, rosary, scourge
+"john_baptist" - John the Baptist; possible attributes: book, reed cross, baptismal cup, honeycomb, lamb, staff
+"jerome" - the monk and hermit Jerome (Hieronymus); possible attributes: book, cardinal's hat, crucifix, hour-glass, lion, skull, stone
+"catherine" - the virgin martyr Catherine of Alexandria; possible attributes: book, crown, emperor Maxentius, palm-branch, ring, sword, wheel
+"peter" - the apostle Peter, first bishop of Rome; possible attributes: book, cock, (upturned) cross, (triple) crozier, fish, key, scroll, ship, tiara
+"john" -  the apostle John the Evangelist; possible attributes: book, cauldron, chalice with snake, eagle, palm, scroll
+"paul" - the apostle Paul of Tarsus; possible attributes: book, scroll, sword
+"antony_abbot" - the hermit Antony Abbot (Antonius Abbas) of Egypt, also called the Great; possible attributes: bell, book, T-shaped staff, flames, pig
+"francis" - founder of the Order of Friars Minor (Franciscans), Francis(cus) of Assisi; possible attributes: book, crucifix, lily, skull, stigmata
+"joseph" -  the foster-father of Christ, Joseph of Nazareth, husband of Mary; possible attributes: flowering rod or wand, lily, carpenter's tools
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2026-03-06 16:20:34,186 - INFO - === END PROMPT ===
+2026-03-06 16:20:39,931 - INFO - Cache saved after 5 batches
+2026-03-06 16:20:45,641 - INFO - Cache saved after 10 batches
+2026-03-06 16:20:52,901 - INFO - Cache saved after 15 batches
+2026-03-06 16:20:59,027 - INFO - Cache saved after 20 batches
+2026-03-06 16:21:04,724 - INFO - Total input tokens used: 48839
+2026-03-06 16:21:04,724 - INFO - Total output tokens used: 4151
+2026-03-06 16:21:04,724 - INFO - Total cost of this call: $0.0212
+2026-03-06 16:21:04,725 - INFO - Probabilities shape: (717, 10)
+2026-03-06 16:25:06,665 - INFO - Logger initialized for wikidata/test_2/gemini-2.5-flash-lite
+2026-03-06 16:25:06,665 - INFO - Starting classification for dataset=wikidata, test=test_2, model=gemini-2.5-flash-lite
+2026-03-06 16:25:06,857 - INFO - Number of images: 717
+2026-03-06 16:25:06,857 - INFO - Processing dataset: wikidata
+2026-03-06 16:25:06,859 - INFO - Processing images for test: test_2
+2026-03-06 16:25:06,893 - INFO - Loaded 717 cached results
+2026-03-06 16:25:06,895 - INFO - Using model: gemini-2.5-flash-lite
+2026-03-06 16:25:06,896 - INFO - === GENERATED PROMPT ===
+2026-03-06 16:25:06,896 - INFO - Dataset: wikidata, Test: test_2
+2026-03-06 16:25:06,896 - INFO - Hyperparameters: temperature=0.0, top_k=32
+2026-03-06 16:25:06,896 - INFO - Prompt content:
+2026-03-06 16:25:06,896 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"mary_magdalene" - the penitent harlot Mary Magdalene; possible attributes: book (or scroll), crown, crown of thorns, crucifix, jar of ointment, mirror, musical instrument, palm-branch, rosary, scourge
+"john_baptist" - John the Baptist; possible attributes: book, reed cross, baptismal cup, honeycomb, lamb, staff
+"jerome" - the monk and hermit Jerome (Hieronymus); possible attributes: book, cardinal's hat, crucifix, hour-glass, lion, skull, stone
+"catherine" - the virgin martyr Catherine of Alexandria; possible attributes: book, crown, emperor Maxentius, palm-branch, ring, sword, wheel
+"peter" - the apostle Peter, first bishop of Rome; possible attributes: book, cock, (upturned) cross, (triple) crozier, fish, key, scroll, ship, tiara
+"john" -  the apostle John the Evangelist; possible attributes: book, cauldron, chalice with snake, eagle, palm, scroll
+"paul" - the apostle Paul of Tarsus; possible attributes: book, scroll, sword
+"antony_abbot" - the hermit Antony Abbot (Antonius Abbas) of Egypt, also called the Great; possible attributes: bell, book, T-shaped staff, flames, pig
+"francis" - founder of the Order of Friars Minor (Franciscans), Francis(cus) of Assisi; possible attributes: book, crucifix, lily, skull, stigmata
+"joseph" -  the foster-father of Christ, Joseph of Nazareth, husband of Mary; possible attributes: flowering rod or wand, lily, carpenter's tools
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2026-03-06 16:25:06,896 - INFO - === END PROMPT ===
+2026-03-06 16:25:06,899 - INFO - Total input tokens used: 0
+2026-03-06 16:25:06,900 - INFO - Total output tokens used: 0
+2026-03-06 16:25:06,900 - INFO - Total cost of this call: $0.0000
+2026-03-06 16:25:06,900 - INFO - Probabilities shape: (717, 10)
+2026-03-06 16:57:29,665 - INFO - Logger initialized for wikidata/test_2/gemini-2.5-flash-lite
+2026-03-06 16:57:29,665 - INFO - Starting classification for dataset=wikidata, test=test_2, model=gemini-2.5-flash-lite
+2026-03-06 16:57:29,847 - INFO - Number of images: 717
+2026-03-06 16:57:29,847 - INFO - Processing dataset: wikidata
+2026-03-06 16:57:29,849 - INFO - Processing images for test: test_2
+2026-03-06 16:57:29,883 - INFO - Loaded 717 cached results
+2026-03-06 16:57:29,885 - INFO - Using model: gemini-2.5-flash-lite
+2026-03-06 16:57:29,885 - INFO - === GENERATED PROMPT ===
+2026-03-06 16:57:29,885 - INFO - Dataset: wikidata, Test: test_2
+2026-03-06 16:57:29,885 - INFO - Hyperparameters: temperature=0.0, top_k=32
+2026-03-06 16:57:29,885 - INFO - Prompt content:
+2026-03-06 16:57:29,886 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"mary_magdalene" - the penitent harlot Mary Magdalene; possible attributes: book (or scroll), crown, crown of thorns, crucifix, jar of ointment, mirror, musical instrument, palm-branch, rosary, scourge
+"john_baptist" - John the Baptist; possible attributes: book, reed cross, baptismal cup, honeycomb, lamb, staff
+"jerome" - the monk and hermit Jerome (Hieronymus); possible attributes: book, cardinal's hat, crucifix, hour-glass, lion, skull, stone
+"catherine" - the virgin martyr Catherine of Alexandria; possible attributes: book, crown, emperor Maxentius, palm-branch, ring, sword, wheel
+"peter" - the apostle Peter, first bishop of Rome; possible attributes: book, cock, (upturned) cross, (triple) crozier, fish, key, scroll, ship, tiara
+"john" -  the apostle John the Evangelist; possible attributes: book, cauldron, chalice with snake, eagle, palm, scroll
+"paul" - the apostle Paul of Tarsus; possible attributes: book, scroll, sword
+"antony_abbot" - the hermit Antony Abbot (Antonius Abbas) of Egypt, also called the Great; possible attributes: bell, book, T-shaped staff, flames, pig
+"francis" - founder of the Order of Friars Minor (Franciscans), Francis(cus) of Assisi; possible attributes: book, crucifix, lily, skull, stigmata
+"joseph" -  the foster-father of Christ, Joseph of Nazareth, husband of Mary; possible attributes: flowering rod or wand, lily, carpenter's tools
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2026-03-06 16:57:29,886 - INFO - === END PROMPT ===
+2026-03-06 16:57:29,889 - INFO - Total input tokens used: 0
+2026-03-06 16:57:29,889 - INFO - Total output tokens used: 0
+2026-03-06 16:57:29,889 - INFO - Total cost of this call: $0.0000
+2026-03-06 16:57:29,890 - INFO - Probabilities shape: (717, 10)

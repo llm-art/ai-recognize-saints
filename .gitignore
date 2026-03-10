@@ -9,6 +9,8 @@ dataset/Rijksmuseum2014
 dataset/DEART
 dataset/wikidata
 dataset/Portrait_Painting
+dataset/analysis
+dataset/consistency
 *.pth
 *.zip
 .DS_Store

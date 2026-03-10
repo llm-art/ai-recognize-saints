@@ -415,61 +415,32 @@ def detect_cross_dataset_duplicates(hashes1, names1, hashes2, names2, threshold=
 # Venn Diagram Visualization
 # ===============================
 
-def generate_venn_diagram(all_datasets, method='perceptual', threshold=8, output_path=None):
+def generate_venn_diagram(all_datasets, pair_duplicates, method='perceptual', output_path=None):
     """
     Generate a Venn diagram showing the overlap between datasets.
-    
+
     Args:
         all_datasets (list): List of dataset information dictionaries
+        pair_duplicates (dict): Pre-computed duplicates keyed by (i, j) index tuples,
+                                each value is a list of (name1, name2, difference)
         method (str): Method used for similarity calculation ('perceptual' or 'robust')
-        threshold (int): Threshold for considering images as similar
         output_path (str): Path to save the Venn diagram
-        
+
     Returns:
         None
     """
     if len(all_datasets) != 3:
         logger.warning(f"Venn diagram requires exactly 3 datasets, but {len(all_datasets)} were provided.")
         return
-    
+
     # Extract dataset names and sizes
     dataset_names = [d['name'] for d in all_datasets]
     dataset_sizes = [len(d[f'{method}_names']) for d in all_datasets]
-    
-    # Find duplicates between each pair of datasets
-    duplicates_01 = set()
-    duplicates_02 = set()
-    duplicates_12 = set()
-    
-    # Dataset 0 vs Dataset 1
-    dups_01 = detect_cross_dataset_duplicates(
-        all_datasets[0][f'{method}_hashes'], all_datasets[0][f'{method}_names'],
-        all_datasets[1][f'{method}_hashes'], all_datasets[1][f'{method}_names'],
-        threshold, method
-    )
-    
-    for name1, name2, _ in dups_01:
-        duplicates_01.add((name1, name2))
-    
-    # Dataset 0 vs Dataset 2
-    dups_02 = detect_cross_dataset_duplicates(
-        all_datasets[0][f'{method}_hashes'], all_datasets[0][f'{method}_names'],
-        all_datasets[2][f'{method}_hashes'], all_datasets[2][f'{method}_names'],
-        threshold, method
-    )
-    
-    for name1, name2, _ in dups_02:
-        duplicates_02.add((name1, name2))
-    
-    # Dataset 1 vs Dataset 2
-    dups_12 = detect_cross_dataset_duplicates(
-        all_datasets[1][f'{method}_hashes'], all_datasets[1][f'{method}_names'],
-        all_datasets[2][f'{method}_hashes'], all_datasets[2][f'{method}_names'],
-        threshold, method
-    )
-    
-    for name1, name2, _ in dups_12:
-        duplicates_12.add((name1, name2))
+
+    # Use pre-computed duplicates instead of recomputing
+    duplicates_01 = set((name1, name2) for name1, name2, _ in pair_duplicates.get((0, 1), []))
+    duplicates_02 = set((name1, name2) for name1, name2, _ in pair_duplicates.get((0, 2), []))
+    duplicates_12 = set((name1, name2) for name1, name2, _ in pair_duplicates.get((1, 2), []))
     
     # Find images that are similar across all three datasets
     # Create dictionaries to map from dataset 0 to datasets 1 and 2
@@ -530,6 +501,101 @@ def generate_venn_diagram(all_datasets, method='perceptual', threshold=8, output
     plt.close()
 
 # ===============================
+# Manual Review Functions
+# ===============================
+
+def _review_key(dup, hash_type):
+    """Return a stable string key for a duplicate pair entry."""
+    return f"{dup[0]['dataset']}|{dup[0]['name']}|{dup[1]['dataset']}|{dup[1]['name']}|{hash_type}"
+
+
+def load_review_file(review_file_path):
+    """
+    Load an existing review file and return a dict mapping pair key -> review entry.
+
+    Args:
+        review_file_path (str): Path to the review JSON file
+
+    Returns:
+        dict: Mapping from pair key to review entry dict, or empty dict if file not found
+    """
+    if not os.path.exists(review_file_path):
+        return {}
+    try:
+        with open(review_file_path, 'r') as f:
+            entries = json.load(f)
+        return {e['key']: e for e in entries}
+    except Exception as e:
+        logger.error(f"Error loading review file {review_file_path}: {e}")
+        return {}
+
+
+def apply_and_update_review(all_perceptual_duplicates, all_robust_duplicates, review_file_path):
+    """
+    Load the review file (if it exists), filter out rejected pairs, add new pairs
+    as 'pending', and save the updated file.
+
+    Status values:
+        'pending'   - not yet reviewed; treated as a duplicate (included)
+        'confirmed' - explicitly confirmed as a true duplicate (included)
+        'rejected'  - false positive; excluded from results
+
+    Args:
+        all_perceptual_duplicates (list): List of perceptual duplicate pairs
+        all_robust_duplicates (list): List of robust duplicate pairs
+        review_file_path (str): Path to the review JSON file
+
+    Returns:
+        tuple: (filtered_perceptual, filtered_robust) with rejected pairs removed
+    """
+    existing = load_review_file(review_file_path)
+
+    def filter_and_collect(duplicates, hash_type):
+        filtered = []
+        new_entries = []
+        for dup in duplicates:
+            key = _review_key(dup, hash_type)
+            if key in existing:
+                if existing[key]['status'] == 'rejected':
+                    continue  # skip rejected pairs
+                filtered.append(dup)
+            else:
+                # New pair not seen before — add as pending
+                new_entries.append({
+                    'key': key,
+                    'pair': dup,
+                    'hash_type': hash_type,
+                    'status': 'pending',
+                    'notes': ''
+                })
+                filtered.append(dup)
+        return filtered, new_entries
+
+    filtered_perceptual, new_perceptual = filter_and_collect(all_perceptual_duplicates, 'perceptual')
+    filtered_robust, new_robust = filter_and_collect(all_robust_duplicates, 'robust')
+
+    # Merge: keep all existing entries (preserving manual edits) + add new ones
+    updated = list(existing.values()) + new_perceptual + new_robust
+    try:
+        os.makedirs(os.path.dirname(os.path.abspath(review_file_path)), exist_ok=True)
+        with open(review_file_path, 'w') as f:
+            json.dump(updated, f, indent=2)
+        n_rejected = sum(1 for e in updated if e['status'] == 'rejected')
+        n_confirmed = sum(1 for e in updated if e['status'] == 'confirmed')
+        n_pending = sum(1 for e in updated if e['status'] == 'pending')
+        logger.info(
+            f"Review file updated: {len(updated)} total pairs "
+            f"({n_confirmed} confirmed, {n_rejected} rejected, {n_pending} pending) -> {review_file_path}"
+        )
+        if n_rejected:
+            logger.info(f"Excluded {n_rejected} rejected pairs from results")
+    except Exception as e:
+        logger.error(f"Error saving review file {review_file_path}: {e}")
+
+    return filtered_perceptual, filtered_robust
+
+
+# ===============================
 # Main Function
 # ===============================
 
@@ -552,10 +618,14 @@ def generate_venn_diagram(all_datasets, method='perceptual', threshold=8, output
               help='Difference threshold for robust hash-based duplicate detection')
 @click.option('--use-ground-truth', is_flag=True,
               help='Use ground truth labels from 2_ground_truth.json')
+@click.option('--review-file', default=None,
+              help='Path to a JSON review file. Pairs marked "rejected" are excluded from output. '
+                   'New pairs are added as "pending". Create or edit the file between runs to '
+                   'mark false positives.')
 @click.option('--verbose', is_flag=True, help='Enable verbose logging (DEBUG level)')
-def main(datasets, max_images, output_dir, perceptual_hash_size, robust_hash_size, 
-         perceptual_hash_type, perceptual_threshold, robust_threshold, 
-         use_ground_truth, verbose):
+def main(datasets, max_images, output_dir, perceptual_hash_size, robust_hash_size,
+         perceptual_hash_type, perceptual_threshold, robust_threshold,
+         use_ground_truth, review_file, verbose):
     """
     Analyze cross-dataset overlap using perceptual and robust hashing.
     
@@ -618,6 +688,7 @@ def main(datasets, max_images, output_dir, perceptual_hash_size, robust_hash_siz
         all_datasets.append({
             'name': dataset_name,
             'info': dataset_info,
+            'image_path_map': dict(zip(dataset_info['image_list'], dataset_info['image_paths'])),
             'perceptual_names': perceptual_names,
             'perceptual_hashes': perceptual_hashes,
             'robust_names': robust_names,
@@ -633,66 +704,95 @@ def main(datasets, max_images, output_dir, perceptual_hash_size, robust_hash_siz
         # Lists to store all cross-dataset duplicates
         all_perceptual_duplicates = []
         all_robust_duplicates = []
-        
+        # Dicts to store duplicates keyed by (i, j) for Venn diagram (no recomputation)
+        pair_perceptual_duplicates = {}
+        pair_robust_duplicates = {}
+
         # Process each dataset pair
         for i, dataset1 in enumerate(all_datasets):
             for j, dataset2 in enumerate(all_datasets):
                 if i >= j:  # Skip self-comparisons and duplicates
                     continue
-                
+
                 dataset1_name = dataset1['name']
                 dataset2_name = dataset2['name']
-                
+
                 # Detect cross-dataset duplicates using perceptual hashing
                 perceptual_duplicates = detect_cross_dataset_duplicates(
                     dataset1['perceptual_hashes'], dataset1['perceptual_names'],
                     dataset2['perceptual_hashes'], dataset2['perceptual_names'],
                     perceptual_threshold, 'perceptual'
                 )
-                
+                pair_perceptual_duplicates[(i, j)] = perceptual_duplicates
+
                 logger.info(f"Found {len(perceptual_duplicates)} perceptual hash-based duplicates between {dataset1_name} and {dataset2_name}")
-                
+
                 # Add to all perceptual duplicates
                 for name1, name2, difference in perceptual_duplicates:
                     duplicate_tuple = [
                         {
                             "dataset": dataset1_name,
                             "name": name1,
-                            "path": os.path.join(os.path.dirname(dataset1['info']['image_paths'][0]), f"{name1}.jpg")
+                            "path": dataset1['image_path_map'].get(name1, "")
                         },
                         {
                             "dataset": dataset2_name,
                             "name": name2,
-                            "path": os.path.join(os.path.dirname(dataset2['info']['image_paths'][0]), f"{name2}.jpg")
+                            "path": dataset2['image_path_map'].get(name2, "")
                         }
                     ]
                     all_perceptual_duplicates.append(duplicate_tuple)
-                
+
                 # Detect cross-dataset duplicates using robust hashing
                 robust_duplicates = detect_cross_dataset_duplicates(
                     dataset1['robust_hashes'], dataset1['robust_names'],
                     dataset2['robust_hashes'], dataset2['robust_names'],
                     robust_threshold, 'robust'
                 )
-                
+                pair_robust_duplicates[(i, j)] = robust_duplicates
+
                 logger.info(f"Found {len(robust_duplicates)} robust hash-based duplicates between {dataset1_name} and {dataset2_name}")
-                
+
                 # Add to all robust duplicates
                 for name1, name2, difference in robust_duplicates:
                     duplicate_tuple = [
                         {
                             "dataset": dataset1_name,
                             "name": name1,
-                            "path": os.path.join(os.path.dirname(dataset1['info']['image_paths'][0]), f"{name1}.jpg")
+                            "path": dataset1['image_path_map'].get(name1, "")
                         },
                         {
                             "dataset": dataset2_name,
                             "name": name2,
-                            "path": os.path.join(os.path.dirname(dataset2['info']['image_paths'][0]), f"{name2}.jpg")
+                            "path": dataset2['image_path_map'].get(name2, "")
                         }
                     ]
                     all_robust_duplicates.append(duplicate_tuple)
         
+        # Apply manual review annotations (filter rejected pairs, update review file)
+        if review_file:
+            all_perceptual_duplicates, all_robust_duplicates = apply_and_update_review(
+                all_perceptual_duplicates, all_robust_duplicates, review_file
+            )
+            # Rebuild pair dicts to stay consistent with the filtered lists
+            pair_perceptual_duplicates = {}
+            pair_robust_duplicates = {}
+            for i, dataset1 in enumerate(all_datasets):
+                for j, dataset2 in enumerate(all_datasets):
+                    if i >= j:
+                        continue
+                    d1, d2 = dataset1['name'], dataset2['name']
+                    pair_perceptual_duplicates[(i, j)] = [
+                        (dup[0]['name'], dup[1]['name'], 0)
+                        for dup in all_perceptual_duplicates
+                        if dup[0]['dataset'] == d1 and dup[1]['dataset'] == d2
+                    ]
+                    pair_robust_duplicates[(i, j)] = [
+                        (dup[0]['name'], dup[1]['name'], 0)
+                        for dup in all_robust_duplicates
+                        if dup[0]['dataset'] == d1 and dup[1]['dataset'] == d2
+                    ]
+
         # Save consolidated perceptual duplicates
         perceptual_duplicates_path = os.path.join(main_analysis_dir, 'perceptual_cross_duplicates.json')
         with open(perceptual_duplicates_path, 'w') as f:
@@ -712,15 +812,15 @@ def main(datasets, max_images, output_dir, perceptual_hash_size, robust_hash_siz
             # Generate perceptual hash Venn diagram
             perceptual_venn_path = os.path.join(main_analysis_dir, 'perceptual_venn_diagram.png')
             generate_venn_diagram(
-                all_datasets, method='perceptual', 
-                threshold=perceptual_threshold, output_path=perceptual_venn_path
+                all_datasets, pair_perceptual_duplicates,
+                method='perceptual', output_path=perceptual_venn_path
             )
-            
+
             # Generate robust hash Venn diagram
             robust_venn_path = os.path.join(main_analysis_dir, 'robust_venn_diagram.png')
             generate_venn_diagram(
-                all_datasets, method='robust', 
-                threshold=robust_threshold, output_path=robust_venn_path
+                all_datasets, pair_robust_duplicates,
+                method='robust', output_path=robust_venn_path
             )
         else:
             logger.warning(f"Venn diagram requires exactly 3 datasets, but {len(all_datasets)} were provided.")
@@ -796,71 +896,30 @@ def main(datasets, max_images, output_dir, perceptual_hash_size, robust_hash_siz
         files_to_copy = {}
         
         # Process all duplicates for the table
+        # Always prefix filenames with dataset name to avoid cross-dataset collisions
+        def example_filename(img):
+            return f"{img['dataset']}_{img['name']}.jpg"
+
         perceptual_pairs = []
         for dup in all_perceptual_duplicates:
-            img1 = dup[0]
-            img2 = dup[1]
-            
-            # Add to files to copy
-            img1_filename = img1['name'] + ".jpg"
-            img2_filename = img2['name'] + ".jpg"
-            
-            # Check for filename conflicts
-            if img1_filename in files_to_copy and files_to_copy[img1_filename] != img1['path']:
-                img1_filename = f"{img1['dataset']}_{img1_filename}"
-            
-            if img2_filename in files_to_copy and files_to_copy[img2_filename] != img2['path']:
-                img2_filename = f"{img2['dataset']}_{img2_filename}"
-            
-            files_to_copy[img1_filename] = img1['path']
-            files_to_copy[img2_filename] = img2['path']
-            
-            # Add to pairs list
+            img1, img2 = dup[0], dup[1]
+            fn1, fn2 = example_filename(img1), example_filename(img2)
+            files_to_copy[fn1] = img1['path']
+            files_to_copy[fn2] = img2['path']
             perceptual_pairs.append({
-                'img1': {
-                    'dataset': img1['dataset'],
-                    'name': img1['name'],
-                    'filename': img1_filename
-                },
-                'img2': {
-                    'dataset': img2['dataset'],
-                    'name': img2['name'],
-                    'filename': img2_filename
-                }
+                'img1': {'dataset': img1['dataset'], 'name': img1['name'], 'filename': fn1},
+                'img2': {'dataset': img2['dataset'], 'name': img2['name'], 'filename': fn2}
             })
-        
-        # Process robust duplicates
+
         robust_pairs = []
         for dup in all_robust_duplicates:
-            img1 = dup[0]
-            img2 = dup[1]
-            
-            # Add to files to copy
-            img1_filename = img1['name'] + ".jpg"
-            img2_filename = img2['name'] + ".jpg"
-            
-            # Check for filename conflicts
-            if img1_filename in files_to_copy and files_to_copy[img1_filename] != img1['path']:
-                img1_filename = f"{img1['dataset']}_{img1_filename}"
-            
-            if img2_filename in files_to_copy and files_to_copy[img2_filename] != img2['path']:
-                img2_filename = f"{img2['dataset']}_{img2_filename}"
-            
-            files_to_copy[img1_filename] = img1['path']
-            files_to_copy[img2_filename] = img2['path']
-            
-            # Add to pairs list
+            img1, img2 = dup[0], dup[1]
+            fn1, fn2 = example_filename(img1), example_filename(img2)
+            files_to_copy[fn1] = img1['path']
+            files_to_copy[fn2] = img2['path']
             robust_pairs.append({
-                'img1': {
-                    'dataset': img1['dataset'],
-                    'name': img1['name'],
-                    'filename': img1_filename
-                },
-                'img2': {
-                    'dataset': img2['dataset'],
-                    'name': img2['name'],
-                    'filename': img2_filename
-                }
+                'img1': {'dataset': img1['dataset'], 'name': img1['name'], 'filename': fn1},
+                'img2': {'dataset': img2['dataset'], 'name': img2['name'], 'filename': fn2}
             })
         
         # Copy all files to examples directory

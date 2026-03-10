@@ -1,0 +1,668 @@
+2026-03-06 22:15:40,180 - INFO - Logger initialized for ArtDL/test_1/gemini-2.5-pro
+2026-03-06 22:15:40,181 - INFO - Starting classification for dataset=ArtDL, test=test_1, model=gemini-2.5-pro
+2026-03-06 22:15:40,572 - INFO - Number of images: 1864
+2026-03-06 22:15:40,572 - INFO - Processing dataset: ArtDL
+2026-03-06 22:15:40,574 - INFO - Processing images for test: test_1
+2026-03-06 22:15:40,617 - INFO - Using model: gemini-2.5-pro
+2026-03-06 22:15:40,618 - INFO - === GENERATED PROMPT ===
+2026-03-06 22:15:40,618 - INFO - Dataset: ArtDL, Test: test_1
+2026-03-06 22:15:40,618 - INFO - Hyperparameters: temperature=0.0, top_k=32
+2026-03-06 22:15:40,618 - INFO - Prompt content:
+2026-03-06 22:15:40,618 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"antony_of_padua" - Antony of Padua
+"john_baptist" - John the Baptist
+"paul" - Paul
+"francis" - Francis of Assisi
+"mary_magdalene" - Mary Magdalene
+"jerome" - Jerome
+"dominic" - Saint Dominic
+"mary" - Virgin Mary
+"peter" - Peter
+"sebastian" - Saint Sebastian
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2026-03-06 22:15:40,618 - INFO - === END PROMPT ===
+2026-03-06 22:16:49,604 - INFO - Cache saved after 5 batches
+2026-03-06 22:18:32,452 - INFO - Cache saved after 10 batches
+2026-03-06 22:19:45,539 - INFO - Cache saved after 15 batches
+2026-03-06 22:21:04,132 - INFO - Cache saved after 20 batches
+2026-03-06 22:22:33,407 - INFO - Cache saved after 25 batches
+2026-03-06 22:24:06,540 - INFO - Cache saved after 30 batches
+2026-03-06 22:25:44,639 - INFO - Cache saved after 35 batches
+2026-03-06 22:27:31,432 - INFO - Cache saved after 40 batches
+2026-03-06 22:28:56,899 - INFO - Cache saved after 45 batches
+2026-03-06 22:30:25,868 - INFO - Cache saved after 50 batches
+2026-03-06 22:31:41,653 - INFO - Cache saved after 55 batches
+2026-03-06 22:33:46,255 - INFO - Cache saved after 60 batches
+2026-03-06 22:35:15,533 - INFO - Cache saved after 65 batches
+2026-03-06 22:36:58,947 - INFO - Cache saved after 70 batches
+2026-03-06 22:38:23,553 - INFO - Cache saved after 75 batches
+2026-03-06 22:39:45,951 - INFO - Cache saved after 80 batches
+2026-03-06 22:41:33,909 - INFO - Cache saved after 85 batches
+2026-03-06 22:43:28,630 - INFO - Cache saved after 90 batches
+2026-03-06 22:44:33,525 - INFO - Cache saved after 95 batches
+2026-03-06 22:45:51,479 - INFO - Cache saved after 100 batches
+2026-03-06 22:47:30,732 - INFO - Cache saved after 105 batches
+2026-03-06 22:49:10,715 - INFO - Cache saved after 110 batches
+2026-03-06 22:50:31,291 - INFO - Cache saved after 115 batches
+2026-03-06 22:52:01,626 - INFO - Cache saved after 120 batches
+2026-03-06 22:53:00,670 - INFO - Cache saved after 125 batches
+2026-03-06 22:54:32,340 - INFO - Cache saved after 130 batches
+2026-03-06 22:55:49,451 - INFO - Cache saved after 135 batches
+2026-03-06 22:57:09,202 - INFO - Cache saved after 140 batches
+2026-03-06 22:58:31,850 - INFO - Cache saved after 145 batches
+2026-03-06 23:00:22,209 - INFO - Cache saved after 150 batches
+2026-03-06 23:01:44,078 - INFO - Cache saved after 155 batches
+2026-03-06 23:03:13,242 - INFO - Cache saved after 160 batches
+2026-03-06 23:04:26,503 - INFO - Cache saved after 165 batches
+2026-03-06 23:05:50,261 - INFO - Cache saved after 170 batches
+2026-03-06 23:07:45,427 - INFO - Cache saved after 175 batches
+2026-03-06 23:09:17,969 - INFO - Cache saved after 180 batches
+2026-03-06 23:11:06,880 - INFO - Cache saved after 185 batches
+2026-03-06 23:12:53,064 - INFO - Cache saved after 190 batches
+2026-03-06 23:14:18,676 - INFO - Cache saved after 195 batches
+2026-03-06 23:15:56,414 - INFO - Cache saved after 200 batches
+2026-03-06 23:17:56,219 - INFO - Cache saved after 205 batches
+2026-03-06 23:19:51,456 - INFO - Cache saved after 210 batches
+2026-03-06 23:21:04,912 - INFO - Cache saved after 215 batches
+2026-03-06 23:22:23,102 - INFO - Cache saved after 220 batches
+2026-03-06 23:23:47,077 - INFO - Cache saved after 225 batches
+2026-03-06 23:25:25,754 - INFO - Cache saved after 230 batches
+2026-03-06 23:26:53,148 - INFO - Cache saved after 235 batches
+2026-03-06 23:28:04,976 - INFO - Cache saved after 240 batches
+2026-03-06 23:29:25,441 - INFO - Cache saved after 245 batches
+2026-03-06 23:30:53,276 - INFO - Cache saved after 250 batches
+2026-03-06 23:32:13,574 - INFO - Cache saved after 255 batches
+2026-03-06 23:33:39,212 - INFO - Cache saved after 260 batches
+2026-03-06 23:35:03,644 - INFO - Cache saved after 265 batches
+2026-03-06 23:36:43,206 - INFO - Cache saved after 270 batches
+2026-03-06 23:38:10,080 - INFO - Cache saved after 275 batches
+2026-03-06 23:39:23,449 - WARNING - Only got responses for 4/5 items from JSON in batch 279.
+2026-03-06 23:39:23,450 - WARNING - Mismatch between response texts (4) and batch items (5). Processing only valid items from batch 279.
+2026-03-06 23:39:34,913 - INFO - Cache saved after 280 batches
+2026-03-06 23:40:34,695 - INFO - Cache saved after 285 batches
+2026-03-06 23:41:50,961 - INFO - Cache saved after 290 batches
+2026-03-06 23:43:15,007 - INFO - Cache saved after 295 batches
+2026-03-06 23:44:44,996 - INFO - Cache saved after 300 batches
+2026-03-06 23:46:29,658 - INFO - Cache saved after 305 batches
+2026-03-06 23:47:47,560 - INFO - Cache saved after 310 batches
+2026-03-06 23:49:39,958 - INFO - Cache saved after 315 batches
+2026-03-06 23:50:59,648 - INFO - Cache saved after 320 batches
+2026-03-06 23:52:25,824 - INFO - Cache saved after 325 batches
+2026-03-06 23:53:54,857 - INFO - Cache saved after 330 batches
+2026-03-06 23:55:11,600 - INFO - Cache saved after 335 batches
+2026-03-06 23:56:31,581 - INFO - Cache saved after 340 batches
+2026-03-06 23:58:00,965 - INFO - Cache saved after 345 batches
+2026-03-06 23:59:24,438 - INFO - Cache saved after 350 batches
+2026-03-07 00:00:32,943 - INFO - Cache saved after 355 batches
+2026-03-07 00:02:07,007 - INFO - Cache saved after 360 batches
+2026-03-07 00:03:11,770 - INFO - Cache saved after 365 batches
+2026-03-07 00:04:33,229 - INFO - Cache saved after 370 batches
+2026-03-07 00:05:17,748 - INFO - Total input tokens used: 716762
+2026-03-07 00:05:17,748 - INFO - Total output tokens used: 81981
+2026-03-07 00:05:17,748 - INFO - Total cost of this call: $0.6657
+2026-03-07 00:05:17,749 - INFO - Probabilities shape: (1863, 10)
+2026-03-07 07:06:39,408 - INFO - Logger initialized for ArtDL/test_1/gemini-2.5-pro
+2026-03-07 07:06:39,408 - INFO - Cleaned previous cache and logs for dataset=ArtDL, test=test_1, model=gemini-2.5-pro
+2026-03-07 07:06:39,408 - INFO - Starting classification for dataset=ArtDL, test=test_1, model=gemini-2.5-pro
+2026-03-07 07:06:39,791 - INFO - Number of images: 1864
+2026-03-07 07:06:39,791 - INFO - Processing dataset: ArtDL
+2026-03-07 07:06:39,794 - INFO - Processing images for test: test_1
+2026-03-07 07:06:39,840 - INFO - Using model: gemini-2.5-pro
+2026-03-07 07:06:39,840 - INFO - === GENERATED PROMPT ===
+2026-03-07 07:06:39,840 - INFO - Dataset: ArtDL, Test: test_1
+2026-03-07 07:06:39,840 - INFO - Hyperparameters: temperature=0.0, top_k=32
+2026-03-07 07:06:39,840 - INFO - Prompt content:
+2026-03-07 07:06:39,840 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"antony_of_padua" - Antony of Padua
+"john_baptist" - John the Baptist
+"paul" - Paul
+"francis" - Francis of Assisi
+"mary_magdalene" - Mary Magdalene
+"jerome" - Jerome
+"dominic" - Saint Dominic
+"mary" - Virgin Mary
+"peter" - Peter
+"sebastian" - Saint Sebastian
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2026-03-07 07:06:39,840 - INFO - === END PROMPT ===
+2026-03-07 07:06:52,827 - ERROR - Error processing batch: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_requests_per_model_per_day, limit: 1000, model: gemini-2.5-pro\nPlease retry in 17h53m7.190974226s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_requests_per_model_per_day', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-pro'}, 'quotaValue': '1000'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '64387s'}]}}
+2026-03-07 07:06:52,827 - WARNING - No valid response for batch 2. Skipping.
+2026-03-07 07:06:52,983 - ERROR - Error processing batch: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_requests_per_model_per_day, limit: 1000, model: gemini-2.5-pro\nPlease retry in 17h53m7.034864413s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_requests_per_model_per_day', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-pro'}, 'quotaValue': '1000'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '64387s'}]}}
+2026-03-07 07:06:52,983 - WARNING - No valid response for batch 3. Skipping.
+2026-03-07 07:06:53,140 - ERROR - Error processing batch: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_requests_per_model_per_day, limit: 1000, model: gemini-2.5-pro\nPlease retry in 17h53m6.878601466s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_requests_per_model_per_day', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-pro'}, 'quotaValue': '1000'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '64386s'}]}}
+2026-03-07 07:06:53,140 - WARNING - No valid response for batch 4. Skipping.
+2026-03-07 07:06:53,285 - ERROR - Error processing batch: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_requests_per_model_per_day, limit: 1000, model: gemini-2.5-pro\nPlease retry in 17h53m6.732741198s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_requests_per_model_per_day', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel', 'quotaDimensions': {'model': 'gemini-2.5-pro', 'location': 'global'}, 'quotaValue': '1000'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '64386s'}]}}
+2026-03-07 07:06:53,286 - WARNING - No valid response for batch 5. Skipping.
+2026-03-07 07:06:53,414 - ERROR - Error processing batch: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_requests_per_model_per_day, limit: 1000, model: gemini-2.5-pro\nPlease retry in 17h53m6.604116711s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_requests_per_model_per_day', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-pro'}, 'quotaValue': '1000'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '64386s'}]}}
+2026-03-07 07:06:53,414 - WARNING - No valid response for batch 6. Skipping.
+2026-03-07 07:06:53,552 - ERROR - Error processing batch: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_requests_per_model_per_day, limit: 1000, model: gemini-2.5-pro\nPlease retry in 17h53m6.465864473s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_requests_per_model_per_day', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel', 'quotaDimensions': {'model': 'gemini-2.5-pro', 'location': 'global'}, 'quotaValue': '1000'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '64386s'}]}}
+2026-03-07 07:06:53,552 - WARNING - No valid response for batch 7. Skipping.
+2026-03-07 07:06:53,688 - ERROR - Error processing batch: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_requests_per_model_per_day, limit: 1000, model: gemini-2.5-pro\nPlease retry in 17h53m6.329025919s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_requests_per_model_per_day', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-pro'}, 'quotaValue': '1000'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '64386s'}]}}
+2026-03-07 07:06:53,689 - WARNING - No valid response for batch 8. Skipping.
+2026-03-07 07:06:53,824 - ERROR - Error processing batch: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_requests_per_model_per_day, limit: 1000, model: gemini-2.5-pro\nPlease retry in 17h53m6.193969315s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_requests_per_model_per_day', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-pro'}, 'quotaValue': '1000'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '64386s'}]}}
+2026-03-07 07:06:53,824 - WARNING - No valid response for batch 9. Skipping.
+2026-03-07 07:06:53,965 - ERROR - Error processing batch: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_requests_per_model_per_day, limit: 1000, model: gemini-2.5-pro\nPlease retry in 17h53m6.052748976s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_requests_per_model_per_day', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel', 'quotaDimensions': {'model': 'gemini-2.5-pro', 'location': 'global'}, 'quotaValue': '1000'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '64386s'}]}}
+2026-03-07 07:06:53,965 - WARNING - No valid response for batch 10. Skipping.
+2026-03-07 07:06:54,105 - ERROR - Error processing batch: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_requests_per_model_per_day, limit: 1000, model: gemini-2.5-pro\nPlease retry in 17h53m5.912739687s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_requests_per_model_per_day', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-pro'}, 'quotaValue': '1000'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '64385s'}]}}
+2026-03-07 07:06:54,106 - WARNING - No valid response for batch 11. Skipping.
+2026-03-07 07:06:54,239 - ERROR - Error processing batch: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_requests_per_model_per_day, limit: 1000, model: gemini-2.5-pro\nPlease retry in 17h53m5.778549029s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_requests_per_model_per_day', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-pro'}, 'quotaValue': '1000'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '64385s'}]}}
+2026-03-07 07:06:54,239 - WARNING - No valid response for batch 12. Skipping.
+2026-03-07 07:06:54,403 - ERROR - Error processing batch: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_requests_per_model_per_day, limit: 1000, model: gemini-2.5-pro\nPlease retry in 17h53m5.615986031s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_requests_per_model_per_day', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel', 'quotaDimensions': {'model': 'gemini-2.5-pro', 'location': 'global'}, 'quotaValue': '1000'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '64385s'}]}}
+2026-03-07 07:06:54,403 - WARNING - No valid response for batch 13. Skipping.
+2026-03-07 07:06:54,556 - ERROR - Error processing batch: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_requests_per_model_per_day, limit: 1000, model: gemini-2.5-pro\nPlease retry in 17h53m5.461196819s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_requests_per_model_per_day', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-pro'}, 'quotaValue': '1000'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '64385s'}]}}
+2026-03-07 07:06:54,556 - WARNING - No valid response for batch 14. Skipping.
+2026-03-07 07:06:54,694 - ERROR - Error processing batch: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_requests_per_model_per_day, limit: 1000, model: gemini-2.5-pro\nPlease retry in 17h53m5.323117275s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_requests_per_model_per_day', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-pro'}, 'quotaValue': '1000'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '64385s'}]}}
+2026-03-07 07:06:54,694 - WARNING - No valid response for batch 15. Skipping.
+2026-03-07 07:06:54,838 - ERROR - Error processing batch: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_requests_per_model_per_day, limit: 1000, model: gemini-2.5-pro\nPlease retry in 17h53m5.179276496s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_requests_per_model_per_day', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-pro'}, 'quotaValue': '1000'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '64385s'}]}}
+2026-03-07 07:06:54,838 - WARNING - No valid response for batch 16. Skipping.
+2026-03-07 07:06:54,999 - ERROR - Error processing batch: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_requests_per_model_per_day, limit: 1000, model: gemini-2.5-pro\nPlease retry in 17h53m5.017952876s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_requests_per_model_per_day', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-pro'}, 'quotaValue': '1000'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '64385s'}]}}
+2026-03-07 07:06:55,000 - WARNING - No valid response for batch 17. Skipping.
+2026-03-07 07:06:55,140 - ERROR - Error processing batch: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_requests_per_model_per_day, limit: 1000, model: gemini-2.5-pro\nPlease retry in 17h53m4.877609683s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_requests_per_model_per_day', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-pro'}, 'quotaValue': '1000'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '64384s'}]}}
+2026-03-07 07:06:55,140 - WARNING - No valid response for batch 18. Skipping.
+2026-03-07 07:06:55,293 - ERROR - Error processing batch: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_requests_per_model_per_day, limit: 1000, model: gemini-2.5-pro\nPlease retry in 17h53m4.724468311s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_requests_per_model_per_day', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-pro'}, 'quotaValue': '1000'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '64384s'}]}}
+2026-03-07 07:06:55,293 - WARNING - No valid response for batch 19. Skipping.
+2026-03-07 07:06:55,464 - ERROR - Error processing batch: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_requests_per_model_per_day, limit: 1000, model: gemini-2.5-pro\nPlease retry in 17h53m4.55359444s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_requests_per_model_per_day', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel', 'quotaDimensions': {'model': 'gemini-2.5-pro', 'location': 'global'}, 'quotaValue': '1000'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '64384s'}]}}
+2026-03-07 07:06:55,464 - WARNING - No valid response for batch 20. Skipping.
+2026-03-07 07:06:55,620 - ERROR - Error processing batch: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_requests_per_model_per_day, limit: 1000, model: gemini-2.5-pro\nPlease retry in 17h53m4.396963894s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_requests_per_model_per_day', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel', 'quotaDimensions': {'model': 'gemini-2.5-pro', 'location': 'global'}, 'quotaValue': '1000'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '64384s'}]}}
+2026-03-07 07:06:55,621 - WARNING - No valid response for batch 21. Skipping.
+2026-03-07 07:06:55,762 - ERROR - Error processing batch: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_requests_per_model_per_day, limit: 1000, model: gemini-2.5-pro\nPlease retry in 17h53m4.255502978s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_requests_per_model_per_day', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel', 'quotaDimensions': {'model': 'gemini-2.5-pro', 'location': 'global'}, 'quotaValue': '1000'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '64384s'}]}}
+2026-03-07 07:06:55,763 - WARNING - No valid response for batch 22. Skipping.
+2026-03-07 07:06:55,903 - ERROR - Error processing batch: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_requests_per_model_per_day, limit: 1000, model: gemini-2.5-pro\nPlease retry in 17h53m4.114391117s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_requests_per_model_per_day', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-pro'}, 'quotaValue': '1000'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '64384s'}]}}
+2026-03-07 07:06:55,903 - WARNING - No valid response for batch 23. Skipping.
+2026-03-07 07:06:56,053 - ERROR - Error processing batch: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_requests_per_model_per_day, limit: 1000, model: gemini-2.5-pro\nPlease retry in 17h53m3.964622792s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_requests_per_model_per_day', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-pro'}, 'quotaValue': '1000'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '64383s'}]}}
+2026-03-07 07:06:56,054 - WARNING - No valid response for batch 24. Skipping.
+2026-03-07 07:06:56,193 - ERROR - Error processing batch: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_requests_per_model_per_day, limit: 1000, model: gemini-2.5-pro\nPlease retry in 17h53m3.824236972s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_requests_per_model_per_day', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-pro'}, 'quotaValue': '1000'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '64383s'}]}}
+2026-03-07 07:06:56,193 - WARNING - No valid response for batch 25. Skipping.
+2026-03-07 07:06:56,320 - ERROR - Error processing batch: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_requests_per_model_per_day, limit: 1000, model: gemini-2.5-pro\nPlease retry in 17h53m3.697135912s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_requests_per_model_per_day', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-pro'}, 'quotaValue': '1000'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '64383s'}]}}
+2026-03-07 07:06:56,320 - WARNING - No valid response for batch 26. Skipping.
+2026-03-07 07:06:56,462 - ERROR - Error processing batch: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_requests_per_model_per_day, limit: 1000, model: gemini-2.5-pro\nPlease retry in 17h53m3.555494387s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_requests_per_model_per_day', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-pro'}, 'quotaValue': '1000'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '64383s'}]}}
+2026-03-07 07:06:56,462 - WARNING - No valid response for batch 27. Skipping.
+2026-03-07 07:06:56,604 - ERROR - Error processing batch: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_requests_per_model_per_day, limit: 1000, model: gemini-2.5-pro\nPlease retry in 17h53m3.414133799s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_requests_per_model_per_day', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-pro'}, 'quotaValue': '1000'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '64383s'}]}}
+2026-03-07 07:06:56,605 - WARNING - No valid response for batch 28. Skipping.
+2026-03-07 07:06:56,733 - ERROR - Error processing batch: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_requests_per_model_per_day, limit: 1000, model: gemini-2.5-pro\nPlease retry in 17h53m3.285148852s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_requests_per_model_per_day', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-pro'}, 'quotaValue': '1000'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '64383s'}]}}
+2026-03-07 07:06:56,733 - WARNING - No valid response for batch 29. Skipping.
+2026-03-07 07:06:56,895 - ERROR - Error processing batch: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_requests_per_model_per_day, limit: 1000, model: gemini-2.5-pro\nPlease retry in 17h53m3.123070463s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_requests_per_model_per_day', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-pro'}, 'quotaValue': '1000'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '64383s'}]}}
+2026-03-07 07:06:56,895 - WARNING - No valid response for batch 30. Skipping.
+2026-03-07 07:06:57,028 - ERROR - Error processing batch: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_requests_per_model_per_day, limit: 1000, model: gemini-2.5-pro\nPlease retry in 17h53m2.989742299s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_requests_per_model_per_day', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-pro'}, 'quotaValue': '1000'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '64382s'}]}}
+2026-03-07 07:06:57,029 - WARNING - No valid response for batch 31. Skipping.
+2026-03-07 07:06:57,177 - ERROR - Error processing batch: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_requests_per_model_per_day, limit: 1000, model: gemini-2.5-pro\nPlease retry in 17h53m2.842228556s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_requests_per_model_per_day', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel', 'quotaDimensions': {'model': 'gemini-2.5-pro', 'location': 'global'}, 'quotaValue': '1000'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '64382s'}]}}
+2026-03-07 07:06:57,177 - WARNING - No valid response for batch 32. Skipping.
+2026-03-08 16:20:39,779 - INFO - Logger initialized for ArtDL/test_1/gemini-2.5-pro
+2026-03-08 16:20:39,779 - INFO - Starting classification for dataset=ArtDL, test=test_1, model=gemini-2.5-pro
+2026-03-08 16:20:40,145 - INFO - Number of images: 1864
+2026-03-08 16:20:40,145 - INFO - Processing dataset: ArtDL
+2026-03-08 16:20:40,147 - INFO - Processing images for test: test_1
+2026-03-08 16:20:40,191 - INFO - Using model: gemini-2.5-pro
+2026-03-08 16:20:40,192 - INFO - === GENERATED PROMPT ===
+2026-03-08 16:20:40,192 - INFO - Dataset: ArtDL, Test: test_1
+2026-03-08 16:20:40,192 - INFO - Hyperparameters: temperature=0.0, top_k=32
+2026-03-08 16:20:40,192 - INFO - Prompt content:
+2026-03-08 16:20:40,192 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"antony_of_padua" - Antony of Padua
+"john_baptist" - John the Baptist
+"paul" - Paul
+"francis" - Francis of Assisi
+"mary_magdalene" - Mary Magdalene
+"jerome" - Jerome
+"dominic" - Saint Dominic
+"mary" - Virgin Mary
+"peter" - Peter
+"sebastian" - Saint Sebastian
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2026-03-08 16:20:40,192 - INFO - === END PROMPT ===
+2026-03-08 16:21:50,825 - INFO - Cache saved after 5 batches
+2026-03-08 16:23:13,037 - INFO - Cache saved after 10 batches
+2026-03-08 16:24:42,500 - INFO - Cache saved after 15 batches
+2026-03-08 16:25:56,309 - INFO - Cache saved after 20 batches
+2026-03-08 16:27:26,424 - INFO - Cache saved after 25 batches
+2026-03-08 16:29:09,479 - INFO - Cache saved after 30 batches
+2026-03-08 16:30:35,342 - INFO - Cache saved after 35 batches
+2026-03-08 16:32:28,882 - INFO - Cache saved after 40 batches
+2026-03-08 16:33:52,003 - INFO - Cache saved after 45 batches
+2026-03-08 16:35:22,836 - INFO - Cache saved after 50 batches
+2026-03-08 16:36:48,939 - INFO - Cache saved after 55 batches
+2026-03-08 16:38:51,021 - INFO - Cache saved after 60 batches
+2026-03-08 16:40:19,169 - INFO - Cache saved after 65 batches
+2026-03-08 16:42:10,596 - INFO - Cache saved after 70 batches
+2026-03-08 16:43:35,215 - INFO - Cache saved after 75 batches
+2026-03-08 16:44:54,997 - INFO - Cache saved after 80 batches
+2026-03-08 16:46:44,486 - INFO - Cache saved after 85 batches
+2026-03-08 16:48:35,689 - INFO - Cache saved after 90 batches
+2026-03-08 16:49:55,129 - INFO - Cache saved after 95 batches
+2026-03-08 16:51:16,013 - INFO - Cache saved after 100 batches
+2026-03-08 16:53:03,168 - INFO - Cache saved after 105 batches
+2026-03-08 16:55:03,822 - INFO - Cache saved after 110 batches
+2026-03-08 16:56:31,917 - INFO - Cache saved after 115 batches
+2026-03-08 16:57:51,505 - INFO - Cache saved after 120 batches
+2026-03-08 16:58:56,654 - INFO - Cache saved after 125 batches
+2026-03-08 17:00:28,001 - INFO - Cache saved after 130 batches
+2026-03-08 17:01:55,261 - INFO - Cache saved after 135 batches
+2026-03-08 17:03:34,239 - INFO - Cache saved after 140 batches
+2026-03-08 17:05:01,140 - INFO - Cache saved after 145 batches
+2026-03-08 17:06:45,358 - INFO - Cache saved after 150 batches
+2026-03-08 17:08:18,249 - INFO - Cache saved after 155 batches
+2026-03-08 17:09:50,193 - INFO - Cache saved after 160 batches
+2026-03-08 17:11:15,834 - INFO - Cache saved after 165 batches
+2026-03-08 17:12:35,279 - INFO - Cache saved after 170 batches
+2026-03-08 17:14:26,611 - INFO - Cache saved after 175 batches
+2026-03-08 17:16:08,857 - INFO - Cache saved after 180 batches
+2026-03-08 17:18:02,205 - INFO - Cache saved after 185 batches
+2026-03-08 17:20:02,369 - INFO - Cache saved after 190 batches
+2026-03-08 17:21:27,719 - INFO - Cache saved after 195 batches
+2026-03-08 17:23:14,573 - INFO - Cache saved after 200 batches
+2026-03-08 17:25:12,163 - INFO - Cache saved after 205 batches
+2026-03-08 17:27:16,122 - INFO - Cache saved after 210 batches
+2026-03-08 17:28:29,886 - INFO - Cache saved after 215 batches
+2026-03-08 17:29:52,745 - INFO - Cache saved after 220 batches
+2026-03-08 17:31:15,111 - INFO - Cache saved after 225 batches
+2026-03-08 17:32:50,125 - INFO - Cache saved after 230 batches
+2026-03-08 17:34:14,012 - INFO - Cache saved after 235 batches
+2026-03-08 17:35:38,615 - INFO - Cache saved after 240 batches
+2026-03-08 17:37:02,817 - INFO - Cache saved after 245 batches
+2026-03-08 17:38:31,940 - INFO - Cache saved after 250 batches
+2026-03-08 17:40:05,226 - INFO - Cache saved after 255 batches
+2026-03-08 17:41:22,700 - INFO - Cache saved after 260 batches
+2026-03-08 17:42:46,645 - INFO - Cache saved after 265 batches
+2026-03-08 17:44:21,757 - INFO - Cache saved after 270 batches
+2026-03-08 17:45:57,465 - INFO - Cache saved after 275 batches
+2026-03-08 17:47:10,914 - INFO - Cache saved after 280 batches
+2026-03-08 17:48:11,482 - INFO - Cache saved after 285 batches
+2026-03-08 17:49:29,641 - INFO - Cache saved after 290 batches
+2026-03-08 17:50:49,958 - INFO - Cache saved after 295 batches
+2026-03-08 17:52:28,181 - INFO - Cache saved after 300 batches
+2026-03-08 17:54:15,880 - INFO - Cache saved after 305 batches
+2026-03-08 17:55:33,695 - INFO - Cache saved after 310 batches
+2026-03-08 17:57:24,636 - INFO - Cache saved after 315 batches
+2026-03-08 17:58:33,321 - INFO - Cache saved after 320 batches
+2026-03-08 18:00:17,912 - INFO - Cache saved after 325 batches
+2026-03-08 18:01:38,796 - INFO - Cache saved after 330 batches
+2026-03-08 18:02:43,224 - INFO - Cache saved after 335 batches
+2026-03-08 18:04:09,626 - INFO - Cache saved after 340 batches
+2026-03-08 18:05:35,679 - INFO - Cache saved after 345 batches
+2026-03-08 18:06:51,962 - INFO - Cache saved after 350 batches
+2026-03-08 18:08:01,654 - INFO - Cache saved after 355 batches
+2026-03-08 18:09:35,774 - INFO - Cache saved after 360 batches
+2026-03-08 18:10:33,460 - INFO - Cache saved after 365 batches
+2026-03-08 18:11:51,314 - INFO - Cache saved after 370 batches
+2026-03-08 18:12:32,091 - INFO - Total input tokens used: 716762
+2026-03-08 18:12:32,091 - INFO - Total output tokens used: 81978
+2026-03-08 18:12:32,091 - INFO - Total cost of this call: $0.6657
+2026-03-08 18:12:32,092 - INFO - Probabilities shape: (1864, 10)
+2026-03-09 10:42:53,473 - INFO - Logger initialized for ArtDL/test_1/gemini-2.5-pro
+2026-03-09 10:42:53,474 - INFO - Starting classification for dataset=ArtDL, test=test_1, model=gemini-2.5-pro
+2026-03-09 10:42:53,854 - INFO - Number of images: 1864
+2026-03-09 10:42:53,855 - INFO - Processing dataset: ArtDL
+2026-03-09 10:42:53,857 - INFO - Processing images for test: test_1
+2026-03-09 10:42:53,907 - INFO - Loaded 1864 cached results
+2026-03-09 10:42:53,907 - INFO - Using model: gemini-2.5-pro
+2026-03-09 10:42:53,907 - INFO - === GENERATED PROMPT ===
+2026-03-09 10:42:53,907 - INFO - Dataset: ArtDL, Test: test_1
+2026-03-09 10:42:53,907 - INFO - Hyperparameters: temperature=0.0, top_k=32
+2026-03-09 10:42:53,907 - INFO - Prompt content:
+2026-03-09 10:42:53,907 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"antony_of_padua" - Antony of Padua
+"john_baptist" - John the Baptist
+"paul" - Paul
+"francis" - Francis of Assisi
+"mary_magdalene" - Mary Magdalene
+"jerome" - Jerome
+"dominic" - Saint Dominic
+"mary" - Virgin Mary
+"peter" - Peter
+"sebastian" - Saint Sebastian
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2026-03-09 10:42:53,907 - INFO - === END PROMPT ===
+2026-03-09 10:42:53,917 - INFO - Total input tokens used: 0
+2026-03-09 10:42:53,917 - INFO - Total output tokens used: 0
+2026-03-09 10:42:53,917 - INFO - Total cost of this call: $0.0000
+2026-03-09 10:42:53,918 - INFO - Probabilities shape: (1864, 10)
+2026-03-09 10:48:44,048 - INFO - Logger initialized for ArtDL/test_1/gemini-2.5-pro
+2026-03-09 10:48:44,048 - INFO - Starting classification for dataset=ArtDL, test=test_1, model=gemini-2.5-pro
+2026-03-09 10:48:44,416 - INFO - Number of images: 1864
+2026-03-09 10:48:44,416 - INFO - Processing dataset: ArtDL
+2026-03-09 10:48:44,418 - INFO - Processing images for test: test_1
+2026-03-09 10:48:44,469 - INFO - Loaded 1864 cached results
+2026-03-09 10:48:44,469 - INFO - Using model: gemini-2.5-pro
+2026-03-09 10:48:44,469 - INFO - === GENERATED PROMPT ===
+2026-03-09 10:48:44,469 - INFO - Dataset: ArtDL, Test: test_1
+2026-03-09 10:48:44,469 - INFO - Hyperparameters: temperature=0.0, top_k=32
+2026-03-09 10:48:44,469 - INFO - Prompt content:
+2026-03-09 10:48:44,469 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"antony_of_padua" - Antony of Padua
+"john_baptist" - John the Baptist
+"paul" - Paul
+"francis" - Francis of Assisi
+"mary_magdalene" - Mary Magdalene
+"jerome" - Jerome
+"dominic" - Saint Dominic
+"mary" - Virgin Mary
+"peter" - Peter
+"sebastian" - Saint Sebastian
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2026-03-09 10:48:44,469 - INFO - === END PROMPT ===
+2026-03-09 10:48:44,479 - INFO - Total input tokens used: 0
+2026-03-09 10:48:44,479 - INFO - Total output tokens used: 0
+2026-03-09 10:48:44,479 - INFO - Total cost of this call: $0.0000
+2026-03-09 10:48:44,480 - INFO - Probabilities shape: (1864, 10)
+2026-03-09 10:48:58,582 - INFO - Logger initialized for ArtDL/test_1/gemini-2.5-pro
+2026-03-09 10:48:58,583 - INFO - Starting classification for dataset=ArtDL, test=test_1, model=gemini-2.5-pro
+2026-03-09 10:48:58,962 - INFO - Number of images: 1864
+2026-03-09 10:48:58,963 - INFO - Processing dataset: ArtDL
+2026-03-09 10:48:58,965 - INFO - Processing images for test: test_1
+2026-03-09 10:48:59,014 - INFO - Loaded 1864 cached results
+2026-03-09 10:48:59,014 - INFO - Using model: gemini-2.5-pro
+2026-03-09 10:48:59,014 - INFO - === GENERATED PROMPT ===
+2026-03-09 10:48:59,014 - INFO - Dataset: ArtDL, Test: test_1
+2026-03-09 10:48:59,014 - INFO - Hyperparameters: temperature=0.0, top_k=32
+2026-03-09 10:48:59,014 - INFO - Prompt content:
+2026-03-09 10:48:59,014 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"antony_of_padua" - Antony of Padua
+"john_baptist" - John the Baptist
+"paul" - Paul
+"francis" - Francis of Assisi
+"mary_magdalene" - Mary Magdalene
+"jerome" - Jerome
+"dominic" - Saint Dominic
+"mary" - Virgin Mary
+"peter" - Peter
+"sebastian" - Saint Sebastian
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2026-03-09 10:48:59,014 - INFO - === END PROMPT ===
+2026-03-09 10:48:59,024 - INFO - Total input tokens used: 0
+2026-03-09 10:48:59,024 - INFO - Total output tokens used: 0
+2026-03-09 10:48:59,024 - INFO - Total cost of this call: $0.0000
+2026-03-09 10:48:59,025 - INFO - Probabilities shape: (1864, 10)
+2026-03-09 11:32:21,834 - INFO - Logger initialized for ArtDL/test_1/gemini-2.5-pro
+2026-03-09 11:32:21,834 - INFO - Starting classification for dataset=ArtDL, test=test_1, model=gemini-2.5-pro
+2026-03-09 11:32:22,192 - INFO - Number of images: 1864
+2026-03-09 11:32:22,192 - INFO - Processing dataset: ArtDL
+2026-03-09 11:32:22,194 - INFO - Processing images for test: test_1
+2026-03-09 11:32:22,243 - INFO - Loaded 1864 cached results
+2026-03-09 11:32:22,243 - INFO - Using model: gemini-2.5-pro
+2026-03-09 11:32:22,243 - INFO - === GENERATED PROMPT ===
+2026-03-09 11:32:22,243 - INFO - Dataset: ArtDL, Test: test_1
+2026-03-09 11:32:22,243 - INFO - Hyperparameters: temperature=0.0, top_k=32
+2026-03-09 11:32:22,243 - INFO - Prompt content:
+2026-03-09 11:32:22,244 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"antony_of_padua" - Antony of Padua
+"john_baptist" - John the Baptist
+"paul" - Paul
+"francis" - Francis of Assisi
+"mary_magdalene" - Mary Magdalene
+"jerome" - Jerome
+"dominic" - Saint Dominic
+"mary" - Virgin Mary
+"peter" - Peter
+"sebastian" - Saint Sebastian
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2026-03-09 11:32:22,244 - INFO - === END PROMPT ===
+2026-03-09 11:32:22,253 - INFO - Total input tokens used: 0
+2026-03-09 11:32:22,254 - INFO - Total output tokens used: 0
+2026-03-09 11:32:22,254 - INFO - Total cost of this call: $0.0000
+2026-03-09 11:32:22,255 - INFO - Probabilities shape: (1864, 10)

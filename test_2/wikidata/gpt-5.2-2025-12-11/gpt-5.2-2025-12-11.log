@@ -252,3 +252,145 @@ Treat all content as scholarly, respectful of historical context, and strictly n
 2026-03-04 12:43:24,639 - INFO - Failed/uniform placeholders: 0
 2026-03-04 12:43:24,640 - INFO - Final probabilities shape: (717, 10)
 2026-03-04 12:43:24,640 - INFO - Probabilities shape: (717, 10)
+2026-03-06 21:42:57,843 - INFO - Logger initialized for wikidata/test_2/gpt-5.2-2025-12-11
+2026-03-06 21:42:57,843 - INFO - Starting classification for dataset=wikidata, test=test_2, model=gpt-5.2-2025-12-11
+2026-03-06 21:42:58,000 - INFO - Number of images: 717
+2026-03-06 21:42:58,000 - INFO - Processing dataset: wikidata
+2026-03-06 21:42:58,002 - INFO - Processing images for test: test_2
+2026-03-06 21:42:58,020 - INFO - Loaded 717 cached results
+2026-03-06 21:42:58,020 - INFO - Using model: gpt-5.2-2025-12-11
+2026-03-06 21:42:58,020 - INFO - === GENERATED PROMPT ===
+2026-03-06 21:42:58,020 - INFO - Dataset: wikidata, Test: test_2
+2026-03-06 21:42:58,020 - INFO - Hyperparameters: temperature=0.0, top_p=0.1, seed=12345
+2026-03-06 21:42:58,020 - INFO - Prompt content:
+2026-03-06 21:42:58,020 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"mary_magdalene" - the penitent harlot Mary Magdalene; possible attributes: book (or scroll), crown, crown of thorns, crucifix, jar of ointment, mirror, musical instrument, palm-branch, rosary, scourge
+"john_baptist" - John the Baptist; possible attributes: book, reed cross, baptismal cup, honeycomb, lamb, staff
+"jerome" - the monk and hermit Jerome (Hieronymus); possible attributes: book, cardinal's hat, crucifix, hour-glass, lion, skull, stone
+"catherine" - the virgin martyr Catherine of Alexandria; possible attributes: book, crown, emperor Maxentius, palm-branch, ring, sword, wheel
+"peter" - the apostle Peter, first bishop of Rome; possible attributes: book, cock, (upturned) cross, (triple) crozier, fish, key, scroll, ship, tiara
+"john" -  the apostle John the Evangelist; possible attributes: book, cauldron, chalice with snake, eagle, palm, scroll
+"paul" - the apostle Paul of Tarsus; possible attributes: book, scroll, sword
+"antony_abbot" - the hermit Antony Abbot (Antonius Abbas) of Egypt, also called the Great; possible attributes: bell, book, T-shaped staff, flames, pig
+"francis" - founder of the Order of Friars Minor (Franciscans), Francis(cus) of Assisi; possible attributes: book, crucifix, lily, skull, stigmata
+"joseph" -  the foster-father of Christ, Joseph of Nazareth, husband of Mary; possible attributes: flowering rod or wand, lily, carpenter's tools
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2026-03-06 21:42:58,020 - INFO - === END PROMPT ===
+2026-03-06 21:42:58,020 - INFO - Pre-allocated results array for 717 images
+2026-03-06 21:42:58,024 - INFO - Total input tokens used: 0
+2026-03-06 21:42:58,024 - INFO - Total output tokens used: 0
+2026-03-06 21:42:58,024 - INFO - Total cost of this call: $0.0000
+2026-03-06 21:42:58,024 - INFO - Total images processed: 717
+2026-03-06 21:42:58,025 - INFO - Successfully processed: 717
+2026-03-06 21:42:58,025 - INFO - Failed/uniform placeholders: 0
+2026-03-06 21:42:58,025 - INFO - Final probabilities shape: (717, 10)
+2026-03-06 21:42:58,025 - INFO - Probabilities shape: (717, 10)
+2026-03-08 20:38:52,703 - INFO - Logger initialized for wikidata/test_2/gpt-5.2-2025-12-11
+2026-03-08 20:38:52,703 - INFO - Starting classification for dataset=wikidata, test=test_2, model=gpt-5.2-2025-12-11
+2026-03-08 20:38:52,904 - INFO - Number of images: 717
+2026-03-08 20:38:52,905 - INFO - Processing dataset: wikidata
+2026-03-08 20:38:52,906 - INFO - Processing images for test: test_2
+2026-03-08 20:38:52,926 - INFO - Loaded 717 cached results
+2026-03-08 20:38:52,926 - INFO - Using model: gpt-5.2-2025-12-11
+2026-03-08 20:38:52,926 - INFO - === GENERATED PROMPT ===
+2026-03-08 20:38:52,926 - INFO - Dataset: wikidata, Test: test_2
+2026-03-08 20:38:52,926 - INFO - Hyperparameters: temperature=0.0, top_p=0.1, seed=12345
+2026-03-08 20:38:52,926 - INFO - Prompt content:
+2026-03-08 20:38:52,926 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"mary_magdalene" - the penitent harlot Mary Magdalene; possible attributes: book (or scroll), crown, crown of thorns, crucifix, jar of ointment, mirror, musical instrument, palm-branch, rosary, scourge
+"john_baptist" - John the Baptist; possible attributes: book, reed cross, baptismal cup, honeycomb, lamb, staff
+"jerome" - the monk and hermit Jerome (Hieronymus); possible attributes: book, cardinal's hat, crucifix, hour-glass, lion, skull, stone
+"catherine" - the virgin martyr Catherine of Alexandria; possible attributes: book, crown, emperor Maxentius, palm-branch, ring, sword, wheel
+"peter" - the apostle Peter, first bishop of Rome; possible attributes: book, cock, (upturned) cross, (triple) crozier, fish, key, scroll, ship, tiara
+"john" -  the apostle John the Evangelist; possible attributes: book, cauldron, chalice with snake, eagle, palm, scroll
+"paul" - the apostle Paul of Tarsus; possible attributes: book, scroll, sword
+"antony_abbot" - the hermit Antony Abbot (Antonius Abbas) of Egypt, also called the Great; possible attributes: bell, book, T-shaped staff, flames, pig
+"francis" - founder of the Order of Friars Minor (Franciscans), Francis(cus) of Assisi; possible attributes: book, crucifix, lily, skull, stigmata
+"joseph" -  the foster-father of Christ, Joseph of Nazareth, husband of Mary; possible attributes: flowering rod or wand, lily, carpenter's tools
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2026-03-08 20:38:52,927 - INFO - === END PROMPT ===
+2026-03-08 20:38:52,927 - INFO - Pre-allocated results array for 717 images
+2026-03-08 20:38:52,930 - INFO - Total input tokens used: 0
+2026-03-08 20:38:52,931 - INFO - Total output tokens used: 0
+2026-03-08 20:38:52,931 - INFO - Total cost of this call: $0.0000
+2026-03-08 20:38:52,931 - INFO - Total images processed: 717
+2026-03-08 20:38:52,931 - INFO - Successfully processed: 717
+2026-03-08 20:38:52,931 - INFO - Failed/uniform placeholders: 0
+2026-03-08 20:38:52,931 - INFO - Final probabilities shape: (717, 10)
+2026-03-08 20:38:52,931 - INFO - Probabilities shape: (717, 10)

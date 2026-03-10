@@ -59,6 +59,10 @@ class ModelConfig:
           "input_cost": 1.25,  # Cost per 1M input tokens
           "output_cost": 5.0   # Cost per 1M output tokens
       },
+      "gemini-3.1-flash-lite": {
+          "input_cost": 0.25,  # Cost per 1M input tokens (text/image/video)
+          "output_cost": 1.50  # Cost per 1M output tokens
+      },
   }
 
   @classmethod
@@ -200,6 +204,12 @@ class ClassAdapter:
       alias = self._create_alias(class_id)
       self.id_to_alias[class_id] = alias
       self.alias_to_id[alias] = class_id
+
+      # Also register label-derived alias (e.g. "Francis of Assisi" -> "francis_of_assisi")
+      label_alias = class_label.lower().replace(' ', '_').replace('.', '').replace(',', '')
+      label_alias = label_alias.replace('st_', '').replace('saint_', '').replace('the_', '')
+      if label_alias not in self.alias_to_id:
+        self.alias_to_id[label_alias] = class_id
   
   def _create_alias(self, class_id: str) -> str:
     """
@@ -797,6 +807,7 @@ class GeminiImageClassifier:
         NumPy array of shape [n_images, n_classes] with class probabilities
     """
     all_probs = []
+    all_ids = []  # Track image IDs in the same order as all_probs
     processed_count = 0  # Track how many images we've actually processed
 
     self.logger.info(f"Using model: {self.model}")
@@ -846,6 +857,7 @@ class GeminiImageClassifier:
         cached_result = self.cache_manager.get_result(item)
         if cached_result:
           all_probs.append(cached_result)
+          all_ids.append(item)
           processed_count += 1
         else:
           batch_items.append((item, image_path))
@@ -985,6 +997,7 @@ class GeminiImageClassifier:
         for idx, item in enumerate(processed_items):
           if idx < len(batch_results):  # Safety check
             all_probs.append(batch_results[idx])
+            all_ids.append(item)
             self.cache_manager.add_result(item, batch_results[idx].tolist())
             processed_count += 1
 
@@ -1015,7 +1028,7 @@ class GeminiImageClassifier:
         f"Requested limit: {limit}, Actual processed: {len(all_probs)}")
     
 
-    return np.array(all_probs)
+    return np.array(all_probs), all_ids
 
   def _display_cost_info(self, processed_count: int, total_count: int) -> None:
     """
@@ -1248,12 +1261,14 @@ def main(folders: List[str], models: List[str], limit: int, batch_size: int, sav
           model, api_key, dataset, folder, script_dir,
           temperature=temperature, top_k=top_k, logger=logger)
 
-        all_probs = classifier.classify_images(
+        all_probs, all_ids = classifier.classify_images(
             images, classes, limit, batch_size, save_frequency
         )
 
         # Save results
         np.save(os.path.join(output_folder, 'probs.npy'), all_probs)
+        with open(os.path.join(output_folder, 'image_ids.txt'), 'w') as f:
+          f.write('\n'.join(all_ids))
         logger.info(f"Probabilities shape: {all_probs.shape}")
 
 

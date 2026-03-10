@@ -1,0 +1,93 @@
+2026-03-07 00:44:28,697 - INFO - Logger initialized for wikidata/test_2/gemini-2.5-flash
+2026-03-07 00:44:28,697 - INFO - Starting classification for dataset=wikidata, test=test_2, model=gemini-2.5-flash
+2026-03-07 00:44:28,901 - INFO - Number of images: 717
+2026-03-07 00:44:28,901 - INFO - Processing dataset: wikidata
+2026-03-07 00:44:28,903 - INFO - Processing images for test: test_2
+2026-03-07 00:44:28,943 - INFO - Using model: gemini-2.5-flash
+2026-03-07 00:44:28,944 - INFO - === GENERATED PROMPT ===
+2026-03-07 00:44:28,944 - INFO - Dataset: wikidata, Test: test_2
+2026-03-07 00:44:28,944 - INFO - Hyperparameters: temperature=0.0, top_k=32
+2026-03-07 00:44:28,944 - INFO - Prompt content:
+2026-03-07 00:44:28,944 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"mary_magdalene" - the penitent harlot Mary Magdalene; possible attributes: book (or scroll), crown, crown of thorns, crucifix, jar of ointment, mirror, musical instrument, palm-branch, rosary, scourge
+"john_baptist" - John the Baptist; possible attributes: book, reed cross, baptismal cup, honeycomb, lamb, staff
+"jerome" - the monk and hermit Jerome (Hieronymus); possible attributes: book, cardinal's hat, crucifix, hour-glass, lion, skull, stone
+"catherine" - the virgin martyr Catherine of Alexandria; possible attributes: book, crown, emperor Maxentius, palm-branch, ring, sword, wheel
+"peter" - the apostle Peter, first bishop of Rome; possible attributes: book, cock, (upturned) cross, (triple) crozier, fish, key, scroll, ship, tiara
+"john" -  the apostle John the Evangelist; possible attributes: book, cauldron, chalice with snake, eagle, palm, scroll
+"paul" - the apostle Paul of Tarsus; possible attributes: book, scroll, sword
+"antony_abbot" - the hermit Antony Abbot (Antonius Abbas) of Egypt, also called the Great; possible attributes: bell, book, T-shaped staff, flames, pig
+"francis" - founder of the Order of Friars Minor (Franciscans), Francis(cus) of Assisi; possible attributes: book, crucifix, lily, skull, stigmata
+"joseph" -  the foster-father of Christ, Joseph of Nazareth, husband of Mary; possible attributes: flowering rod or wand, lily, carpenter's tools
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2026-03-07 00:44:28,945 - INFO - === END PROMPT ===
+2026-03-07 00:45:26,643 - INFO - Cache saved after 5 batches
+2026-03-07 00:46:26,290 - INFO - Cache saved after 10 batches
+2026-03-07 00:47:20,944 - INFO - Cache saved after 15 batches
+2026-03-07 00:48:58,180 - INFO - Cache saved after 20 batches
+2026-03-07 00:50:09,892 - INFO - Cache saved after 25 batches
+2026-03-07 00:51:19,398 - INFO - Cache saved after 30 batches
+2026-03-07 00:51:58,375 - INFO - Cache saved after 35 batches
+2026-03-07 00:53:00,979 - INFO - Cache saved after 40 batches
+2026-03-07 00:54:20,925 - INFO - Cache saved after 45 batches
+2026-03-07 00:55:39,548 - INFO - Cache saved after 50 batches
+2026-03-07 00:56:50,612 - INFO - Cache saved after 55 batches
+2026-03-07 00:58:01,533 - INFO - Cache saved after 60 batches
+2026-03-07 00:59:02,980 - INFO - Cache saved after 65 batches
+2026-03-07 01:00:11,783 - INFO - Cache saved after 70 batches
+2026-03-07 01:00:56,780 - INFO - Cache saved after 75 batches
+2026-03-07 01:02:08,876 - INFO - Cache saved after 80 batches
+2026-03-07 01:03:00,277 - INFO - Cache saved after 85 batches
+2026-03-07 01:03:41,976 - INFO - Cache saved after 90 batches
+2026-03-07 01:04:18,117 - INFO - Cache saved after 95 batches
+2026-03-07 01:05:46,708 - INFO - Cache saved after 100 batches
+2026-03-07 01:06:44,269 - INFO - Cache saved after 105 batches
+2026-03-07 01:07:32,095 - INFO - Cache saved after 110 batches
+2026-03-07 01:08:30,782 - INFO - Cache saved after 115 batches
+2026-03-07 01:09:45,693 - INFO - Cache saved after 120 batches
+2026-03-07 01:10:36,745 - INFO - Cache saved after 125 batches
+2026-03-07 01:11:19,647 - INFO - Cache saved after 130 batches
+2026-03-07 01:12:29,969 - INFO - Cache saved after 135 batches
+2026-03-07 01:13:49,075 - INFO - Cache saved after 140 batches
+2026-03-07 01:14:34,911 - INFO - Total input tokens used: 310204
+2026-03-07 01:14:34,911 - INFO - Total output tokens used: 23951
+2026-03-07 01:14:34,911 - INFO - Total cost of this call: $0.1325
+2026-03-07 01:14:34,912 - INFO - Probabilities shape: (717, 10)

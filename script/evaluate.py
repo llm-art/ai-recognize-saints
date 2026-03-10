@@ -25,11 +25,23 @@ KEY_AVG_PRECISION = 'Average Precision'
 
 def evaluate(model, images, classes, ground_truth_dict):
   # Load model data
-  probs = np.load(os.path.join(model, 'probs.npy'))
+  probs_path = os.path.join(model, 'probs.npy')
+  if not os.path.exists(probs_path):
+    return None
+  probs = np.load(probs_path)
+
+  # Use image_ids.txt for correct alignment when available (e.g. Gemini models
+  # may skip missing images, so probs rows don't align positionally with `images`)
+  image_ids_path = os.path.join(model, 'image_ids.txt')
+  if os.path.exists(image_ids_path):
+    with open(image_ids_path) as f:
+      eval_images = f.read().splitlines()
+  else:
+    eval_images = images
 
   # Create confusion matrix using ground truth and predicted classes
-  y_true = [ground_truth_dict.get(item) for item in images]
-  y_pred = [classes[probs[i].argmax().item()][0] for i in range(min(len(images), len(probs)))]
+  y_true = [ground_truth_dict.get(item) for item in eval_images]
+  y_pred = [classes[probs[i].argmax().item()][0] for i in range(min(len(eval_images), len(probs)))]
   
   # Filter out classes that don't exist in the classes list
   class_ids = [t[0] for t in classes]
@@ -44,7 +56,10 @@ def evaluate(model, images, classes, ground_truth_dict):
 
   # Unzip the pairs into separate lists
   valid_y_true, valid_y_pred = zip(*valid_pairs) if valid_pairs else ([], [])
-  
+
+  if not valid_pairs:
+    return None
+
   y_true_indices = [next(i for i, t in enumerate(classes) if t[0] == cls) for cls in valid_y_true]
   y_pred_indices = [next(i for i, t in enumerate(classes) if t[0] == cls) for cls in valid_y_pred]
 
@@ -164,14 +179,20 @@ def main(models, folders, limit, datasets):
     classes['test_4'] = list(classes_df[['ID', 'Description']].itertuples(index=False, name=None))
 
     print(f"Dataset: {dataset}")
+    missing_models = []
 
     for folder in folders:
       for model_path in model_paths[folder]:
-        
+
         print(f"{folder}, model: {model_path.split('/')[-1]}")
 
         # Perform evaluation
-        y_true_indices, y_pred_indices, filtered_probs, acc = evaluate(model_path, images, classes[folder], ground_truth_dict)
+        result = evaluate(model_path, images, classes[folder], ground_truth_dict)
+        if result is None:
+          print(f"  [SKIP] probs.npy not found or no valid predictions")
+          missing_models.append(f"{folder}/{dataset}/{model_path.split('/')[-1]}")
+          continue
+        y_true_indices, y_pred_indices, filtered_probs, acc = result
 
         # Display accuracy in console
         print(f"Accuracy: {acc:.2f}%")
@@ -189,6 +210,11 @@ def main(models, folders, limit, datasets):
         }])
 
         summary_df.to_csv(os.path.join(model_path, 'summary_metrics.csv'), index=False)
+
+    if missing_models:
+      print(f"\nMissing probs.npy for {len(missing_models)} model(s) in dataset '{dataset}':")
+      for m in missing_models:
+        print(f"  - {m}")
 
 if __name__ == '__main__':
   main()

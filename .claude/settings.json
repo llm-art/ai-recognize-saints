@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -c \":*)",
+      "Bash(find /home/vitadmin/gspinaci/ai-recognize-saints/test_* -type d -name \"gemini*pro*\")",
+      "Read(//home/vitadmin/gspinaci/LLM-test/dataset/**)",
+      "Bash(python3 -c \"import sys,json; nb=json.load\\(sys.stdin\\); [print\\(f''Cell {i}:'', c[''source''][:200]\\) for i,c in enumerate\\(nb[''cells'']\\)]\")",
+      "Bash(xargs -I{} sh -c 'echo \"\"=== {} ===\"\"; head -3 {}')",
+      "Bash(python3 -c \"import sys,json; nb=json.load\\(sys.stdin\\); [print\\(f''Cell {i}: id={c.get\\(\"\"id\"\",\"\"N/A\"\"\\)}''\\) for i,c in enumerate\\(nb[''cells'']\\)]\")",
+      "Bash(source /home/vitadmin/gspinaci/ai-recognize-saints/venv/bin/activate)",
+      "Bash(curl -sI \"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Jan_van_Eyck_-_Arnolfini_Portrait.jpg/800px-Jan_van_Eyck_-_Arnolfini_Portrait.jpg\")",
+      "Bash(source ../venv/bin/activate)",
+      "Bash(python3 download_wikidata.py --resize-existing --max-width 800 --workers 8)",
+      "Bash(ls /home/vitadmin/gspinaci/ai-recognize-saints/dataset/*.ipynb)",
+      "Bash(jupyter nbconvert --to notebook --execute --inplace image_analysis.ipynb --ExecutePreprocessor.timeout=300)",
+      "Bash(python -m nbconvert --to notebook --execute --inplace image_analysis.ipynb --ExecutePreprocessor.timeout=300)"
+    ]
+  }
+}

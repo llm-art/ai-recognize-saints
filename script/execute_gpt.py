@@ -330,6 +330,10 @@ class ModelConfig:
           "input_cost": 2.5,   # Cost per 1M input tokens
           "output_cost": 10.0  # Cost per 1M output tokens
       },
+      "gpt-4o-2024-11-20": {
+          "input_cost": 2.5,   # Cost per 1M input tokens
+          "output_cost": 10.0  # Cost per 1M output tokens
+      },
       "gpt-4o-mini-2024-07-18": {
           "input_cost": 0.150,  # Cost per 1M input tokens
           "output_cost": 0.600  # Cost per 1M output tokens
@@ -1225,6 +1229,8 @@ def main(folders: List[str], models: List[str], limit: int, batch_size: int, sav
 
         # Save results
         np.save(os.path.join(output_folder, 'probs.npy'), all_probs)
+        with open(os.path.join(output_folder, 'image_ids.txt'), 'w') as f:
+          f.write('\n'.join([item for item, _ in images]))
         logger.info(f"Probabilities shape: {all_probs.shape}")
 
 
