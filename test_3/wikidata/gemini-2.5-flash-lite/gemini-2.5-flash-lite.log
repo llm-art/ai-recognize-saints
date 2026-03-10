@@ -1,0 +1,393 @@
+2026-03-06 16:08:53,174 - INFO - Logger initialized for wikidata/test_3/gemini-2.5-flash-lite
+2026-03-06 16:08:53,174 - INFO - Starting classification for dataset=wikidata, test=test_3, model=gemini-2.5-flash-lite
+2026-03-06 16:08:53,374 - INFO - Number of images: 717
+2026-03-06 16:08:53,374 - INFO - Processing dataset: wikidata
+2026-03-06 16:08:53,376 - INFO - Processing images for test: test_3
+2026-03-06 16:08:53,412 - INFO - Using model: gemini-2.5-flash-lite
+2026-03-06 16:08:53,413 - INFO - === GENERATED PROMPT ===
+2026-03-06 16:08:53,413 - INFO - Dataset: wikidata, Test: test_3
+2026-03-06 16:08:53,413 - INFO - Hyperparameters: temperature=0.0, top_k=32
+2026-03-06 16:08:53,413 - INFO - Prompt content:
+2026-03-06 16:08:53,414 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+You will be shown 5 example images categorized as follows:
+{
+  "Jacopo_Pontormo_041", "antony_abbot"
+  "Guido_Reni_-_St_Joseph_with_the_Infant_Jesus_-_WGA19304", "joseph"
+  "Rubens_apostel_paulus_grt", "paul"
+  "1942_9_17_c", "francis"
+  "1440147397", "peter"
+}
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"mary_magdalene" - Mary Magdalene
+"john_baptist" - St. John the Baptist
+"jerome" - St. Jerome
+"catherine" - St. Catherine
+"peter" - St. Peter
+"john" - St. John the Evangelist
+"paul" - St. Paul
+"antony_abbot" - St. Anthony Abbot
+"francis" - St. Francis of Assisi
+"joseph" - St. Joseph
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2026-03-06 16:08:53,414 - INFO - === END PROMPT ===
+2026-03-06 16:09:14,327 - ERROR - Error processing batch: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+2026-03-06 16:09:14,328 - WARNING - No valid response for batch 5. Skipping.
+2026-03-06 16:09:16,849 - WARNING - Unknown class ID or alias: mary
+2026-03-06 16:09:29,955 - INFO - Cache saved after 10 batches
+2026-03-06 16:09:44,120 - INFO - Cache saved after 15 batches
+2026-03-06 16:09:54,683 - ERROR - Error processing batch: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+2026-03-06 16:09:54,684 - WARNING - No valid response for batch 19. Skipping.
+2026-03-06 16:09:57,007 - INFO - Cache saved after 20 batches
+2026-03-06 16:10:10,002 - WARNING - Unknown class ID or alias: mary
+2026-03-06 16:10:10,003 - INFO - Cache saved after 25 batches
+2026-03-06 16:10:20,051 - WARNING - Unknown class ID or alias: mary
+2026-03-06 16:10:20,051 - WARNING - Unknown class ID or alias: mary
+2026-03-06 16:10:30,040 - INFO - Cache saved after 30 batches
+2026-03-06 16:10:43,143 - WARNING - Unknown class ID or alias: mary
+2026-03-06 16:10:46,455 - INFO - Cache saved after 35 batches
+2026-03-06 16:10:56,576 - ERROR - Error processing batch: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+2026-03-06 16:10:56,577 - WARNING - No valid response for batch 38. Skipping.
+2026-03-06 16:11:03,456 - INFO - Cache saved after 40 batches
+2026-03-06 16:11:21,761 - INFO - Cache saved after 45 batches
+2026-03-06 16:11:37,998 - INFO - Cache saved after 50 batches
+2026-03-06 16:11:53,086 - INFO - Cache saved after 55 batches
+2026-03-06 16:12:04,138 - ERROR - Error processing batch: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+2026-03-06 16:12:04,138 - WARNING - No valid response for batch 59. Skipping.
+2026-03-06 16:12:10,063 - INFO - Cache saved after 60 batches
+2026-03-06 16:12:18,585 - ERROR - Error processing batch: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+2026-03-06 16:12:18,585 - WARNING - No valid response for batch 63. Skipping.
+2026-03-06 16:12:22,696 - WARNING - Unknown class ID or alias: john_evangelist
+2026-03-06 16:12:27,723 - INFO - Cache saved after 65 batches
+2026-03-06 16:12:31,508 - ERROR - Error processing batch: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+2026-03-06 16:12:31,509 - WARNING - No valid response for batch 66. Skipping.
+2026-03-06 16:12:36,120 - WARNING - Unknown class ID or alias: mary
+2026-03-06 16:12:36,121 - WARNING - Unknown class ID or alias: mary
+2026-03-06 16:12:45,668 - INFO - Cache saved after 70 batches
+2026-03-06 16:12:59,950 - INFO - Cache saved after 75 batches
+2026-03-06 16:13:14,287 - INFO - Cache saved after 80 batches
+2026-03-06 16:13:21,033 - ERROR - Error processing batch: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+2026-03-06 16:13:21,033 - WARNING - No valid response for batch 82. Skipping.
+2026-03-06 16:13:30,371 - INFO - Cache saved after 85 batches
+2026-03-06 16:13:37,549 - ERROR - Error processing batch: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+2026-03-06 16:13:37,550 - WARNING - No valid response for batch 88. Skipping.
+2026-03-06 16:13:44,398 - INFO - Cache saved after 90 batches
+2026-03-06 16:13:58,306 - INFO - Cache saved after 95 batches
+2026-03-06 16:14:13,422 - INFO - Cache saved after 100 batches
+2026-03-06 16:14:21,321 - WARNING - Unknown class ID or alias: mary
+2026-03-06 16:14:28,545 - INFO - Cache saved after 105 batches
+2026-03-06 16:14:44,915 - INFO - Cache saved after 110 batches
+2026-03-06 16:15:00,859 - INFO - Cache saved after 115 batches
+2026-03-06 16:15:08,074 - WARNING - Unknown class ID or alias: michael
+2026-03-06 16:15:08,074 - WARNING - Unknown class ID or alias: michael
+2026-03-06 16:15:10,455 - WARNING - Unknown class ID or alias: sebastian
+2026-03-06 16:15:12,728 - WARNING - Unknown class ID or alias: sebastian
+2026-03-06 16:15:12,728 - WARNING - Unknown class ID or alias: sebastian
+2026-03-06 16:15:12,731 - INFO - Cache saved after 120 batches
+2026-03-06 16:15:16,342 - WARNING - Unknown class ID or alias: sebastian
+2026-03-06 16:15:30,485 - ERROR - Error processing batch: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+2026-03-06 16:15:30,486 - WARNING - No valid response for batch 125. Skipping.
+2026-03-06 16:15:38,194 - WARNING - Unknown class ID or alias: mary
+2026-03-06 16:15:45,795 - ERROR - Error processing batch: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+2026-03-06 16:15:45,795 - WARNING - No valid response for batch 130. Skipping.
+2026-03-06 16:15:47,564 - ERROR - Error processing batch: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+2026-03-06 16:15:47,565 - WARNING - No valid response for batch 131. Skipping.
+2026-03-06 16:15:59,068 - INFO - Cache saved after 135 batches
+2026-03-06 16:16:15,532 - WARNING - Unknown class ID or alias: sebastian
+2026-03-06 16:16:15,535 - INFO - Cache saved after 140 batches
+2026-03-06 16:16:22,033 - ERROR - Error processing batch: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+2026-03-06 16:16:22,033 - WARNING - No valid response for batch 143. Skipping.
+2026-03-06 16:16:24,568 - ERROR - Error processing batch: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+2026-03-06 16:16:24,568 - WARNING - No valid response for batch 144. Skipping.
+2026-03-06 16:16:24,571 - INFO - Total input tokens used: 471590
+2026-03-06 16:16:24,571 - INFO - Total output tokens used: 20034
+2026-03-06 16:16:24,571 - INFO - Total cost of this call: $0.1851
+2026-03-06 16:16:24,572 - INFO - Probabilities shape: (638, 10)
+2026-03-06 16:21:04,725 - INFO - Logger initialized for wikidata/test_3/gemini-2.5-flash-lite
+2026-03-06 16:21:04,725 - INFO - Starting classification for dataset=wikidata, test=test_3, model=gemini-2.5-flash-lite
+2026-03-06 16:21:04,933 - INFO - Number of images: 717
+2026-03-06 16:21:04,933 - INFO - Processing dataset: wikidata
+2026-03-06 16:21:04,935 - INFO - Processing images for test: test_3
+2026-03-06 16:21:04,969 - INFO - Loaded 638 cached results
+2026-03-06 16:21:04,971 - INFO - Using model: gemini-2.5-flash-lite
+2026-03-06 16:21:04,972 - INFO - === GENERATED PROMPT ===
+2026-03-06 16:21:04,972 - INFO - Dataset: wikidata, Test: test_3
+2026-03-06 16:21:04,972 - INFO - Hyperparameters: temperature=0.0, top_k=32
+2026-03-06 16:21:04,972 - INFO - Prompt content:
+2026-03-06 16:21:04,972 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+You will be shown 5 example images categorized as follows:
+{
+  "Jacopo_Pontormo_041", "antony_abbot"
+  "Guido_Reni_-_St_Joseph_with_the_Infant_Jesus_-_WGA19304", "joseph"
+  "Rubens_apostel_paulus_grt", "paul"
+  "1942_9_17_c", "francis"
+  "1440147397", "peter"
+}
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"mary_magdalene" - Mary Magdalene
+"john_baptist" - St. John the Baptist
+"jerome" - St. Jerome
+"catherine" - St. Catherine
+"peter" - St. Peter
+"john" - St. John the Evangelist
+"paul" - St. Paul
+"antony_abbot" - St. Anthony Abbot
+"francis" - St. Francis of Assisi
+"joseph" - St. Joseph
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2026-03-06 16:21:04,972 - INFO - === END PROMPT ===
+2026-03-06 16:21:15,944 - WARNING - Unknown class ID or alias: mary
+2026-03-06 16:21:15,944 - WARNING - Unknown class ID or alias: mary
+2026-03-06 16:21:21,315 - INFO - Cache saved after 5 batches
+2026-03-06 16:21:33,939 - WARNING - Unknown class ID or alias: mary
+2026-03-06 16:21:33,939 - WARNING - Unknown class ID or alias: mary
+2026-03-06 16:21:36,416 - INFO - Cache saved after 10 batches
+2026-03-06 16:21:48,048 - INFO - Cache saved after 15 batches
+2026-03-06 16:21:52,190 - WARNING - Unknown class ID or alias: sebastian
+2026-03-06 16:21:52,190 - WARNING - No valid results from batch 17. Skipping.
+2026-03-06 16:21:56,776 - WARNING - Unknown class ID or alias: sebastian
+2026-03-06 16:21:56,777 - WARNING - No valid results from batch 19. Skipping.
+2026-03-06 16:22:00,386 - INFO - Cache saved after 20 batches
+2026-03-06 16:22:04,845 - ERROR - Error processing batch: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+2026-03-06 16:22:04,845 - WARNING - No valid response for batch 22. Skipping.
+2026-03-06 16:22:07,093 - ERROR - Error processing batch: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+2026-03-06 16:22:07,094 - WARNING - No valid response for batch 23. Skipping.
+2026-03-06 16:22:12,519 - INFO - Cache saved after 25 batches
+2026-03-06 16:22:14,555 - INFO - Total input tokens used: 72516
+2026-03-06 16:22:14,556 - INFO - Total output tokens used: 2141
+2026-03-06 16:22:14,556 - INFO - Total cost of this call: $0.0275
+2026-03-06 16:22:14,556 - INFO - Probabilities shape: (701, 10)
+2026-03-06 16:25:06,900 - INFO - Logger initialized for wikidata/test_3/gemini-2.5-flash-lite
+2026-03-06 16:25:06,900 - INFO - Starting classification for dataset=wikidata, test=test_3, model=gemini-2.5-flash-lite
+2026-03-06 16:25:07,091 - INFO - Number of images: 717
+2026-03-06 16:25:07,091 - INFO - Processing dataset: wikidata
+2026-03-06 16:25:07,093 - INFO - Processing images for test: test_3
+2026-03-06 16:25:07,130 - INFO - Loaded 701 cached results
+2026-03-06 16:25:07,132 - INFO - Using model: gemini-2.5-flash-lite
+2026-03-06 16:25:07,134 - INFO - === GENERATED PROMPT ===
+2026-03-06 16:25:07,134 - INFO - Dataset: wikidata, Test: test_3
+2026-03-06 16:25:07,134 - INFO - Hyperparameters: temperature=0.0, top_k=32
+2026-03-06 16:25:07,134 - INFO - Prompt content:
+2026-03-06 16:25:07,134 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+You will be shown 5 example images categorized as follows:
+{
+  "Jacopo_Pontormo_041", "antony_abbot"
+  "Guido_Reni_-_St_Joseph_with_the_Infant_Jesus_-_WGA19304", "joseph"
+  "Rubens_apostel_paulus_grt", "paul"
+  "1942_9_17_c", "francis"
+  "1440147397", "peter"
+}
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"mary_magdalene" - Mary Magdalene
+"john_baptist" - St. John the Baptist
+"jerome" - St. Jerome
+"catherine" - St. Catherine
+"peter" - St. Peter
+"john" - St. John the Evangelist
+"paul" - St. Paul
+"antony_abbot" - St. Anthony Abbot
+"francis" - St. Francis of Assisi
+"joseph" - St. Joseph
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2026-03-06 16:25:07,134 - INFO - === END PROMPT ===
+2026-03-06 16:25:15,712 - WARNING - Unknown class ID or alias: sebastian
+2026-03-06 16:25:15,713 - WARNING - No valid results from batch 3. Skipping.
+2026-03-06 16:25:18,766 - WARNING - Unknown class ID or alias: sebastian
+2026-03-06 16:25:18,766 - WARNING - No valid results from batch 4. Skipping.
+2026-03-06 16:25:21,112 - INFO - Cache saved after 5 batches
+2026-03-06 16:25:24,802 - INFO - Total input tokens used: 17791
+2026-03-06 16:25:24,802 - INFO - Total output tokens used: 490
+2026-03-06 16:25:24,802 - INFO - Total cost of this call: $0.0067
+2026-03-06 16:25:24,803 - INFO - Probabilities shape: (715, 10)
+2026-03-06 16:57:29,890 - INFO - Logger initialized for wikidata/test_3/gemini-2.5-flash-lite
+2026-03-06 16:57:29,890 - INFO - Starting classification for dataset=wikidata, test=test_3, model=gemini-2.5-flash-lite
+2026-03-06 16:57:30,076 - INFO - Number of images: 717
+2026-03-06 16:57:30,076 - INFO - Processing dataset: wikidata
+2026-03-06 16:57:30,078 - INFO - Processing images for test: test_3
+2026-03-06 16:57:30,115 - INFO - Loaded 715 cached results
+2026-03-06 16:57:30,117 - INFO - Using model: gemini-2.5-flash-lite
+2026-03-06 16:57:30,119 - INFO - === GENERATED PROMPT ===
+2026-03-06 16:57:30,119 - INFO - Dataset: wikidata, Test: test_3
+2026-03-06 16:57:30,119 - INFO - Hyperparameters: temperature=0.0, top_k=32
+2026-03-06 16:57:30,119 - INFO - Prompt content:
+2026-03-06 16:57:30,119 - INFO - You are an expert in Christian iconography and art history. Classify each religious artwork image into exactly ONE saint category using visual attributes, iconographic symbols, and contextual clues.
+
+You will be shown 5 example images categorized as follows:
+{
+  "Jacopo_Pontormo_041", "antony_abbot"
+  "Guido_Reni_-_St_Joseph_with_the_Infant_Jesus_-_WGA19304", "joseph"
+  "Rubens_apostel_paulus_grt", "paul"
+  "1942_9_17_c", "francis"
+  "1440147397", "peter"
+}
+
+
+
+Look for:
+1. Distinctive attributes (objects, clothing, etc.)
+2. Gestures and postures
+3. Contextual and symbolic elements
+
+Instructions:
+- Only output the JSON object — no text, explanation, or formatting.
+- Include every image in the current batch. Each must receive exactly one classification with a confidence score.
+- You may only use one of the exact strings from the category list below. Any response not matching the allowed category IDs will be rejected.
+
+Return a valid **JSON object** with confidence scores (0.0 to 1.0) matching this format:
+{
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  "<image_id>": {"class": "<CATEGORY_ID>", "confidence": <0.0-1.0>},
+  ...
+}
+
+Confidence guidelines:
+- 0.9-1.0: Very certain identification with clear iconographic evidence
+- 0.7-0.9: Confident with multiple supporting visual elements  
+- 0.5-0.7: Moderate confidence, some ambiguity present
+- 0.3-0.5: Low confidence, limited visual evidence
+- 0.0-0.3: Very uncertain, minimal supporting evidence
+
+Each <CATEGORY_ID> must be one of (use only the category ID as output):
+
+"mary_magdalene" - Mary Magdalene
+"john_baptist" - St. John the Baptist
+"jerome" - St. Jerome
+"catherine" - St. Catherine
+"peter" - St. Peter
+"john" - St. John the Evangelist
+"paul" - St. Paul
+"antony_abbot" - St. Anthony Abbot
+"francis" - St. Francis of Assisi
+"joseph" - St. Joseph
+
+Batching note:
+- Process only the current batch of images.
+- Use the image IDs exactly as provided in the input.
+- Do not reference or depend on other batches.
+
+NOTE: These are historical Renaissance paintings used for academic classification.  
+Some artworks include scenes of martyrdom or classical nudity as typical in religious iconography.  
+Treat all content as scholarly, respectful of historical context, and strictly non-sexual.
+
+2026-03-06 16:57:30,119 - INFO - === END PROMPT ===
+2026-03-06 16:57:33,480 - WARNING - Unknown class ID or alias: sebastian
+2026-03-06 16:57:33,480 - WARNING - No valid results from batch 1. Skipping.
+2026-03-06 16:57:35,881 - WARNING - Unknown class ID or alias: sebastian
+2026-03-06 16:57:35,881 - WARNING - No valid results from batch 2. Skipping.
+2026-03-06 16:57:35,885 - INFO - Total input tokens used: 5024
+2026-03-06 16:57:35,885 - INFO - Total output tokens used: 60
+2026-03-06 16:57:35,885 - INFO - Total cost of this call: $0.0018
+2026-03-06 16:57:35,885 - INFO - Probabilities shape: (715, 10)
