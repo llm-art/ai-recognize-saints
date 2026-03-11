@@ -10,11 +10,11 @@ Each row shows a pair of images tested together. Both metrics are counted across
 
 | # | Image A | Image B | Ground Truth | Both predicted same class | Both predicted same class (correct) |
 |---|---------|---------|-------------|--------------------------|-------------------------------------|
-| 1 | ![Q28229479](example/wikidata_Q28229479.jpg) | ![piero_co_z_other_mary_mag](example/ArtDL_piero_co_z_other_mary_mag.jpg) | Mary Magdalene | 14/42 (33%) | 14/42 (33%) |
-| 2 | ![Q17334273](example/wikidata_Q17334273.jpg) | ![en-SK-A-3382](example/ArtDL_en-SK-A-3382.jpg) | John the Baptist | 24/42 (57%) | 22/42 (52%) |
-| 3 | ![IIHIM_-1583071816](example/ICONCLASS_IIHIM_-1583071816.jpg) | ![Q29648941](example/wikidata_Q29648941.jpg) | Mary Magdalene | 21/42 (50%) | 12/42 (29%) |
-| 4 | ![IIHIM_-1578407314](example/ICONCLASS_IIHIM_-1578407314.jpg) | ![Q107443479](example/wikidata_Q107443479.jpg) | Mary Magdalene | 16/42 (38%) | 16/42 (38%) |
-| 5 | ![Q55102676](example/wikidata_Q55102676.jpg) | ![Q55102676](example/ArtDL_Q55102676.jpg) | Mary Magdalene | 20/42 (48%) | 20/42 (48%) |
+| 1 | ![Q28229479](imgs/wikidata_Q28229479.jpg) | ![piero_co_z_other_mary_mag](imgs/ArtDL_piero_co_z_other_mary_mag.jpg) | Mary Magdalene | 14/42 (33%) | 14/42 (33%) |
+| 2 | ![Q17334273](imgs/wikidata_Q17334273.jpg) | ![en-SK-A-3382](imgs/ArtDL_en-SK-A-3382.jpg) | John the Baptist | 24/42 (57%) | 22/42 (52%) |
+| 3 | ![IIHIM_-1583071816](imgs/ICONCLASS_IIHIM_-1583071816.jpg) | ![Q29648941](imgs/wikidata_Q29648941.jpg) | Mary Magdalene | 21/42 (50%) | 12/42 (29%) |
+| 4 | ![IIHIM_-1578407314](imgs/ICONCLASS_IIHIM_-1578407314.jpg) | ![Q107443479](imgs/wikidata_Q107443479.jpg) | Mary Magdalene | 16/42 (38%) | 16/42 (38%) |
+| 5 | ![Q55102676](imgs/wikidata_Q55102676.jpg) | ![Q55102676](imgs/ArtDL_Q55102676.jpg) | Mary Magdalene | 20/42 (48%) | 20/42 (48%) |
 
 > **Both predicted same class**: number of (model, run) observations where the model assigned the same label to both images (count/total, %).  **Both predicted same class (correct)**: same, but the shared label also matches the ground truth.
 
