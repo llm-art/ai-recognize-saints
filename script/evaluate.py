@@ -77,7 +77,11 @@ def evaluate(model, images, classes, ground_truth_dict):
   sns.heatmap(confusion_matrix_df, annot=True, fmt='d', cmap='Oranges', xticklabels=[cls[0] for cls in classes], yticklabels=[cls[0] for cls in classes])
   plt.xlabel('Predicted classes')
   plt.ylabel('Actual classes')
-  plt.title(f'Confusion Matrix for {model}')
+  parts = os.path.normpath(model).split(os.sep)
+  model_name = parts[-1] if len(parts) >= 1 else model
+  dataset_name = parts[-2] if len(parts) >= 2 else ''
+  test_name = parts[-3] if len(parts) >= 3 else ''
+  plt.title(f'Confusion matrix for {model_name} on {dataset_name} ({test_name})', fontweight='bold', pad=20)
   plt.savefig(os.path.join(model, 'confusion_matrix.png'), bbox_inches='tight')
   plt.close()
 

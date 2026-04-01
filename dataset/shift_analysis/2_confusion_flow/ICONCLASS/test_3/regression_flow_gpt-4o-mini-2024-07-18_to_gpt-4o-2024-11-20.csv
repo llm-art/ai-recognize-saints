@@ -1,0 +1,25 @@
+true_class,new_pred,count,true_label,new_label
+11HH(MARY MAGDALENE),11H(PAUL),8,Mary Magdalene,St. Paul
+11H(JEROME),11H(PAUL),6,St. Jerome,St. Paul
+11H(JOHN),11H(PAUL),5,St. John the Evangel,St. Paul
+11H(PAUL),11H(JEROME),4,St. Paul,St. Jerome
+11H(PAUL),11H(JOHN),3,St. Paul,St. John the Evangel
+11H(FRANCIS),11H(PAUL),3,St. Francis of Assis,St. Paul
+11H(PAUL),11H(LUKE),3,St. Paul,St. Luke
+11H(ANTONY ABBOT),11H(PAUL),2,St. Anthony Abbot,St. Paul
+11H(PAUL),11H(MATTHEW),2,St. Paul,St. Matthew
+11HH(MARY MAGDALENE),11HH(CATHERINE),2,Mary Magdalene,St. Catherine
+11H(JOHN),11H(JEROME),1,St. John the Evangel,St. Jerome
+11H(JEROME),11H(ANTONY ABBOT),1,St. Jerome,St. Anthony Abbot
+11H(FRANCIS),11H(ANTONY ABBOT),1,St. Francis of Assis,St. Anthony Abbot
+11H(JOHN),11H(FRANCIS),1,St. John the Evangel,St. Francis of Assis
+11H(JEROME),11HH(CATHERINE),1,St. Jerome,St. Catherine
+11H(JOHN),11H(LUKE),1,St. John the Evangel,St. Luke
+11H(MATTHEW),11H(JOHN),1,St. Matthew,St. John the Evangel
+11H(MATTHEW),11HH(CATHERINE),1,St. Matthew,St. Catherine
+11H(LUKE),11H(PAUL),1,St. Luke,St. Paul
+11H(MATTHEW),11H(FRANCIS),1,St. Matthew,St. Francis of Assis
+11H(PAUL),11HH(CATHERINE),1,St. Paul,St. Catherine
+11H(PAUL),11H(PETER),1,St. Paul,St. Peter
+11HH(CATHERINE),11HH(MARY MAGDALENE),1,St. Catherine,Mary Magdalene
+11H(PETER),11H(JEROME),1,St. Peter,St. Jerome

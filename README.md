@@ -1,5 +1,5 @@
-# Can AI Recognize the Saints? 
-Evaluating Multimodal Models for Christian Iconography 
+# Can AI Recognize the Saints?
+Benchmarking Vision-Language and Multimodal Models for Christian Iconography Classification
 
 ## Prompt Engineering Example
 
@@ -55,21 +55,21 @@ All prompts are stored in the `prompts/` directory, organized by dataset and tes
 
 ## Repository Overview
 
-This repository presents a comprehensive evaluation framework for zero-shot and few-shot image classification approaches on Christian iconography datasets. The primary focus is on **Multimodal Large Language Models (MLLMs)**
+This repository presents a comprehensive benchmarking framework for evaluating three families of models — supervised convolutional networks, contrastive vision-language models (VLMs), and generative multimodal large language models (LLMs) — on image classification tasks in the cultural heritage domain, using Christian iconography as a case study.
 
 ### Model Categories
 
-- **Large Multimodal Models** (GPT-4o, Gemini 2.5) - Complete evaluation with validated results
-- **Vision-Language Encoders** (CLIP, SigLIP) - Not all results available
-- **Traditional Supervised Baselines** (ResNet-50) - Established baseline comparisons
+- **Generative Multimodal LLMs** — Legacy (GPT-4o, GPT-4o-mini, Gemini 2.5 Flash/Pro) and state-of-the-art (GPT-5-mini, GPT-5.2, Gemini 3-Flash, Gemini 3.1-Flash-Lite, Gemini 3.1-Pro)
+- **Contrastive Vision-Language Models** — CLIP (ViT-B/32, ViT-B/16, ViT-L/14) and SigLIP (Base-Patch16-512, Large-Patch16-384, SO400M-Patch14-384)
+- **Supervised Baselines** — ResNet-50 fine-tuned per dataset
 
-The evaluation is conducted across three specialized datasets, focusing on Christian iconography and the classification of religious art.
+The evaluation is conducted across three specialized datasets, focusing on single-label classification of Christian saints.
 
 ## Primary Datasets
 
-1. **[ArtDL](https://artdl.org/)** - ~42.5K images with 10 classes of Christian icons
-2. **[ICONCLASS AI test set](https://iconclass.org/testset/)** - ~87.5K images with Iconclass classification IDs
-3. **[Wikidata](https://www.wikidata.org/)** - Curated dataset via SPARQL queries with ICONCLASS annotations
+1. **[ArtDL](https://artdl.org/)** — 1,864 test images, 10 saint classes (published test split)
+2. **[ICONCLASS AI test set](https://iconclass.org/testset/)** — 863 images, 10 saint classes (filtered from ~87.5K)
+3. **[Wikidata](https://www.wikidata.org/)** — 717 images, 10 saint classes (curated via SPARQL with Iconclass annotations)
 
 ## Scripts Overview and Usage
 
@@ -78,7 +78,7 @@ The `script/` directory contains the core evaluation framework.
 ### Multimodal LLM Scripts
 
 #### `execute_gpt.py` - OpenAI GPT Models
-**Purpose:** Executes GPT-4o and GPT-4o-mini models for zero-shot and few-shot image classification.
+**Purpose:** Executes GPT models (GPT-4o, GPT-4o-mini, GPT-5-mini, GPT-5.2) for zero-shot and few-shot image classification.
 
 **Usage:**
 
@@ -103,16 +103,16 @@ Options:
 
 ```bash
 # Basic execution for GPT models
-python script/execute_gpt.py --models gpt-4o gpt-4o-mini --datasets ArtDL ICONCLASS wikidata --folders test_1 test_2 test_3
+python script/execute_gpt.py --models gpt-4o-2024-11-20 gpt-4o-mini-2024-07-18 gpt-5-mini-2025-08-07 gpt-5.2-2025-12-11 --datasets ArtDL ICONCLASS wikidata --folders test_1 test_2 test_3
 
 # With custom parameters
-python script/execute_gpt.py --models gpt-4o --datasets ArtDL --folders test_1 --limit 100 --batch_size 5
+python script/execute_gpt.py --models gpt-5.2-2025-12-11 --datasets ArtDL --folders test_1 --limit 100 --batch_size 5
 ```
 
 **Configuration Required:** API key in `script/gpt_data/psw.ini`
 
 #### `execute_gemini.py` - Google Gemini Models  
-**Purpose:** Executes Gemini 2.5 Pro and Flash models for multimodal classification tasks.
+**Purpose:** Executes Gemini models (2.5 Flash/Pro legacy and 3.x state-of-the-art) for multimodal classification tasks.
 
 **Usage:**
 ```bash
@@ -135,15 +135,15 @@ Options:
 
 ```bash
 # Run Gemini models
-python script/execute_gemini.py --models gemini-2.5-pro gemini-2.5-flash --datasets ArtDL ICONCLASS wikidata --folders test_1 test_2
+python script/execute_gemini.py --models gemini-2.5-pro gemini-2.5-flash gemini-3-flash-preview gemini-3.1-pro-preview --datasets ArtDL ICONCLASS wikidata --folders test_1 test_2
 
 # Few-shot evaluation
-python script/execute_gemini.py --models gemini-2.5-pro --datasets ICONCLASS --folders test_3
+python script/execute_gemini.py --models gemini-3-flash-preview --datasets ICONCLASS --folders test_3
 ```
 
 **Configuration Required:** API key in `script/gemini_data/config.ini`
 
-Vision-Language Encoder Scripts
+### Vision-Language Encoder Scripts
 
 #### `execute_clip.py` - CLIP Models
 **Purpose:** Implements CLIP variants for contrastive learning-based classification.
@@ -164,16 +164,16 @@ python script/execute_siglip.py --models siglip-base-patch16-512 --datasets ArtD
 ### Universal Evaluation and Analysis Scripts
 
 #### `evaluate.py` - Comprehensive Results Analysis
-**Purpose:** Generates standardized evaluation metrics for all models.
+**Purpose:** Generates standardized evaluation metrics (top-1 accuracy, confusion matrices) for all models.
 
 
 **Usage:**
 ```bash
 # Evaluate LLM results
-python script/evaluate.py --models gpt-4o gemini-2.5-pro --datasets ArtDL ICONCLASS --folders test_1 test_2
+python script/evaluate.py --models gpt-5.2-2025-12-11 gemini-3-flash-preview --datasets ArtDL ICONCLASS --folders test_1 test_2
 
-# Full evaluation
-python script/evaluate.py --models gpt-4o gemini-2.5-pro clip-vit-base-patch32 --datasets ArtDL --folders test_1
+# Full evaluation across all models
+python script/evaluate.py --models gpt-5.2-2025-12-11 gemini-3.1-pro-preview clip-vit-large-patch14 siglip-so400m-patch14-384 --datasets ArtDL --folders test_1
 ```
 
 #### `few-shot.py` - Few-Shot Learning Framework
@@ -184,6 +184,26 @@ python script/evaluate.py --models gpt-4o gemini-2.5-pro clip-vit-base-patch32 -
 # Fine-tune models for few-shot learning
 python script/few-shot.py --models clip-vit-base-patch32 --datasets ArtDL --folders test_3 --num_epochs 150
 ```
+
+### Analysis Scripts
+
+#### `generation_compare.py` - Cross-Generation Accuracy Comparison
+**Purpose:** Visualizes generational accuracy shifts by model family across datasets (produces Fig. 2 in the paper).
+
+#### `analyze_prediction_shifts.py` - Cross-Generation Misclassification Analysis
+**Purpose:** Generates heatmaps of cross-generation misclassifications between legacy and state-of-the-art models (produces Fig. 3 in the paper).
+
+#### `consistency_analysis.py` - Cross-Dataset Consistency
+**Purpose:** Evaluates prediction stability across the 45 matched cross-dataset image pairs identified via perceptual hashing.
+
+#### `generate_consistency_data.py` - Consistency Data Generation
+**Purpose:** Generates structured consistency data for cross-dataset evaluation.
+
+#### `analyze_consistency_trends.py` - Consistency Trend Analysis
+**Purpose:** Analyzes trends in cross-dataset consistency across model generations.
+
+#### `compute_overlap.py` - Dataset Overlap Detection
+**Purpose:** Identifies duplicate images across datasets using perceptual hashing (Hamming distance threshold of 8).
 
 ### Baseline and Supporting Scripts
 
@@ -199,9 +219,10 @@ python baseline/resnet50_baseline.py --dataset ArtDL --train_split 0.8 --epochs 
 **Purpose:** Specialized baseline implementation optimized for ArtDL dataset characteristics.
 
 #### Dataset Processing (`dataset/`)
-- **Data preprocessing notebooks** - Jupyter notebooks for dataset preparation and analysis
-- **Cross-dataset analysis tools** - Scripts for analyzing overlaps between datasets
-- **Consistency evaluation framework** - Tools for model consistency analysis
+- **Data preprocessing notebooks** — Jupyter notebooks for dataset preparation and analysis
+- **`dataset/consistency/`** — Cross-dataset consistency evaluation results and analysis
+- **`dataset/consistency_trends/`** — Temporal consistency trends across model generations
+- **`dataset/shift_analysis/`** — Cross-generation misclassification shift data
 
 ## Getting Started
 
@@ -232,40 +253,46 @@ api_key=your_openai_api_key_here
 api_key=your_gemini_api_key_here
 ```
 
-#### 2. Run Publication-Ready Evaluations
+#### 2. Run Evaluations
 ```bash
 # Zero-shot evaluation with labels
-python script/execute_gpt.py --models gpt-4o --datasets ArtDL --folders test_1
-python script/execute_gemini.py --models gemini-2.5-pro --datasets ArtDL --folders test_1
+python script/execute_gpt.py --models gpt-5.2-2025-12-11 --datasets ArtDL --folders test_1
+python script/execute_gemini.py --models gemini-3-flash-preview --datasets ArtDL --folders test_1
 
 # Zero-shot evaluation with descriptions  
-python script/execute_gpt.py --models gpt-4o --datasets ArtDL --folders test_2
-python script/execute_gemini.py --models gemini-2.5-pro --datasets ArtDL --folders test_2
+python script/execute_gpt.py --models gpt-5.2-2025-12-11 --datasets ArtDL --folders test_2
+python script/execute_gemini.py --models gemini-3-flash-preview --datasets ArtDL --folders test_2
 
 # Few-shot evaluation
-python script/execute_gpt.py --models gpt-4o --datasets ArtDL --folders test_3
-python script/execute_gemini.py --models gemini-2.5-pro --datasets ArtDL --folders test_3
+python script/execute_gpt.py --models gpt-5.2-2025-12-11 --datasets ArtDL --folders test_3
+python script/execute_gemini.py --models gemini-3-flash-preview --datasets ArtDL --folders test_3
 ```
 
-#### 3. Generate Publication Results
+#### 3. Generate Results
 ```bash
 # Comprehensive evaluation and metrics
-python script/evaluate.py --models gpt-4o gemini-2.5-pro --datasets ArtDL ICONCLASS wikidata --folders test_1 test_2 test_3
+python script/evaluate.py --models gpt-5.2-2025-12-11 gemini-3-flash-preview gemini-3.1-pro-preview --datasets ArtDL ICONCLASS wikidata --folders test_1 test_2 test_3
 ```
 
 ### Output Structure
 Results are organized in a structured format for easy analysis:
 
 ```
-test_1/                    # Zero-shot with labels
+test_1/                           # Zero-shot with labels
 ├── ArtDL/
-│   ├── gpt-4o/
-│   │   ├── probs.npy      # Classification probabilities
+│   ├── gemini-3-flash-preview/
+│   │   ├── probs.npy             # Classification probabilities
+│   │   ├── confusion_matrix.png
 │   │   ├── confusion_matrix.csv
 │   │   └── class_metrics.csv
-│   └── gemini-2.5-pro/
-└── ICONCLASS/
+│   ├── gemini-3.1-pro-preview/
+│   ├── gpt-5.2-2025-12-11/
+│   ├── clip-vit-large-patch14/
+│   ├── siglip-so400m-patch14-384/
+│   └── ...
+├── ICONCLASS/
+└── wikidata/
 
-test_2/                    # Zero-shot with descriptions  
-test_3/                    # Few-shot learning
+test_2/                           # Zero-shot with descriptions  
+test_3/                           # Few-shot learning
 ```

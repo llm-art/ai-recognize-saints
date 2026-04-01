@@ -1,0 +1,46 @@
+saint_1,saint_2,label_1,label_2,attrs_1,attrs_2,shared_attrs,n_shared,n_union,jaccard_%,confusion_count
+11H(JOHN),11H(PAUL),John,Paul,"book, cauldron, chalice with snake, eagle, palm, scroll","book, scroll, sword","book, scroll",2,7,28.6,42
+11H(PAUL),11H(PETER),Paul,Peter,"book, scroll, sword","book, cock, fish, key, scroll, ship, tiara, triple crozier, upturned cross","book, scroll",2,10,20.0,38
+11H(ANTONY ABBOT),11H(JEROME),Antony Abbot,Jerome,"bell, book, flames, pig, t-shaped staff","book, cardinal's hat, crucifix, hour-glass, lion, skull, stone",book,1,11,9.1,35
+11HH(CATHERINE),11HH(MARY MAGDALENE),Catherine,M. Magdalene,"book, crown, emperor maxentius, palm-branch, ring, sword, wheel","book or scroll, crown, crown of thorns, crucifix, jar of ointment, mirror, musical instrument, palm-branch, rosary, scourge","crown, palm-branch",2,15,13.3,34
+11H(JEROME),11H(PAUL),Jerome,Paul,"book, cardinal's hat, crucifix, hour-glass, lion, skull, stone","book, scroll, sword",book,1,9,11.1,29
+11H(ANTONY ABBOT),11H(FRANCIS),Antony Abbot,Francis,"bell, book, flames, pig, t-shaped staff","book, crucifix, lily, skull, stigmata",book,1,9,11.1,27
+11H(JOHN),11H(MATTHEW),John,Matthew,"book, cauldron, chalice with snake, eagle, palm, scroll","angel, axe, book, halberd, pen and inkhorn, purse, scroll, square, sword","book, scroll",2,13,15.4,23
+11H(MATTHEW),11H(PAUL),Matthew,Paul,"angel, axe, book, halberd, pen and inkhorn, purse, scroll, square, sword","book, scroll, sword","book, scroll, sword",3,9,33.3,23
+11H(JEROME),11H(PETER),Jerome,Peter,"book, cardinal's hat, crucifix, hour-glass, lion, skull, stone","book, cock, fish, key, scroll, ship, tiara, triple crozier, upturned cross",book,1,15,6.7,21
+11H(JOHN),11HH(MARY MAGDALENE),John,M. Magdalene,"book, cauldron, chalice with snake, eagle, palm, scroll","book or scroll, crown, crown of thorns, crucifix, jar of ointment, mirror, musical instrument, palm-branch, rosary, scourge",(none),0,16,0.0,20
+11H(JEROME),11H(LUKE),Jerome,Luke,"book, cardinal's hat, crucifix, hour-glass, lion, skull, stone","book, painter's utensils, portrait of the virgin, scroll, surgical instruments, winged ox",book,1,12,8.3,19
+11H(JOHN),11H(PETER),John,Peter,"book, cauldron, chalice with snake, eagle, palm, scroll","book, cock, fish, key, scroll, ship, tiara, triple crozier, upturned cross","book, scroll",2,13,15.4,17
+11H(LUKE),11H(PAUL),Luke,Paul,"book, painter's utensils, portrait of the virgin, scroll, surgical instruments, winged ox","book, scroll, sword","book, scroll",2,7,28.6,16
+11H(JEROME),11HH(MARY MAGDALENE),Jerome,M. Magdalene,"book, cardinal's hat, crucifix, hour-glass, lion, skull, stone","book or scroll, crown, crown of thorns, crucifix, jar of ointment, mirror, musical instrument, palm-branch, rosary, scourge",crucifix,1,16,6.2,15
+11H(LUKE),11H(MATTHEW),Luke,Matthew,"book, painter's utensils, portrait of the virgin, scroll, surgical instruments, winged ox","angel, axe, book, halberd, pen and inkhorn, purse, scroll, square, sword","book, scroll",2,13,15.4,15
+11H(ANTONY ABBOT),11H(PETER),Antony Abbot,Peter,"bell, book, flames, pig, t-shaped staff","book, cock, fish, key, scroll, ship, tiara, triple crozier, upturned cross",book,1,13,7.7,13
+11H(ANTONY ABBOT),11H(PAUL),Antony Abbot,Paul,"bell, book, flames, pig, t-shaped staff","book, scroll, sword",book,1,7,14.3,12
+11H(JEROME),11H(JOHN),Jerome,John,"book, cardinal's hat, crucifix, hour-glass, lion, skull, stone","book, cauldron, chalice with snake, eagle, palm, scroll",book,1,12,8.3,12
+11H(MATTHEW),11H(PETER),Matthew,Peter,"angel, axe, book, halberd, pen and inkhorn, purse, scroll, square, sword","book, cock, fish, key, scroll, ship, tiara, triple crozier, upturned cross","book, scroll",2,16,12.5,12
+11H(JOHN),11H(LUKE),John,Luke,"book, cauldron, chalice with snake, eagle, palm, scroll","book, painter's utensils, portrait of the virgin, scroll, surgical instruments, winged ox","book, scroll",2,10,20.0,11
+11H(ANTONY ABBOT),11HH(MARY MAGDALENE),Antony Abbot,M. Magdalene,"bell, book, flames, pig, t-shaped staff","book or scroll, crown, crown of thorns, crucifix, jar of ointment, mirror, musical instrument, palm-branch, rosary, scourge",(none),0,15,0.0,10
+11H(JOHN),11HH(CATHERINE),John,Catherine,"book, cauldron, chalice with snake, eagle, palm, scroll","book, crown, emperor maxentius, palm-branch, ring, sword, wheel",book,1,12,8.3,9
+11H(LUKE),11HH(MARY MAGDALENE),Luke,M. Magdalene,"book, painter's utensils, portrait of the virgin, scroll, surgical instruments, winged ox","book or scroll, crown, crown of thorns, crucifix, jar of ointment, mirror, musical instrument, palm-branch, rosary, scourge",(none),0,16,0.0,8
+11H(MATTHEW),11HH(CATHERINE),Matthew,Catherine,"angel, axe, book, halberd, pen and inkhorn, purse, scroll, square, sword","book, crown, emperor maxentius, palm-branch, ring, sword, wheel","book, sword",2,14,14.3,7
+11H(FRANCIS),11HH(MARY MAGDALENE),Francis,M. Magdalene,"book, crucifix, lily, skull, stigmata","book or scroll, crown, crown of thorns, crucifix, jar of ointment, mirror, musical instrument, palm-branch, rosary, scourge",crucifix,1,14,7.1,7
+11H(FRANCIS),11HH(CATHERINE),Francis,Catherine,"book, crucifix, lily, skull, stigmata","book, crown, emperor maxentius, palm-branch, ring, sword, wheel",book,1,11,9.1,7
+11H(FRANCIS),11H(JEROME),Francis,Jerome,"book, crucifix, lily, skull, stigmata","book, cardinal's hat, crucifix, hour-glass, lion, skull, stone","book, crucifix, skull",3,9,33.3,7
+11H(ANTONY ABBOT),11H(JOHN),Antony Abbot,John,"bell, book, flames, pig, t-shaped staff","book, cauldron, chalice with snake, eagle, palm, scroll",book,1,10,10.0,5
+11H(FRANCIS),11H(JOHN),Francis,John,"book, crucifix, lily, skull, stigmata","book, cauldron, chalice with snake, eagle, palm, scroll",book,1,10,10.0,4
+11H(PETER),11HH(MARY MAGDALENE),Peter,M. Magdalene,"book, cock, fish, key, scroll, ship, tiara, triple crozier, upturned cross","book or scroll, crown, crown of thorns, crucifix, jar of ointment, mirror, musical instrument, palm-branch, rosary, scourge",(none),0,19,0.0,3
+11H(PAUL),11HH(MARY MAGDALENE),Paul,M. Magdalene,"book, scroll, sword","book or scroll, crown, crown of thorns, crucifix, jar of ointment, mirror, musical instrument, palm-branch, rosary, scourge",(none),0,13,0.0,3
+11H(JEROME),11HH(CATHERINE),Jerome,Catherine,"book, cardinal's hat, crucifix, hour-glass, lion, skull, stone","book, crown, emperor maxentius, palm-branch, ring, sword, wheel",book,1,13,7.7,3
+11H(ANTONY ABBOT),11HH(CATHERINE),Antony Abbot,Catherine,"bell, book, flames, pig, t-shaped staff","book, crown, emperor maxentius, palm-branch, ring, sword, wheel",book,1,11,9.1,3
+11H(ANTONY ABBOT),11H(LUKE),Antony Abbot,Luke,"bell, book, flames, pig, t-shaped staff","book, painter's utensils, portrait of the virgin, scroll, surgical instruments, winged ox",book,1,10,10.0,3
+11H(LUKE),11H(PETER),Luke,Peter,"book, painter's utensils, portrait of the virgin, scroll, surgical instruments, winged ox","book, cock, fish, key, scroll, ship, tiara, triple crozier, upturned cross","book, scroll",2,13,15.4,3
+11H(JEROME),11H(MATTHEW),Jerome,Matthew,"book, cardinal's hat, crucifix, hour-glass, lion, skull, stone","angel, axe, book, halberd, pen and inkhorn, purse, scroll, square, sword",book,1,15,6.7,3
+11H(ANTONY ABBOT),11H(MATTHEW),Antony Abbot,Matthew,"bell, book, flames, pig, t-shaped staff","angel, axe, book, halberd, pen and inkhorn, purse, scroll, square, sword",book,1,13,7.7,2
+11H(MATTHEW),11HH(MARY MAGDALENE),Matthew,M. Magdalene,"angel, axe, book, halberd, pen and inkhorn, purse, scroll, square, sword","book or scroll, crown, crown of thorns, crucifix, jar of ointment, mirror, musical instrument, palm-branch, rosary, scourge",(none),0,19,0.0,2
+11H(FRANCIS),11H(PAUL),Francis,Paul,"book, crucifix, lily, skull, stigmata","book, scroll, sword",book,1,7,14.3,2
+11H(PAUL),11HH(CATHERINE),Paul,Catherine,"book, scroll, sword","book, crown, emperor maxentius, palm-branch, ring, sword, wheel","book, sword",2,8,25.0,2
+11H(FRANCIS),11H(LUKE),Francis,Luke,"book, crucifix, lily, skull, stigmata","book, painter's utensils, portrait of the virgin, scroll, surgical instruments, winged ox",book,1,10,10.0,1
+11H(FRANCIS),11H(MATTHEW),Francis,Matthew,"book, crucifix, lily, skull, stigmata","angel, axe, book, halberd, pen and inkhorn, purse, scroll, square, sword",book,1,13,7.7,1
+11H(FRANCIS),11H(PETER),Francis,Peter,"book, crucifix, lily, skull, stigmata","book, cock, fish, key, scroll, ship, tiara, triple crozier, upturned cross",book,1,13,7.7,1
+11H(PETER),11HH(CATHERINE),Peter,Catherine,"book, cock, fish, key, scroll, ship, tiara, triple crozier, upturned cross","book, crown, emperor maxentius, palm-branch, ring, sword, wheel",book,1,15,6.7,1
+11H(LUKE),11HH(CATHERINE),Luke,Catherine,"book, painter's utensils, portrait of the virgin, scroll, surgical instruments, winged ox","book, crown, emperor maxentius, palm-branch, ring, sword, wheel",book,1,12,8.3,0

@@ -1,0 +1,23 @@
+true_class,new_pred,count,true_label,new_label
+11HH(MARY MAGDALENE),11HH(CATHERINE),3,the penitent harlot ,the virgin martyr Ca
+11H(PAUL),11H(JOHN),3,the apostle Paul of , the apostle John th
+11H(MATTHEW),11H(JOHN),2,the apostle and evan, the apostle John th
+11H(MATTHEW),11H(PAUL),2,the apostle and evan,the apostle Paul of 
+11H(JEROME),11H(ANTONY ABBOT),2,the monk and hermit ,the hermit Antony Ab
+11H(PAUL),11H(JEROME),2,the apostle Paul of ,the monk and hermit 
+11H(JOHN),11H(LUKE),1, the apostle John th,11H(LUKE) Luke the e
+11H(JOHN),11H(JEROME),1, the apostle John th,the monk and hermit 
+11H(JEROME),11H(LUKE),1,the monk and hermit ,11H(LUKE) Luke the e
+11H(FRANCIS),11H(JOHN),1,founder of the Order, the apostle John th
+11H(FRANCIS),11H(ANTONY ABBOT),1,founder of the Order,the hermit Antony Ab
+11H(LUKE),11H(ANTONY ABBOT),1,11H(LUKE) Luke the e,the hermit Antony Ab
+11H(JOHN),11H(PAUL),1, the apostle John th,the apostle Paul of 
+11H(JOHN),11H(PETER),1, the apostle John th,the apostle Peter
+11H(PAUL),11H(ANTONY ABBOT),1,the apostle Paul of ,the hermit Antony Ab
+11H(PAUL),11H(LUKE),1,the apostle Paul of ,11H(LUKE) Luke the e
+11H(PETER),11H(JOHN),1,the apostle Peter, the apostle John th
+11H(PETER),11H(JEROME),1,the apostle Peter,the monk and hermit 
+11H(PETER),11H(PAUL),1,the apostle Peter,the apostle Paul of 
+11HH(CATHERINE),11HH(MARY MAGDALENE),1,the virgin martyr Ca,the penitent harlot 
+11HH(MARY MAGDALENE),11H(LUKE),1,the penitent harlot ,11H(LUKE) Luke the e
+11HH(MARY MAGDALENE),11H(MATTHEW),1,the penitent harlot ,the apostle and evan

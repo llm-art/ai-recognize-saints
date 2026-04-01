@@ -1,0 +1,41 @@
+model,model_id,class_id,class_label,n_images,correct,recall
+GPT-4o Mini,gpt-4o-mini-2024-07-18,11H(PAUL),"the apostle Paul of Tarsus; possible attributes: book, scroll, sword",129,63,48.837209302325576
+GPT-4o Mini,gpt-4o-mini-2024-07-18,11HH(MARY MAGDALENE),"the penitent harlot Mary Magdalene; possible attributes: book (or scroll), crown, crown of thorns, crucifix, jar of ointment, mirror, musical instrument, palm-branch, rosary, scourge",127,108,85.03937007874016
+GPT-4o Mini,gpt-4o-mini-2024-07-18,11H(JEROME),"the monk and hermit Jerome (Hieronymus); possible attributes: book, cardinal's hat, crucifix, hour-glass, lion, skull, stone",127,81,63.77952755905512
+GPT-4o Mini,gpt-4o-mini-2024-07-18,11H(JOHN)," the apostle John the Evangelist; possible attributes: book, cauldron, chalice with snake, eagle, palm, scroll",95,63,66.3157894736842
+GPT-4o Mini,gpt-4o-mini-2024-07-18,11H(ANTONY ABBOT),"the hermit Antony Abbot (Antonius Abbas) of Egypt, also called the Great; possible attributes: bell, book, T-shaped staff, flames, pig",83,23,27.710843373493976
+GPT-4o Mini,gpt-4o-mini-2024-07-18,11H(PETER),"the apostle Peter, first bishop of Rome; possible attributes: book, cock, (upturned) cross, (triple) crozier, fish, key, scroll, ship, tiara",72,50,69.44444444444444
+GPT-4o Mini,gpt-4o-mini-2024-07-18,11H(MATTHEW),"the apostle and evangelist Matthew (Mattheus); possible attributes: angel, axe, book, halberd, pen and inkhorn, purse, scroll, square, sword",70,37,52.85714285714286
+GPT-4o Mini,gpt-4o-mini-2024-07-18,11HH(CATHERINE),"the virgin martyr Catherine of Alexandria; possible attributes: book, crown, emperor Maxentius, palm-branch, ring, sword, wheel",63,27,42.857142857142854
+GPT-4o Mini,gpt-4o-mini-2024-07-18,11H(LUKE),"11H(LUKE) Luke the evangelist; possible attributes: book, (winged) ox, portrait of the Virgin, surgical instruments, painter's utensils, scroll",51,27,52.94117647058824
+GPT-4o Mini,gpt-4o-mini-2024-07-18,11H(FRANCIS),"founder of the Order of Friars Minor (Franciscans), Francis(cus) of Assisi; possible attributes: book, crucifix, lily, skull, stigmata",46,35,76.08695652173914
+GPT-4o (Nov),gpt-4o-2024-11-20,11H(PAUL),"the apostle Paul of Tarsus; possible attributes: book, scroll, sword",129,75,58.139534883720934
+GPT-4o (Nov),gpt-4o-2024-11-20,11HH(MARY MAGDALENE),"the penitent harlot Mary Magdalene; possible attributes: book (or scroll), crown, crown of thorns, crucifix, jar of ointment, mirror, musical instrument, palm-branch, rosary, scourge",127,117,92.1259842519685
+GPT-4o (Nov),gpt-4o-2024-11-20,11H(JEROME),"the monk and hermit Jerome (Hieronymus); possible attributes: book, cardinal's hat, crucifix, hour-glass, lion, skull, stone",127,101,79.52755905511812
+GPT-4o (Nov),gpt-4o-2024-11-20,11H(JOHN)," the apostle John the Evangelist; possible attributes: book, cauldron, chalice with snake, eagle, palm, scroll",95,78,82.10526315789474
+GPT-4o (Nov),gpt-4o-2024-11-20,11H(ANTONY ABBOT),"the hermit Antony Abbot (Antonius Abbas) of Egypt, also called the Great; possible attributes: bell, book, T-shaped staff, flames, pig",83,59,71.08433734939759
+GPT-4o (Nov),gpt-4o-2024-11-20,11H(PETER),"the apostle Peter, first bishop of Rome; possible attributes: book, cock, (upturned) cross, (triple) crozier, fish, key, scroll, ship, tiara",72,59,81.94444444444444
+GPT-4o (Nov),gpt-4o-2024-11-20,11H(MATTHEW),"the apostle and evangelist Matthew (Mattheus); possible attributes: angel, axe, book, halberd, pen and inkhorn, purse, scroll, square, sword",70,44,62.857142857142854
+GPT-4o (Nov),gpt-4o-2024-11-20,11HH(CATHERINE),"the virgin martyr Catherine of Alexandria; possible attributes: book, crown, emperor Maxentius, palm-branch, ring, sword, wheel",63,35,55.55555555555556
+GPT-4o (Nov),gpt-4o-2024-11-20,11H(LUKE),"11H(LUKE) Luke the evangelist; possible attributes: book, (winged) ox, portrait of the Virgin, surgical instruments, painter's utensils, scroll",51,32,62.745098039215684
+GPT-4o (Nov),gpt-4o-2024-11-20,11H(FRANCIS),"founder of the Order of Friars Minor (Franciscans), Francis(cus) of Assisi; possible attributes: book, crucifix, lily, skull, stigmata",46,41,89.13043478260869
+GPT-5.2,gpt-5.2-2025-12-11,11H(PAUL),"the apostle Paul of Tarsus; possible attributes: book, scroll, sword",129,64,49.6124031007752
+GPT-5.2,gpt-5.2-2025-12-11,11HH(MARY MAGDALENE),"the penitent harlot Mary Magdalene; possible attributes: book (or scroll), crown, crown of thorns, crucifix, jar of ointment, mirror, musical instrument, palm-branch, rosary, scourge",127,98,77.16535433070865
+GPT-5.2,gpt-5.2-2025-12-11,11H(JEROME),"the monk and hermit Jerome (Hieronymus); possible attributes: book, cardinal's hat, crucifix, hour-glass, lion, skull, stone",127,101,79.52755905511812
+GPT-5.2,gpt-5.2-2025-12-11,11H(JOHN)," the apostle John the Evangelist; possible attributes: book, cauldron, chalice with snake, eagle, palm, scroll",95,65,68.42105263157895
+GPT-5.2,gpt-5.2-2025-12-11,11H(ANTONY ABBOT),"the hermit Antony Abbot (Antonius Abbas) of Egypt, also called the Great; possible attributes: bell, book, T-shaped staff, flames, pig",83,46,55.42168674698795
+GPT-5.2,gpt-5.2-2025-12-11,11H(PETER),"the apostle Peter, first bishop of Rome; possible attributes: book, cock, (upturned) cross, (triple) crozier, fish, key, scroll, ship, tiara",72,44,61.111111111111114
+GPT-5.2,gpt-5.2-2025-12-11,11H(MATTHEW),"the apostle and evangelist Matthew (Mattheus); possible attributes: angel, axe, book, halberd, pen and inkhorn, purse, scroll, square, sword",70,46,65.71428571428571
+GPT-5.2,gpt-5.2-2025-12-11,11HH(CATHERINE),"the virgin martyr Catherine of Alexandria; possible attributes: book, crown, emperor Maxentius, palm-branch, ring, sword, wheel",63,36,57.14285714285714
+GPT-5.2,gpt-5.2-2025-12-11,11H(LUKE),"11H(LUKE) Luke the evangelist; possible attributes: book, (winged) ox, portrait of the Virgin, surgical instruments, painter's utensils, scroll",51,31,60.78431372549019
+GPT-5.2,gpt-5.2-2025-12-11,11H(FRANCIS),"founder of the Order of Friars Minor (Franciscans), Francis(cus) of Assisi; possible attributes: book, crucifix, lily, skull, stigmata",46,38,82.6086956521739
+Gem3 Flash,gemini-3-flash-preview,11H(PAUL),"the apostle Paul of Tarsus; possible attributes: book, scroll, sword",129,118,91.47286821705426
+Gem3 Flash,gemini-3-flash-preview,11HH(MARY MAGDALENE),"the penitent harlot Mary Magdalene; possible attributes: book (or scroll), crown, crown of thorns, crucifix, jar of ointment, mirror, musical instrument, palm-branch, rosary, scourge",127,120,94.48818897637796
+Gem3 Flash,gemini-3-flash-preview,11H(JEROME),"the monk and hermit Jerome (Hieronymus); possible attributes: book, cardinal's hat, crucifix, hour-glass, lion, skull, stone",127,116,91.33858267716536
+Gem3 Flash,gemini-3-flash-preview,11H(JOHN)," the apostle John the Evangelist; possible attributes: book, cauldron, chalice with snake, eagle, palm, scroll",95,94,98.94736842105263
+Gem3 Flash,gemini-3-flash-preview,11H(ANTONY ABBOT),"the hermit Antony Abbot (Antonius Abbas) of Egypt, also called the Great; possible attributes: bell, book, T-shaped staff, flames, pig",83,75,90.36144578313254
+Gem3 Flash,gemini-3-flash-preview,11H(PETER),"the apostle Peter, first bishop of Rome; possible attributes: book, cock, (upturned) cross, (triple) crozier, fish, key, scroll, ship, tiara",72,66,91.66666666666666
+Gem3 Flash,gemini-3-flash-preview,11H(MATTHEW),"the apostle and evangelist Matthew (Mattheus); possible attributes: angel, axe, book, halberd, pen and inkhorn, purse, scroll, square, sword",70,63,90.0
+Gem3 Flash,gemini-3-flash-preview,11HH(CATHERINE),"the virgin martyr Catherine of Alexandria; possible attributes: book, crown, emperor Maxentius, palm-branch, ring, sword, wheel",63,55,87.3015873015873
+Gem3 Flash,gemini-3-flash-preview,11H(LUKE),"11H(LUKE) Luke the evangelist; possible attributes: book, (winged) ox, portrait of the Virgin, surgical instruments, painter's utensils, scroll",51,46,90.19607843137256
+Gem3 Flash,gemini-3-flash-preview,11H(FRANCIS),"founder of the Order of Friars Minor (Franciscans), Francis(cus) of Assisi; possible attributes: book, crucifix, lily, skull, stigmata",46,43,93.47826086956522

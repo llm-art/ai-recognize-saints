@@ -1,0 +1,5 @@
+model,model_id,overconfident_wrong,total_wrong,pct_overconfident
+GPT-4o (Nov),gpt-4o-2024-11-20,235,238,98.73949579831933
+GPT-4o Mini,gpt-4o-mini-2024-07-18,381,382,99.73821989528795
+GPT-5.2,gpt-5.2-2025-12-11,310,311,99.67845659163987
+Gem3 Flash,gemini-3-flash-preview,58,58,100.0

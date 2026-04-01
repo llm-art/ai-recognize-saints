@@ -381,10 +381,12 @@ def main():
     # Define models and test folders
     clip_models = ['clip-vit-base-patch32', 'clip-vit-base-patch16', 'clip-vit-large-patch14']
     siglip_models = ['siglip-base-patch16-512', 'siglip-large-patch16-384', 'siglip-so400m-patch14-384']
-    gpt_models = ['gpt-4o-2024-08-06', 'gpt-4o-mini-2024-07-18', 'gpt-5.2-2025-12-11', 'gpt-5-mini-2025-08-07']
+    gpt_models = ['gpt-4o-mini-2024-07-18', 'gpt-4o-2024-11-20', 'gpt-5-mini-2025-08-07', 'gpt-5.2-2025-12-11']
     gemini_models = [
-        'gemini-2.5-flash-preview-05-20',
-        'gemini-2.5-pro-preview-05-06',
+        'gemini-2.5-flash-lite',
+        'gemini-2.5-flash',
+        'gemini-2.5-pro',
+        'gemini-3.1-flash-lite-preview',
         'gemini-3-flash-preview',
         'gemini-3.1-pro-preview',
     ]

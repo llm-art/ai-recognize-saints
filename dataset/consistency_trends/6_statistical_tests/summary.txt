@@ -1,0 +1,7 @@
+# Statistical Significance Tests (Mann-Whitney U)
+
+Null hypothesis: no difference in consistency between groups.
+
+- Contrastive (mean=37.7%) vs Legacy LLM (mean=57.7%): U=1, p=0.0190 *
+- Contrastive (mean=37.7%) vs Next-Gen LLM (mean=91.6%): U=0, p=0.0095 **
+- Legacy LLM (mean=57.7%) vs Next-Gen LLM (mean=91.6%): U=0, p=0.0286 *

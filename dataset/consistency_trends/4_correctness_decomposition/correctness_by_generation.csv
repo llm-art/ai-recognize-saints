@@ -1,0 +1,10 @@
+generation,pair_type,count,total,pct
+Contrastive,Both correct (consistent),273,810,33.7037037037037
+Contrastive,Different predictions,505,810,62.34567901234568
+Contrastive,Same wrong prediction,32,810,3.950617283950617
+Legacy LLM,Both correct (consistent),305,532,57.330827067669176
+Legacy LLM,Different predictions,224,532,42.10526315789473
+Legacy LLM,Same wrong prediction,3,532,0.5639097744360901
+Next-Gen LLM,Both correct (consistent),491,539,91.09461966604823
+Next-Gen LLM,Different predictions,45,539,8.348794063079778
+Next-Gen LLM,Same wrong prediction,3,539,0.5565862708719851
